@@ -134,12 +134,11 @@ $(document).ready(function() {
 // Measuring header height
 $(window).on('load resize', function() {
   if ($(this).width() < 1600) {
-    var headerHeight = $('header.main').height();
-    //console.log(headerHeight);
-    $('.sidescroll .images').css('margin-top', headerHeight);
+    var headerHeight = $('header.main').outerHeight(true);
+    $('.sidescroll .images, .blog main').css('margin-top', headerHeight);
   }
   else {
-    $('.sidescroll .images').css('margin-top', 0);
+    $('.sidescroll .images, .blog main').css('margin-top', 0);
   };
 });
 
@@ -147,11 +146,14 @@ $(window).on('load resize', function() {
 
 
 // Navbar hider for handheld devices
-function logoSocialHeight() {
-  var logoHeight = $('header.main .logo').outerHeight(true);
+function headerHeight() {
+  var headerHeight = $('header.main').outerHeight(true);
+  var mobileNavHeight = $('.toggle-mobile-nav').outerHeight(true);
+  //var logoHeight = $('header.main .logo').outerHeight(true);
   //var socialHeight = $('header.main .social-links').outerHeight(true);
   //var sum = -Math.abs(logoHeight + socialHeight - 10);
-  var sum = -Math.abs(logoHeight - 10);
+  //var sum = -Math.abs(logoHeight - 10);
+  var sum = -Math.abs(headerHeight - mobileNavHeight - 15);
   //console.log(sum);
   return sum;
 };
@@ -166,7 +168,7 @@ function bindNavUp() {
    
     if (st > lastScrollTop) {
       // downscroll code
-      $('header.main').css('top',logoSocialHeight()).hover(
+      $('header.main').css('top',headerHeight()).hover(
         function() {
           $('header.main').css('top','0');
         }

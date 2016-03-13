@@ -1,48 +1,52 @@
-{{#each data.[0].articles}}
-<article class="id-{{this._id}}">
+<main>
 
-  <header class="article id-{{this._id}}">
-    <time>{{this.month}} {{this.day}}, {{this.year}}</time>
-    <h1><a href="/journal/{{this.url}}">{{this.title}}</a></h1>
-    <div class="category"><a href="/category/{{this.category}}">{{this.category}}</a></div>
-  </header><!-- header.article.id-{{this._id}} -->
+  {{#each data.[0].articles}}
+  <article class="id-{{this._id}}">
 
-  <div class="article content">
+    <header class="article id-{{this._id}}">
+      <time>{{this.month}} {{this.day}}, {{this.year}}</time>
+      <h1><a href="/journal/{{this.url}}">{{this.title}}</a></h1>
+      <div class="category"><a href="/category/{{this.category}}">{{this.category}}</a></div>
+    </header><!-- header.article.id-{{this._id}} -->
 
-    <p>{{this.body}}</p>
+    <div class="article content">
 
-    <ul class="images">
-      {{#each images}}
-      <li><img src="{{../imagesFolder}}{{this}}" alt=""></li>
-      {{else}}
-      <p class="empty">No images</p>
-      {{/each}}
-      <!-- access to parent's property with "../" -->
-    </ul><!-- ul.images -->
+      <p>{{this.body}}</p>
 
-  </div><!-- div.article.content -->
-
-  <footer class="article id-{{this._id}}">
-    <div class="tags">
-      <span class="text">Tags: </span>
-      <ul>
-        {{#each tags}}
-        <li><a href="/tag/{{this}}">{{this}}</a></li>
+      <ul class="images">
+        {{#each images}}
+        <li><img src="{{../imagesFolder}}{{this}}" alt=""></li>
+        {{else}}
+        <p class="empty">No images</p>
         {{/each}}
-      </ul>
-    </div>
-  </footer><!-- footer.article.id-{{this._id}} -->
+        <!-- access to parent's property with "../" -->
+      </ul><!-- ul.images -->
 
-</article><!-- article.id-{{this._id}} -->
+    </div><!-- div.article.content -->
 
-<!-- post -->
+    <footer class="article id-{{this._id}}">
+      <div class="tags">
+        <span class="text">Tags: </span>
+        <ul>
+          {{#each tags}}
+          <li><a href="/tag/{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </footer><!-- footer.article.id-{{this._id}} -->
 
-{{else}}
-<h1>Error 404</h1>
-<h2>Content not found</h2>
-{{/each}}
+  </article><!-- article.id-{{this._id}} -->
 
-<nav class="pagination">
-  {{#if paginationFirst}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}{{#if paginationFirstURL}}/page/{{paginationPrev}}{{/if}}">Previous</a> | {{/if}}
-  {{#if paginationLast}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
-</nav><!-- nav.pagination -->
+  <!-- post -->
+
+  {{else}}
+  <h1>Error 404</h1>
+  <h2>Content not found</h2>
+  {{/each}}
+
+  <nav class="pagination">
+    {{#if paginationFirst}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}{{#if paginationFirstURL}}/page/{{paginationPrev}}{{/if}}">Previous</a> | {{/if}}
+    {{#if paginationLast}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
+  </nav><!-- nav.pagination -->
+
+</main><!-- main -->

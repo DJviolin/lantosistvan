@@ -1,35 +1,39 @@
-<article class="id-{{data._id}}">
+<main>
 
-  <header class="article id-{{data._id}}">
-    <time>{{data.month}} {{data.day}}, {{data.year}}</time>
-    <h1><a href="/journal/{{data.url}}">{{data.title}}</a></h1>
-    <div class="category"><a href="/category/{{data.category}}">{{data.category}}</a></div>
-  </header><!-- header.article.id-{{data._id}} -->
+  <article class="id-{{data._id}}">
 
-  <div class="article content">
-  
-    <p>{{data.body}}</p>
+    <header class="article id-{{data._id}}">
+      <time>{{data.month}} {{data.day}}, {{data.year}}</time>
+      <h1><a href="/journal/{{data.url}}">{{data.title}}</a></h1>
+      <div class="category"><a href="/category/{{data.category}}">{{data.category}}</a></div>
+    </header><!-- header.article.id-{{data._id}} -->
 
-    <ul class="images">
-      {{#each data.images}}
-      <li><img src="{{../data.imagesFolder}}{{this}}" alt=""></li>
-      {{else}}
-      <p class="empty">No images</p>
-      {{/each}}
-      <!-- access to parent's property with "../" -->
-    </ul><!-- ul.images -->
+    <div class="article content">
+    
+      <p>{{data.body}}</p>
 
-  </div><!-- div.article.content -->
-
-  <footer class="article id-{{data._id}}">
-    <div class="tags">
-      <span class="text">Tags: </span>
-      <ul>
-        {{#each data.tags}}
-        <li><a href="/tag/{{this}}">{{this}}</a></li>
+      <ul class="images">
+        {{#each data.images}}
+        <li><img src="{{../data.imagesFolder}}{{this}}" alt=""></li>
+        {{else}}
+        <p class="empty">No images</p>
         {{/each}}
-      </ul>
-    </div>
-  </footer><!-- footer.article.id-{{data._id}} -->
+        <!-- access to parent's property with "../" -->
+      </ul><!-- ul.images -->
 
-</article><!-- article.id-{{data._id}} -->
+    </div><!-- div.article.content -->
+
+    <footer class="article id-{{data._id}}">
+      <div class="tags">
+        <span class="text">Tags: </span>
+        <ul>
+          {{#each data.tags}}
+          <li><a href="/tag/{{this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+    </footer><!-- footer.article.id-{{data._id}} -->
+
+  </article><!-- article.id-{{data._id}} -->
+
+</main><!-- main -->
