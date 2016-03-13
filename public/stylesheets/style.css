@@ -418,13 +418,6 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .sidescroll .images img { height: auto; width: 100%; }
 }
 
-@media (max-width: 900px) {
-  /**/
-}
-@media (max-width: 400px) {
-  /**/
-}
-
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
