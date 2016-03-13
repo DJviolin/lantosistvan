@@ -253,10 +253,11 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
    Author's custom styles - blog
    ========================================================================== */
 
-.blog .container { /*margin-left: auto; margin-right: auto;*/ /*max-width: 600px;*/ }
+.blog .container { /*margin-left: auto; margin-right: auto;*/
+                   -webkit-align-items: center; align-items: center; }
 .blog .container img { width: 100%; margin-bottom: 5px; }
 
-/*.blog article { clear: both; float: left; margin-bottom: 90px; }*/
+.blog article { max-width: 600px; }
 .blog article .images { display: -webkit-flex; display: flex;
                         -webkit-flex-direction: column; flex-direction: column; }
 
