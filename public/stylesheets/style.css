@@ -397,20 +397,13 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     font-size: 1em;
     transition: background-color 300ms ease-out;
   }
-  .toggle-mobile-nav a span {
-    font-size: 2em;
-    vertical-align: -0.15em;
-  }
+  .toggle-mobile-nav a span { font-size: 2em; vertical-align: -0.15em; }
 
   .main-nav { display: none; }
   .main-nav.active { display: block; }
 
-  .right { width: 100%; }
   .logo { margin-top: 30px; }
-  .logo a img { opacity: 1; }
-  .social-links { text-align: center; }
-  .social-links span { opacity: 1; }
-  .social { opacity: 1; }
+
   .horizontal header { position: fixed; width: 100%; top: 0; transition: top 0.2s ease-in-out; background-color: #fff; }
   .horizontal header .content { -webkit-flex: 0 0 100vw; flex: 0 0 100vw;
                                 -webkit-flex-direction: column; flex-direction: column;
@@ -419,10 +412,9 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
                                 -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                                 -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                                 box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
-  .toggle-mobile-nav { text-align: center; }
+  /*.toggle-mobile-nav { text-align: center; }*/
   .sidescroll .images li, .sidescroll .images li:last-child { margin: 0 5vw 3px 5vw; background: none; }
-  .sidescroll .images { /*overflow-x: hidden; overflow-y: hidden;*/
-                        display: -webkit-flex; display: flex;
+  .sidescroll .images { display: -webkit-flex; display: flex;
                         -webkit-flex-direction: column; flex-direction: column;
                         -webkit-justify-content: center; justify-content: center;
                         position: relative; }
