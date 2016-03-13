@@ -418,7 +418,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 }
 
 /* ==========================================================================
-   IE11
+   Conditional styles - IE11
    ========================================================================== */
 
 @media all and (-ms-high-contrast:none) {
