@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 // Slick slider - Responsive
 function bindSlick() {
-  $('.images').slick({
+  $('.sidescroll .images').slick({
     dots: false,
     infinite: true,
     speed: 300,
@@ -108,7 +108,7 @@ function bindSlick() {
   });
 }
 function unbindSlick() {
-  $('.images').slick('unslick');
+  $('.sidescroll .images').slick('unslick');
 }
 function handleSlick() {
   if ($(window).width() > 1600) {

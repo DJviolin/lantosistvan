@@ -226,7 +226,7 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
                       display: -webkit-flex; display: flex;
                       -webkit-flex-wrap: nowrap; flex-wrap: nowrap;
                       -webkit-flex-direction: row; flex-direction: row;*/
-                      position: relative; }
+                      /*position: relative;*/ }
 .sidescroll .images li { margin-right: 3px; background-color: rgb(17, 17, 17); }
 .sidescroll .images li:last-child { margin-right: 0; }
 .sidescroll .images img { height: 60vh; }
@@ -253,10 +253,13 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
    Author's custom styles - blog
    ========================================================================== */
 
-.blog .container { /*margin-left: auto; margin-right: auto;*/ max-width: 600px; }
+.blog .container { /*margin-left: auto; margin-right: auto;*/ /*max-width: 600px;*/ }
 .blog .container img { width: 100%; margin-bottom: 5px; }
 
 /*.blog article { clear: both; float: left; margin-bottom: 90px; }*/
+.blog article .images { display: -webkit-flex; display: flex;
+                        -webkit-flex-direction: column; flex-direction: column; }
+
 .blog .tags .text { float: left; padding-right: 5px; }
 .blog .tags li { float: left; }
 .blog .tags li + li::before { content: ', '; }
