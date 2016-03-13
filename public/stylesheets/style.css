@@ -246,10 +246,6 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
              width: 100%; text-align: center; }
 
 /* ==========================================================================
-   Author's custom styles - vertical
-   ========================================================================== */
-
-/* ==========================================================================
    Author's custom styles - blog
    ========================================================================== */
 
@@ -271,10 +267,6 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
                     text-align: center; text-transform: lowercase; font-size: 0.95em; letter-spacing: 0.07em;
                     font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #777; }
 .blog .pagination a:hover { color: #ccc; }
-
-/*.blog .footer-container { clear: both; float: left; width: 100%; text-align: center; margin-bottom: 10px;
-                          text-transform: uppercase; font-size: 0.6em; letter-spacing: 0.05em; color: #aaa;
-                          font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif; }*/
 
 /* ==========================================================================
    Author's custom styles - Slick Slider
