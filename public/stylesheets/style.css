@@ -253,17 +253,17 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
    Author's custom styles - blog
    ========================================================================== */
 
-.blog .container { margin-left: auto; margin-right: auto; max-width: 600px; }
+.blog .container { /*margin-left: auto; margin-right: auto;*/ max-width: 600px; }
 .blog .container img { width: 100%; margin-bottom: 5px; }
 
-.blog article { clear: both; float: left; margin-bottom: 90px; }
+/*.blog article { clear: both; float: left; margin-bottom: 90px; }*/
 .blog .tags .text { float: left; padding-right: 5px; }
 .blog .tags li { float: left; }
 .blog .tags li + li::before { content: ', '; }
 
-.blog .logo { float: left; width: 100%; }
-.blog .navigation { float: left; width: 100%; }
-.blog .main-nav { width: 100%; }
+/*.blog .logo { float: left; width: 100%; }
+.blog .navigation { float: left; width: 100%; }*/
+/*.blog .main-nav { width: 100%; }*/
 
 .blog header time { margin-top: 15px; }
 
@@ -272,9 +272,9 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
                     font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #777; }
 .blog .pagination a:hover { color: #ccc; }
 
-.blog .footer-container { clear: both; float: left; width: 100%; text-align: center; margin-bottom: 10px;
+/*.blog .footer-container { clear: both; float: left; width: 100%; text-align: center; margin-bottom: 10px;
                           text-transform: uppercase; font-size: 0.6em; letter-spacing: 0.05em; color: #aaa;
-                          font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif; }
+                          font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif; }*/
 
 /* ==========================================================================
    Author's custom styles - Slick Slider
