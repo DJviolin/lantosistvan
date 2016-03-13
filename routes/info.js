@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     title: 'Info',
     description: 'Get in touch with ' + siteName,
     keywords: 'info,wedding,photography,film,lantos,istvan',
-    bodyClass: 'vertical',
+    bodyClass: 'info',
     actualYear: actualYear,
     siteName: siteName
   });
