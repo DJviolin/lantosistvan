@@ -406,9 +406,6 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .horizontal header { position: fixed; width: 100%; top: 0; transition: top 0.2s ease-in-out; background-color: #fff; }
   .horizontal header .content { -webkit-flex: 0 0 100vw; flex: 0 0 100vw;
-                                -webkit-flex-direction: column; flex-direction: column;
-                                -webkit-align-items: center; align-items: center;
-                                -webkit-justify-content: center; justify-content: center;
                                 -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                                 -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                                 box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
