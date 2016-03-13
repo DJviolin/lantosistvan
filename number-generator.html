@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Number generator</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h1>Number generator for HTML</h1>
+
+<script>
+var foo = new Array(100);
+for(var i=0;i<foo.length;i++){
+  if(i>(0-2)) {
+    document.write('&lt;li&gt;&lt;img src="image-' + (i+1) + '.jpg" alt=""&gt;&lt;/li&gt;<br />');
+  }
+}
+</script>
+
+<h1>Number generator for JSON</h1>
+
+<script>
+var foo = new Array(100);
+for(var i=0;i<foo.length;i++){
+  if(i>(0-2)) {
+    document.write('"20151230-family-szalai-' + (i+1) + '.jpg", ');
+  }
+}
+</script>
+
+</body>
+</html>

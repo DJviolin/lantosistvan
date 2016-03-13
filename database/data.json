@@ -1,0 +1,137 @@
+[
+  {
+    "gallery": {
+      "portfolio": {
+        "love": {
+          "imagesFolder": "/gallery/portfolio/love/",
+          "images": [ "IMG_3020-1400px.jpg", "IMG_3039-1400px.jpg", "IMG_3056-1400px.jpg",
+          "IMG_2966-1400px.jpg", "IMG_2981-1400px.jpg", "IMG_3008-1400px.jpg", "IMG_2918-1400px.jpg", "IMG_2922-1400px.jpg", "IMG_2833-1400px.jpg",
+
+          "20150823-keresztelo-bukovszki-118-k.jpg", "20150719-eskuvo-joci-petra-020-1400px.jpg", "20150719-eskuvo-joci-petra-021-1400px.jpg", "IMG_9335-dng-k.jpg", "IMG_7363-dng-k.jpg", "IMG_9754-dng-k.jpg", "lantosistvan-portfolio-eskuvo-0031.jpg", "lantosistvan-portfolio-025.jpg", "lantosistvan-portfolio-eskuvo-002.jpg", "IMG_1403-dng-k.jpg", "lantosistvan-portfolio-010.jpg", "lantosistvan-portfolio-001.jpg", "lantosistvan-portfolio-012.jpg", "lantosistvan-portfolio-001(1).jpg", "lantosistvan-portfolio-003.jpg", "20120828-toserdo-eljegyzes-108-dng-92-k.jpg", "lantosistvan-portfolio-eskuvo-008.jpg", "20150719-eskuvo-joci-petra-014-1400px.jpg", "20150719-eskuvo-joci-petra-001-1400px.jpg", "20150719-eskuvo-joci-petra-010-1400px.jpg", "20150719-eskuvo-joci-petra-008-1400px.jpg", "20150719-eskuvo-joci-petra-016-1400px.jpg", "20150719-eskuvo-joci-petra-005-1400px.jpg", "20150719-eskuvo-joci-petra-019-1400px.jpg", "20150719-eskuvo-joci-petra-013-1400px.jpg", "20150719-eskuvo-joci-petra-004-1400px.jpg", "IMG_6378-dng-k.jpg",
+
+          "IMG_5975-2048px.jpg", "IMG_6188-dng-k.jpg",
+
+          "IMG_2879-1400px.jpg", "IMG_2959-1400px.jpg" ]
+        }
+      }
+    }
+  },
+  {
+    "articles": [
+      {
+        "_id": "0",
+        "url": "audrey-hepburn",
+        "title": "Audrey Hepburn",
+        "description": "This is the description of Audrey Hepburn",
+        "keywords": "audrey,hepburn,lantos,istvan,photography",
+        "year": "2016",
+        "month": "february",
+        "day": "15",
+        "hour": "10",
+        "min": "10",
+        "sec": "10",
+        "category": "foo",
+        "body": "Nothing is impossible, the word itself says 'I'm possible'!",
+        "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "images": [ "20151230-family-szalai-1.jpg" ],
+        "tags": [ "foo" ]
+      },
+      {
+        "_id": "1",
+        "url": "walt-disney",
+        "title": "Walt Disney",
+        "description": "This is the description of Walt Disney",
+        "keywords": "walt,disney,lantos,istvan,photography",
+        "year": "2016",
+        "month": "february",
+        "day": "15",
+        "hour": "10",
+        "min": "10",
+        "sec": "11",
+        "category": "foo",
+        "body": "You may not realize it when it happens, but a kick in the teeth may be the best thing in the world for you.",
+        "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "images": [ "20151230-family-szalai-1.jpg" ],
+        "tags": [ "foo", "bar" ]
+      },
+      {
+        "_id": "2",
+        "url": "unknown",
+        "title": "Unknown",
+        "description": "This is the description of Unknown",
+        "keywords": "unknown,lantos,istvan,photography",
+        "year": "2016",
+        "month": "february",
+        "day": "15",
+        "hour": "10",
+        "min": "10",
+        "sec": "12",
+        "category": "bar",
+        "body": "Even the greatest was once a beginner. Don't be afraid to take that first step.",
+        "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "images": [ "20151230-family-szalai-1.jpg" ],
+        "tags": [ "foo", "bar", "baz" ]
+      },
+      {
+        "_id": "3",
+        "url": "neale-donald-walsch",
+        "title": "Neale Donald Walsch",
+        "description": "This is the description of Neale Donald Walsch",
+        "keywords": "neale,donald,walsch,lantos,istvan,photography",
+        "year": "2016",
+        "month": "february",
+        "day": "15",
+        "hour": "10",
+        "min": "10",
+        "sec": "13",
+        "category": "bar",
+        "body": "You are afraid to die, and you're afraid to live. What a way to exist.",
+        "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "images": [ "20151230-family-szalai-1.jpg" ],
+        "tags": [ "foo", "bar", "baz" ]
+      },
+      {
+        "_id": "4",
+        "url": "test",
+        "title": "Test Article",
+        "description": "This is the description of the Test Article",
+        "keywords": "test,article,lantos,istvan,photography",
+        "year": "2016",
+        "month": "february",
+        "day": "15",
+        "hour": "10",
+        "min": "10",
+        "sec": "14",
+        "category": "bar",
+        "body": "This is a test article.",
+        "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "images": [ "20151230-family-szalai-1.jpg" ],
+        "tags": [ "foo", "bar", "baz", "bam" ]
+      },
+      {
+        "_id": "5",
+        "url": "szalai-family",
+        "title": "Szalai család",
+        "description": "This is the description of the Test Article",
+        "keywords": "szalai,csalad,family,lantos,istvan,photography",
+        "year": "2016",
+        "month": "february",
+        "day": "18",
+        "hour": "10",
+        "min": "10",
+        "sec": "15",
+        "category": "family",
+        "body": "This is a test article.",
+        "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "images": [ "20151230-family-szalai-1.jpg", "20151230-family-szalai-2.jpg", "20151230-family-szalai-3.jpg", "20151230-family-szalai-4.jpg", "20151230-family-szalai-5.jpg", "20151230-family-szalai-6.jpg", "20151230-family-szalai-7.jpg", "20151230-family-szalai-8.jpg", "20151230-family-szalai-9.jpg", "20151230-family-szalai-10.jpg", "20151230-family-szalai-11.jpg", "20151230-family-szalai-12.jpg", "20151230-family-szalai-13.jpg", "20151230-family-szalai-14.jpg", "20151230-family-szalai-15.jpg" ],
+        "tags": [ "family", "photography", "film", "fuji", "400h", "pentax", "645n", "90f28", "digital", "canon", "50l", "szalai", "lantos", "istvan" ]
+      }
+    ]
+  },
+  {
+    "users": [
+      { "name": "Admin" },
+      { "name": "User" }
+    ]
+  }
+]

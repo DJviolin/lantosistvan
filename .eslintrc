@@ -1,0 +1,19 @@
+{
+    "globals": {
+        "myModule": true
+    },
+    "env": {
+        // http://eslint.org/docs/configuring/
+        // http://eslint.org/docs/rules/
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "eqeqeq": 1,
+        "curly": [2, "all"],
+        "strict": 0,
+        "quotes": [1, "single"],
+        "strict": [2, "global"],
+        "no-unused-vars": 1
+    }
+}

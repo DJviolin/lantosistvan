@@ -1,0 +1,27 @@
+<div class="toggle-mobile-nav">
+  <a href="#" class="menu">Menu <span>≡</span></a>
+</div>
+
+<div class="navigation">
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/">Love</a>
+        <ul>
+          <li><a href="/">Weddings</a></li>
+          <li><a href="/families">Families</a></li>
+        </ul>
+      </li>
+      <li><a href="/stories">Stories</a></li>
+      <li><a href="/journal">Journal</a></li>
+      {{#if blogNavCat}}
+      <li><a href="#">Categories</a>
+        <ul>
+          <li><a href="/category/wedding">Wedding</a></li>
+          <li><a href="/category/family">Family</a></li>
+        </ul>
+      </li>
+      {{/if}}
+      <li><a href="/info">Info</a></li>
+    </ul>
+  </nav><!-- nav.main-nav  -->
+</div><!-- div.navigation -->

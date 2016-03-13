@@ -1,0 +1,308 @@
+/* ==========================================================================
+   CSS RESET
+   ========================================================================== */
+
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection { background: #b3d4fc; text-shadow: none; }
+::selection { background: #b3d4fc; text-shadow: none; }
+/* A better looking default horizontal rule */
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio, canvas, iframe, img, svg, video { vertical-align: middle; }
+/* Allow only vertical resizing of textareas. */
+textarea { resize: vertical; }
+
+/* ==========================================================================
+   @font-face
+   ========================================================================== */
+
+/* http://fontello.com/ */
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?34921476');
+  src: url('../fonts/fontello.eot?34921476#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff?34921476') format('woff'),
+       url('../fonts/fontello.ttf?34921476') format('truetype'),
+       url('../fonts/fontello.svg?34921476#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Serlio-LH-regular';
+  src: url('../fonts/serliolh-webfont.eot');
+  src: url('../fonts/serliolh-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/serliolh-webfont.woff2') format('woff2'),
+       url('../fonts/serliolh-webfont.woff') format('woff'),
+       url('../fonts/serliolh-webfont.ttf') format('truetype'),
+       url('../fonts/serliolh-webfont.svg#Serlio-LH-regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometric231BT-LightC-regular';
+  src: url('../fonts/geometric231bt-lightc-webfont.eot');
+  src: url('../fonts/geometric231bt-lightc-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/geometric231bt-lightc-webfont.woff2') format('woff2'),
+       url('../fonts/geometric231bt-lightc-webfont.woff') format('woff'),
+       url('../fonts/geometric231bt-lightc-webfont.ttf') format('truetype'),
+       url('../fonts/geometric231bt-lightc-webfont.svg#Geometric231BT-LightC-regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Monotype-Corsiva';
+  src: url('../fonts/monotype-corsiva.eot');
+  src: url('../fonts/monotype-corsiva.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/monotype-corsiva.woff') format('woff'),
+       url('../fonts/monotype-corsiva.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+/* https://css-tricks.com/rems-ems/ */
+html    { font-size: 1em; /*font-size: 0.9em;*/ /*font-size: 14px;*/ color: #969799; /*color: #b2b2b2;*/ /*line-height: 1.4;*/ }
+body    { font-family: 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+          /*font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;*/
+          /*font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif;*/
+          font-weight: 300; /*letter-spacing: 0.1em;*/ font-stretch: normal; }
+h1      { font-size: 2.0em; } /* 28px */
+h2      { font-size: 1.5em; } /* 21px */
+h3      { font-size: 1.17em; } /* 16,38px */
+h4      { font-size: 1.33em; } /* 18,62px */
+h5      { font-size: 0.83em; } /* 11,62px */
+h6      { font-size: 0.67em; } /* 9,38px */
+a       { text-decoration: none; color: #444; }
+a:focus { outline: 0; }
+a:hover { /*color: #545154;*/ color: #403d40; -webkit-transition: ease 300ms color; -moz-transition: ease 300ms color; -o-transition: ease 300ms color; transition: ease 300ms color; }
+li      { list-style: none; }
+*, *::after, *::before { box-sizing: border-box; }
+
+/* ==========================================================================
+   Author's custom styles - common
+   ========================================================================== */
+
+.container { display: -webkit-flex; display: flex;
+             -webkit-flex-direction: column; flex-direction: column; }
+
+/* Logo */
+.logo a           { float: left; /*margin-bottom: 42px;*/ max-width: 150px; }
+.logo a img       { width: 100%; height: auto; }
+
+/* Navigation */
+.navigation         { font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                      font-size: 0.75em; letter-spacing: 0.32em; text-transform: uppercase; }
+.main-nav           { margin-bottom: 6px; /* 13px from images */ }
+.main-nav ul        { display: -webkit-flex; display: flex;
+                      -webkit-flex-direction: row; flex-direction: row; }
+.main-nav ul li     { margin: 0 10px; }
+.main-nav ul li:first-child { margin-left: 0; }
+.main-nav ul li:last-child  { margin-right: 0; }
+.main-nav ul li a   { display: block; text-align: center; color: #969799; padding: 5px 0 5px 0; }
+
+/* Navigation Drop-Down */
+.main-nav ul ul { -webkit-flex-direction: column; flex-direction: column;
+                  visibility: hidden; opacity: 0; position: absolute; background-color: #fff; margin-left: -10px; padding: 0; min-width: 160px;
+                  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+                  -webkit-transition: ease 300ms all; -moz-transition: ease 300ms all; -o-transition: ease 300ms all; transition: ease 300ms all; }
+.main-nav ul ul li             { margin: 0; width: 100%; }
+.main-nav ul ul li:first-child { margin-top: 6px; }
+.main-nav ul ul li:last-child  { margin-bottom: 4px; }
+.main-nav ul ul li a           { text-align: left; font-size: 0.9em; margin: 4px 12px 5px 12px; padding: 0; }
+.main-nav ul li:hover > ul     { visibility: visible; opacity: 1; }
+
+/* ==========================================================================
+   Author's custom styles - horizontal
+   ========================================================================== */
+
+/* Header */
+.horizontal header { height: 20vh; width: 100%;
+                     display: -webkit-flex; display: flex;
+                     -webkit-justify-content: center; justify-content: center;
+                     -webkit-align-items: flex-end; align-items: flex-end;
+                     z-index: 999; }
+.horizontal header .content { width: 50vw; height: auto;
+                              display: -webkit-flex; display: flex;
+                              -webkit-flex-direction: row; flex-direction: row;
+                              -webkit-justify-content: space-between; justify-content: space-between;
+                              -webkit-align-items: flex-end; align-items: flex-end; }
+
+/* Portfolio */
+.sidescroll .images { font-size: 0; letter-spacing: 0; word-spacing: 0; }
+.sidescroll .images li { margin-right: 3px; background-color: rgb(17, 17, 17); }
+.sidescroll .images li:last-child { margin-right: 0; }
+.sidescroll .images img { height: 60vh; }
+@media (-webkit-min-device-pixel-ratio: 0) {
+  .sidescroll .images img { height: 58.22vh; }
+}
+
+/* Footer */
+.horizontal footer { height: 20vh; width: 100%;
+                     display: -webkit-flex; display: flex; 
+                     -webkit-justify-content: center; justify-content: center;
+                     -webkit-align-items: flex-start; align-items: flex-start; }
+.horizontal footer .content { width: 50vw; height: auto; }
+
+.copyright { margin-top: 18px; /* 21px */ }
+
+/* ==========================================================================
+   Author's custom styles - vertical
+   ========================================================================== */
+
+/* ==========================================================================
+   Author's custom styles - blog
+   ========================================================================== */
+
+.blog .container { margin-left: auto; margin-right: auto; max-width: 600px; }
+.blog .container img { width: 100%; margin-bottom: 5px; }
+
+.blog article { clear: both; float: left; margin-bottom: 90px; }
+.blog .tags .text { float: left; padding-right: 5px; }
+.blog .tags li { float: left; }
+.blog .tags li + li::before { content: ", "; }
+
+.blog .logo { float: left; width: 100%; }
+.blog .navigation { float: left; width: 100%; }
+.blog .main-nav { width: 100%; }
+
+.blog header time { margin-top: 15px; }
+
+.blog .pagination { clear: both; padding: 25px 0 120px 0;
+                    text-align: center; text-transform: lowercase; font-size: 0.95em; letter-spacing: 0.07em;
+                    font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #777; }
+.blog .pagination a:hover { color: #ccc; }
+
+.blog .footer-container { clear: both; float: left; width: 100%; text-align: center; margin-bottom: 10px;
+                          text-transform: uppercase; font-size: 0.6em; letter-spacing: 0.05em; color: #aaa;
+                          font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif; }
+
+/* ==========================================================================
+   Author's custom styles - Slick Slider
+   ========================================================================== */
+
+/* Slider */
+.slick-loading .slick-list { background: #fff url('../images/ajax-loader.gif') center center no-repeat; }
+/* Arrows */
+.slick-prev:focus,
+.slick-next:focus { outline: none; }
+.slick-prev,
+.slick-next {
+  font-family: 'fontello';
+  font-size: 300%;
+  line-height: 0;
+  cursor: pointer;
+  color: #b9b9b9;
+  background: #fbfafa;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+
+  display: block;
+  position: absolute;
+  top: 50%;
+  padding: 0;
+  border: none;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.slick-prev:hover,
+.slick-next:hover { opacity: .5; }
+.slick-prev:hover:before,
+.slick-next:hover:before { opacity: 1; }
+.slick-prev:before,
+.slick-next:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-51%, -44%);
+  -moz-transform: translate(-51%, -44%);
+  -ms-transform: translate(-51%, -44%);
+  -o-transform: translate(-51%, -44%);
+  transform: translate(-51%, -44%);
+
+  opacity: .75;
+  color: #b9b9b9;
+  font-size: 40px;
+  line-height: 1;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.slick-prev { left: 25px; z-index: 9999; }
+.slick-prev:before { content: '\e838'; }
+.slick-next { right: 25px; z-index: 9999; }
+.slick-next:before { content: '\e837'; }
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Hide visually and from screen readers */
+.hidden { display: none !important; }
+/* Hide only visually, but have it available for screen readers:
+http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Hide visually and from screen readers, but maintain layout */
+.invisible { visibility: hidden; }
+/* Clearfix */
+.clearfix:after { clear: both; }
+
+/* ==========================================================================
+   Media Queries for Responsive Design
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  /**/
+}
+@media (max-width: 400px) {
+  /**/
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade { display: block; position: absolute; z-index: 999999; width: 100%; height: 100%; margin: 0; padding: 50px 0 0 50px; 
+                  background: #999; color: #000; font-size: 1.5em; text-align: center; }

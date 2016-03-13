@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Flexbox DEMO</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+/* ==========================================================================
+   CSS RESET
+   ========================================================================== */
+
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection { background: #b3d4fc; text-shadow: none; }
+::selection { background: #b3d4fc; text-shadow: none; }
+/* A better looking default horizontal rule */
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio, canvas, iframe, img, svg, video { vertical-align: middle; }
+/* Allow only vertical resizing of textareas. */
+textarea { resize: vertical; }
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+body { color: #6d6d6d; font-family: Oxygen,Helvetica,sans-serif; font-size: 14px; line-height: 1.8; }
+*, *::after, *::before { box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6 { color: #3b3b3b; font-weight: 700; line-height: 1.2; }
+
+.holy-grail { background-color: #f37; }
+.holy-grail__header { background-color: #f91; }
+.holy-grail__footer { background-color: #f11; }
+.holy-grail__body { background-color: #f97; }
+.holy-grail__sidebar { background-color: #f51; }
+.holy-grail__sidebar--first { background-color: #f26; }
+.holy-grail__sidebar--second { background-color: #f81; }
+.holy-grail__content { background-color: #f96; }
+
+.holy-grail { display: flex; flex-direction: column; }
+
+.holy-grail__header, .holy-grail__footer { flex: 0 0 20vh; }
+
+.holy-grail__body { display: flex; flex: 0 0 60vh; }
+.holy-grail__sidebar { /* nothing at narrow screens */ }
+
+.holy-grail__sidebar--first { order: 1; }
+.holy-grail__sidebar--second { order: 3; }
+.holy-grail__content { order: 2; }
+
+@media all and (min-width: 720px) {
+  .holy-grail__body { flex-direction: row; }
+  .holy-grail__sidebar { flex: 0 0 5vw; }
+  .holy-grail__content { flex: 1; }
+}
+
+@media all and (min-width: 960px) {
+  .holy-grail__sidebar { flex: 0 0 10vw; }
+}
+
+</style>
+</head>
+<body class="holy-grail">
+
+<header class="holy-grail__header">holy-grail__header</header>
+<div class="holy-grail__body">
+  <div class="holy-grail__content">holy-grail__content</div>
+  <div class="holy-grail__sidebar holy-grail__sidebar--first">holy-grail__sidebar--first</div>
+  <div class="holy-grail__sidebar holy-grail__sidebar--second">holy-grail__sidebar--second</div>
+</div>
+<footer class="holy-grail__footer">holy-grail__footer</footer>
+
+</body>
+</html>
