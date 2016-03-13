@@ -409,7 +409,6 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
                                 -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                                 -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                                 box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
-  /*.toggle-mobile-nav { text-align: center; }*/
   .sidescroll .images li, .sidescroll .images li:last-child { margin: 0 5vw 3px 5vw; background: none; }
   .sidescroll .images { display: -webkit-flex; display: flex;
                         -webkit-flex-direction: column; flex-direction: column;
