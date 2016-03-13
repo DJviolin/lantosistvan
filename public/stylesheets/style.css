@@ -170,13 +170,13 @@ li      { list-style: none; }
 .lazyload { opacity: 0; }
 
 /* Logo */
-.logo             { margin-bottom: 20px; width: 350px; }
-.logo a img       { width: 100%; height: 100%; background-color: #fff; /*fill: #b0b4b7;*/ }
+.logo             { margin: 0 20px 20px 20px; max-width: 350px; }
+.logo a img       { width: 100%; height: 100%; background-color: #fff; }
 
 /* Social */
 .social-links { text-align: right; margin-bottom: 30px;
                 font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 2px; color: #969799; }
-.social { margin: 0 5px 0 0; height: 30px; /*fill: #8c8c8c;*/ }
+.social { margin: 0 5px 0 0; height: 30px; }
 /*.social-links:last-child { margin-right: 0; }*/
 .social-links a { position: relative; }
 .social-links span { opacity: 0; position: absolute; text-transform: uppercase; margin-top: 34px; padding: 0; pointer-events: none; }
