@@ -253,21 +253,17 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
    Author's custom styles - blog
    ========================================================================== */
 
-.blog .container { /*margin-left: auto; margin-right: auto;*/
-                   -webkit-align-items: center; align-items: center; }
-.blog .container img { width: 100%; margin-bottom: 5px; }
+.blog .container { -webkit-align-items: center; align-items: center; }
+.blog .container img { width: 100%; }
 
 .blog article { max-width: 600px; }
 .blog article .images { display: -webkit-flex; display: flex;
                         -webkit-flex-direction: column; flex-direction: column; }
+.blog article .images li { margin-bottom: 3px; }
 
 .blog .tags .text { float: left; padding-right: 5px; }
 .blog .tags li { float: left; }
 .blog .tags li + li::before { content: ', '; }
-
-/*.blog .logo { float: left; width: 100%; }
-.blog .navigation { float: left; width: 100%; }*/
-/*.blog .main-nav { width: 100%; }*/
 
 .blog header time { margin-top: 15px; }
 
@@ -410,10 +406,11 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   header.main { position: fixed; width: 100%; top: 0; transition: top 0.2s ease-in-out; background-color: #fff; }
   header.main .content { -webkit-flex: 0 0 100vw; flex: 0 0 100vw;
-                    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-                    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
+                         -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+                         -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+                         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
   .sidescroll .images li, .sidescroll .images li:last-child { margin: 0 5vw 3px 5vw; background: none; }
+  .blog article { margin: 0 5vw 0 5vw; }
   .sidescroll .images { display: -webkit-flex; display: flex;
                         -webkit-flex-direction: column; flex-direction: column;
                         -webkit-justify-content: center; justify-content: center;
