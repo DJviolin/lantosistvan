@@ -230,9 +230,6 @@ li      { list-style: none; }
 .sidescroll .images li { margin-right: 3px; background-color: rgb(17, 17, 17); }
 .sidescroll .images li:last-child { margin-right: 0; }
 .sidescroll .images img { height: 60vh; }
-/*@media (-webkit-min-device-pixel-ratio: 0) {
-  .sidescroll .images img { height: 58.22vh; }
-}*/
 
 /* Footer */
 .horizontal footer { -webkit-flex: 0 0 20vh; flex: 0 0 20vh; /*height: 20vh;*/
