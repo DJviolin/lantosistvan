@@ -418,12 +418,12 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 }
 
 /* ==========================================================================
-   Conditional styles - IE11
+   IE Conditional styles
+   http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
    ========================================================================== */
 
-@media all and (-ms-high-contrast:none) {
-  .logo { width: 390px; }
-}
+/* IE 11 (and above..) */
+_:-ms-fullscreen, :root .logo { width: 390px; }
 
 /* ==========================================================================
    Browser Upgrade Prompt
