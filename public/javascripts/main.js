@@ -139,8 +139,9 @@ $(document).ready(function() {
     clearTimeout(timer);
     timer = setTimeout(function() {
       handleSlick();
+      console.log('handleSlick() fired on resize...');
     }, 100);
-    console.log('handleSlick() fired on resize...');
+    //console.log('jquery on window resize');
   });
   //handleSlick();
 });
