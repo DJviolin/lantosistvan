@@ -37,27 +37,21 @@ $(window).on('load', function() {
 
 
 // Social links
-/*$(document).ready(function() {
-  $('.social-links a').on('mouseenter', function() {
-    $(this).find('span').stop(true, true).animate({ opacity: 1 }, 200, 'linear');
-  }).on('mouseleave', function() {
-    $(this).find('span').stop(true, true).animate({ opacity: 0 }, 200, 'linear');
-  });
-});*/
-
-$(window).on('load resize', function() {
+/*$(window).on('load resize', function() {
   if ($(this).width() > 1600) {
     $('.social-links a').on('mouseenter', function() {
       $(this).find('span').stop(true, true).animate({ opacity: 1 }, 200, 'linear');
     }).on('mouseleave', function() {
       $(this).find('span').stop(true, true).animate({ opacity: 0 }, 200, 'linear');
     });
+    //console.log('binded');
   }
   else {
     $(window).unbind('mouseenter');
     $(window).unbind('mouseleave');
+    //console.log('unbinded');
   };
-});
+});*/
 
 
 
