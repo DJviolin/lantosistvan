@@ -114,9 +114,9 @@ function handleSlick() {
   }
 }
 $(document).ready(function() {
-// The resize event is fired lots of times during resizing.
-// If you use a timer inside the resize callback that resets and
-// starts everytime the resize event fires, you prevent those 'double' fires. 
+  // The resize event is fired lots of times during resizing.
+  // If you use a timer inside the resize callback that resets and
+  // starts everytime the resize event fires, you prevent those 'double' fires. 
   var timer;
   $(window).on('load resize', function() {
     clearTimeout(timer);
