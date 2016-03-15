@@ -100,13 +100,13 @@ function bindSlick() {
     autoplay: false,
     autoplaySpeed: 3000
   });
-  console.log('binded');
+  //console.log('binded');
 }
 function unbindSlick() {
   $('.sidescroll .images').slick('unslick');
-  console.log('unbinded');
+  //console.log('unbinded');
 }
-/*function handleSlick() {
+function handleSlick() {
   if ($(window).width() > 1600) {
     bindSlick();
   } else {
@@ -114,6 +114,9 @@ function unbindSlick() {
   }
 }
 $(document).ready(function() {
+// The resize event is fired lots of times during resizing.
+// If you use a timer inside the resize callback that resets and
+// starts everytime the resize event fires, you prevent those 'double' fires. 
   var timer;
   $(window).on('load resize', function() {
     clearTimeout(timer);
@@ -122,15 +125,15 @@ $(document).ready(function() {
     }, 100);
   });
   handleSlick();
-});*/
-$(window).on('load resize', function() {
+});
+/*$(window).on('load resize', function() {
   if ($(this).width() > 1600) {
     bindSlick();
   }
   else {
     unbindSlick(); 
   };
-});
+});*/
 
 
 
