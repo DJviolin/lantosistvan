@@ -100,11 +100,11 @@ function bindSlick() {
     autoplay: false,
     autoplaySpeed: 3000
   });
-  console.log('binded');
+  //console.log('binded');
 }
 function unbindSlick() {
   $('.sidescroll .images').slick('unslick');
-  console.log('unbinded');
+  //console.log('unbinded');
 }
 function handleSlick() {
   if ($(window).width() > 1600) {
