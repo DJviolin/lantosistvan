@@ -100,13 +100,13 @@ function bindSlick() {
     autoplay: false,
     autoplaySpeed: 3000
   });
-  //console.log('binded');
+  console.log('binded');
 }
 function unbindSlick() {
   $('.sidescroll .images').slick('unslick');
-  //console.log('unbinded');
+  console.log('unbinded');
 }
-function handleSlick() {
+/*function handleSlick() {
   if ($(window).width() > 1600) {
     bindSlick();
   } else {
@@ -122,6 +122,14 @@ $(document).ready(function() {
     }, 100);
   });
   handleSlick();
+});*/
+$(window).on('load resize', function() {
+  if ($(this).width() > 1600) {
+    bindSlick();
+  }
+  else {
+    unbindSlick(); 
+  };
 });
 
 
