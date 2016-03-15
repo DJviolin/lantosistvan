@@ -44,12 +44,12 @@ $(window).on('load', function() {
     }).on('mouseleave', function() {
       $(this).find('span').stop(true, true).animate({ opacity: 0 }, 200, 'linear');
     });
-    //console.log('binded');
+    //console.log('.social-links binded...');
   }
   else {
     $(window).unbind('mouseenter');
     $(window).unbind('mouseleave');
-    //console.log('unbinded');
+    //console.log('.social-links unbinded...');
   };
 });*/
 
@@ -100,11 +100,11 @@ function bindSlick() {
     autoplay: false,
     autoplaySpeed: 3000
   });
-  //console.log('binded');
+  //console.log('bindSlick() fired...');
 }
 function unbindSlick() {
   $('.sidescroll .images').slick('unslick');
-  //console.log('unbinded');
+  //console.log('unbindSlick() fired...');
 }
 function handleSlick() {
   if ($(window).width() > 1600) {
