@@ -113,28 +113,37 @@ function handleSlick() {
     unbindSlick(); 
   }
 }
-$(document).ready(function() {
+/*$(document).ready(function() {
   // The resize event is fired lots of times during resizing.
   // If you use a timer inside the resize callback that resets and
   // starts everytime the resize event fires, you prevent those 'double' fires.
-  //TODO: add timer only for resize event
   var timer;
   $(window).on('load resize', function() {
     clearTimeout(timer);
     timer = setTimeout(function() {
-      handleSlick();  
+      handleSlick();
     }, 100);
   });
   handleSlick();
-});
-/*$(window).on('load resize', function() {
-  if ($(this).width() > 1600) {
-    bindSlick();
-  }
-  else {
-    unbindSlick(); 
-  };
 });*/
+$(document).ready(function() {
+  $(window).on('load', function() {
+    handleSlick();
+    console.log('handleSlick() fired on load...');
+  });
+  // The resize event is fired lots of times during resizing.
+  // If you use a timer inside the resize callback that resets and
+  // starts everytime the resize event fires, you prevent those 'double' fires.
+  var timer;
+  $(window).on('resize', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      handleSlick();
+    }, 100);
+    console.log('handleSlick() fired on resize...');
+  });
+  //handleSlick();
+});
 
 
 
