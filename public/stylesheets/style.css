@@ -297,6 +297,7 @@ footer .social-links a:last-child { margin-right: 0; }
 /* http://www.alt-codes.net/miscellaneous-symbols */
 footer .copyright { /*margin-top: 40px; padding-top: 18px;*/ /* 21px */ font-size: 0.75em; /*border-top: 1px solid #e9e9e9;*/
                     width: 100%; text-align: center; margin: 20px 0 20px 0; }
+footer .copyright a { font-family: Georgia, 'Times New Roman', Times, serif; }
 
 /* ==========================================================================
    Author's custom styles - blog
