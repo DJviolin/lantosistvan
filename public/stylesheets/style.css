@@ -329,10 +329,7 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
   -ms-perspective: 1000;
   -o-perspective: 1000;
   perspective: 1000;
-  -o-transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -webkit-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
@@ -396,7 +393,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1em;
-    transition: background-color 300ms ease-out;
+    -o-transition: background-color 0.3s ease-out 0s; -moz-transition: background-color 0.3s ease-out 0s; -webkit-transition: background-color 0.3s ease-out 0s; transition: background-color 0.3s ease-out 0s;
   }
   .toggle-mobile-nav a span { font-size: 2em; vertical-align: -0.15em; }
 
@@ -405,7 +402,8 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .logo { margin-top: 30px; }
 
-  header.main { position: fixed; width: 100%; top: 0; transition: top 0.2s ease-in-out; background-color: #fff; }
+  header.main { position: fixed; width: 100%; top: 0; /*transition: top 0.2s ease-in-out;*/ background-color: #fff;
+                -o-transition: top 0.2s ease-in-out 0s; -moz-transition: top 0.2s ease-in-out 0s; -webkit-transition: top 0.2s ease-in-out 0s; transition: top 0.2s ease-in-out 0s; }
   header.main .content { -webkit-flex: 0 0 100vw; flex: 0 0 100vw;
                          -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
                          -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
