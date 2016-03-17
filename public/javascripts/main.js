@@ -29,14 +29,6 @@ if(document.body.classList.contains('horizontal')) {
 
 // Lazy loading portfolio div
 $(window).on('load', function() {
-  //$('.lazyload').animate({ opacity: 1 }, 500, 'linear');
-  /*$('.lazyload').css({
-    /*'display': 'initial',*
-    'visibility': 'visible',
-    'overflow-y': 'initial',
-    'height': 'initial'
-  }).animate({ opacity: 1 }, 500, 'linear');*/
-  //$('.portfolio').removeClass('lazyload').animate({ opacity: 1 }, 500, 'linear');
   $('.portfolio').removeClass('lazyload');
   //alert('done');
 });
