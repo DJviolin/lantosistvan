@@ -154,7 +154,8 @@ h4      { font-size: 1.33em; } /* 18,62px */
 h5      { font-size: 0.83em; } /* 11,62px */
 h6      { font-size: 0.67em; } /* 9,38px */
 p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
-a       { text-decoration: none; color: #000; }
+a       { text-decoration: none; /*color: #000;*/ color: #d2a679; font-family: "im-fell-french-canon-pro-italic", Georgia, 'Times New Roman', Times, serif;
+          -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 a:hover { /*transition: <property> <duration> <timing-function> <delay>;*/
           -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
           color: #7f7f7f; }
@@ -252,7 +253,7 @@ footer .row { width: 100%; margin: 40px 0 0 0; padding: 10px 0 10px 0; border-to
               -webkit-justify-content: space-between; justify-content: space-between;
               height: auto; }
 footer aside { width: 100%; text-align: center; margin: 35px 0 35px 0; }
-footer aside p { margin-bottom: 0; }
+footer aside p { margin-bottom: 0; text-transform: lowercase; }
 .widget-title { font-size: 13px; text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 20px; font-family: Georgia, Times, serif; }
 .widget-title::after {
   content: '';
