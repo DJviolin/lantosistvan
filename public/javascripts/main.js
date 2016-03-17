@@ -41,13 +41,15 @@ $(document).ready(function() {
 
 
 // Responsive header vertically
-$(window).on('load resize', function() {
-  if ($(this).height() < 855) {
-    $('header').addClass('little-screen');
-  }
-  else {
-    $('header').removeClass('little-screen');
-  };
+$(document).ready(function() {
+  $(window).on('load resize', function() {
+    if ($(this).height() < 855) {
+      $('header').addClass('little-screen');
+    }
+    else {
+      $('header').removeClass('little-screen');
+    };
+  });
 });
 
 
