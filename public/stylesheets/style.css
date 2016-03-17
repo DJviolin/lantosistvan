@@ -402,7 +402,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .logo { margin-top: 30px; }
 
-  header.main { position: fixed; width: 100%; top: 0; /*transition: top 0.2s ease-in-out;*/ background-color: #fff;
+  header.main { position: fixed; width: 100%; top: 0; background-color: #fff;
                 -o-transition: top 0.2s ease-in-out 0s; -moz-transition: top 0.2s ease-in-out 0s; -webkit-transition: top 0.2s ease-in-out 0s; transition: top 0.2s ease-in-out 0s; }
   header.main .content { -webkit-flex: 0 0 100vw; flex: 0 0 100vw;
                          -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
