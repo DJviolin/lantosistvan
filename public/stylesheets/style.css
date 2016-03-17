@@ -299,10 +299,8 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
 /* Slider */
 .slick-loading .slick-list { background: #fff url('../images/ajax-loader.gif') center center no-repeat; }
 /* Arrows */
-.slick-prev:focus,
-.slick-next:focus { outline: none; }
-.slick-prev,
-.slick-next {
+.slick-prev:focus, .slick-next:focus { outline: none; }
+.slick-prev, .slick-next {
   font-family: 'fontello';
   font-size: 0;
   line-height: 0;
@@ -324,12 +322,9 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
   -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
   -o-transform: translate(0, -50%); -ms-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -webkit-transform: translate(0, -50%); transform: translate(0, -50%);
 }
-.slick-prev:hover,
-.slick-next:hover { opacity: .5; }
-.slick-prev:hover:before,
-.slick-next:hover:before { opacity: 1; }
-.slick-prev:before,
-.slick-next:before {
+.slick-prev:hover, .slick-next:hover { opacity: .5; }
+.slick-prev:hover:before, .slick-next:hover:before { opacity: 1; }
+.slick-prev:before, .slick-next:before {
   position: absolute;
   top: 50%;
   left: 50%;
