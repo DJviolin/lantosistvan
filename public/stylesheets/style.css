@@ -415,6 +415,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .toggle-mobile-nav { margin-bottom: 10px; }
   .toggle-mobile-nav a {
     font-family: "TrajanPro-Bold", Georgia, serif;
+    color: #000;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1em;
@@ -461,8 +462,8 @@ _:-ms-fullscreen, :root .logo { width: 390px; }
    Development
    ========================================================================== */
 
-*:hover { 
+/**:hover { 
   -webkit-box-shadow: inset 0 0 0 1px #f00;
   -moz-box-shadow: inset 0 0 0 1px #f00;
   box-shadow: inset 0 0 0 1px #f00;
-}
+}*/
