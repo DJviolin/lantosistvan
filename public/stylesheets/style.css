@@ -154,7 +154,8 @@ h4      { font-size: 1.33em; } /* 18,62px */
 h5      { font-size: 0.83em; } /* 11,62px */
 h6      { font-size: 0.67em; } /* 9,38px */
 a       { text-decoration: none; color: #000; }
-a:hover { -o-transition: ease 0.3s color; -moz-transition: ease 0.3s color; -webkit-transition: ease 0.3s color; transition: ease 0.3s color;
+a:hover { /*transition: <property> <duration> <timing-function> <delay>;*/
+          -o-transition: color 0.3s ease; -moz-transition: color 0.3s ease; -webkit-transition: color 0.3s ease; transition: color 0.3s ease;
           color: #7f7f7f; }
 li      { list-style: none; }
 *:focus { outline: 0; }
