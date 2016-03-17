@@ -154,7 +154,7 @@ h4      { font-size: 1.33em; } /* 18,62px */
 h5      { font-size: 0.83em; } /* 11,62px */
 h6      { font-size: 0.67em; } /* 9,38px */
 a       { text-decoration: none; color: #000; }
-a:hover { -webkit-transition: ease 300ms color; -moz-transition: ease 300ms color; -o-transition: ease 300ms color; transition: ease 300ms color;
+a:hover { -o-transition: ease 0.3s color; -moz-transition: ease 0.3s color; -webkit-transition: ease 0.3s color; transition: ease 0.3s color;
           color: #7f7f7f; }
 li      { list-style: none; }
 *:focus { outline: 0; }
@@ -198,7 +198,7 @@ li      { list-style: none; }
 .main-nav ul ul { -webkit-flex-direction: column; flex-direction: column;
                   visibility: hidden; opacity: 0; position: absolute; background-color: #fff; margin-left: -10px; padding: 0; min-width: 160px;
                   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
-                  -webkit-transition: ease 300ms all; -moz-transition: ease 300ms all; -o-transition: ease 300ms all; transition: ease 300ms all; }
+                  -o-transition: ease 0.3s all; -moz-transition: ease 0.3s all; -webkit-transition: ease 0.3s all; transition: ease 0.3s all; }
 .main-nav ul ul li             { margin: 0; width: 100%; }
 .main-nav ul ul li:first-child { margin-top: 6px; }
 .main-nav ul ul li:last-child  { margin-bottom: 4px; }
@@ -328,9 +328,9 @@ footer .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
   -ms-perspective: 1000;
   -o-perspective: 1000;
   perspective: 1000;
-  -webkit-transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
