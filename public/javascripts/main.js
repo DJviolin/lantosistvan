@@ -40,6 +40,19 @@ $(document).ready(function() {
 
 
 
+// Responsive header vertically
+$(window).on('load resize', function() {
+  if ($(this).height() < 855) {
+    $('header').addClass('little-screen');
+  }
+  else {
+    $('header').removeClass('little-screen');
+  };
+});
+
+
+
+
 // Social links
 /*$(window).on('load resize', function() {
   if ($(this).width() > 1600) {
