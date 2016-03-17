@@ -28,9 +28,11 @@ if(document.body.classList.contains('horizontal')) {
 
 
 // Lazy loading portfolio div
-$(window).on('load', function() {
-  $('.portfolio').removeClass('lazyload');
-  //alert('done');
+$(document).ready(function() {
+  $(window).on('load', function() {
+    $('.portfolio').removeClass('lazyload');
+    //alert('done');
+  });
 });
 
 
