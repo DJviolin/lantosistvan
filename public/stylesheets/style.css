@@ -169,7 +169,7 @@ li      { list-style: none; }
              -webkit-flex-direction: column; flex-direction: column; }
 
 .lazyload { /*display: none;*/ visibility: hidden; overflow-y: hidden; height: 60vh; opacity: 0; }
-.portfolio { -o-transition: opacity 0.5s; -moz-transition: opacity 0.5s; -webkit-transition: opacity 0.5s; transition: opacity 0.5s; }
+.portfolio { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
 
 /* Logo */
 .logo             { padding: 0 20px 20px 20px; width: 100%; max-width: 390px; }
