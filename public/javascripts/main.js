@@ -30,8 +30,12 @@ if(document.body.classList.contains('horizontal')) {
 // Lazy loading portfolio div
 $(window).on('load', function() {
   //$('.lazyload').animate({ opacity: 1 }, 500, 'linear');
-  //$('.lazyload').css('display', 'initial', 'height', 'initial').animate({ opacity: 1 }, 500, 'linear');
-  $('.lazyload').css({/*'display': 'initial',*/ 'visibility': 'visible', 'overflow-y': 'initial', 'height': 'initial'}).animate({ opacity: 1 }, 500, 'linear');
+  $('.lazyload').css({
+    /*'display': 'initial',*/
+    'visibility': 'visible',
+    'overflow-y': 'initial',
+    'height': 'initial'
+  }).animate({ opacity: 1 }, 500, 'linear');
   //alert('done');
 });
 
