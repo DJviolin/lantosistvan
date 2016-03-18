@@ -275,7 +275,8 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
                       display: -webkit-flex; display: flex;
                       -webkit-flex-direction: column; flex-direction: column;
                       -webkit-align-items: center; align-items: center;
-                      -webkit-justify-content: center; justify-content: center; }
+                      -webkit-justify-content: center; justify-content: center;
+                      margin: 0 5vw 0 5vw; }
 .frontpage article .content p { text-align: center;
                               font-size: 0.8em; /*letter-spacing: 0.3em;*/ line-height: 1.6em; }
 
