@@ -33,6 +33,7 @@
         "category": "foo",
         "body": "Nothing is impossible, the word itself says 'I'm possible'!",
         "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "preview": "20151230-family-szalai-1.jpg",
         "images": [ "20151230-family-szalai-1.jpg" ],
         "tags": [ "foo" ]
       },
@@ -51,6 +52,7 @@
         "category": "foo",
         "body": "You may not realize it when it happens, but a kick in the teeth may be the best thing in the world for you.",
         "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "preview": "20151230-family-szalai-1.jpg",
         "images": [ "20151230-family-szalai-1.jpg" ],
         "tags": [ "foo", "bar" ]
       },
@@ -69,6 +71,7 @@
         "category": "bar",
         "body": "Even the greatest was once a beginner. Don't be afraid to take that first step.",
         "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "preview": "20151230-family-szalai-1.jpg",
         "images": [ "20151230-family-szalai-1.jpg" ],
         "tags": [ "foo", "bar", "baz" ]
       },
@@ -87,6 +90,7 @@
         "category": "bar",
         "body": "You are afraid to die, and you're afraid to live. What a way to exist.",
         "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "preview": "20151230-family-szalai-1.jpg",
         "images": [ "20151230-family-szalai-1.jpg" ],
         "tags": [ "foo", "bar", "baz" ]
       },
@@ -105,6 +109,7 @@
         "category": "bar",
         "body": "This is a test article.",
         "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "preview": "20151230-family-szalai-1.jpg",
         "images": [ "20151230-family-szalai-1.jpg" ],
         "tags": [ "foo", "bar", "baz", "bam" ]
       },
@@ -123,6 +128,7 @@
         "category": "family",
         "body": "This is a test article.",
         "imagesFolder": "/gallery/blog/20151230-family-szalai/",
+        "preview": "20151230-family-szalai-1.jpg",
         "images": [ "20151230-family-szalai-1.jpg", "20151230-family-szalai-2.jpg", "20151230-family-szalai-3.jpg", "20151230-family-szalai-4.jpg", "20151230-family-szalai-5.jpg", "20151230-family-szalai-6.jpg", "20151230-family-szalai-7.jpg", "20151230-family-szalai-8.jpg", "20151230-family-szalai-9.jpg", "20151230-family-szalai-10.jpg", "20151230-family-szalai-11.jpg", "20151230-family-szalai-12.jpg", "20151230-family-szalai-13.jpg", "20151230-family-szalai-14.jpg", "20151230-family-szalai-15.jpg" ],
         "tags": [ "family", "photography", "film", "fuji", "400h", "pentax", "645n", "90f28", "digital", "canon", "50l", "szalai", "lantos", "istvan" ]
       }
