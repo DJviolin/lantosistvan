@@ -289,7 +289,7 @@ footer aside p { margin-bottom: 0; text-transform: lowercase; }
 http://lightandlace.de/
 http://dillonphommasa.com/
 http://marinkovic-weddings.com/ */
-.widget-title-img { display: block; margin: 0 auto 15px; }
+.widget-title-img { display: block; margin: 0 auto 20px auto; }
 .widget-title { /*font-size: 13px;*/ font-size: 0.9em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: Georgia, 'Times New Roman', Times, serif; }
 .widget-title::after {
   content: '';
