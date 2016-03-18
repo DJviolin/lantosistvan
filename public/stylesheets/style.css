@@ -156,7 +156,7 @@ h6      { font-size: 0.67em; } /* 9,38px */
 p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
 a       { text-decoration: none; /*color: #000;*/ font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /*font-style: italic;*/
-          color: #d2a679; color: #ccc; }
+          color: #d2a679; color: #ccc; color: #a6a6a6; }
 a:hover { /*transition: <property> <duration> <timing-function> <delay>;*/
           -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
           color: #7f7f7f; color: #6b6b6b; }
@@ -295,7 +295,8 @@ footer aside p { margin-bottom: 0; text-transform: lowercase; }
   background: #e9e9e9;
   margin: 18px auto 0 auto;
 }
-footer .social-links a { margin-right: 20px; font-size: 0.8em; }
+footer .social-links a { margin-right: 20px; font-size: 0.8em;
+                         /*color: #6b6b6b;*/ }
 footer .social-links a:last-child { margin-right: 0; }
 /* http://www.alt-codes.net/miscellaneous-symbols */
 footer .copyright { /*margin-top: 40px; padding-top: 18px;*/ /* 21px */ font-size: 0.63em; line-height: 1.7em;
