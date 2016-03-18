@@ -2,6 +2,14 @@
 
 https://www.google.com/search?hl=hu-US&tbs=simg:CAES1wEa1AELEKjU2AQaBAgDCAoMCxCwjKcIGmEKXwgDEifNE8wTzgLQE8sT0RMEygLSE9QdriOOKagg4DePKdsr4SyyINopjSkaMK7pJP8G69Y9px3NM2MxjF9ZOrD5jQ2CT9JrEsybfvYvhbwtRl3JJa68kuK4QTI6bCADDAsQjq7-CBoKCggIARIE92UpiQwLEJ3twQkaQQoICgZmbG93ZXIKBwoFcGxhbnQKCgoIbGluZSBhcnQKDQoLY3V0IGZsb3dlcnMKEQoPZmxvd2VyaW5nIHBsYW50DA&tbm=isch&sa=X&ved=0ahUKEwjDh6XvxMrLAhWo93IKHR3GAgQQsw4ISA
 
+http://www.freepik.com/index.php?goto=2&k=handdrawn&order=2&searchform=1&vars=4
+
+https://www.google.hu/search?q=handdrawn+vector+graphic&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwj84P3y9snLAhWjvXIKHfCwAAgQsAQILQ&biw=1920&bih=945
+
+http://www.freepik.com/index.php?goto=2&k=floral%20handdrawn&order=2&searchform=1&vars=2
+
+
+
 # WEBSITES FOR DEVELOPMENT
 
 http://whatsmyuseragent.com/
