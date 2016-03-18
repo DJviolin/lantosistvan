@@ -155,7 +155,7 @@ h5      { font-size: 0.83em; } /* 11,62px */
 h6      { font-size: 0.67em; } /* 9,38px */
 p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
 a       { text-decoration: none; /*color: #000;*/ color: #d2a679; font-family: "im-fell-french-canon-pro-italic", Georgia, 'Times New Roman', Times, serif;
-          -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+          -webkit-tap-highlight-color: rgba(255, 255, 255, 0); font-style: italic; }
 a:hover { /*transition: <property> <duration> <timing-function> <delay>;*/
           -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
           color: #7f7f7f; }
@@ -196,7 +196,7 @@ li      { list-style: none; }
 .main-nav ul li:first-child { margin-left: 0; }
 .main-nav ul li:last-child  { margin-right: 0; }
 .main-nav ul li a   { display: block; text-align: center; padding: 5px 0 5px 0;
-                      color: #000; font-family: Georgia, 'Times New Roman', Times, serif; }
+                      color: #000; font-style: normal; font-family: Georgia, 'Times New Roman', Times, serif; }
 .main-nav ul li a:hover { color: #888; }
 
 /* Navigation Drop-Down */
