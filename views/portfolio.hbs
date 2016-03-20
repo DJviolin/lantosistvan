@@ -19,29 +19,11 @@
       <article class="id-{{this._id}}">
 
         <header class="article id-{{this._id}}">
-          <time>{{this.month}} {{this.day}}, {{this.year}}</time>
           <h1><a href="/journal/{{this.url}}">{{this.title}}</a></h1>
           <div class="category"><a href="/category/{{this.category}}">{{this.category}}</a></div>
         </header><!-- header.article.id-{{this._id}} -->
 
-        <div class="article content">
-
-          <p>{{this.body}}</p>
-
-          <img src="{{imagesFolder}}{{preview}}" alt="">
-
-        </div><!-- div.article.content -->
-
-        <footer class="article id-{{this._id}}">
-          <div class="tags">
-            <span class="text">Tags: </span>
-            <ul>
-              {{#each tags}}
-              <li><a href="/tag/{{this}}">{{this}}</a></li>
-              {{/each}}
-            </ul>
-          </div>
-        </footer><!-- footer.article.id-{{this._id}} -->
+        <img src="{{imagesFolder}}{{preview}}" alt="">
 
       </article><!-- article.id-{{this._id}} -->
 
