@@ -37,7 +37,7 @@ router.get('/', function (req, res, next) {
     //console.log(json);
 
     var articles = data[1].articles.reverse();
-    var slice = articles.slice(0, 2);
+    var slice = articles.slice(0, 6);
     var json = [{ articles: slice }];
 
     res.render('portfolio', {
