@@ -32,18 +32,18 @@
     </div><!-- latest-posts-title -->
     <div class="latest-posts">
       {{#each latestPosts.[0].articles}}
-      <a href="/journal/{{this.url}}">
         <article class="id-{{this._id}}">
 
-          <header class="article id-{{this._id}}">
-            <h1>{{this.title}}</h1>
-            <div class="category">{{this.category}}</div>
-          </header><!-- header.article.id-{{this._id}} -->
-
+          <a href="/journal/{{this.url}}">
+            <header class="article id-{{this._id}}">
+              <h1>{{this.title}}</h1>
+              <div class="category">{{this.category}}</div>
+            </header><!-- header.article.id-{{this._id}} -->
+          </a>
+          
           <img src="{{imagesFolder}}{{preview}}" alt="">
 
         </article><!-- article.id-{{this._id}} -->
-      </a>
 
       <!-- post -->
 
