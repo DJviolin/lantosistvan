@@ -21,6 +21,7 @@
       {
         "_id": "0",
         "url": "audrey-hepburn",
+        "drawing": "/images/art/lindon.png",
         "title": "Audrey Hepburn",
         "description": "This is the description of Audrey Hepburn",
         "keywords": "audrey,hepburn,lantos,istvan,photography",
@@ -40,6 +41,7 @@
       {
         "_id": "1",
         "url": "walt-disney",
+        "drawing": "/images/art/lindon.png",
         "title": "Walt Disney",
         "description": "This is the description of Walt Disney",
         "keywords": "walt,disney,lantos,istvan,photography",
@@ -59,6 +61,7 @@
       {
         "_id": "2",
         "url": "unknown",
+        "drawing": "/images/art/lindon.png",
         "title": "Unknown",
         "description": "This is the description of Unknown",
         "keywords": "unknown,lantos,istvan,photography",
@@ -78,6 +81,7 @@
       {
         "_id": "3",
         "url": "neale-donald-walsch",
+        "drawing": "/images/art/lindon.png",
         "title": "Neale Donald Walsch",
         "description": "This is the description of Neale Donald Walsch",
         "keywords": "neale,donald,walsch,lantos,istvan,photography",
@@ -97,6 +101,7 @@
       {
         "_id": "4",
         "url": "test",
+        "drawing": "/images/art/lindon.png",
         "title": "Test Article",
         "description": "This is the description of the Test Article",
         "keywords": "test,article,lantos,istvan,photography",
@@ -116,6 +121,7 @@
       {
         "_id": "5",
         "url": "szalai-family",
+        "drawing": "/images/art/lindon.png",
         "title": "Szalai család",
         "description": "This is the description of the Test Article",
         "keywords": "szalai,csalad,family,lantos,istvan,photography",

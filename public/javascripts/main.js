@@ -59,9 +59,9 @@ $(document).ready(function() {
 // Latest posts resize on frontpage
 $(document).ready(function() {
   $(window).on('load resize', function() {
-  var flpImgWidth = $('.latest-posts article img').width();
+  var flpImgWidth = $('.latest-posts article .preview-image').width();
   var calc = ( flpImgWidth / 4 ) * 3;
-  $('.latest-posts article img').css('height', calc);
+  $('.latest-posts article .preview-image').css('height', calc);
   //console.log(calc);
   });
 });
