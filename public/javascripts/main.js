@@ -55,6 +55,20 @@ $(document).ready(function() {
 
 
 
+
+// Latest posts resize on frontpage
+$(document).ready(function() {
+  $(window).on('load resize', function() {
+  var flpImgWidth = $('.frontpage-latest-posts article img').width();
+  var calc = ( flpImgWidth / 4 ) * 3;
+  $('.frontpage-latest-posts article img').css('height', calc);
+  //console.log(calc);
+  });
+});
+
+
+
+
 // Social links
 /*$(window).on('load resize', function() {
   if ($(this).width() > 1600) {
