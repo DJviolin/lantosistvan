@@ -254,18 +254,26 @@ li      { list-style: none; }
    ========================================================================== */
 
 /* Header */
-header { -webkit-flex: 0 0 20vh; flex: 0 0 20vh; /*height: 20vh;*/
-         display: -webkit-flex; display: flex;
-         -webkit-flex-direction: row; flex-direction: row;
-         -webkit-align-items: flex-end; align-items: flex-end;
-         -webkit-justify-content: center; justify-content: center;
-         z-index: 999; }
-.little-screen { -webkit-flex: 0 0 auto; flex: 0 0 auto; }
-header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*height: auto;*/
-                  display: -webkit-flex; display: flex;
-                  -webkit-flex-direction: column; flex-direction: column;
-                  -webkit-align-items: center; align-items: center;
-                  /*-webkit-justify-content: space-between; justify-content: space-between;*/ }
+header {
+  -webkit-flex: 0 0 20vh; flex: 0 0 20vh; /*height: 20vh;*/
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: row; flex-direction: row;
+  -webkit-align-items: flex-end; align-items: flex-end;
+  -webkit-justify-content: center; justify-content: center;
+  z-index: 999;
+}
+.little-screen {
+  -webkit-flex: 0 0 auto; flex: 0 0 auto;
+}
+header .content {
+  -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/
+  /*height: auto;*/
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-align-items: center; align-items: center;
+  /*-webkit-justify-content: space-between; justify-content: space-between;*/
+}
+
 /* Portfolio */
 .sidescroll .images { /*overflow-x: hidden; overflow-y: hidden;
                       display: -webkit-flex; display: flex;
@@ -277,25 +285,42 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
 .sidescroll .images img { height: 60vh; }
 
 /* Frontpage */
-
-.frontpage { display: -webkit-flex; display: flex;
-             -webkit-flex-direction: row; flex-direction: row;
-             -webkit-align-items: flex-start; align-items: flex-start;
-             -webkit-justify-content: center; justify-content: center;
-             margin: 55px 0 0 0; }
-.frontpage .content { -webkit-flex: 0 0 58vw; flex: 0 0 58vw; /*width: 50vw;*/ /*height: auto;*/ max-width: 1100px;
-                      display: -webkit-flex; display: flex;
-                      -webkit-flex-direction: column; flex-direction: column;
-                      -webkit-align-items: center; align-items: center;
-                      -webkit-justify-content: center; justify-content: center;
-                      margin: 0 5vw 0 5vw; }
-.frontpage article p { text-align: center;
-                       font-size: 0.8em; /*letter-spacing: 0.3em;*/ line-height: 1.6em; }
+.frontpage {
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: row; flex-direction: row;
+  -webkit-align-items: flex-start; align-items: flex-start;
+  -webkit-justify-content: center; justify-content: center;
+  margin: 55px 0 0 0;
+}
+.frontpage .content {
+  -webkit-flex: 0 0 58vw; flex: 0 0 58vw; /*width: 50vw;*/
+  max-width: 1100px;
+  /*height: auto;*/
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-align-items: center; align-items: center;
+  -webkit-justify-content: center; justify-content: center;
+  margin: 0 5vw 0 5vw;
+}
+.frontpage article p {
+  text-align: center;
+  font-size: 0.8em;
+  /*letter-spacing: 0.3em;*/
+  line-height: 1.6em;
+}
 
 /* Latest posts */
-.latest-posts-title { margin: 45px 0 0 0; }
-.latest-posts-title .widget-title { margin-bottom: 10px; /*font-family: 'Montserrat-Regular', Georgia, 'Times New Roman', Times, serif; font-size: 13px;*/ }
-.latest-posts-title .widget-title::after { display: none;  }
+.latest-posts-title {
+  margin: 45px 0 0 0;
+}
+.latest-posts-title .widget-title {
+  margin-bottom: 10px;
+  /*font-family: 'Montserrat-Regular', Georgia, 'Times New Roman', Times, serif;
+  font-size: 13px;*/
+}
+.latest-posts-title .widget-title::after {
+  display: none;
+}
 .latest-posts {
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: row; flex-direction: row;
@@ -305,8 +330,13 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
   margin: 0 0 30px 0;
 }
 /* Crop images: http://codepen.io/KristinB/pen/tdKvL */
-.latest-posts a { width: 33.3%; }
-.latest-posts article { margin: 1px; position: relative; }
+.latest-posts a {
+  width: 33.3%;
+}
+.latest-posts article {
+  margin: 1px;
+  position: relative;
+}
 .latest-posts article .post-preview-hidden {
   position: absolute;
   opacity: 0;
