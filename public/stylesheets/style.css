@@ -292,6 +292,8 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
 .frontpage article p { text-align: center;
                        font-size: 0.8em; /*letter-spacing: 0.3em;*/ line-height: 1.6em; }
 
+/* Latest posts */
+
 .latest-posts-title { margin: 45px 0 0 0; }
 .latest-posts-title .widget-title { margin-bottom: 10px; /*font-family: 'Montserrat-Regular', Georgia, 'Times New Roman', Times, serif; font-size: 13px;*/ }
 .latest-posts-title .widget-title::after { display: none;  }
@@ -510,7 +512,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .frontpage .content { -webkit-flex: 0 0 100%; flex: 0 0 100%; padding: 0 5vw 0 5vw; }
   .latest-posts article { margin-left: 0; margin-right: 0; }
-  .latest-posts article img { width: 100%; max-width: initial; }
+  .latest-posts article img { max-width: 100%; }
 
   footer .content { -webkit-flex: 0 0 85vw; flex: 0 0 85vw; }
   footer .row { -webkit-flex-direction: column; flex-direction: column; padding-top: 0; }
