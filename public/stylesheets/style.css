@@ -289,7 +289,7 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
 /* Crop images: http://codepen.io/KristinB/pen/tdKvL */
 .frontpage-latest-posts article { margin: 1px; }
 .frontpage-latest-posts article header { position: absolute; }
-.frontpage-latest-posts article img { /*width: 365px; height: 259px;*/ width: 364px; /*height: 259px;*/ height: auto; object-fit: cover; overflow: hidden; }
+.frontpage-latest-posts article img { /*width: 365px; height: 259px;*/ width: 100%; max-width: 364px; /*height: 259px;*/ height: auto; object-fit: cover; overflow: hidden; }
 
 /* Footer */
 footer { /*-webkit-flex: 0 0 20vh; flex: 0 0 20vh;*/ /*height: 20vh;*/
