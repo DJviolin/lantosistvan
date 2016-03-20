@@ -3,6 +3,9 @@
   <article class="id-{{data._id}}">
 
     <header class="article id-{{data._id}}">
+      <div class="drawing">
+        <img src="{{data.drawing}}" alt="">
+      </div>
       <time>{{data.month}} {{data.day}}, {{data.year}}</time>
       <h1><a href="/journal/{{data.url}}">{{data.title}}</a></h1>
       <div class="category"><a href="/category/{{data.category}}">{{data.category}}</a></div>

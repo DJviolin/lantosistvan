@@ -329,7 +329,7 @@ header .content { -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/ /*hei
                                                                   -webkit-flex-direction: column; flex-direction: column;
                                                                   -webkit-align-items: center; align-items: center;
                                                                   -webkit-justify-content: center; justify-content: center; }
-.latest-posts article .post-preview-hidden .post-preview-header .drawing { margin: 0 0 10px 0; }
+.drawing { margin: 0 0 10px 0; }
 .latest-posts article .preview-image { /*width: 365px; height: 259px;*/ width: 100%; /*max-width: 364px;*/ height: auto; object-fit: cover; overflow: hidden; }
 
 /* Footer */
