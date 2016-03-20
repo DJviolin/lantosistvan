@@ -36,6 +36,10 @@ router.get('/', function (req, res, next) {
     //var json = gallery;
     //console.log(json);
 
+    var articles = data[1].articles.reverse();
+    var slice = articles.slice(0, 2);
+    var json = [{ articles: slice }];
+
     res.render('portfolio', {
       layout: 'main',
       blogNavCat: false,
@@ -46,7 +50,8 @@ router.get('/', function (req, res, next) {
       bodyClass: 'horizontal',
       actualYear: actualYear,
       siteName: siteName,
-      data: gallery
+      data: gallery,
+      latestPosts: json
     });
   });
 });
