@@ -510,7 +510,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .frontpage .content { -webkit-flex: 0 0 100%; flex: 0 0 100%; padding: 0 5vw 0 5vw; }
   .latest-posts article { margin-left: 0; margin-right: 0; }
-  .latest-posts article img { width: 100%; }
+  .latest-posts article img { width: 100%; max-width: initial; }
 
   footer .content { -webkit-flex: 0 0 85vw; flex: 0 0 85vw; }
   footer .row { -webkit-flex-direction: column; flex-direction: column; padding-top: 0; }
