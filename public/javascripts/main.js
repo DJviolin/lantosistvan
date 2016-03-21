@@ -72,7 +72,7 @@ if(document.body.classList.contains('horizontal')) {
 
 $(document).ready(function() {
   $('.sidescroll .images li').each(function(index) {
-    $('.sidescroll .images img').delay(400 * index).removeClass('lazyload');
+    $(this).delay(400 * index).removeClass('lazyload');
   });
 });
 
