@@ -51,17 +51,30 @@ if(document.body.classList.contains('horizontal')) {
 
 
 // Lazy loading portfolio div
-$(document).ready(function() {
+/*$(document).ready(function() {
   // will fire IMMEDIATELY after the DOM is constructed
   //$(window).on('load', function() {
     // will only fire AFTER all pages assets have loaded
     $('.portfolio').removeClass('lazyload');
     //alert('done');
   //});
-});
+});*/
 
 // Lazy loading portfolio images
+/*$(document).ready(function() {
+  // will fire IMMEDIATELY after the DOM is constructed
+  $('.sidescroll .images img').on('load', function() {
+    // will only fire AFTER all pages assets have loaded
+    $('.sidescroll .images img').removeClass('lazyload');
+    //alert('done');
+  });
+});*/
 
+$(document).ready(function() {
+  $('.sidescroll .images li').each(function(index) {
+    $('.sidescroll .images img').delay(400 * index).removeClass('lazyload');
+  });
+});
 
 
 
