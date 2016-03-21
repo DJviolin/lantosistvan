@@ -70,6 +70,7 @@ if(document.body.classList.contains('horizontal')) {
   });
 });*/
 
+// Lazy loading portfolio images
 /*$(document).ready(function() {
   $('.sidescroll .images img').each(function(index) {
     $(this).delay(400 * index).removeClass('lazyload');
