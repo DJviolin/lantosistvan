@@ -455,8 +455,10 @@ footer .copyright a { font-family: Georgia, 'Times New Roman', Times, serif; }
 .blog article img { width: 100%; }
 
 .blog article { max-width: 600px; }
-.blog article .images { display: -webkit-flex; display: flex;
-                        -webkit-flex-direction: column; flex-direction: column; }
+.blog article .images {
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+}
 .blog article .images li { margin-bottom: 3px; }
 
 .blog article .tags .text { float: left; padding-right: 5px; }
@@ -465,9 +467,16 @@ footer .copyright a { font-family: Georgia, 'Times New Roman', Times, serif; }
 
 .blog article header time { margin-top: 15px; }
 
-.blog .pagination { clear: both; padding: 25px 0 120px 0;
-                    text-align: center; text-transform: lowercase; font-size: 0.95em; letter-spacing: 0.07em;
-                    font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #777; }
+.blog .pagination {
+  clear: both;
+  padding: 25px 0 120px 0;
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 0.95em;
+  letter-spacing: 0.07em;
+  font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #777;
+}
 .blog .pagination a:hover { color: #ccc; }
 
 /* ==========================================================================
