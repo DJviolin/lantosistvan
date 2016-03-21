@@ -1,8 +1,8 @@
 <div class="main portfolio">
-  <div class="content sidescroll">
+  <div class="content sidescroll lazyload">
     <ul class="images">
       {{#each data.images}}
-      <li><img class="lazyload2" src="{{../data.imagesFolder}}{{this}}" alt="{{../siteName}}"></li>
+      <li><img src="{{../data.imagesFolder}}{{this}}" alt="{{../siteName}}"></li>
       {{else}}
       <p class="empty">No content</p>
       {{/each}}

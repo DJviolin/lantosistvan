@@ -184,8 +184,8 @@ li      { list-style: none; }
              -webkit-flex-direction: column; flex-direction: column;
              -webkit-align-items: center; align-items: center; /* Centering hack for blog */ }
 
-.lazyload { display: none; visibility: hidden; overflow-y: hidden; height: 60vh; opacity: 0; }
-.portfolio, .sidescroll .images img { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
+.lazyload { /*display: none;*/ visibility: hidden; overflow-y: hidden; height: 60vh; opacity: 0; }
+.sidescroll { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
 
 /* Logo */
 .logo             { padding: 30px 20px 30px 20px; width: 100%; max-width: 390px; }
