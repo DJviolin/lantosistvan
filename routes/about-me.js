@@ -11,11 +11,11 @@ var functions  = require('../lib/functions'),
 
 /* GET info page. */
 router.get('/', function(req, res, next) {
-  res.render('info', {
+  res.render('about-me', {
     layout: 'main',
     blogNavCat: false,
     titleShown: true,
-    title: 'Info',
+    title: 'About me',
     description: 'Get in touch with ' + siteName,
     keywords: 'info,wedding,photography,film,lantos,istvan',
     //bodyClass: 'info',

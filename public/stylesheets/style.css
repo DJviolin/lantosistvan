@@ -180,9 +180,17 @@ li      { list-style: none; }
    Author's custom styles - common
    ========================================================================== */
 
-.container { display: -webkit-flex; display: flex;
-             -webkit-flex-direction: column; flex-direction: column;
-             -webkit-align-items: center; align-items: center; /* Centering hack for blog */ }
+.container {
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  /*-webkit-align-items: center; align-items: center; /* Centering hack for blog, but needs to turn on slick slider */
+}
+
+.error, .blog, .about-me {
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-align-items: center; align-items: center;
+}
 
 .lazyload { /*display: none;*/ visibility: hidden; overflow-y: hidden; height: 60vh; opacity: 0; }
 .sidescroll .images { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
@@ -276,11 +284,13 @@ header .content {
 }
 
 /* Portfolio */
-.sidescroll .images { /*overflow-x: hidden; overflow-y: hidden;
-                      display: -webkit-flex; display: flex;
-                      -webkit-flex-wrap: nowrap; flex-wrap: nowrap;
-                      -webkit-flex-direction: row; flex-direction: row;*/
-                      /*position: relative;*/ }
+.sidescroll .images {
+  /*overflow-x: hidden; overflow-y: hidden;
+  display: -webkit-flex; display: flex;
+  -webkit-flex-wrap: nowrap; flex-wrap: nowrap;
+  -webkit-flex-direction: row; flex-direction: row;*/
+  /*position: relative;*/
+}
 .sidescroll .images li { margin-right: 3px; background-color: rgb(17, 17, 17); }
 .sidescroll .images li:last-child { margin-right: 0; }
 .sidescroll .images img { height: 60vh; }
@@ -451,7 +461,6 @@ footer .copyright a { font-family: Georgia, 'Times New Roman', Times, serif; }
    Author's custom styles - blog
    ========================================================================== */
 
-/*.blog { -webkit-align-items: center; align-items: center; }*/
 .blog article img { width: 100%; }
 
 .blog article { max-width: 600px; }

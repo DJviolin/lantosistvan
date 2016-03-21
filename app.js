@@ -49,7 +49,7 @@ app.use('/', require('./routes/portfolio'));
 app.use('/journal', require('./routes/blog'));
 app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
-app.use('/info', require('./routes/info'));
+app.use('/about-me', require('./routes/about-me'));
 
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
