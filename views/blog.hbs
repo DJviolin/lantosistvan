@@ -1,4 +1,4 @@
-<main>
+<main class="blog">
 
   {{#each data.[0].articles}}
   <article class="id-{{this._id}}">
@@ -52,4 +52,4 @@
     {{#if paginationLast}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
   </nav><!-- nav.pagination -->
 
-</main><!-- main -->
+</main><!-- main.blog -->

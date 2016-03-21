@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        bodyClass: 'error',
+        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -47,7 +47,7 @@ router.get('/', function (req, res, next) {
       title: 'Hi!',
       description: 'Home page of ' + siteName,
       keywords: 'wedding,photography,film,lantos,istvan',
-      bodyClass: 'horizontal',
+      //bodyClass: 'horizontal',
       actualYear: actualYear,
       siteName: siteName,
       data: gallery,
@@ -72,7 +72,7 @@ router.get('/', function (req, res, next) {
       title: 'Hi!',
       description: 'Home page of ' + siteName,
       keywords: 'wedding,photography,film,lantos,istvan',
-      bodyClass: 'horizontal',
+      //bodyClass: 'horizontal',
       actualYear: actualYear,
       siteName: siteName,
       imagesFolder: '\/portfolio\/weddings\/',

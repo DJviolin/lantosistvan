@@ -27,7 +27,7 @@ router.get('/', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        bodyClass: 'error',
+        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -45,7 +45,7 @@ router.get('/', function (req, res, next) {
       title: 'Journal',
       description: 'Journal of ' + siteName,
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      bodyClass: 'blog',
+      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'journal',
@@ -76,7 +76,7 @@ router.get('/', function (req, res, next) {
       title: 'Journal',
       description: 'Journal of ' + siteName,
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      bodyClass: 'blog',
+      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'journal',
@@ -102,7 +102,7 @@ router.get('/page/:id', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        bodyClass: 'error',
+        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -146,7 +146,7 @@ router.get('/page/:id', function (req, res, next) {
       title: 'Journal',
       description: 'Journal of ' + siteName,
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      bodyClass: 'blog',
+      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'journal',
@@ -177,7 +177,7 @@ router.get('/:url', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        bodyClass: 'error',
+        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -198,7 +198,7 @@ router.get('/:url', function (req, res, next) {
       title: selectedArticle.title,
       description: selectedArticle.description,
       keywords: selectedArticle.keywords,
-      bodyClass: 'blog',
+      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       data: selectedArticle

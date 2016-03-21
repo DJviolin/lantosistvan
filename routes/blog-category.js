@@ -26,7 +26,7 @@ router.get('/:cat', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        bodyClass: 'error',
+        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -56,7 +56,7 @@ router.get('/:cat', function (req, res, next) {
       title: 'Category: ' + req.params.cat,
       description: 'Category page of ' + siteName,
       keywords: 'category,wedding,photography,film,lantos,istvan',
-      bodyClass: 'blog',
+      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'category',
@@ -85,7 +85,7 @@ router.get('/:cat/page/:id', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        bodyClass: 'error',
+        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -135,7 +135,7 @@ router.get('/:cat/page/:id', function (req, res, next) {
       title: 'Category: ' + req.params.cat,
       description: 'Category page of ' + siteName,
       keywords: 'category,wedding,photography,film,lantos,istvan',
-      bodyClass: 'blog',
+      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'category',
