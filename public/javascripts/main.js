@@ -55,7 +55,7 @@ $(document).ready(function() {
   // will fire IMMEDIATELY after the DOM is constructed
   $(window).on('load', function() {
     // will only fire AFTER all pages assets have loaded
-    $('.sidescroll').removeClass('lazyload');
+    $('.sidescroll .images').removeClass('lazyload');
     //alert('done');
   });
 });
