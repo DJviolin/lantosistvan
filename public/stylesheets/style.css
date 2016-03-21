@@ -619,6 +619,10 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 _:-ms-fullscreen, :root .logo { width: 390px; }
 /* https://github.com/philipwalton/flexbugs */
 _:-ms-fullscreen, :root footer .content { box-sizing: border-box; }
+/* object-fit hack for IE 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+   .latest-posts article .preview-image { max-width: 364px; }
+}
 
 /* ==========================================================================
    Browser Upgrade Prompt - IE 9-
