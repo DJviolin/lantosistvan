@@ -459,11 +459,11 @@ footer .copyright a { font-family: Georgia, 'Times New Roman', Times, serif; }
                         -webkit-flex-direction: column; flex-direction: column; }
 .blog article .images li { margin-bottom: 3px; }
 
-.blog .tags .text { float: left; padding-right: 5px; }
-.blog .tags li { float: left; }
-.blog .tags li + li::before { content: ', '; }
+.blog article .tags .text { float: left; padding-right: 5px; }
+.blog article .tags li { float: left; }
+.blog article .tags li + li::before { content: ', '; }
 
-.blog header time { margin-top: 15px; }
+.blog article header time { margin-top: 15px; }
 
 .blog .pagination { clear: both; padding: 25px 0 120px 0;
                     text-align: center; text-transform: lowercase; font-size: 0.95em; letter-spacing: 0.07em;
