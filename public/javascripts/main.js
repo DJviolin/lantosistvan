@@ -70,11 +70,11 @@ if(document.body.classList.contains('horizontal')) {
   });
 });*/
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   $('.sidescroll .images img').each(function(index) {
     $(this).delay(400 * index).removeClass('lazyload');
   });
-});
+});*/
 
 
 
