@@ -30,6 +30,16 @@ router.get('/', function (req, res, next) {
       });
     }
 
+    // Cookies
+    /*if(req.query.lang === 'hu') {
+      res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true })
+      console.log('---LOCALE-HU--- ', req.cookies.locale);
+    };
+    if(req.query.lang === 'en') {
+      res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true })
+      console.log('---LOCALE-EN--- ', req.cookies.locale);
+    };*/
+
     var gallery = data[0].gallery.portfolio.love;
     //var json = gallery;
     //console.log(json);
@@ -37,8 +47,6 @@ router.get('/', function (req, res, next) {
     var articles = data[1].articles.reverse();
     var slice = articles.slice(0, 6);
     var json = [{ articles: slice }];
-
-    console.log('locale: ', req.cookies);
 
     res.render('portfolio', {
       layout: 'main',
