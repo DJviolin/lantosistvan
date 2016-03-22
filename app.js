@@ -69,14 +69,14 @@ app.all('*', function (req, res) {
   if(req.query.lang === 'hu') {
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true })
     //res.send('CookiesHU: ', req.cookies);
-    res.send('CookiesHU: ', req.cookies.locale);
-    console.log('CookiesHU: ', req.cookies);
+    res.send('---LOCALE-HU--- ', req.cookies.locale);
+    console.log('---LOCALE-HU--- ', req.cookies);
   };
   if(req.query.lang === 'en') {
     res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true })
     //res.send('CookiesEN: ', req.cookies);
-    res.send('CookiesEN: ', req.cookies.locale);
-    console.log('CookiesEN: ', req.cookies);
+    res.send('---LOCALE-EN--- ', req.cookies.locale);
+    console.log('---LOCALE-EN--- ', req.cookies);
   };
 });
 // i18n
