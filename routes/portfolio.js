@@ -38,6 +38,8 @@ router.get('/', function (req, res, next) {
     var slice = articles.slice(0, 6);
     var json = [{ articles: slice }];
 
+    console.log('locale: ', req.cookies);
+
     res.render('portfolio', {
       layout: 'main',
       titleShown: false,
