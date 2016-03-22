@@ -16,7 +16,16 @@ var app = express();
 // VIEW ENGINE SETUP
 /////////////////////////////////////////////////////////////
 
-app.engine('.hbs', exphbs({extname: '.hbs', defaultLayout: 'main'}));
+app.engine('.hbs', exphbs({
+  extname: '.hbs',
+  defaultLayout: 'main',
+  // Specify helpers which are only registered on this instance. 
+  helpers: {
+    // register hbs helpers in res.locals' context which provides this.locale
+    __: function() { return i18n.__.apply(this, arguments); },
+    __n: function() { return i18n.__n.apply(this, arguments); }
+  }
+}));
 app.set('view engine', '.hbs');
 
 /////////////////////////////////////////////////////////////
@@ -69,14 +78,6 @@ i18n.configure({
 });
 // init i18n module for this loop
 app.use(i18n.init);
-
-// register hbs helpers in res.locals' context which provides this.locale
-hbs.registerHelper('__', function () {
-  return i18n.__.apply(this, arguments);
-});
-hbs.registerHelper('__n', function () {
-  return i18n.__n.apply(this, arguments);
-});
 
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
