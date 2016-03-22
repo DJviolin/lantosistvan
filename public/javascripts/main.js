@@ -133,29 +133,12 @@ $(document).ready(function() {
 // Lazy loading portfolio div
 $(document).ready(function() {
   // will fire IMMEDIATELY after the DOM is constructed
-  $(window).on('load', function() {
+  //$(window).on('load', function() {
     // will only fire AFTER all pages assets have loaded
     $('.sidescroll .images').removeClass('lazyload');
     //alert('done');
-  });
+  //});
 });
-
-// Lazy loading portfolio images
-/*$(document).ready(function() {
-  // will fire IMMEDIATELY after the DOM is constructed
-  $('.sidescroll .images img').on('load', function() {
-    // will only fire AFTER all pages assets have loaded
-    $('.sidescroll .images img').removeClass('lazyload');
-    //alert('done');
-  });
-});*/
-
-// Lazy loading portfolio images
-/*$(document).ready(function() {
-  $('.sidescroll .images img').each(function(index) {
-    $(this).delay(400 * index).removeClass('lazyload');
-  });
-});*/
 
 
 
