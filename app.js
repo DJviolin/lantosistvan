@@ -78,7 +78,7 @@ app.all('*:lang', function (req, res) {
   };
 });
 app.get('/cookie', function (req, res) {
-  res.send('Cookie: ', req.cookies);
+  res.send('Cookie: ', req.cookies.locale);
 });
 // i18n
 //app.all('*', require('./routes/cookies'));
