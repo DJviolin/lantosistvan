@@ -82,8 +82,20 @@ i18n.configure({
   cookie: 'locale',
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL 
   queryParameter: 'lang',
-  // where to store json files - defaults to './locales' relative to modules directory 
-  directory: './mylocales'
+  // where to store json files - defaults to './locales' relative to modules directory
+  directory: './mylocales',
+  // controll mode on directory creation - defaults to NULL which defaults to umask of process user. Setting has no effect on win. 
+  directoryPermissions: '755',
+  // watch for changes in json files to reload locale on updates - defaults to false 
+  autoReload: true,
+  // whether to write new locale information to disk - defaults to true 
+  updateFiles: true,
+  // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias). 
+  // note that this will *not* overwrite existing properties with the same name 
+  api: {
+    '__': '__',  //now req.__ becomes req.__
+    '__n': 'tn' //and req.__n can be called as req.__n
+  }
 });
 // init i18n module for this loop
 app.use(i18n.init);
