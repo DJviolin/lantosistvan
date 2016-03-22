@@ -82,8 +82,8 @@ i18n.configure({
   cookie: 'locale',
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL 
   queryParameter: 'lang',
-  // where to store json files - defaults to './locales'
-  directory: '' + __dirname + '/locales'
+  // where to store json files - defaults to './locales' relative to modules directory 
+  directory: './mylocales'
 });
 // init i18n module for this loop
 app.use(i18n.init);
