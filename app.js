@@ -64,14 +64,6 @@ app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/about-me', require('./routes/about-me'));
 // i18n
-/*app.all('*?lang=hu', function (req, res) {
-  res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
-  console.log('Cookies: ', req.cookies);
-});
-app.all('*?lang=en', function (req, res) {
-  res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
-  console.log('Cookies: ', req.cookies);
-});*/
 app.all('/valami', function (req, res) {
   if(req.query.lang === 'hu') {
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true })
