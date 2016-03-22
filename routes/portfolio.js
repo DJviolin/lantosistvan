@@ -42,7 +42,7 @@ router.get('/', function (req, res, next) {
 
     res.render('portfolio', {
       layout: 'main',
-      blogNavCat: false,
+      blogNavCat: true,
       titleShown: false,
       title: 'Hi!',
       description: 'Home page of ' + siteName,
@@ -67,7 +67,7 @@ router.get('/', function (req, res, next) {
     var results = images;
     res.render('portfolio', {
       layout: 'main',
-      blogNavCat: false,
+      blogNavCat: true,
       titleShown: false,
       title: 'Hi!',
       description: 'Home page of ' + siteName,
