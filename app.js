@@ -72,7 +72,6 @@ app.all('*?lang=en', function (req, res) {
   res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
   console.log('Cookies: ', req.cookies);
 });*/
-
 app.all('*', function (req, res) {
   if(req.query.lang === 'hu') {
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true })
