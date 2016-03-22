@@ -57,10 +57,8 @@ app.use('/about-me', require('./routes/about-me'));
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
-  // setup some locales - other locales default to en silently
-  locales:['de', 'en'],
-  // disable locale file updates
-  updateFiles: false
+  locales:['en', 'hu'],
+  directory: __dirname + '/locales'
 });
 
 /////////////////////////////////////////////////////////////
