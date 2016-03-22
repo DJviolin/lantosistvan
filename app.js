@@ -46,7 +46,7 @@ app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 app.use('/api', require('./routes/api-external'));
 // Dynamic
 app.use('/', require('./routes/portfolio'));
-app.use('/journal', require('./routes/blog'));
+app.use('/blog', require('./routes/blog'));
 app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/about-me', require('./routes/about-me'));

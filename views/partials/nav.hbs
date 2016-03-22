@@ -5,26 +5,34 @@
 <div class="navigation">
   <nav class="main-nav">
     <ul>
-      <li><a href="/">Love</a>
+      <li><a href="/">Portfolio</a>
         <ul>
-          <li><a href="/">Weddings</a></li>
-          <li><a href="/families">Families</a></li>
+          <li><a href="/">Esküvők</a></li>
+          <li><a href="/families">Család</a></li>
         </ul>
       </li>
       <li><a href="/stories">Történetek</a>
       <ul>
-        <li><a href="/journal/szalai-family">Szalai család</a></li>
+        <li><a href="/blog/szalai-family">Szalai család</a></li>
         <li><a href="#">Barbi &#38; balázs</a></li>
       </ul>
       </li>
-      <li><a href="/journal">Blog</a></li>
-      {{#if blogNavCat}}
-      <li><a href="#">Categories</a>
+      <li><a href="/blog">Blog</a>
         <ul>
-          <li><a href="/category/wedding">Wedding</a></li>
-          <li><a href="/category/family">Family</a></li>
+          <li><a href="/blog">Összes</a></li>
+          <li><a href="/category/wedding">Esküvő</a></li>
+          <li><a href="/category/family">Család</a></li>
+          <li><a href="/category/family">Fotósoknak</a></li>
         </ul>
       </li>
+      {{#if blogNavCat}}
+      <!--<li><a href="#">Kategóriák</a>
+        <ul>
+          <li><a href="/category/wedding">Esküvő</a></li>
+          <li><a href="/category/family">Család</a></li>
+          <li><a href="/category/family">Fotósoknak</a></li>
+        </ul>
+      </li>-->
       {{/if}}
       <li><a href="/information">Szolgáltatások</a></li>
       <li><a href="/about-me">Rólam</a></li>
