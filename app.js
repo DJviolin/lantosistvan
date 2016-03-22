@@ -77,6 +77,8 @@ app.all('*', function (req, res) {
     console.log('CookiesEN: ', req.cookies);
   };
 });
+// i18n
+//app.all('*', require('./routes/cookies'));
 
 /////////////////////////////////////////////////////////////
 // Translation
