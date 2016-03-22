@@ -59,6 +59,7 @@ app.use('/about-me', require('./routes/about-me'));
 // Translation
 // https://www.npmjs.com/package/i18n
 // https://gist.github.com/mashpie/5246334
+// https://www.codementor.io/nodejs/tutorial/cookie-management-in-express-js
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
@@ -66,20 +67,8 @@ i18n.configure({
   cookie: 'locale',
   directory: '' + __dirname + '/locales'
 });
-
-app.configure(function () {
-  // setup hbs
-  app.set('views', '' + __dirname + '/views');
-  app.set('view engine', 'hbs');
-  app.engine('hbs', hbs.__express);
-
-  // you'll need cookies
-  app.use(express.cookieParser());
-
-  // init i18n module for this loop
-  app.use(i18n.init);
-
-});
+// init i18n module for this loop
+app.use(i18n.init);
 
 // register hbs helpers in res.locals' context which provides this.locale
 hbs.registerHelper('__', function () {
