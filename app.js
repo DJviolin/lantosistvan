@@ -19,7 +19,7 @@ var app = express();
 app.engine('.hbs', exphbs({
   extname: '.hbs',
   defaultLayout: 'main',
-  // Specify helpers which are only registered on this instance. 
+  // Specify helpers which are only registered on this instance
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
     __: function() { return i18n.__.apply(this, arguments); },
