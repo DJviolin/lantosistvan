@@ -74,10 +74,14 @@ app.use('/about-me', require('./routes/about-me'));
 i18n.configure({
   // setup some locales - other locales default to en silently
   locales: ['hu', 'en'],
-  // setup default locale
+  // fall back from English to Hungarian
+  fallbacks: {'en': 'hu'},
+  // you may alter a site wide default locale
   defaultLocale: 'hu',
-  // sets a custom cookie name to parse locale settings from
+  // sets a custom cookie name to parse locale settings from - defaults to NULL
   cookie: 'locale',
+  // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL 
+  queryParameter: 'lang',
   // where to store json files - defaults to './locales'
   directory: '' + __dirname + '/locales'
 });
