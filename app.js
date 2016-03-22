@@ -54,11 +54,14 @@ app.use('/about-me', require('./routes/about-me'));
 
 /////////////////////////////////////////////////////////////
 // Translation
+// https://www.npmjs.com/package/i18n
+// https://gist.github.com/mashpie/5246334
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
-  locales:['en', 'hu'],
-  directory: __dirname + '/locales'
+  locales: ['en', 'hu'],
+  cookie: 'locale',
+  directory: '' + __dirname + '/locales'
 });
 
 /////////////////////////////////////////////////////////////
