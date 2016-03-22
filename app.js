@@ -22,8 +22,8 @@ app.engine('.hbs', exphbs({
   // Specify helpers which are only registered on this instance
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
-    __: function() { return i18n.__.apply(this, arguments); },
-    __n: function() { return i18n.__n.apply(this, arguments); }
+    hu: function() { return i18n.hu.apply(this, arguments); },
+    en: function() { return i18n.en.apply(this, arguments); }
   }
 }));
 app.set('view engine', '.hbs');
@@ -72,7 +72,7 @@ app.use('/about-me', require('./routes/about-me'));
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
-  locales: ['en', 'hu'],
+  locales: ['hu', 'en'],
   cookie: 'locale',
   directory: '' + __dirname + '/locales'
 });
