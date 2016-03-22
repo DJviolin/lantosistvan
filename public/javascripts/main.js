@@ -50,6 +50,86 @@ if(document.body.classList.contains('horizontal')) {
 
 
 
+// Slick slider - Responsive
+/*$(window).on('resize', function() {
+  if ($(this).width() > 1600) {
+    //code
+  }
+  else {
+    //code
+  };
+});
+$(document).ready(function() {
+  $(window).resize();
+});*/
+
+// Slick slider - Responsive
+function bindSlick() {
+  $('.sidescroll .images').slick({
+    dots: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 20, // Set at least half of all slides
+    centerMode: true,
+    initialSlide: 0, // Fix for centerMode with 1
+    variableWidth: true,
+
+    arrows: true,
+    draggable: true,
+    swipeToSlide: true,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 3000
+  });
+  //console.log('bindSlick() fired...');
+}
+function unbindSlick() {
+  $('.sidescroll .images').slick('unslick');
+  //console.log('unbindSlick() fired...');
+}
+function handleSlick() {
+  if ($(window).width() > 1600) {
+    bindSlick();
+  } else {
+    unbindSlick(); 
+  }
+}
+/*$(document).ready(function() {
+  // The resize event is fired lots of times during resizing.
+  // If you use a timer inside the resize callback that resets and
+  // starts everytime the resize event fires, you prevent those 'double' fires.
+  var timer;
+  $(window).on('load resize', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      handleSlick();
+    }, 100);
+  });
+  handleSlick();
+});*/
+$(document).ready(function() {
+  $(window).on('load', function() {
+    handleSlick();
+    console.log('handleSlick() fired on load...');
+  });
+  // The resize event is fired lots of times during resizing.
+  // If you use a timer inside the resize callback that resets and
+  // starts everytime the resize event fires, you prevent those 'double' fires.
+  var timer;
+  $(window).on('resize', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      handleSlick();
+      console.log('handleSlick() fired on resize...');
+    }, 100);
+    //console.log('jquery on window resize');
+  });
+  //handleSlick();
+});
+
+
+
+
 // Lazy loading portfolio div
 $(document).ready(function() {
   // will fire IMMEDIATELY after the DOM is constructed
@@ -137,86 +217,6 @@ window.addEventListener('load', function() {
   $('.menu').on('click', function(e){
     $('.main-nav').toggleClass('active');
     e.preventDefault();
-});
-
-
-
-
-// Slick slider - Responsive
-/*$(window).on('resize', function() {
-  if ($(this).width() > 1600) {
-    //code
-  }
-  else {
-    //code
-  };
-});
-$(document).ready(function() {
-  $(window).resize();
-});*/
-
-// Slick slider - Responsive
-function bindSlick() {
-  $('.sidescroll .images').slick({
-    dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 20, // Set at least half of all slides
-    centerMode: true,
-    initialSlide: 0, // Fix for centerMode with 1
-    variableWidth: true,
-
-    arrows: true,
-    draggable: true,
-    swipeToSlide: true,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 3000
-  });
-  //console.log('bindSlick() fired...');
-}
-function unbindSlick() {
-  $('.sidescroll .images').slick('unslick');
-  //console.log('unbindSlick() fired...');
-}
-function handleSlick() {
-  if ($(window).width() > 1600) {
-    bindSlick();
-  } else {
-    unbindSlick(); 
-  }
-}
-/*$(document).ready(function() {
-  // The resize event is fired lots of times during resizing.
-  // If you use a timer inside the resize callback that resets and
-  // starts everytime the resize event fires, you prevent those 'double' fires.
-  var timer;
-  $(window).on('load resize', function() {
-    clearTimeout(timer);
-    timer = setTimeout(function() {
-      handleSlick();
-    }, 100);
-  });
-  handleSlick();
-});*/
-$(document).ready(function() {
-  $(window).on('load', function() {
-    handleSlick();
-    console.log('handleSlick() fired on load...');
-  });
-  // The resize event is fired lots of times during resizing.
-  // If you use a timer inside the resize callback that resets and
-  // starts everytime the resize event fires, you prevent those 'double' fires.
-  var timer;
-  $(window).on('resize', function() {
-    clearTimeout(timer);
-    timer = setTimeout(function() {
-      handleSlick();
-      console.log('handleSlick() fired on resize...');
-    }, 100);
-    //console.log('jquery on window resize');
-  });
-  //handleSlick();
 });
 
 
