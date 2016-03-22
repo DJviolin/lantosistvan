@@ -72,8 +72,10 @@ app.use('/about-me', require('./routes/about-me'));
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
-  // setup some locales - other locales default to hu silently
+  // setup some locales - other locales default to en silently
   locales: ['hu', 'en'],
+  // setup default locale
+  defaultLocale: 'hu',
   // sets a custom cookie name to parse locale settings from
   cookie: 'locale',
   // where to store json files - defaults to './locales'
