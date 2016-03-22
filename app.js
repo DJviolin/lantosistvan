@@ -65,16 +65,14 @@ app.use('/tag', require('./routes/blog-tag'));
 app.use('/about-me', require('./routes/about-me'));
 // i18n
 //app.all('/valami', function (req, res) {
-app.all('*', function (req, res) {
+app.all('*:lang', function (req, res) {
   if(req.query.lang === 'hu') {
-    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true })
-    //res.send('CookiesHU: ', req.cookies);
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
     res.send('---LOCALE-HU--- ', req.cookies.locale);
     console.log('---LOCALE-HU--- ', req.cookies);
   };
   if(req.query.lang === 'en') {
-    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true })
-    //res.send('CookiesEN: ', req.cookies);
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
     res.send('---LOCALE-EN--- ', req.cookies.locale);
     console.log('---LOCALE-EN--- ', req.cookies);
   };
@@ -87,6 +85,7 @@ app.all('*', function (req, res) {
 // https://www.npmjs.com/package/i18n
 // https://gist.github.com/mashpie/5246334
 // https://www.codementor.io/nodejs/tutorial/cookie-management-in-express-js
+// https://github.com/expressjs/express/blob/master/examples/cookies/index.js
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
