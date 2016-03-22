@@ -21,12 +21,10 @@ router.get('/:tag', function (req, res, next) {
     if (err) {
       return res.render('404', {
         layout: 'main',
-        blogNavCat: true,
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -62,12 +60,10 @@ router.get('/:tag', function (req, res, next) {
     // Rendering content
     res.render('blog', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
       description: 'Tags of ' + siteName,
       keywords: 'tag,wedding,photography,film,lantos,istvan',
-      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'tag',
@@ -91,12 +87,10 @@ router.get('/:tag/page/:id', function (req, res, next) {
     if (err) {
       return res.render('404', {
         layout: 'main',
-        blogNavCat: true,
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -148,12 +142,10 @@ router.get('/:tag/page/:id', function (req, res, next) {
 
     res.render('blog', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
       description: 'Tags of ' + siteName,
       keywords: 'tag,wedding,photography,film,lantos,istvan',
-      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'tag',

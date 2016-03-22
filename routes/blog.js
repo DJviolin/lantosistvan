@@ -22,12 +22,10 @@ router.get('/', function (req, res, next) {
     if (err) {
       return res.render('404', {
         layout: 'main',
-        blogNavCat: true,
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -40,12 +38,10 @@ router.get('/', function (req, res, next) {
 
     res.render('blog', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: true,
       title: 'Journal',
       description: 'Journal of ' + siteName,
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'journal',
@@ -71,12 +67,10 @@ router.get('/', function (req, res, next) {
     var articles = [{ articles: JSON.parse(body) }];
     res.render('blog', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: true,
       title: 'Journal',
       description: 'Journal of ' + siteName,
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'journal',
@@ -97,12 +91,10 @@ router.get('/page/:id', function (req, res, next) {
     if (err) {
       return res.render('404', {
         layout: 'main',
-        blogNavCat: true,
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -141,12 +133,10 @@ router.get('/page/:id', function (req, res, next) {
 
     res.render('blog', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: true,
       title: 'Journal',
       description: 'Journal of ' + siteName,
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       divClass: 'journal',
@@ -172,12 +162,10 @@ router.get('/:url', function (req, res, next) {
     if (err) {
       return res.render('404', {
         layout: 'main',
-        blogNavCat: true,
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -193,12 +181,10 @@ router.get('/:url', function (req, res, next) {
     // render your page with selectedArticle
     res.render('blog-article', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: true,
       title: selectedArticle.title,
       description: selectedArticle.description,
       keywords: selectedArticle.keywords,
-      //bodyClass: 'blog',
       actualYear: actualYear,
       siteName: siteName,
       data: selectedArticle

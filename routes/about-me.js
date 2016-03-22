@@ -13,12 +13,10 @@ var functions  = require('../lib/functions'),
 router.get('/', function(req, res, next) {
   res.render('about-me', {
     layout: 'main',
-    blogNavCat: true,
     titleShown: true,
     title: 'About me',
     description: 'Get in touch with ' + siteName,
     keywords: 'info,wedding,photography,film,lantos,istvan',
-    //bodyClass: 'info',
     actualYear: actualYear,
     siteName: siteName
   });

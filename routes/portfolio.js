@@ -21,12 +21,10 @@ router.get('/', function (req, res, next) {
     if (err) {
       return res.render('404', {
         layout: 'main',
-        blogNavCat: false,
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        //bodyClass: 'error',
         actualYear: actualYear,
         siteName: siteName
       });
@@ -42,12 +40,10 @@ router.get('/', function (req, res, next) {
 
     res.render('portfolio', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: false,
       title: 'Hi!',
       description: 'Home page of ' + siteName,
       keywords: 'wedding,photography,film,lantos,istvan',
-      //bodyClass: 'horizontal',
       actualYear: actualYear,
       siteName: siteName,
       data: gallery,
@@ -67,12 +63,10 @@ router.get('/', function (req, res, next) {
     var results = images;
     res.render('portfolio', {
       layout: 'main',
-      blogNavCat: true,
       titleShown: false,
       title: 'Hi!',
       description: 'Home page of ' + siteName,
       keywords: 'wedding,photography,film,lantos,istvan',
-      //bodyClass: 'horizontal',
       actualYear: actualYear,
       siteName: siteName,
       imagesFolder: '\/portfolio\/weddings\/',
