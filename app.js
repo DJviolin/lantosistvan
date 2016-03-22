@@ -4,6 +4,7 @@ var express        = require('express'),
     serveStatic    = require('serve-static'),
     serveIndex     = require('serve-index'),
     bodyParser     = require('body-parser'),
+    cookieParser   = require('cookie-parser'),
     methodOverride = require('method-override'),
     compression    = require('compression'),
     exphbs         = require('express-handlebars'),
@@ -26,6 +27,8 @@ app.set('view engine', '.hbs');
 // This will let us get the data from a POST
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// cookieParser
+app.use(cookieParser());
 // methodOverride
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
@@ -62,6 +65,28 @@ i18n.configure({
   locales: ['en', 'hu'],
   cookie: 'locale',
   directory: '' + __dirname + '/locales'
+});
+
+app.configure(function () {
+  // setup hbs
+  app.set('views', '' + __dirname + '/views');
+  app.set('view engine', 'hbs');
+  app.engine('hbs', hbs.__express);
+
+  // you'll need cookies
+  app.use(express.cookieParser());
+
+  // init i18n module for this loop
+  app.use(i18n.init);
+
+});
+
+// register hbs helpers in res.locals' context which provides this.locale
+hbs.registerHelper('__', function () {
+  return i18n.__.apply(this, arguments);
+});
+hbs.registerHelper('__n', function () {
+  return i18n.__n.apply(this, arguments);
 });
 
 /////////////////////////////////////////////////////////////
