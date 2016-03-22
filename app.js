@@ -77,7 +77,7 @@ i18n.configure({
   // sets a custom cookie name to parse locale settings from
   cookie: 'locale',
   // where to store json files - defaults to './locales'
-  directory: __dirname + '/locales'
+  directory: '' + __dirname + '/locales'
 });
 // init i18n module for this loop
 app.use(i18n.init);
