@@ -87,7 +87,7 @@ i18n.configure({
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL 
   queryParameter: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
-  directory: './mylocales',
+  directory: './locales',
   // controll mode on directory creation - defaults to NULL which defaults to umask of process user. Setting has no effect on win. 
   directoryPermissions: '755',
   // watch for changes in json files to reload locale on updates - defaults to false 
