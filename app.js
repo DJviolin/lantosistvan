@@ -7,7 +7,8 @@ var express        = require('express'),
     methodOverride = require('method-override'),
     compression    = require('compression'),
     exphbs         = require('express-handlebars'),
-    logger         = require('morgan');
+    logger         = require('morgan'),
+    i18n           = require('i18n');
 var app = express();
 
 /////////////////////////////////////////////////////////////
