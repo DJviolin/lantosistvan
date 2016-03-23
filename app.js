@@ -125,9 +125,10 @@ app.all('*', function (req, res) {
     //console.log('---LOCALE-EN--- ', req.cookies.locale);
   };
 });
-/*app.get('/cookie', function (req, res) {
-  res.send('Cookie: ', req.cookies.locale);
-});*/
+app.get('/hello', function(req, res) {
+  res.send('hello world');
+  //console.log('Cookies: ', req.cookies);
+});
 // i18n
 //app.all('*', require('./routes/cookies'));
 
