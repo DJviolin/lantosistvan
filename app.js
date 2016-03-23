@@ -128,15 +128,6 @@ i18n.configure({
 // init i18n module for this loop
 app.use(i18n.init);
 
-app.all('*', function (req, res) {
-  if(req.query.lang === 'hu') {
-    i18n.setLocale('hu');
-  };
-  if(req.query.lang === 'en') {
-    i18n.setLocale('en');
-  };
-});
-
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
 /////////////////////////////////////////////////////////////
