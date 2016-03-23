@@ -7,13 +7,13 @@
         <img src="{{data.drawing}}" alt="">
       </div>
       <time>{{data.month}} {{data.day}}, {{data.year}}</time>
-      <h1><a href="/journal/{{data.url}}">{{data.title}}</a></h1>
+      <h1><a href="/blog/{{data.url}}">{{data.title}}</a></h1>
       <div class="category"><a href="/category/{{data.category}}">{{data.category}}</a></div>
     </header><!-- header.article.id-{{data._id}} -->
 
     <div class="article content">
     
-      <p>{{data.body}}</p>
+      <p>{{__ data.body}}</p>
 
       <ul class="images">
         {{#each data.images}}

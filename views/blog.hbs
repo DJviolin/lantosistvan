@@ -8,13 +8,13 @@
         <img src="{{this.drawing}}" alt="">
       </div>
       <time>{{this.month}} {{this.day}}, {{this.year}}</time>
-      <h1><a href="/journal/{{this.url}}">{{this.title}}</a></h1>
+      <h1><a href="/blog/{{this.url}}">{{this.title}}</a></h1>
       <div class="category"><a href="/category/{{this.category}}">{{this.category}}</a></div>
     </header><!-- header.article.id-{{this._id}} -->
 
     <div class="article content">
 
-      <p>{{this.body}}</p>
+      <p>{{../__ this.body}}</p>
 
       <ul class="images">
         {{#each images}}
