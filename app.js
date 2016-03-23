@@ -115,9 +115,12 @@ app.get('/:lang', function (req, res) {
   if(req.params.lang === 'hu') { // http://127.0.0.1:3000/hu
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
     res.redirect('back');
-  };
-  if(req.params.lang === 'en') { // http://127.0.0.1:3000/en
+  }
+  else if(req.params.lang === 'en') { // http://127.0.0.1:3000/en
     res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+    res.redirect('back');
+  }
+  else {
     res.redirect('back');
   };
 });
