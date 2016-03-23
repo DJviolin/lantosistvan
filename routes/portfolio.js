@@ -30,16 +30,6 @@ router.get('/', function (req, res, next) {
       });
     }
 
-    // Cookies
-    /*if(req.query.lang === 'hu') {
-      res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true })
-      console.log('---LOCALE-HU--- ', req.cookies.locale);
-    };
-    if(req.query.lang === 'en') {
-      res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true })
-      console.log('---LOCALE-EN--- ', req.cookies.locale);
-    };*/
-
     var gallery = data[0].gallery.portfolio.love;
     //var json = gallery;
     //console.log(json);
