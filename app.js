@@ -114,7 +114,7 @@ i18n.configure({
   // note that this will *not* overwrite existing properties with the same name 
   api: {
     '__': '__',  //now req.__ becomes req.__
-    '__n': 'tn' //and req.__n can be called as req.__n
+    '__n': '__n' //and req.__n can be called as req.__n
   }
 });
 // init i18n module for this loop
