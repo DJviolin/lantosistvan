@@ -135,25 +135,24 @@ app.use('/about-me', require('./routes/about-me'));
 });*/
 
 // i18n
-app.get('/cookie', function(req, res) {
+app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
   res.send(req.cookies);
 });
 
-app.get('/clearcookie', function(req, res){
+app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
   res.redirect('/cookie');
 });
 
-app.get('/p', function(req, res) {
-  // http://127.0.0.1:3000/p?tagId=5
+app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
   res.send('tagId is set to ' + req.query.tagId);
 });
 
 app.get('/', function (req, res) {
-  if(req.query.lang === 'hu') {
+  if(req.query.lang === 'hu') { // http://127.0.0.1:3000/?lang=hu
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
   };
-  if(req.query.lang === 'en') {
+  if(req.query.lang === 'en') { // http://127.0.0.1:3000/?lang=en
     res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
   };
 });
