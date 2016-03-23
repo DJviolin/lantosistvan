@@ -151,6 +151,11 @@ app.get('/clearcookie', function(req, res){
   res.redirect('/cookie');
 });
 
+app.get('/p', function(req, res) {
+  // http://127.0.0.1:3000/p?tagId=5
+  res.send('tagId is set to ' + req.query.tagId);
+});
+
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
 /////////////////////////////////////////////////////////////
