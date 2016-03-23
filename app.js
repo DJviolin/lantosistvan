@@ -156,6 +156,15 @@ app.get('/p', function(req, res) {
   res.send('tagId is set to ' + req.query.tagId);
 });
 
+app.get('/', function (req, res) {
+  if(req.query.lang === 'hu') {
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+  };
+  if(req.query.lang === 'en') {
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  };
+});
+
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
 /////////////////////////////////////////////////////////////
