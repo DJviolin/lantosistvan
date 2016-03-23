@@ -111,7 +111,7 @@ app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/about-me', require('./routes/about-me'));
 // i18n
-app.all('*', function (req, res) {
+/*app.all('*', function (req, res) {
   if(req.query.lang === 'hu') {
     //i18n.setLocale(res, 'hu');
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
@@ -124,10 +124,9 @@ app.all('*', function (req, res) {
     //res.send('---LOCALE-EN--- ', req.cookies.locale);
     //console.log('---LOCALE-EN--- ', req.cookies.locale);
   };
-});
+});*/
 app.get('/hello', function(req, res) {
-  res.send('hello world');
-  //console.log('Cookies: ', req.cookies);
+  res.send(req.cookies);
 });
 // i18n
 //app.all('*', require('./routes/cookies'));
