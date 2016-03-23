@@ -111,16 +111,15 @@ app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/about-me', require('./routes/about-me'));
 // i18n
-app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
-  res.send(req.cookies);
-});
-app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
-  res.clearCookie('locale');
-  res.redirect('/cookie');
-});
-
-app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
-  res.send('tagId is set to ' + req.query.tagId);
+app.get('/:lang', function (req, res) {
+  if(req.params.lang === 'hu') { // http://127.0.0.1:3000/hu
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+    res.redirect('back');
+  };
+  if(req.params.lang === 'en') { // http://127.0.0.1:3000/en
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+    res.redirect('back');
+  };
 });
 
 /*app.get('/', function (req, res) {
@@ -132,13 +131,16 @@ app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
   };
 });*/
 
-app.get('/:lang', function (req, res) {
-  if(req.params.lang === 'hu') { // http://127.0.0.1:3000/hu
-    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
-  };
-  if(req.params.lang === 'en') { // http://127.0.0.1:3000/en
-    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
-  };
+app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
+  res.send(req.cookies);
+});
+app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
+  res.clearCookie('locale');
+  res.redirect('/cookie');
+});
+
+app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
+  res.send('tagId is set to ' + req.query.tagId);
 });
 
 /////////////////////////////////////////////////////////////
