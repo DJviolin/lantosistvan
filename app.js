@@ -111,7 +111,7 @@ app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/about-me', require('./routes/about-me'));
 // i18n
-app.get('/:lang', function (req, res) {
+/*app.get('/:lang', function (req, res) {
   if(req.params.lang === 'hu') { // http://127.0.0.1:3000/hu
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
     res.redirect('back');
@@ -120,7 +120,16 @@ app.get('/:lang', function (req, res) {
     res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
     res.redirect('back');
   };
+});*/
+app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
+  res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+  res.redirect('back');
 });
+app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
+  res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  res.redirect('back');
+});
+
 
 /*app.get('/', function (req, res) {
   if(req.query.lang === 'hu') { // http://127.0.0.1:3000/?lang=hu
