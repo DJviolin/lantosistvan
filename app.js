@@ -125,8 +125,22 @@ app.use('/about-me', require('./routes/about-me'));
     //console.log('---LOCALE-EN--- ', req.cookies.locale);
   };
 });*/
+/*app.all('*:lang', function (req, res) {
+  if(req.query.lang === 'hu') {
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+  };
+  if(req.query.lang === 'en') {
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  };
+});*/
+
 app.get('/hello', function(req, res) {
   res.send(req.cookies);
+});
+
+app.get('/clearcookie', function(req, res){
+  res.clearCookie('locale');
+  res.redirect('back');
 });
 
 /////////////////////////////////////////////////////////////
