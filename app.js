@@ -92,6 +92,11 @@ app.get('/cookie', function (req, res) {
 // https://github.com/expressjs/express/blob/master/examples/cookies/index.js
 // http://stackoverflow.com/questions/31747021/i18n-node-2-express-and-a-handlebars-helper
 // http://stackoverflow.com/questions/7760332/how-to-make-i18n-with-handlebars-js-mustache-templates/35752656#35752656
+//
+// https://www.npmjs.com/package/i18next
+// https://github.com/i18next/i18next-express-middleware
+// https://www.npmjs.com/package/i18next-express-middleware
+// https://github.com/i18next/i18next-express-middleware
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
@@ -122,6 +127,15 @@ i18n.configure({
 });
 // init i18n module for this loop
 app.use(i18n.init);
+
+app.all('*', function (req, res) {
+  if(req.query.lang === 'hu') {
+    i18n.setLocale('hu');
+  };
+  if(req.query.lang === 'en') {
+    i18n.setLocale('en');
+  };
+});
 
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
