@@ -100,7 +100,7 @@ app.get('/cookie', function (req, res) {
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
-  // setup some locales - other locales default to en silently
+  // setup some locales - other locales default to hu silently
   locales: ['hu', 'en'],
   // fall back from English to Hungarian
   fallbacks: {'en': 'hu'},
