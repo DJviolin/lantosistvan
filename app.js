@@ -49,18 +49,6 @@ app.use(compression());
 
 /////////////////////////////////////////////////////////////
 // Translation
-// https://www.npmjs.com/package/i18n
-// https://github.com/mashpie/i18n-node
-// https://gist.github.com/mashpie/5246334
-// https://www.codementor.io/nodejs/tutorial/cookie-management-in-express-js
-// https://github.com/expressjs/express/blob/master/examples/cookies/index.js
-// http://stackoverflow.com/questions/31747021/i18n-node-2-express-and-a-handlebars-helper
-// http://stackoverflow.com/questions/7760332/how-to-make-i18n-with-handlebars-js-mustache-templates/35752656#35752656
-//
-// https://www.npmjs.com/package/i18next
-// https://github.com/i18next/i18next-express-middleware
-// https://www.npmjs.com/package/i18next-express-middleware
-// https://github.com/i18next/i18next-express-middleware
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
@@ -119,25 +107,13 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
   res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
   res.redirect('back');
 });
-/*app.get('/', function (req, res) {
-  if(req.query.lang === 'hu') { // http://127.0.0.1:3000/?lang=hu
-    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
-  };
-  if(req.query.lang === 'en') { // http://127.0.0.1:3000/?lang=en
-    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
-  };
-});*/
-
+// i18n helpers
 app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
   res.send(req.cookies);
 });
 app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
   res.redirect('/cookie');
-});
-
-app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
-  res.send('tagId is set to ' + req.query.tagId);
 });
 
 /////////////////////////////////////////////////////////////

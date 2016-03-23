@@ -1,3 +1,42 @@
+# i18n
+
+```
+// https://www.npmjs.com/package/i18n
+// https://github.com/mashpie/i18n-node
+// https://gist.github.com/mashpie/5246334
+// https://www.codementor.io/nodejs/tutorial/cookie-management-in-express-js
+// https://github.com/expressjs/express/blob/master/examples/cookies/index.js
+// http://stackoverflow.com/questions/31747021/i18n-node-2-express-and-a-handlebars-helper
+// http://stackoverflow.com/questions/7760332/how-to-make-i18n-with-handlebars-js-mustache-templates/35752656#35752656
+//
+// https://www.npmjs.com/package/i18next
+// https://github.com/i18next/i18next-express-middleware
+// https://www.npmjs.com/package/i18next-express-middleware
+// https://github.com/i18next/i18next-express-middleware
+
+/*app.get('/', function (req, res) {
+  if(req.query.lang === 'hu') { // http://127.0.0.1:3000/?lang=hu
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+  };
+  if(req.query.lang === 'en') { // http://127.0.0.1:3000/?lang=en
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  };
+});*/
+
+app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
+  res.send(req.cookies);
+});
+app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
+  res.clearCookie('locale');
+  res.redirect('/cookie');
+});
+
+app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
+  res.send('tagId is set to ' + req.query.tagId);
+});
+
+```
+
 # FLORALS
 
 https://www.google.com/search?hl=hu-US&tbs=simg:CAES1wEa1AELEKjU2AQaBAgDCAoMCxCwjKcIGmEKXwgDEifNE8wTzgLQE8sT0RMEygLSE9QdriOOKagg4DePKdsr4SyyINopjSkaMK7pJP8G69Y9px3NM2MxjF9ZOrD5jQ2CT9JrEsybfvYvhbwtRl3JJa68kuK4QTI6bCADDAsQjq7-CBoKCggIARIE92UpiQwLEJ3twQkaQQoICgZmbG93ZXIKBwoFcGxhbnQKCgoIbGluZSBhcnQKDQoLY3V0IGZsb3dlcnMKEQoPZmxvd2VyaW5nIHBsYW50DA&tbm=isch&sa=X&ved=0ahUKEwjDh6XvxMrLAhWo93IKHR3GAgQQsw4ISA
