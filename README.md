@@ -70,9 +70,10 @@ install dependencies:
  > cd . && npm install
 
 run the app on linux:
- > $ DEBUG=lantosistvan-portfolio:* npm start
+ > $ DEBUG=lantosistvan-portfolio:*,i18n:* npm start
+ > $ DEBUG=i18n:* & npm start
 
 run the app on windows:
- > SET DEBUG=lantosistvan-portfolio:* & npm start
- > SET DEBUG=i18n:* node app.js
+ > SET DEBUG=lantosistvan-portfolio:*,i18n:* & npm start
+ > SET DEBUG=i18n:* & npm start
 ```
