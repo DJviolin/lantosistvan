@@ -123,11 +123,20 @@ app.get('/p', function(req, res) { // http://127.0.0.1:3000/p?tagId=5
   res.send('tagId is set to ' + req.query.tagId);
 });
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
   if(req.query.lang === 'hu') { // http://127.0.0.1:3000/?lang=hu
     res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
   };
   if(req.query.lang === 'en') { // http://127.0.0.1:3000/?lang=en
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  };
+});*/
+
+app.get('/:lang', function (req, res) {
+  if(req.params.lang === 'hu') { // http://127.0.0.1:3000/hu
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+  };
+  if(req.params.lang === 'en') { // http://127.0.0.1:3000/en
     res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
   };
 });
