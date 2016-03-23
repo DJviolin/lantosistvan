@@ -148,7 +148,7 @@ app.get('/cookie', function(req, res) {
 
 app.get('/clearcookie', function(req, res){
   res.clearCookie('locale');
-  //res.redirect('back');
+  res.redirect('/cookie');
 });
 
 /////////////////////////////////////////////////////////////
