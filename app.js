@@ -48,44 +48,6 @@ app.use(logger('dev'));
 app.use(compression());
 
 /////////////////////////////////////////////////////////////
-// ROUTES
-/////////////////////////////////////////////////////////////
-
-// Static (before routes)
-app.use(serveStatic(__dirname + '/public'));
-// FTP
-app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
-// API
-app.use('/api', require('./routes/api-external'));
-// Dynamic
-app.use('/', require('./routes/portfolio'));
-app.use('/blog', require('./routes/blog'));
-app.use('/category', require('./routes/blog-category'));
-app.use('/tag', require('./routes/blog-tag'));
-app.use('/about-me', require('./routes/about-me'));
-// i18n
-//app.all('/valami', function (req, res) {
-/*app.all('*', function (req, res) {
-  if(req.query.lang === 'hu') {
-    i18n.setLocale(res, 'hu');
-    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
-    res.send('---LOCALE-HU--- ', req.cookies.locale);
-    console.log('---LOCALE-HU--- ', req.cookies.locale);
-  };
-  if(req.query.lang === 'en') {
-    i18n.setLocale(res, 'en');
-    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
-    res.send('---LOCALE-EN--- ', req.cookies.locale);
-    console.log('---LOCALE-EN--- ', req.cookies.locale);
-  };
-});*/
-/*app.get('/cookie', function (req, res) {
-  res.send('Cookie: ', req.cookies.locale);
-});*/
-// i18n
-//app.all('*', require('./routes/cookies'));
-
-/////////////////////////////////////////////////////////////
 // Translation
 // https://www.npmjs.com/package/i18n
 // https://github.com/mashpie/i18n-node
@@ -131,6 +93,43 @@ i18n.configure({
 });
 // init i18n module for this loop
 app.use(i18n.init);
+
+/////////////////////////////////////////////////////////////
+// ROUTES
+/////////////////////////////////////////////////////////////
+
+// Static (before routes)
+app.use(serveStatic(__dirname + '/public'));
+// FTP
+app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
+// API
+app.use('/api', require('./routes/api-external'));
+// Dynamic
+app.use('/', require('./routes/portfolio'));
+app.use('/blog', require('./routes/blog'));
+app.use('/category', require('./routes/blog-category'));
+app.use('/tag', require('./routes/blog-tag'));
+app.use('/about-me', require('./routes/about-me'));
+// i18n
+/*app.all('*', function (req, res) {
+  if(req.query.lang === 'hu') {
+    i18n.setLocale(res, 'hu');
+    res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+    res.send('---LOCALE-HU--- ', req.cookies.locale);
+    console.log('---LOCALE-HU--- ', req.cookies.locale);
+  };
+  if(req.query.lang === 'en') {
+    i18n.setLocale(res, 'en');
+    res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+    res.send('---LOCALE-EN--- ', req.cookies.locale);
+    console.log('---LOCALE-EN--- ', req.cookies.locale);
+  };
+});*/
+/*app.get('/cookie', function (req, res) {
+  res.send('Cookie: ', req.cookies.locale);
+});*/
+// i18n
+//app.all('*', require('./routes/cookies'));
 
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
