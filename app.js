@@ -114,7 +114,6 @@ app.use('/about-me', require('./routes/about-me'));
 app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
   res.send(req.cookies);
 });
-
 app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
   res.redirect('/cookie');
