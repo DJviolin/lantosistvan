@@ -108,18 +108,20 @@ i18n.configure({
   defaultLocale: 'hu',
   // sets a custom cookie name to parse locale settings from - defaults to NULL
   cookie: 'locale',
-  // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL 
+  // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL
   queryParameter: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
   directory: __dirname + '/locales',
-  // controll mode on directory creation - defaults to NULL which defaults to umask of process user. Setting has no effect on win. 
+  // controll mode on directory creation - defaults to NULL which defaults to umask of process user. Setting has no effect on win.
   directoryPermissions: '755',
-  // watch for changes in json files to reload locale on updates - defaults to false 
+  // watch for changes in json files to reload locale on updates - defaults to false
   autoReload: true,
-  // whether to write new locale information to disk - defaults to true 
+  // whether to write new locale information to disk - defaults to true
   updateFiles: true,
-  // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias). 
-  // note that this will *not* overwrite existing properties with the same name 
+  // enable object notation
+  objectNotation: true,
+  // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias).
+  // note that this will *not* overwrite existing properties with the same name
   api: {
     '__': '__',  //now req.__ becomes req.__
     '__n': '__n' //and req.__n can be called as req.__n
