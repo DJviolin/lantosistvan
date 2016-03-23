@@ -22,8 +22,10 @@ app.engine('.hbs', exphbs({
   // Specify helpers which are only registered on this instance
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
-    __: function() { return i18n.__.apply(this, arguments); },
-    __n: function() { return i18n.__n.apply(this, arguments); }
+    //__: function() { return i18n.__.apply(this, arguments); },
+    __: function() { return i18n.__.apply(req, arguments); },
+    //__n: function() { return i18n.__n.apply(this, arguments); }
+    __n: function() { return i18n.__n.apply(req, arguments); }
   }
 }));
 app.set('view engine', '.hbs');
@@ -86,9 +88,12 @@ app.get('/cookie', function (req, res) {
 /////////////////////////////////////////////////////////////
 // Translation
 // https://www.npmjs.com/package/i18n
+// https://github.com/mashpie/i18n-node
 // https://gist.github.com/mashpie/5246334
 // https://www.codementor.io/nodejs/tutorial/cookie-management-in-express-js
 // https://github.com/expressjs/express/blob/master/examples/cookies/index.js
+// http://stackoverflow.com/questions/31747021/i18n-node-2-express-and-a-handlebars-helper
+// http://stackoverflow.com/questions/7760332/how-to-make-i18n-with-handlebars-js-mustache-templates/35752656#35752656
 /////////////////////////////////////////////////////////////
 
 i18n.configure({
