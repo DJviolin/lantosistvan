@@ -135,13 +135,6 @@ app.use('/about-me', require('./routes/about-me'));
 });*/
 
 // i18n
-app.get('/?lang=hu', function(req, res) {
-  res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
-});
-app.get('/?lang=en', function(req, res) {
-  res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
-});
-
 app.get('/cookie', function(req, res) {
   res.send(req.cookies);
 });
