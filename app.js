@@ -128,8 +128,6 @@ app.use('/about-me', require('./routes/about-me'));
 app.get('/hello', function(req, res) {
   res.send(req.cookies);
 });
-// i18n
-//app.all('*', require('./routes/cookies'));
 
 /////////////////////////////////////////////////////////////
 // EXPRESS ERROR HANDLING
