@@ -74,4 +74,5 @@ run the app on linux:
 
 run the app on windows:
  > SET DEBUG=lantosistvan-portfolio:* & npm start
+ > SET DEBUG=i18n:* node app.js
 ```
