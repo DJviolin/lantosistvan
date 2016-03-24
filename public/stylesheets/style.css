@@ -451,7 +451,8 @@ header .content {
   width: 33.3%;
 }
 .latest-posts article {
-  margin: 1px;
+  /*margin: 1px;*/
+  margin: 2px;
   position: relative;
 }
 .latest-posts article .post-preview-hidden {
