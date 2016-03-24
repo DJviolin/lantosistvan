@@ -271,11 +271,11 @@ header {
   -webkit-flex: 0 0 20vh; flex: 0 0 20vh; /*height: 20vh;*/
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: row; flex-direction: row;
-  /*-webkit-align-items: flex-end; align-items: flex-end;*/
-  -webkit-align-items: center; align-items: center;
+  -webkit-align-items: flex-end; align-items: flex-end;
   -webkit-justify-content: center; justify-content: center;
   z-index: 999;
   /**/
+  /*-webkit-align-items: center; align-items: center;*/
   -webkit-flex: 0 0 auto; flex: 0 0 auto;
 }
 .little-screen {
