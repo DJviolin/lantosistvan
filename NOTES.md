@@ -1,3 +1,7 @@
+# FLEXBOX CHEATSHEET
+
+http://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties
+
 # i18n
 
 ```
