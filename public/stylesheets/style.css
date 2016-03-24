@@ -210,9 +210,11 @@ li      { list-style: none; }
 
 /* Logo */
 .left-nav { margin-left: -29px; }
-.logo             { /*padding: 30px 20px 30px 20px;*/ width: 100%; /*max-width: 390px;*/
+.logo             { /*padding: 30px 20px 30px 20px; width: 100%; max-width: 390px;*/
                     /**/
-                    max-width: 210px;
+                    /*max-width: 210px;*/
+                    width: 210px;
+                    height: 190px;
                     margin: 20px 40px 20px 40px; }
 .logo a img       { width: 100%; height: 100%; /*background-color: #fff;*/ }
 
@@ -366,8 +368,6 @@ header .content {
 }
 .latest-posts-title .widget-title {
   margin-bottom: 40px;
-  font-size: 1.2em;
-  font-family: 'LatoLatin-light', 'Montserrat-Regular', Georgia, 'Times New Roman', Times, serif;
   /*font-family: 'Montserrat-Regular', Georgia, 'Times New Roman', Times, serif;
   font-size: 13px;*/
 }
@@ -477,7 +477,7 @@ http://marinkovic-weddings.com/
 */
 .widget-title-img { display: block; margin: 0 auto 20px auto; }
 .widget-title { /*font-size: 13px;*/ font-size: 0.9em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
-.block-title { font-size: 1.2em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: 'LatoLatin-light', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
+.block-title { font-size: 1.2em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 40px; font-family: 'LatoLatin-light', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
 .widget-title::after {
   content: '';
   display: block;
