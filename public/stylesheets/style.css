@@ -102,7 +102,18 @@ textarea { resize: vertical; }
 }
 /* Lato */
 @font-face {
-  font-family: 'LatoLatin-light';
+  font-family: 'LatoLatin-Hairline';
+  src: url('../fonts/lato-latin/LatoLatin-Hairline.eot');
+  src: url('../fonts/lato-latin/LatoLatin-Hairline.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/lato-latin/LatoLatin-Hairline.woff2') format('woff2'),
+       url('../fonts/lato-latin/LatoLatin-Hairline.woff') format('woff'),
+       url('../fonts/lato-latin/LatoLatin-Hairline.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'LatoLatin-Light';
   src: url('../fonts/lato-latin/LatoLatin-Light.eot');
   src: url('../fonts/lato-latin/LatoLatin-Light.eot?#iefix') format('embedded-opentype'),
        url('../fonts/lato-latin/LatoLatin-Light.woff2') format('woff2'),
@@ -119,6 +130,17 @@ textarea { resize: vertical; }
        url('../fonts/lato-latin/LatoLatin-Regular.woff2') format('woff2'),
        url('../fonts/lato-latin/LatoLatin-Regular.woff') format('woff'),
        url('../fonts/lato-latin/LatoLatin-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'LatoLatin-Black';
+  src: url('../fonts/lato-latin/LatoLatin-Black.eot');
+  src: url('../fonts/lato-latin/LatoLatin-Black.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/lato-latin/LatoLatin-Black.woff2') format('woff2'),
+       url('../fonts/lato-latin/LatoLatin-Black.woff') format('woff'),
+       url('../fonts/lato-latin/LatoLatin-Black.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -541,7 +563,7 @@ http://marinkovic-weddings.com/
 */
 .widget-title-img { display: block; margin: 0 auto 20px auto; }
 .widget-title { /*font-size: 13px;*/ font-size: 0.9em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
-.block-title { /*font-size: 20px;*/ font-size: 1.25em; /*letter-spacing: 4px;*/ letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 40px; font-family: 'LatoLatin-light', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
+.block-title { /*font-size: 20px;*/ font-size: 1.25em; /*letter-spacing: 4px;*/ letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 40px; font-family: 'LatoLatin-Light', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
 .big-text {
   font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-size: 28px;
