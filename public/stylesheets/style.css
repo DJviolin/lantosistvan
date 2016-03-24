@@ -603,10 +603,13 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    ========================================================================== */
 
 @media (min-width: 1600px) {
-  .toggle-mobile-nav { display: none; }
-  .main-nav.active { display: none; }
+  .toggle-mobile-nav, .main-nav.active, .logo-header { display: none; }
 }
 @media (max-width: 1600px) {
+  .left-nav { order: 2; }
+  .logo-nav { order: 1; display: none; }
+  .right-nav { order: 3; }
+
   /* Mobile nav */
   .toggle-mobile-nav { margin-bottom: 10px; }
   .toggle-mobile-nav a {
