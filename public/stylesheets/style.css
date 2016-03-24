@@ -604,9 +604,8 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .toggle-mobile-nav, .main-nav.active, .logo-header { display: none; }
 }
 @media (max-width: 1600px) {
-  .left-nav { order: 2; }
-  .logo-nav { order: 1; display: none; }
-  .right-nav { order: 3; }
+  .main-nav, .logo-nav { display: none; }
+  .main-nav.active { display: block; }
 
   /* Mobile nav */
   .toggle-mobile-nav { margin-bottom: 10px; }
@@ -620,8 +619,9 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   }
   .toggle-mobile-nav a span { font-size: 2em; vertical-align: -0.15em; }
 
-  .main-nav { display: none; }
-  .main-nav.active { display: block; }
+  .navigation { -webkit-flex-direction: column; flex-direction: column; }
+  .main-nav ul { -webkit-flex-direction: column; flex-direction: column; }
+  .main-nav ul li { margin: 0; }
 
   /*.logo { margin-top: 30px; }*/
 
