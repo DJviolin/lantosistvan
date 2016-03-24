@@ -123,6 +123,41 @@ textarea { resize: vertical; }
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
+/* Crimson Text */
+@font-face {
+  font-family: 'Crimson-Text-Roman';
+  src: url('../fonts/crimson-text/crimsontext-roman-webfont.eot');
+  src: url('../fonts/crimson-text/crimsontext-roman-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/crimson-text/crimsontext-roman-webfont.woff2') format('woff2'),
+       url('../fonts/crimson-text/crimsontext-roman-webfont.woff') format('woff'),
+       url('../fonts/crimson-text/crimsontext-roman-webfont.ttf') format('truetype'),
+       url('../fonts/crimson-text/crimsontext-roman-webfont.svg#Crimson-Text-Roman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Crimson-Text-Italic';
+  src: url('../fonts/crimson-text/crimsontext-italic-webfont.eot');
+  src: url('../fonts/crimson-text/crimsontext-italic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/crimson-text/crimsontext-italic-webfont.woff2') format('woff2'),
+       url('../fonts/crimson-text/crimsontext-italic-webfont.woff') format('woff'),
+       url('../fonts/crimson-text/crimsontext-italic-webfont.ttf') format('truetype'),
+       url('../fonts/crimson-text/crimsontext-italic-webfont.svg#Crimson-Text-Italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Crimson-Text-Bold';
+  src: url('../fonts/crimson-text/crimsontext-bold-webfont.eot');
+  src: url('../fonts/crimson-text/crimsontext-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/crimson-text/crimsontext-bold-webfont.woff2') format('woff2'),
+       url('../fonts/crimson-text/crimsontext-bold-webfont.woff') format('woff'),
+       url('../fonts/crimson-text/crimsontext-bold-webfont.ttf') format('truetype'),
+       url('../fonts/crimson-text/crimsontext-bold-webfont.svg#Crimson-Text-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 
 
@@ -181,10 +216,12 @@ h6      { font-size: 0.67em; } /* 9,38px */
 p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
 a       { text-decoration: none; /*color: #000;*/ font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /*font-style: italic;*/
-          color: #d2a679; color: #ccc; color: #a6a6a6; }
+          color: #d2a679; color: #ccc; color: #a6a6a6;
+          color: #d49227; }
 a:hover { /*transition: <property> <duration> <timing-function> <delay>;*/
           -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
-          color: #7f7f7f; color: #6b6b6b; }
+          color: #7f7f7f; color: #6b6b6b;
+          color: #d3b88d; }
 li      { list-style: none; }
 *:focus { outline: 0; }
 *, *::after, *::before { box-sizing: border-box; }
@@ -209,7 +246,7 @@ li      { list-style: none; }
 .sidescroll .images { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
 
 /* Logo */
-.left-nav { margin-left: -29px; }
+.left-nav { /*margin-left: -29px;*/ margin-left: 10px; }
 .logo             { /*padding: 30px 20px 30px 20px; width: 100%; max-width: 390px;*/
                     /**/
                     /*max-width: 210px;*/
@@ -344,7 +381,7 @@ header .content {
 }
 .frontpage .content {
   -webkit-flex: 0 0 58vw; flex: 0 0 58vw; /*width: 50vw;*/
-  max-width: 1100px;
+  max-width: 1100px; max-width: 980px;
   /*height: auto;*/
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: column; flex-direction: column;
@@ -353,9 +390,11 @@ header .content {
   margin: 0 5vw 0 5vw;
 }
 .frontpage article p {
+  font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   text-align: center;
-  font-size: 0.8em;
-  /*letter-spacing: 0.3em;*/
+  font-size: 15px;
+  /*font-size: 0.9em;*/
+  letter-spacing: 0.05em;
   line-height: 1.6em;
 }
 
@@ -502,6 +541,15 @@ http://marinkovic-weddings.com/
 .widget-title-img { display: block; margin: 0 auto 20px auto; }
 .widget-title { /*font-size: 13px;*/ font-size: 0.9em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
 .block-title { /*font-size: 20px;*/ font-size: 1.25em; /*letter-spacing: 4px;*/ letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 40px; font-family: 'LatoLatin-light', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
+.big-text {
+  font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: italic;
+  color: #444;
+  letter-spacing: 4px;
+  -webkit-font-smoothing: antialiased;
+}
 .widget-title::after {
   content: '';
   display: block;
