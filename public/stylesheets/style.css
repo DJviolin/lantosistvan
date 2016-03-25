@@ -259,14 +259,14 @@ li      { list-style: none; }
   /*-webkit-align-items: center; align-items: center; /* Centering hack for blog, but needs to turn on slick slider */
 }
 
-.error, .blog, .about-me {
+.error, .blog, .contact {
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: column; flex-direction: column;
   -webkit-align-items: center; align-items: center;
 }
 
 /* Logo */
-.logo { 
+.logo {
   width: 210px;
   height: 190px;
   /*margin: 20px 40px 20px 40px;*/
@@ -677,11 +677,11 @@ http://marinkovic-weddings.com/
 .blog .pagination a:hover { color: #ccc; }
 
 /* ==========================================================================
-   Pages - About me
+   Pages - Contact
    ========================================================================== */
 
-.about-me { -webkit-align-items: center; align-items: center; }
-.about-me article { max-width: 600px; }
+.contact { -webkit-align-items: center; align-items: center; }
+.contact article { max-width: 600px; }
 
 /* ==========================================================================
    Modules - Slick Slider
