@@ -426,7 +426,10 @@ header .content {
   position: relative;*/
   overflow-x: hidden;
 }
-.sidescroll .images li { margin-right: 3px; background-color: rgb(17, 17, 17); }
+.sidescroll .images li {
+  margin-right: 3px;
+  background-color: rgb(17, 17, 17);
+}
 .sidescroll .images li:last-child { margin-right: 0; }
 .sidescroll .images img { height: 60vh; }
 
@@ -502,7 +505,8 @@ header .content {
   background-color: #fff;
   -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
 }
-.latest-posts article .post-preview-header h1, .latest-posts article .post-preview-header h1:hover {
+.latest-posts article .post-preview-header h1,
+.latest-posts article .post-preview-header h1:hover {
   font-size: 0.9em; /* 14px */
   line-height: 1.4em;
   font-family: "TrajanPro-Regular", Georgia, 'Times New Roman', Times, serif;
@@ -510,7 +514,8 @@ header .content {
   color: #000000;
   margin: 0 5px 1px 5px;
 }
-.latest-posts article .post-preview-header .category, .latest-posts article .post-preview-header .category:hover {
+.latest-posts article .post-preview-header .category,
+.latest-posts article .post-preview-header .category:hover {
   font-size: 0.85em; /* 13px */
   font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
   color: #9e9e9e;
@@ -670,7 +675,7 @@ http://marinkovic-weddings.com/
   -ms-user-select: none; -khtml-user-select: none; -moz-user-select: none; -webkit-user-select: none; user-select: none;
   -webkit-touch-callout: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent;
 }
-.slick-list   { overflow: hidden; } /* Helps not loosing focus, turns off horizontal scrollbar */
+.slick-list { overflow: hidden; } /* Helps not loosing focus, turns off horizontal scrollbar */
 .slick-track  {
   overflow-x: hidden; overflow-y: hidden;
   position: relative; /* Helps centering */
@@ -678,12 +683,12 @@ http://marinkovic-weddings.com/
   -webkit-flex-wrap: nowrap; flex-wrap: nowrap;
   -webkit-flex-direction: row; flex-direction: row;
 }
-.slick-loading .slick-track     { visibility: hidden; }
-.slick-slide                    { display: none; }
-.slick-slide.slick-loading img  { display: none; }
-.slick-slide.dragging img       { pointer-events: none; }
+.slick-loading .slick-track { visibility: hidden; }
+.slick-slide { display: none; }
+.slick-slide.slick-loading img { display: none; }
+.slick-slide.dragging img { pointer-events: none; }
 .slick-initialized .slick-slide { display: block; }
-.slick-loading .slick-slide     { visibility: hidden; }
+.slick-loading .slick-slide { visibility: hidden; }
 /* Slider */
 .slick-loading .slick-list { background: #fff url('../images/ajax-loader.gif') center center no-repeat; }
 /* Arrows */
@@ -710,9 +715,16 @@ http://marinkovic-weddings.com/
   -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
   -o-transform: translate(0, -50%); -ms-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -webkit-transform: translate(0, -50%); transform: translate(0, -50%);
 }
-.slick-prev:hover, .slick-next:hover { opacity: .5; }
-.slick-prev:hover:before, .slick-next:hover:before { opacity: 1; }
-.slick-prev:before, .slick-next:before {
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: .5;
+}
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1;
+}
+.slick-prev:before,
+.slick-next:before {
   position: absolute;
   top: 50%;
   left: 50%;
