@@ -8,8 +8,7 @@ var config          = require('../config'),
     articlesPerPage = config.articlesPerPage;
 
 var functions  = require('../lib/functions'),
-    fsAsync    = functions.fsAsync,
-    actualYear = functions.actualYear;
+    fsAsync    = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -24,8 +23,7 @@ router.get('/', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        //actualYear: actualYear
+        keywords: 'error,404'
       });
     }
 
@@ -40,7 +38,6 @@ router.get('/', function (req, res, next) {
       title: 'Journal',
       description: 'Blog Page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      //actualYear: actualYear,
       divClass: 'journal',
       data: json,
       paginationFirst: false,
@@ -68,7 +65,6 @@ router.get('/', function (req, res, next) {
       title: 'Journal',
       description: 'Blog page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      //actualYear: actualYear,
       divClass: 'journal',
       data: articles,
       paginationParams: null,
@@ -90,8 +86,7 @@ router.get('/page/:id', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        //actualYear: actualYear
+        keywords: 'error,404'
       });
     }
 
@@ -132,7 +127,6 @@ router.get('/page/:id', function (req, res, next) {
       title: 'Journal',
       description: 'Blog page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      //actualYear: actualYear,
       divClass: 'journal',
       data: json,
       paginationFirst: paginationFirst,
@@ -159,8 +153,7 @@ router.get('/:url', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        //actualYear: actualYear
+        keywords: 'error,404'
       });
     }
 
@@ -178,7 +171,6 @@ router.get('/:url', function (req, res, next) {
       title: selectedArticle.title,
       description: selectedArticle.description,
       keywords: selectedArticle.keywords,
-      //actualYear: actualYear,
       data: selectedArticle
     });
 

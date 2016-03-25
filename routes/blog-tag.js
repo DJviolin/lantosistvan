@@ -7,8 +7,7 @@ var config          = require('../config'),
     articlesPerPage = config.articlesPerPage;
 
 var functions = require('../lib/functions'),
-    fsAsync   = functions.fsAsync,
-    actualYear = functions.actualYear;
+    fsAsync   = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -23,8 +22,7 @@ router.get('/:tag', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        //actualYear: actualYear
+        keywords: 'error,404'
       });
     }
 
@@ -62,7 +60,6 @@ router.get('/:tag', function (req, res, next) {
       title: 'Tag: ' + req.params.tag,
       description: 'Tags page',
       keywords: 'tag,wedding,photography,film,lantos,istvan',
-      //actualYear: actualYear,
       divClass: 'tag',
       data: json,
       paginationFirst: false,
@@ -87,8 +84,7 @@ router.get('/:tag/page/:id', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        //actualYear: actualYear
+        keywords: 'error,404'
       });
     }
     
@@ -142,7 +138,6 @@ router.get('/:tag/page/:id', function (req, res, next) {
       title: 'Tag: ' + req.params.tag,
       description: 'Tags page',
       keywords: 'tag,wedding,photography,film,lantos,istvan',
-      //actualYear: actualYear,
       divClass: 'tag',
       data: json,
       paginationFirst: paginationFirst,
