@@ -96,7 +96,7 @@ app.use(i18n.init);
 app.use(function(req, res, next) {
   var defaultLang = 'hu';
   var activeLang = req.cookies.locale || defaultLang;
-  res.locals.bodyClass = 'lang-' + activeLang;
+  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase();
   next();
 });
 
