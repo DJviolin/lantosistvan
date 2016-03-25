@@ -83,6 +83,24 @@ i18n.configure({
 app.use(i18n.init);
 
 /////////////////////////////////////////////////////////////
+// GLOBAL CONFIGURATION
+/////////////////////////////////////////////////////////////
+
+//var langClass = encodeURIComponent('lang-en');
+//app.locals.bodyClass = 'langClass'; // BAD IDEA, changing the language to all users
+
+/////////////////////////////////////////////////////////////
+// GLOBAL ROUTES
+/////////////////////////////////////////////////////////////
+
+app.use(function(req, res, next) {
+  var defaultLang = 'hu';
+  var activeLang = req.cookies.locale || defaultLang;
+  res.locals.bodyClass = 'lang-' + activeLang;
+  next();
+});
+
+/////////////////////////////////////////////////////////////
 // ROUTES
 /////////////////////////////////////////////////////////////
 
@@ -105,18 +123,11 @@ app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
 });
 app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
   res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
-  //res.redirect('back');
-  //var langClass = encodeURIComponent('lang-en');
-
-  //var prevUrl = // get the url from the previous route
-  //res.redirect('/prevUrl?langclass=' + langClass);
-  //res.render('*', { bodyClass: langClass });
-  app.locals.langClass = 'lang-en';
   res.redirect('back');
 });
 // i18n helpers
 app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
-  res.send(req.cookies);
+  res.send(req.cookies.locale);
 });
 app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');

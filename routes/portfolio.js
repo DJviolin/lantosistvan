@@ -38,11 +38,9 @@ router.get('/', function (req, res, next) {
     var slice = articles.slice(0, 6);
     var json = [{ articles: slice }];
 
-    var langClass = req.query.langclass;
-
-    if(req.cookies.locale === 'en') {
+    /*if(req.cookies.locale === 'en') {
       var langClass = 'lang-en';
-    };
+    };*/
 
     res.render('portfolio', {
       layout: 'main',
@@ -55,7 +53,7 @@ router.get('/', function (req, res, next) {
       data: gallery,
       latestPosts: json,
 
-      bodyClass: langClass
+      //bodyClass: langClass
     });
   });
 });
