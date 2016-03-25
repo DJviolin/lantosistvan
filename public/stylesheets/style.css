@@ -309,6 +309,11 @@ li      { list-style: none; }
   -webkit-align-items: center; align-items: center;
   -webkit-justify-content: center; justify-content: center;
   /*-webkit-justify-content: space-around; justify-content: space-around;*/
+  /**/
+  font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
+  font-size: 0.75em;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
 }
 /*.main-nav { margin-bottom: 40px; }*/
 .main-nav ul {
@@ -328,7 +333,9 @@ li      { list-style: none; }
   padding: 5px 0 5px 0;
   color: #000;
   /*font-style: normal;*/
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  /*font-family: Georgia, 'Times New Roman', Times, serif;*/
+  /**/
+  color: #494949;
 }
 .main-nav ul li a:hover { color: #888; }
 

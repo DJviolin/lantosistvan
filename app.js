@@ -105,6 +105,13 @@ app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
 });
 app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
   res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  //res.redirect('back');
+  //var langClass = encodeURIComponent('lang-en');
+
+  //var prevUrl = // get the url from the previous route
+  //res.redirect('/prevUrl?langclass=' + langClass);
+  //res.render('*', { bodyClass: langClass });
+  app.locals.langClass = 'lang-en';
   res.redirect('back');
 });
 // i18n helpers
