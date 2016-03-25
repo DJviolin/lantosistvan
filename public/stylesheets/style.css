@@ -578,10 +578,6 @@ footer .social-links a:last-child { margin-right: 0; }
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   font-size: 90%;
 }
-[class^='icon-']:before,
-[class*=' icon-']:before {
-  font-family: 'fontello';
-}
 .icon-facebook:before { content: '\e81f'; }
 .icon-instagram:before { content: '\e821'; }
 .icon-pinterest:before { content: '\e802'; }
