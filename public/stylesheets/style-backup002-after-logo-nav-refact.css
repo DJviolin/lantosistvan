@@ -264,17 +264,18 @@ li      { list-style: none; }
   -webkit-align-items: center; align-items: center;
 }
 
+.lazyload { /*display: none;*/ visibility: hidden; overflow-y: hidden; height: 60vh; opacity: 0; }
+.sidescroll .images { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
+
 /* Logo */
-.left-nav { margin-left: 10px; }
-.logo { 
-  width: 210px;
-  height: 190px;
-  margin: 20px 40px 20px 40px;
-}
-.logo a img {
-  width: 100%;
-  height: 100%;
-}
+.left-nav { /*margin-left: -29px;*/ margin-left: 10px; }
+.logo             { /*padding: 30px 20px 30px 20px; width: 100%; max-width: 390px;*/
+                    /**/
+                    /*max-width: 210px;*/
+                    width: 210px;
+                    height: 190px;
+                    margin: 20px 40px 20px 40px; }
+.logo a img       { width: 100%; height: 100%; /*background-color: #fff;*/ }
 
 /* Social */
 /*.social-links { text-align: right; margin-bottom: 30px;
@@ -285,81 +286,40 @@ li      { list-style: none; }
 .social-links span { opacity: 0; position: absolute; text-transform: uppercase; margin-top: 34px; padding: 0; pointer-events: none; }*/
 
 /* ==========================================================================
-   Modules - Lazyload
-   ========================================================================== */
-
-.lazyload { /*display: none;*/ visibility: hidden; overflow-y: hidden; height: 60vh; opacity: 0; }
-.sidescroll .images { -o-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -webkit-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; }
-
-/* ==========================================================================
    Modules - Navigation
    ========================================================================== */
 
-.navigation {
-  /*font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  /**/
-  font-size: 0.75em;
-  font-size: 0.7em;
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: row; flex-direction: row;
-  -webkit-align-items: center; align-items: center;
-  -webkit-justify-content: center; justify-content: center;
-  /*-webkit-justify-content: space-around; justify-content: space-around;*/
-}
-/*.main-nav { margin-bottom: 40px; }*/
-.main-nav ul {
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: row; flex-direction: row;
-  -webkit-align-items: center; align-items: center;
-}
-.main-nav ul li {
-  /*margin: 0 20px 0 0;*/
-  margin: 0 20px 0 20px;
-}
+.navigation         { /*font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+                      font-family: Georgia, 'Times New Roman', Times, serif;
+                      font-size: 0.75em; letter-spacing: 0.32em; text-transform: uppercase;
+                      /**/
+                      font-size: 0.7em;
+                      display: -webkit-flex; display: flex;
+                      -webkit-flex-direction: row; flex-direction: row;
+                      -webkit-align-items: center; align-items: center;
+                      -webkit-justify-content: center; justify-content: center;
+                      /*-webkit-justify-content: space-around; justify-content: space-around;*/ }
+/*.main-nav           { margin-bottom: 40px; }*/
+.main-nav ul        { display: -webkit-flex; display: flex;
+                      -webkit-flex-direction: row; flex-direction: row;
+                      -webkit-align-items: center; align-items: center; }
+.main-nav ul li     { /*margin: 0 20px 0 0;*/ margin: 0 20px 0 20px; }
 .main-nav ul li:first-child { margin-left: 0; }
-.main-nav ul li:last-child { margin-right: 0; }
-.main-nav ul li a {
-  display: block;
-  text-align: center;
-  padding: 5px 0 5px 0;
-  color: #000;
-  /*font-style: normal;*/
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
+.main-nav ul li:last-child  { margin-right: 0; }
+.main-nav ul li a   { display: block; text-align: center; padding: 5px 0 5px 0;
+                      color: #000; /*font-style: normal;*/ font-family: Georgia, 'Times New Roman', Times, serif; }
 .main-nav ul li a:hover { color: #888; }
 
 /* Navigation Drop-Down */
-.main-nav ul ul {
-  -webkit-flex-direction: column; flex-direction: column;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  background-color: #fff;
-  margin-left: -10px;
-  padding: 0;
-  min-width: 160px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
-  -o-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;
-}
-.main-nav ul ul li {
-  margin: 0;
-  width: 100%;
-}
+.main-nav ul ul { -webkit-flex-direction: column; flex-direction: column;
+                  visibility: hidden; opacity: 0; position: absolute; background-color: #fff; margin-left: -10px; padding: 0; min-width: 160px;
+                  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+                  -o-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s; }
+.main-nav ul ul li             { margin: 0; width: 100%; }
 .main-nav ul ul li:first-child { margin-top: 6px; }
-.main-nav ul ul li:last-child { margin-bottom: 4px; }
-.main-nav ul ul li a {
-  text-align: left;
-  font-size: 0.9em;
-  margin: 4px 12px 5px 12px;
-  padding: 0;
-}
-.main-nav ul li:hover > ul {
-  visibility: visible;
-  opacity: 1;
-}
+.main-nav ul ul li:last-child  { margin-bottom: 4px; }
+.main-nav ul ul li a           { text-align: left; font-size: 0.9em; margin: 4px 12px 5px 12px; padding: 0; }
+.main-nav ul li:hover > ul     { visibility: visible; opacity: 1; }
 
 /* Social Icons styling */
 [class^='icon-']:before, [class*=' icon-']:before {
