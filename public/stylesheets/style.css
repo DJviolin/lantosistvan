@@ -266,11 +266,11 @@ li      { list-style: none; }
 }
 
 /* Logo */
-.left-nav { margin-left: 10px; }
 .logo { 
   width: 210px;
   height: 190px;
-  margin: 20px 40px 20px 40px;
+  /*margin: 20px 40px 20px 40px;*/
+  margin: 20px 35px 20px 35px;
 }
 .logo a img {
   width: 100%;
@@ -325,8 +325,8 @@ li      { list-style: none; }
   /*margin: 0 20px 0 0;*/
   margin: 0 20px 0 20px;
 }
-.main-nav ul li:first-child { margin-left: 0; }
-.main-nav ul li:last-child { margin-right: 0; }
+/*.main-nav ul li:first-child { margin-left: 0; }
+.main-nav ul li:last-child { margin-right: 0; }*/
 .main-nav ul li a {
   display: block;
   text-align: center;
@@ -830,6 +830,13 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   footer aside { padding: 40px 0 40px 0; }
   footer aside:nth-child(2) { border-left: none; border-right: none; border-top: 1px dotted #e9e9e9; border-bottom: 1px dotted #e9e9e9; }
 }
+
+/* ==========================================================================
+   Language specific styles
+   ========================================================================== */
+
+.left-nav { margin-left: 12px; } /* hu */
+.lang-en-EN .left-nav { margin-left: -8px; } /* en */
 
 /* ==========================================================================
    IE Conditional styles
