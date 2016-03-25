@@ -4,12 +4,10 @@ var express = require('express'),
     router  = express.Router();
 
 var config          = require('../config'),
-    articlesPerPage = config.articlesPerPage,
-    siteName        = config.siteName;
+    articlesPerPage = config.articlesPerPage;
 
 var functions = require('../lib/functions'),
-    fsAsync   = functions.fsAsync,
-    actualYear = functions.actualYear;
+    fsAsync   = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -24,9 +22,7 @@ router.get('/:cat', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        actualYear: actualYear,
-        siteName: siteName
+        keywords: 'error,404'
       });
     }
 
@@ -51,10 +47,8 @@ router.get('/:cat', function (req, res, next) {
       layout: 'main',
       titleShown: true,
       title: 'Category: ' + req.params.cat,
-      description: 'Category page of ' + siteName,
+      description: 'Category page',
       keywords: 'category,wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
-      siteName: siteName,
       divClass: 'category',
       data: json,
       paginationFirst: false,
@@ -79,9 +73,7 @@ router.get('/:cat/page/:id', function (req, res, next) {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404',
-        actualYear: actualYear,
-        siteName: siteName
+        keywords: 'error,404'
       });
     }
     
@@ -126,10 +118,8 @@ router.get('/:cat/page/:id', function (req, res, next) {
       layout: 'main',
       titleShown: true,
       title: 'Category: ' + req.params.cat,
-      description: 'Category page of ' + siteName,
+      description: 'Category page',
       keywords: 'category,wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
-      siteName: siteName,
       divClass: 'category',
       data: json,
       paginationFirst: paginationFirst,
