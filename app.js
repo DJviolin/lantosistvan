@@ -87,7 +87,10 @@ app.use(i18n.init);
 // CHANGES FOR ALL USERS
 /////////////////////////////////////////////////////////////
 
+// Site name
 app.locals.siteName = 'Lantos István Photography';
+// Returns actual year
+app.locals.actualYear = new Date().getFullYear();
 
 /////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS

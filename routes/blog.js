@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear
+        //actualYear: actualYear
       });
     }
 
@@ -40,7 +40,7 @@ router.get('/', function (req, res, next) {
       title: 'Journal',
       description: 'Blog Page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
+      //actualYear: actualYear,
       divClass: 'journal',
       data: json,
       paginationFirst: false,
@@ -68,7 +68,7 @@ router.get('/', function (req, res, next) {
       title: 'Journal',
       description: 'Blog page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
+      //actualYear: actualYear,
       divClass: 'journal',
       data: articles,
       paginationParams: null,
@@ -91,7 +91,7 @@ router.get('/page/:id', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear
+        //actualYear: actualYear
       });
     }
 
@@ -132,7 +132,7 @@ router.get('/page/:id', function (req, res, next) {
       title: 'Journal',
       description: 'Blog page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
+      //actualYear: actualYear,
       divClass: 'journal',
       data: json,
       paginationFirst: paginationFirst,
@@ -160,7 +160,7 @@ router.get('/:url', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear
+        //actualYear: actualYear
       });
     }
 
@@ -178,7 +178,7 @@ router.get('/:url', function (req, res, next) {
       title: selectedArticle.title,
       description: selectedArticle.description,
       keywords: selectedArticle.keywords,
-      actualYear: actualYear,
+      //actualYear: actualYear,
       data: selectedArticle
     });
 

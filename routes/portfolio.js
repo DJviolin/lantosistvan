@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear
+        //actualYear: actualYear
       });
     }
 
@@ -40,7 +40,7 @@ router.get('/', function (req, res, next) {
       title: 'Hi!',
       description: 'Home page',
       keywords: 'wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
+      //actualYear: actualYear,
       data: gallery,
       latestPosts: json
     });
@@ -62,7 +62,7 @@ router.get('/', function (req, res, next) {
       title: 'Hi!',
       description: 'Home page',
       keywords: 'wedding,photography,film,lantos,istvan',
-      actualYear: actualYear,
+      //actualYear: actualYear,
       imagesFolder: '\/portfolio\/weddings\/',
       images: results
     });
