@@ -16,7 +16,3 @@ exports.db = db;
 // POSTS PER PAGE
 var articlesPerPage = 2;
 exports.articlesPerPage = articlesPerPage;
-
-// SITE NAME
-var siteName = 'Lantos István Photography';
-exports.siteName = siteName;

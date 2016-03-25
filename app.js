@@ -84,10 +84,10 @@ app.use(i18n.init);
 
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
+// CHANGES FOR ALL USERS
 /////////////////////////////////////////////////////////////
 
-//var langClass = encodeURIComponent('lang-en');
-//app.locals.bodyClass = 'langClass'; // BAD IDEA, changing the language to all users
+app.locals.siteName = 'Lantos István Photography';
 
 /////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS
@@ -115,7 +115,7 @@ app.use('/', require('./routes/portfolio'));
 app.use('/blog', require('./routes/blog'));
 app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
-app.use('/about-me', require('./routes/about-me'));
+app.use('/contact', require('./routes/contact'));
 // i18n
 app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
   res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });

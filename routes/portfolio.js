@@ -4,9 +4,6 @@ var express = require('express'),
     router  = express.Router();
 //var glob    = require('glob');
 
-var config   = require('../config'),
-    siteName = config.siteName;
-
 var functions  = require('../lib/functions'),
     fsAsync    = functions.fsAsync,
     actualYear = functions.actualYear;
@@ -25,8 +22,7 @@ router.get('/', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear,
-        siteName: siteName
+        actualYear: actualYear
       });
     }
 
@@ -42,10 +38,9 @@ router.get('/', function (req, res, next) {
       layout: 'main',
       titleShown: false,
       title: 'Hi!',
-      description: 'Home page of ' + siteName,
+      description: 'Home page',
       keywords: 'wedding,photography,film,lantos,istvan',
       actualYear: actualYear,
-      siteName: siteName,
       data: gallery,
       latestPosts: json
     });
@@ -65,10 +60,9 @@ router.get('/', function (req, res, next) {
       layout: 'main',
       titleShown: false,
       title: 'Hi!',
-      description: 'Home page of ' + siteName,
+      description: 'Home page',
       keywords: 'wedding,photography,film,lantos,istvan',
       actualYear: actualYear,
-      siteName: siteName,
       imagesFolder: '\/portfolio\/weddings\/',
       images: results
     });

@@ -5,8 +5,7 @@ var express = require('express'),
 //var request = require('request');
 
 var config          = require('../config'),
-    articlesPerPage = config.articlesPerPage,
-    siteName        = config.siteName;
+    articlesPerPage = config.articlesPerPage;
 
 var functions  = require('../lib/functions'),
     fsAsync    = functions.fsAsync,
@@ -26,8 +25,7 @@ router.get('/', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear,
-        siteName: siteName
+        actualYear: actualYear
       });
     }
 
@@ -40,10 +38,9 @@ router.get('/', function (req, res, next) {
       layout: 'main',
       titleShown: true,
       title: 'Journal',
-      description: 'Journal of ' + siteName,
+      description: 'Blog Page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
       actualYear: actualYear,
-      siteName: siteName,
       divClass: 'journal',
       data: json,
       paginationFirst: false,
@@ -69,10 +66,9 @@ router.get('/', function (req, res, next) {
       layout: 'main',
       titleShown: true,
       title: 'Journal',
-      description: 'Journal of ' + siteName,
+      description: 'Blog page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
       actualYear: actualYear,
-      siteName: siteName,
       divClass: 'journal',
       data: articles,
       paginationParams: null,
@@ -95,8 +91,7 @@ router.get('/page/:id', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear,
-        siteName: siteName
+        actualYear: actualYear
       });
     }
 
@@ -135,10 +130,9 @@ router.get('/page/:id', function (req, res, next) {
       layout: 'main',
       titleShown: true,
       title: 'Journal',
-      description: 'Journal of ' + siteName,
+      description: 'Blog page',
       keywords: 'journal,wedding,photography,film,lantos,istvan',
       actualYear: actualYear,
-      siteName: siteName,
       divClass: 'journal',
       data: json,
       paginationFirst: paginationFirst,
@@ -166,8 +160,7 @@ router.get('/:url', function (req, res, next) {
         title: 'Error 404',
         description: 'Error 404',
         keywords: 'error,404',
-        actualYear: actualYear,
-        siteName: siteName
+        actualYear: actualYear
       });
     }
 
@@ -186,7 +179,6 @@ router.get('/:url', function (req, res, next) {
       description: selectedArticle.description,
       keywords: selectedArticle.keywords,
       actualYear: actualYear,
-      siteName: siteName,
       data: selectedArticle
     });
 
