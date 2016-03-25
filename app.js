@@ -90,7 +90,7 @@ app.use(i18n.init);
 //app.locals.bodyClass = 'langClass'; // BAD IDEA, changing the language to all users
 
 /////////////////////////////////////////////////////////////
-// GLOBAL ROUTES
+// OWN MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
 app.use(function(req, res, next) {
