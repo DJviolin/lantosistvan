@@ -361,32 +361,6 @@ li      { list-style: none; }
   opacity: 1;
 }
 
-/* Social Icons styling */
-[class^='icon-']:before, [class*=' icon-']:before {
-    font-family: 'fontello';
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: .2em;
-    text-align: center;
-    /* opacity: .8; */
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1em;
-    margin-left: .2em;
-    /* font-size: 120%; */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-    font-size: 90%;
-}
-[class^='icon-']:before, [class*=' icon-']:before { font-family: 'fontello'; }
-.icon-facebook:before { content: '\e81f'; }
-.icon-instagram:before { content: '\e821'; }
-.icon-pinterest:before { content: '\e802'; }
-.icon-vimeo:before { content: '\e809'; }
-
 /* ==========================================================================
    Modules - Header
    ========================================================================== */
@@ -581,6 +555,33 @@ footer aside p { margin-bottom: 0; text-transform: lowercase; }
 footer .social-links a { margin-right: 20px; font-size: 0.8em;
                          /*color: #6b6b6b;*/ }
 footer .social-links a:last-child { margin-right: 0; }
+
+/* Social Icons styling */
+[class^='icon-']:before, [class*=' icon-']:before {
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    /* font-size: 120%; */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    font-size: 90%;
+}
+[class^='icon-']:before, [class*=' icon-']:before { font-family: 'fontello'; }
+.icon-facebook:before { content: '\e81f'; }
+.icon-instagram:before { content: '\e821'; }
+.icon-pinterest:before { content: '\e802'; }
+.icon-vimeo:before { content: '\e809'; }
+
 /* http://www.alt-codes.net/miscellaneous-symbols
 http://www.fileformat.info/info/unicode/char/1f682/index.htm */
 footer .copyright {
