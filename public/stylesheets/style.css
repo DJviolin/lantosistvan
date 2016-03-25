@@ -236,7 +236,8 @@ h4      { font-size: 1.33em; } /* 18,62px */
 h5      { font-size: 0.83em; } /* 11,62px */
 h6      { font-size: 0.67em; } /* 9,38px */
 p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
-a       { text-decoration: none; /*color: #000;*/ font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
+a       { text-decoration: none; /*color: #000;*/
+          /*font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;*/
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /*font-style: italic;*/
           color: #d2a679; color: #ccc; color: #a6a6a6;
           color: #d49227; }
