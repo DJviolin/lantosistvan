@@ -1,3 +1,11 @@
+# EXPRESS 5 MIGRATION & BEST PRACTICES
+
+http://expressjs.com/en/guide/migrating-5.html
+
+https://strongloop.com/strongblog/best-practices-for-express-in-production-part-one-security/
+
+https://strongloop.com/strongblog/best-practices-for-express-in-production-part-two-performance-and-reliability/
+
 # FLEXBOX CHEATSHEET
 
 http://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties
