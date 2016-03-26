@@ -152,6 +152,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.error(err.stack);
   res.render('error', {
+    layout: 'main',
+    titleShown: true,
+    title: err.message + ' - ' + err.status,
+    description: err.message + ' - ' + err.status,
+    keywords: err.message + ',' + err.status,
+    // Specific stuff
     message: err.message,
     //error: {}, // production
     error: err // development, styled by views/error.hbs
