@@ -174,10 +174,12 @@ app.use(function(err, req, res, next) {
 // ERROR HANDLING MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
+// Write request and error information to stderr
 function logErrors(err, req, res, next) {
   console.error(err.stack);
   next(err);
 }
+// Client error handler
 function clientErrorHandler(err, req, res, next) {
   if (req.xhr) {
     res.status(500).send({ error: 'Something failed!' });
@@ -185,6 +187,7 @@ function clientErrorHandler(err, req, res, next) {
     next(err);
   }
 }
+// Catching all errors
 // Rewriting default error handler
 function errorHandler(err, req, res, next) {
   if (res.headersSent) {
