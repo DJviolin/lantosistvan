@@ -38,16 +38,15 @@ router.get('/auth/:token', function(req, res) {
 router.get('/articles/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
-    //return res.json(articles) && apiToken === req.params.token;
 
     var q = articles.filter(function (article) {
-      // return article.id === req.params.id;
       return article && apiToken === req.params.token;
     });
-    res.json(q);
+    res.status(200).json(q); // New method (Express 5)
   });
 });
 
