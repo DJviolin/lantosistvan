@@ -143,14 +143,13 @@ app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  console.error(err.stack);
   next(err);
 });
-
 // Catch all errors
 app.use(function(err, req, res, next) {
   //res.status(err.status || 500);
   res.status(500);
+  console.error(err.stack);
   res.render('error', {
     message: err.message,
     //error: {}, // production
