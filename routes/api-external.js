@@ -19,7 +19,8 @@ router.get('/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if(err) {
       //return res.send(err);
-      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
+      return res.status(404).send(err); // New method (Express 5)
+      //return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
 
     var apiAll = data;

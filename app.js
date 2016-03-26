@@ -36,16 +36,13 @@ app.set('view engine', '.hbs');
 // This will let us get the data from a POST
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// cookieParser
-app.use(cookieParser());
 // methodOverride
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
 app.use(methodOverride('_method'));
-// Morgan logger
-app.use(logger('dev'));
-// Gzip compression
-app.use(compression());
+app.use(cookieParser());
+app.use(logger('dev')); // Morgan
+app.use(compression()); // Gzip
 
 /////////////////////////////////////////////////////////////
 // Translation
@@ -130,7 +127,8 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
 });
 // i18n helpers
 app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
-  res.send(req.cookies.locale);
+  res.status(200).send(req.cookies.locale); // New method (Express 5)
+
 });
 app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
@@ -170,6 +168,15 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+
+/////////////////////////////////////////////////////////////
+// ERROR HANDLING MIDDLEWARE FUNCTIONS
+/////////////////////////////////////////////////////////////
+
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 /////////////////////////////////////////////////////////////
