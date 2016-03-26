@@ -59,7 +59,8 @@ router.get('/articles/page/:start/:end/order/:order/auth/:token', function(req, 
 //router.get('/articles/page/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
 
     if(req.params.order === 'adddate') {
@@ -76,7 +77,8 @@ router.get('/articles/page/:start/:end/order/:order/auth/:token', function(req, 
     var q = slice.filter(function (article) {
       return article && apiToken === req.params.token;
     });
-    res.json(q); // (0*2+0=0, 0*2+2=2), (1*2+0=2, 1*2+2=4), (2*2+0=4, 2*2+2=6), (3*2+0=6, 3*2+2=8)
+    // (0*2+0=0, 0*2+2=2), (1*2+0=2, 1*2+2=4), (2*2+0=4, 2*2+2=6), (3*2+0=6, 3*2+2=8)
+    res.status(200).json(q); // New method (Express 5)
   });
 });
 
