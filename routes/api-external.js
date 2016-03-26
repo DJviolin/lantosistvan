@@ -91,14 +91,15 @@ router.get('/articles/page/:start/:end/order/:order/auth/:token', function(req, 
 router.get('/articles/pagecount', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles;
 
     var pagesLength = articles.length / articlesPerPage;
     var pagesLengthCeil = Math.ceil(pagesLength); // Sum of all pages
 
-    res.json({ pagesLengthCeil: pagesLengthCeil });
+    res.status(200).json({ pagesLengthCeil: pagesLengthCeil }); // New method (Express 5)
   });
 });
 
