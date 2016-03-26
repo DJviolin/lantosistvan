@@ -93,6 +93,7 @@ app.locals.actualYear = new Date().getFullYear();
 // OWN MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
+// Add i18n CSS class to <html> tag
 app.use(function(req, res, next) {
   var defaultLang = 'hu';
   var activeLang = req.cookies.locale || defaultLang;
