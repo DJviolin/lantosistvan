@@ -150,13 +150,14 @@ router.get('/articles/category/:id/auth/:token', function(req, res) {
 router.get('/articles/tag/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
     var q = articles.filter(function (article) {
       return article.tags.some(function(tagId) { return tagId === req.params.id;}) && apiToken === req.params.token;
     });
-    res.json(q);
+    res.status(200).json(q); // New method (Express 5)
   });
 });
 
@@ -168,7 +169,8 @@ router.get('/articles/tag/:id/auth/:token', function(req, res) {
 router.get('/articles/category/:cat/tag/:tag/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
     var q = articles.filter(function (article) {
@@ -178,8 +180,8 @@ router.get('/articles/category/:cat/tag/:tag/auth/:token', function(req, res) {
       // moved the article.category === req.params.cat inside the some callback function,
       // this actually multiply the execution of that test, which will always be the same.
     });
-    //res.json(req.params); // Debugging
-    res.json(q);
+    //res.status(200).json(req.params); // New method (Express 5) - Debugging
+    res.status(200).json(q); // New method (Express 5)
   });
 });
 
@@ -191,12 +193,13 @@ router.get('/articles/category/:cat/tag/:tag/auth/:token', function(req, res) {
 router.get('/articles/random/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles;
     var id = Math.floor(Math.random() * articles.length);
     var q = articles[id];
-    res.json(q) && apiToken === req.params.token;
+    res.status(200).json(q) && apiToken === req.params.token; // New method (Express 5)
   });
 });
 
