@@ -5,6 +5,7 @@ var express = require('express'),
 //var request = require('request');
 
 var config          = require('../config'),
+    //usedPort        = config.usedPort,
     articlesPerPage = config.articlesPerPage;
 
 var functions  = require('../lib/functions'),
