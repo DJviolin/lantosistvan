@@ -112,14 +112,14 @@ router.get('/articles/pagecount', function(req, res) {
 router.get('/articles/url/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles;
     var q = articles.filter(function (article) {
-      // return article.id === req.params.id;
       return article.url === req.params.id && apiToken === req.params.token;
     });
-    res.json(q[0]);
+    res.status(200).json(q[0]); // New method (Express 5)
   });
 });
 
@@ -131,13 +131,14 @@ router.get('/articles/url/:id/auth/:token', function(req, res) {
 router.get('/articles/category/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      return res.send(err);
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
     var q = articles.filter(function (article) {
       return article.category === req.params.id && apiToken === req.params.token;
     });
-    res.json(q);
+    res.status(200).json(q); // New method (Express 5)
   });
 });
 
