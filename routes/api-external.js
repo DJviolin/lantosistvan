@@ -17,20 +17,17 @@ var fsAsync   = functions.fsAsync;
 
 router.get('/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
-    if (err) {
-      return res.send(err);
+    if(err) {
+      //return res.send(err);
+      return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
 
     var apiAll = data;
     var q = apiAll.filter(function (article) {
       return article && apiToken === req.params.token;
     });
-    res.json({ data: q });
-
-    /*if(data.length <= req.params.id || req.params.id < 0) {
-      res.status = 404;
-      res.json({ error: 'Empty query' });
-    };*/
+    //res.json({ data: q }); // Old method
+    res.status(200).json({ data: q }); // New method (Express 5)
   });
 });
 
