@@ -18,7 +18,7 @@ var fsAsync   = functions.fsAsync;
 router.get('/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if(err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).send(err); // New method (Express 5)
       //return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
@@ -39,7 +39,7 @@ router.get('/auth/:token', function(req, res) {
 router.get('/articles/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
@@ -60,7 +60,7 @@ router.get('/articles/page/:start/:end/order/:order/auth/:token', function(req, 
 //router.get('/articles/page/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
 
@@ -92,7 +92,7 @@ router.get('/articles/page/:start/:end/order/:order/auth/:token', function(req, 
 router.get('/articles/pagecount', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles;
@@ -113,7 +113,7 @@ router.get('/articles/pagecount', function(req, res) {
 router.get('/articles/url/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles;
@@ -132,7 +132,7 @@ router.get('/articles/url/:id/auth/:token', function(req, res) {
 router.get('/articles/category/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
@@ -151,7 +151,7 @@ router.get('/articles/category/:id/auth/:token', function(req, res) {
 router.get('/articles/tag/:id/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
@@ -170,7 +170,7 @@ router.get('/articles/tag/:id/auth/:token', function(req, res) {
 router.get('/articles/category/:cat/tag/:tag/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles.reverse();
@@ -194,7 +194,7 @@ router.get('/articles/category/:cat/tag/:tag/auth/:token', function(req, res) {
 router.get('/articles/random/auth/:token', function(req, res) {
   fsAsync(function(err, data) {
     if (err) {
-      //return res.send(err);
+      //res.status(404).send(err);
       return res.status(404).json({ error: 'Empty query' }); // New method (Express 5)
     }
     var articles = data[1].articles;
