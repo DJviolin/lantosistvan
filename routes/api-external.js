@@ -26,7 +26,6 @@ router.get('/auth/:token', function(req, res) {
     var q = apiAll.filter(function (article) {
       return article && apiToken === req.params.token;
     });
-    //res.json({ data: q }); // Old method
     res.status(200).json({ data: q }); // New method (Express 5)
   });
 });
