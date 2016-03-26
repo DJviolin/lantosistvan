@@ -143,6 +143,7 @@ app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
+  console.error(err.stack);
   next(err);
 });
 
@@ -153,7 +154,7 @@ app.use(function(err, req, res, next) {
   res.render('error', {
     message: err.message,
     //error: {}, // production
-    error: err // development
+    error: err // development, styled by views/error.hbs
   });
 });
 
