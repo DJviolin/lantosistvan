@@ -136,70 +136,26 @@ app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
 });
 
 /////////////////////////////////////////////////////////////
-// EXPRESS ERROR HANDLING
+// ERROR HANDLING MIDDLEWARE
 /////////////////////////////////////////////////////////////
 
-/*// catch 404 and forward to error handler
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// Error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
+// Catch-all errors
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
+  //res.status(err.status || 500);
+  res.status(500);
   res.render('error', {
     message: err.message,
-    error: {}
+    //error: {}, // production
+    error: err // development
   });
-});*/
-
-/////////////////////////////////////////////////////////////
-// ERROR HANDLING MIDDLEWARE FUNCTIONS
-/////////////////////////////////////////////////////////////
-
-// Write request and error information to stderr
-function logErrors(err, req, res, next) {
-  console.error(err.stack);
-  next(err);
-}
-// Client error handler
-function clientErrorHandler(err, req, res, next) {
-  if (req.xhr) {
-    res.status(500).send({ error: 'Something failed!' });
-  } else {
-    next(err);
-  }
-}
-// Catching all errors
-// Rewriting default error handler
-function errorHandler(err, req, res, next) {
-  if (res.headersSent) {
-    return next(err);
-  }
-  res.status(500);
-  res.render('error', { error: err });
-}
-// Init
-app.use(logErrors);
-app.use(clientErrorHandler);
-app.use(errorHandler);
+});
 
 /////////////////////////////////////////////////////////////
 // INIT EXPRESS APP
