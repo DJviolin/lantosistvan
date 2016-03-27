@@ -9,7 +9,8 @@ var express        = require('express'),
     compression    = require('compression'),
     exphbs         = require('express-handlebars'),
     logger         = require('morgan'),
-    i18n           = require('i18n');
+    i18n           = require('i18n'),
+    helmet         = require('helmet');
 var app = express();
 
 /////////////////////////////////////////////////////////////
@@ -40,7 +41,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
 app.use(methodOverride('_method'));
-app.use(cookieParser());
+app.use(cookieParser()); // Cookies
+app.use(helmet()); // Securing app with various HTTP headers
 app.use(logger('dev')); // Morgan
 app.use(compression()); // Gzip
 
