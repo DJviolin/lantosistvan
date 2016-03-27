@@ -1,8 +1,8 @@
 'use strict';
 
 // PORT
-var usedPort = '3000';
-exports.usedPort = usedPort;
+/*var usedPort = '3000';
+exports.usedPort = usedPort;*/
 
 // API TOKEN
 var apiToken = 'password';

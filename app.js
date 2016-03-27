@@ -106,6 +106,13 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Prints request time to console
+app.use(function (req, res, next) {
+  var now = getFullYear() + '-' + getMonth() + '-' + getDate() + ' ' + getHours() + ':' + getMinutes() + ':' + getSeconds() + '.' + getMilliseconds();
+  console.log('Request time: ' + now);
+  next();
+});
+
 /////////////////////////////////////////////////////////////
 // ROUTES
 /////////////////////////////////////////////////////////////
@@ -123,18 +130,38 @@ app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/contact', require('./routes/contact'));
 // i18n
+var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
+var websiteURL = function (req, res, next) {
+  var a = req.protocol + '://' + req.hostname + ':' + '3000';
+  console.log(a);
+  return String(a);
+  next();
+};
+//app.use(websiteURL);
 app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
-  res.cookie('locale', 'hu', { maxAge: 900000, httpOnly: true });
+  console.log(websiteURL);
+  res.cookie('locale', 'hu', {
+    secure: false, // If true, only sends the cookie over HTTPS
+    //domain: 'example.com',
+    domain: app.use(websiteURL),
+    httpOnly: true,
+    expires: expiryDate
+  });
   res.redirect('back');
 });
 app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
-  res.cookie('locale', 'en', { maxAge: 900000, httpOnly: true });
+  res.cookie('locale', 'en', {
+    secure: false, // If true, only sends the cookie over HTTPS
+    //domain: 'example.com',
+    domain: websiteURL,
+    httpOnly: true,
+    expires: expiryDate
+  });
   res.redirect('back');
 });
 // i18n helpers
 app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
   res.status(200).send(req.cookies.locale); // New method (Express 5)
-
 });
 app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
