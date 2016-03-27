@@ -10,7 +10,9 @@ var express        = require('express'),
     exphbs         = require('express-handlebars'),
     logger         = require('morgan'),
     i18n           = require('i18n'),
-    helmet         = require('helmet');
+    // Security
+    helmet         = require('helmet'),
+    hpp            = require('hpp');
 var app = express();
 
 /////////////////////////////////////////////////////////////
@@ -43,6 +45,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cookieParser()); // Cookies
 app.use(helmet()); // Securing app with various HTTP headers
+app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
 app.use(logger('dev')); // Morgan
 app.use(compression()); // Gzip
 
