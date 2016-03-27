@@ -107,11 +107,12 @@ app.use(function(req, res, next) {
 });
 
 // Prints request time to console
-app.use(function (req, res, next) {
-  var now = getFullYear() + '-' + getMonth() + '-' + getDate() + ' ' + getHours() + ':' + getMinutes() + ':' + getSeconds() + '.' + getMilliseconds();
-  console.log('Request time: ' + now);
+/*app.use(function (req, res, next) {
+  var d = new Date();
+  var n = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + '_' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '.' + d.getMilliseconds();
+  console.log('Request time: ' + n);
   next();
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // ROUTES
@@ -131,19 +132,19 @@ app.use('/tag', require('./routes/blog-tag'));
 app.use('/contact', require('./routes/contact'));
 // i18n
 var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
-var websiteURL = function (req, res, next) {
+/*var websiteURL = function (req, res, next) {
   var a = req.protocol + '://' + req.hostname + ':' + '3000';
   console.log(a);
   return String(a);
   next();
-};
+};*/
 //app.use(websiteURL);
 app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
   console.log(websiteURL);
   res.cookie('locale', 'hu', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
-    domain: app.use(websiteURL),
+    //domain: websiteURL,
     httpOnly: true,
     expires: expiryDate
   });
@@ -153,7 +154,7 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
   res.cookie('locale', 'en', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
-    domain: websiteURL,
+    //domain: websiteURL,
     httpOnly: true,
     expires: expiryDate
   });
