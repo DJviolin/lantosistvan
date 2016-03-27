@@ -109,7 +109,19 @@ app.use(function(req, res, next) {
 // Prints request time to console
 /*app.use(function (req, res, next) {
   var d = new Date();
-  var n = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + '_' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '.' + d.getMilliseconds();
+  var n = d.getFullYear()
+          + '-' +
+          d.getMonth()
+          + '-' +
+          d.getDate()
+          + '_' +
+          d.getHours()
+          + ':' +
+          d.getMinutes()
+          + ':' +
+          d.getSeconds()
+          + '.' +
+          d.getMilliseconds();
   console.log('Request time: ' + n);
   next();
 });*/
