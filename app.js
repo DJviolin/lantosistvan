@@ -140,7 +140,6 @@ var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
 };*/
 //app.use(websiteURL);
 app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
-  console.log(websiteURL);
   res.cookie('locale', 'hu', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
