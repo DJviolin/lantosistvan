@@ -6,11 +6,13 @@ http://expressjs.com/en/advanced/best-practice-security.html
 
 http://expressjs.com/en/advanced/best-practice-performance.html
 
+http://expressjs.com/en/resources/middleware.html
+
+http://expressjs.com/en/guide/error-handling.html
+
 https://strongloop.com/strongblog/best-practices-for-express-in-production-part-one-security/
 
 https://strongloop.com/strongblog/best-practices-for-express-in-production-part-two-performance-and-reliability/
-
-http://expressjs.com/en/guide/error-handling.html
 
 # FLEXBOX CHEATSHEET
 
