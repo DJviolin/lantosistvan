@@ -2,6 +2,10 @@
 
 http://expressjs.com/en/guide/migrating-5.html
 
+http://expressjs.com/en/advanced/best-practice-security.html
+
+http://expressjs.com/en/advanced/best-practice-performance.html
+
 https://strongloop.com/strongblog/best-practices-for-express-in-production-part-one-security/
 
 https://strongloop.com/strongblog/best-practices-for-express-in-production-part-two-performance-and-reliability/
