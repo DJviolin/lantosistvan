@@ -5,8 +5,7 @@
 // Module dependencies
 var app                  = require('../app'),
     debug                = require('debug')('lantosistvan-portfolio:server'),
-    http                 = require('http'),
-    express_enforces_ssl = require('express-enforces-ssl');
+    http                 = require('http');
 
 // Get port from environment and store in Express
 var port = normalizePort(process.env.PORT || '3000');
