@@ -6,7 +6,6 @@ var express = require('express'),
 /* GET info page. */
 router.get('/', function(req, res, next) {
   res.render('contact', {
-    layout: 'main',
     titleShown: true,
     title: 'Contact',
     description: 'Get in touch',

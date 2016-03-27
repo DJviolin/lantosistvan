@@ -18,7 +18,6 @@ router.get('/:cat', function (req, res, next) {
   fsAsync(function(err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -44,7 +43,6 @@ router.get('/:cat', function (req, res, next) {
     };
 
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Category: ' + req.params.cat,
       description: 'Category page',
@@ -69,7 +67,6 @@ router.get('/:cat/page/:id', function (req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -115,7 +112,6 @@ router.get('/:cat/page/:id', function (req, res, next) {
     };
 
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Category: ' + req.params.cat,
       description: 'Category page',

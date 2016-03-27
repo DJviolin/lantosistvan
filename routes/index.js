@@ -16,7 +16,6 @@ router.get('/', function (req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -32,7 +31,7 @@ router.get('/', function (req, res, next) {
     var slice = articles.slice(0, 6);
     var json = [{ articles: slice }];
 
-    res.render('portfolio', {
+    res.render('index', {
       layout: 'main',
       titleShown: false,
       title: 'Hi!',

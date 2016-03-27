@@ -18,7 +18,6 @@ router.get('/:tag', function (req, res, next) {
   fsAsync(function(err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -55,7 +54,6 @@ router.get('/:tag', function (req, res, next) {
 
     // Rendering content
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
       description: 'Tags page',
@@ -80,7 +78,6 @@ router.get('/:tag/page/:id', function (req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -133,7 +130,6 @@ router.get('/:tag/page/:id', function (req, res, next) {
     };
 
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
       description: 'Tags page',

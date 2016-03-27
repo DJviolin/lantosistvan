@@ -20,7 +20,6 @@ router.get('/', function (req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -34,7 +33,6 @@ router.get('/', function (req, res, next) {
     var json = [{ articles: slice }];
 
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Journal',
       description: 'Blog Page',
@@ -61,7 +59,6 @@ router.get('/', function (req, res, next) {
     console.log([{ articles: JSON.parse(body) }]);
     var articles = [{ articles: JSON.parse(body) }];
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Journal',
       description: 'Blog page',
@@ -83,7 +80,6 @@ router.get('/page/:id', function (req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -123,7 +119,6 @@ router.get('/page/:id', function (req, res, next) {
     };
 
     res.render('blog', {
-      layout: 'main',
       titleShown: true,
       title: 'Journal',
       description: 'Blog page',
@@ -150,7 +145,6 @@ router.get('/:url', function (req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {
-        layout: 'main',
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -167,7 +161,6 @@ router.get('/:url', function (req, res, next) {
 
     // render your page with selectedArticle
     res.render('blog-article', {
-      layout: 'main',
       titleShown: true,
       title: selectedArticle.title,
       description: selectedArticle.description,
