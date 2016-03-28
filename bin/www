@@ -10,11 +10,11 @@ var app   = require('../app'),
 // Let's Encrypt
 var fs = require('fs'),
     https = require('https');
-var options = {
+/*var options = {
   key: fs.readFileSync('../keys/privkey.pem'),
   cert: fs.readFileSync('../keys/fullchain.pem'),
   ca: fs.readFileSync('../keys/chain.pem')
-};
+};*/
 
 // Get port from environment and store in Express
 var port = normalizePort(process.env.PORT || '3000');
