@@ -9,6 +9,11 @@ var app   = require('../app'),
 
 // Let's Encrypt
 // https://github.com/nodejs/node-gyp
+// https://letsencrypt.readthedocs.org/en/latest/using.html#manual
+// https://www.npmjs.com/package/letsencrypt-express
+// https://www.npmjs.com/package/letsencrypt
+// https://www.npmjs.com/package/letsencrypt-cli
+// 
 // https://lucaschmid.net/anotherblog/letsencrypt-express
 // https://community.letsencrypt.org/t/node-js-configuration/5175/8
 var fs = require('fs'),
