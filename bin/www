@@ -8,12 +8,15 @@ var app   = require('../app'),
     http  = require('http');
 
 // Let's Encrypt
+// https://github.com/nodejs/node-gyp
+// https://lucaschmid.net/anotherblog/letsencrypt-express
+// https://community.letsencrypt.org/t/node-js-configuration/5175/8
 var fs = require('fs'),
     https = require('https');
 /*var options = {
-  key: fs.readFileSync('../keys/privkey.pem'),
-  cert: fs.readFileSync('../keys/fullchain.pem'),
-  ca: fs.readFileSync('../keys/chain.pem')
+  key: fs.readFileSync('../tls/privkey.pem'),
+  cert: fs.readFileSync('../tls/fullchain.pem'),
+  ca: fs.readFileSync('../tls/chain.pem')
 };*/
 
 // Get port from environment and store in Express
