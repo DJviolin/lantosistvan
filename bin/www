@@ -2,12 +2,16 @@
 
 'use strict';
 
-// Module dependencies
+/////////////////////////////////////////////////////////////
+// MODULE DEPENDENCIES
+/////////////////////////////////////////////////////////////
+
 var app   = require('../app'),
     debug = require('debug')('lantosistvan-portfolio:server'),
     http  = require('http');
 
-// Let's Encrypt
+/////////////////////////////////////////////////////////////
+// LET'S ENCRYPT
 // https://github.com/nodejs/node-gyp
 // https://letsencrypt.readthedocs.org/en/latest/using.html#manual
 // https://www.npmjs.com/package/letsencrypt-express
@@ -16,13 +20,19 @@ var app   = require('../app'),
 // 
 // https://lucaschmid.net/anotherblog/letsencrypt-express
 // https://community.letsencrypt.org/t/node-js-configuration/5175/8
-var fs = require('fs'),
+/////////////////////////////////////////////////////////////
+
+/*var fs = require('fs'),
     https = require('https');
-/*var options = {
+var options = {
   key: fs.readFileSync('../tls/privkey.pem'),
   cert: fs.readFileSync('../tls/fullchain.pem'),
   ca: fs.readFileSync('../tls/chain.pem')
 };*/
+
+/////////////////////////////////////////////////////////////
+// INIT
+/////////////////////////////////////////////////////////////
 
 // Get port from environment and store in Express
 var port = normalizePort(process.env.PORT || '3000');

@@ -1,5 +1,9 @@
 'use strict';
 
+/////////////////////////////////////////////////////////////
+// MODULE DEPENDENCIES
+/////////////////////////////////////////////////////////////
+
 var express        = require('express'),
     serveStatic    = require('serve-static'),
     serveIndex     = require('serve-index'),
@@ -102,7 +106,7 @@ app.locals.actualYear = new Date().getFullYear();
 app.use(function(req, res, next) {
   var defaultLang = 'hu';
   var activeLang = req.cookies.locale || defaultLang;
-  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase();
+  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
   next();
 });
 
