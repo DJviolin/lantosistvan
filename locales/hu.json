@@ -17,5 +17,5 @@
 		"": "Ez egy teszt cikk."
 	},
 	"Legfrissebb sorozatok": "Legfrissebb sorozatok",
-	"<p>This is the Contact Page!</p>": "<p>This is the Contact Page!</p>"
+	"<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>": "<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>"
 }

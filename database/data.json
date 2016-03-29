@@ -142,7 +142,7 @@
   },
   {
     "contact": {
-      "body": "<p>This is the Contact Page!</p>"
+      "body": "<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>"
     }
   },
   {
