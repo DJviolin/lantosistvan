@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
     var json = [{ articles: slice }];
 
     res.render('index', {
-      layout: 'main',
+      //layout: 'main',
       titleShown: false,
       title: 'Hi!',
       description: 'Home page',
