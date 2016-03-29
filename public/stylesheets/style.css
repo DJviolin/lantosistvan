@@ -804,7 +804,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .navigation { -webkit-flex-direction: column; flex-direction: column; }
   .main-nav ul { -webkit-flex-direction: column; flex-direction: column; }
-  .main-nav ul li { margin: 0; }
+  Í/*.main-nav ul li { margin: 0; }*/
   .main-nav ul li a { padding: 20px 0 20px 0; }
   .main-nav ul ul {
     -webkit-flex-direction: column; flex-direction: column;
