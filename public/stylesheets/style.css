@@ -804,7 +804,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .navigation { -webkit-flex-direction: column; flex-direction: column; }
   .main-nav ul { -webkit-flex-direction: column; flex-direction: column; }
-  Í/*.main-nav ul li { margin: 0; }*/
+  .main-nav ul li { margin: 0; }
   .main-nav ul li a { padding: 20px 0 20px 0; }
   .main-nav ul ul {
     -webkit-flex-direction: column; flex-direction: column;
@@ -813,10 +813,10 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     position: relative;
     margin-left: 0;
     padding: 0;
-    min-width: 160px;
     -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;
     -o-transition: all 0s ease 0s; -moz-transition: all 0s ease 0s; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s;
   }
+  /*.main-nav ul li > ul { padding-bottom: 5px; }*/
   .main-nav ul ul li a {
     text-align: center;
     /*font-size: 0.9em;
