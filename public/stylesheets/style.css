@@ -802,7 +802,13 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   }
   .toggle-mobile-nav a span { font-size: 2em; vertical-align: -0.15em; }
 
-  .navigation { -webkit-flex-direction: column; flex-direction: column; }
+  .navigation {
+    -webkit-flex-direction: column; flex-direction: column;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 0.75em;
+    letter-spacing: 0.15em;
+    color: #000;
+  }
   .main-nav ul { -webkit-flex-direction: column; flex-direction: column; }
   .main-nav ul li { margin: 0; }
   .main-nav ul li a { padding: 20px 0 20px 0; }
