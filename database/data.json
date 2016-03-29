@@ -141,6 +141,11 @@
     ]
   },
   {
+    "contact": {
+      "body": "<p>This is the Contact Page!</p>"
+    }
+  },
+  {
     "users": [
       { "name": "Admin" },
       { "name": "User" }
