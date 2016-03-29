@@ -24,9 +24,9 @@ router.get('/', (req, res, next) => {
   }, (err, html) => {
     if (err) throw err;
     res.send(html);
-    console.log('sent this static stuff');
+    //console.log('sent this static stuff');
   });
-  console.log('this is async');
+  //console.log('this is async');
 });
 
 module.exports = router;
