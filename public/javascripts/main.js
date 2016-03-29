@@ -130,7 +130,7 @@ $(document).ready(function() {
 
 
 
-// Responsive header vertically
+/*// Responsive header vertically
 $(document).ready(function() {
   $(window).on('load resize', function() {
     if ($(this).height() < 855) {
@@ -140,7 +140,7 @@ $(document).ready(function() {
       $('header').removeClass('little-screen');
     };
   });
-});
+});*/
 
 
 
@@ -192,7 +192,7 @@ window.addEventListener('load', function() {
 
 
 
-// Measuring header height
+/*// Measuring header height
 $(window).on('load resize', function() {
   if ($(this).width() < 1600) {
     var headerHeight = $('header.main').outerHeight(true);
@@ -201,12 +201,12 @@ $(window).on('load resize', function() {
   else {
     $('.sidescroll .images, .blog main').css('margin-top', 0);
   };
-});
+});*/
 
 
 
 
-// Navbar hider for handheld devices
+/*// Navbar hider for handheld devices
 function headerHeight() {
   var headerHeight = $('header.main').outerHeight(true);
   var mobileNavHeight = $('.toggle-mobile-nav').outerHeight(true);
@@ -252,4 +252,4 @@ $(window).on('load resize', function() {
   else {
     unbindNavUp();
   };
-});
+});*/
