@@ -130,8 +130,8 @@ $(document).ready(function() {
 
 
 
-/*// Responsive header vertically
-$(document).ready(function() {
+// Responsive header vertically
+/*$(document).ready(function() {
   $(window).on('load resize', function() {
     if ($(this).height() < 855) {
       $('header').addClass('little-screen');
@@ -192,8 +192,8 @@ window.addEventListener('load', function() {
 
 
 
-/*// Measuring header height
-$(window).on('load resize', function() {
+// Measuring header height
+/*$(window).on('load resize', function() {
   if ($(this).width() < 1600) {
     var headerHeight = $('header.main').outerHeight(true);
     $('.sidescroll .images, .blog main').css('margin-top', headerHeight);
@@ -206,8 +206,8 @@ $(window).on('load resize', function() {
 
 
 
-/*// Navbar hider for handheld devices
-function headerHeight() {
+// Navbar hider for handheld devices
+/*function headerHeight() {
   var headerHeight = $('header.main').outerHeight(true);
   var mobileNavHeight = $('.toggle-mobile-nav').outerHeight(true);
   //var logoHeight = $('header.main .logo').outerHeight(true);
