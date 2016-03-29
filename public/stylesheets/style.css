@@ -834,7 +834,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     width: 100%;
   }
   header.main .content {
-    -webkit-flex: 0 0 100vw; flex: 0 0 100vw;
+    -webkit-flex: 0 0 100%; flex: 0 0 100%;
     -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
