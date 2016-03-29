@@ -772,6 +772,13 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 .clearfix:after { clear: both; }
 
 /* ==========================================================================
+   Language specific styles
+   ========================================================================== */
+
+.left-nav { margin-left: 12px; } /* hu */
+.lang-en-EN .left-nav { margin-left: -8px; } /* en */
+
+/* ==========================================================================
    Media Queries for Responsive Design
    ========================================================================== */
 
@@ -779,6 +786,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .toggle-mobile-nav, .main-nav.active, .logo-header { display: none; }
 }
 @media (max-width: 1600px) {
+  .left-nav, .lang-en-EN .left-nav { margin-left: 0; }
   .main-nav, .logo-nav { display: none; }
   .main-nav.active { display: block; }
 
@@ -797,6 +805,24 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .navigation { -webkit-flex-direction: column; flex-direction: column; }
   .main-nav ul { -webkit-flex-direction: column; flex-direction: column; }
   .main-nav ul li { margin: 0; }
+  .main-nav ul ul {
+    -webkit-flex-direction: column; flex-direction: column;
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    margin-left: 0;
+    padding: 0;
+    min-width: 160px;
+    -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;
+    -o-transition: all 0s ease 0s; -moz-transition: all 0s ease 0s; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s;
+  }
+  .main-nav ul ul li a {
+    text-align: center;
+    font-size: 0.9em;
+    margin: 4px 12px 5px 12px;
+    padding: 0;
+  }
+
 
   /*.logo { margin-top: 30px; }*/
 
@@ -830,13 +856,6 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   footer aside { padding: 40px 0 40px 0; }
   footer aside:nth-child(2) { border-left: none; border-right: none; border-top: 1px dotted #e9e9e9; border-bottom: 1px dotted #e9e9e9; }
 }
-
-/* ==========================================================================
-   Language specific styles
-   ========================================================================== */
-
-.left-nav { margin-left: 12px; } /* hu */
-.lang-en-EN .left-nav { margin-left: -8px; } /* en */
 
 /* ==========================================================================
    IE Conditional styles
