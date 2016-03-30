@@ -775,7 +775,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    Language specific styles
    ========================================================================== */
 
-.left-nav { /*margin-left: 12px;*/ margin-left: -40px; } /* hu */
+.left-nav { /*margin-left: 12px;*/ margin-left: -46px; } /* hu */
 .lang-en-EN .left-nav { /*margin-left: -8px;*/ } /* en */
 
 /* ==========================================================================
