@@ -34,7 +34,6 @@ app.engine('hbs', exphbs({
   }
 }));
 app.set('view engine', 'hbs');
-app.set('views', __dirname + '/views');
 
 /////////////////////////////////////////////////////////////
 // INIT
