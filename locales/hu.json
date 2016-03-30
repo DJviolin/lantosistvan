@@ -1,11 +1,12 @@
 {
 	"Főoldal": "Főoldal",
-	"Család": "Család",
 	"Történetek": "Történetek",
 	"Szalai család": "Szalai család",
 	"Összes": "Összes",
 	"Esküvő": "Esküvő",
+	"Család": "Család",
 	"Fotósoknak": "Fotósoknak",
+	"Információ": "Információ",
 	"Szolgáltatások": "Szolgáltatások",
 	"Kapcsolat": "Kapcsolat",
 	"Közösségi": "Közösségi",
@@ -17,6 +18,5 @@
 		"": "Ez egy teszt cikk."
 	},
 	"Legfrissebb sorozatok": "Legfrissebb sorozatok",
-	"<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>": "<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>",
-	"Információ": "Információ"
+	"<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>": "<p>This is the Contact Page!<br />But maybe I want to store some <a href=\"#\">links</a> in my text also!</p>"
 }
