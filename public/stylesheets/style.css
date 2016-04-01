@@ -486,7 +486,8 @@ header .content {
   /*top: 15px; left: 15px; right: 15px; bottom: 15px;*/
   top: 0; left: 0; right: 0; bottom: 0;
   /*background-color: #fff;*/
-  background-color: #000;
+  /*background-color: #000;*/
+  background-color: rgba(80,76,73,.9);
   -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
 }
 .latest-posts article .post-preview-header h1,
@@ -510,14 +511,15 @@ header .content {
 /*.latest-posts article:hover > .post-preview-hidden {*/
 .latest-posts article .post-preview-hidden:hover {
   /*opacity: 1;*/
-  opacity: 0.6;
+  /*opacity: 0.6;*/
+  opacity: 1;
 }
 /*.latest-posts article .post-preview-header h1:hover > .post-preview-hidden,
 .latest-posts article .post-preview-header .category:hover > .post-preview-hidden {*/
-.latest-posts article .post-preview-hidden .post-preview-header h1:hover,
+/*.latest-posts article .post-preview-hidden .post-preview-header h1:hover,
 .latest-posts article .post-preview-hidden .post-preview-header .category:hover {
   opacity: 1;
-}
+}*/
 .latest-posts article .post-preview-hidden .post-preview-header {
   height: 100%;
   display: -webkit-flex; display: flex;
