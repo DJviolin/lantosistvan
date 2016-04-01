@@ -495,24 +495,29 @@ header .content {
   line-height: 1.4em;
   font-family: 'TrajanPro-Regular', Georgia, 'Times New Roman', Times, serif;
   text-transform: uppercase;
-  color: #000;
+  /*color: #000;*/
+  color: #fff;
   margin: 0 5px 1px 5px;
 }
 .latest-posts article .post-preview-header .category,
 .latest-posts article .post-preview-header .category:hover {
   font-size: 0.85em; /* 13px */
   font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
-  color: #9e9e9e;
+  /*color: #9e9e9e;*/
+  color: #fff;
   margin: 0 5px 0 5px;
 }
-.latest-posts article:hover > .post-preview-hidden {
+/*.latest-posts article:hover > .post-preview-hidden {*/
+.latest-posts article .post-preview-hidden:hover {
   /*opacity: 1;*/
   opacity: 0.6;
 }
 /*.latest-posts article .post-preview-header h1:hover > .post-preview-hidden,
-.latest-posts article .post-preview-header .category:hover > .post-preview-hidden {
+.latest-posts article .post-preview-header .category:hover > .post-preview-hidden {*/
+.latest-posts article .post-preview-hidden .post-preview-header h1:hover,
+.latest-posts article .post-preview-hidden .post-preview-header .category:hover {
   opacity: 1;
-}*/
+}
 .latest-posts article .post-preview-hidden .post-preview-header {
   height: 100%;
   display: -webkit-flex; display: flex;
