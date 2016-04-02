@@ -540,6 +540,7 @@ article.welcome {
   /*background-color: #fff;*/
   /*background-color: #000;*/
   background-color: rgba(80,76,73,.9);
+  /*background-color: rgba(70,70,70,.9);*/
   -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
 }
 .latest-posts article .post-preview-header h1,
