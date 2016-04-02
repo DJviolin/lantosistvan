@@ -539,6 +539,18 @@ article.welcome {
   font-family: 'Garamond-Regular', 'LatoLatin-Regular', 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
   text-transform: uppercase;
 }
+.latest-posts article .post-preview-header .more,
+.latest-posts article .post-preview-header .more:hover {
+  color: #fff;
+}
+.latest-posts article .post-preview-header .more::after {
+  content: '\A\2192';
+  /*content: '\A\21FE';
+  content: '\A\21A3';*/
+  margin: 0 0 10px 0;
+  white-space: pre;
+  font-size: 25px;
+}
 /*.latest-posts article:hover > .post-preview-hidden {*/
 .latest-posts article .post-preview-hidden:hover {
   opacity: 1;
