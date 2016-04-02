@@ -195,12 +195,12 @@ textarea { resize: vertical; }
 /* Caslon Pro */
 @font-face {
   font-family: 'Caslon-Pro-Italic';
-  src: url('../fonts/caslon/caslon-pro-italic-webfont.eot');
-  src: url('../fonts/caslon/caslon-pro-italic-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/caslon/caslon-pro-italic-webfont.woff2') format('woff2'),
-       url('../fonts/caslon/caslon-pro-italic-webfont.woff') format('woff'),
-       url('../fonts/caslon/caslon-pro-italic-webfont.ttf') format('truetype'),
-       url('../fonts/caslon/caslon-pro-italic-webfont.svg#Caslon-Pro-Italic') format('svg');
+  src: url('../fonts/caslon-pro/caslon-pro-italic-webfont.eot');
+  src: url('../fonts/caslon-pro/caslon-pro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/caslon-pro/caslon-pro-italic-webfont.woff2') format('woff2'),
+       url('../fonts/caslon-pro/caslon-pro-italic-webfont.woff') format('woff'),
+       url('../fonts/caslon-pro/caslon-pro-italic-webfont.ttf') format('truetype'),
+       url('../fonts/caslon-pro/caslon-pro-italic-webfont.svg#Caslon-Pro-Italic') format('svg');
   font-weight: normal;
   font-style: normal;
 }
