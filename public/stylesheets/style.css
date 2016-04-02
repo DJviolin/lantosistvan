@@ -539,6 +539,11 @@ article.welcome {
   /*color: #000;*/
   color: #fff;
   margin: 0 5px 1px 5px;
+  /**/
+  font-size: 20px;
+  letter-spacing: 0.9px;
+  font-style: italic;
+  margin-bottom: 40px;
 }
 .latest-posts article .post-preview-header .category,
 .latest-posts article .post-preview-header .category:hover {
@@ -550,6 +555,10 @@ article.welcome {
   /**/
   font-family: 'Garamond-Regular', 'LatoLatin-Regular', 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
   text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  line-height: 15px;
+  margin-bottom: 30px;
 }
 .latest-posts article .post-preview-header .more,
 .latest-posts article .post-preview-header .more:hover {
