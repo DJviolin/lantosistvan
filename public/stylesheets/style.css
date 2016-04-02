@@ -549,6 +549,7 @@ article.welcome {
   content: '\A\21A3';*/
   margin: 0 0 10px 0;
   white-space: pre;
+  word-wrap: break-word;
   font-size: 25px;
 }
 /*.latest-posts article:hover > .post-preview-hidden {*/
