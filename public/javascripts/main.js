@@ -198,6 +198,7 @@ $(window).on('load resize', function() {
 
 
 // Mobile Nav - Vanilla JS
+// http://callmenick.com/post/add-remove-classes-with-javascript-property-classlist
 // https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
 // http://www.w3schools.com/jsref/met_element_getElementsByClassName.asp
 // http://www.w3schools.com/jsref/met_element_addeventlistener.asp
@@ -214,15 +215,19 @@ $(window).on('load resize', function() {
 document.getElementsByClassName('menu').addEventListener('onclick', myFunction);*/
 
 document.addEventListener('DOMContentLoaded', function() {
-  var toogleNav = document.getElementsByClassName('main-nav')[0];
+  var toggleNav = document.getElementsByClassName('main-nav');
+
   function myFunction() {
-    $('.main-nav').toggleClass('active');
-    console.log('myFunction() fired...');
-    return false;
+    for (var i=0; i<toggleNav.length; i++) {
+      toggleNav[i].classList.toggle('active');
+      console.log('myFunction() fired...');
+      return false;
+    }
   };
+
   var x = document.getElementsByClassName('menu')[0];
-  //x.addEventListener('mouseover', myFunction);
   x.addEventListener('click', myFunction);
+  //x.addEventListener('mouseover', myFunction);
 });
 
 /*document.addEventListener('DOMContentLoaded', function() {
