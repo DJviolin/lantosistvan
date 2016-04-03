@@ -111,7 +111,7 @@ textarea { resize: vertical; }
        url('../fonts/lato-latin/LatoLatin-Hairline.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
-  text-rendering: optimizeLegibility;
+  /*text-rendering: optimizeLegibility;*/
 }
 @font-face {
   font-family: 'LatoLatin-Light';
@@ -122,7 +122,7 @@ textarea { resize: vertical; }
        url('../fonts/lato-latin/LatoLatin-Light.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
-  text-rendering: optimizeLegibility;
+  /*text-rendering: optimizeLegibility;*/
 }
 @font-face {
   font-family: 'LatoLatin-Regular';
@@ -133,7 +133,7 @@ textarea { resize: vertical; }
        url('../fonts/lato-latin/LatoLatin-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
-  text-rendering: optimizeLegibility;
+  /*text-rendering: optimizeLegibility;*/
 }
 @font-face {
   font-family: 'LatoLatin-Black';
@@ -144,7 +144,7 @@ textarea { resize: vertical; }
        url('../fonts/lato-latin/LatoLatin-Black.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
-  text-rendering: optimizeLegibility;
+  /*text-rendering: optimizeLegibility;*/
 }
 /* Crimson Text */
 @font-face {
