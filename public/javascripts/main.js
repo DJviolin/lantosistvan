@@ -201,16 +201,14 @@ $(window).on('load resize', function() {
 // http://www.w3schools.com/jsref/met_element_addeventlistener.asp
 // http://www.w3schools.com/jsref/dom_obj_event.asp
 document.addEventListener('DOMContentLoaded', function() {
-  var toggleNav = document.getElementsByClassName('main-nav');
-
   function myFunction() {
+    var toggleNav = document.getElementsByClassName('main-nav');
     for (var i=0; i<toggleNav.length; i++) {
       toggleNav[i].classList.toggle('active');
       console.log('myFunction() fired...');
     }
   return false;
   };
-
   var x = document.getElementsByClassName('menu')[0];
   x.addEventListener('click', myFunction);
   //x.addEventListener('mouseover', myFunction);
