@@ -179,11 +179,16 @@ $(document).ready(function() {
 
 
 
+// FastClick
+window.addEventListener('load', function() {
+  new FastClick(document.body);
+}, false);
+
+
+
 
 // Mobile Nav
 window.addEventListener('load', function() {
-  new FastClick(document.body);
-  }, false);
   $('.menu').on('click', function(e){
     $('.main-nav').toggleClass('active');
     e.preventDefault();
