@@ -203,17 +203,6 @@ $(window).on('load resize', function() {
 // http://www.w3schools.com/jsref/met_element_getElementsByClassName.asp
 // http://www.w3schools.com/jsref/met_element_addeventlistener.asp
 // http://www.w3schools.com/jsref/dom_obj_event.asp
-//var menu = document.getElementsByClassName('menu');
-/*menu.addEventListener('onclick', function(e) {
-  $('.main-nav').toggleClass('active');
-  e.preventDefault();
-});*/
-/*var myFunction = function() {
-  $('.main-nav').toggleClass('active');
-  e.preventDefault();
-};
-document.getElementsByClassName('menu').addEventListener('onclick', myFunction);*/
-
 document.addEventListener('DOMContentLoaded', function() {
   var toggleNav = document.getElementsByClassName('main-nav');
 
@@ -229,6 +218,9 @@ document.addEventListener('DOMContentLoaded', function() {
   x.addEventListener('click', myFunction);
   //x.addEventListener('mouseover', myFunction);
 });
+
+
+
 
 /*document.addEventListener('DOMContentLoaded', function() {
   alert('DOM fully loaded and parsed');
