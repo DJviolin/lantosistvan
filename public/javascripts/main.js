@@ -225,6 +225,10 @@ document.addEventListener('DOMContentLoaded', function() {
   x.addEventListener('click', myFunction);
 });
 
+/*document.addEventListener('DOMContentLoaded', function() {
+  alert('DOM fully loaded and parsed');
+});*/
+
 
 
 
