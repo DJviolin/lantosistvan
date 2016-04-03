@@ -192,6 +192,7 @@ window.addEventListener('load', function() {
   $('.menu').on('click', function(e){
     $('.main-nav').toggleClass('active');
     e.preventDefault();
+  });
 });
 
 
