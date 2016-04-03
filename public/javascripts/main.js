@@ -180,9 +180,9 @@ $(document).ready(function() {
 
 
 // FastClick
-window.addEventListener('load', function() {
+/*window.addEventListener('load', function() {
   new FastClick(document.body);
-}, false);
+}, false);*/
 
 
 
