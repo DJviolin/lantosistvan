@@ -186,11 +186,43 @@ $(window).on('load resize', function() {
 
 
 // Mobile Nav
-window.addEventListener('load', function() {
+/*$(document).ready(function() {
+//window.addEventListener('load', function() {
   $('.menu').on('click', function(e){
     $('.main-nav').toggleClass('active');
     e.preventDefault();
   });
+});*/
+
+
+
+
+// Mobile Nav - Vanilla JS
+// https://jsperf.com/getelementsbyclassname-vs-queryselectorall/15
+// http://www.w3schools.com/jsref/met_element_getElementsByClassName.asp
+// http://www.w3schools.com/jsref/met_element_addeventlistener.asp
+// http://www.w3schools.com/jsref/dom_obj_event.asp
+//var menu = document.getElementsByClassName('menu');
+/*menu.addEventListener('onclick', function(e) {
+  $('.main-nav').toggleClass('active');
+  e.preventDefault();
+});*/
+/*var myFunction = function() {
+  $('.main-nav').toggleClass('active');
+  e.preventDefault();
+};
+document.getElementsByClassName('menu').addEventListener('onclick', myFunction);*/
+
+document.addEventListener('DOMContentLoaded', function() {
+  var toogleNav = document.getElementsByClassName('main-nav')[0];
+  function myFunction() {
+    $('.main-nav').toggleClass('active');
+    console.log('myFunction() fired...');
+    return false;
+  };
+  var x = document.getElementsByClassName('menu')[0];
+  //x.addEventListener('mouseover', myFunction);
+  x.addEventListener('click', myFunction);
 });
 
 
