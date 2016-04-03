@@ -5,6 +5,7 @@
   {{#each latestPosts.[0].articles}}
   <a href="/blog/{{this.url}}">
     <article class="id-{{this._id}}">
+      <img class="preview-image" src="{{imagesFolder}}{{preview}}" alt="">
       <div class="post-preview-hidden id-{{this._id}}">
         <div class="post-preview-header">
           <!--<div class="drawing">
@@ -16,7 +17,7 @@
           <div class="more">Tovább</div>
         </div><!-- .post-preview-header -->
       </div><!-- .post-preview-hidden.id-{{this._id}} -->
-      <img class="preview-image" src="{{imagesFolder}}{{preview}}" alt="">
+      <!--<img class="preview-image" src="{{imagesFolder}}{{preview}}" alt="">-->
     </article><!-- article.id-{{this._id}} -->
   </a>
 
