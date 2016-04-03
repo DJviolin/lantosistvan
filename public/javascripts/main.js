@@ -185,7 +185,7 @@ $(window).on('load resize', function() {
 
 
 
-// Mobile Nav
+// Mobile Nav - Jquery
 /*$(document).ready(function() {
 //window.addEventListener('load', function() {
   $('.menu').on('click', function(e){
@@ -193,9 +193,6 @@ $(window).on('load resize', function() {
     e.preventDefault();
   });
 });*/
-
-
-
 
 // Mobile Nav - Vanilla JS
 // http://callmenick.com/post/add-remove-classes-with-javascript-property-classlist
@@ -218,9 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
   x.addEventListener('click', myFunction);
   //x.addEventListener('mouseover', myFunction);
 });
-
-
-
 
 /*document.addEventListener('DOMContentLoaded', function() {
   alert('DOM fully loaded and parsed');
