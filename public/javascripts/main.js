@@ -221,8 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i=0; i<toggleNav.length; i++) {
       toggleNav[i].classList.toggle('active');
       console.log('myFunction() fired...');
-      return false;
     }
+  return false;
   };
 
   var x = document.getElementsByClassName('menu')[0];
