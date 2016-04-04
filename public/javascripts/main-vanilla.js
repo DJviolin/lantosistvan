@@ -24,7 +24,17 @@
 }());
 
 // Lazy loading portfolio div - Vanilla JS
-
+function lazyload() {
+  //var sidescrollImages = document.getElementsByClassName('images');
+  //for (var i=0; i<sidescrollImages.length; i++) {
+  //  sidescrollImages[i].classList.remove('lazyload');
+    //console.log('lazyload() fired...');
+  //}
+  var sidescrollImages = document.getElementsByClassName('images')[0];
+  sidescrollImages.classList.remove('lazyload');
+  //console.log('lazyload() fired...');
+};
+document.addEventListener('DOMContentLoaded', lazyload);
 
 // Latest posts resize on frontpage - Vanilla JS
 document.addEventListener('DOMContentLoaded', function() {

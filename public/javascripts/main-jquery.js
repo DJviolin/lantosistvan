@@ -129,17 +129,17 @@ $(document).ready(function() {
 
 // Lazy loading portfolio div - Vanilla JS
 // http://callmenick.com/post/add-remove-classes-with-javascript-property-classlist
-function lazyload() {
-  /*var sidescrollImages = document.getElementsByClassName('images');
-  for (var i=0; i<sidescrollImages.length; i++) {
-    sidescrollImages[i].classList.remove('lazyload');
+/*function lazyload() {
+  //var sidescrollImages = document.getElementsByClassName('images');
+  //for (var i=0; i<sidescrollImages.length; i++) {
+  //  sidescrollImages[i].classList.remove('lazyload');
     //console.log('lazyload() fired...');
-  }*/
+  //}
   var sidescrollImages = document.getElementsByClassName('images')[0];
   sidescrollImages.classList.remove('lazyload');
   //console.log('lazyload() fired...');
 };
-document.addEventListener('DOMContentLoaded', lazyload);
+document.addEventListener('DOMContentLoaded', lazyload);*/
 
 
 
