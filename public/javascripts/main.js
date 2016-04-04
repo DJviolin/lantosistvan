@@ -201,7 +201,7 @@ $(window).on('load resize', function() {
 // http://www.w3schools.com/jsref/met_element_addeventlistener.asp
 // http://www.w3schools.com/jsref/dom_obj_event.asp
 document.addEventListener('DOMContentLoaded', function() {
-  function myFunction() {
+  function menuButton() {
     var toggleNav = document.getElementsByClassName('main-nav');
     for (var i=0; i<toggleNav.length; i++) {
       toggleNav[i].classList.toggle('active');
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
   return false;
   };
   var x = document.getElementsByClassName('menu-button')[0];
-  x.addEventListener('click', myFunction);
+  x.addEventListener('click', menuButton);
   //x.addEventListener('mouseover', myFunction);
 });
 
