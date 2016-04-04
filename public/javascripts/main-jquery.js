@@ -117,14 +117,19 @@ $(document).ready(function() {
 
 
 
-// Lazy loading portfolio div
-$(document).ready(function() {
+// Lazy loading portfolio div - Jquery
+/*$(document).ready(function() {
   // will fire IMMEDIATELY after the DOM is constructed
   //$(window).on('load', function() {
     // will only fire AFTER all pages assets have loaded
     $('.sidescroll .images').removeClass('lazyload');
     //alert('done');
   //});
+});*/
+
+// Lazy loading portfolio div - Vanilla JS
+document.addEventListener('DOMContentLoaded', function() {
+  $('.sidescroll .images').removeClass('lazyload');
 });
 
 
