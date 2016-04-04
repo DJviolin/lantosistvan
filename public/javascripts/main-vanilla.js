@@ -23,6 +23,9 @@
     }
 }());
 
+// Lazy loading portfolio div - Vanilla JS
+
+
 // Latest posts resize on frontpage - Vanilla JS
 document.addEventListener('DOMContentLoaded', function() {
   function previewImages() {
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var width = parseInt(getComputedStyle(images[i]).width);
       var calc = ( width / 4 ) * 3;
       images[i].style.height = calc + 'px';
-      console.log('previewImages() fired...'); 
+      //console.log('previewImages() fired...'); 
     }
   return false;
   };
@@ -45,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var toggleNav = document.getElementsByClassName('main-nav');
     for (var i=0; i<toggleNav.length; i++) {
       toggleNav[i].classList.toggle('active');
-      console.log('menuButton() fired...');
+      //console.log('menuButton() fired...');
     }
   return false;
   };
