@@ -23,6 +23,9 @@
     }
 }());
 
+
+
+
 // Lazy loading portfolio div - Vanilla JS
 function lazyload() {
   //var sidescrollImages = document.getElementsByClassName('images');
@@ -35,6 +38,9 @@ function lazyload() {
   //console.log('lazyload() fired...');
 };
 document.addEventListener('DOMContentLoaded', lazyload);
+
+
+
 
 // Latest posts resize on frontpage - Vanilla JS
 document.addEventListener('DOMContentLoaded', function() {
@@ -50,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('load', previewImages);
   window.addEventListener('resize', previewImages);
 });
+
+
+
 
 // Mobile Nav - Vanilla JS
 document.addEventListener('DOMContentLoaded', function() {
