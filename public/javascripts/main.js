@@ -158,12 +158,12 @@ $(document).ready(function() {
 // http://codeblog.cz/vanilla/style.html#set-element-width
 document.addEventListener('DOMContentLoaded', function() {
   function previewImages() {
-    var flpImg = document.getElementsByClassName('preview-image');
-    for (var i=0; i<flpImg.length; i++) {
-      var getElementsWidth = parseInt(getComputedStyle(flpImg[i]).width);
-      var calc = ( getElementsWidth / 4 ) * 3;
-      flpImg[i].style.height = calc;
-      var result = flpImg[i].style.height = calc;
+    var images = document.getElementsByClassName('preview-image');
+    for (var i=0; i<images.length; i++) {
+      var width = parseInt(getComputedStyle(images[i]).width);
+      var calc = ( width / 4 ) * 3;
+      images[i].style.height = calc;
+      var result = images[i].style.height = calc;
       console.log('previewImages() fired... ' + result); 
     }
   //return false;
