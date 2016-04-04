@@ -958,9 +958,15 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .latest-posts article .post-preview-hidden {
     position: relative;
     opacity: 1;
-    background-color: rgba(80,76,73,.9);
+    background: none;
     -o-transition: opacity 0s ease 0s; -moz-transition: opacity 0s ease 0s; -webkit-transition: opacity 0s ease 0s; transition: opacity 0s ease 0s;
   }
+  .latest-posts article .post-preview-header .category,
+  .latest-posts article .post-preview-header .category:hover { margin-top: 20px; color: #928371; }
+  .latest-posts article .post-preview-header h1,
+  .latest-posts article .post-preview-header h1:hover { margin-bottom: 90px; color: #928371; }
+  .latest-posts article .post-preview-header .more,
+  .latest-posts article .post-preview-header .more:hover { display: none; }
 
   footer .content { -webkit-flex: 0 0 85vw; flex: 0 0 85vw; }
   footer .row { -webkit-flex-direction: column; flex-direction: column; padding-top: 0; }
