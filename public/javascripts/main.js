@@ -146,12 +146,30 @@ $(document).ready(function() {
 
 
 
-// Latest posts resize on frontpage
-$(window).on('load resize', function() {
+// Latest posts resize on frontpage - Jquery
+/*$(window).on('load resize', function() {
   var flpImgWidth = $('.latest-posts article .preview-image').width();
   var calc = ( flpImgWidth / 4 ) * 3;
   $('.latest-posts article .preview-image').css('height', calc);
   //console.log(calc);
+});*/
+
+// Latest posts resize on frontpage - Vanilla JS
+// http://codeblog.cz/vanilla/style.html#set-element-width
+document.addEventListener('DOMContentLoaded', function() {
+  function previewImages() {
+    var flpImg = document.getElementsByClassName('preview-image');
+    for (var i=0; i<flpImg.length; i++) {
+      var getElementsWidth = parseInt(getComputedStyle(flpImg[i]).width);
+      var calc = ( getElementsWidth / 4 ) * 3;
+      flpImg[i].style.height = calc;
+      var result = flpImg[i].style.height = calc;
+      console.log('previewImages() fired... ' + result); 
+    }
+  //return false;
+  };
+  window.addEventListener('load', previewImages);
+  window.addEventListener('resize', previewImages);
 });
 
 
@@ -205,13 +223,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var toggleNav = document.getElementsByClassName('main-nav');
     for (var i=0; i<toggleNav.length; i++) {
       toggleNav[i].classList.toggle('active');
-      console.log('myFunction() fired...');
+      console.log('menuButton() fired...');
     }
   return false;
   };
   var x = document.getElementsByClassName('menu-button')[0];
   x.addEventListener('click', menuButton);
-  //x.addEventListener('mouseover', myFunction);
 });
 
 /*document.addEventListener('DOMContentLoaded', function() {
