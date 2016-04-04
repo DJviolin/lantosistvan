@@ -19,18 +19,18 @@ function bindSlick() {
     autoplaySpeed: 3000
   });
   //console.log('bindSlick() fired...');
-}
+};
 function unbindSlick() {
   $('.sidescroll .images').slick('unslick');
   //console.log('unbindSlick() fired...');
-}
+};
 function handleSlick() {
   if (window.innerWidth > 1600) { // Browser window viewport including (if rendered) the vertical scrollbar
     bindSlick();
   } else {
     unbindSlick(); 
   }
-}
+};
 document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('load', function() {
     handleSlick();
