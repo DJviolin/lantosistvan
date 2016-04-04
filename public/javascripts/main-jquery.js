@@ -34,7 +34,7 @@ function handleSlick() {
 document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('load', function() {
     handleSlick();
-    console.log('handleSlick() fired on load...');
+    //console.log('handleSlick() fired on load...');
   });
   // The resize event is fired lots of times during resizing.
   // If you use a timer inside the resize callback that resets and
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearTimeout(timer);
     timer = setTimeout(function() {
       handleSlick();
-      console.log('handleSlick() fired on resize...');
+      //console.log('handleSlick() fired on resize...');
     }, 100);
     //console.log('jquery on window resize');
   });
