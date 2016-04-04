@@ -162,9 +162,9 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i=0; i<images.length; i++) {
       var width = parseInt(getComputedStyle(images[i]).width);
       var calc = ( width / 4 ) * 3;
-      images[i].style.height = calc;
-      var result = images[i].style.height = calc;
-      console.log('previewImages() fired... ' + result); 
+      images[i].style.height = calc + 'px';
+      //var result = images[i].style.height = calc;
+      //console.log('previewImages() fired... ' + result); 
     }
   //return false;
   };
