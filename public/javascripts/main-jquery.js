@@ -88,7 +88,8 @@ function unbindSlick() {
   //console.log('unbindSlick() fired...');
 }
 function handleSlick() {
-  if ($(window).width() > 1600) {
+  //if ($(window).width() > 1600) {
+  if (window.innerWidth > 1600) {
     bindSlick();
   } else {
     unbindSlick(); 
