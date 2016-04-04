@@ -163,10 +163,9 @@ document.addEventListener('DOMContentLoaded', function() {
       var width = parseInt(getComputedStyle(images[i]).width);
       var calc = ( width / 4 ) * 3;
       images[i].style.height = calc + 'px';
-      //var result = images[i].style.height = calc;
-      //console.log('previewImages() fired... ' + result); 
+      console.log('previewImages() fired...'); 
     }
-  //return false;
+  return false;
   };
   window.addEventListener('load', previewImages);
   window.addEventListener('resize', previewImages);
