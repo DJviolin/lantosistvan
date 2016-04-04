@@ -188,7 +188,7 @@ $(window).on('load resize', function() {
 // Mobile Nav - Jquery
 /*$(document).ready(function() {
 //window.addEventListener('load', function() {
-  $('.menu').on('click', function(e){
+  $('.menu-button').on('click', function(e){
     $('.main-nav').toggleClass('active');
     e.preventDefault();
   });
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   return false;
   };
-  var x = document.getElementsByClassName('menu')[0];
+  var x = document.getElementsByClassName('menu-button')[0];
   x.addEventListener('click', myFunction);
   //x.addEventListener('mouseover', myFunction);
 });
