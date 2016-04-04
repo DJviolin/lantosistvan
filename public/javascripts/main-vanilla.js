@@ -46,10 +46,11 @@ document.addEventListener('DOMContentLoaded', lazyload);
 document.addEventListener('DOMContentLoaded', function() {
   function previewImages() {
     var images = document.getElementsByClassName('preview-image');
+    var width = parseInt(getComputedStyle(images[0]).width); // First element
+    var calc = ( width / 4 ) * 3; // First element
     for (var i=0; i<images.length; i++) {
       //var width = parseInt(getComputedStyle(images[i]).width); // All elements
-      var width = parseInt(getComputedStyle(images[0]).width); // First element
-      var calc = ( width / 4 ) * 3;
+      //var calc = ( width / 4 ) * 3; // All elements
       images[i].style.height = calc + 'px';
       //console.log('previewImages() fired...'); 
     }
