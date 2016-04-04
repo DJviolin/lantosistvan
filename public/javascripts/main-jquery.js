@@ -1,7 +1,7 @@
 'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
-(function() {
+/*(function() {
     var method;
     var noop = function () {};
     var methods = [
@@ -21,7 +21,7 @@
             console[method] = noop;
         }
     }
-}());
+}());*/
 
 // Horizontal scrolling - Pure Javascript solution
 // http://www.dte.web.id/2013/02/event-mouse-wheel.html
@@ -156,7 +156,7 @@ $(document).ready(function() {
 
 // Latest posts resize on frontpage - Vanilla JS
 // http://codeblog.cz/vanilla/style.html#set-element-width
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
   function previewImages() {
     var images = document.getElementsByClassName('preview-image');
     for (var i=0; i<images.length; i++) {
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   window.addEventListener('load', previewImages);
   window.addEventListener('resize', previewImages);
-});
+});*/
 
 
 
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // http://www.w3schools.com/jsref/met_element_getElementsByClassName.asp
 // http://www.w3schools.com/jsref/met_element_addeventlistener.asp
 // http://www.w3schools.com/jsref/dom_obj_event.asp
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
   function menuButton() {
     var toggleNav = document.getElementsByClassName('main-nav');
     for (var i=0; i<toggleNav.length; i++) {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   var x = document.getElementsByClassName('menu-button')[0];
   x.addEventListener('click', menuButton);
-});
+});*/
 
 /*document.addEventListener('DOMContentLoaded', function() {
   alert('DOM fully loaded and parsed');
