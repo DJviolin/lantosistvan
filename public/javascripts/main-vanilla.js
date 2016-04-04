@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
   function previewImages() {
     var images = document.getElementsByClassName('preview-image');
     for (var i=0; i<images.length; i++) {
-      var width = parseInt(getComputedStyle(images[i]).width);
+      //var width = parseInt(getComputedStyle(images[i]).width); // All elements
+      var width = parseInt(getComputedStyle(images[0]).width); // First element
       var calc = ( width / 4 ) * 3;
       images[i].style.height = calc + 'px';
       //console.log('previewImages() fired...'); 
