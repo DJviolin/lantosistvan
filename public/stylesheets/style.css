@@ -887,11 +887,8 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1em;
-    /*-o-transition: background-color 0.3s ease-out 0s; -moz-transition: background-color 0.3s ease-out 0s; -webkit-transition: background-color 0.3s ease-out 0s; transition: background-color 0.3s ease-out 0s;*/
   }
-  .toggle-mobile-nav .menu-button:hover {
-    cursor: pointer;
-  }
+  .toggle-mobile-nav .menu-button:hover { cursor: pointer; }
   .toggle-mobile-nav .menu-button span { font-size: 2em; vertical-align: -0.15em; }
 
   .navigation {
