@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       images[i].style.height = calc + 'px';
       //console.log('previewImages() fired...'); 
     }
-  return false;
+  //return false;
   };
   window.addEventListener('load', previewImages);
   window.addEventListener('resize', previewImages);
