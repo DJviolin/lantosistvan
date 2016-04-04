@@ -882,12 +882,12 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   /* Mobile nav */
   .toggle-mobile-nav { margin-bottom: 10px; }
   .toggle-mobile-nav .menu-button {
-    font-family: "TrajanPro-Bold", Georgia, serif;
+    font-family: 'TrajanPro-Bold', Georgia, serif;
     color: #000;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1em;
-    -o-transition: background-color 0.3s ease-out 0s; -moz-transition: background-color 0.3s ease-out 0s; -webkit-transition: background-color 0.3s ease-out 0s; transition: background-color 0.3s ease-out 0s;
+    /*-o-transition: background-color 0.3s ease-out 0s; -moz-transition: background-color 0.3s ease-out 0s; -webkit-transition: background-color 0.3s ease-out 0s; transition: background-color 0.3s ease-out 0s;*/
   }
   .toggle-mobile-nav .menu-button:hover {
     cursor: pointer;
