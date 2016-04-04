@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
       images[i].style.height = calc + 'px';
       //console.log('previewImages() fired...'); 
     }
-  //return false;
   };
   window.addEventListener('load', previewImages);
   window.addEventListener('resize', previewImages);
@@ -62,6 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   return false;
   };
-  var x = document.getElementsByClassName('menu-button')[0];
-  x.addEventListener('click', menuButton);
+  var toggleButton = document.getElementsByClassName('menu-button')[0];
+  toggleButton.addEventListener('click', menuButton);
 });
