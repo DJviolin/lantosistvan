@@ -543,21 +543,6 @@ article.welcome {
   /*background-color: rgba(70,70,70,.9);*/
   -o-transition: opacity 0.3s ease 0s; -moz-transition: opacity 0.3s ease 0s; -webkit-transition: opacity 0.3s ease 0s; transition: opacity 0.3s ease 0s;
 }
-.latest-posts article .post-preview-header h1,
-.latest-posts article .post-preview-header h1:hover {
-  font-size: 0.9em; /* 14px */
-  line-height: 1.4em;
-  font-family: 'TrajanPro-Regular', Georgia, 'Times New Roman', Times, serif;
-  text-transform: uppercase;
-  /*color: #000;*/
-  color: #fff;
-  margin: 0 5px 1px 5px;
-  /**/
-  font-size: 20px;
-  letter-spacing: 0.9px;
-  font-style: italic;
-  margin-bottom: 40px;
-}
 .latest-posts article .post-preview-header .category,
 .latest-posts article .post-preview-header .category:hover {
   font-size: 0.85em; /* 13px */
@@ -574,6 +559,20 @@ article.welcome {
   line-height: 15px;
   margin-bottom: 30px;
 }
+.latest-posts article .post-preview-header h1,
+.latest-posts article .post-preview-header h1:hover {
+  font-size: 0.9em; /* 14px */
+  line-height: 1.4em;
+  font-family: 'TrajanPro-Regular', Georgia, 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  /*color: #000;*/
+  color: #fff;
+  margin: 0 5px 1px 5px;
+  /**/
+  font-size: 20px;
+  letter-spacing: 0.9px;
+  font-style: italic;
+}
 .latest-posts article .post-preview-header .more,
 .latest-posts article .post-preview-header .more:hover {
   font-family: 'Caslon-Pro-Italic', 'Crimson-Text-Italic', Georgia, 'Times New Roman', Times, serif;
@@ -581,6 +580,7 @@ article.welcome {
   letter-spacing: 0.9px;
   text-transform: lowercase;
   color: #fff;
+  margin-top: 40px;
 }
 .latest-posts article .post-preview-header .more::after {
   content: '\A\2192';
