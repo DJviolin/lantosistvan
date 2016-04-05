@@ -292,7 +292,7 @@ body    { /*font-family: 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica
           font-family: Georgia, 'Times New Roman', Times, serif;
           /*font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;*/
           /*font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif;*/
-          font-weight: 300; /*letter-spacing: 0.1em;*/ font-stretch: normal; }
+          /*letter-spacing: 0.1em;*/ font-stretch: normal; }
 h1      { font-size: 2.0em; } /* 28px */
 h2      { font-size: 1.5em; } /* 21px */
 h3      { font-size: 1.17em; } /* 16,38px */
