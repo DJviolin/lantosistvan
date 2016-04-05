@@ -682,10 +682,6 @@ footer .social-links a:last-child { margin-right: 0; }
 /* http://www.alt-codes.net/miscellaneous-symbols
 http://www.fileformat.info/info/unicode/char/1f682/index.htm */
 .site-copyright {
-  /*margin-top: 40px;
-  padding-top: 18px;*/ /* 21px */
-  /*font-size: 0.63em;
-  line-height: 1.7em;*/
   padding: 45px 0 45px 0;
   margin-bottom: 0;
   border-top: 1px solid #e9e9e9;
@@ -693,20 +689,19 @@ http://www.fileformat.info/info/unicode/char/1f682/index.htm */
   text-align: center;
   /*font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;*/
   /**/
-  font-family: 'LatoLatin-Light', 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;
-  text-transform: uppercase;
-  font-size: 0.5em;
+  /*font-family: 'LatoLatin-Light', 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;*/
+  /*text-transform: uppercase;*/
+  /*font-size: 0.5em;
   color: #494949;
-  /*line-height: 1.5em;*/
+  line-height: 1.5em;*/
   /**/
   color: #606060;
-  font-size: 11px;
+  font-size: 0.69em; /* 11px */
   font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
-  text-transform: none;
-  line-height: 2em;
+  line-height: 1.75em;
 }
 .site-copyright a {
-  font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;
+  /*font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;*/
   /**/
   font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
   color: #508fa0;
