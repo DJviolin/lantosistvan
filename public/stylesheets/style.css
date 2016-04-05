@@ -378,6 +378,20 @@ li      { list-style: none; }
   font-size: 0.75em;
   font-size: 0.8em;
   letter-spacing: 0.2em;
+  /**/
+  font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
+  color: #606060;
+  /*-webkit-text-stroke-width: 0.15px;*/
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /**/
+  font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
+  color: #898381;
+  font-size: 11px;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 /*.main-nav { margin-bottom: 40px; }*/
 .main-nav ul {
@@ -400,8 +414,13 @@ li      { list-style: none; }
   /*font-family: Georgia, 'Times New Roman', Times, serif;*/
   /**/
   color: #494949;
+  /**/
+  color: #898381;
 }
-.main-nav ul li a:hover { color: #888; }
+.main-nav ul li a:hover {
+  color: #888;
+  color: #8a9c9b
+}
 
 /* Navigation Drop-Down */
 .main-nav ul ul {
@@ -412,20 +431,20 @@ li      { list-style: none; }
   background-color: #fff;
   margin-left: -10px;
   padding: 0;
-  min-width: 160px;
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
   -o-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;
 }
 .main-nav ul ul li {
   margin: 0;
   width: 100%;
 }
-.main-nav ul ul li:first-child { margin-top: 6px; }
-.main-nav ul ul li:last-child { margin-bottom: 4px; }
+.main-nav ul ul li:first-child { margin-top: 4px; }
+.main-nav ul ul li:last-child { margin-bottom: 2px; }
 .main-nav ul ul li a {
   text-align: left;
   font-size: 0.9em;
-  margin: 4px 12px 5px 12px;
+  margin: 8px 8px 8px 8px;
   padding: 0;
 }
 .main-nav ul li:hover > ul {
@@ -512,6 +531,7 @@ header .content {
   /**/
   /*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;*/
+  /**/
   font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-size: 12px;
   font-size: 14px;
@@ -918,7 +938,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    ========================================================================== */
 
 .left-nav { /*margin-left: 12px;*/ margin-left: -34px; } /* hu = 80px */
-.lang-en-EN .left-nav { /*margin-left: -8px;*/ margin-left: -30px; } /* en = 80px */
+.lang-en-EN .left-nav { /*margin-left: -8px;*/ margin-left: -28px; } /* en = 80px */
 
 /* ==========================================================================
    Media Queries for Responsive Design

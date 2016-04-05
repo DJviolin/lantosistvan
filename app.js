@@ -23,8 +23,8 @@ var app = express();
 // VIEW ENGINE SETUP
 /////////////////////////////////////////////////////////////
 
-app.engine('hbs', exphbs({
-  extname: 'hbs',
+app.engine('.hbs', exphbs({
+  extname: '.hbs',
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
   helpers: {
@@ -33,7 +33,7 @@ app.engine('hbs', exphbs({
     __n: function() { return i18n.__n.apply(this, arguments); }
   }
 }));
-app.set('view engine', 'hbs');
+app.set('view engine', '.hbs');
 
 /////////////////////////////////////////////////////////////
 // INIT
