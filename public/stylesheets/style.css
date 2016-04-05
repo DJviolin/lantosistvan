@@ -758,7 +758,7 @@ http://marinkovic-weddings.com/
 .widget-title { /*font-size: 13px;*/ font-size: 0.9em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
 .big-text {
   font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-size: 28px;
+  font-size: 1.75em; /* 28px */
   letter-spacing: 0.2em; /* 4px */
   text-transform: uppercase;
   font-weight: bold;
