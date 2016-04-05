@@ -411,13 +411,13 @@ li      { list-style: none; }
   /*font-style: normal;*/
   /*font-family: Georgia, 'Times New Roman', Times, serif;*/
   /**/
-  /*color: #494949;*/
+  color: #494949;
   /**/
-  color: #898381;
+  /*color: #898381;*/
 }
 .main-nav ul li a:hover {
-  /*color: #888;*/
-  color: #8a9c9b
+  color: #888;
+  /*color: #8a9c9b;*/
 }
 
 /* Navigation Drop-Down */
