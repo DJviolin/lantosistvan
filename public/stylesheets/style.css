@@ -37,6 +37,7 @@ textarea { resize: vertical; }
    http://iosfonts.com/
    http://www.w3schools.com/cssref/css_websafe_fonts.asp
    http://www.webdesigndev.com/16-gorgeous-web-safe-fonts-to-use-with-css/
+   http://www.cssfontstack.com/trebuchet-ms
    ========================================================================== */
 
 /* Fontello.com */
@@ -709,7 +710,8 @@ http://www.fileformat.info/info/unicode/char/1f682/index.htm */
   font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
   color: #508fa0;
 }
-.pipe { padding: 0 4px 0 4px; }
+.site-copyright a:hover { color: #529aa5; }
+.pipe { padding: 0 3px 0 3px; }
 
 /* ==========================================================================
    Modules - Titles
