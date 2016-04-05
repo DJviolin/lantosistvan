@@ -706,6 +706,7 @@ http://www.fileformat.info/info/unicode/char/1f682/index.htm */
   font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
   color: #508fa0;
 }
+.pipe { padding: 0 4px 0 4px; }
 
 /* ==========================================================================
    Modules - Titles
