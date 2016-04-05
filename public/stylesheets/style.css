@@ -512,6 +512,14 @@ header .content {
   /**/
   /*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;*/
+  font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+  font-size: 14px;
+  color: #606060;
+  line-height: 1.8em;
+  margin-bottom: 15px;
+  font-weight: 400;
+  letter-spacing: normal;
 }
 
 /* ==========================================================================
@@ -748,15 +756,27 @@ http://marinkovic-weddings.com/
 */
 .widget-title-img { display: block; margin: 0 auto 20px auto; }
 .widget-title { /*font-size: 13px;*/ font-size: 0.9em; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
-.block-title { /*font-size: 20px;*/ font-size: 1.25em; /*letter-spacing: 4px;*/ letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 40px; font-family: 'LatoLatin-Light', Georgia, 'Times New Roman', Times, serif; clear: both; text-align: center; }
 .big-text {
   font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-size: 28px;
+  letter-spacing: 0.2em; /* 4px */
+  text-transform: uppercase;
   font-weight: bold;
   font-style: italic;
   color: #444;
-  letter-spacing: 4px;
-  -webkit-font-smoothing: antialiased;
+  clear: both;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.big-text-light {
+  font-family: 'LatoLatin-Light', Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.25em; /* 20px */
+  letter-spacing: 0.2em; /* 4px */
+  text-transform: uppercase;
+  color: #444;
+  clear: both;
+  text-align: center;
+  margin-bottom: 40px;
 }
 .widget-title::after {
   content: '';
