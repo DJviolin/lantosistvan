@@ -681,7 +681,7 @@ footer .social-links a:last-child { margin-right: 0; }
 
 /* http://www.alt-codes.net/miscellaneous-symbols
 http://www.fileformat.info/info/unicode/char/1f682/index.htm */
-footer .copyright {
+.site-copyright {
   /*margin-top: 40px;
   padding-top: 18px;*/ /* 21px */
   /*font-size: 0.63em;
@@ -699,7 +699,7 @@ footer .copyright {
   color: #494949;
   line-height: 1.5em;
 }
-footer .copyright a {
+.site-copyright a {
   font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;
 }
 
