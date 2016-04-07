@@ -338,8 +338,10 @@ li      { list-style: none; }
   width: 442px;
   height: 98px;
   /**/
-  width: 350px;
-  height: 78px;
+  /*width: 350px;
+  height: 78px;*/
+  width: 390px;
+  height: 86px;
 }
 .logo a img {
   width: 100%;
@@ -768,9 +770,9 @@ http://www.fileformat.info/info/unicode/char/1f682/index.htm */
   /*font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;*/
   /**/
   font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
-  color: #508fa0;
+  /*color: #508fa0;*/
 }
-.site-copyright a:hover { color: #529aa5; }
+/*.site-copyright a:hover { color: #529aa5; }*/
 .pipe { padding: 0 3px 0 3px; }
 
 /* ==========================================================================
@@ -961,6 +963,11 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .left-nav, .lang-en-EN .left-nav { margin-left: 0; }
   .main-nav, .logo-nav { display: none; }
   .main-nav.active { display: block; }
+
+  .logo {
+    width: 350px;
+    height: 78px;
+  }
 
   /* Mobile nav */
   .toggle-mobile-nav { margin-bottom: 10px; }
