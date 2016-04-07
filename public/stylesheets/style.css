@@ -334,6 +334,9 @@ li      { list-style: none; }
   height: 190px;
   /*margin: 20px 40px 20px 40px;*/
   margin: 20px 30px 20px 30px;
+  /**/
+  width: 442px;
+  height: 98px;
 }
 .logo a img {
   width: 100%;
@@ -390,7 +393,7 @@ li      { list-style: none; }
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-/*.main-nav { margin-bottom: 40px; }*/
+.main-nav { margin-bottom: 40px; }
 .main-nav ul {
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: row; flex-direction: row;
@@ -942,7 +945,8 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    ========================================================================== */
 
 @media (min-width: 1600px) {
-  .toggle-mobile-nav, .main-nav.active, .logo-header { display: none; }
+  .toggle-mobile-nav, .main-nav.active { display: none; }
+  .logo-header { /*display: none;*/ display: block; }
 }
 @media (max-width: 1600px) {
   .left-nav, .lang-en-EN .left-nav { margin-left: 0; }
