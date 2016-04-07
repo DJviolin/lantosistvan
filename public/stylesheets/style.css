@@ -336,7 +336,12 @@ li      { list-style: none; }
   margin: 40px 30px 40px 30px;
   /**/
   max-width: 390px;
-  height: auto;
+  height: 80px;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .logo {
+    height: auto;
+  }
 }
 .logo a img {
   width: 100%;
@@ -957,6 +962,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .toggle-mobile-nav, .main-nav.active { display: none; }
   .logo-header { /*display: none;*/ display: block; }
 }
+
 @media (max-width: 1600px) {
   .left-nav, .lang-en-EN .left-nav { margin-left: 0; }
   .main-nav, .logo-nav { display: none; }
@@ -965,7 +971,6 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   .logo {
     margin: 30px 30px 30px 30px;
     max-width: 350px;
-    height: auto;
   }
 
   /* Mobile nav */
@@ -1005,6 +1010,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     padding: 0;
     -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;
     -o-transition: all 0s ease 0s; -moz-transition: all 0s ease 0s; -webkit-transition: all 0s ease 0s; transition: all 0s ease 0s;
+    background-color: #fff;
   }
   .main-nav ul ul li a {
     text-align: center;
