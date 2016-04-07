@@ -973,7 +973,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     letter-spacing: 0.15em;
     color: #000;
   }
-  .left-nav { margin-top: 10px; }
+  .left-nav { margin-top: 10px; margin-bottom: 0; }
   .right-nav { margin-bottom: 30px; }
   .main-nav ul { -webkit-flex-direction: column; flex-direction: column; }
   .main-nav ul li { margin: 0; }
