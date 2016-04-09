@@ -88,6 +88,21 @@ i18n.configure({
 // init i18n module for this loop
 app.use(i18n.init);
 
+// https://github.com/mashpie/i18n-node#i18nsetlocale
+/*var router  = express.Router();
+router.all('/:lang/*', function(req, res, next){
+  //i18n.setLocale(req, req.params.lang);
+  i18n.setLocale([req, res.locals], req.params.lang);
+  console.log('GOT /:lang/* request');
+  next();
+});*/
+
+app.all('/:lang/*', function(req, res, next){
+  //i18n.setLocale(req, req.params.lang);
+  i18n.setLocale([req, res.locals], req.params.lang);
+  next();
+});
+
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
 // CHANGES FOR ALL USERS
@@ -147,7 +162,7 @@ app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
 app.use('/contact', require('./routes/contact'));
 // i18n
-var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
+/*var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
 /*var websiteURL = function (req, res, next) {
   var a = req.protocol + '://' + req.hostname + ':' + '3000';
   console.log(a);
@@ -155,7 +170,7 @@ var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
   next();
 };*/
 //app.use(websiteURL);
-app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
+/*app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
   res.cookie('locale', 'hu', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
@@ -174,7 +189,7 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
     expires: expiryDate
   });
   res.redirect('back');
-});
+});*/
 // i18n helpers
 app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
   res.status(200).send(req.cookies.locale); // New method (Express 5)
