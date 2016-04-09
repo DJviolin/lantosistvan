@@ -161,7 +161,9 @@ app.use('/', require('./routes/index'));
 app.use('/blog', require('./routes/blog'));
 app.use('/category', require('./routes/blog-category'));
 app.use('/tag', require('./routes/blog-tag'));
-app.use('/contact', require('./routes/contact'));
+//app.use('/contact', require('./routes/contact'));
+var contact = require('./routes/contact');
+app.use('/contact', contact);
 // i18n
 /*var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
 /*var websiteURL = function (req, res, next) {
