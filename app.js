@@ -156,6 +156,7 @@ app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 // API
 app.use('/api', require('./routes/api-external'));
 // Dynamic
+//app.use('/:lang', require('./routes/all'));
 app.use('/', require('./routes/index'));
 app.use('/blog', require('./routes/blog'));
 app.use('/category', require('./routes/blog-category'));

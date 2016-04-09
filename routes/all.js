@@ -1,22 +1,24 @@
 'use strict';
 
-var express = require('express'),
-    router  = express.Router();
-//var glob    = require('glob');
-
 /////////////////////////////////////////////////////////////
-// ROUTING FOR ALL ROUTES
+// MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-router.all('/:lang/*', function(req, res, next){
-  //i18n.setLocale(req, req.params.lang);
-  i18n.setLocale([req, res.locals], req.params.lang);
-  console.log('GOT /:lang/* request');
-  next();
-});
+var express = require('express');
+var app = express();
+
+/////////////////////////////////////////////////////////////
+// ROUTES
+/////////////////////////////////////////////////////////////
+
+app.use('/', require('../routes/index'));
+app.use('/blog', require('../routes/blog'));
+app.use('/category', require('../routes/blog-category'));
+app.use('/tag', require('../routes/blog-tag'));
+app.use('/contact', require('../routes/contact'));
 
 /////////////////////////////////////////////////////////////
 // INIT EXPRESS ROUTER
 /////////////////////////////////////////////////////////////
 
-module.exports = router;
+module.exports = app;
