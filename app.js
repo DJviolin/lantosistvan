@@ -151,7 +151,7 @@ var langRouter = function(req, res, next) {
   next();
 };
 app.all('/:lang/*', langRouter);
-app.all('/:lang', langRouter);
+app.use('/:lang', langRouter);
 
 // Add i18n CSS class to <html> tag
 app.use(function(req, res, next) {
