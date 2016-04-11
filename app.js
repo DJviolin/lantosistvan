@@ -150,7 +150,9 @@ var langRouter = function(req, res, next) {
   res.locals.language = '/' + selectedLang;
   next();
 };
+// Add i18n CSS class to <html> tag
 var langClass = function(req, res, next) {
+//app.use(function(req, res, next) {
   var defaultLang = 'hu';
   //var activeLang = req.cookies.locale || defaultLang;
   var activeLang = req.params.lang || defaultLang;
@@ -160,15 +162,6 @@ var langClass = function(req, res, next) {
 app.all('*', langClass); // Making sure function is executed without any query.param
 app.all('/:lang/*', langRouter, langClass);
 app.use('/:lang', langRouter, langClass);
-
-// Add i18n CSS class to <html> tag
-/*app.use(function(req, res, next) {
-  var defaultLang = 'hu';
-  //var activeLang = req.cookies.locale || defaultLang;
-  var activeLang = req.params.lang || defaultLang;
-  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
-  next();
-});*/
 
 /////////////////////////////////////////////////////////////
 // INIT ROUTES
