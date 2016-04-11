@@ -175,17 +175,29 @@ app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 // API
 app.use('/api', api);
 
-app.use('/blog', blog);
 app.use('/:lang/blog', blog);
+//app.use('/blog', blog);
+app.use('/blog', function (req, res) {
+  res.status(302).redirect('/' + req.getLocale() + '/blog');
+});
 
-app.use('/category', category);
 app.use('/:lang/category', category);
+//app.use('/category', category);
+app.use('/category', function (req, res) {
+  res.status(302).redirect('/' + req.getLocale() + '/category');
+});
 
-app.use('/tag', tag);
 app.use('/:lang/tag', tag);
+//app.use('/tag', tag);
+app.use('/tag', function (req, res) {
+  res.status(302).redirect('/' + req.getLocale() + '/tag');
+});
 
-app.use('/contact', contact);
 app.use('/:lang/contact', contact);
+//app.use('/contact', contact);
+app.use('/contact', function (req, res) {
+  res.status(302).redirect('/' + req.getLocale() + '/contact');
+});
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
