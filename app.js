@@ -181,25 +181,9 @@ app.use('/contact', contact);
 app.use('/:lang/contact', contact);
 
 /////////////////////////////////////////////////////////////
-// ROUTES
+// INIT i18n
 /////////////////////////////////////////////////////////////
 
-/*// Static (before routes)
-app.use(serveStatic(__dirname + '/public'));
-// FTP
-app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
-// API
-app.use('/api', require('./routes/api-external'));
-// Dynamic
-//app.use('/:lang', require('./routes/all'));
-app.use('/', require('./routes/index'));
-app.use('/blog', require('./routes/blog'));
-app.use('/category', require('./routes/blog-category'));
-app.use('/tag', require('./routes/blog-tag'));
-//app.use('/contact', require('./routes/contact'));
-var contact = require('./routes/contact');
-app.use('/contact', contact);
-app.use('/:lang/contact', contact);*/
 // i18n
 /*var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
 /*var websiteURL = function (req, res, next) {
