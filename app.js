@@ -107,6 +107,15 @@ i18n.configure({
 // init i18n module for this loop
 app.use(i18n.init);
 
+// i18n helpers
+app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
+  res.status(200).send(req.cookies.locale); // New method (Express 5)
+});
+app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
+  res.clearCookie('locale');
+  res.redirect('/cookie');
+});
+
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
 // CHANGES FOR ALL USERS
@@ -239,14 +248,6 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
   });
   res.redirect('back');
 });*/
-// i18n helpers
-app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
-  res.status(200).send(req.cookies.locale); // New method (Express 5)
-});
-app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
-  res.clearCookie('locale');
-  res.redirect('/cookie');
-});
 
 /////////////////////////////////////////////////////////////
 // ERROR HANDLING MIDDLEWARE
