@@ -190,7 +190,7 @@ app.use('/:lang/contact', contact);
 // Place under every other routes, because it can block others!
 //app.use('/', index);
 app.use('/', function (req, res) {
-  res.redirect('/' + langClass);
+  res.redirect('/' + req.getLocale());
 });
 app.use('/:lang', index);
 
