@@ -106,11 +106,11 @@ i18n.configure({
 app.use(i18n.init);
 
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-app.all('/:lang/*', function(req, res, next){
+/*app.all('/:lang/*', function(req, res, next){
   //i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], req.params.lang);
   next();
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
