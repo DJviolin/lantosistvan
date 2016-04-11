@@ -179,7 +179,6 @@ app.use(serveStatic(__dirname + '/public'));
 app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 // API
 app.use('/api', api);
-// Dynamic
 
 app.use('/blog', blog);
 app.use('/:lang/blog', blog);
