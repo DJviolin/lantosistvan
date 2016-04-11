@@ -34,7 +34,7 @@ var api      = require('./routes/api-external'),
 /////////////////////////////////////////////////////////////
 
 var app = express();
-app.set('strict routing', true);
+app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP
