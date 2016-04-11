@@ -14,7 +14,7 @@ var express        = require('express'),
     exphbs         = require('express-handlebars'),
     logger         = require('morgan'),
     i18n           = require('i18n'),
-    //slashes        = require('connect-slashes'),
+    slashes        = require('connect-slashes'),
     // Security
     helmet         = require('helmet'),
     hpp            = require('hpp');
@@ -70,7 +70,7 @@ app.use(helmet()); // Securing app with various HTTP headers
 app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
 app.use(logger('dev')); // Morgan
 app.use(compression()); // Gzip
-//app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
+app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 
 /////////////////////////////////////////////////////////////
 // i18n translation
@@ -108,13 +108,23 @@ i18n.configure({
 app.use(i18n.init);
 
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-app.all('/:lang/*', function(req, res, next){
+var langRouter = function(req, res, next) {
   var selectedLang = req.params.lang;
   //i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
   res.locals.language = '/' + selectedLang;
   next();
-});
+}
+app.all('/:lang/*', langRouter);
+app.all('/:lang', langRouter);
+
+/*app.all('/:lang', function(req, res, next){
+  var selectedLang = req.params.lang;
+  //i18n.setLocale(req, req.params.lang);
+  i18n.setLocale([req, res.locals], selectedLang);
+  res.locals.language = '/' + selectedLang;
+  next();
+});*/
 
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
