@@ -188,7 +188,10 @@ app.use('/contact', contact);
 app.use('/:lang/contact', contact);
 
 // Place under every other routes, because it can block others!
-app.use('/', index);
+//app.use('/', index);
+app.use('/', function (req, res) {
+  res.redirect('/' + langClass);
+});
 app.use('/:lang', index);
 
 /////////////////////////////////////////////////////////////
