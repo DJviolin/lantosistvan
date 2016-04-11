@@ -189,10 +189,10 @@ app.use('/:lang/contact', contact);
 
 // Place under every other routes, because it can block others!
 //app.use('/', index);
+app.use('/:lang', index);
 app.use('/', function (req, res) {
   res.status(302).redirect('/' + req.getLocale());
 });
-app.use('/:lang', index);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n WITH COOKIES
