@@ -82,7 +82,7 @@ i18n.configure({
   // fall back from English to Hungarian
   fallbacks: {'en': 'hu'},
   // you may alter a site wide default locale
-  defaultLocale: 'hu',
+  defaultLocale: 'en',
   // sets a custom cookie name to parse locale settings from - defaults to NULL
   cookie: 'locale',
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL
