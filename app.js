@@ -149,7 +149,7 @@ var langRouter = function(req, res, next) {
   i18n.setLocale([req, res.locals], selectedLang);
   res.locals.language = '/' + selectedLang;
   next();
-}
+};
 app.all('/:lang/*', langRouter);
 app.all('/:lang', langRouter);
 
