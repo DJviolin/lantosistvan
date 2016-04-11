@@ -193,8 +193,9 @@ app.use('/:lang/tag', tag);
 app.use('/contact', contact);
 app.use('/:lang/contact', contact);
 
+// Place under every other routes, because it can block others!
 app.use('/', index);
-app.use('/:lang', index); // Place under every other routes!
+app.use('/:lang', index);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n
