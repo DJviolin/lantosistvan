@@ -34,7 +34,7 @@ var api      = require('./routes/api-external'),
 /////////////////////////////////////////////////////////////
 
 var app = express();
-//app.set('strict routing', true);
+app.set('strict routing', true);
 
 /////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP
@@ -166,19 +166,19 @@ app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 app.use('/api', api);
 // Dynamic
 app.use('/', index);
-app.use('/:lang', index);
+//app.use('/:lang', index);
 
 app.use('/blog', blog);
-app.use('/:lang/blog', blog);
+//app.use('/:lang/blog', blog);
 
 app.use('/category', category);
-app.use('/:lang/category', category);
+//app.use('/:lang/category', category);
 
 app.use('/tag', tag);
-app.use('/:lang/tag', tag);
+//app.use('/:lang/tag', tag);
 
 app.use('/contact', contact);
-app.use('/:lang/contact', contact);
+//app.use('/:lang/contact', contact);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n
