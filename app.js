@@ -17,6 +17,22 @@ var express        = require('express'),
     // Security
     helmet         = require('helmet'),
     hpp            = require('hpp');
+
+/////////////////////////////////////////////////////////////
+// ROUTES
+/////////////////////////////////////////////////////////////
+
+var api      = require('./routes/api-external'),
+    index    = require('./routes/index'),
+    blog     = require('./routes/blog'),
+    category = require('./routes/blog-category'),
+    tag      = require('./routes/blog-tag'),
+    contact  = require('./routes/contact');
+
+/////////////////////////////////////////////////////////////
+// INIT EXPRESS
+/////////////////////////////////////////////////////////////
+
 var app = express();
 
 /////////////////////////////////////////////////////////////
@@ -146,10 +162,27 @@ app.use(function(req, res, next) {
 });*/
 
 /////////////////////////////////////////////////////////////
-// ROUTES
+// INIT ROUTES
 /////////////////////////////////////////////////////////////
 
 // Static (before routes)
+app.use(serveStatic(__dirname + '/public'));
+// FTP
+app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
+// API
+app.use('/api', api);
+// Dynamic
+app.use('/', index);
+app.use('/blog', blog);
+app.use('/category', category);
+app.use('/tag', tag);
+app.use('/contact', contact);
+
+/////////////////////////////////////////////////////////////
+// ROUTES
+/////////////////////////////////////////////////////////////
+
+/*// Static (before routes)
 app.use(serveStatic(__dirname + '/public'));
 // FTP
 app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
@@ -164,7 +197,7 @@ app.use('/tag', require('./routes/blog-tag'));
 //app.use('/contact', require('./routes/contact'));
 var contact = require('./routes/contact');
 app.use('/contact', contact);
-app.use('/:lang/contact', contact);
+app.use('/:lang/contact', contact);*/
 // i18n
 /*var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
 /*var websiteURL = function (req, res, next) {
