@@ -121,14 +121,6 @@ app.locals.actualYear = new Date().getFullYear();
 // OWN MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
-// Add i18n CSS class to <html> tag
-app.use(function(req, res, next) {
-  var defaultLang = 'hu';
-  var activeLang = req.cookies.locale || defaultLang;
-  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
-  next();
-});
-
 // Prints request time to console
 /*app.use(function (req, res, next) {
   var d = new Date();
@@ -160,6 +152,14 @@ var langRouter = function(req, res, next) {
 }
 app.all('/:lang/*', langRouter);
 app.all('/:lang', langRouter);
+
+// Add i18n CSS class to <html> tag
+app.use(function(req, res, next) {
+  var defaultLang = 'hu';
+  var activeLang = req.cookies.locale || defaultLang;
+  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
+  next();
+});
 
 /////////////////////////////////////////////////////////////
 // INIT ROUTES
