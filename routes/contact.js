@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express'),
+    //i18n    = require('i18n'),
     router  = express.Router();
 
 var functions  = require('../lib/functions'),
@@ -8,6 +9,7 @@ var functions  = require('../lib/functions'),
 
 /* GET info page. */
 router.get('/', function(req, res, next) {
+//router.get(__l('/:lang/'), function(req, res, next) {
   fsAsync(function (err, data) {
     if (err) {
       return res.render('404', {

@@ -75,7 +75,7 @@ i18n.configure({
   // watch for changes in json files to reload locale on updates - defaults to false
   autoReload: true,
   // whether to write new locale information to disk - defaults to true
-  updateFiles: false,
+  updateFiles: true,
   // enable object notation
   objectNotation: true,
   // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias).
@@ -164,6 +164,7 @@ app.use('/tag', require('./routes/blog-tag'));
 //app.use('/contact', require('./routes/contact'));
 var contact = require('./routes/contact');
 app.use('/contact', contact);
+app.use('/:lang/contact', contact);
 // i18n
 /*var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
 /*var websiteURL = function (req, res, next) {
