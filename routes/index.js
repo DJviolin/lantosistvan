@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express'),
-    router  = express.Router();
+    router  = express.Router({strict: true});
 //var glob    = require('glob');
 
 var functions  = require('../lib/functions'),
