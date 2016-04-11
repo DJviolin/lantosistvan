@@ -16,6 +16,16 @@ https://strongloop.com/strongblog/best-practices-for-express-in-production-part-
 
 https://strongloop.com/strongblog/best-practices-for-express-in-production-part-two-performance-and-reliability/
 
+# TODOS COMPLETED
+
+Enable strict routing:
+
+http://expressjs.com/en/api.html#app.set
+
+http://expressjs.com/en/4x/api.html#router
+
+https://github.com/ericf/express-slash
+
 # FLEXBOX CHEATSHEET
 
 http://stackoverflow.com/questions/32551291/in-css-flexbox-why-are-there-no-justify-items-and-justify-self-properties

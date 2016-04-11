@@ -77,13 +77,3 @@ run the app on windows:
  > SET DEBUG=lantosistvan-portfolio:*,i18n:* & npm start
  > SET DEBUG=i18n:* & npm start
 ```
-
-#### TODO
-
-Enable strict routing:
-
-http://expressjs.com/en/api.html#app.set
-
-http://expressjs.com/en/4x/api.html#router
-
-https://github.com/ericf/express-slash
