@@ -34,7 +34,7 @@ var api      = require('./routes/api-external'),
 /////////////////////////////////////////////////////////////
 
 var app = express();
-app.set({ 'strict routing': true });
+//app.set('strict routing', true);
 
 /////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP
@@ -178,7 +178,7 @@ app.use('/tag', tag);
 app.use('/:lang/tag', tag);
 
 app.use('/contact', contact);
-app.use('/:lang/contact', contact);
+//app.use('/:lang/contact', contact);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n

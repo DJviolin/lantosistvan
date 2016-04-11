@@ -82,6 +82,8 @@ run the app on windows:
 
 Enable strict routing:
 
+http://expressjs.com/en/api.html#app.set
+
 http://expressjs.com/en/4x/api.html#router
 
 https://github.com/ericf/express-slash
