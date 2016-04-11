@@ -8,8 +8,8 @@
         <img src="{{this.drawing}}" alt="">
       </div>
       <time>{{this.month}} {{this.day}}, {{this.year}}</time>
-      <h1><a href="{{language}}/blog/{{this.url}}">{{this.title}}</a></h1>
-      <div class="category"><a href="{{language}}/category/{{this.category}}">{{this.category}}</a></div>
+      <h1><a href="{{../language}}/blog/{{this.url}}">{{this.title}}</a></h1>
+      <div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>
     </header><!-- header.article.id-{{this._id}} -->
 
     <div class="article content">
@@ -32,7 +32,7 @@
         <span class="text">Tags: </span>
         <ul>
           {{#each tags}}
-          <li><a href="{{language}}/tag/{{this}}">{{this}}</a></li>
+          <li><a href="{{../../language}}/tag/{{this}}">{{this}}</a></li>
           {{/each}}
         </ul>
       </div>
@@ -48,8 +48,8 @@
   {{/each}}
 
   <nav class="pagination">
-    {{#if paginationFirst}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}{{#if paginationFirstURL}}/page/{{paginationPrev}}{{/if}}">Previous</a> | {{/if}}
-    {{#if paginationLast}}<a href="/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
+    {{#if paginationFirst}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}{{#if paginationFirstURL}}/page/{{paginationPrev}}{{/if}}">Previous</a> | {{/if}}
+    {{#if paginationLast}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
   </nav><!-- nav.pagination -->
 
 </main><!-- main.blog -->
