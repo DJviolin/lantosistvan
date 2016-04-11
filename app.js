@@ -14,6 +14,7 @@ var express        = require('express'),
     exphbs         = require('express-handlebars'),
     logger         = require('morgan'),
     i18n           = require('i18n'),
+    slashes        = require('connect-slashes'),
     // Security
     helmet         = require('helmet'),
     hpp            = require('hpp');
@@ -69,6 +70,7 @@ app.use(helmet()); // Securing app with various HTTP headers
 app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
 app.use(logger('dev')); // Morgan
 app.use(compression()); // Gzip
+app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 
 /////////////////////////////////////////////////////////////
 // i18n translation
