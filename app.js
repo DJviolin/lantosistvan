@@ -107,15 +107,6 @@ i18n.configure({
 // init i18n module for this loop
 app.use(i18n.init);
 
-// https://github.com/mashpie/i18n-node#i18nsetlocale
-/*app.all('/:lang', function(req, res, next){
-  var selectedLang = req.params.lang;
-  //i18n.setLocale(req, req.params.lang);
-  i18n.setLocale([req, res.locals], selectedLang);
-  res.locals.language = '/' + selectedLang;
-  next();
-});*/
-
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
 // CHANGES FOR ALL USERS
@@ -159,6 +150,7 @@ app.use(function(req, res, next) {
 });*/
 
 // Handling language query parameter in URLs
+// https://github.com/mashpie/i18n-node#i18nsetlocale
 var langRouter = function(req, res, next) {
   var selectedLang = req.params.lang;
   //i18n.setLocale(req, req.params.lang);
