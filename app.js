@@ -106,11 +106,11 @@ i18n.configure({
 app.use(i18n.init);
 
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-/*app.all('/:lang/*', function(req, res, next){
+app.all('/:lang/*', function(req, res, next){
   //i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], req.params.lang);
   next();
-});*/
+});
 
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
@@ -169,16 +169,16 @@ app.use('/', index);
 //app.use('/:lang', index);
 
 app.use('/blog', blog);
-//app.use('/:lang/blog', blog);
+app.use('/:lang/blog', blog);
 
 app.use('/category', category);
-//app.use('/:lang/category', category);
+app.use('/:lang/category', category);
 
 app.use('/tag', tag);
-//app.use('/:lang/tag', tag);
+app.use('/:lang/tag', tag);
 
 app.use('/contact', contact);
-//app.use('/:lang/contact', contact);
+app.use('/:lang/contact', contact);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n
