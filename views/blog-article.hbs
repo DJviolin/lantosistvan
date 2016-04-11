@@ -7,8 +7,8 @@
         <img src="{{data.drawing}}" alt="">
       </div>
       <time>{{data.month}} {{data.day}}, {{data.year}}</time>
-      <h1><a href="/blog/{{data.url}}">{{data.title}}</a></h1>
-      <div class="category"><a href="/category/{{data.category}}">{{data.category}}</a></div>
+      <h1><a href="{{language}}/blog/{{data.url}}">{{data.title}}</a></h1>
+      <div class="category"><a href="{{language}}/category/{{data.category}}">{{data.category}}</a></div>
     </header><!-- header.article.id-{{data._id}} -->
 
     <div class="article content">
@@ -31,7 +31,7 @@
         <span class="text">Tags: </span>
         <ul>
           {{#each data.tags}}
-          <li><a href="/tag/{{this}}">{{this}}</a></li>
+          <li><a href="{{language}}/tag/{{this}}">{{this}}</a></li>
           {{/each}}
         </ul>
       </div>

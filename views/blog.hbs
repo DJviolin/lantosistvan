@@ -8,8 +8,8 @@
         <img src="{{this.drawing}}" alt="">
       </div>
       <time>{{this.month}} {{this.day}}, {{this.year}}</time>
-      <h1><a href="/blog/{{this.url}}">{{this.title}}</a></h1>
-      <div class="category"><a href="/category/{{this.category}}">{{this.category}}</a></div>
+      <h1><a href="{{language}}/blog/{{this.url}}">{{this.title}}</a></h1>
+      <div class="category"><a href="{{language}}/category/{{this.category}}">{{this.category}}</a></div>
     </header><!-- header.article.id-{{this._id}} -->
 
     <div class="article content">
@@ -32,7 +32,7 @@
         <span class="text">Tags: </span>
         <ul>
           {{#each tags}}
-          <li><a href="/tag/{{this}}">{{this}}</a></li>
+          <li><a href="{{language}}/tag/{{this}}">{{this}}</a></li>
           {{/each}}
         </ul>
       </div>
