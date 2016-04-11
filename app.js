@@ -8,7 +8,7 @@ var express        = require('express'),
     serveStatic    = require('serve-static'),
     serveIndex     = require('serve-index'),
     bodyParser     = require('body-parser'),
-    cookieParser   = require('cookie-parser'),
+    //cookieParser   = require('cookie-parser'),
     methodOverride = require('method-override'),
     compression    = require('compression'),
     exphbs         = require('express-handlebars'),
@@ -108,13 +108,13 @@ i18n.configure({
 app.use(i18n.init);
 
 // i18n helpers
-app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
+/*app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
   res.status(200).send(req.cookies.locale); // New method (Express 5)
 });
 app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
   res.redirect('/cookie');
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
