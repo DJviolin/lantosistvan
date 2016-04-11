@@ -178,7 +178,7 @@ app.use('/tag', tag);
 app.use('/:lang/tag', tag);
 
 app.use('/contact', contact);
-//app.use('/:lang/contact', contact);
+app.use('/:lang/contact', contact);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n
