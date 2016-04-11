@@ -35,7 +35,7 @@ var api      = require('./routes/api-external'),
 /////////////////////////////////////////////////////////////
 
 var app = express();
-app.set('strict routing', false);
+//app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP
@@ -109,8 +109,10 @@ app.use(i18n.init);
 
 // https://github.com/mashpie/i18n-node#i18nsetlocale
 app.all('/:lang/*', function(req, res, next){
+  var selectedLang = req.params.lang;
   //i18n.setLocale(req, req.params.lang);
-  i18n.setLocale([req, res.locals], req.params.lang);
+  i18n.setLocale([req, res.locals], selectedLang);
+  res.locals.language = selectedLang;
   next();
 });
 
