@@ -1,4 +1,4 @@
-# horgallery 
+# lantosistvan
 
 My next personal static photography portfolio website built on Node.js, Express, Handlebars.
 
@@ -18,9 +18,7 @@ Environment=NODE_ENV=production
 
 ## Usage
 
-Change the settings at `./config.js`.
-
-Place some images in `public/portfolio/weddings` folder.
+Change the settings in `./config.js`.
 
 ## PUBLIC API
 
