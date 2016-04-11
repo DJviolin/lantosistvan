@@ -105,14 +105,6 @@ i18n.configure({
 app.use(i18n.init);
 
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-/*var router  = express.Router();
-router.all('/:lang/*', function(req, res, next){
-  //i18n.setLocale(req, req.params.lang);
-  i18n.setLocale([req, res.locals], req.params.lang);
-  console.log('GOT /:lang/* request');
-  next();
-});*/
-
 app.all('/:lang/*', function(req, res, next){
   //i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], req.params.lang);
