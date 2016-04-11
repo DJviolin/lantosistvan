@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
 app.use(methodOverride('_method'));
-app.use(cookieParser()); // Cookies
+//app.use(cookieParser()); // Cookies
 app.use(helmet()); // Securing app with various HTTP headers
 app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
 app.use(logger('dev')); // Morgan
