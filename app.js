@@ -127,7 +127,7 @@ app.locals.siteName = 'Lantos István Photography';
 app.locals.actualYear = new Date().getFullYear();
 
 /////////////////////////////////////////////////////////////
-// INIT ROUTES BEFORE query.param.lang
+// INIT ROUTES BEFORE req.params.lang
 /////////////////////////////////////////////////////////////
 
 // FTP
@@ -183,7 +183,7 @@ app.all('/:lang/*', langRouter, langClass);
 app.use('/:lang', langRouter, langClass);
 
 /////////////////////////////////////////////////////////////
-// INIT ROUTES AFTER query.param.lang
+// INIT ROUTES AFTER req.params.lang
 /////////////////////////////////////////////////////////////
 
 // Static (before routes)
