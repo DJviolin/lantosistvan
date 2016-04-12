@@ -84,7 +84,7 @@ i18n.configure({
   // you may alter a site wide default locale
   defaultLocale: 'en',
   // sets a custom cookie name to parse locale settings from - defaults to NULL
-  cookie: 'locale',
+  //cookie: 'locale',
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL
   queryParameter: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
