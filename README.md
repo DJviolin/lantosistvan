@@ -84,5 +84,7 @@ $ heroku create --ssh-git
 https://limitless-beyond-38616.herokuapp.com/ | https://git@heroku.com/limitless-beyond-38616.git
 $ git remote -v
 $ git push heroku master
+$ heroku ps:scale web=1
 $ heroku open
+$ heroku logs --tail
 ```
