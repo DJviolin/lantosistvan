@@ -179,10 +179,6 @@ app.use('/:lang', langRouter, langClass);
 
 // Static (before routes)
 app.use(serveStatic(__dirname + '/public'));
-// FTP
-app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
-// API
-app.use('/api', api);
 
 app.use('/:lang/blog', blog);
 //app.use('/blog', blog);
@@ -214,6 +210,12 @@ app.use('/:lang', index);
 app.use('/', function (req, res) {
   res.status(302).redirect('/' + req.getLocale());
 });
+
+// FTP
+app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
+
+// API
+app.use('/api', api);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n WITH COOKIES
