@@ -171,10 +171,10 @@ var langRouter = function(req, res, next) {
 
 // Add i18n CSS class to <html> tag
 var langClass = function(req, res, next) {
-  var defaultLang = 'hu';
-  //var defaultLang = req.defaultLocale();
-  //var activeLang = req.cookies.locale || defaultLang;
-  var activeLang = req.params.lang || defaultLang;
+  //var defaultLang = 'hu';
+  //var activeLang = req.params.lang || defaultLang;
+  //var activeLang = i18n.getLocale(req);
+  var activeLang = req.getLocale();
   res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
   next();
 };
