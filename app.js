@@ -127,6 +127,17 @@ app.locals.siteName = 'Lantos István Photography';
 app.locals.actualYear = new Date().getFullYear();
 
 /////////////////////////////////////////////////////////////
+// INIT ROUTES BEFORE query.param.lang
+/////////////////////////////////////////////////////////////
+
+// Static (before routes)
+app.use(serveStatic(__dirname + '/public'));
+// FTP
+app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
+// API
+app.use('/api', api);
+
+/////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
@@ -174,11 +185,8 @@ app.all('/:lang/*', langRouter, langClass);
 app.use('/:lang', langRouter, langClass);
 
 /////////////////////////////////////////////////////////////
-// INIT ROUTES
+// INIT ROUTES AFTER query.param.lang
 /////////////////////////////////////////////////////////////
-
-// Static (before routes)
-app.use(serveStatic(__dirname + '/public'));
 
 app.use('/:lang/blog', blog);
 //app.use('/blog', blog);
@@ -210,12 +218,6 @@ app.use('/:lang', index);
 app.use('/', function (req, res) {
   res.status(302).redirect('/' + req.getLocale());
 });
-
-// FTP
-app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
-
-// API
-app.use('/api', api);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n WITH COOKIES
