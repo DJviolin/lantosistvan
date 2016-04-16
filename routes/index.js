@@ -33,7 +33,7 @@ router.get('/', function (req, res, next) {
 
     res.render('index', {
       //layout: 'main',
-      active: { index: false },
+      active: { index: true },
       titleShown: false,
       title: 'Hi!',
       description: 'Home page',

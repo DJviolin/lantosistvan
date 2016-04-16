@@ -27,7 +27,7 @@
 
 
 // Lazy loading portfolio div - Vanilla JS
-function lazyload() {
+/*function lazyload() {
   //var sidescrollImages = document.getElementsByClassName('images');
   //for (var i=0; i<sidescrollImages.length; i++) {
   //  sidescrollImages[i].classList.remove('lazyload');
@@ -37,7 +37,7 @@ function lazyload() {
   sidescrollImages.classList.remove('lazyload');
   //console.log('lazyload() fired...');
 };
-document.addEventListener('DOMContentLoaded', lazyload);
+document.addEventListener('DOMContentLoaded', lazyload);*/
 
 
 

@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
     var contact = data[2].contact;
 
     res.render('contact', {
-      active: { contact: true },
+      active: { information: true },
       titleShown: true,
       title: 'Contact',
       description: 'Get in touch',
