@@ -54,6 +54,7 @@ router.get('/:tag', function (req, res, next) {
 
     // Rendering content
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
       description: 'Tags page',
@@ -130,6 +131,7 @@ router.get('/:tag/page/:id', function (req, res, next) {
     };
 
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
       description: 'Tags page',

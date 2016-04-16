@@ -33,6 +33,7 @@ router.get('/', function (req, res, next) {
     var json = [{ articles: slice }];
 
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Journal',
       description: 'Blog Page',
@@ -59,6 +60,7 @@ router.get('/', function (req, res, next) {
     console.log([{ articles: JSON.parse(body) }]);
     var articles = [{ articles: JSON.parse(body) }];
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Journal',
       description: 'Blog page',
@@ -119,6 +121,7 @@ router.get('/page/:id', function (req, res, next) {
     };
 
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Journal',
       description: 'Blog page',
@@ -161,6 +164,7 @@ router.get('/:url', function (req, res, next) {
 
     // render your page with selectedArticle
     res.render('blog-article', {
+      active: { blog: true },
       titleShown: true,
       title: selectedArticle.title,
       description: selectedArticle.description,

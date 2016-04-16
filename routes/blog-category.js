@@ -43,6 +43,7 @@ router.get('/:cat', function (req, res, next) {
     };
 
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Category: ' + req.params.cat,
       description: 'Category page',
@@ -112,6 +113,7 @@ router.get('/:cat/page/:id', function (req, res, next) {
     };
 
     res.render('blog', {
+      active: { blog: true },
       titleShown: true,
       title: 'Category: ' + req.params.cat,
       description: 'Category page',

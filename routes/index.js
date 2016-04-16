@@ -33,6 +33,7 @@ router.get('/', function (req, res, next) {
 
     res.render('index', {
       //layout: 'main',
+      active: { index: false },
       titleShown: false,
       title: 'Hi!',
       description: 'Home page',
@@ -53,7 +54,8 @@ router.get('/', function (req, res, next) {
   glob('*.jpg', { cwd: 'public/portfolio/weddings/', sort: true }, function (err, images) {
     var results = images;
     res.render('portfolio', {
-      layout: 'main',
+      //layout: 'main',
+      active: { index: false },
       titleShown: false,
       title: 'Hi!',
       description: 'Home page',

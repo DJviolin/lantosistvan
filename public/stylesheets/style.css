@@ -427,7 +427,7 @@ li      { list-style: none; }
   /*color: #898381;*/
   color: #000;
 }
-.main-nav ul li a:hover {
+.main-nav ul li a:hover, .main-nav ul li.active > a {
   color: #888;
   /*color: #8a9c9b;*/
 }
