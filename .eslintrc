@@ -10,7 +10,9 @@
         // I write for browser
         "browser": true,
         // in CommonJS
-        "node": true
+        "node": true,
+        // enable all ECMAScript 6 features except for modules
+        "es6": true
     },
     "rules": {
         "eqeqeq": 1,
