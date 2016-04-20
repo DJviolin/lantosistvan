@@ -1,11 +1,11 @@
 'use strict';
 
-var express = require('express'),
-    router  = express.Router();
+const express = require('express'),
+      router  = express.Router();
 //var glob    = require('glob');
 
-var functions  = require('../lib/functions'),
-    fsAsync    = functions.fsAsync;
+const functions  = require('../lib/functions'),
+      fsAsync    = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
