@@ -524,7 +524,8 @@ header .content {
 }
 .sidescroll .images li {
   margin-right: 3px;
-  background-color: rgb(17, 17, 17);
+  /*background-color: rgb(17, 17, 17);*/
+  background-color: #c3c3c3;
 }
 .sidescroll .images li:last-child { margin-right: 0; }
 .sidescroll .images img { height: 60vh; }

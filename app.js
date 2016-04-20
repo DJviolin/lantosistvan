@@ -4,37 +4,37 @@
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-var express        = require('express'),
-    serveStatic    = require('serve-static'),
-    serveIndex     = require('serve-index'),
-    bodyParser     = require('body-parser'),
-    //cookieParser   = require('cookie-parser'),
-    methodOverride = require('method-override'),
-    compression    = require('compression'),
-    exphbs         = require('express-handlebars'),
-    logger         = require('morgan'),
-    i18n           = require('i18n'),
-    slashes        = require('connect-slashes'),
-    // Security
-    helmet         = require('helmet'),
-    hpp            = require('hpp');
+const express        = require('express'),
+      serveStatic    = require('serve-static'),
+      serveIndex     = require('serve-index'),
+      bodyParser     = require('body-parser'),
+      //cookieParser   = require('cookie-parser'),
+      methodOverride = require('method-override'),
+      compression    = require('compression'),
+      exphbs         = require('express-handlebars'),
+      logger         = require('morgan'),
+      i18n           = require('i18n'),
+      slashes        = require('connect-slashes'),
+      // Security
+      helmet         = require('helmet'),
+      hpp            = require('hpp');
 
 /////////////////////////////////////////////////////////////
 // ROUTES
 /////////////////////////////////////////////////////////////
 
-var api      = require('./routes/api-external'),
-    index    = require('./routes/index'),
-    blog     = require('./routes/blog'),
-    category = require('./routes/blog-category'),
-    tag      = require('./routes/blog-tag'),
-    contact  = require('./routes/contact');
+const api      = require('./routes/api-external'),
+      index    = require('./routes/index'),
+      blog     = require('./routes/blog'),
+      category = require('./routes/blog-category'),
+      tag      = require('./routes/blog-tag'),
+      contact  = require('./routes/contact');
 
 /////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
 /////////////////////////////////////////////////////////////
 
-var app = express();
+const app = express();
 //app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////

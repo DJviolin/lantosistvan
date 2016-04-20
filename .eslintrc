@@ -1,11 +1,15 @@
 {
+// http://eslint.org/docs/configuring/
+// http://eslint.org/docs/rules/
     "globals": {
-        "myModule": true
+        // Put things like jQuery, etc
+        "jQuery": true,
+        "$": true
     },
     "env": {
-        // http://eslint.org/docs/configuring/
-        // http://eslint.org/docs/rules/
+        // I write for browser
         "browser": true,
+        // in CommonJS
         "node": true
     },
     "rules": {
@@ -14,6 +18,7 @@
         "strict": 0,
         "quotes": [1, "single"],
         "strict": [2, "global"],
-        "no-unused-vars": 1
+        "no-unused-vars": 1,
+        "prefer-const": ["error", {"destructuring": "any"}]
     }
 }

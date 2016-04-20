@@ -1,3 +1,15 @@
+# ES6
+
+https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.ia9t6ixpb
+
+http://stackoverflow.com/questions/21237105/const-in-javascript-when-to-use-it-and-is-it-necessary
+
+`const` is a signal that the variable won’t be reassigned.
+
+`let`, is a signal that the variable may be reassigned, such as a counter in a loop, or a value swap in an algorithm. It also signals that the variable will be used only in the block it’s defined in, which is not always the entire containing function.
+
+`var` is now the weakest signal available when you define a variable in JavaScript. The variable may or may not be reassigned, and the variable may or may not be used for an entire function, or just for the purpose of a block or loop.
+
 # EXPRESS 5 MIGRATION & BEST PRACTICES
 
 http://expressjs.com/en/guide/migrating-4.html
