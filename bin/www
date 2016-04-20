@@ -6,9 +6,9 @@
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-var app   = require('../app'),
-    debug = require('debug')('lantosistvan-portfolio:server'),
-    http  = require('http');
+const app   = require('../app'),
+      debug = require('debug')('lantosistvan-portfolio:server'),
+      http  = require('http');
 
 /////////////////////////////////////////////////////////////
 // LET'S ENCRYPT
@@ -39,7 +39,7 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 // Create HTTP server
-var server = http.createServer(app);
+const server = http.createServer(app);
 //var server = https.createServer(options, app); // Let's Encrypt
 
 // Listen on provided port, on all network interfaces
