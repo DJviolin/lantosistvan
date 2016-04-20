@@ -1,26 +1,26 @@
 {
 // http://eslint.org/docs/configuring/
 // http://eslint.org/docs/rules/
-    "globals": {
-        // Put things like jQuery, etc
-        "jQuery": true,
-        "$": true
-    },
-    "env": {
-        // I write for browser
-        "browser": true,
-        // in CommonJS
-        "node": true,
-        // enable all ECMAScript 6 features except for modules
-        "es6": true
-    },
-    "rules": {
-        "eqeqeq": 1,
-        "curly": [2, "all"],
-        "strict": 0,
-        "quotes": [1, "single"],
-        "strict": [2, "global"],
-        "no-unused-vars": 1,
-        "prefer-const": ["error", {"destructuring": "any"}]
-    }
+  "globals": {
+    // Put things like jQuery, etc
+    "jQuery": true,
+    "$": true
+  },
+  "env": {
+    // I write for browser
+    "browser": true,
+    // in CommonJS
+    "node": true,
+    // enable all ECMAScript 6 features except for modules
+    "es6": true
+  },
+  "rules": {
+    "eqeqeq": 1,
+    "curly": [2, "all"],
+    "strict": 0,
+    "quotes": [1, "single"],
+    "strict": [2, "global"],
+    "no-unused-vars": 1,
+    "prefer-const": ["error", {"destructuring": "any"}]
+  }
 }
