@@ -2,7 +2,7 @@
 
 const express = require('express'),
       router  = express.Router();
-//var glob    = require('glob');
+//const glob    = require('glob');
 
 const functions  = require('../lib/functions'),
       fsAsync    = functions.fsAsync;
@@ -23,13 +23,13 @@ router.get('/', function (req, res, next) {
       });
     }
 
-    var gallery = data[0].gallery.portfolio.love;
-    //var json = gallery;
+    const gallery = data[0].gallery.portfolio.love;
+    //const json = gallery;
     //console.log(json);
 
-    var articles = data[1].articles.reverse();
-    var slice = articles.slice(0, 6);
-    var json = [{ articles: slice }];
+    const articles = data[1].articles.reverse();
+    const slice = articles.slice(0, 6);
+    const json = [{ articles: slice }];
 
     res.render('index', {
       //layout: 'main',
@@ -52,7 +52,7 @@ router.get('/', function (req, res, next) {
 /* GET home page. */
 /*router.get('/', function(req, res, next) {
   glob('*.jpg', { cwd: 'public/portfolio/weddings/', sort: true }, function (err, images) {
-    var results = images;
+    const results = images;
     res.render('portfolio', {
       //layout: 'main',
       active: { index: false },
