@@ -16,7 +16,7 @@ const gulp       = require('gulp'),
 
 const paths = {
   pathCleanCSS: ['public/stylesheets/style.css'],
-  pathHbs:  ['views/*.hbs', 'views/**/*.hbs'],
+  pathHbs:      ['views/*.hbs', 'views/**/*.hbs'],
   pathJsUglify:        ['dev/js/src/plugins.js', 'dev/js/src/main.js'],
   pathJsReplace:       ['dev/js/plugins.min.js', 'dev/js/main.min.js'],
   pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
