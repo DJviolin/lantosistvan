@@ -79,11 +79,11 @@ run the app on windows:
 #### Gulp
 
 run the app on linux:
- > $ DEBUG=lantosistvan-portfolio:*,i18n:* npm run gulp
+ > $ DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:* npm run gulp
  > $ DEBUG=i18n:* & npm run gulp
 
 run the app on windows:
- > SET DEBUG=lantosistvan-portfolio:*,i18n:* & npm run gulp
+ > SET DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:* & npm run gulp
  > SET DEBUG=i18n:* & npm run gulp
 ```
 

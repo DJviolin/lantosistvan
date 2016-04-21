@@ -4,16 +4,15 @@
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-const gulp     = require('gulp'),
-      //server   = require('gulp-express'),
-      shell    = require('gulp-shell'),
-      cleanCSS = require('gulp-clean-css'),
-      rename   = require('gulp-rename');
-      //stylus     = require('gulp-stylus'),
-      //uglify     = require('gulp-uglify'),
-      //replace    = require('gulp-replace'),
-      //minifyCSS  = require('gulp-minify-css'),
-      //livereload = require('gulp-livereload');
+const gulp       = require('gulp'),
+      shell      = require('gulp-shell'),
+      cleanCSS   = require('gulp-clean-css'),
+      rename     = require('gulp-rename'),
+      livereload = require('gulp-livereload');
+      //server     = require('gulp-express')
+      //stylus     = require('gulp-stylus')
+      //uglify     = require('gulp-uglify')
+      //replace    = require('gulp-replace')
 
 const paths = {
   pathCleanCSS: ['public/stylesheets/style.css'],
@@ -73,10 +72,19 @@ gulp.task('server', function () {
 });
 
 /////////////////////////////////////////////////////////////
+// WATCH
+/////////////////////////////////////////////////////////////
+
+gulp.task('watch', function() { // Rerun the task when a file changes
+  livereload.listen();
+  gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
+});
+
+/////////////////////////////////////////////////////////////
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['start', 'minify-css', 'server']);
+gulp.task('default', ['start', 'minify-css', 'server', 'watch']);
 
 
 
@@ -183,7 +191,7 @@ gulp.task('connect', function() {
 // WATCH
 /////////////////////////////////////////////////////////////
 
-gulp.task('watch', function() { // Rerun the task when a file changes
+/*gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
   gulp.watch(paths.pathCssStylusGlobal, ['stylus']).on('change', livereload.changed);
   gulp.watch(paths.pathCssMinifyGlobal, ['minify']).on('change', livereload.changed);
@@ -191,7 +199,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
   gulp.watch(paths.pathJsReplace, ['replace']).on('change', livereload.changed);
   gulp.watch(paths.pathHtmlPhp, ['htmlphp']).on('change', livereload.changed);
   gulp.watch(paths.pathMinified, ['stylus', 'minify', 'uglify', 'replace', 'htmlphp']).on('change', livereload.changed);
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // EXECUTE GULP
