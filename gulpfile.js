@@ -16,9 +16,9 @@ const gulp       = require('gulp'),
 
 const paths = {
   pathCleanCSS: ['public/stylesheets/style.css'],
+  pathHbs:  ['views/*.hbs', 'views/**/*.hbs'],
   pathJsUglify:        ['dev/js/src/plugins.js', 'dev/js/src/main.js'],
   pathJsReplace:       ['dev/js/plugins.min.js', 'dev/js/main.min.js'],
-  pathHtmlPhp:         ['dev/*.html', 'dev/*.php', 'dev/public/*.html', 'dev/public/*.php'],
   pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
   pathImages:          'dev/images/**/*'
 };
@@ -42,6 +42,15 @@ gulp.task('minify-css', function() {
     }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'))
+    .pipe(livereload());
+});
+
+/////////////////////////////////////////////////////////////
+// HANDLEBARS
+/////////////////////////////////////////////////////////////
+
+gulp.task('hbs', function() {
+  return gulp.src(paths.pathHbs)
     .pipe(livereload());
 });
 
@@ -79,13 +88,14 @@ gulp.task('server', function () {
 gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
+  gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
 });
 
 /////////////////////////////////////////////////////////////
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['start', 'minify-css', 'server', 'watch']);
+gulp.task('default', ['start', 'minify-css', 'hbs', 'server', 'watch']);
 
 
 
