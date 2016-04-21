@@ -128,7 +128,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['start', 'minify-css', 'hbs', 'watch']);
+gulp.task('default', ['start', 'minify-css', 'uglify', 'replace', 'hbs', 'watch']);
 
 
 
@@ -172,7 +172,7 @@ gulp.task('stylus', function () {
 // UGLIFY JS
 /////////////////////////////////////////////////////////////
 
-gulp.task('uglify', function() {
+/*gulp.task('uglify', function() {
   return gulp.src(paths.pathJsUglify)
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
@@ -187,7 +187,7 @@ gulp.task('replace', ['uglify'], function() {
   return gulp.src(paths.pathJsReplace)
     .pipe(replace(/\"/g, '\''))
     .pipe(gulp.dest('dev/js'));
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // HTML & PHP FILES
