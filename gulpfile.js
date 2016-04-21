@@ -39,7 +39,7 @@ gulp.task('start', shell.task([
 gulp.task('minify-css', function() {
   return gulp.src(paths.pathCleanCSS)
     .pipe(cleanCSS({compatibility: '*', debug: true}, function(details) {
-      console.log(details.name + ': The content was reduced from ' + details.stats.originalSize + ' bytes to ' + details.stats.minifiedSize + ' bytes. This means ' + Math.round(details.stats.efficiency * 100) + '% reduction in size!');
+      console.log(details.name + ': The file was reduced from ' + details.stats.originalSize + ' bytes to ' + details.stats.minifiedSize + ' bytes. This means ' + Math.round(details.stats.efficiency * 100) + '% reduction in size!');
     }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
