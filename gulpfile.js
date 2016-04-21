@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 const gulp     = require('gulp'),
-      server   = require('gulp-express'),
+      //server   = require('gulp-express'),
       shell    = require('gulp-shell'),
       cleanCSS = require('gulp-clean-css'),
       rename   = require('gulp-rename');
@@ -38,7 +38,9 @@ gulp.task('start', shell.task([
 
 gulp.task('minify-css', function() {
   return gulp.src(paths.pathCleanCSS)
-    .pipe(cleanCSS({compatibility: '*'}))
+    .pipe(cleanCSS({compatibility: '*', debug: true}, function(details) {
+      console.log(details.name + ': The content was reduced from ' + details.stats.originalSize + ' bytes to ' + details.stats.minifiedSize + ' bytes. This means ' + Math.round(details.stats.efficiency * 100) + '% reduction in size!');
+    }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
 });
