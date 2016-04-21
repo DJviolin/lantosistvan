@@ -25,12 +25,16 @@ const paths = {
 };
 
 /////////////////////////////////////////////////////////////
-// EXPRESS INIT
+// SERVER
 /////////////////////////////////////////////////////////////
 
 gulp.task('start', shell.task([
   'node --trace-deprecation --trace-sync-io ./bin/www'
 ]));
+
+/////////////////////////////////////////////////////////////
+// MINIFY CSS
+/////////////////////////////////////////////////////////////
 
 gulp.task('minify-css', function() {
   return gulp.src(paths.pathCleanCSS)
@@ -38,6 +42,10 @@ gulp.task('minify-css', function() {
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
 });
+
+/////////////////////////////////////////////////////////////
+// GULP-EXPRESS
+/////////////////////////////////////////////////////////////
 
 gulp.task('server', function () {
   // Start the server at the beginning of the task 
@@ -77,12 +85,12 @@ gulp.task('stylus', function () {
 // MINIFY CSS
 /////////////////////////////////////////////////////////////
 
-gulp.task('minify', ['stylus'], function() {
+/*gulp.task('minify', ['stylus'], function() {
   return gulp.src(paths.pathCssMinifyGlobal)
     .pipe(minifyCSS({keepBreaks: false, keepSpecialComments: '*'}))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('dev/css'));
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // UGLIFY JS
