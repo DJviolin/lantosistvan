@@ -28,6 +28,7 @@ router.get('/', function (req, res, next) {
     //console.log(json);
 
     const articles = data[1].articles.reverse();
+    //const articles = data[1].articles;
     const slice = articles.slice(0, 6);
     const json = [{ articles: slice }];
 

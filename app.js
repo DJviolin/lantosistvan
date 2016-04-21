@@ -267,7 +267,6 @@ app.use(function(req, res, next) {
 });
 // Error handler - catch all errors
 app.use(function(err, req, res, next) {
-  //res.status(err.status || 500);
   res.status(err.status || 500);
   console.error(err.stack);
   res.render('error', {
