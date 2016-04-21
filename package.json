@@ -5,7 +5,7 @@
   "private": true,
   "main": "./bin/www",
   "config" : {
-    "port" : "8080" 
+    "port" : "3000"
   },
   "scripts": {
     "start": "node --trace-deprecation --trace-sync-io ./bin/www",
