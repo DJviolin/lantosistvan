@@ -4,26 +4,63 @@
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-const gulp       = require('gulp'),
-      server     = require('gulp-express'),
-      rename     = require('gulp-rename'),
-      stylus     = require('gulp-stylus'),
-      uglify     = require('gulp-uglify'),
-      replace    = require('gulp-replace'),
-      minifyCSS  = require('gulp-minify-css'),
-      livereload = require('gulp-livereload');
-      //connect = require('gulp-connect')
-      //connectPHP = require('gulp-connect-php')
+const gulp     = require('gulp'),
+      server   = require('gulp-express'),
+      shell    = require('gulp-shell'),
+      cleanCSS = require('gulp-clean-css'),
+      rename   = require('gulp-rename');
+      //stylus     = require('gulp-stylus'),
+      //uglify     = require('gulp-uglify'),
+      //replace    = require('gulp-replace'),
+      //minifyCSS  = require('gulp-minify-css'),
+      //livereload = require('gulp-livereload');
 
 const paths = {
-  pathCssStylusGlobal: ['dev/css/src/global.styl'],
-  pathCssMinifyGlobal: ['dev/css/build/global.css'],
-  pathJsUglify: ['dev/js/src/plugins.js', 'dev/js/src/main.js'],
-  pathJsReplace: ['dev/js/plugins.min.js', 'dev/js/main.min.js'],
-  pathHtmlPhp: ['dev/*.html', 'dev/*.php', 'dev/public/*.html', 'dev/public/*.php'],
-  pathMinified: ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
-  pathImages: 'dev/images/**/*'
+  pathCleanCSS: ['public/stylesheets/style.css'],
+  pathJsUglify:        ['dev/js/src/plugins.js', 'dev/js/src/main.js'],
+  pathJsReplace:       ['dev/js/plugins.min.js', 'dev/js/main.min.js'],
+  pathHtmlPhp:         ['dev/*.html', 'dev/*.php', 'dev/public/*.html', 'dev/public/*.php'],
+  pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
+  pathImages:          'dev/images/**/*'
 };
+
+/////////////////////////////////////////////////////////////
+// EXPRESS INIT
+/////////////////////////////////////////////////////////////
+
+gulp.task('start', shell.task([
+  'node --trace-deprecation --trace-sync-io ./bin/www'
+]));
+
+gulp.task('minify-css', function() {
+  return gulp.src(paths.pathCleanCSS)
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest('public/stylesheets'));
+});
+
+gulp.task('server', function () {
+  // Start the server at the beginning of the task 
+  //server.run(['./bin/www']);
+  console.log('Gulp task \'server\' started...');
+
+  // Restart the server when file changes 
+  //gulp.watch(['app/**/*.html'], server.notify);
+  //gulp.watch(['app/styles/**/*.scss'], ['styles:scss']);
+  //gulp.watch(['{.tmp,app}/styles/**/*.css'], ['styles:css', server.notify]); 
+  //Event object won't pass down to gulp.watch's callback if there's more than one of them. 
+  //So the correct way to use server.notify is as following: 
+  //gulp.watch(['{.tmp,app}/styles/**/*.css'], function(event){
+  //  gulp.run('styles:css');
+  //  server.notify(event);
+    //pipe support is added for server.notify since v0.1.5, 
+    //see https://github.com/gimm/gulp-express#servernotifyevent 
+  //});
+
+  //gulp.watch(['app/scripts/**/*.js'], ['jshint']);
+  //gulp.watch(['app/images/**/*'], server.notify);
+  //gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
+});
 
 /////////////////////////////////////////////////////////////
 // STYLUS CSS
@@ -98,14 +135,6 @@ gulp.task('move', ['stylus', 'minify', 'uglify', 'replace', 'htmlphp'], function
 /////////////////////////////////////////////////////////////
 // LIVERELOAD SERVER
 /////////////////////////////////////////////////////////////
-
-/*gulp.task('connect', function() {
-  connect.server({
-    port: 8000,
-    root: 'dev',
-    livereload: true
-  });
-});*/
 
 gulp.task('connect', function() {
   connectPHP.server({

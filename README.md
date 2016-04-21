@@ -76,6 +76,17 @@ run the app on windows:
  > SET DEBUG=i18n:* & npm start
 ```
 
+#### Gulp
+
+run the app on linux:
+ > $ DEBUG=lantosistvan-portfolio:*,i18n:* npm run gulp
+ > $ DEBUG=i18n:* & npm run gulp
+
+run the app on windows:
+ > SET DEBUG=lantosistvan-portfolio:*,i18n:* & npm run gulp
+ > SET DEBUG=i18n:* & npm run gulp
+```
+
 # Heroku
 
 ```
