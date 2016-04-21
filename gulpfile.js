@@ -96,9 +96,7 @@ gulp.task('server', function () {
 gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
   //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
-  gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed, function () {
-    console.log('Server restarting...');
-  })
+  gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
   gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
 });
