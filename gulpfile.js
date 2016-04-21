@@ -71,6 +71,18 @@ gulp.task('files', function() {
 });
 
 /////////////////////////////////////////////////////////////
+// WATCH
+/////////////////////////////////////////////////////////////
+
+gulp.task('watch', function() { // Rerun the task when a file changes
+  livereload.listen();
+  gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
+  gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
+  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
+  gulp.watch(paths.pathFiles, ['files']).on('change', livereload.changed);
+});
+
+/////////////////////////////////////////////////////////////
 // GULP-EXPRESS
 /////////////////////////////////////////////////////////////
 
@@ -94,18 +106,6 @@ gulp.task('server', function () {
     gulp.watch(['app/scripts/**/*.js'], ['jshint']);
     gulp.watch(['app/images/**/*'], server.notify);
     gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
-});
-
-/////////////////////////////////////////////////////////////
-// WATCH
-/////////////////////////////////////////////////////////////
-
-gulp.task('watch', function() { // Rerun the task when a file changes
-  livereload.listen();
-  gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
-  gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
-  gulp.watch(paths.pathFiles, ['files']).on('change', livereload.changed);
 });
 
 /////////////////////////////////////////////////////////////
