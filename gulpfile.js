@@ -41,7 +41,8 @@ gulp.task('minify-css', function() {
       console.log(details.name + ': The file was reduced from ' + details.stats.originalSize + ' bytes to ' + details.stats.minifiedSize + ' bytes. This means ' + Math.round(details.stats.efficiency * 100) + '% reduction in size!');
     }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('public/stylesheets'));
+    .pipe(gulp.dest('public/stylesheets'))
+    .pipe(livereload());
 });
 
 /////////////////////////////////////////////////////////////
