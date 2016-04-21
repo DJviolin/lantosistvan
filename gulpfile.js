@@ -61,8 +61,7 @@ gulp.task('uglify', function() {
   return gulp.src(paths.pathJsUglify)
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public/javascripts'))
-    .pipe(livereload());
+    .pipe(gulp.dest('public/javascripts'));
 });
 
 /////////////////////////////////////////////////////////////
@@ -119,7 +118,6 @@ gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
   gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
   gulp.watch(paths.pathJsReplace, ['replace']).on('change', livereload.changed);
   gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
 });
