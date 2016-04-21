@@ -33,11 +33,11 @@ const paths = {
 ]));*/
 
 gulp.task('start', function () {
-  /*return gulp.src(paths.pathServer)
+  return gulp.src(paths.pathServer)
     .pipe(shell([
       'node --trace-deprecation --trace-sync-io ./bin/www'
-    ]));*/
-  server.run(['node --trace-deprecation --trace-sync-io ./bin/www']);
+    ]));
+  //server.run(['node --trace-deprecation --trace-sync-io ./bin/www']);
 })
 
 /////////////////////////////////////////////////////////////
