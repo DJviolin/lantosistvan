@@ -9,17 +9,16 @@ const gulp       = require('gulp'),
       cleanCSS   = require('gulp-clean-css'),
       rename     = require('gulp-rename'),
       livereload = require('gulp-livereload'),
-      server     = require('gulp-express');
-      //stylus     = require('gulp-stylus')
-      //uglify     = require('gulp-uglify')
-      //replace    = require('gulp-replace')
+      server     = require('gulp-express'),
+      uglify     = require('gulp-uglify'),
+      replace    = require('gulp-replace');
 
 const paths = {
-  pathCleanCSS: ['public/stylesheets/style.css'],
-  pathHbs:      ['views/*.hbs', 'views/**/*.hbs'],
-  pathServer:   ['app.js', 'config.js', 'routes/*.js', 'lib/*.js', 'bin/www'],
-  pathJsUglify:        ['dev/js/src/plugins.js', 'dev/js/src/main.js'],
-  pathJsReplace:       ['dev/js/plugins.min.js', 'dev/js/main.min.js'],
+  pathCleanCSS:  ['public/stylesheets/style.css'],
+  pathHbs:       ['views/*.hbs', 'views/**/*.hbs'],
+  pathServer:    ['app.js', 'config.js', 'routes/*.js', 'lib/*.js', 'bin/www'],
+  pathJsUglify:  ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js'],
+  pathJsReplace: ['public/javascripts/main-vanilla.min.js', 'public/javascripts/main-jquery.min.js'],
   pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
   pathImages:          'dev/images/**/*'
 };
@@ -51,6 +50,29 @@ gulp.task('minify-css', function() {
     }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'))
+    .pipe(livereload());
+});
+
+/////////////////////////////////////////////////////////////
+// UGLIFY JS
+/////////////////////////////////////////////////////////////
+
+gulp.task('uglify', function() {
+  return gulp.src(paths.pathJsUglify)
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(gulp.dest('public/javascripts'))
+    .pipe(livereload());
+});
+
+/////////////////////////////////////////////////////////////
+// REPLACE DOUBLE-QUOTES
+/////////////////////////////////////////////////////////////
+
+gulp.task('replace', ['uglify'], function() {
+  return gulp.src(paths.pathJsReplace)
+    .pipe(replace(/\"/g, '\''))
+    .pipe(gulp.dest('public/javascripts'))
     .pipe(livereload());
 });
 
@@ -95,9 +117,10 @@ gulp.task('server', function () {
 
 gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
-  //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
+  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
+  gulp.watch(paths.pathJsReplace, ['replace']).on('change', livereload.changed);
   gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
 });
 
