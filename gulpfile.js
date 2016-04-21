@@ -16,7 +16,7 @@ const paths = {
   pathCleanCSS:  ['public/stylesheets/style.css'],
   pathServer:    ['app.js', 'config.js', 'routes/*.js', 'lib/*.js', 'bin/www'],
   pathJsUglify:  ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js'],
-  pathFiles:     ['views/*.hbs', 'views/**/*.hbs', 'database/data.json']
+  pathFiles:     ['views/*.hbs', 'views/**/*.hbs', 'database/data.json', 'locales/*.json']
 };
 
 /////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
   gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsReplace, ['uglify']).on('change', livereload.changed);
+  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
   gulp.watch(paths.pathFiles, ['files']).on('change', livereload.changed);
 });
 
@@ -112,7 +112,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['start', 'minify-css', 'uglify', 'hbs', 'watch']);
+gulp.task('default', ['start', 'minify-css', 'uglify', 'files', 'watch']);
 
 
 
