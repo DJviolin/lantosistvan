@@ -21,6 +21,7 @@
     "quotes": [1, "single"],
     "strict": [2, "global"],
     "no-unused-vars": 1,
+    // http://eslint.org/docs/rules/prefer-const
     "prefer-const": 1
   }
 }
