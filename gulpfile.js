@@ -10,15 +10,13 @@ const gulp       = require('gulp'),
       rename     = require('gulp-rename'),
       livereload = require('gulp-livereload'),
       server     = require('gulp-express'),
-      uglify     = require('gulp-uglify'),
-      replace    = require('gulp-replace');
+      uglify     = require('gulp-uglify');
 
 const paths = {
   pathCleanCSS:  ['public/stylesheets/style.css'],
   pathHbs:       ['views/*.hbs', 'views/**/*.hbs'],
   pathServer:    ['app.js', 'config.js', 'routes/*.js', 'lib/*.js', 'bin/www'],
   pathJsUglify:  ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js'],
-  pathJsReplace: ['public/javascripts/main-vanilla.min.js', 'public/javascripts/main-jquery.min.js'],
   pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
   pathImages:          'dev/images/**/*'
 };
@@ -59,18 +57,8 @@ gulp.task('minify-css', function() {
 
 gulp.task('uglify', function() {
   return gulp.src(paths.pathJsUglify)
-    .pipe(uglify())
+    .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public/javascripts'));
-});
-
-/////////////////////////////////////////////////////////////
-// REPLACE DOUBLE-QUOTES
-/////////////////////////////////////////////////////////////
-
-gulp.task('replace', ['uglify'], function() {
-  return gulp.src(paths.pathJsReplace)
-    .pipe(replace(/\"/g, '\''))
     .pipe(gulp.dest('public/javascripts'))
     .pipe(livereload());
 });
@@ -118,7 +106,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
   gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsReplace, ['replace']).on('change', livereload.changed);
+  gulp.watch(paths.pathJsReplace, ['uglify']).on('change', livereload.changed);
   gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
 });
 
@@ -126,7 +114,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['start', 'minify-css', 'uglify', 'replace', 'hbs', 'watch']);
+gulp.task('default', ['start', 'minify-css', 'uglify', 'hbs', 'watch']);
 
 
 
