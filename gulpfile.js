@@ -8,8 +8,8 @@ const gulp       = require('gulp'),
       shell      = require('gulp-shell'),
       cleanCSS   = require('gulp-clean-css'),
       rename     = require('gulp-rename'),
-      livereload = require('gulp-livereload');
-      //server     = require('gulp-express')
+      livereload = require('gulp-livereload'),
+      server     = require('gulp-express');
       //stylus     = require('gulp-stylus')
       //uglify     = require('gulp-uglify')
       //replace    = require('gulp-replace')
@@ -33,11 +33,11 @@ const paths = {
 ]));*/
 
 gulp.task('start', function () {
-  return gulp.src(paths.pathServer)
+  /*return gulp.src(paths.pathServer)
     .pipe(shell([
       'node --trace-deprecation --trace-sync-io ./bin/www'
-    ]))
-    .pipe(livereload());
+    ]));*/
+  server.run(['node --trace-deprecation --trace-sync-io ./bin/www']);
 })
 
 /////////////////////////////////////////////////////////////
@@ -68,26 +68,25 @@ gulp.task('hbs', function() {
 /////////////////////////////////////////////////////////////
 
 gulp.task('server', function () {
-  // Start the server at the beginning of the task 
-  //server.run(['./bin/www']);
-  console.log('Gulp task \'server\' started...');
-
-  // Restart the server when file changes 
-  //gulp.watch(['app/**/*.html'], server.notify);
-  //gulp.watch(['app/styles/**/*.scss'], ['styles:scss']);
-  //gulp.watch(['{.tmp,app}/styles/**/*.css'], ['styles:css', server.notify]); 
-  //Event object won't pass down to gulp.watch's callback if there's more than one of them. 
-  //So the correct way to use server.notify is as following: 
-  //gulp.watch(['{.tmp,app}/styles/**/*.css'], function(event){
-  //  gulp.run('styles:css');
-  //  server.notify(event);
-    //pipe support is added for server.notify since v0.1.5, 
-    //see https://github.com/gimm/gulp-express#servernotifyevent 
-  //});
-
-  //gulp.watch(['app/scripts/**/*.js'], ['jshint']);
-  //gulp.watch(['app/images/**/*'], server.notify);
-  //gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
+    // Start the server at the beginning of the task 
+    server.run(['app.js']);
+ 
+    // Restart the server when file changes 
+    gulp.watch(['app/**/*.html'], server.notify);
+    gulp.watch(['app/styles/**/*.scss'], ['styles:scss']);
+    //gulp.watch(['{.tmp,app}/styles/**/*.css'], ['styles:css', server.notify]); 
+    //Event object won't pass down to gulp.watch's callback if there's more than one of them. 
+    //So the correct way to use server.notify is as following: 
+    gulp.watch(['{.tmp,app}/styles/**/*.css'], function(event){
+        gulp.run('styles:css');
+        server.notify(event);
+        //pipe support is added for server.notify since v0.1.5, 
+        //see https://github.com/gimm/gulp-express#servernotifyevent 
+    });
+ 
+    gulp.watch(['app/scripts/**/*.js'], ['jshint']);
+    gulp.watch(['app/images/**/*'], server.notify);
+    gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
 });
 
 /////////////////////////////////////////////////////////////
@@ -96,7 +95,10 @@ gulp.task('server', function () {
 
 gulp.task('watch', function() { // Rerun the task when a file changes
   livereload.listen();
-  gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
+  //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
+  gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed, function () {
+    console.log('Server restarting...');
+  })
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
   gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
 });
@@ -105,7 +107,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['start', 'minify-css', 'hbs', 'server', 'watch']);
+gulp.task('default', ['start', 'minify-css', 'hbs', 'watch']);
 
 
 
