@@ -34,7 +34,7 @@ gulp.task('start', shell.task([
 
 gulp.task('minify-css', function() {
   return gulp.src(paths.pathCleanCSS)
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({compatibility: '*'}))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
 });
