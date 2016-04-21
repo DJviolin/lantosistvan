@@ -14,11 +14,9 @@ const gulp       = require('gulp'),
 
 const paths = {
   pathCleanCSS:  ['public/stylesheets/style.css'],
-  pathHbs:       ['views/*.hbs', 'views/**/*.hbs'],
   pathServer:    ['app.js', 'config.js', 'routes/*.js', 'lib/*.js', 'bin/www'],
   pathJsUglify:  ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js'],
-  pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
-  pathImages:          'dev/images/**/*'
+  pathFiles:     ['views/*.hbs', 'views/**/*.hbs', 'database/data.json']
 };
 
 /////////////////////////////////////////////////////////////
@@ -64,11 +62,11 @@ gulp.task('uglify', function() {
 });
 
 /////////////////////////////////////////////////////////////
-// HANDLEBARS
+// FILES
 /////////////////////////////////////////////////////////////
 
-gulp.task('hbs', function() {
-  return gulp.src(paths.pathHbs)
+gulp.task('files', function() {
+  return gulp.src(paths.pathFiles)
     .pipe(livereload());
 });
 
@@ -107,7 +105,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
   gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
   gulp.watch(paths.pathJsReplace, ['uglify']).on('change', livereload.changed);
-  gulp.watch(paths.pathHbs, ['hbs']).on('change', livereload.changed);
+  gulp.watch(paths.pathFiles, ['files']).on('change', livereload.changed);
 });
 
 /////////////////////////////////////////////////////////////
@@ -142,38 +140,6 @@ gulp.task('stylus', function () {
     .pipe(rename({ ext: 'css' }))
     .pipe(gulp.dest('dev/css/build'));
 });
-
-/////////////////////////////////////////////////////////////
-// MINIFY CSS
-/////////////////////////////////////////////////////////////
-
-/*gulp.task('minify', ['stylus'], function() {
-  return gulp.src(paths.pathCssMinifyGlobal)
-    .pipe(minifyCSS({keepBreaks: false, keepSpecialComments: '*'}))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('dev/css'));
-});*/
-
-/////////////////////////////////////////////////////////////
-// UGLIFY JS
-/////////////////////////////////////////////////////////////
-
-/*gulp.task('uglify', function() {
-  return gulp.src(paths.pathJsUglify)
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('dev/js'));
-});
-
-/////////////////////////////////////////////////////////////
-// REPLACE DOUBLE-QUOTES
-/////////////////////////////////////////////////////////////
-
-gulp.task('replace', ['uglify'], function() {
-  return gulp.src(paths.pathJsReplace)
-    .pipe(replace(/\"/g, '\''))
-    .pipe(gulp.dest('dev/js'));
-});*/
 
 /////////////////////////////////////////////////////////////
 // HTML & PHP FILES
@@ -216,23 +182,3 @@ gulp.task('connect', function() {
     livereload: true
   });
 });
-
-/////////////////////////////////////////////////////////////
-// WATCH
-/////////////////////////////////////////////////////////////
-
-/*gulp.task('watch', function() { // Rerun the task when a file changes
-  livereload.listen();
-  gulp.watch(paths.pathCssStylusGlobal, ['stylus']).on('change', livereload.changed);
-  gulp.watch(paths.pathCssMinifyGlobal, ['minify']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsReplace, ['replace']).on('change', livereload.changed);
-  gulp.watch(paths.pathHtmlPhp, ['htmlphp']).on('change', livereload.changed);
-  gulp.watch(paths.pathMinified, ['stylus', 'minify', 'uglify', 'replace', 'htmlphp']).on('change', livereload.changed);
-});*/
-
-/////////////////////////////////////////////////////////////
-// EXECUTE GULP
-/////////////////////////////////////////////////////////////
-
-//gulp.task('default', ['connect', 'watch']);
