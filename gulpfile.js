@@ -74,52 +74,13 @@ gulp.task('files', function() {
 // WATCH
 /////////////////////////////////////////////////////////////
 
-/*gulp.task('watch', function() { // Rerun the task when a file changes
-  livereload.listen();
-  //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
-  //gulp.watch(paths.pathServer, ['start']).on('change', server.run);
-  gulp.watch(paths.pathServer, ['start']).on('change', server.notify);
-  gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', livereload.changed);
-  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', livereload.changed);
-  gulp.watch(paths.pathFiles, ['files']).on('change', livereload.changed);
-
-  //gulp.watch([paths.pathServer, 'routes/*.js'], [server.run]);
-});*/
-
 gulp.task('watch', function() { // Rerun the task when a file changes
   //livereload.listen();
   //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
-  gulp.watch(paths.pathServer, ['start']).on('change', server.notify);
+  gulp.watch(paths.pathServer, ['start']).on('change', server.run);
   gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', server.notify);
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify);
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify);
-
-  //gulp.watch([paths.pathServer, 'routes/**/*.js'], [server.run]);
-});
-
-/////////////////////////////////////////////////////////////
-// GULP-EXPRESS
-/////////////////////////////////////////////////////////////
-
-gulp.task('server', function () {
-  // Start the server at the beginning of the task 
-  server.run(['bin/www']);
-
-  // Restart the server when file changes 
-  gulp.watch([paths.pathFiles], server.notify);
-  gulp.watch([paths.pathCleanCSS], ['styles:css', server.notify]); 
-  //Event object won't pass down to gulp.watch's callback if there's more than one of them. 
-  //So the correct way to use server.notify is as following: 
-  gulp.watch(['{.tmp,app}/styles/**/*.css'], function(event){
-    gulp.run('styles:css');
-    server.notify(event);
-    //pipe support is added for server.notify since v0.1.5, 
-    //see https://github.com/gimm/gulp-express#servernotifyevent 
-  });
-
-  gulp.watch(['app/scripts/**/*.js'], ['jshint']);
-  gulp.watch(['app/images/**/*'], server.notify);
-  gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
 });
 
 /////////////////////////////////////////////////////////////
@@ -127,7 +88,6 @@ gulp.task('server', function () {
 /////////////////////////////////////////////////////////////
 
 gulp.task('default', ['start', 'minify-css', 'uglify', 'files', 'watch']);
-//gulp.task('default', ['server']);
 
 
 
@@ -148,23 +108,21 @@ gulp.task('default', ['start', 'minify-css', 'uglify', 'files', 'watch']);
 // STYLUS CSS
 /////////////////////////////////////////////////////////////
 
-gulp.task('stylus', function () {
+/*gulp.task('stylus', function () {
   return gulp.src(paths.pathCssStylusGlobal)
     .pipe(stylus({'include css': true, compress: false}))
     .pipe(rename({ ext: 'css' }))
     .pipe(gulp.dest('dev/css/build'));
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // COPY FROM DEV TO DIST FOLDER WITH 'GULP MOVE' COMMAND
 /////////////////////////////////////////////////////////////
 
-var filesToMove = [
+/*var filesToMove = [
   'dev/css/*.*',
-  'dev/images/**/*.*',
   'dev/js/*.*',
   'dev/js/vendor/*.*',
-  'dev/public/**/*.*',
   'dev/*.*',
   'dev/.htaccess'
 ];
@@ -172,4 +130,4 @@ var filesToMove = [
 gulp.task('move', ['stylus', 'minify', 'uglify', 'replace', 'htmlphp'], function(){
   return gulp.src(filesToMove, { base: './dev' }) // 'base' sets the relative root for the files
   .pipe(gulp.dest('./dist'));
-});
+});*/

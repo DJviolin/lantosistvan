@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "description": "My personal website",
   "private": true,
+  "production": true,
   "main": "./bin/www",
-  "config" : {
-    "port" : "3000"
+  "config": {
+    "port": "3000",
+    "production": true
   },
   "scripts": {
     "start": "node --trace-deprecation --trace-sync-io ./bin/www",
