@@ -142,14 +142,6 @@ gulp.task('stylus', function () {
 });
 
 /////////////////////////////////////////////////////////////
-// HTML & PHP FILES
-/////////////////////////////////////////////////////////////
-
-gulp.task('htmlphp', function() {
-  return gulp.src(paths.pathHtmlPhp);
-});
-
-/////////////////////////////////////////////////////////////
 // COPY FROM DEV TO DIST FOLDER WITH 'GULP MOVE' COMMAND
 /////////////////////////////////////////////////////////////
 
@@ -166,19 +158,4 @@ var filesToMove = [
 gulp.task('move', ['stylus', 'minify', 'uglify', 'replace', 'htmlphp'], function(){
   return gulp.src(filesToMove, { base: './dev' }) // 'base' sets the relative root for the files
   .pipe(gulp.dest('./dist'));
-});
-
-/////////////////////////////////////////////////////////////
-// LIVERELOAD SERVER
-/////////////////////////////////////////////////////////////
-
-gulp.task('connect', function() {
-  connectPHP.server({
-    hostname: '0.0.0.0',
-    bin: 'C:/php/php.exe',
-    ini: 'C:/php/php.ini',
-    port: 8000,
-    base: 'dev',
-    livereload: true
-  });
 });
