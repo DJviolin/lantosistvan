@@ -141,28 +141,28 @@ app.use('/api', api);
 
 // Prints request time to console
 /*app.use(function (req, res, next) {
-  var d = new Date();
-  var n = d.getFullYear()
-          + '-' +
-          d.getMonth()
-          + '-' +
-          d.getDate()
-          + '_' +
-          d.getHours()
-          + ':' +
-          d.getMinutes()
-          + ':' +
-          d.getSeconds()
-          + '.' +
-          d.getMilliseconds();
+  const d = new Date();
+  const n = d.getFullYear()
+            + '-' +
+            d.getMonth()
+            + '-' +
+            d.getDate()
+            + '_' +
+            d.getHours()
+            + ':' +
+            d.getMinutes()
+            + ':' +
+            d.getSeconds()
+            + '.' +
+            d.getMilliseconds();
   console.log('Request time: ' + n);
   next();
 });*/
 
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-var langRouter = function(req, res, next) {
-  var selectedLang = req.params.lang;
+const langRouter = function(req, res, next) {
+  const selectedLang = req.params.lang;
   //i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
   res.locals.language = '/' + selectedLang;
@@ -170,11 +170,11 @@ var langRouter = function(req, res, next) {
 };
 
 // Add i18n CSS class to <html> tag
-var langClass = function(req, res, next) {
-  //var defaultLang = 'hu';
-  //var activeLang = req.params.lang || defaultLang;
-  //var activeLang = i18n.getLocale(req);
-  var activeLang = req.getLocale();
+const langClass = function(req, res, next) {
+  //const defaultLang = 'hu';
+  //const activeLang = req.params.lang || defaultLang;
+  //const activeLang = i18n.getLocale(req);
+  const activeLang = req.getLocale();
   res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
   next();
 };
@@ -226,9 +226,9 @@ app.use('/', function (req, res) {
 /////////////////////////////////////////////////////////////
 
 // i18n
-/*var expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
-/*var websiteURL = function (req, res, next) {
-  var a = req.protocol + '://' + req.hostname + ':' + '3000';
+/*const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
+/*const websiteURL = function (req, res, next) {
+  const a = req.protocol + '://' + req.hostname + ':' + '3000';
   console.log(a);
   return String(a);
   next();
@@ -261,7 +261,7 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
