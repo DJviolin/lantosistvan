@@ -17,6 +17,7 @@ const gulp       = require('gulp'),
 const paths = {
   pathCleanCSS: ['public/stylesheets/style.css'],
   pathHbs:      ['views/*.hbs', 'views/**/*.hbs'],
+  pathServer:   ['app.js', 'config.js', 'routes/*.js', 'lib/*.js', 'bin/www'],
   pathJsUglify:        ['dev/js/src/plugins.js', 'dev/js/src/main.js'],
   pathJsReplace:       ['dev/js/plugins.min.js', 'dev/js/main.min.js'],
   pathMinified:        ['dev/css/*.css', 'dev/js/*.js', 'dev/js/vendor/*.js'],
@@ -27,9 +28,17 @@ const paths = {
 // SERVER
 /////////////////////////////////////////////////////////////
 
-gulp.task('start', shell.task([
+/*gulp.task('start', shell.task([
   'node --trace-deprecation --trace-sync-io ./bin/www'
-]));
+]));*/
+
+gulp.task('start', function () {
+  return gulp.src(paths.pathServer)
+    .pipe(shell([
+      'node --trace-deprecation --trace-sync-io ./bin/www'
+    ]))
+    .pipe(livereload());
+})
 
 /////////////////////////////////////////////////////////////
 // MINIFY CSS
