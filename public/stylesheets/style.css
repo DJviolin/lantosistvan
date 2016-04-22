@@ -331,10 +331,18 @@ li      { list-style: none; }
   /*width: 210px;
   height: 190px;*/
   /*margin: 20px 40px 20px 40px;*/
-  margin: 40px 30px 40px 30px;
   /**/
+  /*margin: 40px 30px 40px 30px;
   max-width: 390px;
-  height: 80px;
+  height: 80px;*/
+  /**/
+  /*margin: 35px 30px 35px 30px;
+  max-width: 170px;
+  height: 141px;*/
+  /**/
+  margin: 40px 30px 40px 30px;
+  max-width: 130px;
+  height: 108px;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .logo {
@@ -400,7 +408,7 @@ li      { list-style: none; }
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.main-nav { margin-bottom: 40px; }
+/*.main-nav { margin-bottom: 40px; }*/
 .main-nav ul {
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: row; flex-direction: row;
@@ -964,8 +972,8 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    Language specific styles
    ========================================================================== */
 
-/*.left-nav { margin-left: -34px; } /* hu = 80px */
-/*.lang-en-EN .left-nav { margin-left: -28px; } /* en = 80px */
+.left-nav { margin-left: -28px; } /* hu = 100px */
+/*.lang-en-EN .left-nav { margin-left: -28px; } /* en = 100px */
 
 /* ==========================================================================
    Media Queries for Responsive Design
@@ -973,7 +981,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
 @media (min-width: 1600px) {
   .toggle-mobile-nav, .main-nav.active { display: none; }
-  .logo-header { /*display: none;*/ display: block; }
+  .logo-header { display: none; /*display: block;*/ }
 }
 
 @media (max-width: 1600px) {
@@ -983,7 +991,9 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
   .logo {
     margin: 30px 30px 30px 30px;
-    max-width: 350px;
+    /*max-width: 350px;*/
+    /*max-width: 170px;*/
+    max-width: 130px;
   }
 
   /* Mobile nav */
