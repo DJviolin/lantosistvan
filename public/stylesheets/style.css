@@ -403,7 +403,7 @@ li      { list-style: none; }
   /*font-family: Georgia, 'Times New Roman', Times, serif;
   color: #000;*/
   /**/
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -438,6 +438,8 @@ li      { list-style: none; }
   color: rgba(0, 0, 0, .5);*/
   color: #a6a6a6;
   color: rgba(0, 0, 0, .65);
+  /**/
+  color: #000;
 }
 .main-nav ul li a:hover {
   /*color: #888;*/
