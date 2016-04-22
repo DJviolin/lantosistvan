@@ -448,7 +448,7 @@ li      { list-style: none; }
   color: #575757;
 }
 .main-nav ul li.active > a {
-  color: #575757;
+  /*color: #575757;*/
   border-bottom: 3px solid #eff0f0;
   margin-bottom: -3px;
 }
