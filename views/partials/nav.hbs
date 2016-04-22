@@ -9,12 +9,20 @@
 
   <nav class="main-nav left-nav">
     <ul>
-      <li class="{{#if active.index}}active{{/if}}"><a href="{{language}}/">{{{__ "Főoldal"}}}</a></li>
+      <!--<li class="{{#if active.index}}active{{/if}}"><a href="{{language}}/">{{{__ "Főoldal"}}}</a></li>-->
       <li><a href="{{language}}/stories">{{{__ "Történetek"}}}</a>
-      <ul>
-        <li><a href="{{language}}/blog/szalai-family">{{{__ "Szalai család"}}}</a></li>
-        <li><a href="#">Barbi &#38; Balázs</a></li>
-      </ul>
+        <ul>
+          <li><a href="{{language}}/blog/szalai-family">{{{__ "Szalai család"}}}</a></li>
+          <li><a href="#">Barbi &#38; Balázs</a></li>
+        </ul>
+      </li>
+      <li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
+        <ul>
+          <li><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
+          <li><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
+          <li><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
+          <li><a href="{{language}}/category/for-photographers">{{{__ "Fotósoknak"}}}</a></li>
+        </ul>
       </li>
     </ul>
   </nav><!-- nav.main-nav.left  -->
@@ -26,20 +34,22 @@
 
   <nav class="main-nav right-nav">
     <ul>
-      <li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
+      <!--<li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
         <ul>
           <li><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
           <li><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
           <li><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
           <li><a href="{{language}}/category/for-photographers">{{{__ "Fotósoknak"}}}</a></li>
         </ul>
-      </li>
-      <li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Információ"}}}</a>
+      </li>-->
+      <!--<li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Információ"}}}</a>-->
+      <li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Info"}}}</a>
         <ul>
           <li><a href="{{language}}/services">{{{__ "Szolgáltatások"}}}</a></li>
           <li><a href="{{language}}/contact">{{{__ "Kapcsolat"}}}</a></li>
         </ul>
       </li>
+      <li class="{{#if active.contact}}active{{/if}}"><a href="/contact">{{{__ "Kapcsolat"}}}</a></li>
     </ul>
   </nav><!-- nav.main-nav-right  -->
 
