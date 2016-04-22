@@ -410,12 +410,14 @@ li      { list-style: none; }
   letter-spacing: 2px;
   /**/
   font-size: 14px;
-  letter-spacing: 0.1em;
+  /*letter-spacing: 0.1em;*/
   font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
   font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
   font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, sans-serif;
+  /* 'Arial Narrow' Hack: http://stackoverflow.com/a/12184181/1442219 */
   font-family: 'Arial Narrow', Arial, sans-serif;
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-stretch: condensed;  /* 'Arial Narrow' Hack for Firefox */
+  font-weight: 400; /* 'Arial Narrow' Hack for Firefox - Use 700 for 'Arial Narrow Bold' */
 }
 /*.main-nav { margin-bottom: 40px; }*/
 .main-nav ul {
@@ -504,7 +506,8 @@ li      { list-style: none; }
   margin: 10px 20px 10px 20px;
   /*margin: 5px 13px 5px 13px;*/
   font-size: 0.9em;
-  letter-spacing: 0.08em;
+  /*letter-spacing: 0.08em;*/
+  letter-spacing: 1px;
 }
 .main-nav ul li:hover > ul {
   visibility: visible;
@@ -1021,8 +1024,8 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    Language specific styles
    ========================================================================== */
 
-.left-nav { margin-left: -28px; } /* hu = 100px */
-/*.lang-en-EN .left-nav { margin-left: -28px; } /* en = 100px */
+.left-nav { margin-left: -32px; } /* hu = 120px */
+/*.lang-en-EN .left-nav { margin-left: -28px; } /* en = 120px */
 
 /* ==========================================================================
    Media Queries for Responsive Design
