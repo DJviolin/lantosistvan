@@ -78,6 +78,7 @@ run the app on windows:
 
 #### Gulp
 
+```
 run the app on linux:
  > $ DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:* npm run gulp
  > $ DEBUG=i18n:* & npm run gulp
