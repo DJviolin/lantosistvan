@@ -49,3 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //console.log('jquery on window resize');
   });
 });
+
+
+
+
+// Select parent of the child dropdown
+$('.main-nav ul ul.dropdown').parent().addClass('parent');
+//$('.main-nav ul .dropdown:parent').addClass('parent');
