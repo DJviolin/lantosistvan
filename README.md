@@ -101,3 +101,7 @@ $ heroku open
 $ heroku logs --tail
 $ heroku ps
 ```
+
+# Notes
+
+Removing all `translate3d` from CSS and JS is needed because of Webkit subpixel rendering drop
