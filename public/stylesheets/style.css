@@ -619,9 +619,7 @@ header .content {
    Modules - Portfolio
    ========================================================================== */
 
-.sidescroll {
-  margin: 0 20px 0 20px;
-}
+/*.sidescroll { margin: 0 20px 0 20px; }*/
 
 .sidescroll .images {
   display: -webkit-flex; display: flex;
@@ -1068,11 +1066,17 @@ http://marinkovic-weddings.com/
   -moz-transition: opacity 0.3s ease 0s;
   -webkit-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
-  -o-transform: translate(0, -50%);
+
+  /*-o-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   -moz-transform: translate(0, -50%);
   -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
+  transform: translate(0, -50%);*/
+  -o-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  -moz-transform: translate(0, 100%);
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%);
 }
 .slick-prev:hover,
 .slick-next:hover {
