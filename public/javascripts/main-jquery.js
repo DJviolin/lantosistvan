@@ -18,7 +18,7 @@ function bindSlick() {
     autoplay: false,
     autoplaySpeed: 3000,
 
-    useTransform: false
+    //useTransform: false
   });
   //console.log('bindSlick() fired...');
 };
