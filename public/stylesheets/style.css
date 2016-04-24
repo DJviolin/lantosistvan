@@ -992,8 +992,8 @@ http://marinkovic-weddings.com/
 .slick-slide.dragging img { pointer-events: none; }
 .slick-initialized .slick-slide { display: block; }
 .slick-loading .slick-slide { visibility: hidden; }
-/* Slider */
-.slick-loading .slick-list { background: #fff url('../images/ajax-loader.gif') center center no-repeat; }
+/* Slider list */
+/*.slick-loading .slick-list { background: #fff url('../images/ajax-loader.gif') center center no-repeat; }*/
 /* Arrows */
 .slick-prev:focus, .slick-next:focus { outline: none; }
 .slick-prev, .slick-next {
