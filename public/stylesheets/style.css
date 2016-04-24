@@ -465,6 +465,7 @@ li      { list-style: none; }
 .main-nav ul li:last-child { margin-right: 0; }*/
 /*.main-nav ul li:has(ul) { /* CSS4 selector - currently unsupported */
 /* http://stackoverflow.com/questions/2701192/character-for-up-down-triangle-arrow-to-display-in-html */
+.main-nav ul .parent > a { margin-right: 10px; }
 .main-nav ul .parent > a::after {
   /* display: inline-block; */
   display: block;
@@ -473,7 +474,6 @@ li      { list-style: none; }
   content: ' \276D';
   content: ' \29FD';*/
   content: ' \276F';
-  padding-top: -5px;
   color: #000;
   -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
