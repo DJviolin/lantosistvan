@@ -15,7 +15,7 @@ const gulp       = require('gulp'),
 const paths = {
   pathCleanCSS:  ['public/stylesheets/style.css'],
   pathServer:    ['app.js', 'bin/www', 'routes/**/*.js', 'lib/**/*.js', 'config.js'],
-  pathJsUglify:  ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js', 'public/javascripts/slick.js'],
+  pathJsUglify:  ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js'],
   pathFiles:     ['views/*.hbs', 'views/**/*.hbs', 'database/data.json', 'locales/*.json']
 };
 
