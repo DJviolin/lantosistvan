@@ -462,9 +462,9 @@ li      { list-style: none; }
 }
 /*.main-nav ul li:first-child { margin-left: 0; }
 .main-nav ul li:last-child { margin-right: 0; }*/
-.main-nav ul li:has(ul) /* CSS4 selector - currently unsupported */, .main-nav ul .parent a {
+/*.main-nav ul li:has(ul) { /* CSS4 selector - currently unsupported */
+.main-nav ul .parent a:after {
   content: ' X';
-  color: #f00;
 }
 .main-nav ul li a {
   display: block;

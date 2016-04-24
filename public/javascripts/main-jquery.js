@@ -54,5 +54,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Select parent of the child dropdown
-$('.main-nav ul ul.dropdown').parent().addClass('parent');
-//$('.main-nav ul .dropdown:parent').addClass('parent');
+$('.main-nav ul ul').parent().addClass('parent');
