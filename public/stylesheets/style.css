@@ -551,11 +551,13 @@ SOLUTION: Turn of CSS transform on all elements!
   margin-left: -10px;
   padding: 0;
   /*min-width: 180px;*/
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);
+  /*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);*/
   /*-o-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;*/
   /*background-color: #fcfcfc;*/
   background-color: #fff;
   z-index: 9999;
+  /**/
+  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
 }
 .main-nav ul ul li {
   margin: 0;
@@ -574,9 +576,12 @@ SOLUTION: Turn of CSS transform on all elements!
   /**/
   margin: 10px 20px 10px 20px;
   /*margin: 5px 13px 5px 13px;*/
-  font-size: 0.9em;
+  /*font-size: 0.9em;*/
   /*letter-spacing: 0.08em;*/
-  letter-spacing: 2px;
+  /*letter-spacing: 2px;*/
+  /**/
+  /*font-size: 1em;
+  letter-spacing: 4px;*/
 }
 .main-nav ul li:hover > ul {
   visibility: visible;
