@@ -295,7 +295,8 @@ textarea { resize: vertical; }
    ========================================================================== */
 
 /* https://css-tricks.com/rems-ems/ */
-html    { font-size: 1em; /*font-size: 0.9em;*/ /*font-size: 14px;*/ /*color: #b2b2b2;*/ /*color: #969799;*/ color: #000; /*line-height: 1.4;*/ }
+html    { font-size: 1em; /*font-size: 0.9em;*/ /*font-size: 14px;*/ /*color: #b2b2b2;*/ /*color: #969799;*/ color: #000; /*line-height: 1.4;*/
+          -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 body    { /*font-family: 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
           font-family: Georgia, 'Times New Roman', Times, serif;
           color: #606060;
@@ -352,9 +353,14 @@ li      { list-style: none; }
   max-width: 170px;
   height: 141px;*/
   /**/
-  margin: 40px 30px 40px 30px;
+  /* Saját emelkedő logóhoz */
+  /*margin: 40px 30px 40px 30px;
   max-width: 130px;
-  height: 108px;
+  height: 108px;*/
+  /**/
+  margin: 55px 30px 85px 30px;
+  max-width: 200px;
+  height: 32px;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .logo {
@@ -415,21 +421,27 @@ li      { list-style: none; }
   /*font-family: Georgia, 'Times New Roman', Times, serif;
   color: #000;*/
   /**/
-  font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
+  /*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
   font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2px;*/
   /**/
-  font-size: 14px;
+  /* Saját emelkedő logóhoz */
   /*letter-spacing: 0.1em;*/
+  /*font-size: 14px;
   font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
   font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
   font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, sans-serif;
   /* 'Arial Narrow' Hack: http://stackoverflow.com/a/12184181/1442219 */
-  font-family: 'Arial Narrow', Arial, sans-serif;
+  /*font-family: 'Arial Narrow', Arial, sans-serif;
   font-stretch: condensed;  /* 'Arial Narrow' Hack for Firefox */
-  font-weight: 400; /* 'Arial Narrow' Hack for Firefox - Use 700 for 'Arial Narrow Bold' */
+  /*font-weight: 400; /* 'Arial Narrow' Hack for Firefox - Use 700 for 'Arial Narrow Bold' */
+  /**/
+  font-family: Georgia, 'Times New Roman', TimesNewRoman, Times, Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 /*.main-nav { margin-bottom: 40px; }*/
 .main-nav ul {
@@ -464,25 +476,31 @@ li      { list-style: none; }
   /**/
   /*color: #000;*/
   /**/
-  color: #494949;
-  color: rgba(0,0,0,0.71);
-  /**/
+  /* Saját emelkedő logóhoz */
   /*color: #b2b2b2;
   color: rgba(0,0,0,0.3);*/
+  /*color: #494949;
+  color: rgba(0,0,0,0.71);*/
+  /**/
+  color: #999;
 }
 .main-nav ul li a:hover {
   /*color: #888;*/
   /*color: #8a9c9b;*/
   /**/
-  color: #575757;
+  /*color: #575757;*/
   /**/
-  color: #808080;
-  color: rgba(0,0,0,0.5);
+  /* Saját emelkedő logóhoz */
+  /*color: #808080;
+  color: rgba(0,0,0,0.5);*/
+  /**/
+  text-decoration: underline;
+  color: #000;
 }
 .main-nav ul li.active > a {
   /*color: #575757;*/
-  border-bottom: 3px solid #eff0f0;
-  margin-bottom: -3px;
+  /*border-bottom: 3px solid #eff0f0;
+  margin-bottom: -3px;*/
 }
 
 /* Navigation Drop-Down */
@@ -1036,8 +1054,9 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    Language specific styles
    ========================================================================== */
 
+/* Logo INSIDE nav */
 /*.left-nav { margin-left: -32px; } /* hu = 120px */
-.lang-hu-HU .left-nav { margin-left: -15px; } /* en = 120px */
+/*.lang-hu-HU .left-nav { margin-left: -15px; } /* en = 120px */
 /*.lang-en-EN .left-nav { margin-left: -28px; } /* en = 120px */
 
 /* ==========================================================================
@@ -1046,7 +1065,12 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
 
 @media (min-width: 1600px) {
   .toggle-mobile-nav, .main-nav.active { display: none; }
-  .logo-header { display: none; /*display: block;*/ }
+  .logo-header {
+    /*display: none; /* Logo INSIDE nav */
+    display: block; /* Logo TOP OF nav */
+  }
+  .logo-nav { display: none; } /* Logo INSIDE nav */
+  .navigation { margin-bottom: 60px; } /* Logo TOP OF nav */
 }
 
 @media (max-width: 1600px) {
@@ -1058,7 +1082,7 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     margin: 30px 30px 30px 30px;
     /*max-width: 350px;*/
     /*max-width: 170px;*/
-    max-width: 130px;
+    /*max-width: 130px;*/
   }
 
   /* Mobile nav */
