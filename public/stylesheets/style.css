@@ -323,6 +323,17 @@ li      { list-style: none; }
 *:focus { outline: 0; }
 *, *::after, *::before { box-sizing: border-box; }
 
+/*
+Webkit Hack for Subpixel Rendering:
+http://stackoverflow.com/a/12820319/1442219
+https://github.com/kenwheeler/slick/issues/2275#issuecomment-214004917
+Forcing Hardware Acceleration on the parent element!
+SOLUTION: Turn of CSS transform on all elements!
+*/
+/** {
+  -webkit-transform: translateZ(0px);
+}*/
+
 /* ==========================================================================
    Common styles
    ========================================================================== */

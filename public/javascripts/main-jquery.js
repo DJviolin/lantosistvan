@@ -16,7 +16,9 @@ function bindSlick() {
     swipeToSlide: true,
     slidesToScroll: 1,
     autoplay: false,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3000,
+
+    useTransform: false
   });
   //console.log('bindSlick() fired...');
 };
