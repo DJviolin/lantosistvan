@@ -2,7 +2,8 @@
 
 // Slick slider - Responsive
 function bindSlick() {
-  $('.sidescroll .images').slick({
+  //$('.sidescroll .images').slick({
+  document.getElementsById('horgallery').slick({
     dots: false,
     infinite: true,
     speed: 300,
