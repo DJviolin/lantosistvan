@@ -339,11 +339,11 @@ SOLUTION: Turn of CSS transform on all elements!
    ========================================================================== */
 
 /* Turns off Subpixel font rendering in Chrome with Slick Slider!!! */
-/*.container {
+.container {
   display: -webkit-flex; display: flex;
   -webkit-flex-direction: column; flex-direction: column;
   /*-webkit-align-items: center; align-items: center; /* Centering hack for blog, but needs to turn on slick slider */
-/*}*/
+}
 
 .error, .blog, .contact {
   display: -webkit-flex; display: flex;
@@ -618,6 +618,10 @@ header .content {
 /* ==========================================================================
    Modules - Portfolio
    ========================================================================== */
+
+.sidescroll {
+  margin: 0 10px 0 10px;
+}
 
 .sidescroll .images {
   display: -webkit-flex; display: flex;
