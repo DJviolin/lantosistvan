@@ -1188,6 +1188,14 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
     padding-top: 18px;
     padding-bottom: 18px;
   }
+  .main-nav ul .parent > a { margin-right: 0; }
+  .main-nav ul .parent > a::after {
+    -ms-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -o-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -moz-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -webkit-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    transform: rotate(90deg) translateX(-1px) translateY(15px);
+  }
   .main-nav ul ul {
     -webkit-flex-direction: column; flex-direction: column;
     visibility: visible;
