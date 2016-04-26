@@ -375,6 +375,10 @@ SOLUTION: Turn of CSS transform on all elements!
   margin: 55px 30px 85px 30px;
   max-width: 200px;
   height: 32px;
+  /**/
+  margin: 50px 30px 40px 30px;
+  max-width: 300px;
+  height: 97px;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .logo {
@@ -559,7 +563,9 @@ SOLUTION: Turn of CSS transform on all elements!
   background-color: #fff;
   z-index: 9999;
   /**/
-  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
+  /*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);*/
+  /**/
+  background-color: #f9f9f9;
 }
 .main-nav ul ul li {
   margin: 0;
