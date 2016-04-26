@@ -314,11 +314,13 @@ p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
 a       { text-decoration: none; /*color: #000;*/
           -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /*font-style: italic;*/
           /*color: #d2a679; color: #ccc; color: #a6a6a6;*/
-          color: #d49227; }
-a:hover { /*transition: <property> <duration> <timing-function> <delay>;*/
+          color: #d49227;
+          color: #3f3f3f; }
+a:hover, a:focus { /*transition: <property> <duration> <timing-function> <delay>;*/
           -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
           /*color: #7f7f7f; color: #6b6b6b;*/
-          color: #d3b88d; }
+          color: #d3b88d;
+          color: #6b6b6b; }
 li      { list-style: none; }
 *:focus { outline: 0; }
 *, *::after, *::before { box-sizing: border-box; }
@@ -845,7 +847,8 @@ footer aside a { font-family: 'im-fell-french-canon-pro-italic', Georgia, serif;
 footer aside p { margin-bottom: 0; text-transform: lowercase; }
 
 footer .social-links a { margin-right: 20px; font-size: 0.8em;
-                         /*color: #6b6b6b;*/ }
+                         /*color: #6b6b6b;*/
+                         color: #727272; }
 footer .social-links a:last-child { margin-right: 0; }
 
 /* Social Icons styling */
@@ -921,12 +924,15 @@ http://www.fileformat.info/info/unicode/char/1f682/index.htm */
   /*font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
   /*font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-size: 9px;
   letter-spacing: 1px;
   color: #494949;
   color: rgba(0,0,0,0.71);
+  /**/
+  /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
+/*.lang-selector a { color: #3f3f3f; }*/
 
 /* ==========================================================================
    Modules - Titles
