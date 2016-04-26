@@ -630,7 +630,8 @@ header .content {
   overflow-x: hidden;
 }
 .sidescroll .images li {
-  margin-right: 3px;
+  /*margin-right: 3px;*/
+  margin-right: 2px;
   /*background-color: rgb(17, 17, 17);*/
   background-color: #c3c3c3;
 }
@@ -1013,9 +1014,11 @@ http://marinkovic-weddings.com/
    ========================================================================== */
 
 /* Slider */
-.slick-slider, .portfolio .sidescroll .images {
+.slick-slider, .sidescroll .images {
   -ms-user-select: none; -khtml-user-select: none; -moz-user-select: none; -webkit-user-select: none; user-select: none;
   -webkit-touch-callout: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent;
+  /**/
+  /*position: relative;*/
 }
 .slick-list { overflow: hidden; } /* Helps not loosing focus, turns off horizontal scrollbar */
 .slick-track  {
@@ -1036,21 +1039,27 @@ http://marinkovic-weddings.com/
 /* Arrows */
 .slick-prev:focus, .slick-next:focus { outline: none; }
 .slick-prev, .slick-next {
+  display: block;
+  position: absolute;
+  padding: 0;
+  border: none;
   font-family: 'fontello';
   font-size: 0;
   line-height: 0;
   cursor: pointer;
   color: #b9b9b9;
+  /**/
   background: #fbfafa;
   width: 44px;
   height: 44px;
   border-radius: 100%;
-
-  display: block;
-  position: absolute;
   top: 50%;
-  padding: 0;
-  border: none;
+  /**/
+  /*width: 5%;
+  height: 100%;
+  top: -100%;
+  background: none;*/
+  /**/
 
   -o-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -1105,11 +1114,13 @@ http://marinkovic-weddings.com/
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  /**/
+  /*color: #fff;*/
 }
-.slick-prev { left: 25px; z-index: 9999; }
-.slick-prev:before { content: '\e838'; }
-.slick-next { right: 25px; z-index: 9999; }
-.slick-next:before { content: '\e837'; }
+.slick-prev { left: 25px; /*left: 0;*/ z-index: 99; }
+.slick-prev:before { content: '\e838'; /*left: 25px;*/ }
+.slick-next { right: 25px; /*right: 0;*/ z-index: 99; }
+.slick-next:before { content: '\e837'; /*right: 25px;*/ }
 
 /* ==========================================================================
    Helper classes
