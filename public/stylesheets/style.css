@@ -470,7 +470,7 @@ SOLUTION: Turn of CSS transform on all elements!
   /*font-size: 12px;
   font-family: 'TrajanPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
-  font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
+  font-family: 'Trebuchet MS', Tahoma, Helvetica, Arial, sans-serif;
   letter-spacing: 3px;
   font-size: 12px;
 }
