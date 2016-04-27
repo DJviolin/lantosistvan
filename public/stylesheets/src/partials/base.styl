@@ -1,0 +1,41 @@
+/* https://css-tricks.com/rems-ems/ */
+html    { font-size: 1em; /*font-size: 0.9em;*/ /*font-size: 14px;*/ /*color: #b2b2b2;*/ /*color: #969799;*/ color: #000; /*line-height: 1.4;*/
+          -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body    { /*font-family: 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          color: #606060;
+          color: #464444;
+          /*font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;*/
+          /*font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif;*/
+          /*letter-spacing: 0.1em;*/ /*font-stretch: normal;*/ }
+h1      { font-size: 2.0em; } /* 28px */
+h2      { font-size: 1.5em; } /* 21px */
+h3      { font-size: 1.17em; } /* 16,38px */
+h4      { font-size: 1.33em; } /* 18,62px */
+h5      { font-size: 0.83em; } /* 11,62px */
+h6      { font-size: 0.67em; } /* 9,38px */
+p       { font-size: 14px; line-height: 1.6em; margin-bottom: 1.25em; }
+a       { text-decoration: none; /*color: #000;*/
+          -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /*font-style: italic;*/
+          /*color: #d2a679; color: #ccc; color: #a6a6a6;*/
+          color: #d49227;
+          color: #3f3f3f; }
+a:hover, a:focus { /*transition: <property> <duration> <timing-function> <delay>;*/
+          -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
+          /*color: #7f7f7f; color: #6b6b6b;*/
+          color: #d3b88d;
+          color: #6b6b6b; }
+li      { list-style: none; }
+*:focus { outline: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+
+/*
+Webkit Hack for Subpixel Rendering:
+http://stackoverflow.com/a/12820319/1442219
+https://github.com/kenwheeler/slick/issues/2275#issuecomment-214004917
+Forcing Hardware Acceleration on the parent element!
+SOLUTION: Turn of CSS transform on all elements!
+*/
+/** {
+  -webkit-transform: translateZ(0px);
+}*/

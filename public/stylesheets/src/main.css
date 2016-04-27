@@ -312,7 +312,6 @@ textarea {
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-/* https://css-tricks.com/rems-ems/ */
 html {
   font-size: 1em;
 /*font-size: 0.9em;*/
@@ -337,27 +336,21 @@ body {
 h1 {
   font-size: 2em;
 }
-/* 28px */
 h2 {
   font-size: 1.5em;
 }
-/* 21px */
 h3 {
   font-size: 1.17em;
 }
-/* 16,38px */
 h4 {
   font-size: 1.33em;
 }
-/* 18,62px */
 h5 {
   font-size: 0.83em;
 }
-/* 11,62px */
 h6 {
   font-size: 0.67em;
 }
-/* 9,38px */
 p {
   font-size: 14px;
   line-height: 1.6em;
@@ -393,16 +386,6 @@ li {
 *::before {
   box-sizing: border-box;
 }
-/*
-Webkit Hack for Subpixel Rendering:
-http://stackoverflow.com/a/12820319/1442219
-https://github.com/kenwheeler/slick/issues/2275#issuecomment-214004917
-Forcing Hardware Acceleration on the parent element!
-SOLUTION: Turn of CSS transform on all elements!
-*/
-/** {
-  -webkit-transform: translateZ(0px);
-}*/
 /* ==========================================================================
    Common styles
    ========================================================================== */
