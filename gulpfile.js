@@ -14,7 +14,7 @@ const gulp       = require('gulp'),
 
 const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
-  pathStylusWatch: ['public/stylesheets/src/**/*'],
+  pathCSS:      ['public/stylesheets/src/**/*'],
   pathServer:   ['app.js', 'bin/www', 'routes/**/*.js', 'lib/**/*.js', 'config.js'],
   pathJsUglify: ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js', 'public/javascripts/slick.js'],
   pathFiles:    ['views/*.hbs', 'views/**/*.hbs', 'database/data.json', 'locales/*.json']
@@ -86,8 +86,7 @@ gulp.task('watch', function() { // Rerun the task when a file changes
   //livereload.listen();
   //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathServer, ['start']).on('change', server.notify);
-  gulp.watch(paths.pathStylusWatch, ['stylus', 'minify-css']).on('change', server.notify);
-  //gulp.watch(paths.pathCleanCSS, ['minify-css']).on('change', server.notify);
+  gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify);
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify);
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify);
 });
