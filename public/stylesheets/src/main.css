@@ -1185,7 +1185,6 @@ http://marinkovic-weddings.com/
 /* ==========================================================================
    Modules - Slick Slider
    ========================================================================== */
-/* Slider */
 .slick-slider,
 .sidescroll .images {
   -ms-user-select: none;
@@ -1203,7 +1202,6 @@ http://marinkovic-weddings.com/
 .slick-list {
   overflow: hidden;
 }
-/* Helps not loosing focus, turns off horizontal scrollbar */
 .slick-track {
   overflow-x: hidden;
   overflow-y: hidden;
@@ -1233,9 +1231,6 @@ http://marinkovic-weddings.com/
 .slick-loading .slick-slide {
   visibility: hidden;
 }
-/* Slider list */
-/*.slick-loading .slick-list { background: #fff url('../images/ajax-loader.gif') center center no-repeat; }*/
-/* Arrows */
 .slick-prev:focus,
 .slick-next:focus {
   outline: none;
