@@ -1,4 +1,7 @@
 /* ==========================================================================
+   Stylus
+   ========================================================================== */
+/* ==========================================================================
    Modules - CSS RESET
    ========================================================================== */
 html,
@@ -365,7 +368,10 @@ a:focus {
   -o-transition: color 0.3s ease 0s;
   -moz-transition: color 0.3s ease 0s;
   -webkit-transition: color 0.3s ease 0s;
-  transition: color 0.3s ease 0s;
+  -o-transition: color;
+  -moz-transition: color;
+  -webkit-transition: color;
+  transition: color;
 /*color: #7f7f7f; color: #6b6b6b;*/
   color: #d3b88d;
   color: #6b6b6b;
@@ -453,7 +459,10 @@ li {
   -o-transition: opacity 0.5s ease 0s;
   -moz-transition: opacity 0.5s ease 0s;
   -webkit-transition: opacity 0.5s ease 0s;
-  transition: opacity 0.5s ease 0s;
+  -o-transition: opacity;
+  -moz-transition: opacity;
+  -webkit-transition: opacity;
+  transition: opacity;
 }
 /* ==========================================================================
    Partials - Navigation
@@ -553,7 +562,11 @@ li {
   -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  transform: rotate(90deg) translateX(2px) translateY(-10px);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .main-nav ul li a {
   display: block;
@@ -824,7 +837,10 @@ article.welcome {
   -o-transition: opacity 0.3s ease 0s;
   -moz-transition: opacity 0.3s ease 0s;
   -webkit-transition: opacity 0.3s ease 0s;
-  transition: opacity 0.3s ease 0s;
+  -o-transition: opacity;
+  -moz-transition: opacity;
+  -webkit-transition: opacity;
+  transition: opacity;
 }
 .latest-posts article .post-preview-header .category,
 .latest-posts article .post-preview-header .category:hover {
@@ -1220,11 +1236,6 @@ footer .social-links a:last-child {
   -moz-transition: opacity 0.3s ease 0s;
   -webkit-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
-/*-o-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);*/
   -o-transform: translate(0, 100%);
   -ms-transform: translate(0, 100%);
   -moz-transform: translate(0, 100%);
@@ -1244,6 +1255,10 @@ footer .social-links a:last-child {
   position: absolute;
   top: 50%;
   left: 50%;
+  -o-transform: translate(-51%, -44%);
+  -ms-transform: translate(-51%, -44%);
+  -moz-transform: translate(-51%, -44%);
+  -webkit-transform: translate(-51%, -44%);
   -o-transform: translate(-51%, -44%);
   -ms-transform: translate(-51%, -44%);
   -moz-transform: translate(-51%, -44%);
@@ -1388,7 +1403,11 @@ footer .social-links a:last-child {
     -o-transform: rotate(90deg) translateX(-1px) translateY(15px);
     -moz-transform: rotate(90deg) translateX(-1px) translateY(15px);
     -webkit-transform: rotate(90deg) translateX(-1px) translateY(15px);
-    transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
   }
   .main-nav ul ul {
     -webkit-flex-direction: column;
@@ -1404,7 +1423,10 @@ footer .social-links a:last-child {
     -o-transition: all 0s ease 0s;
     -moz-transition: all 0s ease 0s;
     -webkit-transition: all 0s ease 0s;
-    transition: all 0s ease 0s;
+    -o-transition: all;
+    -moz-transition: all;
+    -webkit-transition: all;
+    transition: all;
     background-color: #fff;
   }
   .main-nav ul ul li a {
@@ -1467,7 +1489,10 @@ footer .social-links a:last-child {
     -o-transition: opacity 0s ease 0s;
     -moz-transition: opacity 0s ease 0s;
     -webkit-transition: opacity 0s ease 0s;
-    transition: opacity 0s ease 0s;
+    -o-transition: opacity;
+    -moz-transition: opacity;
+    -webkit-transition: opacity;
+    transition: opacity;
   }
   .latest-posts article .post-preview-header .category,
   .latest-posts article .post-preview-header .category:hover {
