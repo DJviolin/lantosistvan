@@ -1,6 +1,9 @@
 'use strict';
 
-// Avoid `console` errors in browsers that lack a console.
+/////////////////////////////////////////////////////////////
+// Avoid `console` errors in browsers that lack a console
+/////////////////////////////////////////////////////////////
+
 (function() {
     var method;
     var noop = function () {};
@@ -23,10 +26,10 @@
     }
 }());
 
-
-
-
+/////////////////////////////////////////////////////////////
 // Lazy loading portfolio div - Vanilla JS
+/////////////////////////////////////////////////////////////
+
 /*function lazyload() {
   //var sidescrollImages = document.getElementsByClassName('images');
   //for (var i=0; i<sidescrollImages.length; i++) {
@@ -39,10 +42,10 @@
 };
 document.addEventListener('DOMContentLoaded', lazyload);*/
 
-
-
-
+/////////////////////////////////////////////////////////////
 // Latest posts resize on frontpage - Vanilla JS
+/////////////////////////////////////////////////////////////
+
 document.addEventListener('DOMContentLoaded', function() {
   function previewImages() {
     var images = document.getElementsByClassName('preview-image');
@@ -59,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', previewImages);
 });
 
-
-
-
+/////////////////////////////////////////////////////////////
 // Mobile Nav - Vanilla JS
+/////////////////////////////////////////////////////////////
+
 document.addEventListener('DOMContentLoaded', function() {
   function menuButton() {
     var toggleNav = document.getElementsByClassName('main-nav');

@@ -1,6 +1,9 @@
 'use strict';
 
+/////////////////////////////////////////////////////////////
 // Slick slider - Responsive
+/////////////////////////////////////////////////////////////
+
 function bindSlick() {
   $('.sidescroll .images').slick({
     dots: false,
@@ -52,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-
-
+/////////////////////////////////////////////////////////////
 // Select parent of the child dropdown
+/////////////////////////////////////////////////////////////
+
 document.addEventListener('DOMContentLoaded', function() {
   $('.main-nav ul ul').parent().addClass('parent');
 });
