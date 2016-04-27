@@ -97,23 +97,3 @@ gulp.task('watch', function() { // Rerun the task when a file changes
 /////////////////////////////////////////////////////////////
 
 gulp.task('default', ['start', 'stylus', 'minify-css', 'uglify', 'files', 'watch']);
-
-
-
-
-/////////////////////////////////////////////////////////////
-// COPY FROM DEV TO DIST FOLDER WITH 'GULP MOVE' COMMAND
-/////////////////////////////////////////////////////////////
-
-/*var filesToMove = [
-  'dev/css/*.*',
-  'dev/js/*.*',
-  'dev/js/vendor/*.*',
-  'dev/*.*',
-  'dev/.htaccess'
-];
-
-gulp.task('move', ['stylus', 'minify', 'uglify', 'replace', 'htmlphp'], function(){
-  return gulp.src(filesToMove, { base: './dev' }) // 'base' sets the relative root for the files
-  .pipe(gulp.dest('./dist'));
-});*/
