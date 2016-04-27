@@ -398,6 +398,8 @@ li {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
 /*-webkit-align-items: center; align-items: center; /* Centering hack for blog, but needs to turn on slick slider */
 }
@@ -406,6 +408,8 @@ li {
 .contact {
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-align-items: center;
@@ -482,6 +486,8 @@ li {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: center;
   align-items: center;
@@ -540,6 +546,8 @@ li {
 .main-nav ul {
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: center;
@@ -619,6 +627,8 @@ li {
 }
 .main-nav ul ul {
   -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   visibility: hidden;
   opacity: 0;
@@ -678,6 +688,8 @@ header {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: flex-end;
   align-items: flex-end;
@@ -700,6 +712,8 @@ header .content {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-align-items: center;
   align-items: center;
@@ -711,6 +725,8 @@ header .content {
 .sidescroll .images {
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
 /*-webkit-justify-content: center; justify-content: center;
@@ -737,6 +753,8 @@ header .content {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: flex-start;
   align-items: flex-start;
@@ -751,6 +769,8 @@ header .content {
 /*height: auto;*/
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-align-items: center;
@@ -805,11 +825,14 @@ article.welcome {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: center;
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
+  -webkit-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 0 0 30px 0;
@@ -902,6 +925,8 @@ article.welcome {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-align-items: center;
   align-items: center;
@@ -927,6 +952,8 @@ footer {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: flex-start;
   align-items: flex-start;
@@ -942,6 +969,8 @@ footer .content {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-align-items: center;
   align-items: center;
@@ -956,6 +985,8 @@ footer .row {
 /*border-bottom: 1px solid #e9e9e9;*/
   display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-align-items: center;
@@ -1109,6 +1140,8 @@ footer .social-links a:last-child {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
 }
 .blog article .images li {
@@ -1175,8 +1208,9 @@ footer .social-links a:last-child {
   position: relative; /* Helps centering */
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: no-wrap;
+  flex-wrap: no-wrap;
+  -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
 }
@@ -1369,6 +1403,8 @@ footer .social-links a:last-child {
   }
   .navigation {
     -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
 /*font-size: 0.75em;*/
@@ -1384,6 +1420,8 @@ footer .social-links a:last-child {
     margin-bottom: 30px;
   }
   .main-nav ul {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
   }
@@ -1409,6 +1447,8 @@ footer .social-links a:last-child {
     transform: rotate(90deg);
   }
   .main-nav ul ul {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
     visibility: visible;
@@ -1456,6 +1496,8 @@ footer .social-links a:last-child {
   .sidescroll .images {
     display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
     -webkit-justify-content: center;
@@ -1516,6 +1558,8 @@ footer .social-links a:last-child {
     flex: 0 0 85vw;
   }
   footer .row {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
     padding-top: 0;
