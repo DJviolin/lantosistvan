@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CSS RESET
+   Modules - CSS RESET
    ========================================================================== */
 html,
 body,
@@ -152,7 +152,7 @@ textarea {
   resize: vertical;
 }
 /* ==========================================================================
-   @font-face
+   Modules - @font-face
    http://transfonter.org/
    http://iosfonts.com/
    http://www.w3schools.com/cssref/css_websafe_fonts.asp
@@ -310,7 +310,7 @@ textarea {
   font-style: normal;
 }
 /* ==========================================================================
-   Base styles: opinionated defaults
+   Modules - Base styles: opinionated defaults
    ========================================================================== */
 html {
   font-size: 1em;
@@ -454,7 +454,7 @@ li {
   padding: 0 3px 0 3px;
 }
 /* ==========================================================================
-   Modules - Lazyload
+   Partials - Lazyload
    ========================================================================== */
 .lazyload {
 /*display: none;*/
@@ -709,9 +709,8 @@ header .content {
 /*-webkit-justify-content: space-between; justify-content: space-between;*/
 }
 /* ==========================================================================
-   Modules - Portfolio
+   Partials - Portfolio
    ========================================================================== */
-/*.sidescroll { margin: 0 20px 0 20px; }*/
 .sidescroll .images {
   display: -webkit-flex;
   display: flex;
@@ -786,13 +785,13 @@ header .content {
   letter-spacing: normal;
 }
 /* ==========================================================================
-   Modules - Welcome
+   Partials - Welcome
    ========================================================================== */
 article.welcome {
   max-width: 980px;
 }
 /* ==========================================================================
-   Modules - Latest Posts
+   Partials - Latest Posts
    https://dylanmhowell.com/
    ========================================================================== */
 .latest-posts-title {
@@ -921,7 +920,7 @@ article.welcome {
   overflow: hidden;
 }
 /* ==========================================================================
-   Modules - Footer
+   Partials - Footer
    ========================================================================== */
 footer {
 /*-webkit-flex: 0 0 20vh; flex: 0 0 20vh;*/
@@ -1052,7 +1051,7 @@ footer .social-links a:last-child {
   color: rgba(0,0,0,0.71);
 }
 /* ==========================================================================
-   Modules - Titles
+   Partials - Titles
    ========================================================================== */
 .widget-title-img {
   display: block;
@@ -1302,7 +1301,7 @@ footer .social-links a:last-child {
 /*right: 25px;*/
 }
 /* ==========================================================================
-   Modules - Language
+   Partials - Language
    ========================================================================== */
 .lang-selector {
   position: absolute;
@@ -1322,7 +1321,7 @@ footer .social-links a:last-child {
 /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
 /* ==========================================================================
-   Media Queries for Responsive Design
+   Modules - Media Queries for Responsive Design
    ========================================================================== */
 @media (min-width: 1600px) {
   .toggle-mobile-nav,
@@ -1529,7 +1528,7 @@ footer .social-links a:last-child {
   }
 }
 /* ==========================================================================
-   IE Conditional styles
+   Modules - IE Conditional styles
    http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
    ========================================================================== */
 _:-ms-fullscreen,
@@ -1559,5 +1558,5 @@ _:-ms-fullscreen,
   text-align: center;
 }
 /* ==========================================================================
-   Development
+   Modules - Development
    ========================================================================== */
