@@ -300,24 +300,13 @@ textarea {
 }
 html {
   font-size: 1em;
-/*font-size: 0.9em;*/
-/*font-size: 14px;*/
-/*color: #b2b2b2;*/
-/*color: #969799;*/
   color: #000;
-/*line-height: 1.4;*/
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
-/*font-family: 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #606060;
   color: #464444;
-/*font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;*/
-/*font-family: 'HelveticaNeueLight', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', 'Lucida Grande', sans-serif;*/
-/*letter-spacing: 0.1em;*/
-/*font-stretch: normal;*/
 }
 h1 {
   font-size: 2em;
@@ -344,10 +333,11 @@ p {
 }
 a {
   text-decoration: none;
-/*color: #000;*/
-  -webkit-tap-highlight-color: rgba(255,255,255,0); /*font-style: italic;*/
-/*color: #d2a679; color: #ccc; color: #a6a6a6;*/
-  color: #d49227;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+/*color: #d2a679;
+  color: #ccc;
+  color: #a6a6a6;
+  color: #d49227;*/
   color: #3f3f3f;
 }
 a:hover,
