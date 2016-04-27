@@ -1,9 +1,3 @@
-/* ==========================================================================
-   Stylus
-   ========================================================================== */
-/* ==========================================================================
-   Modules - CSS RESET
-   ========================================================================== */
 html,
 body,
 div,
@@ -154,9 +148,6 @@ video {
 textarea {
   resize: vertical;
 }
-/* ==========================================================================
-   Modules - @font-face
-   ========================================================================== */
 @font-face {
   font-family: 'fontello';
   src: url("../fonts/fontello/fontello.eot?35495050");
@@ -307,9 +298,6 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-/* ==========================================================================
-   Modules - Base styles: opinionated defaults
-   ========================================================================== */
 html {
   font-size: 1em;
 /*font-size: 0.9em;*/
@@ -391,9 +379,6 @@ li {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* ==========================================================================
-   Modules - Common styles
-   ========================================================================== */
 .container {
   display: -webkit-flex;
   display: flex;
@@ -453,9 +438,6 @@ li {
 .pipe {
   padding: 0 3px 0 3px;
 }
-/* ==========================================================================
-   Partials - Lazyload
-   ========================================================================== */
 .lazyload {
 /*display: none;*/
   visibility: hidden;
@@ -472,9 +454,6 @@ li {
   -webkit-transition: opacity;
   transition: opacity;
 }
-/* ==========================================================================
-   Partials - Navigation
-   ========================================================================== */
 .navigation {
 /*font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
 /*font-family: Georgia, 'Times New Roman', Times, serif;*/
@@ -679,9 +658,6 @@ li {
   visibility: visible;
   opacity: 1;
 }
-/* ==========================================================================
-   Partials - Header
-   ========================================================================== */
 header {
   -webkit-flex: 0 0 20vh;
   flex: 0 0 20vh; /*height: 20vh;*/
@@ -719,9 +695,6 @@ header .content {
   align-items: center;
 /*-webkit-justify-content: space-between; justify-content: space-between;*/
 }
-/* ==========================================================================
-   Partials - Portfolio
-   ========================================================================== */
 .sidescroll .images {
   display: -webkit-flex;
   display: flex;
@@ -746,9 +719,6 @@ header .content {
 .sidescroll .images img {
   height: 60vh;
 }
-/* ==========================================================================
-   Pages - Home
-   ========================================================================== */
 .frontpage {
   display: -webkit-flex;
   display: flex;
@@ -801,15 +771,9 @@ header .content {
   font-weight: 400;
   letter-spacing: normal;
 }
-/* ==========================================================================
-   Partials - Welcome
-   ========================================================================== */
 article.welcome {
   max-width: 980px;
 }
-/* ==========================================================================
-   Partials - Latest Posts
-   ========================================================================== */
 .latest-posts-title {
   margin: 45px 0 0 0;
 }
@@ -943,9 +907,6 @@ article.welcome {
   object-fit: cover;
   overflow: hidden;
 }
-/* ==========================================================================
-   Partials - Footer
-   ========================================================================== */
 footer {
 /*-webkit-flex: 0 0 20vh; flex: 0 0 20vh;*/
 /*height: 20vh;*/
@@ -1080,9 +1041,6 @@ footer .social-links a:last-child {
   color: #494949;
   color: rgba(0,0,0,0.71);
 }
-/* ==========================================================================
-   Partials - Titles
-   ========================================================================== */
 .widget-title-img {
   display: block;
   margin: 0 auto 20px auto;
@@ -1127,9 +1085,6 @@ footer .social-links a:last-child {
   background: #e9e9e9;
   margin: 18px auto 0 auto;
 }
-/* ==========================================================================
-   Pages - Blog
-   ========================================================================== */
 .blog article img {
   width: 100%;
 }
@@ -1173,9 +1128,6 @@ footer .social-links a:last-child {
 .blog .pagination a:hover {
   color: #ccc;
 }
-/* ==========================================================================
-   Pages - Contact
-   ========================================================================== */
 .contact {
   -webkit-align-items: center;
   align-items: center;
@@ -1183,9 +1135,6 @@ footer .social-links a:last-child {
 .contact article {
   max-width: 600px;
 }
-/* ==========================================================================
-   Modules - Slick Slider
-   ========================================================================== */
 .slick-slider,
 .sidescroll .images {
   -ms-user-select: none;
@@ -1327,9 +1276,6 @@ footer .social-links a:last-child {
   content: '\e837';
 /*right: 25px;*/
 }
-/* ==========================================================================
-   Partials - Language
-   ========================================================================== */
 .lang-selector {
   position: absolute;
   top: 0;
@@ -1347,9 +1293,6 @@ footer .social-links a:last-child {
 /**/
 /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
-/* ==========================================================================
-   Modules - Media Queries for Responsive Design
-   ========================================================================== */
 @media (min-width: 1600px) {
   .toggle-mobile-nav,
   .main-nav.active {
@@ -1574,9 +1517,6 @@ footer .social-links a:last-child {
     border-bottom: 1px dotted #e9e9e9;
   }
 }
-/* ==========================================================================
-   Modules - IE Conditional styles
-   ========================================================================== */
 _:-ms-fullscreen,
 :root .logo {
   width: 390px;
@@ -1607,6 +1547,3 @@ _:-ms-fullscreen,
   font-size: 1.5em;
   text-align: center;
 }
-/* ==========================================================================
-   Modules - Development
-   ========================================================================== */
