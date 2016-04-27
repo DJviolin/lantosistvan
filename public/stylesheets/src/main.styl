@@ -6,11 +6,6 @@
 
 /* ==========================================================================
    Modules - @font-face
-   http://transfonter.org/
-   http://iosfonts.com/
-   http://www.w3schools.com/cssref/css_websafe_fonts.asp
-   http://www.webdesigndev.com/16-gorgeous-web-safe-fonts-to-use-with-css/
-   http://www.cssfontstack.com/trebuchet-ms
    ========================================================================== */
 
 @import 'modules/fonts.styl'
@@ -22,68 +17,10 @@
 @import 'modules/base.styl'
 
 /* ==========================================================================
-   Common styles
+   Modules - Common styles
    ========================================================================== */
 
-/* Turns off Subpixel font rendering in Chrome with Slick Slider!!! */
-.container {
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: column; flex-direction: column;
-  /*-webkit-align-items: center; align-items: center; /* Centering hack for blog, but needs to turn on slick slider */
-}
-
-.error, .blog, .contact {
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: column; flex-direction: column;
-  -webkit-align-items: center; align-items: center;
-}
-
-/* Logo */
-.logo {
-  /*width: 210px;
-  height: 190px;*/
-  /*margin: 20px 40px 20px 40px;*/
-  /**/
-  /*margin: 40px 30px 40px 30px;
-  max-width: 390px;
-  height: 80px;*/
-  /**/
-  /*margin: 35px 30px 35px 30px;
-  max-width: 170px;
-  height: 141px;*/
-  /**/
-  /* Saját emelkedő logóhoz */
-  /*margin: 40px 30px 40px 30px;
-  max-width: 130px;
-  height: 108px;*/
-  /**/
-  margin: 55px 30px 85px 30px;
-  max-width: 200px;
-  height: 32px;
-  /**/
-  margin: 50px 30px 40px 30px;
-  max-width: 300px;
-  height: 97px;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .logo {
-    height: auto;
-  }
-}
-.logo a img {
-  width: 100%;
-  height: 100%;
-}
-
-/* Social */
-/*.social-links { text-align: right; margin-bottom: 30px;
-                font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 2px; color: #969799; }
-.social { margin: 0 5px 0 0; height: 30px; }
-/*.social-links:last-child { margin-right: 0; }*
-.social-links a { position: relative; }
-.social-links span { opacity: 0; position: absolute; text-transform: uppercase; margin-top: 34px; padding: 0; pointer-events: none; }*/
-
-.pipe { padding: 0 3px 0 3px; }
+@import 'modules/common.styl'
 
 /* ==========================================================================
    Partials - Lazyload
@@ -92,228 +29,16 @@
 @import 'partials/lazyload.styl'
 
 /* ==========================================================================
-   Modules - Navigation
+   Partials - Navigation
    ========================================================================== */
 
-.navigation {
-  /*font-family: 'Geometric231BT-LightC-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
-  /*font-family: Georgia, 'Times New Roman', Times, serif;*/
-  /*letter-spacing: 0.32em;*/
-  /*text-transform: uppercase;*/
-  /**/
-  /*font-size: 0.75em;*/
-  /*font-size: 0.7em;*/
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: row; flex-direction: row;
-  -webkit-align-items: center; align-items: center;
-  -webkit-justify-content: center; justify-content: center;
-  /*-webkit-justify-content: space-around; justify-content: space-around;*/
-  /**/
-  /*font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-size: 0.75em;
-  font-size: 0.8em;
-  letter-spacing: 0.2em;*/
-  /**/
-  /*font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  color: #606060;
-  font-size: 17px;
-  text-transform: uppercase;
-  letter-spacing: 2px;*/
-  /**/
-  /*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;*/
-  /**/
-  /*font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #000;*/
-  /**/
-  /*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
-  font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2px;*/
-  /**/
-  /* Saját emelkedő logóhoz */
-  /*letter-spacing: 0.1em;*/
-  /*font-size: 14px;
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
-  font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, sans-serif;
-  /* 'Arial Narrow' Hack: http://stackoverflow.com/a/12184181/1442219 */
-  /*font-family: 'Arial Narrow', Arial, sans-serif;
-  font-stretch: condensed;  /* 'Arial Narrow' Hack for Firefox */
-  /*font-weight: 400; /* 'Arial Narrow' Hack for Firefox - Use 700 for 'Arial Narrow Bold' */
-  /**/
-  /*font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 4px;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: uppercase;*/
-  /**/
-  /*font-size: 12px;
-  font-family: 'TrajanPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
-  font-family: 'Trebuchet MS', Tahoma, Helvetica, Arial, sans-serif;
-  letter-spacing: 2px;
-  font-size: 12px;
-}
-/*.main-nav { margin-bottom: 40px; }*/
-.main-nav ul {
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: row; flex-direction: row;
-  -webkit-align-items: center; align-items: center;
-}
-.main-nav ul li {
-  /*margin: 0 20px 0 0;*/
-  /*margin: 0 20px 0 20px;*/
-  margin: 0 20px 0 20px;
-}
-/*.main-nav ul li:first-child { margin-left: 0; }
-.main-nav ul li:last-child { margin-right: 0; }*/
-/*.main-nav ul li:has(ul) { /* CSS4 selector - currently unsupported */
-/* http://stackoverflow.com/questions/2701192/character-for-up-down-triangle-arrow-to-display-in-html */
-.main-nav ul .parent > a { margin-right: 10px; }
-.main-nav ul .parent > a::after {
-  /* display: inline-block; */
-  display: block;
-  float: right;
-  /*content: ' \27E9';
-  content: ' \276D';
-  content: ' \29FD';*/
-  content: ' \276F';
-  color: #000;
-  -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  transform: rotate(90deg) translateX(2px) translateY(-10px);
-}
-.main-nav ul li a {
-  display: block;
-  text-align: center;
-  padding: 5px 0 5px 0;
-  /*color: #000;*/
-  /*font-style: normal;*/
-  /*font-family: Georgia, 'Times New Roman', Times, serif;*/
-  /**/
-  /*color: #494949;*/
-  /**/
-  /*color: #898381;*/
-  /*color: #000;*/
-  /**/
-  /*color: #464444;*/
-  /*color: #808080;
-  color: rgba(0, 0, 0, .5);*/
-  /*color: #a6a6a6;
-  color: rgba(0, 0, 0, .65);*/
-  /**/
-  /*color: #000;*/
-  /**/
-  /* Saját emelkedő logóhoz */
-  /*color: #b2b2b2;
-  color: rgba(0,0,0,0.3);*/
-  /*color: #494949;
-  color: rgba(0,0,0,0.71);*/
-  /**/
-  color: #999;
-  /*color: #222;*/
-  /**/
-  color: #727272;
-}
-.main-nav ul li a:hover {
-  /*color: #888;*/
-  /*color: #8a9c9b;*/
-  /**/
-  /*color: #575757;*/
-  /**/
-  /* Saját emelkedő logóhoz */
-  /*color: #808080;
-  color: rgba(0,0,0,0.5);*/
-  /**/
-  text-decoration: underline;
-  color: #000;
-}
-.main-nav ul li.active > a {
-  /*color: #575757;*/
-  /*border-bottom: 3px solid #eff0f0;
-  margin-bottom: -3px;*/
-}
-
-/* Navigation Drop-Down */
-.main-nav ul ul {
-  -webkit-flex-direction: column; flex-direction: column;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  /*background-color: #fff;*/
-  margin-left: -10px;
-  padding: 0;
-  /*min-width: 180px;*/
-  /*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);*/
-  /*-o-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;*/
-  /*background-color: #fcfcfc;*/
-  background-color: #fff;
-  z-index: 9999;
-  /**/
-  /*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);*/
-  /**/
-  background-color: #f9f9f9;
-}
-.main-nav ul ul li {
-  margin: 0;
-  width: 100%;
-}
-.main-nav ul ul li:first-child { margin-top: 5px; }
-.main-nav ul ul li:last-child { margin-bottom: 3px; }
-.main-nav ul ul li a {
-  text-align: left;
-  /*font-size: 0.9em;
-  margin: 8px 8px 8px 8px;*/
-  /**/
-  /*font-size: 0.96em;*/
-  /*margin: 13px 25px 13px 25px;*/
-  padding: 0;
-  /**/
-  margin: 10px 20px 10px 20px;
-  /*margin: 5px 13px 5px 13px;*/
-  /*font-size: 0.9em;*/
-  /*letter-spacing: 0.08em;*/
-  /*letter-spacing: 2px;*/
-  /**/
-  /*font-size: 1em;
-  letter-spacing: 4px;*/
-}
-.main-nav ul li:hover > ul {
-  visibility: visible;
-  opacity: 1;
-}
+@import 'partials/nav.styl'
 
 /* ==========================================================================
-   Modules - Header
+   Partials - Header
    ========================================================================== */
 
-header {
-  -webkit-flex: 0 0 20vh; flex: 0 0 20vh; /*height: 20vh;*/
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: row; flex-direction: row;
-  -webkit-align-items: flex-end; align-items: flex-end;
-  -webkit-justify-content: center; justify-content: center;
-  z-index: 999;
-  /**/
-  /*-webkit-align-items: center; align-items: center;*/
-  -webkit-flex: 0 0 auto; flex: 0 0 auto;
-}
-.little-screen {
-  -webkit-flex: 0 0 auto; flex: 0 0 auto;
-}
-header .content {
-  -webkit-flex: 0 0 50vw; flex: 0 0 50vw; /*width: 50vw;*/
-  /*height: auto;*/
-  display: -webkit-flex; display: flex;
-  -webkit-flex-direction: column; flex-direction: column;
-  -webkit-align-items: center; align-items: center;
-  /*-webkit-justify-content: space-between; justify-content: space-between;*/
-}
+@import 'partials/header.styl'
 
 /* ==========================================================================
    Partials - Portfolio
@@ -335,7 +60,6 @@ header .content {
 
 /* ==========================================================================
    Partials - Latest Posts
-   https://dylanmhowell.com/
    ========================================================================== */
 
 @import 'partials/latest-posts.styl'
@@ -384,7 +108,6 @@ header .content {
 
 /* ==========================================================================
    Modules - IE Conditional styles
-   http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
    ========================================================================== */
 
 @import 'modules/ie.styl'
