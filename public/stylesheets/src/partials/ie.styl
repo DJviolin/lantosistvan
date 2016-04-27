@@ -1,0 +1,14 @@
+/* IE 11+ */
+_:-ms-fullscreen, :root .logo { width: 390px; }
+/* https://github.com/philipwalton/flexbugs */
+_:-ms-fullscreen, :root footer .content { box-sizing: border-box; }
+/* object-fit hack for IE 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+   .latest-posts article .preview-image { max-width: 364px; }
+}
+
+/* Browser Upgrade Prompt - IE 9- */
+.browserupgrade {
+  display: block; position: absolute; z-index: 999999; width: 100%; height: 100%; margin: 0; padding: 50px 0 0 50px; 
+  background: #999; color: #000; font-size: 1.5em; text-align: center;
+}

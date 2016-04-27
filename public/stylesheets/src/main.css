@@ -1581,25 +1581,19 @@ http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
    IE Conditional styles
    http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
    ========================================================================== */
-/* IE 11+ */
 _:-ms-fullscreen,
 :root .logo {
   width: 390px;
 }
-/* https://github.com/philipwalton/flexbugs */
 _:-ms-fullscreen,
 :root footer .content {
   box-sizing: border-box;
 }
-/* object-fit hack for IE 10+ */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .latest-posts article .preview-image {
     max-width: 364px;
   }
 }
-/* ==========================================================================
-   Browser Upgrade Prompt - IE 9-
-   ========================================================================== */
 .browserupgrade {
   display: block;
   position: absolute;
@@ -1616,32 +1610,3 @@ _:-ms-fullscreen,
 /* ==========================================================================
    Development
    ========================================================================== */
-/**:hover { 
-  -webkit-box-shadow: inset 0 0 0 1px #f00;
-  -moz-box-shadow: inset 0 0 0 1px #f00;
-  box-shadow: inset 0 0 0 1px #f00;
-}*/
-/*nav { background-color: #979; }
-
-header.outer, .horizontal header  { background-color: #f48; }
-footer.outer, .horizontal footer  { background-color: #f48; }
-header .middle, .horizontal header .content { background-color: blue; }
-footer .middle, .horizontal footer .content { background-color: purple; }
-header .inner  { background-color: yellow; }
-footer .inner, .copyright  { background-color: yellow; }
-header.article, footer.article { background-color: yellow; }
-
-.tags { background-color: #b35; }
-
-p { background-color: green; }
-
-.navigation { background-color: brown; }
-
-body.blog{ background-color: #b48; }
-
-@media (max-width: 900px) {
-  body { background-color: green; }
-}
-@media (max-width: 400px) {
-  body { background-color: red; }
-}*/
