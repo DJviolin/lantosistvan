@@ -16,7 +16,7 @@ const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
   pathCSS:      ['public/stylesheets/src/**/*'],
   pathServer:   ['app.js', 'bin/www', 'routes/**/*.js', 'lib/**/*.js', 'config.js'],
-  pathJsUglify: ['public/javascripts/main-vanilla.js', 'public/javascripts/main-jquery.js', 'public/javascripts/slick.js'],
+  pathJsUglify: ['public/javascripts/src/main-vanilla.js', 'public/javascripts/src/main-jquery.js', 'public/javascripts/src/slick.js'],
   pathFiles:    ['views/*.hbs', 'views/**/*.hbs', 'database/data.json', 'locales/*.json']
 };
 
