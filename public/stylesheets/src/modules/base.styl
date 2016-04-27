@@ -20,14 +20,18 @@ a       { text-decoration: none; /*color: #000;*/
           /*color: #d2a679; color: #ccc; color: #a6a6a6;*/
           color: #d49227;
           color: #3f3f3f; }
-a:hover, a:focus { /*transition: <property> <duration> <timing-function> <delay>;*/
-          -o-transition: color 0.3s ease 0s; -moz-transition: color 0.3s ease 0s; -webkit-transition: color 0.3s ease 0s; transition: color 0.3s ease 0s;
-          /*color: #7f7f7f; color: #6b6b6b;*/
-          color: #d3b88d;
-          color: #6b6b6b; }
-li      { list-style: none; }
+a:hover, a:focus {
+  //transition: <property> <duration> <timing-function> <delay>;
+  transition(color 0.3s ease 0s);
+  //color: #7f7f7f; color: #6b6b6b;
+  //color: #d3b88d;
+  color: #6b6b6b;
+}
+li { list-style: none; }
 *:focus { outline: 0; }
-*, *::after, *::before { box-sizing: border-box; }
+*, *::after, *::before {
+  box-sizing(border-box);
+}
 
 /*
 Webkit Hack for Subpixel Rendering:
