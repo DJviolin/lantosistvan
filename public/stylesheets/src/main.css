@@ -385,6 +385,10 @@ li {
 *,
 *::after,
 *::before {
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* ==========================================================================
@@ -1255,19 +1259,15 @@ footer .social-links a:last-child {
   position: absolute;
   top: 50%;
   left: 50%;
-  -o-transform: translate(-51%, -44%);
-  -ms-transform: translate(-51%, -44%);
-  -moz-transform: translate(-51%, -44%);
-  -webkit-transform: translate(-51%, -44%);
+  opacity: 0.75;
+  color: #b9b9b9;
+  font-size: 40px;
+  line-height: 1;
   -o-transform: translate(-51%, -44%);
   -ms-transform: translate(-51%, -44%);
   -moz-transform: translate(-51%, -44%);
   -webkit-transform: translate(-51%, -44%);
   transform: translate(-51%, -44%);
-  opacity: 0.75;
-  color: #b9b9b9;
-  font-size: 40px;
-  line-height: 1;
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1540,6 +1540,10 @@ _:-ms-fullscreen,
 }
 _:-ms-fullscreen,
 :root footer .content {
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
