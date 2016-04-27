@@ -382,18 +382,6 @@ li {
   align-items: center;
 }
 .logo {
-/*width: 210px;
-  height: 190px;*/
-/*margin: 20px 40px 20px 40px;*/
-/**/
-/*margin: 40px 30px 40px 30px;
-  max-width: 390px;
-  height: 80px;*/
-/**/
-/*margin: 35px 30px 35px 30px;
-  max-width: 170px;
-  height: 141px;*/
-/**/
 /* Saját emelkedő logóhoz */
 /*margin: 40px 30px 40px 30px;
   max-width: 130px;
@@ -652,15 +640,9 @@ header .content {
   margin: 0 5vw 0 5vw;
 }
 .frontpage article p {
-/*font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;*/
   text-align: center;
-/*font-size: 15px;
-  font-size: 17px;*/
-/*font-size: 0.9em;*/
-/*letter-spacing: 0.05em;*/
-/*line-height: 1.6em;*/
-/*color: #494949;*/
 /**/
+/*font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;*/
 /*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;*/
 /**/
@@ -1172,14 +1154,13 @@ footer .social-links a:last-child {
     display: none;
   }
   .logo-header {
-/*display: none; /* Logo INSIDE nav */
     display: block; /* Logo TOP OF nav */
   }
   .logo-nav {
-    display: none;
+    display: none; /* Logo INSIDE nav */
   }
   .navigation {
-    margin-bottom: 60px;
+    margin-bottom: 60px; /* Logo TOP OF nav */
   }
 }
 @media (max-width: 1600px) {
@@ -1196,9 +1177,6 @@ footer .social-links a:last-child {
   }
   .logo {
     margin: 30px 30px 30px 30px;
-/*max-width: 350px;*/
-/*max-width: 170px;*/
-/*max-width: 130px;*/
   }
   .toggle-mobile-nav {
     margin-bottom: 10px;
