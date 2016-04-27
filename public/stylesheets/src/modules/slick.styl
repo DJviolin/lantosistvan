@@ -1,7 +1,7 @@
 /* Slider */
 .slick-slider, .sidescroll .images {
-  user-select(none);
-  touch-action(pan-y);
+  user-select: none;
+  touch-action: pan-y;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   /**/
@@ -12,8 +12,8 @@
   overflow-x: hidden; overflow-y: hidden;
   position: relative; /* Helps centering */
   display: -webkit-flex; display: flex;
-  flex-wrap(no-wrap);
-  flex-direction(row);
+  flex-wrap: no-wrap;
+  flex-direction: row;
 }
 .slick-loading .slick-track { visibility: hidden; }
 .slick-slide { display: none; }
@@ -47,10 +47,10 @@
   top: -100%;
   background: none;*/
   /**/
-  transform-style(preserve-3d);
-  perspective(1000);
-  transition(opacity 0.3s ease 0s);
-  transform(translate(0, 100%));
+  transform-style: preserve-3d;
+  perspective: 1000;
+  transition: opacity 0.3s ease 0s;
+  transform: translate(0, 100%);
 }
 .slick-prev:hover,
 .slick-next:hover {
@@ -69,8 +69,8 @@
   color: #b9b9b9;
   font-size: 40px;
   line-height: 1;
-  transform(translate(-51%, -44%));
-  box-sizing(border-box);
+  transform: translate(-51%, -44%);
+  box-sizing: border-box;
   /**/
   /*color: #fff;*/
 }
