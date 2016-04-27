@@ -549,15 +549,11 @@ li {
   content: ' \29FD';*/
   content: ' \276F';
   color: #000;
-  -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
+  -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+  transform: rotate(90deg) translateX(2px) translateY(-10px);
 }
 .main-nav ul li a {
   display: block;
