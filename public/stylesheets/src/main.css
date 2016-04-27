@@ -452,7 +452,7 @@ li {
 /*font-size: 12px;
   font-family: 'TrajanPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
-  font-family: 'Trebuchet MS', Tahoma, Helvetica, Arial, sans-serif;
+  font-family: 'Trebuchet MS', Tahoma, 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, 'Lucida Grande', sans-serif;
   letter-spacing: 2px;
   font-size: 12px;
 }
@@ -820,7 +820,7 @@ footer aside:nth-child(2) {
   border-right: 1px dotted #e9e9e9;
 }
 footer aside a {
-  font-family: 'im-fell-french-canon-pro-italic', Georgia, serif;
+  font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
 /*font-size: 13px;*/
   font-size: 0.93em;
 }
@@ -885,10 +885,10 @@ footer .social-links a:last-child {
 /**/
   color: #606060;
   font-size: 0.69em; /* 11px */
-  font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
+  font-family: 'Trebuchet MS', Tahoma, 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, 'Lucida Grande', sans-serif;
   line-height: 1.75em;
 /**/
-  font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;
+  font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, 'Lucida Grande', sans-serif;
   text-transform: uppercase;
   font-size: 8px;
   letter-spacing: 1px;
@@ -974,7 +974,7 @@ footer .social-links a:last-child {
   text-transform: lowercase;
   font-size: 0.95em;
   letter-spacing: 0.07em;
-  font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, 'Lucida Grande', sans-serif;
   color: #777;
 }
 .blog .pagination a:hover {
@@ -1179,7 +1179,7 @@ footer .social-links a:last-child {
     margin-bottom: 10px;
   }
   .toggle-mobile-nav .menu-button {
-    font-family: 'TrajanPro-Bold', Georgia, serif;
+    font-family: 'TrajanPro-Bold', Georgia, 'Times New Roman', Times, serif;
     color: #000;
     text-decoration: none;
     text-transform: uppercase;
