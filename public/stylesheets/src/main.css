@@ -562,7 +562,7 @@ li {
 /*font-size: 12px;
   font-family: 'TrajanPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
-  font-family: 'Trebuchet MS', Tahoma, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   letter-spacing: 2px;
   font-size: 12px;
 }
@@ -995,10 +995,10 @@ footer .social-links a:last-child {
 /**/
   color: #606060;
   font-size: 0.69em; /* 11px */
-  font-family: 'Trebuchet MS', Tahoma, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   line-height: 1.75em;
 /**/
-  font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: 'LatoLatin-Regular', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   text-transform: uppercase;
   font-size: 8px;
   letter-spacing: 1px;
