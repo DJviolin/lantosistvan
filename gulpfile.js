@@ -25,9 +25,7 @@ const paths = {
 
 // this will achieve `node --trace-deprecation --trace-sync-io ./bin/www`
 const server = gls.new([
-  '--trace-deprecation',
-  '--trace-sync-io',
-  'bin/www',
+  '--trace-deprecation', '--trace-sync-io', 'bin/www',
   { env: { NODE_ENV: 'production' } }
 ]);
 
