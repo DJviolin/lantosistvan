@@ -157,15 +157,29 @@ textarea {
 }
 @font-face {
   font-family: 'TrajanPro-Regular';
-  src: url("../fonts/trajan-pro/TrajanPro-Regular.eot?#iefix") format('embedded-opentype'), url("../fonts/trajan-pro/TrajanPro-Regular.otf") format('opentype'), url("../fonts/trajan-pro/TrajanPro-Regular.svg#TrajanPro-Regular") format('svg'), url("../fonts/trajan-pro/TrajanPro-Regular.woff") format('woff'), url("../fonts/trajan-pro/TrajanPro-Regular.ttf") format('truetype');
+  src: url("../fonts/trajan-pro/trajan-pro-regular-webfont.eot");
+  src: url("../fonts/trajan-pro/trajan-pro-regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.woff2") format('woff2'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.woff") format('woff'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.ttf") format('truetype'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.svg#TrajanPro-Regular") format('svg');
   font-weight: normal;
   font-style: normal;
 }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'TrajanPro-Regular';
+    src: url("../fonts/trajan-pro/trajan-pro-regular-webfont.svg#TrajanPro-Regular") format('svg');
+  }
+}
 @font-face {
   font-family: 'TrajanPro-Bold';
-  src: url("../fonts/trajan-pro/TrajanPro-Bold.eot?#iefix") format('embedded-opentype'), url("../fonts/trajan-pro/TrajanPro-Bold.ttf") format('truetype'), url("../fonts/trajan-pro/TrajanPro-Bold.svg#TrajanPro-Bold") format('svg'), url("../fonts/trajan-pro/TrajanPro-Bold.otf") format('opentype'), url("../fonts/trajan-pro/TrajanPro-Bold.woff") format('woff');
+  src: url("../fonts/trajan-pro/trajan-pro-bold-webfont.eot");
+  src: url("../fonts/trajan-pro/trajan-pro-bold-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/trajan-pro/trajan-pro-bold-webfont.woff2") format('woff2'), url("../fonts/trajan-pro/trajan-pro-bold-webfont.woff") format('woff'), url("../fonts/trajan-pro/trajan-pro-bold-webfont.ttf") format('truetype'), url("../fonts/trajan-pro/trajan-pro-bold-webfont.svg#TrajanPro-Bold") format('svg');
   font-weight: normal;
   font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'TrajanPro-Bold';
+    src: url("../fonts/trajan-pro/trajan-pro-bold-webfont.svg#TrajanPro-Bold") format('svg');
+  }
 }
 @font-face {
   font-family: 'im-fell-french-canon-pro-regular';
