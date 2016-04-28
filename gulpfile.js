@@ -4,12 +4,12 @@
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-const gulp       = require('gulp'),
-      stylus     = require('gulp-stylus'),
-      cleanCSS   = require('gulp-clean-css'),
-      rename     = require('gulp-rename'),
-      gls        = require('gulp-live-server'),
-      uglify     = require('gulp-uglify');
+const gulp     = require('gulp'),
+      stylus   = require('gulp-stylus'),
+      cleanCSS = require('gulp-clean-css'),
+      rename   = require('gulp-rename'),
+      gls      = require('gulp-live-server'),
+      uglify   = require('gulp-uglify');
 
 const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
@@ -26,7 +26,7 @@ const paths = {
 // this will achieve `node --trace-deprecation --trace-sync-io ./bin/www`
 const server = gls.new(['--trace-deprecation', '--trace-sync-io', 'bin/www']);
 gulp.task('start', function() {
-  //you can access cwd args in `myapp.js` via `process.argv` 
+  //you can access cwd args in `bin/www` via `process.argv` 
   server.start();
 });
 
