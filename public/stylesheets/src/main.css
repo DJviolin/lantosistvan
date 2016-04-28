@@ -187,32 +187,30 @@ textarea {
   font-style: normal;
 }
 @font-face {
-  font-family: 'LatoLatin-Hairline';
-  src: url("../fonts/lato-latin/LatoLatin-Hairline.eot");
-  src: url("../fonts/lato-latin/LatoLatin-Hairline.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/LatoLatin-Hairline.woff2") format('woff2'), url("../fonts/lato-latin/LatoLatin-Hairline.woff") format('woff'), url("../fonts/lato-latin/LatoLatin-Hairline.ttf") format('truetype');
-  font-style: normal;
+  font-family: 'LatoLatin-Regular';
+  src: url("../fonts/lato-latin/lato-latin-regular-webfont.eot");
+  src: url("../fonts/lato-latin/lato-latin-regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/lato-latin-regular-webfont.woff2") format('woff2'), url("../fonts/lato-latin/lato-latin-regular-webfont.woff") format('woff'), url("../fonts/lato-latin/lato-latin-regular-webfont.ttf") format('truetype'), url("../fonts/lato-latin/lato-latin-regular-webfont.svg#LatoLatin-Regular") format('svg');
   font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'LatoLatin-Regular';
+    src: url("../fonts/lato-latin/lato-latin-regular-webfont.svg#LatoLatin-Regular") format('svg');
+  }
 }
 @font-face {
   font-family: 'LatoLatin-Light';
-  src: url("../fonts/lato-latin/LatoLatin-Light.eot");
-  src: url("../fonts/lato-latin/LatoLatin-Light.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/LatoLatin-Light.woff2") format('woff2'), url("../fonts/lato-latin/LatoLatin-Light.woff") format('woff'), url("../fonts/lato-latin/LatoLatin-Light.ttf") format('truetype');
-  font-style: normal;
+  src: url("../fonts/lato-latin/lato-latin-light-webfont.eot");
+  src: url("../fonts/lato-latin/lato-latin-light-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/lato-latin-light-webfont.woff2") format('woff2'), url("../fonts/lato-latin/lato-latin-light-webfont.woff") format('woff'), url("../fonts/lato-latin/lato-latin-light-webfont.ttf") format('truetype'), url("../fonts/lato-latin/lato-latin-light-webfont.svg#LatoLatin-Light") format('svg');
   font-weight: normal;
+  font-style: normal;
 }
-@font-face {
-  font-family: 'LatoLatin-Regular';
-  src: url("../fonts/lato-latin/LatoLatin-Regular.eot");
-  src: url("../fonts/lato-latin/LatoLatin-Regular.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/LatoLatin-Regular.woff2") format('woff2'), url("../fonts/lato-latin/LatoLatin-Regular.woff") format('woff'), url("../fonts/lato-latin/LatoLatin-Regular.ttf") format('truetype');
-  font-style: normal;
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'LatoLatin-Black';
-  src: url("../fonts/lato-latin/LatoLatin-Black.eot");
-  src: url("../fonts/lato-latin/LatoLatin-Black.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/LatoLatin-Black.woff2") format('woff2'), url("../fonts/lato-latin/LatoLatin-Black.woff") format('woff'), url("../fonts/lato-latin/LatoLatin-Black.ttf") format('truetype');
-  font-style: normal;
-  font-weight: normal;
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'LatoLatin-Light';
+    src: url("../fonts/lato-latin/lato-latin-light-webfont.svg#LatoLatin-Light") format('svg');
+  }
 }
 @font-face {
   font-family: 'Crimson-Text-Roman';
