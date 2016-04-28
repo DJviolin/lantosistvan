@@ -9,7 +9,8 @@ const gulp       = require('gulp'),
       cleanCSS   = require('gulp-clean-css'),
       rename     = require('gulp-rename'),
       //livereload = require('gulp-livereload'),
-      server     = require('gulp-express'),
+      //server     = require('gulp-express'),
+      gls        = require('gulp-live-server'),
       uglify     = require('gulp-uglify');
 
 const paths = {
@@ -24,13 +25,16 @@ const paths = {
 // SERVER
 /////////////////////////////////////////////////////////////
 
-gulp.task('start', function () {
-  /*return gulp.src(paths.pathServer)
-    .pipe(shell([
-      'node --trace-deprecation --trace-sync-io ./bin/www'
-    ]));*/
+/*gulp.task('start', function () {
   server.run(['bin/www']);
-})
+});*/
+
+// this will achieve `node --trace-deprecation --trace-sync-io ./bin/www`
+const server = gls.new(['--trace-deprecation', '--trace-sync-io', 'bin/www']);
+gulp.task('start', function() {
+  //you can access cwd args in `myapp.js` via `process.argv` 
+  server.start();
+});
 
 /////////////////////////////////////////////////////////////
 // STYLUS CSS
@@ -80,15 +84,23 @@ gulp.task('files', function() {
 
 /////////////////////////////////////////////////////////////
 // WATCH
+// Rerun the task when a file changes
 /////////////////////////////////////////////////////////////
 
-gulp.task('watch', function() { // Rerun the task when a file changes
+/*gulp.task('watch', function() { // Rerun the task when a file changes
   //livereload.listen();
   //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
   gulp.watch(paths.pathServer, ['start']).on('change', server.notify);
   gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify);
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify);
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify);
+});*/
+
+gulp.task('watch', function() {
+  gulp.watch(paths.pathServer, ['start']).on('change', server.start.bind(server));
+  gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));
 });
 
 /////////////////////////////////////////////////////////////

@@ -1,3 +1,9 @@
+# NPM CONSOLE ERRORS
+
+npm WARN deprecated graceful-fs@3.0.8: graceful-fs version 3 and before will fail on newer node releases. Please update to graceful-fs@^4.0.0 as soon as possible.
+npm WARN deprecated lodash@1.0.2: lodash@<3.0.0 is no longer maintained. Upgrade to lodash@^4.0.0.
+npm WARN deprecated graceful-fs@1.2.3: graceful-fs version 3 and before will fail on newer node releases. Please update to graceful-fs@^4.0.0 as soon as possible.
+
 # ES6
 
 https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.ia9t6ixpb
