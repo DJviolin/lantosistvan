@@ -14,9 +14,17 @@ const gulp     = require('gulp'),
 const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
   pathCSS:      ['public/stylesheets/src/**/*'],
-  pathServer:   ['app.js', 'bin/www', 'routes/**/*.js', 'lib/**/*.js', 'config.js'],
-  pathJsUglify: ['public/javascripts/src/main-vanilla.js', 'public/javascripts/src/main-jquery.js', 'public/javascripts/src/slick.js'],
-  pathFiles:    ['views/*.hbs', 'views/**/*.hbs', 'database/data.json', 'locales/*.json']
+  pathServer:   ['app.js',
+                 'bin/www',
+                 'routes/**/*.js',
+                 'lib/**/*.js',
+                 'config.js'],
+  pathJsUglify: ['public/javascripts/src/main-vanilla.js',
+                 'public/javascripts/src/main-jquery.js',
+                 'public/javascripts/src/slick.js'],
+  pathFiles:    ['views/*.hbs', 'views/**/*.hbs',
+                 'database/data.json',
+                 'locales/*.json']
 };
 
 /////////////////////////////////////////////////////////////
@@ -52,7 +60,16 @@ gulp.task('stylus', function () {
 gulp.task('minify-css', ['stylus'], function() {
   return gulp.src(paths.pathStylus + '.css')
     .pipe(cleanCSS({compatibility: '*', debug: true}, function(details) {
-      console.log(details.name + ': The file was reduced from ' + details.stats.originalSize + ' bytes to ' + details.stats.minifiedSize + ' bytes. This means ' + Math.round(details.stats.efficiency * 100) + '% reduction in size!');
+      console.log(
+        details.name +
+        ': The file was reduced from ' +
+        details.stats.originalSize +
+        ' bytes to ' +
+        details.stats.minifiedSize +
+        ' bytes. This means ' +
+        Math.round(details.stats.efficiency * 100) +
+        '% reduction in size!'
+      );
     }))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
