@@ -155,24 +155,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url("../fonts/fontello/fontello.svg#fontello") format('svg');
-  }
-}
 @font-face {
   font-family: 'TrajanPro-Regular';
   src: url("../fonts/trajan-pro/trajan-pro-regular-webfont.eot");
   src: url("../fonts/trajan-pro/trajan-pro-regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.woff2") format('woff2'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.woff") format('woff'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.ttf") format('truetype'), url("../fonts/trajan-pro/trajan-pro-regular-webfont.svg#TrajanPro-Regular") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'TrajanPro-Regular';
-    src: url("../fonts/trajan-pro/trajan-pro-regular-webfont.svg#TrajanPro-Regular") format('svg');
-  }
 }
 @font-face {
   font-family: 'TrajanPro-Bold';
@@ -181,24 +169,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'TrajanPro-Bold';
-    src: url("../fonts/trajan-pro/trajan-pro-bold-webfont.svg#TrajanPro-Bold") format('svg');
-  }
-}
 @font-face {
   font-family: 'im-fell-french-canon-pro-regular';
   src: url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.eot");
   src: url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.woff2") format('woff2'), url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.woff") format('woff'), url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.ttf") format('truetype'), url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.svg#im-fell-french-canon-pro-regular") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'im-fell-french-canon-pro-regular';
-    src: url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-roman-webfont.svg#im-fell-french-canon-pro-regular") format('svg');
-  }
 }
 @font-face {
   font-family: 'im-fell-french-canon-pro-italic';
@@ -207,24 +183,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'im-fell-french-canon-pro-italic';
-    src: url("../fonts/im-fell-french-canon-pro/im-fell-french-canon-pro-italic-webfont.svg#im-fell-french-canon-pro-italic") format('svg');
-  }
-}
 @font-face {
   font-family: 'Montserrat-Regular';
   src: url("../fonts/montserrat/montserrat-regular-webfont.eot");
   src: url("../fonts/montserrat/montserrat-regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/montserrat/montserrat-regular-webfont.woff2") format('woff2'), url("../fonts/montserrat/montserrat-regular-webfont.woff") format('woff'), url("../fonts/montserrat/montserrat-regular-webfont.ttf") format('truetype'), url("../fonts/montserrat/montserrat-regular-webfont.svg#Montserrat-Regular") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Montserrat-Regular';
-    src: url("../fonts/montserrat/montserrat-regular-webfont.svg#Montserrat-Regular") format('svg');
-  }
 }
 @font-face {
   font-family: 'LatoLatin-Regular';
@@ -233,24 +197,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'LatoLatin-Regular';
-    src: url("../fonts/lato-latin/lato-latin-regular-webfont.svg#LatoLatin-Regular") format('svg');
-  }
-}
 @font-face {
   font-family: 'LatoLatin-Light';
   src: url("../fonts/lato-latin/lato-latin-light-webfont.eot");
   src: url("../fonts/lato-latin/lato-latin-light-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato-latin/lato-latin-light-webfont.woff2") format('woff2'), url("../fonts/lato-latin/lato-latin-light-webfont.woff") format('woff'), url("../fonts/lato-latin/lato-latin-light-webfont.ttf") format('truetype'), url("../fonts/lato-latin/lato-latin-light-webfont.svg#LatoLatin-Light") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'LatoLatin-Light';
-    src: url("../fonts/lato-latin/lato-latin-light-webfont.svg#LatoLatin-Light") format('svg');
-  }
 }
 @font-face {
   font-family: 'Crimson-Text-Roman';
@@ -259,24 +211,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Crimson-Text-Roman';
-    src: url("../fonts/crimson-text/crimsontext-roman-webfont.svg#Crimson-Text-Roman") format('svg');
-  }
-}
 @font-face {
   font-family: 'Crimson-Text-Italic';
   src: url("../fonts/crimson-text/crimsontext-italic-webfont.eot");
   src: url("../fonts/crimson-text/crimsontext-italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/crimson-text/crimsontext-italic-webfont.woff2") format('woff2'), url("../fonts/crimson-text/crimsontext-italic-webfont.woff") format('woff'), url("../fonts/crimson-text/crimsontext-italic-webfont.ttf") format('truetype'), url("../fonts/crimson-text/crimsontext-italic-webfont.svg#Crimson-Text-Italic") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Crimson-Text-Italic';
-    src: url("../fonts/crimson-text/crimsontext-italic-webfont.svg#Crimson-Text-Italic") format('svg');
-  }
 }
 @font-face {
   font-family: 'Crimson-Text-Bold';
@@ -285,24 +225,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Crimson-Text-Bold';
-    src: url("../fonts/crimson-text/crimsontext-bold-webfont.svg#Crimson-Text-Bold") format('svg');
-  }
-}
 @font-face {
   font-family: 'Garamond-Regular';
   src: url("../fonts/garamond/garamond-regular-webfont.eot");
   src: url("../fonts/garamond/garamond-regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/garamond/garamond-regular-webfont.woff2") format('woff2'), url("../fonts/garamond/garamond-regular-webfont.woff") format('woff'), url("../fonts/garamond/garamond-regular-webfont.ttf") format('truetype'), url("../fonts/garamond/garamond-regular-webfont.svg#Garamond-Regular") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Garamond-Regular';
-    src: url("../fonts/garamond/garamond-regular-webfont.svg#Garamond-Regular") format('svg');
-  }
 }
 @font-face {
   font-family: 'Caslon-Pro-Italic';
@@ -311,24 +239,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Caslon-Pro-Italic';
-    src: url("../fonts/caslon-pro/caslon-pro-italic-webfont.svg#Caslon-Pro-Italic") format('svg');
-  }
-}
 @font-face {
   font-family: 'Raleway-Light';
   src: url("../fonts/raleway/raleway-light-webfont.eot");
   src: url("../fonts/raleway/raleway-light-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/raleway/raleway-light-webfont.woff2") format('woff2'), url("../fonts/raleway/raleway-light-webfont.woff") format('woff'), url("../fonts/raleway/raleway-light-webfont.ttf") format('truetype'), url("../fonts/raleway/raleway-light-webfont.svg#Raleway-Light") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Raleway-Light';
-    src: url("../fonts/raleway/raleway-light-webfont.svg#Raleway-Light") format('svg');
-  }
 }
 @font-face {
   font-family: 'QuicksandPro-Light';
@@ -337,24 +253,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'QuicksandPro-Light';
-    src: url("../fonts/quicksand-pro/subset-QuicksandPro-Light.svg#QuicksandPro-Light") format('svg');
-  }
-}
 @font-face {
   font-family: 'QuicksandPro-Regular';
   src: url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.eot");
   src: url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.eot?#iefix") format('embedded-opentype'), url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.woff2") format('woff2'), url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.woff") format('woff'), url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.ttf") format('truetype'), url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.svg#QuicksandPro-Regular") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'QuicksandPro-Regular';
-    src: url("../fonts/quicksand-pro/subset-QuicksandPro-Regular.svg#QuicksandPro-Regular") format('svg');
-  }
 }
 @font-face {
   font-family: 'salt-and-spices-pro-scserif';
@@ -363,24 +267,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'salt-and-spices-pro-scserif';
-    src: url("../fonts/salt-and-spices-pro-scserif-webfont/salt-and-spices-pro-scserif-webfont.svg#salt-and-spices-pro-scserif") format('svg');
-  }
-}
 @font-face {
   font-family: 'Serlio-LH-regular';
   src: url("../fonts/serlio-lh/serliolh-webfont.eot");
   src: url("../fonts/serlio-lh/serliolh-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/serlio-lh/serliolh-webfont.woff2") format('woff2'), url("../fonts/serlio-lh/serliolh-webfont.woff") format('woff'), url("../fonts/serlio-lh/serliolh-webfont.ttf") format('truetype'), url("../fonts/serlio-lh/serliolh-webfont.svg#Serlio-LH-regular") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Serlio-LH-regular';
-    src: url("../fonts/serlio-lh/serliolh-webfont.svg#Serlio-LH-regular") format('svg');
-  }
 }
 @font-face {
   font-family: 'Geometric231BT-LightC-regular';
@@ -389,24 +281,12 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Geometric231BT-LightC-regular';
-    src: url("../fonts/geometric231bt/geometric231bt-lightc-webfont.svg#Geometric231BT-LightC-regular") format('svg');
-  }
-}
 @font-face {
   font-family: 'Monotype-Corsiva';
   src: url("../fonts/monotype-corsiva/monotype-corsiva-webfont.eot");
   src: url("../fonts/monotype-corsiva/monotype-corsiva-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/monotype-corsiva/monotype-corsiva-webfont.woff2") format('woff2'), url("../fonts/monotype-corsiva/monotype-corsiva-webfont.woff") format('woff'), url("../fonts/monotype-corsiva/monotype-corsiva-webfont.ttf") format('truetype'), url("../fonts/monotype-corsiva/monotype-corsiva-webfont.svg#Monotype-Corsiva") format('svg');
   font-weight: normal;
   font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'Monotype-Corsiva';
-    src: url("../fonts/monotype-corsiva/monotype-corsiva-webfont.svg#Monotype-Corsiva") format('svg');
-  }
 }
 html {
   font-size: 1em;
