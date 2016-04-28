@@ -5,10 +5,10 @@
 /////////////////////////////////////////////////////////////
 
 const gulp     = require('gulp'),
+      gls      = require('gulp-live-server'),
+      rename   = require('gulp-rename'),
       stylus   = require('gulp-stylus'),
       cleanCSS = require('gulp-clean-css'),
-      rename   = require('gulp-rename'),
-      gls      = require('gulp-live-server'),
       uglify   = require('gulp-uglify');
 
 const paths = {
