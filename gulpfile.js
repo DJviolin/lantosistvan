@@ -24,7 +24,13 @@ const paths = {
 /////////////////////////////////////////////////////////////
 
 // this will achieve `node --trace-deprecation --trace-sync-io ./bin/www`
-const server = gls.new(['--trace-deprecation', '--trace-sync-io', 'bin/www', {env: {NODE_ENV: 'production'}}]);
+const server = gls.new([
+  '--trace-deprecation',
+  '--trace-sync-io',
+  'bin/www',
+  { env: { NODE_ENV: 'production' } }
+]);
+
 gulp.task('start', function() {
   //you can access cwd args in `bin/www` via `process.argv` 
   server.start();
