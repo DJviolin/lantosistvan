@@ -79,7 +79,7 @@ gulp.task('files', function() {
 /////////////////////////////////////////////////////////////
 
 gulp.task('watch', function() {
-  gulp.watch(paths.pathServer, ['start']).on('change', server.start.bind(server));
+  gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));
