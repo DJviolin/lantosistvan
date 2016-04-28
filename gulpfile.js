@@ -8,8 +8,6 @@ const gulp       = require('gulp'),
       stylus     = require('gulp-stylus'),
       cleanCSS   = require('gulp-clean-css'),
       rename     = require('gulp-rename'),
-      //livereload = require('gulp-livereload'),
-      //server     = require('gulp-express'),
       gls        = require('gulp-live-server'),
       uglify     = require('gulp-uglify');
 
@@ -24,10 +22,6 @@ const paths = {
 /////////////////////////////////////////////////////////////
 // SERVER
 /////////////////////////////////////////////////////////////
-
-/*gulp.task('start', function () {
-  server.run(['bin/www']);
-});*/
 
 // this will achieve `node --trace-deprecation --trace-sync-io ./bin/www`
 const server = gls.new(['--trace-deprecation', '--trace-sync-io', 'bin/www']);
@@ -58,7 +52,6 @@ gulp.task('minify-css', ['stylus'], function() {
     }))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
-    //.pipe(livereload());
 });
 
 /////////////////////////////////////////////////////////////
@@ -70,7 +63,6 @@ gulp.task('uglify', function() {
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/javascripts'));
-    //.pipe(livereload());
 });
 
 /////////////////////////////////////////////////////////////
@@ -79,22 +71,12 @@ gulp.task('uglify', function() {
 
 gulp.task('files', function() {
   return gulp.src(paths.pathFiles);
-    //.pipe(livereload());
 });
 
 /////////////////////////////////////////////////////////////
 // WATCH
 // Rerun the task when a file changes
 /////////////////////////////////////////////////////////////
-
-/*gulp.task('watch', function() { // Rerun the task when a file changes
-  //livereload.listen();
-  //gulp.watch(paths.pathServer, ['start']).on('change', livereload.changed);
-  gulp.watch(paths.pathServer, ['start']).on('change', server.notify);
-  gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify);
-  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify);
-  gulp.watch(paths.pathFiles, ['files']).on('change', server.notify);
-});*/
 
 gulp.task('watch', function() {
   gulp.watch(paths.pathServer, ['start']).on('change', server.start.bind(server));
