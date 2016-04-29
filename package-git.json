@@ -16,7 +16,7 @@
     "gulp": "gulp default"
   },
   "dependencies": {
-    "express": "git+ssh://git@github.com/expressjs/express.git#master",
+    "express": "expressjs/express.git",
     "body-parser": "expressjs/body-parser",
     "cookie-parser": "expressjs/cookie-parser",
     "compression": "expressjs/compression",

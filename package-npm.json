@@ -1,7 +1,9 @@
 {
   "name": "lantosistvan-portfolio",
-  "version": "0.0.0",
+  "version": "0.3.0",
   "description": "My personal website",
+  "email": "kerozin.joe@gmail.com",
+  "url": "http://lantosistvan.com/",
   "private": true,
   "production": true,
   "main": "./bin/www",
@@ -42,5 +44,9 @@
     "gulp-clean-css": ">= 2.0.6",
     "gulp-rename": ">= 1.2.2",
     "gulp-uglify": ">= 1.5.3"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/DJviolin/lantosistvan.git"
   }
 }
