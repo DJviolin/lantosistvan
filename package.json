@@ -16,34 +16,7 @@
     "gulp": "gulp default"
   },
   "dependencies": {
-    "express": "expressjs/express",
-    "body-parser": "expressjs/body-parser",
-    "cookie-parser": "expressjs/cookie-parser",
-    "compression": "expressjs/compression",
-    "serve-static": "expressjs/serve-static",
-    "serve-index": "expressjs/serve-index",
-    "method-override": "expressjs/method-override",
-
-    "morgan": "expressjs/morgan",
-    "debug": "visionmedia/debug",
-
-    "express-handlebars": "ericf/express-handlebars",
-    "glob": "isaacs/node-glob",
-    "request": "request/request",
-
-    "i18n": "mashpie/i18n-node",
-    "connect-slashes": "avinoamr/connect-slashes",
-
-    "helmet": "helmetjs/helmet",
-    "hpp": "analog-nico/hpp"
-  },
-  "devDependencies": {
-    "gulp": "gulpjs/gulp",
-    "gulp-live-server": "gimm/gulp-live-server",
-    "gulp-stylus": "stevelacy/gulp-stylus",
-    "gulp-clean-css": "scniro/gulp-clean-css",
-    "gulp-rename": "hparra/gulp-rename",
-    "gulp-uglify": "terinjokes/gulp-uglify"
+    "express": "expressjs/express"
   },
   "repository" : {
     "type" : "git",
