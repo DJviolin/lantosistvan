@@ -18,6 +18,7 @@ const express        = require('express'),
       // Security
       helmet         = require('helmet'),
       hpp            = require('hpp'),
+      // Environment variables
       dotenv         = require('dotenv');
 
 /////////////////////////////////////////////////////////////
