@@ -20,7 +20,7 @@ const express        = require('express'),
       hpp            = require('hpp');
 
 /////////////////////////////////////////////////////////////
-// ROUTES
+// ROUTES (AKA: CONTROLLERS)
 /////////////////////////////////////////////////////////////
 
 const api      = require('./routes/api-external'),
