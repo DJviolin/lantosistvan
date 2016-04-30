@@ -20,7 +20,7 @@ const express        = require('express'),
       hpp            = require('hpp');
 
 /////////////////////////////////////////////////////////////
-// ROUTES (AKA: CONTROLLERS)
+// ROUTES (AKA: Controller)
 /////////////////////////////////////////////////////////////
 
 const api      = require('./routes/api-external'),
@@ -38,7 +38,7 @@ const app = express();
 //app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////
-// VIEW ENGINE SETUP
+// VIEW ENGINE SETUP (AKA: View)
 /////////////////////////////////////////////////////////////
 
 app.engine('.hbs', exphbs({
