@@ -35,7 +35,9 @@
     "connect-slashes": "avinoamr/connect-slashes",
 
     "helmet": "helmetjs/helmet",
-    "hpp": "analog-nico/hpp"
+    "hpp": "analog-nico/hpp",
+
+    "dotenv": "motdotla/dotenv"
   },
   "devDependencies": {
     "gulp": "gulpjs/gulp",
