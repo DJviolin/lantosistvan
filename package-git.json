@@ -16,7 +16,7 @@
     "gulp": "gulp default"
   },
   "dependencies": {
-    "express": "expressjs/express.git",
+    "express": "expressjs/express",
     "body-parser": "expressjs/body-parser",
     "cookie-parser": "expressjs/cookie-parser",
     "compression": "expressjs/compression",
