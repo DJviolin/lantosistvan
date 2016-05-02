@@ -513,9 +513,19 @@ li {
   .logo {
     margin: 30px;
   }
+  .logo-nav {
+    display: none;
+  }
   .nav-left,
   .lang-en-EN .nav-left {
     margin-left: 0;
+  }
+  .nav-left {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .nav-right {
+    margin-bottom: 30px;
   }
   .toggle-mobile-nav {
     margin-bottom: 10px;
@@ -534,9 +544,6 @@ li {
     font-size: 2em;
     vertical-align: -0.15em;
   }
-  .logo-nav {
-    display: none;
-  }
   .navigation {
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
@@ -551,13 +558,6 @@ li {
   }
   .nav.active {
     display: block;
-  }
-  .nav-left {
-    margin-top: 10px;
-    margin-bottom: 0;
-  }
-  .nav-right {
-    margin-bottom: 30px;
   }
 }
 header {

@@ -80,8 +80,16 @@
 @media (max-width: 1600px)
   .logo
     margin: 30px
-  .nav-left, .lang-en-EN .nav-left
+  .logo-nav
+    display: none
+  .nav-left,
+  .lang-en-EN .nav-left
     margin-left: 0
+  .nav-left
+    margin-top: 10px
+    margin-bottom: 0
+  .nav-right
+    margin-bottom: 30px
   .toggle-mobile-nav
     margin-bottom: 10px
     .menu-button
@@ -95,8 +103,6 @@
       span
         font-size: 2em
         vertical-align: -0.15em
-  .logo-nav
-    display: none
   .navigation
     flex-direction: column;
     font-family: $Georgia;
@@ -107,8 +113,3 @@
     display: none;
     &.active
       display: block
-  .nav-left
-    margin-top: 10px
-    margin-bottom: 0
-  .nav-right
-    margin-bottom: 30px
