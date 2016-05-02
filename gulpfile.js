@@ -46,7 +46,7 @@ gulp.task('start', function() {
 // STYLUS CSS
 /////////////////////////////////////////////////////////////
 
-gulp.task('stylus', function () {
+gulp.task('stylus', function() {
   return gulp.src(paths.pathStylus + '.styl')
     .pipe(stylus({'include css': true, compress: false}))
     .pipe(rename({ extname: '.css' }))
