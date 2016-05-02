@@ -597,10 +597,6 @@ header .content {
   -webkit-align-items: center;
   align-items: center;
 }
-.little-screen {
-  -webkit-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
 .logo {
   margin: 50px 30px 40px 30px;
   max-width: 300px;
