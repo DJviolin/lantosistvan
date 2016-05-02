@@ -493,6 +493,12 @@ li {
   transform: rotate(90deg) translateX(2px) translateY(-10px);
 }
 @media (min-width: 1600px) {
+  .logo-header {
+    display: block;
+  }
+  .logo-nav {
+    display: none;
+  }
   .toggle-mobile-nav {
     display: none;
   }
@@ -504,6 +510,13 @@ li {
   }
 }
 @media (max-width: 1600px) {
+  .logo {
+    margin: 30px;
+  }
+  .nav-left,
+  .lang-en-EN .nav-left {
+    margin-left: 0;
+  }
   .toggle-mobile-nav {
     margin-bottom: 10px;
   }
@@ -1134,22 +1147,7 @@ footer .social-links a:last-child {
 /**/
 /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
-@media (min-width: 1600px) {
-  .logo-header {
-    display: block; /* Logo TOP OF nav */
-  }
-  .logo-nav {
-    display: none; /* Logo INSIDE nav */
-  }
-}
 @media (max-width: 1600px) {
-  .nav-left,
-  .lang-en-EN .nav-left {
-    margin-left: 0;
-  }
-  .logo {
-    margin: 30px 30px 30px 30px;
-  }
   .nav ul {
     -ms-flex-direction: column;
     -webkit-flex-direction: column;

@@ -65,6 +65,10 @@
         transform: rotate(90deg) translateX(2px) translateY(-10px)
 
 @media (min-width: 1600px)
+  .logo-header
+    display: block // Logo TOP OF nav
+  .logo-nav
+    display: none // Logo INSIDE nav
   .toggle-mobile-nav
     display: none
   .navigation
@@ -74,6 +78,10 @@
       display: none
 
 @media (max-width: 1600px)
+  .logo
+    margin: 30px
+  .nav-left, .lang-en-EN .nav-left
+    margin-left: 0
   .toggle-mobile-nav
     margin-bottom: 10px
     .menu-button
