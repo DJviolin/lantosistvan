@@ -556,6 +556,18 @@ li {
   .nav {
     display: none;
   }
+  .nav ul {
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  .nav ul li {
+    margin: 0;
+  }
+  .nav ul li a {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
   .nav.active {
     display: block;
   }
@@ -1148,18 +1160,6 @@ footer .social-links a:last-child {
 /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
 @media (max-width: 1600px) {
-  .nav ul {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-  .nav ul li {
-    margin: 0;
-  }
-  .nav ul li a {
-    padding-top: 18px;
-    padding-bottom: 18px;
-  }
   .nav ul .parent > a {
     margin-right: 0;
   }
