@@ -56,8 +56,8 @@ app.engine('.hbs', exphbs({
   // Specify helpers which are only registered on this instance
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
-    __: function() { return i18n.__.apply(this, arguments); },
-    __n: function() { return i18n.__n.apply(this, arguments); }
+    __: () => { return i18n.__.apply(this, arguments); },
+    __n: () => { return i18n.__n.apply(this, arguments); }
   }
 }));
 app.set('view engine', '.hbs');
@@ -121,10 +121,10 @@ i18n.configure({
 app.use(i18n.init);
 
 // i18n helpers
-/*app.get('/cookie', function(req, res) { // http://127.0.0.1:3000/cookie
+/*app.get('/cookie', (req, res) => { // http://127.0.0.1:3000/cookie
   res.status(200).send(req.cookies.locale); // New method (Express 5)
 });
-app.get('/clearcookie', function(req, res){ // http://127.0.0.1:3000/clearcookie
+app.get('/clearcookie', (req, res) => { // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
   res.redirect('/cookie');
 });*/
@@ -153,7 +153,7 @@ app.use('/api', api);
 /////////////////////////////////////////////////////////////
 
 // Prints request time to console
-/*app.use(function (req, res, next) {
+/*app.use((req, res, next) => {
   const d = new Date();
   const n = d.getFullYear()
             + '-' +
@@ -238,14 +238,14 @@ app.use('/', (req, res) => {
 
 // i18n
 /*const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
-/*const websiteURL = function (req, res, next) {
+/*const websiteURL = (req, res, next) => {
   const a = req.protocol + '://' + req.hostname + ':' + '3000';
   console.log(a);
   return String(a);
   next();
 };*/
 //app.use(websiteURL);
-/*app.get('/hu', function (req, res) { // http://127.0.0.1:3000/hu
+/*app.get('/hu', (req, res) => { // http://127.0.0.1:3000/hu
   res.cookie('locale', 'hu', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
@@ -255,7 +255,7 @@ app.use('/', (req, res) => {
   });
   res.redirect('back');
 });
-app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
+app.get('/en', (req, res) => { // http://127.0.0.1:3000/en
   res.cookie('locale', 'en', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
