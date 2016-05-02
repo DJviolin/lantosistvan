@@ -203,10 +203,6 @@ p {
 a {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(255,255,255,0);
-/*color: #d2a679;
-  color: #ccc;
-  color: #a6a6a6;
-  color: #d49227;*/
   color: #3f3f3f;
 }
 a:hover,
