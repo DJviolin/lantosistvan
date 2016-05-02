@@ -52,10 +52,10 @@ a
 li
   list-style: none
 
-*:focus
-  outline: 0
-
-*,
-*::after,
-*::before
+*
   box-sizing: border-box
+  &::after,
+  &::before
+    box-sizing: border-box
+  &:focus
+    outline: 0

@@ -1,14 +1,15 @@
-/* Turns off Subpixel font rendering in Chrome with Slick Slider!!! */
-.container {
-  display: -webkit-flex; display: flex;
-  flex-direction: column;
-  //align-items: center; /* Centering hack for blog, but needs to turn on slick slider */
-}
+// Turns off Subpixel font rendering in Chrome with Slick Slider!!!
+.container
+  displayFlex()
+  flex-direction: column
+  //align-items: center // Centering hack for blog, but needs to turn on slick slider
 
-.error, .blog, .contact {
-  display: -webkit-flex; display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.error,
+.blog,
+.contact
+  displayFlex()
+  flex-direction: column
+  align-items: center
 
-.pipe { padding: 0 3px 0 3px; }
+.pipe
+  padding: 0 3px 0 3px
