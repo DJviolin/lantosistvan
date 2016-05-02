@@ -545,10 +545,7 @@ header .content {
     justify-content: center;
     position: relative;
   }
-  .sidescroll .images li {
-    margin: 0 5vw 3px 5vw;
-    background: none;
-  }
+  .sidescroll .images li,
   .sidescroll .images li:last-child {
     margin: 0 5vw 3px 5vw;
     background: none;
