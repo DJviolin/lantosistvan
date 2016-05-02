@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   function menuButton() {
-    var toggleNav = document.getElementsByClassName('main-nav');
+    var toggleNav = document.getElementsByClassName('nav');
     for (var i=0; i<toggleNav.length; i++) {
       toggleNav[i].classList.toggle('active');
       //console.log('menuButton() fired...');
