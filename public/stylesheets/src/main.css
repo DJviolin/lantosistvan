@@ -499,6 +499,12 @@ header .content {
   }
 }
 @media (max-width: 1600px) {
+  header.main {
+    width: 100%;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+  }
   .logo {
     margin: 30px;
   }
@@ -1064,14 +1070,6 @@ footer .social-links a:last-child {
 /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
 @media (max-width: 1600px) {
-  header.main {
-    width: 100%;
-  }
-  header.main {
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-    -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-  }
   .sidescroll .images li,
   .sidescroll .images li:last-child {
     margin: 0 5vw 3px 5vw;
