@@ -174,7 +174,8 @@ app.use('/api', api);
 
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-const langRouter = function(req, res, next) {
+//const langRouter = function(req, res, next) {
+const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
   //i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
@@ -183,7 +184,8 @@ const langRouter = function(req, res, next) {
 };
 
 // Add i18n CSS class to <html> tag
-const langClass = function(req, res, next) {
+//const langClass = function(req, res, next) {
+const langClass = (req, res, next) => {
   //const defaultLang = 'hu';
   //const activeLang = req.params.lang || defaultLang;
   //const activeLang = i18n.getLocale(req);
@@ -204,33 +206,29 @@ app.use('/:lang', langRouter, langClass);
 app.use(serveStatic(__dirname + '/public'));
 
 app.use('/:lang/blog', blog);
-//app.use('/blog', blog);
-app.use('/blog', function (req, res) {
+app.use('/blog', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/blog');
 });
 
 app.use('/:lang/category', category);
-//app.use('/category', category);
-app.use('/category', function (req, res) {
+app.use('/category', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/category');
 });
 
 app.use('/:lang/tag', tag);
-//app.use('/tag', tag);
-app.use('/tag', function (req, res) {
+app.use('/tag', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/tag');
 });
 
 app.use('/:lang/contact', contact);
-//app.use('/contact', contact);
-app.use('/contact', function (req, res) {
+app.use('/contact', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
 //app.use('/', index);
-app.use('/', function (req, res) {
+app.use('/', (req, res) => {
   res.status(302).redirect('/' + req.getLocale());
 });
 
@@ -273,13 +271,13 @@ app.get('/en', function (req, res) { // http://127.0.0.1:3000/en
 /////////////////////////////////////////////////////////////
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 // Error handler - catch all errors
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   res.status(err.status || 500);
   console.error(err.stack);
   res.render('error', {
