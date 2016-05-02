@@ -535,6 +535,7 @@ header .content {
   height: 60vh;
 }
 .frontpage {
+  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -547,13 +548,9 @@ header .content {
   margin: 55px 0 0 0;
 }
 .frontpage .content {
-  -webkit-flex: 0 0 58vw;
-  -webkit-flex: 0 0 58vw;
-  flex: 0 0 58vw; /*width: 50vw;*/
-/*max-width: 1100px; max-width: 980px;*/
-/*height: auto;*/
-  display: -webkit-flex;
   display: flex;
+  -webkit-flex: 0 0 58vw;
+  flex: 0 0 58vw;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
@@ -565,15 +562,8 @@ header .content {
 }
 .frontpage article p {
   text-align: center;
-/**/
-/*font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;*/
-/*font-family: Garamond, 'Garamond-Regular', Georgia, 'Times New Roman', Times, serif;
-  font-size: 18px;*/
-/**/
   font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-/*font-size: 12px;*/
   font-size: 14px;
-/*color: #606060;*/
   line-height: 1.8em;
   margin-bottom: 15px;
   font-weight: 400;
