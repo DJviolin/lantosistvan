@@ -65,19 +65,45 @@
         transform: rotate(90deg) translateX(2px) translateY(-10px)
 
 @media (min-width: 1600px)
-  .navigation
-    margin-bottom: 60px // Logo TOP OF nav
   .toggle-mobile-nav
     display: none
+  .navigation
+    margin-bottom: 60px // Logo TOP OF nav
   .nav
     &.active
       display: none
 
 @media (max-width: 1600px)
+  .toggle-mobile-nav
+    margin-bottom: 10px
+    .menu-button
+      font-family: 'TrajanPro-Bold', $Georgia
+      color: #000
+      text-decoration: none
+      text-transform: uppercase
+      font-size: 1em
+      &:hover
+        cursor: pointer
+      span
+        font-size: 2em
+        vertical-align: -0.15em
+  .logo-nav
+    display: none
+  .navigation
+    flex-direction: column;
+    font-family: $Georgia;
+    font-size: 0.78em;
+    letter-spacing: 0.15em;
+    color: #000;
   .nav
+    display: none;
     &.active
       display: block
-
+  .nav-left
+    margin-top: 10px
+    margin-bottom: 0
+  .nav-right
+    margin-bottom: 30px
 
 
 /*.nav { margin-bottom: 40px; }*/
