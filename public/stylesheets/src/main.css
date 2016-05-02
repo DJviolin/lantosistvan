@@ -437,6 +437,24 @@ li {
 .nav ul li {
   margin: 0 20px 0 20px;
 }
+.nav ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}
+.nav ul li.parent > a {
+  margin-right: 10px;
+}
+.nav ul li.parent > a::after {
+  display: block;
+  float: right;
+  content: ' \276F';
+  color: #000;
+  -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
+  -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
+  -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
+  -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
+  transform: rotate(90deg) translateX(2px) translateY(-10px);
+}
 .nav ul li a {
   display: block;
   text-align: center;
@@ -473,24 +491,6 @@ li {
 }
 .nav ul li ul li:last-child {
   margin-bottom: 3px;
-}
-.nav ul li:hover > ul {
-  visibility: visible;
-  opacity: 1;
-}
-.nav ul li.parent > a {
-  margin-right: 10px;
-}
-.nav ul li.parent > a::after {
-  display: block;
-  float: right;
-  content: ' \276F';
-  color: #000;
-  -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  transform: rotate(90deg) translateX(2px) translateY(-10px);
 }
 @media (min-width: 1600px) {
   .logo-header {
@@ -556,6 +556,9 @@ li {
   .nav {
     display: none;
   }
+  .nav.active {
+    display: block;
+  }
   .nav ul {
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
@@ -602,9 +605,6 @@ li {
     color: #777;
     margin-top: 8px;
     margin-bottom: 8px;
-  }
-  .nav.active {
-    display: block;
   }
 }
 header {

@@ -14,6 +14,25 @@
     align-items: center
     li
       margin: 0 20px 0 20px;
+      &:hover > ul
+        visibility: visible
+        opacity: 1
+      &.active > a
+        //color: #575757;
+        //border-bottom: 3px solid #eff0f0;
+        //margin-bottom: -3px;
+      &.parent > a
+        margin-right: 10px
+      &.parent > a::after
+        //display: inline-block
+        display: block
+        float: right
+        //content: ' \27E9'
+        //content: ' \276D'
+        //content: ' \29FD'
+        content: ' \276F'
+        color: #000
+        transform: rotate(90deg) translateX(2px) translateY(-10px)
       a
         display: block
         text-align: center
@@ -44,25 +63,6 @@
             margin-top: 5px
           &:last-child
             margin-bottom: 3px
-      &:hover > ul
-        visibility: visible
-        opacity: 1
-      &.active > a
-        //color: #575757;
-        //border-bottom: 3px solid #eff0f0;
-        //margin-bottom: -3px;
-      &.parent > a
-        margin-right: 10px
-      &.parent > a::after
-        //display: inline-block
-        display: block
-        float: right
-        //content: ' \27E9'
-        //content: ' \276D'
-        //content: ' \29FD'
-        content: ' \276F'
-        color: #000
-        transform: rotate(90deg) translateX(2px) translateY(-10px)
 
 @media (min-width: 1600px)
   .logo-header
@@ -111,6 +111,8 @@
     color: #000;
   .nav
     display: none;
+    &.active
+      display: block
     ul
       flex-direction: column
       li
@@ -139,5 +141,3 @@
               color: #777
               margin-top: 8px
               margin-bottom: 8px
-    &.active
-      display: block
