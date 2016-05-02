@@ -44,25 +44,25 @@
           margin-top: 5px
         li:last-child
           margin-bottom: 3px
-    li.active > a
-      //color: #575757;
-      //border-bottom: 3px solid #eff0f0;
-      //margin-bottom: -3px;
-    li.parent > a
-      margin-right: 10px
-    li.parent > a::after
-      //display: inline-block
-      display: block
-      float: right
-      //content: ' \27E9'
-      //content: ' \276D'
-      //content: ' \29FD'
-      content: ' \276F'
-      color: #000
-      transform: rotate(90deg) translateX(2px) translateY(-10px)
-    li:hover > ul
-      visibility: visible
-      opacity: 1
+      &:hover > ul
+        visibility: visible
+        opacity: 1
+      &.active > a
+        //color: #575757;
+        //border-bottom: 3px solid #eff0f0;
+        //margin-bottom: -3px;
+      &.parent > a
+        margin-right: 10px
+      &.parent > a::after
+        //display: inline-block
+        display: block
+        float: right
+        //content: ' \27E9'
+        //content: ' \276D'
+        //content: ' \29FD'
+        content: ' \276F'
+        color: #000
+        transform: rotate(90deg) translateX(2px) translateY(-10px)
 
 
 

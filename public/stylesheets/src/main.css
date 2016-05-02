@@ -488,6 +488,10 @@ li {
 .nav ul li ul li:last-child {
   margin-bottom: 3px;
 }
+.nav ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}
 .nav ul li.parent > a {
   margin-right: 10px;
 }
@@ -503,10 +507,6 @@ li {
   -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
   transform: rotate(90deg) translateX(2px) translateY(-10px);
-}
-.nav ul li:hover > ul {
-  visibility: visible;
-  opacity: 1;
 }
 header {
   -webkit-flex: 0 0 20vh;
