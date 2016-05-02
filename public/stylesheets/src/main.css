@@ -446,6 +446,9 @@ li {
   -webkit-align-items: center;
   align-items: center;
 }
+.nav ul li {
+  margin: 0 20px 0 20px;
+}
 .nav ul li a {
   display: -ms- block;
   display: -webkit- block;
@@ -454,8 +457,9 @@ li {
   padding: 5px 0 5px 0;
   color: #727272;
 }
-.nav ul li {
-  margin: 0 20px 0 20px;
+.nav ul li a:hover {
+  text-decoration: underline;
+  color: #000;
 }
 .nav ul li ul {
   -ms-flex-direction: column;
@@ -473,16 +477,16 @@ li {
   margin: 0;
   width: 100%;
 }
+.nav ul li ul li a {
+  text-align: left;
+  padding: 0;
+  margin: 10px 20px 10px 20px;
+}
 .nav ul li ul li:first-child {
   margin-top: 5px;
 }
 .nav ul li ul li:last-child {
   margin-bottom: 3px;
-}
-.nav ul li ul li a {
-  text-align: left;
-  padding: 0;
-  margin: 10px 20px 10px 20px;
 }
 .nav ul li.parent > a {
   margin-right: 10px;
@@ -499,14 +503,6 @@ li {
   -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
   -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
   transform: rotate(90deg) translateX(2px) translateY(-10px);
-}
-.nav ul li a:hover {
-/* Saját emelkedő logóhoz */
-/*color: #808080;
-  color: rgba(0,0,0,0.5);*/
-/**/
-  text-decoration: underline;
-  color: #000;
 }
 .nav ul li:hover > ul {
   visibility: visible;

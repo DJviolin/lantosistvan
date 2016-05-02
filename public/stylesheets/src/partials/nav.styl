@@ -12,13 +12,16 @@
     display: flex
     flex-direction: row
     align-items: center
-    li a
-      display: block
-      text-align: center
-      padding: 5px 0 5px 0
-      color: #727272
     li
       margin: 0 20px 0 20px;
+      a
+        display: block
+        text-align: center
+        padding: 5px 0 5px 0
+        color: #727272
+      a:hover
+        text-decoration: underline
+        color: #000
       ul
         flex-direction: column
         visibility: hidden
@@ -33,14 +36,18 @@
         li
           margin: 0
           width: 100%
+          a
+            text-align: left
+            padding: 0
+            margin: 10px 20px 10px 20px
         li:first-child
           margin-top: 5px
         li:last-child
           margin-bottom: 3px
-        li a
-          text-align: left
-          padding: 0
-          margin: 10px 20px 10px 20px
+    li.active > a
+      //color: #575757;
+      //border-bottom: 3px solid #eff0f0;
+      //margin-bottom: -3px;
     li.parent > a
       margin-right: 10px
     li.parent > a::after
@@ -99,19 +106,18 @@
   //
   color: #727272;
 }*/
-.nav ul li a:hover {
-  /* Saját emelkedő logóhoz */
-  /*color: #808080;
-  color: rgba(0,0,0,0.5);*/
-  /**/
+/*.nav ul li a:hover {
+  //Saját emelkedő logóhoz
+  //color: #808080;
+  //color: rgba(0,0,0,0.5);
   text-decoration: underline;
   color: #000;
-}
-.nav ul li.active > a {
-  /*color: #575757;*/
-  /*border-bottom: 3px solid #eff0f0;
-  margin-bottom: -3px;*/
-}
+}*/
+/*.nav ul li.active > a {
+  //color: #575757;
+  //border-bottom: 3px solid #eff0f0;
+  //margin-bottom: -3px;
+}*/
 
 /* Navigation Drop-Down */
 /*.nav ul ul {
