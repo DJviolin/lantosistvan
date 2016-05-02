@@ -436,6 +436,11 @@ li {
   letter-spacing: 2px;
   font-size: 12px;
 }
+@media (min-width: 1600px) {
+  .navigation {
+    margin-bottom: 60px;
+  }
+}
 .nav ul {
   display: -ms- flex;
   display: -webkit- flex;
@@ -1175,9 +1180,6 @@ footer .social-links a:last-child {
     display: -ms- none;
     display: -webkit- none;
     display: none; /* Logo INSIDE nav */
-  }
-  .navigation {
-    margin-bottom: 60px; /* Logo TOP OF nav */
   }
 }
 @media (max-width: 1600px) {
