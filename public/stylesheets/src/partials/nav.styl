@@ -118,5 +118,26 @@
         a
           padding-top: 18px
           padding-bottom: 18px
+        ul
+          flex-direction: column
+          visibility: visible
+          opacity: 1
+          position: relative
+          margin-left: 0
+          padding: 0
+          box-shadow: none
+          transition: all 0s ease 0s
+          background-color: #fff
+          li
+            a
+              text-align: center
+              font-size: 0.9em
+              color: #777
+              margin-top: 8px
+              margin-bottom: 8px
+      .parent > a
+        margin-right: 0
+      .parent > a::after
+        transform: rotate(90deg) translateX(-1px) translateY(15px)
     &.active
       display: block
