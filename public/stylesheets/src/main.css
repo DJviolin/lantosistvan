@@ -1112,16 +1112,11 @@ footer .social-links a:last-child {
   right: 0;
   z-index: 9999;
   margin: 10px 10px 0 0;
-/*font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
-/*font-family: 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
-  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-/*text-transform: uppercase;*/
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   font-size: 9px;
   letter-spacing: 1px;
   color: #494949;
   color: rgba(0,0,0,0.71);
-/**/
-/*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
 _:-ms-fullscreen,
 :root .logo {
