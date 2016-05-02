@@ -95,20 +95,31 @@
   margin: 0 0 10px 0
 
 @media (max-width: $mobile)
-  .latest-posts a { width: 100%; }
-  .latest-posts article { margin-left: 0; margin-right: 0; }
-  .latest-posts article .preview-image { max-width: 100%; }
-  .latest-posts article .post-preview-hidden {
-    position: relative;
-    opacity: 1;
-    background: none;
-    transition: opacity 0s ease 0s;
-  }
-  .latest-posts article .post-preview-header .category,
-  .latest-posts article .post-preview-header .category:hover { margin-top: 20px; color: #928371; }
-  .latest-posts article .post-preview-header h1,
-  .latest-posts article .post-preview-header h1:hover { margin-bottom: 90px; color: #928371; }
-  .latest-posts a:last-child > article .post-preview-header h1,
-  .latest-posts a:last-child > article .post-preview-header h1:hover { margin-bottom: 0; }
-  .latest-posts article .post-preview-header .more,
-  .latest-posts article .post-preview-header .more:hover { display: none; }
+  .latest-posts
+    a
+      width: 100%
+      &:last-child > article .post-preview-header h1,
+      &:last-child > article .post-preview-header h1:hover
+        margin-bottom: 0
+    article
+      margin-left: 0
+      margin-right: 0
+      .preview-image
+        max-width: 100%
+      .post-preview-hidden
+        position: relative
+        opacity: 1
+        background: none
+        transition: opacity 0s ease 0s
+      .post-preview-header
+        .category,
+        .category:hover
+          margin-top: 20px
+          color: #928371
+        h1,
+        h1:hover
+          margin-bottom: 90px
+          color: #928371
+        .more,
+        .more:hover
+          display: none
