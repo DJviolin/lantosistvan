@@ -446,6 +446,14 @@ li {
   -webkit-align-items: center;
   align-items: center;
 }
+.nav__list__item a {
+  display: -ms- block;
+  display: -webkit- block;
+  display: block;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  color: #727272;
+}
 .nav__list__item {
   margin: 0 20px 0 20px;
 }
@@ -465,6 +473,17 @@ li {
   margin: 0;
   width: 100%;
 }
+.nav__list__item--child__item:first-child {
+  margin-top: 5px;
+}
+.nav__list__item--child__item:last-child {
+  margin-bottom: 3px;
+}
+.nav__list__item--child__item a {
+  text-align: left;
+  padding: 0;
+  margin: 10px 20px 10px 20px;
+}
 .nav__list__item.parent > a {
   margin-right: 10px;
 }
@@ -481,23 +500,6 @@ li {
   -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
   transform: rotate(90deg) translateX(2px) translateY(-10px);
 }
-.nav ul li a {
-  display: -ms- block;
-  display: -webkit- block;
-  display: block;
-  text-align: center;
-  padding: 5px 0 5px 0;
-/* Saját emelkedő logóhoz */
-/*color: #b2b2b2;
-  color: rgba(0,0,0,0.3);*/
-/*color: #494949;
-  color: rgba(0,0,0,0.71);*/
-/**/
-/*color: #999;*/
-/*color: #222;*/
-/**/
-  color: #727272;
-}
 .nav ul li a:hover {
 /* Saját emelkedő logóhoz */
 /*color: #808080;
@@ -505,24 +507,6 @@ li {
 /**/
   text-decoration: underline;
   color: #000;
-}
-.nav ul ul li:first-child {
-  margin-top: 5px;
-}
-.nav ul ul li:last-child {
-  margin-bottom: 3px;
-}
-.nav ul ul li a {
-  text-align: left;
-  padding: 0;
-  margin: 10px 20px 10px 20px;
-/*margin: 5px 13px 5px 13px;*/
-/*font-size: 0.9em;*/
-/*letter-spacing: 0.08em;*/
-/*letter-spacing: 2px;*/
-/**/
-/*font-size: 1em;
-  letter-spacing: 4px;*/
 }
 .nav ul li:hover > ul {
   visibility: visible;
