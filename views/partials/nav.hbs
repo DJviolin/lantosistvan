@@ -4,36 +4,35 @@
 
 <div class="navigation">
 
-  <nav class="nav nav--left">
-    <ul class="nav__list">
-      <li class="nav__list__item"><a href="{{language}}/stories">{{{__ "Történetek"}}}</a>
-        <ul class="nav__list__item--child">
-          <li class="nav__list__item--child__item"><a href="{{language}}/blog/szalai-family">{{{__ "Szalai család"}}}</a></li>
-          <li class="nav__list__item--child__item"><a href="{{language}}/blog/peregi-family">{{{__ "Peregi család"}}}</a></li>
-          <li class="nav__list__item--child__item"><a href="{{language}}/blog/barbi-balazs-wedding">Barbi &#38; Balázs</a></li>
+  <nav class="nav nav-left">
+    <ul>
+      <li><a href="{{language}}/stories">{{{__ "Történetek"}}}</a>
+        <ul>
+          <li><a href="{{language}}/blog/szalai-family">{{{__ "Szalai család"}}}</a></li>
+          <li><a href="{{language}}/blog/peregi-family">{{{__ "Peregi család"}}}</a></li>
+          <li><a href="{{language}}/blog/barbi-balazs-wedding">Barbi &#38; Balázs</a></li>
         </ul>
       </li>
-      <li class="nav__list__item {{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
-        <ul class="nav__list__item--child">
-          <li class="nav__list__item--child__item"><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
-          <li class="nav__list__item--child__item"><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
-          <li class="nav__list__item--child__item"><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
-          <li class="nav__list__item--child__item"><a href="{{language}}/category/for-photographers">{{{__ "Fotósoknak"}}}</a></li>
+      <li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
+        <ul>
+          <li><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
+          <li><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
+          <li><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
+          <li><a href="{{language}}/category/for-photographers">{{{__ "Fotósoknak"}}}</a></li>
         </ul>
       </li>
     </ul>
-  </nav><!-- nav.nav--left  -->
+  </nav><!-- nav.nav-left  -->
 
   <div class="logo logo-nav">
-    <!--<a href="{{language}}/"><img class="logo-svg" src="/images/42362-O3GR1G-work.svg" alt="{{siteName}}" /></a>-->
     <a href="{{language}}/"><img class="logo-svg" src="/images/lantosistvan-logo-20160407-006-final.svg" alt="{{siteName}}" /></a>
   </div>
 
-  <nav class="nav nav--right">
-    <ul class="nav__list">
-      <li class="nav__list__item {{#if active.information}}active{{/if}}"><a href="#">{{{__ "Info"}}}</a></li>
-      <li class="nav__list__item {{#if active.contact}}active{{/if}}"><a href="{{language}}/contact">{{{__ "Kapcsolat"}}}</a></li>
+  <nav class="nav nav-right">
+    <ul>
+      <li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Info"}}}</a></li>
+      <li class="{{#if active.contact}}active{{/if}}"><a href="{{language}}/contact">{{{__ "Kapcsolat"}}}</a></li>
     </ul>
-  </nav><!-- nav.nav--right  -->
+  </nav><!-- nav.nav-right  -->
 
 </div><!-- div.navigation -->

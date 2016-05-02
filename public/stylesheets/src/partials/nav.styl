@@ -8,18 +8,18 @@
   font-size: 12px
 .nav
   //margin-bottom: 40px
-  &__list
+  ul
     display: flex
     flex-direction: row
     align-items: center
-    &__item a
+    li a
       display: block
       text-align: center
       padding: 5px 0 5px 0
       color: #727272
-    &__item
+    li
       margin: 0 20px 0 20px;
-      &--child
+      ul
         flex-direction: column
         visibility: hidden
         opacity: 0
@@ -30,20 +30,20 @@
         //background-color: #fff
         //-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05)
         background-color: #f9f9f9
-        &__item
+        li
           margin: 0
           width: 100%
-        &__item:first-child
+        li:first-child
           margin-top: 5px
-        &__item:last-child
+        li:last-child
           margin-bottom: 3px
-        &__item a
+        li a
           text-align: left
           padding: 0
           margin: 10px 20px 10px 20px
-    &__item.parent > a
+    li.parent > a
       margin-right: 10px
-    &__item.parent > a::after
+    li.parent > a::after
       //display: inline-block
       display: block
       float: right
