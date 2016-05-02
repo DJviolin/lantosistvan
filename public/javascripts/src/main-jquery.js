@@ -60,5 +60,5 @@ document.addEventListener('DOMContentLoaded', function() {
 /////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function() {
-  $('.main-nav ul ul').parent().addClass('parent');
+  $('.nav ul ul').parent().addClass('parent');
 });
