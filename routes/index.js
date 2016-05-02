@@ -12,8 +12,8 @@ const functions  = require('../lib/functions'),
 // RETURNS JOURNAL FRONTPAGE
 /////////////////////////////////////////////////////////////
 
-router.get('/', function (req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -50,8 +50,8 @@ router.get('/', function (req, res, next) {
 /////////////////////////////////////////////////////////////
 
 /* GET home page. */
-/*router.get('/', function(req, res, next) {
-  glob('*.jpg', { cwd: 'public/portfolio/weddings/', sort: true }, function (err, images) {
+/*router.get('/', (req, res, next) => {
+  glob('*.jpg', { cwd: 'public/portfolio/weddings/', sort: true }, (err, images) => {
     const results = images;
     res.render('portfolio', {
       //layout: 'main',
