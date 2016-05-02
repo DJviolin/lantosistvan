@@ -470,12 +470,6 @@ li {
   margin: 10px 20px 10px 20px;
 }
 @media (min-width: 1600px) {
-  .logo-header {
-    display: block;
-  }
-  .logo-nav {
-    display: none;
-  }
   .toggle-mobile-nav {
     display: none;
   }
@@ -487,12 +481,6 @@ li {
   }
 }
 @media (max-width: 1600px) {
-  .logo {
-    margin: 30px;
-  }
-  .logo-nav {
-    display: none;
-  }
   .nav-left,
   .lang-en-EN .nav-left {
     margin-left: 0;
@@ -625,6 +613,22 @@ header .content {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .logo {
     height: auto;
+  }
+}
+@media (min-width: 1600px) {
+  .logo-header {
+    display: block;
+  }
+  .logo-nav {
+    display: none;
+  }
+}
+@media (max-width: 1600px) {
+  .logo {
+    margin: 30px;
+  }
+  .logo-nav {
+    display: none;
   }
 }
 .sidescroll .images {

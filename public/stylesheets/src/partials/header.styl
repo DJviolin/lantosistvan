@@ -33,3 +33,15 @@ header
 @media screen and (-webkit-min-device-pixel-ratio: 0)
   .logo
     height: auto
+
+@media (min-width: $mobile)
+  .logo-header
+    display: block // Logo TOP OF nav
+  .logo-nav
+    display: none // Logo INSIDE nav
+
+@media (max-width: $mobile)
+  .logo
+    margin: 30px
+  .logo-nav
+    display: none
