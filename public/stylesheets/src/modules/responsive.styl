@@ -1,5 +1,5 @@
 @media (min-width: 1600px) {
-  .toggle-mobile-nav, .main-nav.active {
+  .toggle-mobile-nav, .nav.active {
     display: none;
   }
   .logo-header {
@@ -18,9 +18,9 @@
 
 
 @media (max-width: 1600px) {
-  .left-nav, .lang-en-EN .left-nav { margin-left: 0; }
-  .main-nav, .logo-nav { display: none; }
-  .main-nav.active { display: block; }
+  .nav--left, .lang-en-EN .nav--left { margin-left: 0; }
+  .nav, .logo-nav { display: none; }
+  .nav.active { display: block; }
 
   .logo {
     margin: 30px 30px 30px 30px;
@@ -48,19 +48,19 @@
   }
   .left-nav { margin-top: 10px; margin-bottom: 0; }
   .right-nav { margin-bottom: 30px; }
-  .main-nav ul {
+  .nav ul {
     flex-direction: column;
   }
-  .main-nav ul li { margin: 0; }
-  .main-nav ul li a {
+  .nav ul li { margin: 0; }
+  .nav ul li a {
     padding-top: 18px;
     padding-bottom: 18px;
   }
-  .main-nav ul .parent > a { margin-right: 0; }
-  .main-nav ul .parent > a::after {
+  .nav ul .parent > a { margin-right: 0; }
+  .nav ul .parent > a::after {
     transform: rotate(90deg) translateX(-1px) translateY(15px);
   }
-  .main-nav ul ul {
+  .nav ul ul {
     flex-direction: column;
     visibility: visible;
     opacity: 1;
@@ -71,7 +71,7 @@
     transition: all 0s ease 0s;
     background-color: #fff;
   }
-  .main-nav ul ul li a {
+  .nav ul ul li a {
     text-align: center;
     font-size: 0.9em;
     color: #777;
@@ -95,7 +95,7 @@
   .sidescroll .images li, .sidescroll .images li:last-child { margin: 0 5vw 3px 5vw; background: none; }
   .blog article { margin: 0 5vw 0 5vw; }
   .sidescroll .images {
-    display: -webkit-flex; display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;

@@ -1,5 +1,5 @@
 .navigation {
-  display: -webkit-flex; display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -30,23 +30,37 @@
   letter-spacing: 2px;
   font-size: 12px;
 }
-/*.main-nav { margin-bottom: 40px; }*/
-.main-nav ul {
+
+
+
+
+.nav
+  //margin-bottom: 40px
+  &__list
+    display: flex
+    flex-direction: row
+    align-items: center
+
+
+
+
+/*.nav { margin-bottom: 40px; }*/
+/*.nav ul {
   display: -webkit-flex; display: flex;
   flex-direction: row;
   align-items: center;
-}
-.main-nav ul li {
+}*/
+.nav ul li {
   /*margin: 0 20px 0 0;*/
   /*margin: 0 20px 0 20px;*/
   margin: 0 20px 0 20px;
 }
-/*.main-nav ul li:first-child { margin-left: 0; }
-.main-nav ul li:last-child { margin-right: 0; }*/
-/*.main-nav ul li:has(ul) { /* CSS4 selector - currently unsupported */
+/*.nav ul li:first-child { margin-left: 0; }
+.nav ul li:last-child { margin-right: 0; }*/
+/*.nav ul li:has(ul) { /* CSS4 selector - currently unsupported */
 /* http://stackoverflow.com/questions/2701192/character-for-up-down-triangle-arrow-to-display-in-html */
-.main-nav ul .parent > a { margin-right: 10px; }
-.main-nav ul .parent > a::after {
+.nav ul .parent > a { margin-right: 10px; }
+.nav ul .parent > a::after {
   /* display: inline-block; */
   display: block;
   float: right;
@@ -57,7 +71,7 @@
   color: #000;
   transform: rotate(90deg) translateX(2px) translateY(-10px);
 }
-.main-nav ul li a {
+.nav ul li a {
   display: block;
   text-align: center;
   padding: 5px 0 5px 0;
@@ -72,7 +86,7 @@
   /**/
   color: #727272;
 }
-.main-nav ul li a:hover {
+.nav ul li a:hover {
   /* Saját emelkedő logóhoz */
   /*color: #808080;
   color: rgba(0,0,0,0.5);*/
@@ -80,14 +94,14 @@
   text-decoration: underline;
   color: #000;
 }
-.main-nav ul li.active > a {
+.nav ul li.active > a {
   /*color: #575757;*/
   /*border-bottom: 3px solid #eff0f0;
   margin-bottom: -3px;*/
 }
 
 /* Navigation Drop-Down */
-.main-nav ul ul {
+.nav ul ul {
   flex-direction: column;
   visibility: hidden;
   opacity: 0;
@@ -106,13 +120,13 @@
   /**/
   background-color: #f9f9f9;
 }
-.main-nav ul ul li {
+.nav ul ul li {
   margin: 0;
   width: 100%;
 }
-.main-nav ul ul li:first-child { margin-top: 5px; }
-.main-nav ul ul li:last-child { margin-bottom: 3px; }
-.main-nav ul ul li a {
+.nav ul ul li:first-child { margin-top: 5px; }
+.nav ul ul li:last-child { margin-bottom: 3px; }
+.nav ul ul li a {
   text-align: left;
   padding: 0;
   margin: 10px 20px 10px 20px;
@@ -124,7 +138,7 @@
   /*font-size: 1em;
   letter-spacing: 4px;*/
 }
-.main-nav ul li:hover > ul {
+.nav ul li:hover > ul {
   visibility: visible;
   opacity: 1;
 }
