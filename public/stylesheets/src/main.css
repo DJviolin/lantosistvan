@@ -548,6 +548,8 @@ header .content {
   margin: 55px 0 0 0;
 }
 .frontpage .content {
+  display: -ms-flex;
+  display: -webkit-flex;
   display: flex;
   -webkit-flex: 0 0 58vw;
   flex: 0 0 58vw;
