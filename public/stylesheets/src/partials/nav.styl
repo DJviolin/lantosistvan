@@ -6,10 +6,6 @@
   font-family: $TrebuchetMS
   letter-spacing: 2px
   font-size: 12px
-@media (min-width: 1600px)
-  .navigation
-    margin-bottom: 60px // Logo TOP OF nav
-
 .nav
   //margin-bottom: 40px
   ul
@@ -67,6 +63,20 @@
         content: ' \276F'
         color: #000
         transform: rotate(90deg) translateX(2px) translateY(-10px)
+
+@media (min-width: 1600px)
+  .navigation
+    margin-bottom: 60px // Logo TOP OF nav
+  .toggle-mobile-nav
+    display: none
+  .nav
+    &.active
+      display: none
+
+@media (max-width: 1600px)
+  .nav
+    &.active
+      display: block
 
 
 
