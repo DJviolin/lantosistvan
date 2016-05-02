@@ -592,6 +592,13 @@ header .content {
   font-weight: 400;
   letter-spacing: normal;
 }
+@media (max-width: 1600px) {
+  .frontpage .content {
+    -webkit-flex: 0 0 100%;
+    flex: 0 0 100%;
+    padding: 0 5vw 0 5vw;
+  }
+}
 article.welcome {
   max-width: 980px;
 }
@@ -705,8 +712,7 @@ article.welcome {
   overflow: hidden;
 }
 footer {
-/*-webkit-flex: 0 0 20vh; flex: 0 0 20vh;*/
-/*height: 20vh;*/
+  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -718,14 +724,11 @@ footer {
   justify-content: center;
 }
 footer .content {
-  -webkit-flex: 0 0 58vw;
-  -webkit-flex: 0 0 58vw;
-  flex: 0 0 58vw;
-/*width: 50vw;*/
-  max-width: 1100px;
-/*height: auto;*/
+  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
+  -webkit-flex: 0 0 58vw;
+  flex: 0 0 58vw;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
@@ -733,13 +736,10 @@ footer .content {
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
+  max-width: 1100px;
 }
 footer .row {
-  width: 100%;
-  margin: 40px 0 0 0;
-  padding: 40px 0 40px 0;
-  border-top: 1px solid #e9e9e9;
-/*border-bottom: 1px solid #e9e9e9;*/
+  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -749,7 +749,11 @@ footer .row {
   align-items: center;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  width: 100%;
   height: auto;
+  margin: 40px 0 0 0;
+  padding: 40px 0 40px 0;
+  border-top: 1px solid #e9e9e9;
 }
 footer aside {
   width: 100%;
@@ -762,7 +766,6 @@ footer aside:nth-child(2) {
 }
 footer aside a {
   font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
-/*font-size: 13px;*/
   font-size: 0.93em;
 }
 footer aside p {
@@ -772,7 +775,6 @@ footer aside p {
 footer .social-links a {
   margin-right: 20px;
   font-size: 0.8em;
-/*color: #6b6b6b;*/
   color: #727272;
 }
 footer .social-links a:last-child {
@@ -789,13 +791,10 @@ footer .social-links a:last-child {
   width: 1em;
   margin-right: 0.2em;
   text-align: center;
-/* opacity: .8; */
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
   margin-left: 0.2em;
-/* font-size: 120%; */
-/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   font-size: 90%;
 }
 .icon-facebook:before {
@@ -816,25 +815,35 @@ footer .social-links a:last-child {
   border-top: 1px solid #e9e9e9;
   width: 100%;
   text-align: center;
-/*font-family: 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;*/
-/**/
-/*font-family: 'LatoLatin-Light', 'LatoLatin-Regular', Georgia, 'Times New Roman', Times, serif;*/
-/*text-transform: uppercase;*/
-/*font-size: 0.5em;
-  color: #494949;
-  line-height: 1.5em;*/
-/**/
-  color: #606060;
-  font-size: 0.69em; /* 11px */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   line-height: 1.75em;
-/**/
   font-family: 'LatoLatin-Regular', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   text-transform: uppercase;
   font-size: 8px;
   letter-spacing: 1px;
   color: #494949;
   color: rgba(0,0,0,0.71);
+}
+@media (max-width: 1600px) {
+  footer .content {
+    -webkit-flex: 0 0 85vw;
+    flex: 0 0 85vw;
+  }
+  footer .row {
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    padding-top: 0;
+  }
+  footer aside {
+    padding: 40px 0 40px 0;
+  }
+  footer aside:nth-child(2) {
+    border-left: none;
+    border-right: none;
+    border-top: 1px dotted #e9e9e9;
+    border-bottom: 1px dotted #e9e9e9;
+  }
 }
 .widget-title-img {
   display: block;
@@ -1093,12 +1102,6 @@ footer .social-links a:last-child {
 /*font-family: Georgia, TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;*/
 }
 @media (max-width: 1600px) {
-  .frontpage .content {
-    -webkit-flex: 0 0 100%;
-    -webkit-flex: 0 0 100%;
-    flex: 0 0 100%;
-    padding: 0 5vw 0 5vw;
-  }
   .latest-posts a {
     width: 100%;
   }
@@ -1135,26 +1138,6 @@ footer .social-links a:last-child {
   .latest-posts article .post-preview-header .more,
   .latest-posts article .post-preview-header .more:hover {
     display: none;
-  }
-  footer .content {
-    -webkit-flex: 0 0 85vw;
-    -webkit-flex: 0 0 85vw;
-    flex: 0 0 85vw;
-  }
-  footer .row {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    padding-top: 0;
-  }
-  footer aside {
-    padding: 40px 0 40px 0;
-  }
-  footer aside:nth-child(2) {
-    border-left: none;
-    border-right: none;
-    border-top: 1px dotted #e9e9e9;
-    border-bottom: 1px dotted #e9e9e9;
   }
 }
 _:-ms-fullscreen,
