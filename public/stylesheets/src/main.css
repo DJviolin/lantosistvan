@@ -432,29 +432,6 @@ li {
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
-/**/
-/* Saját emelkedő logóhoz */
-/*letter-spacing: 0.1em;*/
-/*font-size: 14px;
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
-  font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Tahoma, Geneva, Arial, sans-serif;
-  /* 'Arial Narrow' Hack: http://stackoverflow.com/a/12184181/1442219 */
-/*font-family: 'Arial Narrow', Arial, sans-serif;
-  font-stretch: condensed;  /* 'Arial Narrow' Hack for Firefox */
-/*font-weight: 400; /* 'Arial Narrow' Hack for Firefox - Use 700 for 'Arial Narrow Bold' */
-/**/
-/*font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 4px;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: uppercase;*/
-/**/
-/*font-size: 12px;
-  font-family: 'TrajanPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-family: 'LatoLatin-Regular', 'Trebuchet MS', Tahoma, Helvetica, sans-serif;*/
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   letter-spacing: 2px;
   font-size: 12px;
@@ -468,6 +445,18 @@ li {
   flex-direction: row;
   -webkit-align-items: center;
   align-items: center;
+}
+.nav__list--child {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin-left: -10px;
+  padding: 0;
+  z-index: 9999;
+  background-color: #f9f9f9;
 }
 .nav ul li {
 /*margin: 0 20px 0 0;*/
@@ -518,27 +507,6 @@ li {
 /**/
   text-decoration: underline;
   color: #000;
-}
-.nav ul ul {
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-/*background-color: #fff;*/
-  margin-left: -10px;
-  padding: 0;
-/*min-width: 180px;*/
-/*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15);*/
-/*-o-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; transition: all 0.3s ease 0s;*/
-/*background-color: #fcfcfc;*/
-  background-color: #fff;
-  z-index: 9999;
-/**/
-/*-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);*/
-/**/
-  background-color: #f9f9f9;
 }
 .nav ul ul li {
   margin: 0;

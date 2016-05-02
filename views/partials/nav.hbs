@@ -11,14 +11,14 @@
     <ul class="nav__list">
       <!--<li class="{{#if active.index}}active{{/if}}"><a href="{{language}}/">{{{__ "Főoldal"}}}</a></li>-->
       <li class="nav__list--item"><a href="{{language}}/stories">{{{__ "Történetek"}}}</a>
-        <ul>
+        <ul class="nav__list--child">
           <li><a href="{{language}}/blog/szalai-family">{{{__ "Szalai család"}}}</a></li>
           <li><a href="{{language}}/blog/peregi-family">{{{__ "Peregi család"}}}</a></li>
           <li><a href="{{language}}/blog/barbi-balazs-wedding">Barbi &#38; Balázs</a></li>
         </ul>
       </li>
       <li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
-        <ul>
+        <ul class="nav__list--child">
           <li><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
           <li><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
           <li><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
@@ -36,7 +36,7 @@
   <nav class="nav nav--left">
     <ul class="nav__list">
       <!--<li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
-        <ul>
+        <ul class="nav__list--child">
           <li><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
           <li><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
           <li><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
@@ -45,7 +45,7 @@
       </li>-->
       <!--<li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Információ"}}}</a>-->
       <li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Info"}}}</a>
-        <!--<ul>
+        <!--<ul class="nav__list--child">
           <li><a href="{{language}}/services">{{{__ "Szolgáltatások"}}}</a></li>
           <li><a href="{{language}}/contact">{{{__ "Kapcsolat"}}}</a></li>
         </ul>-->
