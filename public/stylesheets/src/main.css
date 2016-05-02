@@ -564,6 +564,16 @@ li {
   .nav ul li {
     margin: 0;
   }
+  .nav ul li.parent > a {
+    margin-right: 0;
+  }
+  .nav ul li.parent > a::after {
+    -o-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -ms-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -moz-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    -webkit-transform: rotate(90deg) translateX(-1px) translateY(15px);
+    transform: rotate(90deg) translateX(-1px) translateY(15px);
+  }
   .nav ul li a {
     padding-top: 18px;
     padding-bottom: 18px;
@@ -592,16 +602,6 @@ li {
     color: #777;
     margin-top: 8px;
     margin-bottom: 8px;
-  }
-  .nav ul .parent > a {
-    margin-right: 0;
-  }
-  .nav ul .parent > a::after {
-    -o-transform: rotate(90deg) translateX(-1px) translateY(15px);
-    -ms-transform: rotate(90deg) translateX(-1px) translateY(15px);
-    -moz-transform: rotate(90deg) translateX(-1px) translateY(15px);
-    -webkit-transform: rotate(90deg) translateX(-1px) translateY(15px);
-    transform: rotate(90deg) translateX(-1px) translateY(15px);
   }
   .nav.active {
     display: block;
