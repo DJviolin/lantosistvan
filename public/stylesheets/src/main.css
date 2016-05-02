@@ -715,6 +715,10 @@ article.welcome {
   .latest-posts a {
     width: 100%;
   }
+  .latest-posts a:last-child > article .post-preview-header h1,
+  .latest-posts a:last-child > article .post-preview-header h1:hover {
+    margin-bottom: 0;
+  }
   .latest-posts article {
     margin-left: 0;
     margin-right: 0;
@@ -740,10 +744,6 @@ article.welcome {
   .latest-posts article .post-preview-header h1:hover {
     margin-bottom: 90px;
     color: #928371;
-  }
-  .latest-posts a:last-child > article .post-preview-header h1,
-  .latest-posts a:last-child > article .post-preview-header h1:hover {
-    margin-bottom: 0;
   }
   .latest-posts article .post-preview-header .more,
   .latest-posts article .post-preview-header .more:hover {
