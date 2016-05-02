@@ -56,8 +56,8 @@ app.engine('.hbs', exphbs({
   // Specify helpers which are only registered on this instance
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
-    __: () => { return i18n.__.apply(this, arguments); },
-    __n: () => { return i18n.__n.apply(this, arguments); }
+    __: function() { return i18n.__.apply(this, arguments); },
+    __n: function() { return i18n.__n.apply(this, arguments); }
   }
 }));
 app.set('view engine', '.hbs');
