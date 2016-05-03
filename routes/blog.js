@@ -16,8 +16,8 @@ var functions  = require('../lib/functions'),
 // RETURNS JOURNAL FRONTPAGE
 /////////////////////////////////////////////////////////////
 
-router.get('/', function (req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -54,9 +54,9 @@ router.get('/', function (req, res, next) {
 // RETURNS JOURNAL FRONTPAGE
 /////////////////////////////////////////////////////////////
 
-/*router.get('/', function(req, res, next) {
+/*router.get('/', (req, res, next) => {
   var reqURL = req.protocol + '://' + req.hostname + ':' + usedPort + '/api/articles/page/' + 0 + '/' + articlesPerPage + '/order/' + 'adddate' + '/auth/' + apiToken;
-  request(reqURL, function (error, response, body) {
+  request(reqURL, (error, response, body) => {
     console.log([{ articles: JSON.parse(body) }]);
     var articles = [{ articles: JSON.parse(body) }];
     res.render('blog', {
@@ -78,8 +78,8 @@ router.get('/', function (req, res, next) {
 // RETURNS JOURNAL PAGES
 /////////////////////////////////////////////////////////////
 
-router.get('/page/:id', function (req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/page/:id', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -144,8 +144,8 @@ router.get('/page/:id', function (req, res, next) {
 // RETURNS ARTICLES BY URL
 /////////////////////////////////////////////////////////////
 
-router.get('/:url', function (req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/:url', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -158,9 +158,10 @@ router.get('/:url', function (req, res, next) {
     var articles = data[1].articles;
 
     // this will get you the first article matching the url
-    var selectedArticle = articles.find(function(article) {
+    /*var selectedArticle = articles.find(function(article) {
       return article.url === req.params.url;
-    });
+    });*/
+    var selectedArticle = articles.find((article) => article.url === req.params.url);
 
     // render your page with selectedArticle
     res.render('blog-article', {

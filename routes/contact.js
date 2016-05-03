@@ -7,8 +7,8 @@ var functions  = require('../lib/functions'),
     fsAsync    = functions.fsAsync;
 
 /* GET info page. */
-router.get('/', function(req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,

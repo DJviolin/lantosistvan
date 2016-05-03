@@ -1,3 +1,18 @@
+# Arrow functions
+
+http://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/
+
+Arrow functions are anonymous and change the way `this` binds in functions.
+Arrow functions make our code more concise, and simplify function scoping and the `this` keyword.
+By using arrow function we avoid having to type the `function` keyword, `return` keyword (it’s implicit in arrow functions), and curly brackets.
+`Curly brackets` are not required if only one expression is present.
+
+https://strongloop.com/strongblog/an-introduction-to-javascript-es6-arrow-functions/
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+
+
 # NPM CONSOLE ERRORS
 
 npm WARN deprecated graceful-fs@3.0.8: graceful-fs version 3 and before will fail on newer node releases. Please update to graceful-fs@^4.0.0 as soon as possible.

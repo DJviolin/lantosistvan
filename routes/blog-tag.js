@@ -14,8 +14,8 @@ var functions = require('../lib/functions'),
 // RETURNS ARTICLES BY TAGS
 /////////////////////////////////////////////////////////////
 
-router.get('/:tag', function (req, res, next) {
-  fsAsync(function(err, data) {
+router.get('/:tag', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -28,10 +28,10 @@ router.get('/:tag', function (req, res, next) {
     var articles = data[1].articles.reverse();
 
     // See if the tag is in the array with IndexOf
-    var q = articles.filter(function (callback) {
+    var q = articles.filter((callback) => {
       var tagInArray = false;
-      callback.tags.forEach(function(tag){
-        if(tag === req.params.tag){
+      callback.tags.forEach((tag) => {
+        if(tag === req.params.tag) {
           tagInArray = true;
         }
       });
@@ -75,8 +75,8 @@ router.get('/:tag', function (req, res, next) {
 // RETURNS ARTICLES BY TAGS PER PAGE
 /////////////////////////////////////////////////////////////
 
-router.get('/:tag/page/:id', function (req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/:tag/page/:id', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -89,9 +89,9 @@ router.get('/:tag/page/:id', function (req, res, next) {
     var articles = data[1].articles.reverse();
 
     // See if the tag is in the array with IndexOf
-    var q = articles.filter(function (callback) {
+    var q = articles.filter((callback) => {
       var tagInArray = false;
-      callback.tags.forEach(function(tag){
+      callback.tags.forEach((tag) => {
           if(tag === req.params.tag){
             tagInArray = true;
           }

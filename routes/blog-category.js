@@ -14,8 +14,8 @@ var functions = require('../lib/functions'),
 // RETURNS ARTICLES BY CATEGORY
 /////////////////////////////////////////////////////////////
 
-router.get('/:cat', function (req, res, next) {
-  fsAsync(function(err, data) {
+router.get('/:cat', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -27,9 +27,7 @@ router.get('/:cat', function (req, res, next) {
 
     var articles = data[1].articles.reverse();
 
-    var q = articles.filter(function (article) {
-      return article.category === req.params.cat;
-    });
+    var q = articles.filter((article) => article.category === req.params.cat);
 
     var slice = q.slice(0, articlesPerPage);
     var json = [{ articles: slice }];
@@ -64,8 +62,8 @@ router.get('/:cat', function (req, res, next) {
 // RETURNS ARTICLES BY CATEGORY PER PAGE
 /////////////////////////////////////////////////////////////
 
-router.get('/:cat/page/:id', function (req, res, next) {
-  fsAsync(function (err, data) {
+router.get('/:cat/page/:id', (req, res, next) => {
+  fsAsync((err, data) => {
     if (err) {
       return res.render('404', {
         titleShown: true,
@@ -77,9 +75,7 @@ router.get('/:cat/page/:id', function (req, res, next) {
     
     var articles = data[1].articles.reverse();
 
-    var q = articles.filter(function (article) {
-      return article.category === req.params.cat;
-    });
+    var q = articles.filter((article) => article.category === req.params.cat);
 
     //console.log(q);
 
