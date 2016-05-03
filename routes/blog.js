@@ -1,15 +1,15 @@
 'use strict';
 
-var express = require('express'),
-    router  = express.Router();
-//var request = require('request');
+const express = require('express'),
+      router  = express.Router();
+//const request = require('request');
 
-var config          = require('../config'),
-    //usedPort        = config.usedPort,
-    articlesPerPage = config.articlesPerPage;
+const config          = require('../config'),
+      //usedPort        = config.usedPort,
+      articlesPerPage = config.articlesPerPage;
 
-var functions  = require('../lib/functions'),
-    fsAsync    = functions.fsAsync;
+const functions = require('../lib/functions'),
+      fsAsync   = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -27,10 +27,10 @@ router.get('/', (req, res, next) => {
       });
     }
 
-    var articles = data[1].articles.reverse();
+    const articles = data[1].articles.reverse();
 
-    var slice = articles.slice(0, articlesPerPage);
-    var json = [{ articles: slice }];
+    const slice = articles.slice(0, articlesPerPage);
+    const json = [{ articles: slice }];
 
     res.render('blog', {
       active: { blog: true },
@@ -55,10 +55,10 @@ router.get('/', (req, res, next) => {
 /////////////////////////////////////////////////////////////
 
 /*router.get('/', (req, res, next) => {
-  var reqURL = req.protocol + '://' + req.hostname + ':' + usedPort + '/api/articles/page/' + 0 + '/' + articlesPerPage + '/order/' + 'adddate' + '/auth/' + apiToken;
+  const reqURL = req.protocol + '://' + req.hostname + ':' + usedPort + '/api/articles/page/' + 0 + '/' + articlesPerPage + '/order/' + 'adddate' + '/auth/' + apiToken;
   request(reqURL, (error, response, body) => {
     console.log([{ articles: JSON.parse(body) }]);
-    var articles = [{ articles: JSON.parse(body) }];
+    const articles = [{ articles: JSON.parse(body) }];
     res.render('blog', {
       active: { blog: true },
       titleShown: true,
@@ -89,21 +89,21 @@ router.get('/page/:id', (req, res, next) => {
       });
     }
 
-    var articles = data[1].articles.reverse();
+    const articles = data[1].articles.reverse();
 
     // Internal api request
-    var count = parseInt(req.params.id); // Page number as integer
-    var countResult = count * articlesPerPage;
-    var start = countResult + 0;
-    var end = countResult + articlesPerPage;
-    var slice = articles.slice(start, end);
-    var json = [{ articles: slice }];
+    const count = parseInt(req.params.id); // Page number as integer
+    const countResult = count * articlesPerPage;
+    const start = countResult + 0;
+    const end = countResult + articlesPerPage;
+    const slice = articles.slice(start, end);
+    const json = [{ articles: slice }];
     // Prev, next buttons under the blog
-    var prev = count - 1;
-    var next = count + 1;
+    const prev = count - 1;
+    const next = count + 1;
     // Sum of all pages on the blog
-    var pagesLength = articles.length / articlesPerPage;
-    var pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
+    const pagesLength = articles.length / articlesPerPage;
+    const pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
     // Turn off pagination on the first page
     var paginationFirst = true;
     if(count === 0) {

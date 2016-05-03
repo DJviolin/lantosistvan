@@ -1,10 +1,10 @@
 'use strict';
 
-var express = require('express'),
-    router  = express.Router();
+const express = require('express'),
+      router  = express.Router();
 
-var functions  = require('../lib/functions'),
-    fsAsync    = functions.fsAsync;
+const functions = require('../lib/functions'),
+      fsAsync   = functions.fsAsync;
 
 /* GET info page. */
 router.get('/', (req, res, next) => {
@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
       });
     }
 
-    var contact = data[2].contact;
+    const contact = data[2].contact;
 
     res.render('contact', {
       active: { information: true },

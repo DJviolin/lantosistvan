@@ -1,13 +1,13 @@
 'use strict';
 
-var express = require('express'),
-    router  = express.Router();
+const express = require('express'),
+      router  = express.Router();
 
-var config          = require('../config'),
-    articlesPerPage = config.articlesPerPage;
+const config          = require('../config'),
+      articlesPerPage = config.articlesPerPage;
 
-var functions = require('../lib/functions'),
-    fsAsync   = functions.fsAsync;
+const functions = require('../lib/functions'),
+      fsAsync   = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -25,15 +25,15 @@ router.get('/:cat', (req, res, next) => {
       });
     }
 
-    var articles = data[1].articles.reverse();
+    const articles = data[1].articles.reverse();
 
-    var q = articles.filter((article) => article.category === req.params.cat);
+    const q = articles.filter((article) => article.category === req.params.cat);
 
-    var slice = q.slice(0, articlesPerPage);
-    var json = [{ articles: slice }];
+    const slice = q.slice(0, articlesPerPage);
+    const json = [{ articles: slice }];
 
-    var pagesLength = q.length / articlesPerPage;
-    var pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
+    const pagesLength = q.length / articlesPerPage;
+    const pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
 
     var paginationLast = true;
     if(0 === pagesAll) {
@@ -73,25 +73,25 @@ router.get('/:cat/page/:id', (req, res, next) => {
       });
     }
     
-    var articles = data[1].articles.reverse();
+    const articles = data[1].articles.reverse();
 
-    var q = articles.filter((article) => article.category === req.params.cat);
+    const q = articles.filter((article) => article.category === req.params.cat);
 
     //console.log(q);
 
     // Internal api request
-    var count = parseInt(req.params.id); // Page number as integer
-    var countResult = count * articlesPerPage;
-    var start = countResult + 0;
-    var end = countResult + articlesPerPage;
-    var slice = q.slice(start, end);
-    var json = [{ articles: slice }];
+    const count = parseInt(req.params.id); // Page number as integer
+    const countResult = count * articlesPerPage;
+    const start = countResult + 0;
+    const end = countResult + articlesPerPage;
+    const slice = q.slice(start, end);
+    const json = [{ articles: slice }];
     // Prev, next buttons under the blog
-    var prev = count - 1;
-    var next = count + 1;
+    const prev = count - 1;
+    const next = count + 1;
     // Sum of all pages on the blog
-    var pagesLength = q.length / articlesPerPage;
-    var pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
+    const pagesLength = q.length / articlesPerPage;
+    const pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
     // Turn off pagination on the first page
     var paginationFirst = true;
     if(count === 0) {
