@@ -154,13 +154,13 @@ router.get('/:url', (req, res, next) => {
       });
     }
 
-    var articles = data[1].articles;
+    const articles = data[1].articles;
 
     // this will get you the first article matching the url
-    /*var selectedArticle = articles.find(function(article) {
+    /*const selectedArticle = articles.find(function(article) {
       return article.url === req.params.url;
     });*/
-    var selectedArticle = articles.find((article) => article.url === req.params.url);
+    const selectedArticle = articles.find((article) => article.url === req.params.url);
 
     // render your page with selectedArticle
     res.render('blog-article', {
