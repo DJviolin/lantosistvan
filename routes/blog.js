@@ -28,7 +28,6 @@ router.get('/', (req, res, next) => {
     }
 
     const articles = data[1].articles.reverse();
-
     const slice = articles.slice(0, articlesPerPage);
     const json = [{ articles: slice }];
 
@@ -105,19 +104,19 @@ router.get('/page/:id', (req, res, next) => {
     const pagesLength = articles.length / articlesPerPage;
     const pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
     // Turn off pagination on the first page
-    var paginationFirst = true;
+    let paginationFirst = true;
     if(count === 0) {
-      var paginationFirst = false;
+      paginationFirst = false;
     };
     // Turn off pagination on the last page
-    var paginationLast = true;
+    let paginationLast = true;
     if(count >= pagesAll) {
-      var paginationLast = false;
+      paginationLast = false;
     };
     // Turn off /page/0 URL chunk on /page/1
-    var paginationFirstURL = true;
+    let paginationFirstURL = true;
     if(count === 1) {
-      var paginationFirstURL = false;
+      paginationFirstURL = false;
     };
 
     res.render('blog', {
