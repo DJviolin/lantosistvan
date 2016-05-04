@@ -14,7 +14,7 @@ const functions = require('../lib/functions'),
 
 router.get('/', (req, res, next) => {
   fsAsync((err, data) => {
-    if (err) {
+    if(err) {
       res.render('404', {
         titleShown: true,
         title: 'Error 404',

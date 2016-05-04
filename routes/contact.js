@@ -9,8 +9,8 @@ const functions = require('../lib/functions'),
 /* GET info page. */
 router.get('/', (req, res, next) => {
   fsAsync((err, data) => {
-    if (err) {
-      return res.render('404', {
+    if(err) {
+      res.render('404', {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',

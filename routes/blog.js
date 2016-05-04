@@ -18,8 +18,8 @@ const functions = require('../lib/functions'),
 
 router.get('/', (req, res, next) => {
   fsAsync((err, data) => {
-    if (err) {
-      return res.render('404', {
+    if(err) {
+      res.render('404', {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -79,8 +79,8 @@ router.get('/', (req, res, next) => {
 
 router.get('/page/:id', (req, res, next) => {
   fsAsync((err, data) => {
-    if (err) {
-      return res.render('404', {
+    if(err) {
+      res.render('404', {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
@@ -145,8 +145,8 @@ router.get('/page/:id', (req, res, next) => {
 
 router.get('/:url', (req, res, next) => {
   fsAsync((err, data) => {
-    if (err) {
-      return res.render('404', {
+    if(err) {
+      res.render('404', {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
