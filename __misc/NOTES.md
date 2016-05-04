@@ -1,5 +1,7 @@
 # Arrow functions
 
+http://tc39wiki.calculist.org/es6/arrow-functions/
+
 http://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/
 
 Arrow functions are anonymous and change the way `this` binds in functions.
