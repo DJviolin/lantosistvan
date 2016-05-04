@@ -16,7 +16,6 @@
     "jquery": true
   },
   "ecmaFeatures": {
-    "jsx": true,
     "modules": false
   },
   "rules": {
