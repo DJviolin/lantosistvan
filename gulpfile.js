@@ -37,10 +37,8 @@ const server = gls.new([
   { env: { NODE_ENV: 'production' } }
 ]);
 
-gulp.task('start', () => {
-  //you can access cwd args in `bin/www` via `process.argv` 
-  server.start();
-});
+//you can access cwd args in `bin/www` via `process.argv` 
+gulp.task('start', () => server.start());
 
 /////////////////////////////////////////////////////////////
 // STYLUS CSS
@@ -90,9 +88,7 @@ gulp.task('uglify', () => {
 // FILES
 /////////////////////////////////////////////////////////////
 
-gulp.task('files', () => {
-  gulp.src(paths.pathFiles);
-});
+gulp.task('files', () => gulp.src(paths.pathFiles));
 
 /////////////////////////////////////////////////////////////
 // WATCH
