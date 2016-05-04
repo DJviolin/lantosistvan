@@ -1,15 +1,29 @@
 'use strict';
+// ES6: "use strict" is unnecessary inside of modules.
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
+// ES5
 const gulp     = require('gulp'),
       gls      = require('gulp-live-server'),
       rename   = require('gulp-rename'),
       stylus   = require('gulp-stylus'),
       cleanCSS = require('gulp-clean-css'),
       uglify   = require('gulp-uglify');
+
+// ES6
+// Modules will be supported from Node v7
+// https://github.com/nodejs/help/issues/53
+/*
+import gulp     from 'gulp';
+import gls      from 'gulp-live-server';
+import rename   from 'gulp-rename';
+import stylus   from 'gulp-stylus';
+import cleanCSS from 'gulp-clean-css';
+import uglify   from 'gulp-uglify';
+*/
 
 const paths = {
   pathStylus:   ['public/stylesheets/src/main'],

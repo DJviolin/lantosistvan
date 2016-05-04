@@ -7,12 +7,17 @@
     "$": true
   },
   "env": {
+    // enable all ECMAScript 6 features except for modules
+    "es6": true,
     // I write for browser
     "browser": true,
     // in CommonJS
     "node": true,
-    // enable all ECMAScript 6 features except for modules
-    "es6": true
+    "jquery": true
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
   },
   "rules": {
     "eqeqeq": 1,
