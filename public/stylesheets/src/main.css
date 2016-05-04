@@ -1070,11 +1070,6 @@ footer .social-links a:last-child {
   -moz-transition: opacity 0.3s ease 0s;
   -webkit-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
-  -o-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  -moz-transform: translate(0, 100%);
-  -webkit-transform: translate(0, 100%);
-  transform: translate(0, 100%);
 }
 .slick-prev:hover,
 .slick-next:hover {
