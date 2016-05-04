@@ -37,7 +37,7 @@ const server = gls.new([
   { env: { NODE_ENV: 'production' } }
 ]);
 
-gulp.task('start', function() {
+gulp.task('start', () => {
   //you can access cwd args in `bin/www` via `process.argv` 
   server.start();
 });
@@ -46,8 +46,8 @@ gulp.task('start', function() {
 // STYLUS CSS
 /////////////////////////////////////////////////////////////
 
-gulp.task('stylus', function() {
-  return gulp.src(paths.pathStylus + '.styl')
+gulp.task('stylus', () => {
+  gulp.src(paths.pathStylus + '.styl')
     .pipe(stylus({'include css': true, compress: false}))
     .pipe(rename({ extname: '.css' }))
     .pipe(gulp.dest('public/stylesheets/src'));
@@ -57,9 +57,9 @@ gulp.task('stylus', function() {
 // MINIFY CSS
 /////////////////////////////////////////////////////////////
 
-gulp.task('minify-css', ['stylus'], function() {
-  return gulp.src(paths.pathStylus + '.css')
-    .pipe(cleanCSS({compatibility: '*', debug: true}, function(details) {
+gulp.task('minify-css', ['stylus'], () => {
+  gulp.src(paths.pathStylus + '.css')
+    .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
       console.log(
         details.name +
         ': The file was reduced from ' +
@@ -79,8 +79,8 @@ gulp.task('minify-css', ['stylus'], function() {
 // UGLIFY JS
 /////////////////////////////////////////////////////////////
 
-gulp.task('uglify', function() {
-  return gulp.src(paths.pathJsUglify)
+gulp.task('uglify', () => {
+  gulp.src(paths.pathJsUglify)
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/javascripts'));
@@ -90,8 +90,8 @@ gulp.task('uglify', function() {
 // FILES
 /////////////////////////////////////////////////////////////
 
-gulp.task('files', function() {
-  return gulp.src(paths.pathFiles);
+gulp.task('files', () => {
+  gulp.src(paths.pathFiles);
 });
 
 /////////////////////////////////////////////////////////////
@@ -99,7 +99,7 @@ gulp.task('files', function() {
 // Rerun the task when a file changes
 /////////////////////////////////////////////////////////////
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify.bind(server));
