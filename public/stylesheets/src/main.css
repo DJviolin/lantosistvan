@@ -966,6 +966,13 @@ footer .social-links a:last-child {
 .blog article .tags li + li::before {
   content: ', ';
 }
+.blog article header {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+}
 .blog article header time {
   margin-top: 15px;
 }
