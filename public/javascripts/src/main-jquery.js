@@ -30,7 +30,7 @@ function unbindSlick() {
   //console.log('unbindSlick() fired...');
 };
 function handleSlick() {
-  if (window.innerWidth > 1600) { // Browser window viewport including (if rendered) the vertical scrollbar
+  if (window.innerWidth > 1300) { // Browser window viewport including (if rendered) the vertical scrollbar
     bindSlick();
   } else {
     unbindSlick(); 
