@@ -4,8 +4,8 @@ const express = require('express'),
       router  = express.Router();
 //const glob    = require('glob');
 
-const functions  = require('../lib/functions'),
-      fsAsync    = functions.fsAsync;
+const functions = require('../lib/functions'),
+      fsAsync   = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -15,7 +15,7 @@ const functions  = require('../lib/functions'),
 router.get('/', (req, res, next) => {
   fsAsync((err, data) => {
     if (err) {
-      return res.render('404', {
+      res.render('404', {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
