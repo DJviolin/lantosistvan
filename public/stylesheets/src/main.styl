@@ -47,7 +47,16 @@
 // Partials - Lazyload
 /////////////////////////////////////////////////////////////
 
-@import 'partials/lazyload.styl'
+.lazyload
+  //display: none
+  visibility: hidden
+  overflow-y: hidden
+  height: 60vh
+  opacity: 0
+
+.sidescroll
+  .images
+    transition: opacity 0.5s ease 0s
 
 /////////////////////////////////////////////////////////////
 // Partials - Header
