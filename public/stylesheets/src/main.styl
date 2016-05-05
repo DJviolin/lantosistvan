@@ -127,7 +127,142 @@ header
 // Partials - Navigation
 /////////////////////////////////////////////////////////////
 
-@import 'partials/nav.styl'
+.navigation
+  displayFlex()
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  font-family: $TrebuchetMS
+  letter-spacing: 2px
+  font-size: 12px
+.nav
+  //margin-bottom: 40px
+  ul
+    displayFlex()
+    flex-direction: row
+    align-items: center
+    li
+      margin: 0 20px 0 20px;
+      &:hover > ul
+        visibility: visible
+        opacity: 1
+      &.active > a
+        //color: #575757;
+        //border-bottom: 3px solid #eff0f0;
+        //margin-bottom: -3px;
+      &.parent > a
+        margin-right: 10px
+      &.parent > a::after
+        //display: inline-block
+        display: block
+        float: right
+        //content: ' \27E9'
+        //content: ' \276D'
+        //content: ' \29FD'
+        content: ' \276F'
+        color: #000
+        transform: rotate(90deg) translateX(2px) translateY(-10px)
+      a
+        display: block
+        text-align: center
+        padding: 5px 0 5px 0
+        color: #727272
+        &:hover
+          text-decoration: underline
+          color: #000
+      ul
+        flex-direction: column
+        visibility: hidden
+        opacity: 0
+        position: absolute
+        margin-left: -10px
+        padding: 0
+        z-index: 9999
+        //background-color: #fff
+        //-moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05); box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05)
+        background-color: #f9f9f9
+        li
+          margin: 0
+          width: 100%
+          &:first-child
+            margin-top: 5px
+          &:last-child
+            margin-bottom: 3px
+          a
+            text-align: left
+            padding: 0
+            margin: 10px 20px 10px 20px
+
+@media (min-width: $mobile)
+  .toggle-mobile-nav
+    display: none
+  .navigation
+    //margin-bottom: 60px // Logo TOP OF nav
+    margin-bottom: 30px // Logo TOP OF nav
+  .nav
+    &.active
+      display: none
+
+@media (max-width: $mobile)
+  .nav-left,
+  .lang-en-EN .nav-left
+    margin-left: 0
+  .nav-left
+    margin-top: 10px
+    margin-bottom: 0
+  .nav-right
+    margin-bottom: 30px
+  .toggle-mobile-nav
+    margin-bottom: 10px
+    .menu-button
+      font-family: 'TrajanPro-Bold', $Georgia
+      color: #000
+      text-decoration: none
+      text-transform: uppercase
+      font-size: 1em
+      &:hover
+        cursor: pointer
+      span
+        font-size: 2em
+        vertical-align: -0.15em
+  .navigation
+    flex-direction: column;
+    font-family: $Georgia;
+    font-size: 0.78em;
+    letter-spacing: 0.15em;
+    color: #000;
+  .nav
+    display: none;
+    &.active
+      display: block
+    ul
+      flex-direction: column
+      li
+        margin: 0
+        &.parent > a
+          margin-right: 0
+        &.parent > a::after
+          transform: rotate(90deg) translateX(-1px) translateY(15px)
+        a
+          padding-top: 18px
+          padding-bottom: 18px
+        ul
+          flex-direction: column
+          visibility: visible
+          opacity: 1
+          position: relative
+          margin-left: 0
+          padding: 0
+          box-shadow: none
+          transition: all 0s ease 0s
+          background-color: #fff
+          li
+            a
+              text-align: center
+              font-size: 0.9em
+              color: #777
+              margin-top: 8px
+              margin-bottom: 8px
 
 /////////////////////////////////////////////////////////////
 // Partials - Portfolio
