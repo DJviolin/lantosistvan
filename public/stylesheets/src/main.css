@@ -367,6 +367,7 @@ li {
   -moz-transition: opacity 0.3s ease 0s;
   -webkit-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
+  z-index: 99;
 }
 .slick-prev:focus,
 .slick-next:focus {
@@ -386,7 +387,6 @@ li {
   top: 50%;
   left: 50%;
   opacity: 0.75;
-  color: #b9b9b9;
   font-size: 40px;
   line-height: 1;
   -o-transform: translate(-51%, -44%);
@@ -399,17 +399,16 @@ li {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  color: #b9b9b9;
 }
 .slick-prev {
   left: 25px;
-  z-index: 99;
 }
 .slick-prev:before {
   content: '\e838';
 }
 .slick-next {
   right: 25px;
-  z-index: 99;
 }
 .slick-next:before {
   content: '\e837';

@@ -58,6 +58,7 @@
   perspective: 1000
   transition: opacity 0.3s ease 0s
   //transform: translate(0, -50%)
+  z-index: 99
   &:focus
     outline: none
   &:hover
@@ -69,24 +70,17 @@
     top: 50%
     left: 50%
     opacity: .75
-    color: #b9b9b9
     font-size: 40px
     line-height: 1
     transform: translate(-51%, -44%)
     box-sizing: border-box
-    //color: #fff
+    color: #b9b9b9
 
 .slick-prev
   left: 25px
-  //left: 0
-  z-index: 99
   &:before
     content: '\e838'
-    //left: 25px
 .slick-next
   right: 25px
-  //right: 0
-  z-index: 99
   &:before
     content: '\e837'
-    //right: 25px
