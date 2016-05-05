@@ -842,6 +842,7 @@ footer .social-links a {
 footer .social-links a:last-child {
   margin-right: 0;
 }
+/* Social Icons styling */
 [class^='icon-']:before,
 [class*=' icon-']:before {
   font-family: 'fontello';
@@ -907,6 +908,12 @@ footer .social-links a:last-child {
     border-bottom: 1px dotted #e9e9e9;
   }
 }
+/*
+http://www.jennifermoher.com/
+http://lightandlace.de/
+http://dillonphommasa.com/
+http://marinkovic-weddings.com/
+*/
 .widget-title-img {
   display: block;
   margin: 0 auto 20px auto;
