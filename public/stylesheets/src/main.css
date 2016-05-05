@@ -511,6 +511,9 @@ header {
   -webkit-align-items: center;
   align-items: center;
 }
+.header-blog time {
+  margin-top: 15px;
+}
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .header-site .content .logo {
     height: auto;
@@ -526,7 +529,8 @@ header {
 }
 @media (max-width: 1300px) {
   .header-site .content {
-    width: 100%;
+    -webkit-flex: 0 0 100%;
+    flex: 0 0 100%;
     -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
     -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
@@ -975,9 +979,6 @@ footer .social-links a:last-child {
 }
 .blog article .tags li + li::before {
   content: ', ';
-}
-.blog article header time {
-  margin-top: 15px;
 }
 .blog .pagination {
   clear: both;

@@ -20,7 +20,6 @@ header
   .content
     displayFlex()
     flex: 0 0 50vw
-    //width: 50vw
     flex-direction: column
     align-items: center
     //justify-content: space-between
@@ -35,6 +34,8 @@ header
 .header-blog
   flex-direction: column
   align-items: center
+  time
+    margin-top: 15px
 
 @media screen and (-webkit-min-device-pixel-ratio: 0)
   .header-site
@@ -51,7 +52,7 @@ header
 @media (max-width: $mobile)
   .header-site
     .content
-      width: 100%
+      flex: 0 0 100%
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
     .logo
       margin: 30px
