@@ -973,9 +973,6 @@ http://marinkovic-weddings.com/
 .blog article {
   max-width: 600px;
 }
-.blog article img {
-  width: 100%;
-}
 .blog article .images {
   display: -ms-flex;
   display: -webkit-flex;
