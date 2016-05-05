@@ -9,11 +9,20 @@
       <time>{{data.month}} {{data.day}}, {{data.year}}</time>
       <h1><a href="{{language}}/blog/{{data.url}}">{{data.title}}</a></h1>
       <div class="category"><a href="{{language}}/category/{{data.category}}">{{data.category}}</a></div>
-    </header><!-- .header-blog.id-{{data._id}} -->
+    </header><!-- header.article.id-{{data._id}} -->
 
     <div class="article content">
     
       {{{__ data.body}}}
+
+      <ul class="images">
+        {{#each data.images}}
+        <li><img src="{{../data.imagesFolder}}{{this}}" alt=""></li>
+        {{else}}
+        <p class="empty">No images</p>
+        {{/each}}
+        <!-- access to parent's property with "../" -->
+      </ul><!-- ul.images -->
 
     </div><!-- div.article.content -->
 

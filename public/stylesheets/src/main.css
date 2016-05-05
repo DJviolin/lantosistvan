@@ -257,6 +257,11 @@ li {
 .pipe {
   padding: 0 3px 0 3px;
 }
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto 3px auto;
+}
 .lazyload {
   visibility: hidden;
   overflow-y: hidden;
@@ -970,9 +975,6 @@ http://marinkovic-weddings.com/
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-}
-.blog article .images li {
-  margin-bottom: 3px;
 }
 .blog article .tags .text {
   float: left;
