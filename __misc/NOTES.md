@@ -1,3 +1,12 @@
+# package.json uncommented
+
+```
+"babel-core": ">= 6.7.7",
+"babel-preset-es2015": ">= 6.6.0"
+```
+
+Rename `gulpfile.js` to `gulpfile.babel.js`
+
 # Arrow functions
 
 http://tc39wiki.calculist.org/es6/arrow-functions/
