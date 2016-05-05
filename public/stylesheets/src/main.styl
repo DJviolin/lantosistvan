@@ -197,7 +197,6 @@ li
 
 header
   displayFlex()
-  flex: 0 0 auto
   justify-content: center
 .header-site
   flex-direction: row
@@ -561,9 +560,9 @@ article.welcome
 /////////////////////////////////////////////////////////////
 // Partials - Footer
 /////////////////////////////////////////////////////////////
-
 footer
   displayFlex()
+.footer-site
   flex-direction: row
   align-items: flex-start
   justify-content: center
@@ -609,6 +608,8 @@ footer
       color: #727272
       &:last-child
         margin-right: 0
+.footer-blog
+  margin-bottom: 15px
 
 /* Social Icons styling */
 [class^='icon-']:before,
