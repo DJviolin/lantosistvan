@@ -36,10 +36,6 @@
       pointer-events: none
 
 // Arrows
-.slick-prev:focus,
-.slick-next:focus
-  outline: none
-
 .slick-prev,
 .slick-next
   display: block
@@ -62,27 +58,23 @@
   perspective: 1000
   transition: opacity 0.3s ease 0s
   //transform: translate(0, -50%)
-
-.slick-prev:hover,
-.slick-next:hover
-  opacity: .5
-
-.slick-prev:hover:before,
-.slick-next:hover:before
-  opacity: 1
-
-.slick-prev:before,
-.slick-next:before 
-  position: absolute
-  top: 50%
-  left: 50%
-  opacity: .75
-  color: #b9b9b9
-  font-size: 40px
-  line-height: 1
-  transform: translate(-51%, -44%)
-  box-sizing: border-box
-  //color: #fff
+  &:focus
+    outline: none
+  &:hover
+    opacity: .5
+    &:before
+      opacity: 1
+  &:before
+    position: absolute
+    top: 50%
+    left: 50%
+    opacity: .75
+    color: #b9b9b9
+    font-size: 40px
+    line-height: 1
+    transform: translate(-51%, -44%)
+    box-sizing: border-box
+    //color: #fff
 
 .slick-prev
   left: 25px

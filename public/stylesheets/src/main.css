@@ -337,10 +337,6 @@ li {
 .slick-slide.dragging img {
   pointer-events: none;
 }
-.slick-prev:focus,
-.slick-next:focus {
-  outline: none;
-}
 .slick-prev,
 .slick-next {
   display: block;
@@ -371,6 +367,10 @@ li {
   -moz-transition: opacity 0.3s ease 0s;
   -webkit-transition: opacity 0.3s ease 0s;
   transition: opacity 0.3s ease 0s;
+}
+.slick-prev:focus,
+.slick-next:focus {
+  outline: none;
 }
 .slick-prev:hover,
 .slick-next:hover {
