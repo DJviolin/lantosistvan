@@ -102,6 +102,28 @@ $ heroku logs --tail
 $ heroku ps
 ```
 
+# MongoDB
+
+Installing MongoDB Service and Start:
+
+```
+$ "C:\mongodb\bin\mongod.exe" --config "C:\mongodb\mongod.cfg" --install
+$ net start MongoDB
+```
+
+Accessing MongoDB Shell:
+
+```
+$ mongo
+```
+
+Removing MongoDB Service and Stop:
+
+```
+$ net stop MongoDB
+$ "C:\mongodb\bin\mongod.exe" --remove
+```
+
 # Notes
 
 Removing all `translate3d` from CSS and JS is needed because of Webkit subpixel rendering drop.
