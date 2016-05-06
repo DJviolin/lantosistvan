@@ -30,7 +30,7 @@ const paths = {
                  'bin/www',
                  'routes/**/*.js',
                  'lib/**/*.js',
-                 'config.js'],
+                 'config/**/*.js'],
   pathJsUglify: ['public/javascripts/src/main-vanilla.js',
                  'public/javascripts/src/main-jquery.js',
                  'public/javascripts/src/slick.js'],
