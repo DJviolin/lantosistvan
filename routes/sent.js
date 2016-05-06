@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
     'Subject: ' + req.body.subject + '<br />' +
-    'Message: ' + req.body.message + '<br />'
+    'Message: ' + req.body.html + '<br />'
   );
 });
 
