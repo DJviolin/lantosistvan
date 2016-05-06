@@ -24,6 +24,9 @@ const transporter = nodemailer.createTransport({
     user: config.user,
     pass: config.pass
   },
+  logger: true, // log to console
+  debug: true, // include SMTP traffic in the logs
+  
   // use up to 5 parallel connections 
   maxConnections: 5,
   // do not send more than 10 messages per connection 
