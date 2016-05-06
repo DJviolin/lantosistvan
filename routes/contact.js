@@ -15,9 +15,6 @@ const config = require('../config/mail');
 /////////////////////////////////////////////////////////////
 
 // create reusable transporter object using the default SMTP transport
-//const transporter = nodemailer.createTransport(smtpConfig);
-//const transporter = nodemailer.createTransport(smtpPool(options));
-
 const transporter = nodemailer.createTransport(smtpPool({
   host: config.host,
   port: config.port,
