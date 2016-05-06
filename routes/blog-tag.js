@@ -3,7 +3,7 @@
 const express = require('express'),
       router  = express.Router();
 
-const config          = require('../config'),
+const config          = require('../config/routes'),
       articlesPerPage = config.articlesPerPage;
 
 const functions = require('../lib/functions'),

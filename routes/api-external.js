@@ -3,7 +3,7 @@
 var express = require('express'),
     router  = express.Router();
 
-var config          = require('../config'),
+var config          = require('../config/routes'),
     apiToken        = config.apiToken,
     articlesPerPage = config.articlesPerPage;
 

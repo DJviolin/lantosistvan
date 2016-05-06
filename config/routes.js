@@ -4,7 +4,7 @@
 /*const usedPort = '3000';
 exports.usedPort = usedPort;*/
 
-// API TOKEN
+/*// API TOKEN
 const apiToken = 'password';
 exports.apiToken = apiToken;
 
@@ -15,4 +15,10 @@ exports.db = db;
 
 // POSTS PER PAGE
 const articlesPerPage = 2;
-exports.articlesPerPage = articlesPerPage;
+exports.articlesPerPage = articlesPerPage;*/
+
+module.exports = {
+  apiToken: 'password',
+  db: '/../database/data.json',
+  articlesPerPage: 2
+};

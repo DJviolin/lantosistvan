@@ -4,7 +4,7 @@ const express = require('express'),
       router  = express.Router();
 //const request = require('request');
 
-const config          = require('../config'),
+const config          = require('../config/routes'),
       //usedPort        = config.usedPort,
       articlesPerPage = config.articlesPerPage;
 
