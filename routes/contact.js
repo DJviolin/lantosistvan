@@ -83,6 +83,17 @@ router.post('/', (req, res) => {
     'Subject: ' + req.body.subject + '<br />' +
     'Message: ' + req.body.text
   );*/
+
+  transporter.sendMail({
+    from:    req.body.email,
+    to:      config.to,
+    name:    req.body.name,
+    subject: req.body.subject,
+    text:    req.body.text
+  }, (err, response) => {
+    console.log(err || response);
+  });
+
   console.log(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
