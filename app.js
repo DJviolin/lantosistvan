@@ -37,7 +37,8 @@ const api      = require('./routes/api-external'),
       blog     = require('./routes/blog'),
       category = require('./routes/blog-category'),
       tag      = require('./routes/blog-tag'),
-      contact  = require('./routes/contact');
+      contact  = require('./routes/contact'),
+      users    = require('./routes/users');
 
 /////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
@@ -223,6 +224,11 @@ app.use('/tag', (req, res) => {
 app.use('/:lang/contact', contact);
 app.use('/contact', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/contact');
+});
+
+app.use('/:lang/users', users);
+app.use('/users', (req, res) => {
+  res.status(302).redirect('/' + req.getLocale() + '/users');
 });
 
 // Place under every other routes, because it can block others!
