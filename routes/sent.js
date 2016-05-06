@@ -15,7 +15,7 @@ const express    = require('express'),
   //console.log('req.body.name', req.body['name']);
 });*/
 
-router.get('/sent', (req, res) => {
+router.post('/', (req, res) => {
   res.send(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
