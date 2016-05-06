@@ -60,6 +60,8 @@ transporter.sendMail(message, (error, info) => {
   console.log('Server responded with "%s"', info.response);
 });*/
 
+// TODO: "req.body.email" is same to "config.to"
+
 router.post('/', (req, res) => {
   transporter.sendMail({
     from:    req.body.email,
@@ -79,7 +81,7 @@ router.post('/', (req, res) => {
     'Subject: ' + req.body.subject + '<br />' +
     'Message: ' + req.body.text
   );
-  
+
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
