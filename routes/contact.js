@@ -76,13 +76,14 @@ transporter.sendMail(message, (error, info) => {
   //console.log('req.body.name', req.body['name']);
 });*/
 
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
   console.log(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
     'Subject: ' + req.body.subject + '<br />' +
     'Message: ' + req.body.text
   );
+  res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
 /////////////////////////////////////////////////////////////
