@@ -168,16 +168,7 @@ li
 // Partials - Lazyload
 /////////////////////////////////////////////////////////////
 
-.lazyload
-  //display: none
-  visibility: hidden
-  overflow-y: hidden
-  height: 60vh
-  opacity: 0
-
-.sidescroll
-  .images
-    transition: opacity 0.5s ease 0s
+//@import 'modules/lazyload.styl'
 
 /////////////////////////////////////////////////////////////
 // Partials - Header
@@ -397,6 +388,7 @@ header
     //flex-wrap: no-wrap
     //position: relative
     overflow-x: hidden
+    transition: opacity 0.5s ease 0s // lazyload
     li
       margin-right: 2px
       background-color: #c3c3c3

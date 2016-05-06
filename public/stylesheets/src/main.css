@@ -445,18 +445,6 @@ _:-ms-fullscreen,
 /**:hover
   box-shadow: inset 0 0 0 1px #f00
 */
-.lazyload {
-  visibility: hidden;
-  overflow-y: hidden;
-  height: 60vh;
-  opacity: 0;
-}
-.sidescroll .images {
-  -o-transition: opacity 0.5s ease 0s;
-  -moz-transition: opacity 0.5s ease 0s;
-  -webkit-transition: opacity 0.5s ease 0s;
-  transition: opacity 0.5s ease 0s;
-}
 .lang-selector {
   position: absolute;
   top: 0;
@@ -733,6 +721,10 @@ header {
   -webkit-flex-direction: row;
   flex-direction: row;
   overflow-x: hidden;
+  -o-transition: opacity 0.5s ease 0s;
+  -moz-transition: opacity 0.5s ease 0s;
+  -webkit-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
 }
 .sidescroll .images li {
   margin-right: 2px;
