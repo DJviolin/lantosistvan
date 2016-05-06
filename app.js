@@ -38,7 +38,7 @@ const api      = require('./routes/api-external'),
       category = require('./routes/blog-category'),
       tag      = require('./routes/blog-tag'),
       contact  = require('./routes/contact'),
-      sent     = require('./routes/sent');
+      sent     = require('./routes/sent'),
       users    = require('./routes/users');
 
 /////////////////////////////////////////////////////////////

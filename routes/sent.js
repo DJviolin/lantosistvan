@@ -16,7 +16,12 @@ const express    = require('express'),
 });*/
 
 router.get('/sent', (req, res) => {
-  res.send('Name: ' + req.body.name);
+  res.send(
+    'Name: ' + req.body.name + '<br />' +
+    'Email: ' + req.body.email + '<br />' +
+    'Subject: ' + req.body.subject + '<br />' +
+    'Message: ' + req.body.message + '<br />'
+  );
 });
 
 /////////////////////////////////////////////////////////////
