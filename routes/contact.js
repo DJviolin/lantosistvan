@@ -7,8 +7,8 @@ const express    = require('express'),
 const functions = require('../lib/functions'),
       fsAsync   = functions.fsAsync;
 
-const config        = require('../config/mail'),
-      smtpTransport = config.smtpTransport;
+const config     = require('../config/mail'),
+      smtpConfig = config.smtpTransport;
 
 // create reusable transporter object using the default SMTP transport
 const transporter = nodemailer.createTransport(smtpConfig);
