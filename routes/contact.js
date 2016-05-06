@@ -2,7 +2,7 @@
 
 const express    = require('express'),
       nodemailer = require('nodemailer'),
-      smtpPool   = require('nodemailer-smtp-pool'),
+      //smtpPool   = require('nodemailer-smtp-pool'),
       router     = express.Router();
 
 const functions = require('../lib/functions'),
@@ -15,9 +15,11 @@ const config = require('../config/mail');
 /////////////////////////////////////////////////////////////
 
 // create reusable transporter object using the default SMTP transport
-const transporter = nodemailer.createTransport(smtpPool({
+const transporter = nodemailer.createTransport({
+  pool: true,
   host: config.host,
   port: config.port,
+  secure: true, // use SSL 
   auth: {
     user: config.user,
     pass: config.pass
@@ -28,7 +30,7 @@ const transporter = nodemailer.createTransport(smtpPool({
   maxMessages: 10,
   // do not send more than 5 messages in a second 
   rateLimit: 5
-}));
+});
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
