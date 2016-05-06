@@ -27,6 +27,7 @@ const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
   pathCSS:      ['public/stylesheets/src/**/*'],
   pathServer:   ['app.js',
+                 'smtp.js',
                  'bin/www',
                  'routes/**/*.js',
                  'lib/**/*.js',
@@ -51,6 +52,19 @@ const server = gls.new([
 
 //you can access cwd args in `bin/www` via `process.argv` 
 gulp.task('start', () => server.start());
+
+/////////////////////////////////////////////////////////////
+// SMTP
+/////////////////////////////////////////////////////////////
+
+/*// this will achieve `node --trace-deprecation --trace-sync-io ./smtp.js`
+const smtp = gls.new([
+  '--trace-deprecation', '--trace-sync-io', 'smtp.js',
+  { env: { NODE_ENV: 'production' } }
+]);
+
+//you can access cwd args in `bin/www` via `process.argv` 
+gulp.task('smtp', () => smtp.start());*/
 
 /////////////////////////////////////////////////////////////
 // STYLUS CSS

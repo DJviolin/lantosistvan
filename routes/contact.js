@@ -1,7 +1,8 @@
 'use strict';
 
-const express = require('express'),
-      router  = express.Router();
+const express    = require('express'),
+      nodemailer = require('nodemailer'),
+      router     = express.Router();
 
 const functions = require('../lib/functions'),
       fsAsync   = functions.fsAsync;
