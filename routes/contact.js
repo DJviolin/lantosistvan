@@ -8,8 +8,7 @@ const express    = require('express'),
 const functions = require('../lib/functions'),
       fsAsync   = functions.fsAsync;
 
-//const config     = require('../config/mail'),
-//      smtpConfig = config.smtpTransport;
+const config = require('../config/mail');
 
 /////////////////////////////////////////////////////////////
 // Nodemailer
@@ -20,18 +19,18 @@ const functions = require('../lib/functions'),
 //const transporter = nodemailer.createTransport(smtpPool(options));
 
 const transporter = nodemailer.createTransport(smtpPool({
-    host: 'localhost',
-    port: 25,
-    auth: {
-        user: 'username',
-        pass: 'password'
-    },
-    // use up to 5 parallel connections 
-    maxConnections: 5,
-    // do not send more than 10 messages per connection 
-    maxMessages: 10,
-    // no not send more than 5 messages in a second 
-    rateLimit: 5
+  host: config.host,
+  port: config.port,
+  auth: {
+    user: config.user,
+    pass: config.pass
+  },
+  // use up to 5 parallel connections 
+  maxConnections: 5,
+  // do not send more than 10 messages per connection 
+  maxMessages: 10,
+  // do not send more than 5 messages in a second 
+  rateLimit: 5
 }));
 
 /////////////////////////////////////////////////////////////
