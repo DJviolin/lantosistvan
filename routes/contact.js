@@ -11,7 +11,7 @@ const config        = require('../config/mail'),
       smtpTransport = config.smtpTransport;
 
 // create reusable transporter object using the default SMTP transport
-const transporter = nodemailer.createTransport(smtpTransport);
+const transporter = nodemailer.createTransport(smtpConfig);
 
 /* GET info page. */
 router.get('/', (req, res, next) => {
