@@ -77,6 +77,12 @@ transporter.sendMail(message, (error, info) => {
 });*/
 
 router.post('/', (req, res) => {
+  /*res.send(
+    'Name: ' + req.body.name + '<br />' +
+    'Email: ' + req.body.email + '<br />' +
+    'Subject: ' + req.body.subject + '<br />' +
+    'Message: ' + req.body.text
+  );*/
   console.log(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
