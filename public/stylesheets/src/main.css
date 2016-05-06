@@ -305,7 +305,8 @@ li {
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
 }
-.slick-list {
+.slick-list,
+.slick-track {
   overflow: hidden;
 }
 .slick-track {
@@ -317,8 +318,6 @@ li {
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
-  overflow-x: hidden;
-  overflow-y: hidden;
   position: relative;
 }
 .slick-loading .slick-track,
