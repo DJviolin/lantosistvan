@@ -54,19 +54,6 @@ const server = gls.new([
 gulp.task('start', () => server.start());
 
 /////////////////////////////////////////////////////////////
-// SMTP
-/////////////////////////////////////////////////////////////
-
-/*// this will achieve `node --trace-deprecation --trace-sync-io ./smtp.js`
-const smtp = gls.new([
-  '--trace-deprecation', '--trace-sync-io', 'smtp.js',
-  { env: { NODE_ENV: 'production' } }
-]);
-
-//you can access cwd args in `bin/www` via `process.argv` 
-gulp.task('smtp', () => smtp.start());*/
-
-/////////////////////////////////////////////////////////////
 // STYLUS CSS
 /////////////////////////////////////////////////////////////
 
