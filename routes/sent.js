@@ -15,12 +15,18 @@ const express    = require('express'),
   //console.log('req.body.name', req.body['name']);
 });*/
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   res.send(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
     'Subject: ' + req.body.subject + '<br />' +
-    'Message: ' + req.body.text + '<br />'
+    'Message: ' + req.body.text
+  );
+  console.log(
+    'Name: ' + req.body.name + '<br />' +
+    'Email: ' + req.body.email + '<br />' +
+    'Subject: ' + req.body.subject + '<br />' +
+    'Message: ' + req.body.text
   );
 });
 

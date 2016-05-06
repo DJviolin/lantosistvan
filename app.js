@@ -231,6 +231,9 @@ app.use('/:lang/sent', sent);
 app.use('/sent', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/sent');
 });
+/*app.use('/:lang/sent', (req, res) => {
+  res.status(302).redirect('/' + req.getLocale() + '/contact');
+});*/
 
 app.use('/:lang/users', users);
 app.use('/users', (req, res) => {
