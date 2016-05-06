@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
   },
   logger: true, // log to console
   debug: true, // include SMTP traffic in the logs
-  
+
   // use up to 5 parallel connections 
   maxConnections: 5,
   // do not send more than 10 messages per connection 
@@ -34,6 +34,47 @@ const transporter = nodemailer.createTransport({
   // do not send more than 5 messages in a second 
   rateLimit: 5
 });
+
+/*// Message object
+const message = {
+  // Comma separated list of recipients
+  to: '"Receiver Name" <kerozin.joe@gmail.com>',
+  // Subject of the message
+  subject: 'Nodemailer is unicode friendly ✔',
+  // plaintext body
+  text: 'Hello to myself!',
+  // HTML body
+  html: '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
+      '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
+  // Apple Watch specific HTML body
+  watchHtml: '<b>Hello</b> to myself'
+};
+
+transporter.sendMail(message, (error, info) => {
+  if(error) {
+    console.log('Error occurred');
+    console.log(error.message);
+    return;
+  }
+  console.log('Message sent successfully!');
+  console.log('Server responded with "%s"', info.response);
+});*/
+
+/*transporter.sendMail({
+  //from: 'sender@address',
+  from: from,
+  to: config.to,
+  name: '',
+  subject: 'hello',
+  html: 'hello world!'
+}, (err, response) => {
+  console.log(err || response);
+});*/
+
+/*router.post('/sent', function(req, res) {
+  //console.log(JSON.stringify(req.body));
+  //console.log('req.body.name', req.body['name']);
+});*/
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API

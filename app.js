@@ -38,6 +38,7 @@ const api      = require('./routes/api-external'),
       category = require('./routes/blog-category'),
       tag      = require('./routes/blog-tag'),
       contact  = require('./routes/contact'),
+      sent     = require('./routes/sent');
       users    = require('./routes/users');
 
 /////////////////////////////////////////////////////////////
@@ -74,7 +75,7 @@ app.set('view engine', '.hbs');
 // bodyParser
 // This will let us get the data from a POST
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // methodOverride
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
@@ -224,6 +225,11 @@ app.use('/tag', (req, res) => {
 app.use('/:lang/contact', contact);
 app.use('/contact', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/contact');
+});
+
+app.use('/:lang/sent', sent);
+app.use('/sent', (req, res) => {
+  res.status(302).redirect('/' + req.getLocale() + '/sent');
 });
 
 app.use('/:lang/users', users);
