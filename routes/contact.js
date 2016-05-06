@@ -2,18 +2,43 @@
 
 const express    = require('express'),
       nodemailer = require('nodemailer'),
+      smtpPool   = require('nodemailer-smtp-pool'),
       router     = express.Router();
 
 const functions = require('../lib/functions'),
       fsAsync   = functions.fsAsync;
 
-const config     = require('../config/mail'),
-      smtpConfig = config.smtpTransport;
+//const config     = require('../config/mail'),
+//      smtpConfig = config.smtpTransport;
+
+/////////////////////////////////////////////////////////////
+// Nodemailer
+/////////////////////////////////////////////////////////////
 
 // create reusable transporter object using the default SMTP transport
-const transporter = nodemailer.createTransport(smtpConfig);
+//const transporter = nodemailer.createTransport(smtpConfig);
+//const transporter = nodemailer.createTransport(smtpPool(options));
 
-/* GET info page. */
+const transporter = nodemailer.createTransport(smtpPool({
+    host: 'localhost',
+    port: 25,
+    auth: {
+        user: 'username',
+        pass: 'password'
+    },
+    // use up to 5 parallel connections 
+    maxConnections: 5,
+    // do not send more than 10 messages per connection 
+    maxMessages: 10,
+    // no not send more than 5 messages in a second 
+    rateLimit: 5
+}));
+
+/////////////////////////////////////////////////////////////
+// INTERNAL API
+// GET Contact page
+/////////////////////////////////////////////////////////////
+
 router.get('/', (req, res, next) => {
   fsAsync((err, data) => {
     if(err) {
@@ -53,5 +78,9 @@ router.get('/', (req, res, next) => {
   });
   //console.log('this is async');
 });*/
+
+/////////////////////////////////////////////////////////////
+// INIT EXPRESS ROUTER
+/////////////////////////////////////////////////////////////
 
 module.exports = router;
