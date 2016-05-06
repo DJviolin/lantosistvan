@@ -60,30 +60,7 @@ transporter.sendMail(message, (error, info) => {
   console.log('Server responded with "%s"', info.response);
 });*/
 
-/*transporter.sendMail({
-  //from: 'sender@address',
-  from: from,
-  to: config.to,
-  name: '',
-  subject: 'hello',
-  html: 'hello world!'
-}, (err, response) => {
-  console.log(err || response);
-});*/
-
-/*router.post('/sent', function(req, res) {
-  //console.log(JSON.stringify(req.body));
-  //console.log('req.body.name', req.body['name']);
-});*/
-
 router.post('/', (req, res) => {
-  /*res.send(
-    'Name: ' + req.body.name + '<br />' +
-    'Email: ' + req.body.email + '<br />' +
-    'Subject: ' + req.body.subject + '<br />' +
-    'Message: ' + req.body.text
-  );*/
-
   transporter.sendMail({
     from:    req.body.email,
     to:      config.to,
@@ -94,12 +71,15 @@ router.post('/', (req, res) => {
     console.log(err || response);
   });
 
+  //console.log(JSON.stringify(req.body));
+  //console.log('req.body.name', req.body['name']);
   console.log(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
     'Subject: ' + req.body.subject + '<br />' +
     'Message: ' + req.body.text
   );
+  
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
