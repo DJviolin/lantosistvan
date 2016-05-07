@@ -102,7 +102,7 @@ router.get('/', (req, res, next) => {
     values: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', // String with chars to generate random captcha
     length: 4, // lenght of chars in generated captcha
     width: 100, // width of the generated image
-    height: 40, // height of the generated image
+    height: 35, // height of the generated image
     color: false, // true means that letters are painted in colors and false in gray scale
     lines: 0, // number of lines in the captcha
     noise: 0 // level of noise (points) in the captcha
