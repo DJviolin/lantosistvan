@@ -68,19 +68,23 @@ router.post('/', (req, res) => {
     to:      config.to,
     name:    req.body.name,
     subject: req.body.subject,
-    text:    req.body.text
+    text:
+      'NAME:\n' + '    ' + req.body.name + '\n\n' +
+      'EMAIL:\n' + '    ' + req.body.email + '\n\n' +
+      'SUBJECT:\n' + '    ' + req.body.subject + '\n\n' +
+      'MESSAGE:\n' + '    ' + req.body.text
   }, (err, response) => {
     console.log(err || response);
   });
 
   //console.log(JSON.stringify(req.body));
   //console.log('req.body.name', req.body['name']);
-  console.log(
+  /*console.log(
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
     'Subject: ' + req.body.subject + '<br />' +
     'Message: ' + req.body.text
-  );
+  );*/
 
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
