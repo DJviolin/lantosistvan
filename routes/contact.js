@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
       'NAME:\n' + '    ' + req.body.name + '\n\n' +
       'EMAIL:\n' + '    ' + req.body.email + '\n\n' +
       'SUBJECT:\n' + '    ' + req.body.subject + '\n\n' +
-      'MESSAGE:\n' + '    ' + req.body.text
+      'MESSAGE:\n' + '    ' + req.body.message
   }, (err, response) => {
     console.log(err || response);
   });
@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
     'Name: ' + req.body.name + '<br />' +
     'Email: ' + req.body.email + '<br />' +
     'Subject: ' + req.body.subject + '<br />' +
-    'Message: ' + req.body.text
+    'Message: ' + req.body.message
   );*/
 
   res.status(302).redirect('/' + req.getLocale() + '/contact');
