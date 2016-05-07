@@ -97,7 +97,6 @@ router.post('/', (req, res) => {
 router.get('/', (req, res, next) => {
 
   const captcha = require('node-svgcaptcha');
-  //Set your configuration in this object
   const options = {
     values: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', // String with chars to generate random captcha
     length: 4, // lenght of chars in generated captcha
