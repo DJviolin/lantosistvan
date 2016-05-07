@@ -111,9 +111,6 @@ router.get('/', (req, res, next) => {
   if(req.session) { //save value in session
     req.session.captcha = genCaptcha.captchaValue;
   };
-  //return svg to render in the browser
-  //res.set('Content-Type', 'image/svg+xml');
-  //res.send('/images/' + genCaptcha.svg); 
 
   fsAsync((err, data) => {
     if(err) {
