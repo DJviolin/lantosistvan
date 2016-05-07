@@ -69,10 +69,10 @@ router.post('/', (req, res) => {
     name:    req.body.name,
     subject: req.body.subject,
     text:
-      'NAME:\n' + '    ' + req.body.name + '\n\n' +
-      'EMAIL:\n' + '    ' + req.body.email + '\n\n' +
-      'SUBJECT:\n' + '    ' + req.body.subject + '\n\n' +
-      'MESSAGE:\n' + '    ' + req.body.message
+      'Név:\n' + '    ' + req.body.name + '\n\n' +
+      'Email cím:\n' + '    ' + req.body.email + '\n\n' +
+      'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
+      'Üzenet:\n' + '    ' + req.body.message
   }, (err, response) => {
     console.log(err || response);
   });
