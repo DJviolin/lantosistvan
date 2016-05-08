@@ -39,9 +39,7 @@
 
     "dotenv": ">= 2.0.0",
 
-    "nodemailer": ">= 2.3.2",
-    "recaptcha2": ">= 1.0.8",
-    "node-svgcaptcha": ">= 1.0.1"
+    "nodemailer": ">= 2.3.2"
   },
   "devDependencies": {
     "gulp": ">= 3.9.1",

@@ -95,22 +95,6 @@ router.post('/', (req, res) => {
 /////////////////////////////////////////////////////////////
 
 router.get('/', (req, res, next) => {
-
-  const captcha = require('node-svgcaptcha');
-  const options = {
-    values: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', // String with chars to generate random captcha
-    length: 4, // lenght of chars in generated captcha
-    width: 100, // width of the generated image
-    height: 35, // height of the generated image
-    color: false, // true means that letters are painted in colors and false in gray scale
-    lines: 0, // number of lines in the captcha
-    noise: 0 // level of noise (points) in the captcha
-  };
-  const genCaptcha = captcha(options);
-  if(req.session) { //save value in session
-    req.session.captcha = genCaptcha.captchaValue;
-  };
-
   fsAsync((err, data) => {
     if(err) {
       res.render('404', {
@@ -129,8 +113,7 @@ router.get('/', (req, res, next) => {
       title: 'Contact',
       description: 'Get in touch',
       keywords: 'info,wedding,photography,film,lantos,istvan',
-      data: contact,
-      captcha: genCaptcha.svg
+      data: contact
     });
   });
 });
