@@ -46,6 +46,10 @@ router.post('/', (req, res) => {
       'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
       'Üzenet:\n' + '    ' + req.body.message
   };
+
+  // TODO: You have to check the captcha before you call sendMail.
+  // There is no way to abort already running email transaction in Nodemailer
+
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (err, info) => {
     if(err) {
