@@ -88,6 +88,23 @@ run the app on windows:
  > SET DEBUG=i18n:* & npm run gulp
 ```
 
+# Uncommented files
+
+`./config/mail.js`
+
+```javascript
+'use strict';
+
+module.exports = {
+  host: 'host-address',
+  port: 'port-number',
+  user: 'username',
+  pass: 'password',
+  from: 'username@domain.com',
+  to: 'to@domain.com'
+};
+```
+
 # Heroku
 
 ```
