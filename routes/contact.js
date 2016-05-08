@@ -47,10 +47,10 @@ router.post('/', (req, res) => {
       'Üzenet:\n' + '    ' + req.body.message
   };
   // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if(error) {
+  transporter.sendMail(mailOptions, (err, info) => {
+    if(err) {
       console.log('Error occurred');
-      console.log(error.message);
+      console.log(err.message);
     }
     console.log('Message sent successfully!');
     console.log('Server responded with "%s"', info.response);
