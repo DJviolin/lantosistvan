@@ -41,24 +41,26 @@ router.post('/', (req, res) => {
     to: config.to, // list of receivers
     subject: '<< Contact Form >>', // Subject line
     text: // plaintext body
+      'Captcha:\n' + '    ' + req.body.captcha + '\n\n' +
       'Név:\n' + '    ' + req.body.name + '\n\n' +
       'Email cím:\n' + '    ' + req.body.email + '\n\n' +
       'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
       'Üzenet:\n' + '    ' + req.body.message
   };
 
-  // TODO: You have to check the captcha before you call sendMail.
+  // You have to check the captcha before you call sendMail.
   // There is no way to abort already running email transaction in Nodemailer
-
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, (err, info) => {
-    if(err) {
-      console.log('Error occurred');
-      console.log(err.message);
-    }
-    console.log('Message sent successfully!');
-    console.log('Server responded with "%s"', info.response);
-  });
+  if(req.body.captcha === 'négy' || 'negy' || 'Négy' || 'Negy' || 'NÉGY' || 'NEGY' || 'four' || 'Four' || 'FOUR') {
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (err, info) => {
+      if(err) {
+        console.log('Error occurred');
+        console.log(err.message);
+      }
+      console.log('Message sent successfully!');
+      console.log('Server responded with "%s"', info.response);
+    });
+  };
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
