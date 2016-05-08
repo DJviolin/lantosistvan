@@ -63,7 +63,26 @@ transporter.sendMail(message, (error, info) => {
 // TODO: "req.body.email" is same to "config.to"
 
 router.post('/', (req, res) => {
-  transporter.sendMail({
+  // setup e-mail data with unicode symbols
+  const mailOptions = {
+    from: '"👥 LantosIstvan.com" <' + config.from + '>', // sender address
+    to: config.to, // list of receivers
+    subject: '<< Contact Form >>', // Subject line
+    text: // plaintext body
+      'Név:\n' + '    ' + req.body.name + '\n\n' +
+      'Email cím:\n' + '    ' + req.body.email + '\n\n' +
+      'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
+      'Üzenet:\n' + '    ' + req.body.message
+  };
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if(error) {
+      return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+  });
+
+  /*transporter.sendMail({
     from:    req.body.email,
     to:      config.to,
     name:    req.body.name,
@@ -75,7 +94,7 @@ router.post('/', (req, res) => {
       'Üzenet:\n' + '    ' + req.body.message
   }, (err, response) => {
     console.log(err || response);
-  });
+  });*/
 
   //console.log(JSON.stringify(req.body));
   //console.log('req.body.name', req.body['name']);
