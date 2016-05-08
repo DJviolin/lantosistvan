@@ -69,11 +69,9 @@ install dependencies:
 
 run the app on linux:
  > $ DEBUG=lantosistvan-portfolio:*,i18n:* npm start
- > $ DEBUG=i18n:* & npm start
 
 run the app on windows:
  > SET DEBUG=lantosistvan-portfolio:*,i18n:* & npm start
- > SET DEBUG=i18n:* & npm start
 ```
 
 #### Gulp
@@ -81,11 +79,9 @@ run the app on windows:
 ```
 run the app on linux:
  > $ DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:* npm run gulp
- > $ DEBUG=i18n:* & npm run gulp
 
 run the app on windows:
  > SET DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
- > SET DEBUG=i18n:* & npm run gulp
 ```
 
 # Uncommented files
