@@ -35,33 +35,6 @@ const transporter = nodemailer.createTransport({
   rateLimit: 5
 });
 
-/*// Message object
-const message = {
-  // Comma separated list of recipients
-  to: '"Receiver Name" <kerozin.joe@gmail.com>',
-  // Subject of the message
-  subject: 'Nodemailer is unicode friendly ✔',
-  // plaintext body
-  text: 'Hello to myself!',
-  // HTML body
-  html: '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
-      '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
-  // Apple Watch specific HTML body
-  watchHtml: '<b>Hello</b> to myself'
-};
-
-transporter.sendMail(message, (error, info) => {
-  if(error) {
-    console.log('Error occurred');
-    console.log(error.message);
-    return;
-  }
-  console.log('Message sent successfully!');
-  console.log('Server responded with "%s"', info.response);
-});*/
-
-// TODO: "req.body.email" is same to "config.to"
-
 router.post('/', (req, res) => {
   // setup e-mail data with unicode symbols
   const mailOptions = {
@@ -77,34 +50,12 @@ router.post('/', (req, res) => {
   // send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
     if(error) {
-      return console.log(error);
+      console.log('Error occurred');
+      console.log(error.message);
     }
-    console.log('Message sent: ' + info.response);
+    console.log('Message sent successfully!');
+    console.log('Server responded with "%s"', info.response);
   });
-
-  /*transporter.sendMail({
-    from:    req.body.email,
-    to:      config.to,
-    name:    req.body.name,
-    subject: req.body.subject,
-    text:
-      'Név:\n' + '    ' + req.body.name + '\n\n' +
-      'Email cím:\n' + '    ' + req.body.email + '\n\n' +
-      'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
-      'Üzenet:\n' + '    ' + req.body.message
-  }, (err, response) => {
-    console.log(err || response);
-  });*/
-
-  //console.log(JSON.stringify(req.body));
-  //console.log('req.body.name', req.body['name']);
-  /*console.log(
-    'Name: ' + req.body.name + '<br />' +
-    'Email: ' + req.body.email + '<br />' +
-    'Subject: ' + req.body.subject + '<br />' +
-    'Message: ' + req.body.message
-  );*/
-
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
