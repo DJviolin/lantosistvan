@@ -2,7 +2,6 @@
 
 const express    = require('express'),
       nodemailer = require('nodemailer'),
-      //smtpPool   = require('nodemailer-smtp-pool'),
       router     = express.Router();
 
 const functions = require('../lib/functions'),
