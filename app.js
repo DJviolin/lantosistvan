@@ -38,7 +38,6 @@ const api      = require('./routes/api-external'),
       category = require('./routes/blog-category'),
       tag      = require('./routes/blog-tag'),
       contact  = require('./routes/contact'),
-      //sent     = require('./routes/sent'),
       users    = require('./routes/users');
 
 /////////////////////////////////////////////////////////////
@@ -226,14 +225,6 @@ app.use('/:lang/contact', contact);
 app.use('/contact', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
-
-/*app.use('/:lang/sent', sent);
-app.use('/sent', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/sent');
-});*/
-/*app.use('/:lang/sent', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/contact');
-});*/
 
 app.use('/:lang/users', users);
 app.use('/users', (req, res) => {
