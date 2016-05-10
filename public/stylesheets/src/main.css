@@ -567,7 +567,7 @@ header {
   align-items: center;
 }
 .nav ul li {
-  margin: 0 40px 0 40px;
+  margin: 0 35px 0 35px;
 /*&.parent > a::after
         //display: inline-block
         display: block
