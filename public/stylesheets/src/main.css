@@ -540,7 +540,8 @@ header {
   justify-content: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   letter-spacing: 2px;
-  font-size: 12px;
+  font-size: 11px;
+  text-transform: lowercase;
 }
 .nav ul {
   display: -ms-flex;
