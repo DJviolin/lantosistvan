@@ -485,8 +485,8 @@ header {
 }
 .header-site .content .logo {
   margin: 40px 30px 40px 30px;
-  max-width: 300px;
-  height: 97px;
+  max-width: 250px;
+  height: 62px;
 }
 .header-site .content .logo a img {
   width: 100%;
