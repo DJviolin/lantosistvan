@@ -542,6 +542,7 @@ header {
   letter-spacing: 2px;
   font-size: 11px;
   text-transform: lowercase;
+  font-style: italic;
 }
 .nav ul {
   display: -ms-flex;
@@ -567,12 +568,13 @@ header {
   display: block;
   float: right;
   content: ' \276F';
+  font-style: normal;
   color: #000;
-  -o-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -ms-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -moz-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  -webkit-transform: rotate(90deg) translateX(2px) translateY(-10px);
-  transform: rotate(90deg) translateX(2px) translateY(-10px);
+  -o-transform: rotate(90deg) translateX(1px) translateY(-10px);
+  -ms-transform: rotate(90deg) translateX(1px) translateY(-10px);
+  -moz-transform: rotate(90deg) translateX(1px) translateY(-10px);
+  -webkit-transform: rotate(90deg) translateX(1px) translateY(-10px);
+  transform: rotate(90deg) translateX(1px) translateY(-10px);
 }
 .nav ul li a {
   display: block;
