@@ -31,7 +31,7 @@ const paths = {
                  'routes/**/*.js',
                  'lib/**/*.js',
                  'config/**/*.js'],
-  pathJsUglify: ['public/javascripts/src/main-vanilla.js',
+  pathUglify:   ['public/javascripts/src/main-vanilla.js',
                  'public/javascripts/src/main-jquery.js',
                  'public/javascripts/src/slick.js'],
   pathFiles:    ['views/*.hbs', 'views/**/*.hbs',
@@ -68,7 +68,7 @@ gulp.task('stylus', () => {
 /////////////////////////////////////////////////////////////
 
 gulp.task('minify-css', ['stylus'], () => {
-  gulp.src(paths.pathStylus)
+  gulp.src(paths.pathCSS)
     .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
       console.log(
         details.name +
@@ -90,7 +90,7 @@ gulp.task('minify-css', ['stylus'], () => {
 /////////////////////////////////////////////////////////////
 
 gulp.task('uglify', () => {
-  gulp.src(paths.pathJsUglify)
+  gulp.src(paths.pathUglify)
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/javascripts'));
@@ -111,7 +111,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathStylus, ['stylus']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathCSS, ['minify-css']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathUglify, ['uglify']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));
 });
 
