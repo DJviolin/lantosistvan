@@ -15,7 +15,7 @@ const config = require('../config/mail');
 
 // create reusable transporter object using the default SMTP transport
 const transporter = nodemailer.createTransport({
-  pool: true,
+  pool: false,
   host: config.host,
   port: config.port,
   secure: true, // use SSL 

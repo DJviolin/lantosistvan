@@ -258,7 +258,8 @@ header
     flex-direction: row
     align-items: center
     li
-      margin: 0 20px 0 20px;
+      //margin: 0 20px 0 20px
+      margin: 0 40px 0 40px
       &:hover > ul
         visibility: visible
         opacity: 1
@@ -289,6 +290,10 @@ header
         &:hover
           text-decoration: underline
           color: #000
+        &::before
+          content: '- '
+        &::after
+          content: ' -'
       ul
         flex-direction: column
         visibility: hidden

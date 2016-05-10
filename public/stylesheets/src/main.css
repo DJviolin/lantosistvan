@@ -555,7 +555,7 @@ header {
   align-items: center;
 }
 .nav ul li {
-  margin: 0 20px 0 20px;
+  margin: 0 40px 0 40px;
 }
 .nav ul li:hover > ul {
   visibility: visible;
@@ -585,6 +585,12 @@ header {
 .nav ul li a:hover {
   text-decoration: underline;
   color: #000;
+}
+.nav ul li a::before {
+  content: '- ';
+}
+.nav ul li a::after {
+  content: ' -';
 }
 .nav ul li ul {
   -ms-flex-direction: column;
