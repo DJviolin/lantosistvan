@@ -49,15 +49,15 @@ router.post('/', (req, res) => {
 
   // You have to check the captcha before you call sendMail.
   // There is no way to abort already running email transaction in Nodemailer
-  if(req.body.captcha === 'négy' ||
-     req.body.captcha === 'negy' ||
-     req.body.captcha === 'Négy' ||
-     req.body.captcha === 'Negy' ||
-     req.body.captcha === 'NÉGY' ||
-     req.body.captcha === 'NEGY' ||
-     req.body.captcha === 'four' ||
-     req.body.captcha === 'Four' ||
-     req.body.captcha === 'FOUR') {
+  if(req.body.captcha === 'kettő' ||
+     req.body.captcha === 'ketto' ||
+     req.body.captcha === 'Kettő' ||
+     req.body.captcha === 'Ketto' ||
+     req.body.captcha === 'KETTŐ' ||
+     req.body.captcha === 'KETTO' ||
+     req.body.captcha === 'two' ||
+     req.body.captcha === 'Two' ||
+     req.body.captcha === 'TWO') {
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (err, info) => {
       if(err) {
