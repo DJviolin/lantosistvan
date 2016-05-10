@@ -108,7 +108,7 @@ i18n.configure({
   // watch for changes in json files to reload locale on updates - defaults to false
   autoReload: true,
   // whether to write new locale information to disk - defaults to true
-  updateFiles: false,
+  updateFiles: true,
   // enable object notation
   objectNotation: true,
   // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias).
