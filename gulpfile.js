@@ -119,4 +119,5 @@ gulp.task('watch', () => {
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', ['watch', 'start', 'stylus', 'minify-css', 'uglify', 'files']);
+//gulp.task('default', ['watch', 'start', 'stylus', 'minify-css', 'uglify', 'files']);
+gulp.task('default', ['watch', 'start', 'minify-css', 'uglify', 'files']);
