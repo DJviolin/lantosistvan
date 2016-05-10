@@ -25,7 +25,7 @@ import uglify   from 'gulp-uglify';*/
 
 const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
-  pathCSS:      ['public/stylesheets/src/**/*'],
+  //pathCSS:      ['public/stylesheets/src/**/*'],
   pathServer:   ['app.js',
                  'bin/www',
                  'routes/**/*.js',
@@ -109,7 +109,8 @@ gulp.task('files', () => gulp.src(paths.pathFiles));
 
 gulp.task('watch', () => {
   gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathStylus, ['stylus']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathStylus + '.styl', ['stylus']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathStylus + '.css', ['minify-css']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));
 });
