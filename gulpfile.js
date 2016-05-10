@@ -27,7 +27,6 @@ const paths = {
   pathStylus:   ['public/stylesheets/src/main'],
   pathCSS:      ['public/stylesheets/src/**/*'],
   pathServer:   ['app.js',
-                 'smtp.js',
                  'bin/www',
                  'routes/**/*.js',
                  'lib/**/*.js',
@@ -110,7 +109,7 @@ gulp.task('files', () => gulp.src(paths.pathFiles));
 
 gulp.task('watch', () => {
   gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathCSS, ['stylus', 'minify-css']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathStylus, ['stylus']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathJsUglify, ['uglify']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));
 });
