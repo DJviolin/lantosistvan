@@ -252,6 +252,16 @@ header
   text-transform: lowercase
   font-style: italic
 .nav
+  ul li a
+    &::before
+      content: '- '
+    &::after
+      content: ' -'
+  ul li ul li a
+    &::before
+      content: none
+    &::after
+      content: none
   //margin-bottom: 40px
   ul
     displayFlex()
@@ -267,9 +277,9 @@ header
         //color: #575757;
         //border-bottom: 3px solid #eff0f0;
         //margin-bottom: -3px;
-      &.parent > a
+      &.parent  > a
         margin-right: 10px
-      &.parent > a::after
+      /*&.parent > a::after
         //display: inline-block
         display: block
         float: right
@@ -280,7 +290,7 @@ header
         font-style: normal
         color: #000
         //transform: rotate(90deg) translateX(2px) translateY(-10px)
-        transform: rotate(90deg) translateX(1px) translateY(-10px) // italic fix
+        transform: rotate(90deg) translateX(1px) translateY(-10px) // italic fix*/
       a
         display: block
         text-align: center
@@ -290,10 +300,6 @@ header
         &:hover
           text-decoration: underline
           color: #000
-        &::before
-          content: '- '
-        &::after
-          content: ' -'
       ul
         flex-direction: column
         visibility: hidden

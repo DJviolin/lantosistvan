@@ -544,6 +544,18 @@ header {
   text-transform: lowercase;
   font-style: italic;
 }
+.nav ul li a::before {
+  content: '- ';
+}
+.nav ul li a::after {
+  content: ' -';
+}
+.nav ul li ul li a::before {
+  content: none;
+}
+.nav ul li ul li a::after {
+  content: none;
+}
 .nav ul {
   display: -ms-flex;
   display: -webkit-flex;
@@ -556,6 +568,18 @@ header {
 }
 .nav ul li {
   margin: 0 40px 0 40px;
+/*&.parent > a::after
+        //display: inline-block
+        display: block
+        float: right
+        //content: ' \27E9'
+        //content: ' \276D'
+        //content: ' \29FD'
+        content: ' \276F'
+        font-style: normal
+        color: #000
+        //transform: rotate(90deg) translateX(2px) translateY(-10px)
+        transform: rotate(90deg) translateX(1px) translateY(-10px) // italic fix*/
 }
 .nav ul li:hover > ul {
   visibility: visible;
@@ -563,18 +587,6 @@ header {
 }
 .nav ul li.parent > a {
   margin-right: 10px;
-}
-.nav ul li.parent > a::after {
-  display: block;
-  float: right;
-  content: ' \276F';
-  font-style: normal;
-  color: #000;
-  -o-transform: rotate(90deg) translateX(1px) translateY(-10px);
-  -ms-transform: rotate(90deg) translateX(1px) translateY(-10px);
-  -moz-transform: rotate(90deg) translateX(1px) translateY(-10px);
-  -webkit-transform: rotate(90deg) translateX(1px) translateY(-10px);
-  transform: rotate(90deg) translateX(1px) translateY(-10px);
 }
 .nav ul li a {
   display: block;
@@ -585,12 +597,6 @@ header {
 .nav ul li a:hover {
   text-decoration: underline;
   color: #000;
-}
-.nav ul li a::before {
-  content: '- ';
-}
-.nav ul li a::after {
-  content: ' -';
 }
 .nav ul li ul {
   -ms-flex-direction: column;
