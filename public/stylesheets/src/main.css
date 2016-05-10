@@ -1027,20 +1027,20 @@ footer {
   content: '\e809';
 }
 @media (max-width: 1300px) {
-  footer .content {
+  .footer-site .content {
     -webkit-flex: 0 0 85vw;
     flex: 0 0 85vw;
   }
-  footer .row {
+  .footer-site .row {
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
     padding-top: 0;
   }
-  footer aside {
+  .footer-site aside {
     padding: 40px 0 40px 0;
   }
-  footer aside:nth-child(2) {
+  .footer-site aside:nth-child(2) {
     border-left: none;
     border-right: none;
     border-top: 1px dotted #e9e9e9;
