@@ -252,16 +252,6 @@ header
   text-transform: lowercase
   font-style: italic
 .nav
-  ul li a
-    &::before
-      content: '- '
-    &::after
-      content: ' -'
-  ul li ul li a
-    &::before
-      content: none
-    &::after
-      content: none
   //margin-bottom: 40px
   ul
     displayFlex()
@@ -301,6 +291,10 @@ header
         &:hover
           text-decoration: underline
           color: #000
+        &::before
+          content: '- '
+        &::after
+          content: ' -'
       ul
         flex-direction: column
         visibility: hidden
@@ -323,6 +317,10 @@ header
             text-align: left
             padding: 0
             margin: 10px 20px 10px 20px
+            &::before
+              content: none
+            &::after
+              content: none
 
 @media (min-width: $mobile)
   .toggle-mobile-nav
