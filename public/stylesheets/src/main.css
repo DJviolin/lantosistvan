@@ -260,7 +260,6 @@ li {
   outline: 0;
 }
 .container {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: column;
@@ -270,7 +269,6 @@ li {
 .error,
 .blog,
 .contact {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: column;
@@ -310,11 +308,10 @@ li {
   overflow: hidden;
 }
 .slick-track {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: no-wrap;
-  flex-wrap: no-wrap;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
@@ -458,7 +455,6 @@ _:-ms-fullscreen,
   color: rgba(0,0,0,0.71);
 }
 header {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
@@ -472,7 +468,6 @@ header {
   align-items: flex-end;
 }
 .header-site .content {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -webkit-flex: 0 0 50vw;
@@ -528,7 +523,6 @@ header {
   }
 }
 .navigation {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -557,7 +551,6 @@ header {
   content: none;
 }
 .nav ul {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -729,7 +722,6 @@ header {
   }
 }
 .sidescroll .images {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -771,7 +763,7 @@ header {
     width: 100%;
   }
 }
-article.welcome {
+.article-welcome {
   max-width: 980px;
 }
 .latest-posts-title {
@@ -784,7 +776,6 @@ article.welcome {
   display: none;
 }
 .latest-posts {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -820,6 +811,7 @@ article.welcome {
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: #625e5b;
   background-color: rgba(80,76,73,0.9);
   -o-transition: opacity 0.3s ease 0s;
   -moz-transition: opacity 0.3s ease 0s;
@@ -830,7 +822,6 @@ article.welcome {
   opacity: 1;
 }
 .latest-posts article .post-preview-hidden .post-preview-header {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: column;
@@ -923,7 +914,6 @@ article.welcome {
   }
 }
 footer {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
 }
@@ -937,7 +927,6 @@ footer {
   justify-content: center;
 }
 .footer-site .content {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -webkit-flex: 0 0 58vw;
@@ -952,7 +941,6 @@ footer {
   max-width: 1100px;
 }
 .footer-site .row {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -1112,7 +1100,6 @@ http://marinkovic-weddings.com/
   margin: 18px auto 0 auto;
 }
 .frontpage {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: row;
@@ -1125,7 +1112,6 @@ http://marinkovic-weddings.com/
   margin: 55px 0 0 0;
 }
 .frontpage .content {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -webkit-flex: 0 0 58vw;
@@ -1163,7 +1149,6 @@ http://marinkovic-weddings.com/
   max-width: 600px;
 }
 .blog article .images {
-  display: -ms-flex;
   display: -webkit-flex;
   display: flex;
   -ms-flex-direction: column;
