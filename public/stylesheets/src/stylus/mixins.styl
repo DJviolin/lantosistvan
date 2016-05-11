@@ -31,8 +31,8 @@ webfont(family, folder, file, hack-chrome-windows = false, weight = normal, styl
 font-size(value) {
   font-size: value; // px to rem mixin: add px (or original value) as backup
 
-  if (value is inherit || value is 0 || unit(value) is 'em') {
-    return; // do nothing, "inherit" has no unit, 0 and "em" unmodified
+  if (value is inherit || value is 0 || unit(value) is 'em' || unit(value) is '%') {
+    return; // do nothing, "inherit" has no unit, 0, "em", and % unmodified
   } else {
     font-size: remify(value);
   }
