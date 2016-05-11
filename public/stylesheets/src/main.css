@@ -445,7 +445,8 @@ _:-ms-fullscreen,
   padding: 50px 0 0 50px;
   background: #999;
   color: #000;
-  font-size: 1.5em;
+  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
 }
 /**:hover
@@ -660,13 +661,15 @@ header {
     color: #000;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: 16px;
+    font-size: 1rem;
   }
   .toggle-mobile-nav .menu-button:hover {
     cursor: pointer;
   }
   .toggle-mobile-nav .menu-button span {
-    font-size: 2em;
+    font-size: 32px;
+    font-size: 2rem;
     vertical-align: -0.15em;
   }
   .navigation {
@@ -674,7 +677,8 @@ header {
     -webkit-flex-direction: column;
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 0.78em;
+    font-size: 12px;
+    font-size: 0.75rem;
     letter-spacing: 0.15em;
     color: #000;
   }
@@ -726,7 +730,6 @@ header {
   }
   .nav ul li ul li a {
     text-align: center;
-    font-size: 0.9em;
     color: #777;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -850,8 +853,8 @@ header {
   margin: 0 5px 0 5px;
   font-family: 'Raleway-Light', sans-serif;
   text-transform: uppercase;
-  font-size: 15.5px;
-  font-size: 0.96875rem;
+  font-size: 15px;
+  font-size: 0.9375rem;
   letter-spacing: 1.5px;
   line-height: 15px;
   margin-bottom: 30px;
@@ -982,7 +985,8 @@ footer {
 }
 .footer-site aside a {
   font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
-  font-size: 0.93em;
+  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .footer-site aside p {
   margin-bottom: 0;
@@ -990,7 +994,8 @@ footer {
 }
 .footer-site .social-links a {
   margin-right: 20px;
-  font-size: 0.8em;
+  font-size: 13px;
+  font-size: 0.8125rem;
   color: #727272;
 }
 .footer-site .social-links a:last-child {
@@ -1078,7 +1083,8 @@ http://marinkovic-weddings.com/
   margin: 0 auto 20px auto;
 }
 .widget-title {
-  font-size: 0.9em;
+  font-size: 14px;
+  font-size: 0.875rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -1088,7 +1094,8 @@ http://marinkovic-weddings.com/
 }
 .big-text {
   font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.75em;
+  font-size: 28px;
+  font-size: 1.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: bold;
@@ -1100,7 +1107,8 @@ http://marinkovic-weddings.com/
 }
 .big-text-light {
   font-family: 'LatoLatin-Light', Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.25em;
+  font-size: 20px;
+  font-size: 1.25rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #444;
@@ -1188,7 +1196,8 @@ http://marinkovic-weddings.com/
   padding: 25px 0 120px 0;
   text-align: center;
   text-transform: lowercase;
-  font-size: 0.95em;
+  font-size: 15px;
+  font-size: 0.9375rem;
   letter-spacing: 0.07em;
   font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #777;
