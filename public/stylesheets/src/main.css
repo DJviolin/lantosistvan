@@ -196,6 +196,7 @@ html {
   font-size: 16px;
   font-size: 1rem;
   line-height: 24px;
+  line-height: 1.5rem;
   color: #000;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -207,30 +208,44 @@ body {
 h1 {
   font-size: 28px;
   font-size: 1.75rem;
+  line-height: 42px;
+  line-height: 2.625rem;
 }
 h2 {
   font-size: 21px;
   font-size: 1.3125rem;
+  line-height: 31.5px;
+  line-height: 1.96875rem;
 }
 h3 {
   font-size: 16px;
   font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
 }
 h4 {
   font-size: 19px;
   font-size: 1.1875rem;
+  line-height: 28.5px;
+  line-height: 1.78125rem;
 }
 h5 {
   font-size: 12px;
   font-size: 0.75rem;
+  line-height: 18px;
+  line-height: 1.125rem;
 }
 h6 {
   font-size: 9px;
   font-size: 0.5625rem;
+  line-height: 13.5px;
+  line-height: 0.84375rem;
 }
 p {
   font-size: 14px;
   font-size: 0.875rem;
+  line-height: 21px;
+  line-height: 1.3125rem;
   margin-bottom: 20px;
 }
 a {
@@ -349,6 +364,9 @@ li {
   border: none;
   font-family: 'fontello';
   font-size: 0;
+  font-size: 0rem;
+  line-height: 0px;
+  line-height: 0rem;
   line-height: 0;
   cursor: pointer;
   color: #b9b9b9;
@@ -393,6 +411,8 @@ li {
   opacity: 0.75;
   font-size: 40px;
   font-size: 2.5rem;
+  line-height: 60px;
+  line-height: 3.75rem;
   line-height: 1;
   -o-transform: translate(-51%, -44%);
   -ms-transform: translate(-51%, -44%);
@@ -447,6 +467,8 @@ _:-ms-fullscreen,
   color: #000;
   font-size: 24px;
   font-size: 1.5rem;
+  line-height: 36px;
+  line-height: 2.25rem;
   text-align: center;
 }
 /**:hover
@@ -461,6 +483,8 @@ _:-ms-fullscreen,
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   font-size: 9px;
   font-size: 0.5625rem;
+  line-height: 13.5px;
+  line-height: 0.84375rem;
   letter-spacing: 1px;
   color: #494949;
   color: rgba(0,0,0,0.71);
@@ -547,6 +571,8 @@ header {
   letter-spacing: 2px;
   font-size: 10px;
   font-size: 0.625rem;
+  line-height: 15px;
+  line-height: 0.9375rem;
   text-transform: lowercase;
   font-style: italic;
 }
@@ -663,6 +689,8 @@ header {
     text-transform: uppercase;
     font-size: 16px;
     font-size: 1rem;
+    line-height: 24px;
+    line-height: 1.5rem;
   }
   .toggle-mobile-nav .menu-button:hover {
     cursor: pointer;
@@ -670,6 +698,8 @@ header {
   .toggle-mobile-nav .menu-button span {
     font-size: 32px;
     font-size: 2rem;
+    line-height: 48px;
+    line-height: 3rem;
     vertical-align: -0.15em;
   }
   .navigation {
@@ -679,6 +709,8 @@ header {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 12px;
     font-size: 0.75rem;
+    line-height: 18px;
+    line-height: 1.125rem;
     letter-spacing: 0.15em;
     color: #000;
   }
@@ -855,6 +887,8 @@ header {
   text-transform: uppercase;
   font-size: 15px;
   font-size: 0.9375rem;
+  line-height: 22.5px;
+  line-height: 1.40625rem;
   letter-spacing: 1.5px;
   line-height: 15px;
   margin-bottom: 30px;
@@ -868,6 +902,8 @@ header {
   margin: 0 5px 1px 5px;
   font-size: 20px;
   font-size: 1.25rem;
+  line-height: 30px;
+  line-height: 1.875rem;
   letter-spacing: 0.9px;
   font-style: italic;
 }
@@ -876,6 +912,8 @@ header {
   font-family: 'Caslon-Pro-Italic', 'Crimson-Text-Italic', Georgia, 'Times New Roman', Times, serif;
   font-size: 19px;
   font-size: 1.1875rem;
+  line-height: 28.5px;
+  line-height: 1.78125rem;
   letter-spacing: 0.9px;
   text-transform: lowercase;
   color: #fff;
@@ -888,6 +926,8 @@ header {
   word-wrap: break-word;
   font-size: 25px;
   font-size: 1.5625rem;
+  line-height: 37.5px;
+  line-height: 2.34375rem;
 }
 .drawing {
   margin: 0 0 10px 0;
@@ -987,6 +1027,8 @@ footer {
   font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
   font-size: 13px;
   font-size: 0.8125rem;
+  line-height: 19.5px;
+  line-height: 1.21875rem;
 }
 .footer-site aside p {
   margin-bottom: 0;
@@ -996,6 +1038,8 @@ footer {
   margin-right: 20px;
   font-size: 13px;
   font-size: 0.8125rem;
+  line-height: 19.5px;
+  line-height: 1.21875rem;
   color: #727272;
 }
 .footer-site .social-links a:last-child {
@@ -1013,6 +1057,8 @@ footer {
   text-transform: uppercase;
   font-size: 8px;
   font-size: 0.5rem;
+  line-height: 12px;
+  line-height: 0.75rem;
   letter-spacing: 1px;
   color: #494949;
   color: rgba(0,0,0,0.71);
@@ -1036,7 +1082,10 @@ footer {
   text-transform: none;
   line-height: 1em;
   margin-left: 0.2em;
-  font-size: 90%;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 18px;
+  line-height: 1.125rem;
 }
 .icon-facebook:before {
   content: '\e81f';
@@ -1084,6 +1133,8 @@ http://marinkovic-weddings.com/
 .widget-title {
   font-size: 14px;
   font-size: 0.875rem;
+  line-height: 21px;
+  line-height: 1.3125rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -1095,6 +1146,8 @@ http://marinkovic-weddings.com/
   font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-size: 28px;
   font-size: 1.75rem;
+  line-height: 42px;
+  line-height: 2.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: bold;
@@ -1108,6 +1161,8 @@ http://marinkovic-weddings.com/
   font-family: 'LatoLatin-Light', Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   font-size: 1.25rem;
+  line-height: 30px;
+  line-height: 1.875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #444;
@@ -1154,6 +1209,8 @@ http://marinkovic-weddings.com/
   font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
   font-size: 14px;
   font-size: 0.875rem;
+  line-height: 21px;
+  line-height: 1.3125rem;
   line-height: 1.8em;
   margin-bottom: 15px;
   font-weight: 400;
@@ -1197,6 +1254,8 @@ http://marinkovic-weddings.com/
   text-transform: lowercase;
   font-size: 15px;
   font-size: 0.9375rem;
+  line-height: 22.5px;
+  line-height: 1.40625rem;
   letter-spacing: 0.07em;
   font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #777;

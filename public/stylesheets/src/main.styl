@@ -32,8 +32,8 @@ Table of Contents
 // Stylus
 /////////////////////////////////////////////////////////////
 
-@import 'stylus/mixins.styl'
 @import 'stylus/variables.styl'
+@import 'stylus/mixins.styl'
 
 /////////////////////////////////////////////////////////////
 // Modules - CSS RESET
@@ -54,8 +54,8 @@ Table of Contents
 // https://css-tricks.com/rems-ems/
 
 html
-  font-size: 16px // Default font-size in most browsers
-  line-height: 24px // Default line-height for 16px
+  font-size: $baseFontSize // Default font-size in most browsers
+  //line-height: $baseLineHeight // Default line-height for 16px
   color: #000
   //line-height: 1.5em
   -ms-text-size-adjust: 100%
@@ -653,9 +653,8 @@ footer
   text-transform: none
   line-height: 1em
   margin-left: .2em
-  //font-size: 120%
   //text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3)
-  font-size: 90%
+  font-size: 12px
 .icon-facebook:before
   content: '\e81f'
 .icon-instagram:before

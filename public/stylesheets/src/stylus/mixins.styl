@@ -28,7 +28,7 @@ webfont(family, folder, file, hack-chrome-windows = false, weight = normal, styl
 // em always relative to it's parent element
 /////////////////////////////////////////////////////////////
 
-font-size(value) {
+/*font-size(value) {
   font-size: value; // px to rem mixin: add px (or original value) as backup
 
   if (value is inherit || value is 0 || unit(value) is 'em' || unit(value) is '%') {
@@ -46,7 +46,13 @@ remify(value) { // separate mixin, so it can be used elsewhere
   } else {
     return unit(value, u);
   }
-}
+}*/
+
+font-size()
+  font-size   arguments
+  font-size   (arguments / $baseFontSize) rem
+  line-height (arguments / $baseFontSize) * $baseLineHeight
+  line-height ($baseLineHeight / $baseFontSize) * (arguments / $baseFontSize) rem
 
 /////////////////////////////////////////////////////////////
 // Flexbox
