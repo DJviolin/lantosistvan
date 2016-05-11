@@ -32,7 +32,7 @@ font-size(value) {
   font-size: value; // px to rem mixin: add px (or original value) as backup
 
   if (value is inherit || value is 0 || unit(value) is 'em') {
-    return; // do nothing, "inherit" has no unit, "em" unmodified
+    return; // do nothing, "inherit" has no unit, 0 and "em" unmodified
   } else {
     font-size: remify(value);
   }
