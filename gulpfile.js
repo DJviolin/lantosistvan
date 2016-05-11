@@ -24,7 +24,7 @@ import cleanCSS from 'gulp-clean-css';
 import uglify   from 'gulp-uglify';*/
 
 const paths = {
-  pathStylus:   ['public/stylesheets/src/**/*.styl'],
+  pathStylus:   ['public/stylesheets/src/main.styl'],
   pathCSS:      ['public/stylesheets/src/main.css'],
   pathServer:   ['app.js',
                  'bin/www',
