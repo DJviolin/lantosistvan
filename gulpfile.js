@@ -49,7 +49,7 @@ const server = gls.new([
   { env: { NODE_ENV: 'production' } }
 ]);
 
-//you can access cwd args in `bin/www` via `process.argv` 
+//you can access cwd args in `bin/www` via `process.argv`
 gulp.task('start', () => {
   return server.start();
 });
