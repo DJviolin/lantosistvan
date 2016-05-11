@@ -1,0 +1,6 @@
+.lazyload {
+  visibility: hidden;
+  overflow-y: hidden;
+  height: 60vh;
+  opacity: 0;
+}
