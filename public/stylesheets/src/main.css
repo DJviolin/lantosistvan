@@ -193,7 +193,7 @@ textarea { resize: vertical; }
   font-style: normal;
 }
 html {
-  font-size: 16px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 16px;
   font-size: 1rem;
   color: #000;
   -ms-text-size-adjust: 100%;
@@ -204,31 +204,31 @@ body {
   color: #464444;
 }
 h1 {
-  font-size: 28px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 28px;
   font-size: 1.75rem;
 }
 h2 {
-  font-size: 21px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 21px;
   font-size: 1.3125rem;
 }
 h3 {
-  font-size: 16px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 16px;
   font-size: 1rem;
 }
 h4 {
-  font-size: 19px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 19px;
   font-size: 1.1875rem;
 }
 h5 {
-  font-size: 12px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 12px;
   font-size: 0.75rem;
 }
 h6 {
-  font-size: 9px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 9px;
   font-size: 0.5625rem;
 }
 p {
-  font-size: 14px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.6em;
   margin-bottom: 1.25em;
@@ -348,7 +348,7 @@ li {
   padding: 0;
   border: none;
   font-family: 'fontello';
-  font-size: 0; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 0;
   line-height: 0;
   cursor: pointer;
   color: #b9b9b9;
@@ -391,7 +391,7 @@ li {
   top: 50%;
   left: 50%;
   opacity: 0.75;
-  font-size: 40px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 40px;
   font-size: 2.5rem;
   line-height: 1;
   -o-transform: translate(-51%, -44%);
@@ -445,7 +445,7 @@ _:-ms-fullscreen,
   padding: 50px 0 0 50px;
   background: #999;
   color: #000;
-  font-size: 1.5em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 1.5em;
   text-align: center;
 }
 /**:hover
@@ -458,7 +458,7 @@ _:-ms-fullscreen,
   z-index: 9999;
   margin: 10px 10px 0 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-  font-size: 9px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 9px;
   font-size: 0.5625rem;
   letter-spacing: 1px;
   color: #494949;
@@ -544,7 +544,7 @@ header {
   justify-content: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   letter-spacing: 2px;
-  font-size: 10px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 10px;
   font-size: 0.625rem;
   text-transform: lowercase;
   font-style: italic;
@@ -660,13 +660,13 @@ header {
     color: #000;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1em; /* px to rem mixin: add px (or original value) as backup */
+    font-size: 1em;
   }
   .toggle-mobile-nav .menu-button:hover {
     cursor: pointer;
   }
   .toggle-mobile-nav .menu-button span {
-    font-size: 2em; /* px to rem mixin: add px (or original value) as backup */
+    font-size: 2em;
     vertical-align: -0.15em;
   }
   .navigation {
@@ -674,7 +674,7 @@ header {
     -webkit-flex-direction: column;
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 0.78em; /* px to rem mixin: add px (or original value) as backup */
+    font-size: 0.78em;
     letter-spacing: 0.15em;
     color: #000;
   }
@@ -726,7 +726,7 @@ header {
   }
   .nav ul li ul li a {
     text-align: center;
-    font-size: 0.9em; /* px to rem mixin: add px (or original value) as backup */
+    font-size: 0.9em;
     color: #777;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -850,7 +850,7 @@ header {
   margin: 0 5px 0 5px;
   font-family: 'Raleway-Light', sans-serif;
   text-transform: uppercase;
-  font-size: 15.5px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 15.5px;
   font-size: 0.96875rem;
   letter-spacing: 1.5px;
   line-height: 15px;
@@ -863,7 +863,7 @@ header {
   text-transform: uppercase;
   color: #fff;
   margin: 0 5px 1px 5px;
-  font-size: 20px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 20px;
   font-size: 1.25rem;
   letter-spacing: 0.9px;
   font-style: italic;
@@ -871,7 +871,7 @@ header {
 .latest-posts article .post-preview-header .more,
 .latest-posts article .post-preview-header .more:hover {
   font-family: 'Caslon-Pro-Italic', 'Crimson-Text-Italic', Georgia, 'Times New Roman', Times, serif;
-  font-size: 19px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 19px;
   font-size: 1.1875rem;
   letter-spacing: 0.9px;
   text-transform: lowercase;
@@ -883,7 +883,7 @@ header {
   margin: 0 0 10px 0;
   white-space: pre;
   word-wrap: break-word;
-  font-size: 25px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 25px;
   font-size: 1.5625rem;
 }
 .drawing {
@@ -982,7 +982,7 @@ footer {
 }
 .footer-site aside a {
   font-family: 'im-fell-french-canon-pro-italic', Georgia, 'Times New Roman', Times, serif;
-  font-size: 0.93em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 0.93em;
 }
 .footer-site aside p {
   margin-bottom: 0;
@@ -990,7 +990,7 @@ footer {
 }
 .footer-site .social-links a {
   margin-right: 20px;
-  font-size: 0.8em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 0.8em;
   color: #727272;
 }
 .footer-site .social-links a:last-child {
@@ -1006,7 +1006,7 @@ footer {
   line-height: 1.75em;
   font-family: 'LatoLatin-Regular', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   text-transform: uppercase;
-  font-size: 8px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 8px;
   font-size: 0.5rem;
   letter-spacing: 1px;
   color: #494949;
@@ -1031,7 +1031,7 @@ footer {
   text-transform: none;
   line-height: 1em;
   margin-left: 0.2em;
-  font-size: 90%; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 90%;
   font-size: 90%;
 }
 .icon-facebook:before {
@@ -1078,7 +1078,7 @@ http://marinkovic-weddings.com/
   margin: 0 auto 20px auto;
 }
 .widget-title {
-  font-size: 0.9em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 0.9em;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -1088,7 +1088,7 @@ http://marinkovic-weddings.com/
 }
 .big-text {
   font-family: 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.75em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 1.75em;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: bold;
@@ -1100,7 +1100,7 @@ http://marinkovic-weddings.com/
 }
 .big-text-light {
   font-family: 'LatoLatin-Light', Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.25em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 1.25em;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #444;
@@ -1145,7 +1145,7 @@ http://marinkovic-weddings.com/
 .frontpage article p {
   text-align: center;
   font-family: 'QuicksandPro-Regular', 'Crimson-Text-Roman', Georgia, 'Times New Roman', Times, serif;
-  font-size: 14px; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.8em;
   margin-bottom: 15px;
@@ -1188,7 +1188,7 @@ http://marinkovic-weddings.com/
   padding: 25px 0 120px 0;
   text-align: center;
   text-transform: lowercase;
-  font-size: 0.95em; /* px to rem mixin: add px (or original value) as backup */
+  font-size: 0.95em;
   letter-spacing: 0.07em;
   font-family: 'Monotype-Corsiva', 'Serlio-LH-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #777;

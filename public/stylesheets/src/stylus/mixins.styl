@@ -23,21 +23,21 @@ webfont(family, folder, file, hack-chrome-windows = false, weight = normal, styl
         src url('../fonts/' + folder + '/' + file + '.svg#'+ family) format('svg')
 
 /////////////////////////////////////////////////////////////
-// px to rem mixin
+// px to rem mixin fallback
 // rem allows us to compute element's font-size relative to the root "html" element
 /////////////////////////////////////////////////////////////
 
 font-size(value) {
-  font-size: value; /* px to rem mixin: add px (or original value) as backup */
+  font-size: value; // px to rem mixin: add px (or original value) as backup
 
   if (value is inherit || value is 0 || unit(value) is 'em') {
-    return; /* do nothing, "inherit" has no unit */
+    return; // do nothing, "inherit" has no unit, "em" unmodified
   } else {
     font-size: remify(value);
   }
 }
 
-remify(value) { /* separate mixin, so it can be used elsewhere */
+remify(value) { // separate mixin, so it can be used elsewhere
   u = unit(value);
 
   if (u is 'px') {
