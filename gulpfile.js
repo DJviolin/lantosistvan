@@ -50,25 +50,28 @@ const server = gls.new([
 ]);
 
 //you can access cwd args in `bin/www` via `process.argv` 
-gulp.task('start', () => server.start());
+gulp.task('start', () => {
+  return server.start();
+});
 
 /////////////////////////////////////////////////////////////
 // STYLUS CSS
 /////////////////////////////////////////////////////////////
 
 gulp.task('stylus', () => {
-  gulp.src(paths.pathStylus)
+  return gulp.src(paths.pathStylus)
     .pipe(stylus({'include css': true, compress: false}))
     .pipe(rename({ extname: '.css' }))
-    .pipe(gulp.dest('public/stylesheets/src'));
+    .pipe(gulp.dest('public/stylesheets/src'))
 });
 
 /////////////////////////////////////////////////////////////
 // MINIFY CSS
+// http://goalsmashers.github.io/css-minification-benchmark/
 /////////////////////////////////////////////////////////////
 
 gulp.task('minify-css', ['stylus'], () => {
-  gulp.src(paths.pathCSS)
+  return gulp.src(paths.pathCSS)
     .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
       console.log(
         details.name +
@@ -82,7 +85,7 @@ gulp.task('minify-css', ['stylus'], () => {
       );
     }))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
-    .pipe(gulp.dest('public/stylesheets'));
+    .pipe(gulp.dest('public/stylesheets'))
 });
 
 /////////////////////////////////////////////////////////////
@@ -90,7 +93,7 @@ gulp.task('minify-css', ['stylus'], () => {
 /////////////////////////////////////////////////////////////
 
 gulp.task('uglify', () => {
-  gulp.src(paths.pathUglify)
+  return gulp.src(paths.pathUglify)
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/javascripts'));
@@ -100,7 +103,9 @@ gulp.task('uglify', () => {
 // FILES
 /////////////////////////////////////////////////////////////
 
-gulp.task('files', () => gulp.src(paths.pathFiles));
+gulp.task('files', () => {
+  return gulp.src(paths.pathFiles);
+});
 
 /////////////////////////////////////////////////////////////
 // WATCH
@@ -108,11 +113,17 @@ gulp.task('files', () => gulp.src(paths.pathFiles));
 /////////////////////////////////////////////////////////////
 
 gulp.task('watch', () => {
-  gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
+  /*gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathStylus, ['stylus']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathCSS, ['minify-css']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathUglify, ['uglify']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));
+  gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));*/
+
+  gulp.watch(paths.pathServer, ['start'], server.start); // restart my server
+  gulp.watch(paths.pathStylus, ['stylus'], server.notify);
+  gulp.watch(paths.pathCSS, ['minify-css'], server.notify);
+  gulp.watch(paths.pathUglify, ['uglify'], server.notify);
+  gulp.watch(paths.pathFiles, ['files'], server.notify);
 });
 
 /////////////////////////////////////////////////////////////

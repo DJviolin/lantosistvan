@@ -110,7 +110,9 @@ i18n.configure({
   // whether to write new locale information to disk - defaults to true
   updateFiles: true,
   // enable object notation
-  objectNotation: true,
+  // Set dot to anyting else: https://github.com/mashpie/i18n-node#object-notation
+  //objectNotation: true,
+  objectNotation: false,
   // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias).
   // note that this will *not* overwrite existing properties with the same name
   api: {
