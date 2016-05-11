@@ -23,7 +23,7 @@ webfont(family, folder, file, hack-chrome-windows = false, weight = normal, styl
         src url('../fonts/' + folder + '/' + file + '.svg#'+ family) format('svg')
 
 /////////////////////////////////////////////////////////////
-// px to rem mixin fallback
+// px to rem mixin fallbacks
 // rem allows us to compute element's font-size relative to the root "html" element
 // em always relative to it's parent element
 /////////////////////////////////////////////////////////////
@@ -48,11 +48,23 @@ remify(value) { // separate mixin, so it can be used elsewhere
   }
 }*/
 
+/*font-size()
+  font-size:    arguments
+  font-size:   (arguments / $baseFontSize) rem
+  line-height: (arguments / $baseFontSize) * $baseLineHeight
+  line-height: ($baseLineHeight / $baseFontSize) * (arguments / $baseFontSize) rem*/
+
 font-size()
-  font-size   arguments
-  font-size   (arguments / $baseFontSize) rem
-  line-height (arguments / $baseFontSize) * $baseLineHeight
-  line-height ($baseLineHeight / $baseFontSize) * (arguments / $baseFontSize) rem
+  font-size:    arguments
+  font-size:   (arguments / $baseFontSize) rem
+
+/*line-height()
+  line-height:  arguments
+  line-height: (arguments / $baseFontSize) rem*/
+
+/*letter-spacing()
+  letter-spacing:  arguments
+  letter-spacing: (arguments / $baseFontSize) rem*/
 
 /////////////////////////////////////////////////////////////
 // Flexbox
