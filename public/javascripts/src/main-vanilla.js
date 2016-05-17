@@ -122,7 +122,7 @@ email.addEventListener('keyup', function (event) {
     if (! event.target.validity.valid) {
       input.className    = 'invalid animated shake';
       //elem.textContent   = 'Username should only contain lowercase letters e.g. john';
-      elem.className     = 'error';
+      //elem.className     = 'error';
       elem.style.display = 'block';
     };
     if (! event.target.validity.valid && lang === 'hu-HU') {
