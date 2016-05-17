@@ -1265,10 +1265,11 @@ form .button:hover {
   cursor: pointer;
 }
 form input {
-  border: 1px solid #999;
-/*&:required,
-    &:optional
-      border: 1px solid #999*/
+  margin: 0 0 24px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  border-radius: 2px;
 /*&:valid,
     &:in-range
       background: hsl(120, 50%, 90%)
