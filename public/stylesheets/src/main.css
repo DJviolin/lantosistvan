@@ -1219,19 +1219,41 @@ http://marinkovic-weddings.com/
 .contact article {
   max-width: 600px;
 }
+form {
+  position: relative;
+  width: auto;
+}
 form input[type=text],
 form input[type=email],
 form input[type=number],
 form textarea,
 form fieldset {
-/* required to properly style form
-    elements on WebKit based browsers */
   -webkit-appearance: none;
 }
 form .help {
   display: none;
   font-size: 90%;
   font-size: 5.625rem;
+}
+form .button {
+  background-color: transparent;
+  color: #737373;
+  border: 2px solid #737373;
+  -o-transition: 0.1s background-color linear, 0.1s color linear;
+  -moz-transition: 0.1s background-color linear, 0.1s color linear;
+  -webkit-transition: 0.1s background-color linear, 0.1s color linear;
+  transition: 0.1s background-color linear, 0.1s color linear;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 9px;
+  padding: 1rem 2.5rem;
+}
+form .button:hover {
+  background-color: #737373;
+  color: #fff;
+  cursor: pointer;
 }
 form input {
   border: 1px solid #999;
@@ -1256,4 +1278,22 @@ form input:required:valid {
 }
 form input:focus:required:invalid {
   border: 1px solid #f00;
+}
+form #notify {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 12px;
+  font-size: 0.75rem;
+  width: 100%;
+  color: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -o-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+form #notify.error {
+  background-color: #dd2c00;
 }

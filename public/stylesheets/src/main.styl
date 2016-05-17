@@ -827,17 +827,36 @@ http://marinkovic-weddings.com/
     max-width: 600px
 
 form
+  position: relative
+  width: auto
+  //label,
+  //input
+  //  display: block
   input[type=text],
   input[type=email],
   input[type=number],
   textarea,
   fieldset
-    /* required to properly style form
-    elements on WebKit based browsers */
+    // required to properly style form
+    // elements on WebKit based browsers
     -webkit-appearance: none
   .help
     display: none
     font-size: 90%
+  .button
+    background-color: transparent
+    color: #737373
+    border: 2px solid #737373
+    transition: 0.1s background-color linear, 0.1s color linear
+    font-family: $Georgia
+    font-size: 14px
+    text-transform: uppercase
+    letter-spacing: 9px
+    padding: 1rem 2.5rem
+    &:hover
+      background-color: #737373
+      color: #fff
+      cursor: pointer
   input
     border: 1px solid #999
     &:focus + .help,
@@ -862,3 +881,17 @@ form
       border: 1px solid green
     &:focus:required:invalid
       border: 1px solid red
+  #notify
+    margin-top: 5px
+    padding: 10px
+    font-size: 12px
+    width: 100%
+    color: #fff
+    //display: block
+    //position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    transition: all 0.5s ease 0s
+  #notify.error
+    background-color: #DD2C00
