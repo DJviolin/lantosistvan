@@ -103,7 +103,22 @@ email.addEventListener('keyup', function() {
 
 
 
-(function() {
+/*(function() {
+
+  //
+  function input(name) {
+    var input = document.getElementById(name);
+    return input;
+  };
+  function parentDiv(name) {
+    var parentDiv = document.getElementsByClassName(name)[0];
+    return parentDiv;
+  };
+  //var i = input('firstname');
+  //console.log(i());
+  console.log(input('firstname'));
+  //
+
   var elem = document.createElement('div');
   elem.style.display = 'none';
 
@@ -134,4 +149,47 @@ email.addEventListener('keyup', function() {
       elem.style.display = 'none';
     };
   });
+})();*/
+
+
+
+
+(function() {
+  function field(name, langif, langelse) {
+
+    var elem = document.createElement('div');
+    elem.style.display = 'none';
+
+    var input = document.getElementById(name);
+    var parentDiv = document.getElementsByClassName(name)[0];
+    input.parentNode.appendChild(elem);
+
+    // Turning on when error is presented
+    input.addEventListener('invalid', function(event) {
+      event.preventDefault();
+      if(! event.target.validity.valid) {
+        elem.className = 'error';
+        parentDiv.className += ' error-input';
+        elem.style.display = 'block';
+      };
+      if(! event.target.validity.valid && lang === 'hu-HU') {
+        elem.textContent = langif;
+      } else {
+        elem.textContent = langelse;
+      };
+    });
+
+    // Turning off when error is not presented
+    input.addEventListener('input', function() {
+      if(elem.style.display === 'block') {
+        elem.className = '';
+        parentDiv.classList.remove('error-input');
+        elem.style.display = 'none';
+      };
+    });
+
+    return;
+  };
+
+  field('firstname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
 })();

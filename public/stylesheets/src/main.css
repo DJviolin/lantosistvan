@@ -1272,14 +1272,14 @@ form textarea:invalid + .help {
   display: inline-block;
 }
 form .firstname,
-form .lastname {
+form .surname {
   width: 48%;
 }
 form .firstname {
   float: left;
   clear: left;
 }
-form .lastname {
+form .surname {
   float: right;
   clear: right;
 }
