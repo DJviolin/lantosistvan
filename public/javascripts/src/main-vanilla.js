@@ -104,17 +104,10 @@ email.addEventListener('keyup', function() {
 
 
 (function() {
-  //var input = document.getElementById('firstname');
-  //var input = document.getElementsByClassName('firstname')[0];
-  //var form = document.getElementById('form');
-
   var elem = document.createElement('div');
-  elem.id = 'notify';
   elem.style.display = 'none';
 
   var input = document.getElementById('firstname');
-  //form.appendChild(elem);
-  //input.parentNode.insertBefore(elem, input.childNodes[0]);
   input.parentNode.appendChild(elem);
 
   input.addEventListener('invalid', function(event) {

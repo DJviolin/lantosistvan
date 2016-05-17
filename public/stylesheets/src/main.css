@@ -1309,7 +1309,7 @@ form .button:hover {
   color: #fff;
   cursor: pointer;
 }
-form #notify {
+form .error {
   width: 100%;
   color: #fff;
   background: #cc3b3b url("/images/icon_close.png") no-repeat 9px 50%;
