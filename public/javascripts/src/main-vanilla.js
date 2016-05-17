@@ -109,8 +109,9 @@ email.addEventListener('keyup', function (event) {
 
   elem.id = 'notify';
   elem.style.display = 'none';
-  //form.appendChild(elem);
-  form.insertBefore(elem);
+  form.appendChild(elem);
+  //input.appendChild(elem);
+  //form.insertBefore(elem[0]);
 
   input.addEventListener('invalid', function(event){
     event.preventDefault();
