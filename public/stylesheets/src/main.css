@@ -1227,7 +1227,7 @@ form {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 form div {
-  margin: 0 0 24px 0;
+  margin-bottom: 24px;
   clear: both;
 }
 form label,
@@ -1310,7 +1310,7 @@ form .button:hover {
   cursor: pointer;
 }
 form #notify {
-  margin-top: 5px;
+  margin: 5px 0 0 0;
   padding: 10px;
   font-size: 12px;
   font-size: 0.75rem;
