@@ -103,13 +103,14 @@ email.addEventListener('keyup', function (event) {
 
 
 (function() {
-  var input = document.getElementById('name');
+  var input = document.getElementById('firstname');
   var form = document.getElementById('form');
   var elem = document.createElement('div');
 
   elem.id = 'notify';
   elem.style.display = 'none';
-  form.appendChild(elem);
+  //form.appendChild(elem);
+  form.insertBefore(elem);
 
   input.addEventListener('invalid', function(event){
     event.preventDefault();
