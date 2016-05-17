@@ -159,14 +159,12 @@ email.addEventListener('keyup', function() {
     var parentDiv = document.getElementsByClassName(name)[0];
     input.parentNode.appendChild(elem);
 
-    console.log(input.value);
-
     // Turning on when error is presented
     input.addEventListener('invalid', function(event) {
       event.preventDefault();
-      //if(! event.target.validity.valid && input.value === /^kettő|ketto|Kettő|Ketto|KETTŐ|KETTO|two|Two|TWO$/gm) {
       //if(! event.target.validity.valid) {
-      if(! event.target.validity.valid && input.value === /(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm) {
+      //if(! event.target.validity.valid && input.value === /(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm) {
+      if(! event.target.validity.valid && input.value === /^(kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO)$/igm) {
         elem.className = 'error';
         parentDiv.className += ' error-input';
         elem.style.display = 'block';
