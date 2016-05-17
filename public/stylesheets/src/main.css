@@ -1257,18 +1257,6 @@ form input {
   background: #fafafa;
   border-radius: 2px;
   width: 100%;
-/*&:valid,
-    &:in-range
-      background: hsl(120, 50%, 90%)
-      border-color: hsl(120, 50%, 50%)
-    &:invalid,
-    &:out-of-range
-      border-color: hsl(0, 50%, 50%)
-      background: hsl(0, 50%, 90%)*/
-/*&:required:valid
-      border: 1px solid green
-    &:focus:required:invalid
-      border: 1px solid red*/
 }
 form input:focus {
   background: transparent;
