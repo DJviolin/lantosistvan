@@ -119,8 +119,7 @@ email.addEventListener('keyup', function() {
     };
     if (! event.target.validity.valid && lang === 'hu-HU') {
       elem.textContent = 'A keresztnév nem tartalmazhat számokat!';
-    }
-    else {
+    } else {
       elem.textContent = 'Firstname cannot contain any numbers!';
     };
   });
