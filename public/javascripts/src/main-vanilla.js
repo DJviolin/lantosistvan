@@ -192,6 +192,6 @@ email.addEventListener('keyup', function() {
   };
 
   // Init function
-  field('firstname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
-  field('surname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
+  field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
+  field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
 })();
