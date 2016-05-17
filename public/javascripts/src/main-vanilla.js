@@ -113,11 +113,11 @@ email.addEventListener('keyup', function() {
   // Turning on when error is presented
   input.addEventListener('invalid', function(event) {
     event.preventDefault();
-    if (! event.target.validity.valid) {
+    if(! event.target.validity.valid) {
       elem.className = 'error';
       elem.style.display = 'block';
     };
-    if (! event.target.validity.valid && lang === 'hu-HU') {
+    if(! event.target.validity.valid && lang === 'hu-HU') {
       elem.textContent = 'A keresztnév nem tartalmazhat számokat!';
     } else {
       elem.textContent = 'Firstname cannot contain any numbers!';
