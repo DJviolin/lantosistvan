@@ -18,18 +18,18 @@ const transporter = nodemailer.createTransport({
   pool: false,
   host: config.host,
   port: config.port,
-  secure: true, // use SSL 
+  secure: true, // use SSL
   auth: {
     user: config.user,
     pass: config.pass
   },
   logger: true, // log to console
   debug: true, // include SMTP traffic in the logs
-  // use up to 5 parallel connections 
+  // use up to 5 parallel connections
   maxConnections: 5,
-  // do not send more than 10 messages per connection 
+  // do not send more than 10 messages per connection
   maxMessages: 10,
-  // do not send more than 5 messages in a second 
+  // do not send more than 5 messages in a second
   rateLimit: 5
 });
 
@@ -41,7 +41,8 @@ router.post('/', (req, res) => {
     subject: '<< Contact Form >>', // Subject line
     text: // plaintext body
       'Captcha:\n' + '    ' + req.body.captcha + '\n\n' +
-      'Név:\n' + '    ' + req.body.name + '\n\n' +
+      'Vezetéknév:\n' + '    ' + req.body.firstname + '\n\n' +
+      'Keresztnév:\n' + '    ' + req.body.surname + '\n\n' +
       'Email cím:\n' + '    ' + req.body.email + '\n\n' +
       'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
       'Üzenet:\n' + '    ' + req.body.message

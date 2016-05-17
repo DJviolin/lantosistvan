@@ -6,10 +6,24 @@
 
   <form id="form" action="" method="post">
 
-    <div>
+    <!--<div>
       <label for="name">Teljes név *</label><br />
-      <input type="text" id="name" name="name" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Vezetéknév Keresztnév"><br /><!-- Pattern: Only contain letters and a space - pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" -->
+      <input type="text" id="name" name="name" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Vezetéknév Keresztnév"><br />
       <span id="name-format" class="help">Formátum: Vezetéknév Keresztnév</span>
+    </div>-->
+
+    <legend>Teljes név *</legend>
+
+    <div>
+      <input type="text" id="firstname" name="firstname" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Keresztnév"><br />
+      <label for="firstname">Keresztnév</label><br />
+      <span id="name-format" class="help">Formátum: Keresztnév</span>
+    </div>
+
+    <div>
+      <input type="text" id="surname" name="surname" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Vezetéknév"><br />
+      <label for="surname">Vezetéknév</label><br />
+      <span id="name-format" class="help">Formátum: Vezetéknév</span>
     </div>
 
     <div>
