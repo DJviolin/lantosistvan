@@ -1253,7 +1253,7 @@ form .help {
 }
 form input,
 form textarea {
-  margin: 6px 0 4px;
+  margin: 6px 0 4px 0;
   padding: 12px;
   border: 1px solid #ccc;
   background: #fafafa;
@@ -1269,6 +1269,16 @@ form textarea:focus + .help,
 form input:invalid + .help,
 form textarea:invalid + .help {
   display: inline-block;
+}
+form .firstname,
+form .lastname {
+  width: 48%;
+}
+form .firstname {
+  float: left;
+}
+form .lastname {
+  float: right;
 }
 form textarea {
   min-height: 100px;
