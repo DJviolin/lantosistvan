@@ -1224,6 +1224,21 @@ form .help {
   font-size: 90%;
   font-size: 5.625rem;
 }
-form input:focus + .help {
+form input:focus + .help,
+form input:invalid + .help {
   display: inline-block;
+}
+form input:required,
+form input:optional {
+  border: 1px solid #999;
+}
+form input:valid,
+form input:in-range {
+  background: #d9f2d9;
+  border-color: #40bf40;
+}
+form input:invalid,
+form input:out-of-range {
+  border-color: #bf4040;
+  background: #f2d9d9;
 }
