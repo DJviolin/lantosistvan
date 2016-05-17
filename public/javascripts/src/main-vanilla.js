@@ -217,30 +217,12 @@ email.addEventListener('keyup', function() {
   // Turning on when error is presented
   input.addEventListener('invalid', function(event) {
     event.preventDefault();
-    if(! event.target.validity.valid &&
-         input.value !== 'kettő' ||
-         input.value !== 'ketto' ||
-         input.value !== 'Kettő' ||
-         input.value !== 'Ketto' ||
-         input.value !== 'KETTŐ' ||
-         input.value !== 'KETTO' ||
-         input.value !== 'two' ||
-         input.value !== 'Two' ||
-         input.value !== 'TWO') {
+    if(! event.target.validity.valid && input.value === /^kettő|ketto|Kettő|Ketto|KETTŐ|KETTO|two|Two|TWO$/gm) {
       elem.className = 'error';
       parentDiv.className += ' error-input';
       elem.style.display = 'block';
     };
-    if(! event.target.validity.valid && lang === 'hu-HU' &&
-         input.value !== 'kettő' ||
-         input.value !== 'ketto' ||
-         input.value !== 'Kettő' ||
-         input.value !== 'Ketto' ||
-         input.value !== 'KETTŐ' ||
-         input.value !== 'KETTO' ||
-         input.value !== 'two' ||
-         input.value !== 'Two' ||
-         input.value !== 'TWO') {
+    if(! event.target.validity.valid && lang === 'hu-HU' && input.value === /^kettő|ketto|Kettő|Ketto|KETTŐ|KETTO|two|Two|TWO$/gm) {
       elem.textContent = 'Captcha kitöltése kötelező.';
     } else {
       elem.textContent = 'Captcha is required.';
