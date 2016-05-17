@@ -88,11 +88,11 @@ var email = document.getElementById('email');
 var lang = document.getElementsByTagName('html')[0].getAttribute('lang');
 
 email.addEventListener('keyup', function (event) {
-  if (email.validity.typeMismatch && lang === 'en-EN') {
-    email.setCustomValidity('The email format should be: \nsomething@domain.com');
-  }
-  else if (email.validity.typeMismatch && lang === 'hu-HU') {
+  if (email.validity.typeMismatch && lang === 'hu-HU') {
     email.setCustomValidity('Az email formátuma ilyen legyen: \nvalami@domain.com');
+  }
+  else if (email.validity.typeMismatch && lang === 'en-EN') {
+    email.setCustomValidity('The email format should be: \nsomething@domain.com');
   }
   else {
     email.setCustomValidity('');
