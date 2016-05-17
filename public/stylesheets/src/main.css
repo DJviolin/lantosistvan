@@ -1228,6 +1228,7 @@ form {
 }
 form div {
   margin: 0 0 24px 0;
+  clear: both;
 }
 form label,
 form legend {
@@ -1276,9 +1277,11 @@ form .lastname {
 }
 form .firstname {
   float: left;
+  clear: left;
 }
 form .lastname {
   float: right;
+  clear: right;
 }
 form textarea {
   min-height: 100px;
@@ -1320,6 +1323,7 @@ form #notify {
   -moz-transition: all 0.5s ease 0s;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
+  clear: both;
 }
 form #notify.error {
   background-color: #dd2c00;
