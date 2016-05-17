@@ -110,6 +110,7 @@ email.addEventListener('keyup', function() {
   var input = document.getElementById('firstname');
   input.parentNode.appendChild(elem);
 
+  // Turning on when error is presented
   input.addEventListener('invalid', function(event) {
     event.preventDefault();
     if (! event.target.validity.valid) {
@@ -124,9 +125,10 @@ email.addEventListener('keyup', function() {
     };
   });
 
+  // Turning off when error is not presented
   input.addEventListener('input', function() {
     if(elem.style.display === 'block') {
-      input.className = '';
+      elem.className = '';
       elem.style.display = 'none';
     }
   });
