@@ -84,8 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation
 /////////////////////////////////////////////////////////////
 
-var email = document.getElementById('email');
 var lang = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+var email = document.getElementById('email');
 
 email.addEventListener('keyup', function (event) {
   if (email.validity.typeMismatch && lang === 'hu-HU') {
@@ -119,10 +120,19 @@ email.addEventListener('keyup', function (event) {
     event.preventDefault();
     if ( ! event.target.validity.valid ) {
       input.className    = 'invalid animated shake';
-      elem.textContent   = 'Username should only contain lowercase letters e.g. john';
+      //elem.textContent   = 'Username should only contain lowercase letters e.g. john';
       elem.className     = 'error';
       elem.style.display = 'block';
+    };
+    if (! event.target.validity.valid && lang === 'hu-HU') {
+      elem.textContent = 'A felhasználónév csak kisbetűs karaktereket tartalmazhat, pl. john';
     }
+    else if (! event.target.validity.valid && lang === 'en-EN') {
+      elem.textContent = 'Username should only contain lowercase letters e.g. john';
+    }
+    else {
+      elem.textContent = 'Username should only contain lowercase letters e.g. john';
+    };
   });
 
   input.addEventListener('input', function(event){
