@@ -196,5 +196,64 @@ email.addEventListener('keyup', function() {
   field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
   field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
   field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
-  field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
+  //field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
+
+
+
+
+
+
+
+
+  var elem = document.createElement('div');
+  elem.style.display = 'none';
+
+  var input = document.getElementById('captcha');
+  var parentDiv = document.getElementsByClassName('captcha')[0];
+  input.parentNode.appendChild(elem);
+
+  console.log(input.value);
+
+  // Turning on when error is presented
+  input.addEventListener('invalid', function(event) {
+    event.preventDefault();
+    if(! event.target.validity.valid &&
+         input.value !== 'kettő' ||
+         input.value !== 'ketto' ||
+         input.value !== 'Kettő' ||
+         input.value !== 'Ketto' ||
+         input.value !== 'KETTŐ' ||
+         input.value !== 'KETTO' ||
+         input.value !== 'two' ||
+         input.value !== 'Two' ||
+         input.value !== 'TWO') {
+      elem.className = 'error';
+      parentDiv.className += ' error-input';
+      elem.style.display = 'block';
+    };
+    if(! event.target.validity.valid && lang === 'hu-HU' &&
+         input.value !== 'kettő' ||
+         input.value !== 'ketto' ||
+         input.value !== 'Kettő' ||
+         input.value !== 'Ketto' ||
+         input.value !== 'KETTŐ' ||
+         input.value !== 'KETTO' ||
+         input.value !== 'two' ||
+         input.value !== 'Two' ||
+         input.value !== 'TWO') {
+      elem.textContent = 'Captcha kitöltése kötelező.';
+    } else {
+      elem.textContent = 'Captcha is required.';
+    };
+  });
+
+  // Turning off when error is not presented
+  input.addEventListener('input', function() {
+    if(elem.style.display === 'block') {
+      elem.className = '';
+      parentDiv.classList.remove('error-input');
+      elem.style.display = 'none';
+    };
+  });
+
 })();
