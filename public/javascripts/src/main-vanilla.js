@@ -164,13 +164,14 @@ email.addEventListener('keyup', function() {
       event.preventDefault();
       //if(! event.target.validity.valid) {
       //if(! event.target.validity.valid && input.value === /(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/igm) {
-      if(! event.target.validity.valid && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
+      //if(! event.target.validity.valid && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
+      if(!event.target.validity.valid && !/^(?:kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO)$/gm.test(input.value)) {
         elem.className = 'error';
         parentDiv.className += ' error-input';
         elem.style.display = 'block';
       };
-      //if(! event.target.validity.valid && lang === 'hu-HU') {
-      if(! event.target.validity.valid && lang === 'hu-HU' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
+      if(! event.target.validity.valid && lang === 'hu-HU') {
+      //if(! event.target.validity.valid && lang === 'hu-HU' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
         elem.textContent = langif;
       } else {
         elem.textContent = langelse;
