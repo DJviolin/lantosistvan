@@ -88,7 +88,7 @@ var lang = document.getElementsByTagName('html')[0].getAttribute('lang');
 
 var email = document.getElementById('email');
 
-email.addEventListener('keyup', function (event) {
+email.addEventListener('keyup', function() {
   if (email.validity.typeMismatch && lang === 'hu-HU') {
     email.setCustomValidity('Az email formátuma ilyen legyen: \nvalami@domain.com');
   }
@@ -120,9 +120,7 @@ email.addEventListener('keyup', function (event) {
   input.addEventListener('invalid', function(event) {
     event.preventDefault();
     if (! event.target.validity.valid) {
-      input.className    = 'invalid animated shake';
-      //elem.textContent   = 'Username should only contain lowercase letters e.g. john';
-      //elem.className     = 'error';
+      elem.className = 'error';
       elem.style.display = 'block';
     };
     if (! event.target.validity.valid && lang === 'hu-HU') {
@@ -133,8 +131,8 @@ email.addEventListener('keyup', function (event) {
     };
   });
 
-  input.addEventListener('input', function(event){
-    if ('block' === elem.style.display) {
+  input.addEventListener('input', function() {
+    if(elem.style.display === 'block') {
       input.className = '';
       elem.style.display = 'none';
     }
