@@ -201,41 +201,43 @@ email.addEventListener('keyup', function() {
 
 
 
+  function captcha(name, langif, langelse) {
 
+    var elem = document.createElement('div');
+    elem.style.display = 'none';
 
+    var input = document.getElementById(name);
+    var parentDiv = document.getElementsByClassName(name)[0];
+    input.parentNode.appendChild(elem);
 
+    // Turning on when error is presented
+    input.addEventListener('invalid', function(event) {
+      event.preventDefault();
+      //if(! event.target.validity.valid && input.value === /^kettő|ketto|Kettő|Ketto|KETTŐ|KETTO|two|Two|TWO$/gm) {
+      if(! event.target.validity.valid) {
+        elem.className = 'error';
+        parentDiv.className += ' error-input';
+        elem.style.display = 'block';
+      };
+      if(! event.target.validity.valid && lang === 'hu-HU') {
+        elem.textContent = langif;
+      } else {
+        elem.textContent = langelse;
+      };
+    });
 
-  var elem = document.createElement('div');
-  elem.style.display = 'none';
+    // Turning off when error is not presented
+    input.addEventListener('input', function() {
+      if(elem.style.display === 'block') {
+        elem.className = '';
+        parentDiv.classList.remove('error-input');
+        elem.style.display = 'none';
+      };
+    });
 
-  var input = document.getElementById('captcha');
-  var parentDiv = document.getElementsByClassName('captcha')[0];
-  input.parentNode.appendChild(elem);
+    return;
+  };
 
-  console.log(input.value);
-
-  // Turning on when error is presented
-  input.addEventListener('invalid', function(event) {
-    event.preventDefault();
-    if(! event.target.validity.valid && input.value === /^kettő|ketto|Kettő|Ketto|KETTŐ|KETTO|two|Two|TWO$/gm) {
-      elem.className = 'error';
-      parentDiv.className += ' error-input';
-      elem.style.display = 'block';
-    };
-    if(! event.target.validity.valid && lang === 'hu-HU' && input.value === /^kettő|ketto|Kettő|Ketto|KETTŐ|KETTO|two|Two|TWO$/gm) {
-      elem.textContent = 'Captcha kitöltése kötelező.';
-    } else {
-      elem.textContent = 'Captcha is required.';
-    };
-  });
-
-  // Turning off when error is not presented
-  input.addEventListener('input', function() {
-    if(elem.style.display === 'block') {
-      elem.className = '';
-      parentDiv.classList.remove('error-input');
-      elem.style.display = 'none';
-    };
-  });
+  captcha('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
 
 })();
