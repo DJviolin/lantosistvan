@@ -196,4 +196,6 @@ email.addEventListener('keyup', function() {
   field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
   field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
   field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
+  field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
+  field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
 })();
