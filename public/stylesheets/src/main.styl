@@ -852,20 +852,6 @@ form
   .help
     display: none
     font-size: 90%
-  .button
-    background-color: transparent
-    color: #737373
-    border: 2px solid #737373
-    transition: 0.1s background-color linear, 0.1s color linear
-    //font-family: $Georgia
-    font-size: 14px
-    text-transform: uppercase
-    letter-spacing: 9px
-    padding: 1rem 2.5rem
-    &:hover
-      background-color: #737373
-      color: #fff
-      cursor: pointer
   input
     margin: 6px 0 4px
     padding: 12px
@@ -873,6 +859,8 @@ form
     background: #fafafa
     border-radius: 2px
     width: 100%
+    &:focus
+      background: transparent
     &:focus + .help,
     &:invalid + .help
       display: inline-block
@@ -888,10 +876,25 @@ form
     &:out-of-range
       border-color: hsl(0, 50%, 50%)
       background: hsl(0, 50%, 90%)*/
-    &:required:valid
+    /*&:required:valid
       border: 1px solid green
     &:focus:required:invalid
-      border: 1px solid red
+      border: 1px solid red*/
+  .button
+    background-color: transparent
+    color: #737373
+    border: 2px solid #737373
+    transition: 0.1s background-color linear, 0.1s color linear
+    //font-family: $Georgia
+    font-size: 14px
+    text-transform: uppercase
+    letter-spacing: 9px
+    padding: 1rem 2.5rem
+    width: auto
+    &:hover
+      background-color: #737373
+      color: #fff
+      cursor: pointer
   #notify
     margin-top: 5px
     padding: 10px
