@@ -839,6 +839,7 @@ form
     display: none
     font-size: 90%
   input
+    border: 1px solid #999
     &:focus + .help,
     &:invalid + .help
       display: inline-block
@@ -857,7 +858,7 @@ form
     &:out-of-range
       border-color: hsl(0, 50%, 50%)
       background: hsl(0, 50%, 90%)*/
-    &:invalid
-      border: 1px solid red
-    &:valid
+    &:required:valid
       border: 1px solid green
+    &:focus:required:invalid
+      border: 1px solid red

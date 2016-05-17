@@ -1233,13 +1233,27 @@ form .help {
   font-size: 90%;
   font-size: 5.625rem;
 }
+form input {
+  border: 1px solid #999;
+/*&:required,
+    &:optional
+      border: 1px solid #999*/
+/*&:valid,
+    &:in-range
+      background: hsl(120, 50%, 90%)
+      border-color: hsl(120, 50%, 50%)
+    &:invalid,
+    &:out-of-range
+      border-color: hsl(0, 50%, 50%)
+      background: hsl(0, 50%, 90%)*/
+}
 form input:focus + .help,
 form input:invalid + .help {
   display: inline-block;
 }
-form input:invalid {
-  border: 1px solid #f00;
-}
-form input:valid {
+form input:required:valid {
   border: 1px solid #008000;
+}
+form input:focus:required:invalid {
+  border: 1px solid #f00;
 }
