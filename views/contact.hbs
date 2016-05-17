@@ -5,17 +5,26 @@
   </article>
 
   <form action="" method="post">
-    Név:<br />
-    <input type="text" name="name"><br />
-    Email:<br />
-    <input type="email" name="email"><br />
-    Tárgy:<br />
+
+    <label for="name">Teljes név*</label><br />
+    <input type="text" name="name" value="" aria-describedby="name-format" required><br />
+    <span id="name-format" class="help">Formátum: Vezetéknév Keresztnév</span>
+
+    <label for="email">Email*</label><br />
+    <input type="email" name="email" required><br />
+
+    <label for="subject">Tárgy*</label><br />
     <input type="text" name="subject"><br />
-    Üzenet:<br />
-    <input type="text" name="message"><br /><br />
-    Captcha: Mennyi 1 + 1, betűkkel?<br />
-    <input type="text" name="captcha"><br />
-    <input type="submit" value="Submit">
-  </form> 
+
+    <label for="message">Üzenet*</label><br />
+    <input type="text" name="message" required><br /><br />
+
+    <label for="captcha">Mennyi 1 + 1, betűkkel?*</label><br />
+    <input type="text" name="captcha" required><br />
+
+    <input type="submit" value="Submit"><br /><br />
+    * kötelező mezők
+
+  </form>
 
 </main><!-- main.contact -->

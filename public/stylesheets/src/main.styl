@@ -815,9 +815,19 @@ http://marinkovic-weddings.com/
 
 /////////////////////////////////////////////////////////////
 // Pages - Contact
+// HTML5 Form Validation:
+// https://www.sitepoint.com/html5-form-validation/
+// http://www.w3schools.com/html/html_form_attributes.asp
 /////////////////////////////////////////////////////////////
 
 .contact
   align-items: center
   article
     max-width: 600px
+
+form
+  .help
+    display: none
+    font-size: 90%
+  input:focus + .help
+    display: inline-block

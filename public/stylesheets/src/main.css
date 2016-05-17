@@ -1219,3 +1219,11 @@ http://marinkovic-weddings.com/
 .contact article {
   max-width: 600px;
 }
+form .help {
+  display: none;
+  font-size: 90%;
+  font-size: 5.625rem;
+}
+form input:focus + .help {
+  display: inline-block;
+}
