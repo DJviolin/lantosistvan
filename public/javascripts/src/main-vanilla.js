@@ -104,7 +104,7 @@ email.addEventListener('keyup', function (event) {
 
 
 (function() {
-  var input = document.getElementById('firstname');
+  //var input = document.getElementById('firstname');
   //var input = document.getElementsByClassName('firstname')[0];
   //var form = document.getElementById('form');
 
@@ -112,26 +112,27 @@ email.addEventListener('keyup', function (event) {
   elem.id = 'notify';
   elem.style.display = 'none';
 
+  var input = document.getElementById('firstname');
   //form.appendChild(elem);
   //input.parentNode.insertBefore(elem, input.childNodes[0]);
   input.parentNode.appendChild(elem);
 
-  input.addEventListener('invalid', function(event){
+  input.addEventListener('invalid', function(event) {
     event.preventDefault();
-    if ( ! event.target.validity.valid ) {
+    if (! event.target.validity.valid) {
       input.className    = 'invalid animated shake';
       //elem.textContent   = 'Username should only contain lowercase letters e.g. john';
       elem.className     = 'error';
       elem.style.display = 'block';
     };
     if (! event.target.validity.valid && lang === 'hu-HU') {
-      elem.textContent = 'A felhasználónév csak kisbetűs karaktereket tartalmazhat, pl. john';
+      elem.textContent = 'A keresztnév nem tartalmazhat számokat, pl. John';
     }
     else if (! event.target.validity.valid && lang === 'en-EN') {
-      elem.textContent = 'Username should only contain lowercase letters e.g. john';
+      elem.textContent = 'Firstname cannot contain any numbers, e.g. John';
     }
     else {
-      elem.textContent = 'Username should only contain lowercase letters e.g. john';
+      elem.textContent = 'Firstname cannot contain any numbers, e.g. John';
     };
   });
 
