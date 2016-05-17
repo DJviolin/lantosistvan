@@ -1329,3 +1329,10 @@ form .error {
   transition: all 0.5s ease 0s;
   clear: both;
 }
+form .error-input input,
+form .error-input textarea {
+  border: 1px solid #cc3b3b;
+}
+form .error-input label {
+  color: #cc3b3b;
+}

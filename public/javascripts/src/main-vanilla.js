@@ -108,6 +108,7 @@ email.addEventListener('keyup', function() {
   elem.style.display = 'none';
 
   var input = document.getElementById('firstname');
+  var parentDiv = document.getElementsByClassName('firstname')[0];
   input.parentNode.appendChild(elem);
 
   // Turning on when error is presented
@@ -115,6 +116,7 @@ email.addEventListener('keyup', function() {
     event.preventDefault();
     if(! event.target.validity.valid) {
       elem.className = 'error';
+      parentDiv.className += ' error-input';
       elem.style.display = 'block';
     };
     if(! event.target.validity.valid && lang === 'hu-HU') {
@@ -128,6 +130,7 @@ email.addEventListener('keyup', function() {
   input.addEventListener('input', function() {
     if(elem.style.display === 'block') {
       elem.className = '';
+      parentDiv.classList.remove('error-input');
       elem.style.display = 'none';
     };
   });
