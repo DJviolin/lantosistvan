@@ -826,6 +826,14 @@ http://marinkovic-weddings.com/
     max-width: 600px
 
 form
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  textarea,
+  fieldset
+    /* required to properly style form
+    elements on WebKit based browsers */
+    -webkit-appearance: none
   .help
     display: none
     font-size: 90%
@@ -833,18 +841,22 @@ form
     &:focus + .help,
     &:invalid + .help
       display: inline-block
-    &:required,
+    /*&:required,
     &:optional
-      border: 1px solid #999
+      border: 1px solid #999*/
     //&:required
     //  background: hsl(180, 50%, 90%)
     //&:optional
     //  background: hsl(300, 50%, 90%)
-    &:valid,
+    /*&:valid,
     &:in-range
       background: hsl(120, 50%, 90%)
       border-color: hsl(120, 50%, 50%)
     &:invalid,
     &:out-of-range
       border-color: hsl(0, 50%, 50%)
-      background: hsl(0, 50%, 90%)
+      background: hsl(0, 50%, 90%)*/
+    &:invalid
+      border: 1px solid red
+    &:valid
+      border: 1px solid green

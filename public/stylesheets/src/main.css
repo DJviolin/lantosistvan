@@ -1219,6 +1219,15 @@ http://marinkovic-weddings.com/
 .contact article {
   max-width: 600px;
 }
+form input[type=text],
+form input[type=email],
+form input[type=number],
+form textarea,
+form fieldset {
+/* required to properly style form
+    elements on WebKit based browsers */
+  -webkit-appearance: none;
+}
 form .help {
   display: none;
   font-size: 90%;
@@ -1228,17 +1237,9 @@ form input:focus + .help,
 form input:invalid + .help {
   display: inline-block;
 }
-form input:required,
-form input:optional {
-  border: 1px solid #999;
+form input:invalid {
+  border: 1px solid #f00;
 }
-form input:valid,
-form input:in-range {
-  background: #d9f2d9;
-  border-color: #40bf40;
-}
-form input:invalid,
-form input:out-of-range {
-  border-color: #bf4040;
-  background: #f2d9d9;
+form input:valid {
+  border: 1px solid #008000;
 }
