@@ -7,7 +7,7 @@
   <form action="" method="post">
 
     <label for="name">Teljes név*</label><br />
-    <input type="text" id="name" name="name" value="" aria-describedby="name-format" required aria-required="true" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" title="Vezetéknév Keresztnév"><br /><!-- Pattern: Only contain letters and a space -->
+    <input type="text" id="name" name="name" value="" aria-describedby="name-format" required aria-required="true" pattern="[\p{L}]+\s[\p{L}]+" title="Vezetéknév Keresztnév"><br /><!-- Pattern: Only contain letters and a space - pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" -->
     <span id="name-format" class="help">Formátum: Vezetéknév Keresztnév</span>
 
     <label for="email">Email*</label><br />
