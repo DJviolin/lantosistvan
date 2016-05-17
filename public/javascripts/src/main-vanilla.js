@@ -169,7 +169,8 @@ email.addEventListener('keyup', function() {
         parentDiv.className += ' error-input';
         elem.style.display = 'block';
       };
-      if(! event.target.validity.valid && lang === 'hu-HU') {
+      //if(! event.target.validity.valid && lang === 'hu-HU') {
+      if(! event.target.validity.valid && lang === 'hu-HU' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
         elem.textContent = langif;
       } else {
         elem.textContent = langelse;
