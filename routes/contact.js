@@ -41,8 +41,8 @@ router.post('/', (req, res) => {
     subject: '<< Contact Form >>', // Subject line
     text: // plaintext body
       'Captcha:\n' + '    ' + req.body.captcha + '\n\n' +
-      'Vezetéknév:\n' + '    ' + req.body.firstname + '\n\n' +
-      'Keresztnév:\n' + '    ' + req.body.surname + '\n\n' +
+      'Keresztnév:\n' + '    ' + req.body.firstname + '\n\n' +
+      'Vezetéknév:\n' + '    ' + req.body.surname + '\n\n' +
       'Email cím:\n' + '    ' + req.body.email + '\n\n' +
       'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
       'Üzenet:\n' + '    ' + req.body.message
