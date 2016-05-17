@@ -126,13 +126,10 @@ email.addEventListener('keyup', function (event) {
       elem.style.display = 'block';
     };
     if (! event.target.validity.valid && lang === 'hu-HU') {
-      elem.textContent = 'A keresztnév nem tartalmazhat számokat, pl. John';
-    }
-    else if (! event.target.validity.valid && lang === 'en-EN') {
-      elem.textContent = 'Firstname cannot contain any numbers, e.g. John';
+      elem.textContent = 'A keresztnév nem tartalmazhat számokat!';
     }
     else {
-      elem.textContent = 'Firstname cannot contain any numbers, e.g. John';
+      elem.textContent = 'Firstname cannot contain any numbers!';
     };
   });
 
