@@ -163,8 +163,8 @@ email.addEventListener('keyup', function() {
     input.addEventListener('invalid', function(event) {
       event.preventDefault();
       //if(! event.target.validity.valid) {
-      if(! event.target.validity.valid && input.value === /(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/igm) {
-      //if(! event.target.validity.valid && input.value === /^(kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO)$/igm) {
+      //if(! event.target.validity.valid && input.value === /(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/igm) {
+      if(! event.target.validity.valid && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
         elem.className = 'error';
         parentDiv.className += ' error-input';
         elem.style.display = 'block';
