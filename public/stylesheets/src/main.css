@@ -1250,7 +1250,8 @@ form .help {
   font-size: 90%;
   font-size: 5.625rem;
 }
-form input {
+form input,
+form textarea {
   margin: 6px 0 4px;
   padding: 12px;
   border: 1px solid #ccc;
@@ -1258,12 +1259,21 @@ form input {
   border-radius: 2px;
   width: 100%;
 }
-form input:focus {
+form input:focus,
+form textarea:focus {
   background: transparent;
 }
 form input:focus + .help,
-form input:invalid + .help {
+form textarea:focus + .help,
+form input:invalid + .help,
+form textarea:invalid + .help {
   display: inline-block;
+}
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+  overflow: auto;
+  vertical-align: top;
 }
 form .button {
   background-color: transparent;

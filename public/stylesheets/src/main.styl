@@ -852,7 +852,8 @@ form
   .help
     display: none
     font-size: 90%
-  input
+  input,
+  textarea
     margin: 6px 0 4px
     padding: 12px
     border: 1px solid #ccc
@@ -868,6 +869,11 @@ form
     //  border: 1px solid green
     //&:focus:required:invalid
     //  border: 1px solid red
+  textarea
+    min-height: 100px
+    resize: vertical
+    overflow: auto
+    vertical-align: top
   .button
     background-color: transparent
     color: #737373
