@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //var width = parseInt(getComputedStyle(images[i]).width); // All elements
       //var calc = ( width / 4 ) * 3; // All elements
       images[i].style.height = calc + 'px';
-      //console.log('previewImages() fired...'); 
+      //console.log('previewImages() fired...');
     }
   };
   window.addEventListener('load', previewImages);
@@ -77,4 +77,24 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   var toggleButton = document.getElementsByClassName('menu-button')[0];
   toggleButton.addEventListener('click', menuButton);
+});
+
+/////////////////////////////////////////////////////////////
+// HTML5 Form Error Messages - Vanilla JS
+// https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation
+/////////////////////////////////////////////////////////////
+
+var email = document.getElementById('email');
+var lang = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+email.addEventListener('keyup', function (event) {
+  if (email.validity.typeMismatch && lang === 'en-EN') {
+    email.setCustomValidity('The email format should be: \nsomething@domain.com');
+  }
+  else if (email.validity.typeMismatch && lang === 'hu-HU') {
+    email.setCustomValidity('Az email formátuma ilyen legyen: \nvalami@domain.com');
+  }
+  else {
+    email.setCustomValidity('');
+  };
 });
