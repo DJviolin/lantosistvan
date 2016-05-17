@@ -130,6 +130,6 @@ email.addEventListener('keyup', function() {
     if(elem.style.display === 'block') {
       elem.className = '';
       elem.style.display = 'none';
-    }
+    };
   });
 })();
