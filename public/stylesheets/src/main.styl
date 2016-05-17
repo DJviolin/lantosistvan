@@ -828,10 +828,12 @@ http://marinkovic-weddings.com/
 
 form
   position: relative
-  width: auto
-  //label,
-  //input
-  //  display: block
+  display: block
+  width: 100%
+  max-width: 600px
+  font-family: $Georgia
+  div
+    margin: 0 0 24px 0
   label
     font-family: $Georgia
     font-size: 11px
@@ -855,7 +857,7 @@ form
     color: #737373
     border: 2px solid #737373
     transition: 0.1s background-color linear, 0.1s color linear
-    font-family: $Georgia
+    //font-family: $Georgia
     font-size: 14px
     text-transform: uppercase
     letter-spacing: 9px
@@ -865,11 +867,12 @@ form
       color: #fff
       cursor: pointer
   input
-    margin: 0 0 24px 0
+    margin: 6px 0 4px
     padding: 12px
     border: 1px solid #ccc
     background: #fafafa
     border-radius: 2px
+    width: 100%
     &:focus + .help,
     &:invalid + .help
       display: inline-block

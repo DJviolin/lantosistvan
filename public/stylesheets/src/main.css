@@ -1221,7 +1221,13 @@ http://marinkovic-weddings.com/
 }
 form {
   position: relative;
-  width: auto;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+form div {
+  margin: 0 0 24px 0;
 }
 form label {
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -1252,7 +1258,6 @@ form .button {
   -moz-transition: 0.1s background-color linear, 0.1s color linear;
   -webkit-transition: 0.1s background-color linear, 0.1s color linear;
   transition: 0.1s background-color linear, 0.1s color linear;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 14px;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -1265,11 +1270,12 @@ form .button:hover {
   cursor: pointer;
 }
 form input {
-  margin: 0 0 24px 0;
+  margin: 6px 0 4px;
   padding: 12px;
   border: 1px solid #ccc;
   background: #fafafa;
   border-radius: 2px;
+  width: 100%;
 /*&:valid,
     &:in-range
       background: hsl(120, 50%, 90%)
