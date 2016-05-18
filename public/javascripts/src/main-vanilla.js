@@ -131,14 +131,15 @@ email.addEventListener('keyup', function() {
     // Turning on when error is presented
     input.addEventListener('invalid', function(event) {
       event.preventDefault();
-      if(!event.target.validity.valid) {
+      if(!event.target.validity.valid && name !== 'captcha') {
         elem.className = 'error';
         parentDiv.className += ' error-input';
         elem.style.display = 'block';
       };
       //if(!event.target.validity.valid && name === 'captcha' && !(input.value in answers)) {
       //if(!event.target.validity.valid && name === 'captcha') {
-      if(!event.target.validity.valid && name === 'captcha' && !captchaInit()) {
+      //if(!event.target.validity.valid && name === 'captcha' && !captchaInit()) {
+      if(!event.target.validity.valid && name === 'captcha' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
         elem.className = 'error-captcha';
         parentDiv.className += ' error-input-captcha';
         elem.style.display = 'block';
