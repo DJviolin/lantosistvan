@@ -68,19 +68,21 @@ router.post('/', (req, res) => {
     });
   };*/
 
-  if(req.body.captcha === 'kettő' ||
-     req.body.captcha === 'ketto' ||
-     req.body.captcha === 'Kettő' ||
-     req.body.captcha === 'Ketto' ||
-     req.body.captcha === 'KETTŐ' ||
-     req.body.captcha === 'KETTO' ||
-     req.body.captcha === 'two' ||
-     req.body.captcha === 'Two' ||
-     req.body.captcha === 'TWO') {
-    console.log('AJAX OK');
-  } else if(req.body.firstname === '' || req.body.firstname !== req.body.firstname.match(/\D+/gm)[0]) {
+  if(req.body.firstname === '' || req.body.firstname !== req.body.firstname.match(/\D+/gm)[0]) {
     console.log('AJAX ERROR: Firstname is empty and/or have a number.');
-  } else {
+  }
+  else if(req.body.captcha !== 'kettő' ||
+          req.body.captcha !== 'ketto' ||
+          req.body.captcha !== 'Kettő' ||
+          req.body.captcha !== 'Ketto' ||
+          req.body.captcha !== 'KETTŐ' ||
+          req.body.captcha !== 'KETTO' ||
+          req.body.captcha !== 'two' ||
+          req.body.captcha !== 'Two' ||
+          req.body.captcha !== 'TWO') {
+    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid.');
+  }
+  else {
     console.log('AJAX ERROR');
   };
 
