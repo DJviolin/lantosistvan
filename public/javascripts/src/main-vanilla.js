@@ -199,20 +199,29 @@ email.addEventListener('keyup', function() {
   function ajax() {
     //var xhttp = new XMLHttpRequest();
     var xhttp;
-    if (window.XMLHttpRequest) {
+    if(window.XMLHttpRequest) {
       xhttp = new XMLHttpRequest(); // code for modern browsers
     } else {
       xhttp = new ActiveXObject('Microsoft.XMLHTTP'); // code for IE6, IE5
     };
     xhttp.onreadystatechange = function() {
-      if (xhttp.readyState === 4 && xhttp.status === 200) {
+      if(xhttp.readyState === 4 && xhttp.status === 200) {
         document.getElementById('demo').innerHTML = xhttp.responseText;
       };
     };
-    xhttp.open('POST', '/form', true);
+
+    //xhttp.open('POST', '/form', true);
+    if(lang === 'hu-HU') {
+      xhttp.open('POST', '/hu/form', true);
+    } else {
+      xhttp.open('POST', '/en/form', true);
+    };
+
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     //xhttp.send('fname=Henry&lname=Ford');
     xhttp.send();
   }
 //  ajax();
 //})();
+
+console.log(getLocale());
