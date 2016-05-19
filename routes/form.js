@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
 
   // You have to check the captcha before you call sendMail.
   // There is no way to abort already running email transaction in Nodemailer
-  if(req.body.captcha === 'kettő' ||
+  /*if(req.body.captcha === 'kettő' ||
      req.body.captcha === 'ketto' ||
      req.body.captcha === 'Kettő' ||
      req.body.captcha === 'Ketto' ||
@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
       console.log('Message sent successfully!');
       console.log('Server responded with "%s"', info.response);
     });
-  };
+  };*/
 
   if(req.body.captcha === 'kettő' ||
      req.body.captcha === 'ketto' ||

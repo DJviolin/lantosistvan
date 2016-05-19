@@ -183,7 +183,7 @@ email.addEventListener('keyup', function() {
 // http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
 /////////////////////////////////////////////////////////////
 
-//(function() {
+(function() {
   /*function ajax() {
     var xhttp;
     if (window.XMLHttpRequest) {
@@ -208,9 +208,12 @@ email.addEventListener('keyup', function() {
     //console.log(captcha);
 
     data = {
-      to: to,
+      captcha: captcha,
+      firstname: firstname,
+      surname: surname,
+      email: email,
       subject: subject,
-      text: text
+      message: message
     };
 
     var xhttp = new XMLHttpRequest();
@@ -239,6 +242,7 @@ email.addEventListener('keyup', function() {
     //xhttp.send('fname=Henry&lname=Ford');
     //xhttp.send();
     xhttp.send(JSON.stringify(data));
+    console.log(JSON.stringify(data));
   //};
 //  ajax();
-//})();
+})();
