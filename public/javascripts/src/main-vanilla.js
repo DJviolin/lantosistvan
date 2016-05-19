@@ -213,6 +213,7 @@ email.addEventListener('keyup', function() {
     xhttp.onreadystatechange = function() {
       if(xhttp.readyState === 4 && xhttp.status === 200) {
         //document.getElementById('demo').innerHTML = xhttp.responseText;
+        //
         document.getElementById('captcha').value = xhttp.responseText;
       };
     };

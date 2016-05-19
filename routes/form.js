@@ -68,22 +68,23 @@ router.post('/', (req, res) => {
     });
   };
 
-  const isAjaxRequest = req.xhr;
-  if(isAjaxRequest === true &&
-     req.body.captcha !== 'kettő' ||
-     req.body.captcha !== 'ketto' ||
-     req.body.captcha !== 'Kettő' ||
-     req.body.captcha !== 'Ketto' ||
-     req.body.captcha !== 'KETTŐ' ||
-     req.body.captcha !== 'KETTO' ||
-     req.body.captcha !== 'two' ||
-     req.body.captcha !== 'Two' ||
-     req.body.captcha !== 'TWO') {
+  if(req.body.captcha === 'kettő' ||
+     req.body.captcha === 'ketto' ||
+     req.body.captcha === 'Kettő' ||
+     req.body.captcha === 'Ketto' ||
+     req.body.captcha === 'KETTŐ' ||
+     req.body.captcha === 'KETTO' ||
+     req.body.captcha === 'two' ||
+     req.body.captcha === 'Two' ||
+     req.body.captcha === 'TWO') {
+    res.send('AJAX OK');
+    console.log('AJAX OK');
+  } else {
+    res.send('AJAX ERROR');
     console.log('AJAX ERROR');
-    //res.status(302).redirect('/' + req.getLocale() + '/form/error');
   };
 
-  res.status(302).redirect('/' + req.getLocale() + '/contact');
+  //res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
 /////////////////////////////////////////////////////////////
