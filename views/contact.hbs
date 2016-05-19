@@ -46,7 +46,8 @@
       <input type="text" id="captcha" name="captcha" required aria-required="true"><br />
     </div>
 
-    <input class="button" type="submit" value="Submit">
+    <!--<input class="button" type="submit" value="Submit">-->
+    <button class="button"  type="button" value="submit" onclick="ajax()">Submit</button>
 
   </form>
 
@@ -54,7 +55,7 @@
 
   <div id="demo"><h2>Let AJAX change this text</h2></div>
 
-  <form id="ajax" action="" method="post">
+  <form id="ajax" action="{{language}}/form2" method="post">
     <div class="captcha">
       <label for="captcha">Mennyi 1 + 1, betűkkel? *</label><br />
       <input type="text" id="captcha2" name="captcha" required aria-required="true"><br />

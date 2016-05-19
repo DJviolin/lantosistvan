@@ -67,6 +67,22 @@ router.post('/', (req, res) => {
       console.log('Server responded with "%s"', info.response);
     });
   };
+
+  const isAjaxRequest = req.xhr;
+  if(isAjaxRequest === true &&
+     req.body.captcha !== 'kettő' ||
+     req.body.captcha !== 'ketto' ||
+     req.body.captcha !== 'Kettő' ||
+     req.body.captcha !== 'Ketto' ||
+     req.body.captcha !== 'KETTŐ' ||
+     req.body.captcha !== 'KETTO' ||
+     req.body.captcha !== 'two' ||
+     req.body.captcha !== 'Two' ||
+     req.body.captcha !== 'TWO') {
+    console.log('AJAX ERROR');
+    //res.status(302).redirect('/' + req.getLocale() + '/form/error');
+  };
+
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 

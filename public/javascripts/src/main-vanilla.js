@@ -200,7 +200,7 @@ email.addEventListener('keyup', function() {
 
   function ajax() {
 
-    var captcha = document.getElementById('captcha2').value;
+    var captcha = document.getElementById('captcha').value;
     console.log(captcha);
 
     //var xhttp = new XMLHttpRequest();
@@ -213,7 +213,7 @@ email.addEventListener('keyup', function() {
     xhttp.onreadystatechange = function() {
       if(xhttp.readyState === 4 && xhttp.status === 200) {
         //document.getElementById('demo').innerHTML = xhttp.responseText;
-        document.getElementById('captcha2').value = xhttp.responseText;
+        document.getElementById('captcha').value = xhttp.responseText;
       };
     };
 
@@ -226,7 +226,7 @@ email.addEventListener('keyup', function() {
 
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     //xhttp.send('fname=Henry&lname=Ford');
-    xhttp.send(captcha);
+    xhttp.send();
   };
 //  ajax();
 //})();
