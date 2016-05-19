@@ -210,7 +210,7 @@ email.addEventListener('keyup', function() {
       };
     };
     xhttp.open('POST', '/form', true);
-    //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     //xhttp.send('fname=Henry&lname=Ford');
     xhttp.send();
   }
