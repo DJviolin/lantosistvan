@@ -75,6 +75,7 @@ app.set('view engine', '.hbs');
 // bodyParser
 // This will let us get the data from a POST
 app.use(bodyParser.json());
+// for parsing application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // methodOverride
 // Lets you use HTTP verbs such as PUT or DELETE

@@ -177,6 +177,10 @@ email.addEventListener('keyup', function() {
 // http://www.w3schools.com/ajax/
 // http://expressjs.com/en/api.html#req.xhr
 // http://stackoverflow.com/a/15945578/1442219
+
+// ANSWERS:
+// http://stackoverflow.com/questions/32084571/why-is-an-object-in-an-xmlhttprequest-sent-to-a-node-express-server-empty
+// http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
 /////////////////////////////////////////////////////////////
 
 //(function() {
@@ -203,6 +207,12 @@ email.addEventListener('keyup', function() {
     var captcha = document.getElementById('captcha').value;
     console.log(captcha);
 
+    data = {
+      to: to,
+      subject: subject,
+      text: text
+    };
+
     //var xhttp = new XMLHttpRequest();
     var xhttp;
     if(window.XMLHttpRequest) {
@@ -225,9 +235,11 @@ email.addEventListener('keyup', function() {
       xhttp.open('POST', '/en/form', true);
     };
 
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     //xhttp.send('fname=Henry&lname=Ford');
-    xhttp.send();
+    //xhttp.send();
+    xhttp.send(JSON.stringify(data));
   };
 //  ajax();
 //})();
