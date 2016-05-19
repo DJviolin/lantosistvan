@@ -171,3 +171,22 @@ email.addEventListener('keyup', function() {
   field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
 
 })();
+
+/////////////////////////////////////////////////////////////
+// HTML5 Form Error Messages - Vanilla JS AJAX
+// http://www.w3schools.com/ajax/
+/////////////////////////////////////////////////////////////
+
+//(function() {
+  function ajax() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (xhttp.readyState === 4 && xhttp.status === 200) {
+       document.getElementById('demo').innerHTML = xhttp.responseText;
+      }
+    };
+    xhttp.open('GET', '/ajax_info.txt', true);
+    xhttp.send();
+  };
+//  ajax();
+//})();
