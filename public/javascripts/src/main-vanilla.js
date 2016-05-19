@@ -176,6 +176,7 @@ email.addEventListener('keyup', function() {
 // HTML5 Form Error Messages - Vanilla JS AJAX
 // http://www.w3schools.com/ajax/
 // http://expressjs.com/en/api.html#req.xhr
+// http://stackoverflow.com/a/15945578/1442219
 /////////////////////////////////////////////////////////////
 
 //(function() {
