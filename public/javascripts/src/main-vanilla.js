@@ -218,8 +218,6 @@ function ajax() {
 
   //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-  //xhttp.send('fname=Henry&lname=Ford');
-  //xhttp.send();
   xhttp.send(JSON.stringify(data));
   console.log(JSON.stringify(data));
 
