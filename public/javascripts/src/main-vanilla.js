@@ -190,13 +190,20 @@ email.addEventListener('keyup', function() {
     //var captcha = document.getElementById('captcha').value;
     //console.log(captcha);
 
+    var firstname = document.getElementById('firstname').value,
+        surname   = document.getElementById('surname').value,
+        email     = document.getElementById('email').value,
+        subject   = document.getElementById('subject').value,
+        message   = document.getElementById('message').value,
+        captcha   = document.getElementById('captcha').value;
+
     var data = {
-      captcha: captcha,
       firstname: firstname,
       surname: surname,
       email: email,
       subject: subject,
-      message: message
+      message: message,
+      captcha: captcha
     };
 
     var xhttp = new XMLHttpRequest();
