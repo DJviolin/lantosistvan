@@ -202,10 +202,10 @@ email.addEventListener('keyup', function() {
     xhttp.send();
   };*/
 
-  function ajax() {
+  //function ajax() {
 
-    var captcha = document.getElementById('captcha').value;
-    console.log(captcha);
+    //var captcha = document.getElementById('captcha').value;
+    //console.log(captcha);
 
     data = {
       to: to,
@@ -213,20 +213,19 @@ email.addEventListener('keyup', function() {
       text: text
     };
 
-    //var xhttp = new XMLHttpRequest();
-    var xhttp;
+    var xhttp = new XMLHttpRequest();
+    /*var xhttp;
     if(window.XMLHttpRequest) {
       xhttp = new XMLHttpRequest(); // code for modern browsers
     } else {
       xhttp = new ActiveXObject('Microsoft.XMLHTTP'); // code for IE6, IE5
-    };
-    xhttp.onreadystatechange = function() {
+    };*/
+    /*xhttp.onreadystatechange = function() {
       if(xhttp.readyState === 4 && xhttp.status === 200) {
         //document.getElementById('demo').innerHTML = xhttp.responseText;
-        //
         document.getElementById('captcha').value = xhttp.responseText;
       };
-    };
+    };*/
 
     //xhttp.open('POST', '/form', true);
     if(lang === 'hu-HU') {
@@ -240,6 +239,6 @@ email.addEventListener('keyup', function() {
     //xhttp.send('fname=Henry&lname=Ford');
     //xhttp.send();
     xhttp.send(JSON.stringify(data));
-  };
+  //};
 //  ajax();
 //})();
