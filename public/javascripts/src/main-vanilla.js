@@ -185,7 +185,7 @@ email.addEventListener('keyup', function() {
 
 //(function() {
 
-  //function ajax() {
+  function ajax() {
 
     //var captcha = document.getElementById('captcha').value;
     //console.log(captcha);
@@ -221,6 +221,6 @@ email.addEventListener('keyup', function() {
     xhttp.send(JSON.stringify(data));
     console.log(JSON.stringify(data));
 
-  //};
+  };
 
 //})();
