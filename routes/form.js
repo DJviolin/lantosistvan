@@ -77,10 +77,10 @@ router.post('/', (req, res) => {
      req.body.captcha === 'two' ||
      req.body.captcha === 'Two' ||
      req.body.captcha === 'TWO') {
-    res.send('AJAX OK');
     console.log('AJAX OK');
+  } else if(req.body.firstname === '' || req.body.firstname !== req.body.firstname.match(/\D+/gm)[0]) {
+    console.log('AJAX ERROR: Firstname is empty and/or have a number.');
   } else {
-    res.send('AJAX ERROR');
     console.log('AJAX ERROR');
   };
 
