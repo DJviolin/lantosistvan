@@ -183,51 +183,44 @@ email.addEventListener('keyup', function() {
 // http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
 /////////////////////////////////////////////////////////////
 
-//(function() {
+function ajax() {
 
-  function ajax() {
+  var firstname = document.getElementById('firstname').value,
+      surname   = document.getElementById('surname').value,
+      email     = document.getElementById('email').value,
+      subject   = document.getElementById('subject').value,
+      message   = document.getElementById('message').value,
+      captcha   = document.getElementById('captcha').value;
 
-    //var captcha = document.getElementById('captcha').value;
-    //console.log(captcha);
-
-    var firstname = document.getElementById('firstname').value,
-        surname   = document.getElementById('surname').value,
-        email     = document.getElementById('email').value,
-        subject   = document.getElementById('subject').value,
-        message   = document.getElementById('message').value,
-        captcha   = document.getElementById('captcha').value;
-
-    var data = {
-      firstname: firstname,
-      surname: surname,
-      email: email,
-      subject: subject,
-      message: message,
-      captcha: captcha
-    };
-
-    var xhttp = new XMLHttpRequest();
-    /*xhttp.onreadystatechange = function() {
-      if(xhttp.readyState === 4 && xhttp.status === 200) {
-        //document.getElementById('demo').innerHTML = xhttp.responseText;
-        document.getElementById('captcha').value = xhttp.responseText;
-      };
-    };*/
-
-    //xhttp.open('POST', '/form', true);
-    if(lang === 'hu-HU') {
-      xhttp.open('POST', '/hu/form', true);
-    } else {
-      xhttp.open('POST', '/en/form', true);
-    };
-
-    //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    //xhttp.send('fname=Henry&lname=Ford');
-    //xhttp.send();
-    xhttp.send(JSON.stringify(data));
-    console.log(JSON.stringify(data));
-
+  var data = {
+    firstname: firstname,
+    surname: surname,
+    email: email,
+    subject: subject,
+    message: message,
+    captcha: captcha
   };
 
-//})();
+  var xhttp = new XMLHttpRequest();
+  /*xhttp.onreadystatechange = function() {
+    if(xhttp.readyState === 4 && xhttp.status === 200) {
+      //document.getElementById('demo').innerHTML = xhttp.responseText;
+      document.getElementById('captcha').value = xhttp.responseText;
+    };
+  };*/
+
+  //xhttp.open('POST', '/form', true);
+  if(lang === 'hu-HU') {
+    xhttp.open('POST', '/hu/form', true);
+  } else {
+    xhttp.open('POST', '/en/form', true);
+  };
+
+  //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  //xhttp.send('fname=Henry&lname=Ford');
+  //xhttp.send();
+  xhttp.send(JSON.stringify(data));
+  console.log(JSON.stringify(data));
+
+};
