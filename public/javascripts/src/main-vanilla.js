@@ -183,31 +183,14 @@ email.addEventListener('keyup', function() {
 // http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
 /////////////////////////////////////////////////////////////
 
-(function() {
-  /*function ajax() {
-    var xhttp;
-    if (window.XMLHttpRequest) {
-      // code for modern browsers
-      xhttp = new XMLHttpRequest();
-    } else {
-      // code for IE6, IE5
-      xhttp = new ActiveXObject('Microsoft.XMLHTTP');
-    };
-    xhttp.onreadystatechange = function() {
-      if (xhttp.readyState === 4 && xhttp.status === 200) {
-        document.getElementById('demo').innerHTML = xhttp.responseText;
-      };
-    };
-    xhttp.open('GET', '/ajax_info.txt', true);
-    xhttp.send();
-  };*/
+//(function() {
 
   //function ajax() {
 
     //var captcha = document.getElementById('captcha').value;
     //console.log(captcha);
 
-    data = {
+    var data = {
       captcha: captcha,
       firstname: firstname,
       surname: surname,
@@ -217,12 +200,6 @@ email.addEventListener('keyup', function() {
     };
 
     var xhttp = new XMLHttpRequest();
-    /*var xhttp;
-    if(window.XMLHttpRequest) {
-      xhttp = new XMLHttpRequest(); // code for modern browsers
-    } else {
-      xhttp = new ActiveXObject('Microsoft.XMLHTTP'); // code for IE6, IE5
-    };*/
     /*xhttp.onreadystatechange = function() {
       if(xhttp.readyState === 4 && xhttp.status === 200) {
         //document.getElementById('demo').innerHTML = xhttp.responseText;
@@ -243,6 +220,7 @@ email.addEventListener('keyup', function() {
     //xhttp.send();
     xhttp.send(JSON.stringify(data));
     console.log(JSON.stringify(data));
+
   //};
-//  ajax();
-})();
+
+//})();
