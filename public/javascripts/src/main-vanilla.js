@@ -175,6 +175,7 @@ email.addEventListener('keyup', function() {
 /////////////////////////////////////////////////////////////
 // HTML5 Form Error Messages - Vanilla JS AJAX
 // http://www.w3schools.com/ajax/
+// http://expressjs.com/en/api.html#req.xhr
 /////////////////////////////////////////////////////////////
 
 //(function() {
@@ -197,6 +198,10 @@ email.addEventListener('keyup', function() {
   };*/
 
   function ajax() {
+
+    var captcha = document.getElementById('captcha2').value;
+    console.log(captcha);
+
     //var xhttp = new XMLHttpRequest();
     var xhttp;
     if(window.XMLHttpRequest) {
@@ -206,7 +211,8 @@ email.addEventListener('keyup', function() {
     };
     xhttp.onreadystatechange = function() {
       if(xhttp.readyState === 4 && xhttp.status === 200) {
-        document.getElementById('demo').innerHTML = xhttp.responseText;
+        //document.getElementById('demo').innerHTML = xhttp.responseText;
+        document.getElementById('captcha2').value = xhttp.responseText;
       };
     };
 
@@ -219,9 +225,7 @@ email.addEventListener('keyup', function() {
 
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     //xhttp.send('fname=Henry&lname=Ford');
-    xhttp.send();
-  }
+    xhttp.send(captcha);
+  };
 //  ajax();
 //})();
-
-console.log(getLocale());
