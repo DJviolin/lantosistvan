@@ -55,10 +55,11 @@
       var xhr = new XMLHttpRequest();
 
       // decide what you want to do after you receive the server response to your request
-      /*xhr.onreadystatechange = function() {
+      xhr.onreadystatechange = function() {
         try {
           // process the server response
-          if (xhr.readyState === 4 && xhr.status === 200) {
+          //if(xhr.readyState === 4 && xhr.status === 200) {
+          if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // everything is good, the response is received
             //alert(xhr.responseText);
             var response = JSON.parse(xhr.responseText);
@@ -70,7 +71,7 @@
         } catch(e) {
           alert('Caught Exception: ' + e.description);
         };
-      };*/
+      };
 
       // make the request
       if(lang === 'hu-HU') {
