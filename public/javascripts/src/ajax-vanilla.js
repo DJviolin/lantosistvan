@@ -36,7 +36,6 @@ if(document.body.classList.contains('contact')) {
       message: message,
       captcha: captcha
     };
-    console.log(JSON.stringify(data));
 
     document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
 
@@ -70,6 +69,7 @@ if(document.body.classList.contains('contact')) {
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr.send(JSON.stringify(data));
+      console.log(JSON.stringify(data));
 
     };
 
