@@ -35,7 +35,7 @@
           captcha   = document.getElementById('captcha').value;
 
       var data = {
-        firstname: 'István',
+        firstname: firstname,
         surname: surname,
         email: email,
         subject: subject,
