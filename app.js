@@ -38,7 +38,7 @@ const api      = require('./routes/api-external'),
       category = require('./routes/blog-category'),
       tag      = require('./routes/blog-tag'),
       contact  = require('./routes/contact'),
-      form     = require('./routes/form'),
+      //form     = require('./routes/form'),
       users    = require('./routes/users');
 
 /////////////////////////////////////////////////////////////
@@ -230,10 +230,10 @@ app.use('/contact', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/contact');
 });
 
-app.use('/:lang/form', form);
+/*app.use('/:lang/form', form);
 app.use('/form', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/form');
-});
+});*/
 
 app.use('/:lang/users', users);
 app.use('/users', (req, res) => {

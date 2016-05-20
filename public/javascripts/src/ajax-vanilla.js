@@ -61,9 +61,9 @@
           //if(xhr.readyState === 4 && xhr.status === 200) {
           if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // everything is good, the response is received
-            //alert(xhr.responseText);
-            var response = JSON.parse(xhr.responseText);
-            alert(response.computedString);
+            alert(xhr.responseText);
+            //var response = JSON.parse(xhr.responseText);
+            //alert(response.computedString);
           } else {
             // still not ready
             alert('There was a problem with the request.');
@@ -74,10 +74,15 @@
       };
 
       // make the request
-      if(lang === 'hu-HU') {
+      /*if(lang === 'hu-HU') {
         xhr.open('POST', '/hu/form', true);
       } else {
         xhr.open('POST', '/en/form', true);
+      };*/
+      if(lang === 'hu-HU') {
+        xhr.open('POST', '/hu/contact', true);
+      } else {
+        xhr.open('POST', '/en/contact', true);
       };
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
