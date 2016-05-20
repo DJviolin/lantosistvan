@@ -68,9 +68,15 @@ router.post('/', (req, res) => {
     });
   };*/
 
-  if(req.xhr === true) {
+  if(!req.xhr) {
     console.log('req.xhr detected on server-side!');
+    res.send({ 'answer': 'only is sent with xhr requests'});
   };
+
+  /*function handleOnlyXhr(req, res, next) {
+    if(!req.xhr) return next();
+    res.send({ 'answer': 'only is sent with xhr requests'});
+  }*/
 
   if(req.body.firstname.length === 0 ||
      !req.body.firstname.match(/\D+/igm)) {
