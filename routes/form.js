@@ -69,16 +69,29 @@ router.post('/', (req, res) => {
   };*/
 
   if(req.body.firstname.length === 0 ||
-     req.body.firstname !== req.body.firstname.match(/\D+/igm)[0]) {
+     !req.body.firstname.match(/\D+/igm)) {
     console.log('AJAX ERROR: Firstname is empty and/or have a number.');
-  }
-  else if(req.body.captcha !== req.body.captcha.match(/^kettő$/igm)[0] &&
-          req.body.captcha !== req.body.captcha.match(/^ketto$/igm)[0] &&
-          req.body.captcha !== req.body.captcha.match(/^two$/igm)[0]) {
-    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid.');
+    var validateFirstname = false;
   }
   else {
-    console.log('AJAX ERROR');
+    console.log('AJAX OK: firstname');
+    var validateFirstname = true;
+  };
+
+  if(req.body.captcha.length === 0 ||
+    !req.body.captcha.match(/^kettő|ketto|two$/igm)) {
+    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid.');
+    var validateCaptcha = false;
+  }
+  else {
+    console.log('AJAX OK: captcha');
+    var validateCaptcha = true;
+  };
+
+  if(validateFirstname === true && validateCaptcha === true) {
+    console.log('SUCCESS: Form validated!');
+  } else {
+    console.log('ERROR: Form not validated!');
   };
 
   //res.status(302).redirect('/' + req.getLocale() + '/contact');

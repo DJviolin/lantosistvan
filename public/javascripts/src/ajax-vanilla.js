@@ -43,16 +43,16 @@
         captcha: captcha
       };
 
-      console.log(firstname);
-      console.log(JSON.stringify(data));
+      /*console.log(firstname);
       if(firstname.match(/^kettő$/igm)) {
         console.log('MATCH FOR: ' + firstname);
       } else {
         console.log('NO MATCH FOR: ' + firstname);
-      };
+      };*/
+      console.log(JSON.stringify(data));
 
       // instance of a class that provides this functionality
-      /*var xhr = new XMLHttpRequest();*/
+      var xhr = new XMLHttpRequest();
 
       // decide what you want to do after you receive the server response to your request
       /*xhr.onreadystatechange = function() {
@@ -73,14 +73,14 @@
       };*/
 
       // make the request
-      /*if(lang === 'hu-HU') {
+      if(lang === 'hu-HU') {
         xhr.open('POST', '/hu/form', true);
       } else {
         xhr.open('POST', '/en/form', true);
       };
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      xhr.send(JSON.stringify(data));*/
+      xhr.send(JSON.stringify(data));
 
     };
 
