@@ -33,6 +33,13 @@ function ajax() {
   // instance of a class that provides this functionality
   var xhr = new XMLHttpRequest();
 
+  /*xhr.onreadystatechange = function() { // process the server response
+    if(xhr.readyState === 4 && xhr.status === 200) {
+      //document.getElementById('demo').innerHTML = xhr.responseText;
+      document.getElementById('captcha').value = xhr.responseText;
+    };
+  };*/
+
   // decide what you want to do after you receive the server response to your request
   xhr.onreadystatechange = function() {
       // process the server response
@@ -48,12 +55,5 @@ function ajax() {
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   xhr.send(JSON.stringify(data));
   console.log(JSON.stringify(data));
-
-  /*xhr.onreadystatechange = function() { // process the server response
-    if(xhr.readyState === 4 && xhr.status === 200) {
-      //document.getElementById('demo').innerHTML = xhr.responseText;
-      document.getElementById('captcha').value = xhr.responseText;
-    };
-  };*/
 
 };
