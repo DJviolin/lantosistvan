@@ -12,46 +12,53 @@
 // http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
 /////////////////////////////////////////////////////////////
 
-(function() {
+//(function() {
+function ajaxForm() {
 
-  function ajax() {
+  document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
 
-    var firstname = document.getElementById('firstname').value,
-        surname   = document.getElementById('surname').value,
-        email     = document.getElementById('email').value,
-        subject   = document.getElementById('subject').value,
-        message   = document.getElementById('message').value,
-        captcha   = document.getElementById('captcha').value;
+  var firstname = document.getElementById('firstname').value,
+      surname   = document.getElementById('surname').value,
+      email     = document.getElementById('email').value,
+      subject   = document.getElementById('subject').value,
+      message   = document.getElementById('message').value,
+      captcha   = document.getElementById('captcha').value;
 
-    var data = {
-      firstname: firstname,
-      surname: surname,
-      email: email,
-      subject: subject,
-      message: message,
-      captcha: captcha
-    };
+  var data = {
+    firstname: firstname,
+    surname: surname,
+    email: email,
+    subject: subject,
+    message: message,
+    captcha: captcha
+  };
+
+  function makeRequest(url) {
 
     // instance of a class that provides this functionality
     var xhr = new XMLHttpRequest();
 
     // decide what you want to do after you receive the server response to your request
     xhr.onreadystatechange = function() {
-      // process the server response
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        // everything is good, the response is received
-        alert(xhr.responseText);
-      } else {
-        // still not ready
-        alert('There was a problem with the request.');
+      try {
+        // process the server response
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // everything is good, the response is received
+          alert(xhr.responseText);
+        } else {
+          // still not ready
+          alert('There was a problem with the request.');
+        };
+      } catch(e) {
+        alert('Caught Exception: ' + e.description);
       };
     };
 
     // make the request
     if(lang === 'hu-HU') {
-      xhr.open('GET', '/hu/form', true);
+      xhr.open('GET', '/hu' + url, true);
     } else {
-      xhr.open('GET', '/en/form', true);
+      xhr.open('GET', '/en' + url, true);
     };
     //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
@@ -60,4 +67,8 @@
 
   };
 
-})();
+//})();
+};
+
+var ajax = ajaxForm();
+ajax();
