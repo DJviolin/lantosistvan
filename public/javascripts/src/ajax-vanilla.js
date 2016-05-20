@@ -16,8 +16,8 @@
 // For JSON-P: Content-Type: application/javascript
 /////////////////////////////////////////////////////////////
 
-if(document.body.classList.contains('contact')) {
-  (function() {
+(function() {
+  if(document.body.classList.contains('contact')) {
 
     //var button = document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
     document.getElementById('xhr').onclick = function() {
@@ -45,14 +45,14 @@ if(document.body.classList.contains('contact')) {
 
       console.log(firstname);
       console.log(JSON.stringify(data));
-      if(firstname === firstname.match(/^kettő$/igm)[0]) {
+      if(firstname.match(/^kettő$/igm)) {
         console.log('MATCH FOR: ' + firstname);
       } else {
         console.log('NO MATCH FOR: ' + firstname);
       };
 
       // instance of a class that provides this functionality
-      var xhr = new XMLHttpRequest();
+      /*var xhr = new XMLHttpRequest();*/
 
       // decide what you want to do after you receive the server response to your request
       /*xhr.onreadystatechange = function() {
@@ -84,5 +84,5 @@ if(document.body.classList.contains('contact')) {
 
     };
 
-  })();
-};
+  };
+})();
