@@ -43,6 +43,14 @@ if(document.body.classList.contains('contact')) {
         captcha: captcha
       };
 
+      console.log(firstname);
+      console.log(JSON.stringify(data));
+      if(firstname === firstname.match(/^kettő$/igm)[0]) {
+        return console.log('MATCH FOR: kettő');
+      } else {
+        return console.log('NO MATCH FOR: kettő');
+      };
+
       // instance of a class that provides this functionality
       var xhr = new XMLHttpRequest();
 
@@ -72,8 +80,7 @@ if(document.body.classList.contains('contact')) {
       };
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      xhr.send(JSON.stringify(data));
-      console.log(JSON.stringify(data));
+      //xhr.send(JSON.stringify(data));
 
     };
 

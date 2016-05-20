@@ -68,7 +68,8 @@ router.post('/', (req, res) => {
     });
   };*/
 
-  if(req.body.firstname.length === 0 || req.body.firstname !== req.body.firstname.match(/\D+/g)[0]) {
+  if(req.body.firstname.length === 0 ||
+     req.body.firstname !== req.body.firstname.match(/\D+/igm)[0]) {
     console.log('AJAX ERROR: Firstname is empty and/or have a number.');
   }
   else if(req.body.captcha !== req.body.captcha.match(/^kettő$/igm)[0] &&
@@ -81,6 +82,12 @@ router.post('/', (req, res) => {
   };
 
   //res.status(302).redirect('/' + req.getLocale() + '/contact');
+});
+
+router.get('/', (req, res) => {
+  if(req.xhr) {
+    console.log('req.xhr detected on server-side!');
+  };
 });
 
 /////////////////////////////////////////////////////////////
