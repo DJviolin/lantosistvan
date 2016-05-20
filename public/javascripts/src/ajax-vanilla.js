@@ -14,13 +14,12 @@
 // MIME TYPES
 // For JSON: Content-Type: application/json
 // For JSON-P: Content-Type: application/javascript
-
 /////////////////////////////////////////////////////////////
 
 if(document.body.classList.contains('contact')) {
 
-  //(function() {
-  function ajaxForm() {
+  (function() {
+  //function ajaxForm() {
 
     var firstname = document.getElementById('firstname').value,
         surname   = document.getElementById('surname').value,
@@ -76,10 +75,8 @@ if(document.body.classList.contains('contact')) {
 
     };
 
-  //})();
-  };
-
-  var ajaxClosureFn = ajaxForm();
-  ajaxClosureFn();
-
+  })();
+  //};
+  //var ajaxClosureFn = ajaxForm();
+  //ajaxClosureFn();
 };
