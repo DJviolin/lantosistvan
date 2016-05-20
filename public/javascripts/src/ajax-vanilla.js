@@ -10,12 +10,15 @@
 // ANSWERS:
 // http://stackoverflow.com/questions/32084571/why-is-an-object-in-an-xmlhttprequest-sent-to-a-node-express-server-empty
 // http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
+
+// MIME TYPES
+// For JSON: Content-Type: application/json
+// For JSON-P: Content-Type: application/javascript
+
 /////////////////////////////////////////////////////////////
 
 //(function() {
 function ajaxForm() {
-
-  document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
 
   var firstname = document.getElementById('firstname').value,
       surname   = document.getElementById('surname').value,
@@ -32,6 +35,8 @@ function ajaxForm() {
     message: message,
     captcha: captcha
   };
+
+  document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
 
   function makeRequest(url) {
 
@@ -61,7 +66,7 @@ function ajaxForm() {
       xhr.open('GET', '/en' + url, true);
     };
     //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    //xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xhr.send(JSON.stringify(data));
     console.log(JSON.stringify(data));
 
