@@ -68,9 +68,7 @@ if(document.body.classList.contains('contact')) {
         xhr.open('POST', '/en' + url, true);
       };
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      //xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-      xhr.setRequestHeader('Content-Length', data.length);
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr.send(JSON.stringify(data));
 
     };
