@@ -68,12 +68,12 @@ router.post('/', (req, res) => {
     });
   };*/
 
-  if(req.body.firstname === '' || req.body.firstname !== req.body.firstname.match(/\D+/g)[0]) {
+  if(req.body.firstname.length === 0 || req.body.firstname !== req.body.firstname.match(/\D+/g)[0]) {
     console.log('AJAX ERROR: Firstname is empty and/or have a number.');
   }
-  else if(req.body.captcha !== req.body.captcha.match(/^kettő$/igm) ||
-          req.body.captcha !== req.body.captcha.match(/^ketto$/igm) ||
-          req.body.captcha !== req.body.captcha.match(/^two$/igm)) {
+  else if(req.body.captcha !== req.body.captcha.match(/^kettő$/igm)[0] &&
+          req.body.captcha !== req.body.captcha.match(/^ketto$/igm)[0] &&
+          req.body.captcha !== req.body.captcha.match(/^two$/igm)[0]) {
     console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid.');
   }
   else {

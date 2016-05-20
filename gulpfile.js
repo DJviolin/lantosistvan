@@ -32,6 +32,7 @@ const paths = {
                  'lib/**/*.js',
                  'config/**/*.js'],
   pathUglify:   ['public/javascripts/src/main-vanilla.js',
+                 'public/javascripts/src/ajax-vanilla.js',
                  'public/javascripts/src/main-jquery.js',
                  'public/javascripts/src/slick.js'],
   pathFiles:    ['views/*.hbs', 'views/**/*.hbs',
