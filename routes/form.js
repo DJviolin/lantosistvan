@@ -68,23 +68,27 @@ router.post('/', (req, res) => {
     });
   };*/
 
+  if(req.xhr === true) {
+    console.log('req.xhr detected on server-side!');
+  };
+
   if(req.body.firstname.length === 0 ||
      !req.body.firstname.match(/\D+/igm)) {
-    console.log('AJAX ERROR: Firstname is empty and/or have a number.');
+    console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + req.body.firstname);
     var validateFirstname = false;
   }
   else {
-    console.log('AJAX OK: firstname');
+    console.log('AJAX OK: firstname. Value: ' + req.body.firstname);
     var validateFirstname = true;
   };
 
   if(req.body.captcha.length === 0 ||
     !req.body.captcha.match(/^kettő|ketto|two$/igm)) {
-    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid.');
+    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid. Value: ' + req.body.captcha);
     var validateCaptcha = false;
   }
   else {
-    console.log('AJAX OK: captcha');
+    console.log('AJAX OK: captcha. Value: ' + req.body.captcha);
     var validateCaptcha = true;
   };
 
@@ -95,12 +99,6 @@ router.post('/', (req, res) => {
   };
 
   //res.status(302).redirect('/' + req.getLocale() + '/contact');
-});
-
-router.get('/', (req, res) => {
-  if(req.xhr) {
-    console.log('req.xhr detected on server-side!');
-  };
 });
 
 /////////////////////////////////////////////////////////////
