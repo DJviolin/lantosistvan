@@ -25,6 +25,7 @@ router.get('/', (req, res, next) => {
     const contact = data[2].contact;
 
     res.render('contact', {
+      bodyClass: 'contact',
       active: { information: true },
       titleShown: true,
       title: 'Contact',

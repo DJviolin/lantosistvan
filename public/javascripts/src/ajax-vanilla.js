@@ -17,63 +17,69 @@
 
 /////////////////////////////////////////////////////////////
 
-//(function() {
-function ajaxForm() {
+if(document.body.classList.contains('contact')) {
 
-  var firstname = document.getElementById('firstname').value,
-      surname   = document.getElementById('surname').value,
-      email     = document.getElementById('email').value,
-      subject   = document.getElementById('subject').value,
-      message   = document.getElementById('message').value,
-      captcha   = document.getElementById('captcha').value;
+  //(function() {
+  function ajaxForm() {
 
-  var data = {
-    firstname: firstname,
-    surname: surname,
-    email: email,
-    subject: subject,
-    message: message,
-    captcha: captcha
-  };
+    var firstname = document.getElementById('firstname').value,
+        surname   = document.getElementById('surname').value,
+        email     = document.getElementById('email').value,
+        subject   = document.getElementById('subject').value,
+        message   = document.getElementById('message').value,
+        captcha   = document.getElementById('captcha').value;
 
-  document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
-
-  function makeRequest(url) {
-
-    // instance of a class that provides this functionality
-    var xhr = new XMLHttpRequest();
-
-    // decide what you want to do after you receive the server response to your request
-    xhr.onreadystatechange = function() {
-      try {
-        // process the server response
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          // everything is good, the response is received
-          alert(xhr.responseText);
-        } else {
-          // still not ready
-          alert('There was a problem with the request.');
-        };
-      } catch(e) {
-        alert('Caught Exception: ' + e.description);
-      };
+    var data = {
+      firstname: firstname,
+      surname: surname,
+      email: email,
+      subject: subject,
+      message: message,
+      captcha: captcha
     };
-
-    // make the request
-    if(lang === 'hu-HU') {
-      xhr.open('GET', '/hu' + url, true);
-    } else {
-      xhr.open('GET', '/en' + url, true);
-    };
-    //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    //xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.send(JSON.stringify(data));
     console.log(JSON.stringify(data));
 
+    document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
+
+    function makeRequest(url) {
+
+      // instance of a class that provides this functionality
+      var xhr = new XMLHttpRequest();
+
+      // decide what you want to do after you receive the server response to your request
+      xhr.onreadystatechange = function() {
+        try {
+          // process the server response
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // everything is good, the response is received
+            alert(xhr.responseText);
+          } else {
+            // still not ready
+            alert('There was a problem with the request.');
+          };
+        } catch(e) {
+          alert('Caught Exception: ' + e.description);
+        };
+      };
+
+      // make the request
+      if(lang === 'hu-HU') {
+        xhr.open('POST', '/hu' + url, true);
+      } else {
+        xhr.open('POST', '/en' + url, true);
+      };
+      //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      //xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+      xhr.setRequestHeader('Content-Length', data.length);
+      xhr.send(JSON.stringify(data));
+
+    };
+
+  //})();
   };
 
-//})();
-};
+  var ajaxClosureFn = ajaxForm();
+  ajaxClosureFn();
 
-var ajax = ajaxForm();
-ajax();
+};

@@ -54,6 +54,7 @@ router.get('/:tag', (req, res, next) => {
 
     // Rendering content
     res.render('blog', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: 'Tag: ' + req.params.tag,
@@ -85,7 +86,7 @@ router.get('/:tag/page/:id', (req, res, next) => {
         keywords: 'error,404'
       });
     }
-    
+
     const articles = data[1].articles.reverse();
 
     // See if the tag is in the array with IndexOf
@@ -131,6 +132,7 @@ router.get('/:tag/page/:id', (req, res, next) => {
     };
 
     res.render('blog', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: 'Tag: ' + req.params.tag,

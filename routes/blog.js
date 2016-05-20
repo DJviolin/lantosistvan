@@ -32,6 +32,7 @@ router.get('/', (req, res, next) => {
     const json = [{ articles: slice }];
 
     res.render('blog', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: 'Journal',
@@ -120,6 +121,7 @@ router.get('/page/:id', (req, res, next) => {
     };
 
     res.render('blog', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: 'Journal',
@@ -164,6 +166,7 @@ router.get('/:url', (req, res, next) => {
 
     // render your page with selectedArticle
     res.render('blog-article', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: selectedArticle.title,

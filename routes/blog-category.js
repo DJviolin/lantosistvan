@@ -41,6 +41,7 @@ router.get('/:cat', (req, res, next) => {
     };
 
     res.render('blog', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: 'Category: ' + req.params.cat,
@@ -72,7 +73,7 @@ router.get('/:cat/page/:id', (req, res, next) => {
         keywords: 'error,404'
       });
     }
-    
+
     const articles = data[1].articles.reverse();
 
     const q = articles.filter((article) => article.category === req.params.cat);
@@ -109,6 +110,7 @@ router.get('/:cat/page/:id', (req, res, next) => {
     };
 
     res.render('blog', {
+      bodyClass: 'blog',
       active: { blog: true },
       titleShown: true,
       title: 'Category: ' + req.params.cat,

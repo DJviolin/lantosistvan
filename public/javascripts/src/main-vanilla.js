@@ -27,6 +27,12 @@
 }());
 
 /////////////////////////////////////////////////////////////
+// Global Variables
+/////////////////////////////////////////////////////////////
+
+var lang = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+/////////////////////////////////////////////////////////////
 // Lazy loading portfolio div - Vanilla JS
 /////////////////////////////////////////////////////////////
 
@@ -46,21 +52,23 @@ document.addEventListener('DOMContentLoaded', lazyload);*/
 // Latest posts resize on frontpage - Vanilla JS
 /////////////////////////////////////////////////////////////
 
-document.addEventListener('DOMContentLoaded', function() {
-  function previewImages() {
-    var images = document.getElementsByClassName('preview-image');
-    var width = parseInt(getComputedStyle(images[0]).width); // First element
-    var calc = ( width / 4 ) * 3; // First element
-    for (var i=0; i<images.length; i++) {
-      //var width = parseInt(getComputedStyle(images[i]).width); // All elements
-      //var calc = ( width / 4 ) * 3; // All elements
-      images[i].style.height = calc + 'px';
-      //console.log('previewImages() fired...');
-    }
-  };
-  window.addEventListener('load', previewImages);
-  window.addEventListener('resize', previewImages);
-});
+if(document.body.classList.contains('index')) {
+  document.addEventListener('DOMContentLoaded', function() {
+    function previewImages() {
+      var images = document.getElementsByClassName('preview-image');
+      var width = parseInt(getComputedStyle(images[0]).width); // First element
+      var calc = ( width / 4 ) * 3; // First element
+      for (var i=0; i<images.length; i++) {
+        //var width = parseInt(getComputedStyle(images[i]).width); // All elements
+        //var calc = ( width / 4 ) * 3; // All elements
+        images[i].style.height = calc + 'px';
+        //console.log('previewImages() fired...');
+      }
+    };
+    window.addEventListener('load', previewImages);
+    window.addEventListener('resize', previewImages);
+  });
+}
 
 /////////////////////////////////////////////////////////////
 // Mobile Nav - Vanilla JS
@@ -84,93 +92,97 @@ document.addEventListener('DOMContentLoaded', function() {
 // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation
 /////////////////////////////////////////////////////////////
 
-var lang = document.getElementsByTagName('html')[0].getAttribute('lang');
+if(document.body.classList.contains('contact')) {
+  var email = document.getElementById('email');
 
-var email = document.getElementById('email');
-
-email.addEventListener('keyup', function() {
-  if (email.validity.typeMismatch && lang === 'hu-HU') {
-    email.setCustomValidity('Az email formátuma ilyen legyen: \nvalami@domain.com');
-  }
-  else if (email.validity.typeMismatch && lang === 'en-EN') {
-    email.setCustomValidity('The email format should be: \nsomething@domain.com');
-  }
-  else {
-    email.setCustomValidity('');
-  };
-});
-
-
+  email.addEventListener('keyup', function() {
+    if (email.validity.typeMismatch && lang === 'hu-HU') {
+      email.setCustomValidity('Az email formátuma ilyen legyen: \nvalami@domain.com');
+    }
+    else if (email.validity.typeMismatch && lang === 'en-EN') {
+      email.setCustomValidity('The email format should be: \nsomething@domain.com');
+    }
+    else {
+      email.setCustomValidity('');
+    };
+  });
+};
 
 
-(function() {
-  function field(name, langif, langelse) {
 
-    var elem = document.createElement('div');
-    elem.style.display = 'none';
 
-    var input = document.getElementById(name);
-    var parentDiv = document.getElementsByClassName(name)[0];
-    input.parentNode.appendChild(elem);
+if(document.body.classList.contains('contact')) {
 
-    function captchaInit() {
-      var answers = {
-        'kettő': true,
-        'ketto': true,
-        'Kettő': true,
-        'Ketto': true,
-        'KETTŐ': true,
-        'KETTO': true,
-        'two': true,
-        'Two': true,
-        'TWO': true
+  (function() {
+    function field(name, langif, langelse) {
+
+      var elem = document.createElement('div');
+      elem.style.display = 'none';
+
+      var input = document.getElementById(name);
+      var parentDiv = document.getElementsByClassName(name)[0];
+      input.parentNode.appendChild(elem);
+
+      function captchaInit() {
+        var answers = {
+          'kettő': true,
+          'ketto': true,
+          'Kettő': true,
+          'Ketto': true,
+          'KETTŐ': true,
+          'KETTO': true,
+          'two': true,
+          'Two': true,
+          'TWO': true
+        };
+        return input.value in answers;
       };
-      return input.value in answers;
+
+      // Turning on when error is presented
+      input.addEventListener('invalid', function(event) {
+        event.preventDefault();
+        if(!event.target.validity.valid && name !== 'captcha') {
+          elem.className = 'error';
+          parentDiv.className += ' error-input';
+          elem.style.display = 'block';
+        };
+        //if(!event.target.validity.valid && name === 'captcha' && !(input.value in answers)) {
+        //if(!event.target.validity.valid && name === 'captcha') {
+        //if(!event.target.validity.valid && name === 'captcha' && !captchaInit()) {
+        if(!event.target.validity.valid && name === 'captcha' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
+          elem.className = 'error-captcha';
+          parentDiv.className += ' error-input-captcha';
+          elem.style.display = 'block';
+        };
+        if(!event.target.validity.valid && lang === 'hu-HU') {
+          elem.textContent = langif;
+        } else {
+          elem.textContent = langelse;
+        };
+      });
+
+      // Turning off when error is not presented
+      input.addEventListener('input', function() {
+        if(elem.style.display === 'block') {
+          elem.className = '';
+          parentDiv.classList.remove('error-input');
+          elem.style.display = 'none';
+        };
+      });
+
+      return;
     };
 
-    // Turning on when error is presented
-    input.addEventListener('invalid', function(event) {
-      event.preventDefault();
-      if(!event.target.validity.valid && name !== 'captcha') {
-        elem.className = 'error';
-        parentDiv.className += ' error-input';
-        elem.style.display = 'block';
-      };
-      //if(!event.target.validity.valid && name === 'captcha' && !(input.value in answers)) {
-      //if(!event.target.validity.valid && name === 'captcha') {
-      //if(!event.target.validity.valid && name === 'captcha' && !captchaInit()) {
-      if(!event.target.validity.valid && name === 'captcha' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
-        elem.className = 'error-captcha';
-        parentDiv.className += ' error-input-captcha';
-        elem.style.display = 'block';
-      };
-      if(!event.target.validity.valid && lang === 'hu-HU') {
-        elem.textContent = langif;
-      } else {
-        elem.textContent = langelse;
-      };
-    });
+    // Init function
+    field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
+    field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
+    field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
+    field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
+    field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
 
-    // Turning off when error is not presented
-    input.addEventListener('input', function() {
-      if(elem.style.display === 'block') {
-        elem.className = '';
-        parentDiv.classList.remove('error-input');
-        elem.style.display = 'none';
-      };
-    });
+  })();
 
-    return;
-  };
-
-  // Init function
-  field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
-  field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
-  field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
-  field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
-  field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
-
-})();
+};
 
 /////////////////////////////////////////////////////////////
 // HTML5 Form Error Messages - Vanilla JS AJAX
