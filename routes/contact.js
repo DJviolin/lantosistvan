@@ -103,6 +103,15 @@ router.post('/', (req, res) => {
 
   if(validateFirstname === true && validateCaptcha === true) {
     console.log('SUCCESS: Form validated!');
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (err, info) => {
+      if(err) {
+        console.log('Error occurred');
+        console.log(err.message);
+      }
+      console.log('Message sent successfully!');
+      console.log('Server responded with "%s"', info.response);
+    });
   } else {
     console.log('ERROR: Form not validated!');
   };
