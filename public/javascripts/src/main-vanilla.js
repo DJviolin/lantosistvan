@@ -111,7 +111,7 @@ if(document.body.classList.contains('contact')) {
 
 
 
-if(document.body.classList.contains('contact')) {
+/*if(document.body.classList.contains('contact')) {
 
   (function() {
     function field(name, langif, langelse) {
@@ -182,7 +182,7 @@ if(document.body.classList.contains('contact')) {
 
   })();
 
-};
+};*/
 
 /////////////////////////////////////////////////////////////
 // HTML5 Form Error Messages - Vanilla JS AJAX

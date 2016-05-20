@@ -21,57 +21,64 @@ if(document.body.classList.contains('contact')) {
   (function() {
   //function ajaxForm() {
 
-    var firstname = document.getElementById('firstname').value,
-        surname   = document.getElementById('surname').value,
-        email     = document.getElementById('email').value,
-        subject   = document.getElementById('subject').value,
-        message   = document.getElementById('message').value,
-        captcha   = document.getElementById('captcha').value;
-
-    var data = {
-      firstname: firstname,
-      surname: surname,
-      email: email,
-      subject: subject,
-      message: message,
-      captcha: captcha
+    //var button = document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
+    var button = document.getElementById('xhr');
+    button.onclick = function() {
+      makeRequest();
+      console.log('#xhr button clicked!');
     };
 
-    document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
+    function makeRequest() {
 
-    function makeRequest(url) {
+      var firstname = document.getElementById('firstname').value,
+          surname   = document.getElementById('surname').value,
+          email     = document.getElementById('email').value,
+          subject   = document.getElementById('subject').value,
+          message   = document.getElementById('message').value,
+          captcha   = document.getElementById('captcha').value;
 
-      // instance of a class that provides this functionality
-      var xhr = new XMLHttpRequest();
+      var data = {
+        firstname: firstname,
+        surname: surname,
+        email: email,
+        subject: subject,
+        message: message,
+        captcha: captcha
+      };
 
-      // decide what you want to do after you receive the server response to your request
-      xhr.onreadystatechange = function() {
-        try {
-          // process the server response
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            // everything is good, the response is received
-            alert(xhr.responseText);
-          } else {
-            // still not ready
-            alert('There was a problem with the request.');
+        // instance of a class that provides this functionality
+        var xhr = new XMLHttpRequest();
+
+        // decide what you want to do after you receive the server response to your request
+        /*xhr.onreadystatechange = function() {
+          try {
+            // process the server response
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              // everything is good, the response is received
+              //alert(xhr.responseText);
+              var response = JSON.parse(xhr.responseText);
+              alert(response.computedString);
+            } else {
+              // still not ready
+              alert('There was a problem with the request.');
+            };
+          } catch(e) {
+            alert('Caught Exception: ' + e.description);
           };
-        } catch(e) {
-          alert('Caught Exception: ' + e.description);
+        };*/
+
+        // make the request
+        if(lang === 'hu-HU') {
+          xhr.open('POST', '/hu/form', true);
+        } else {
+          xhr.open('POST', '/en/form', true);
         };
-      };
+        //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.send(JSON.stringify(data));
+        console.log(JSON.stringify(data));
 
-      // make the request
-      if(lang === 'hu-HU') {
-        xhr.open('POST', '/hu' + url, true);
-      } else {
-        xhr.open('POST', '/en' + url, true);
       };
-      //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      xhr.send(JSON.stringify(data));
-      console.log(JSON.stringify(data));
-
-    };
 
   })();
   //};
