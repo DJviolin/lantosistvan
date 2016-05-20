@@ -43,6 +43,11 @@ function ajax() {
   // decide what you want to do after you receive the server response to your request
   xhr.onreadystatechange = function() {
       // process the server response
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        // everything is good, the response is received
+      } else {
+        // still not ready
+      };
   };
 
   // make the request
