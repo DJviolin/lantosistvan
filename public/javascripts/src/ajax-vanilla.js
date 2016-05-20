@@ -46,9 +46,9 @@ if(document.body.classList.contains('contact')) {
       console.log(firstname);
       console.log(JSON.stringify(data));
       if(firstname === firstname.match(/^kettő$/igm)[0]) {
-        return console.log('MATCH FOR: kettő');
+        console.log('MATCH FOR: ' + firstname);
       } else {
-        return console.log('NO MATCH FOR: kettő');
+        console.log('NO MATCH FOR: ' + firstname);
       };
 
       // instance of a class that provides this functionality
@@ -73,14 +73,14 @@ if(document.body.classList.contains('contact')) {
       };*/
 
       // make the request
-      if(lang === 'hu-HU') {
+      /*if(lang === 'hu-HU') {
         xhr.open('POST', '/hu/form', true);
       } else {
         xhr.open('POST', '/en/form', true);
       };
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      //xhr.send(JSON.stringify(data));
+      xhr.send(JSON.stringify(data));*/
 
     };
 
