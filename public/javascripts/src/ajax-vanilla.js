@@ -33,21 +33,16 @@ function ajax() {
   // instance of a class that provides this functionality
   var xhr = new XMLHttpRequest();
 
-  /*xhr.onreadystatechange = function() { // process the server response
-    if(xhr.readyState === 4 && xhr.status === 200) {
-      //document.getElementById('demo').innerHTML = xhr.responseText;
-      document.getElementById('captcha').value = xhr.responseText;
-    };
-  };*/
-
   // decide what you want to do after you receive the server response to your request
   xhr.onreadystatechange = function() {
-      // process the server response
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        // everything is good, the response is received
-      } else {
-        // still not ready
-      };
+    // process the server response
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // everything is good, the response is received
+      alert(xhr.responseText);
+    } else {
+      // still not ready
+      alert('There was a problem with the request.');
+    };
   };
 
   // make the request
