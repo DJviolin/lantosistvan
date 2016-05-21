@@ -14,6 +14,9 @@ const config = require('../config/mail');
 /////////////////////////////////////////////////////////////
 
 router.use((req, res, next) => {
+  req.body.firstname;
+  req.body.captcha;
+
   // create reusable transporter object using the default SMTP transport
   req.transporter = nodemailer.createTransport({
     pool: false,
@@ -47,6 +50,33 @@ router.use((req, res, next) => {
       'Tárgy:\n' + '    ' + req.body.subject + '\n\n' +
       'Üzenet:\n' + '    ' + req.body.message
   };
+
+  if(req.body.firstname.length === 0 ||
+     !req.body.firstname.match(/\D+/igm)) {
+    console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + req.body.firstname);
+    var validateFirstname = false;
+  } else {
+    console.log('AJAX OK: firstname. Value: ' + req.body.firstname);
+    var validateFirstname = true;
+  };
+
+  if(req.body.captcha.length === 0 ||
+    !req.body.captcha.match(/^kettő|ketto|two$/igm)) {
+    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid. Value: ' + req.body.captcha);
+    var validateCaptcha = false;
+  } else {
+    console.log('AJAX OK: captcha. Value: ' + req.body.captcha);
+    var validateCaptcha = true;
+  };
+
+  if(validateFirstname === true && validateCaptcha === true) {
+    console.log('SUCCESS: Form validated!');
+    // send mail with defined transport object
+    req.success;
+  } else {
+    console.log('ERROR: Form not validated!');
+  };
+
   next();
 });
 
@@ -55,7 +85,7 @@ router.use((req, res, next) => {
 /////////////////////////////////////////////////////////////
 
 router.post('/', (req, res, next) => {
-  if(!req.xhr) {
+  if(!req.xhr && req.success) {
     // send mail with defined transport object
     req.transporter.sendMail(req.mailOptions, (err, info) => {
       if(err) {
