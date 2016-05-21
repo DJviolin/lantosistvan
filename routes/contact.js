@@ -48,6 +48,7 @@ router.use('/', (req, res, next) => {
       'Üzenet:\n' + '    ' + req.body.message
   };
 
+  // http://stackoverflow.com/questions/37368357/express-why-cannot-use-req-body-value-in-router-use#comment62249585_37368357
   if(req.body.firstname.length === 0 ||
      !req.body.firstname.match(/\D+/igm)) {
     console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + req.body.firstname);
