@@ -13,10 +13,7 @@ const config = require('../config/mail');
 // Nodemailer MIDDLEWARE
 /////////////////////////////////////////////////////////////
 
-router.use((req, res, next) => {
-  req.body.firstname;
-  req.body.captcha;
-
+router.use('/', (req, res, next) => {
   // create reusable transporter object using the default SMTP transport
   req.transporter = nodemailer.createTransport({
     pool: false,
