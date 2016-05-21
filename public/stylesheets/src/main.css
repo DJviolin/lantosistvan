@@ -1219,6 +1219,9 @@ http://marinkovic-weddings.com/
 .contact article {
   max-width: 600px;
 }
+.form-validation-error {
+  display: none;
+}
 form {
   position: relative;
   display: block;

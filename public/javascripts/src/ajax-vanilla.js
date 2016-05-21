@@ -79,6 +79,11 @@
       } else {
         xhr.open('POST', '/en/form', true);
       };*/
+      /*if(lang === 'hu-HU') {
+        xhr.open('POST', '/hu/contact', true);
+      } else {
+        xhr.open('POST', '/en/contact', true);
+      };*/
       if(lang === 'hu-HU') {
         xhr.open('POST', '/hu/contact', true);
       } else {
