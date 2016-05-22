@@ -116,27 +116,14 @@ if(document.body.classList.contains('contact')) {
   if(document.body.classList.contains('contact')) {
 
     document.getElementById('xhr').onclick = function() {
-      //validate();
-      //document.getElementById('form').submit();
       field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
       field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
       field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
       field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
       field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
       makeRequest();
-      console.log('#xhr button clicked - AJAX!');
+      //console.log('#xhr button clicked - AJAX!');
     };
-    /*document.getElementById('xhr').addEventListener('onclick', function() {
-      //validate();
-      document.getElementById('form').submit();
-      field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
-      field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
-      field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
-      field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
-      field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
-      makeRequest();
-      console.log('#xhr button clicked - AJAX!');
-    });*/
 
     function field(name, langif, langelse) {
 
@@ -158,6 +145,15 @@ if(document.body.classList.contains('contact')) {
       } else {
         elem.textContent = langelse;
       };
+
+      // Turning off when error is not presented
+      input.addEventListener('input', function() {
+        if(elem.style.display === 'block') {
+          elem.className = '';
+          parentDiv.classList.remove('error-input');
+          elem.style.display = 'none';
+        };
+      });
 
 
       /*function captchaInit() {
