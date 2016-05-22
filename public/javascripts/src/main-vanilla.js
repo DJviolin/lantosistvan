@@ -115,8 +115,9 @@ if(document.body.classList.contains('contact')) {
 (function() {
   if(document.body.classList.contains('contact')) {
 
-    /*document.getElementById('xhr').onclick = function() {
+    document.getElementById('xhr').onclick = function() {
       //validate();
+      //document.getElementById('form').submit();
       field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
       field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
       field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
@@ -124,9 +125,10 @@ if(document.body.classList.contains('contact')) {
       field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
       makeRequest();
       console.log('#xhr button clicked - AJAX!');
-    };*/
-    document.getElementById('xhr').addEventListener('onclick', function() {
+    };
+    /*document.getElementById('xhr').addEventListener('onclick', function() {
       //validate();
+      document.getElementById('form').submit();
       field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
       field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
       field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
@@ -134,7 +136,7 @@ if(document.body.classList.contains('contact')) {
       field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
       makeRequest();
       console.log('#xhr button clicked - AJAX!');
-    });
+    });*/
 
     function field(name, langif, langelse) {
 
@@ -144,6 +146,19 @@ if(document.body.classList.contains('contact')) {
       var input = document.getElementById(name);
       var parentDiv = document.getElementsByClassName(name)[0];
       input.parentNode.appendChild(elem);
+
+      if(!input.checkValidity() && name !== 'captcha') {
+        elem.className = 'error';
+        parentDiv.className += ' error-input';
+        elem.style.display = 'block';
+      };
+
+      if(!input.checkValidity() && lang === 'hu-HU') {
+        elem.textContent = langif;
+      } else {
+        elem.textContent = langelse;
+      };
+
 
       /*function captchaInit() {
         var answers = {
@@ -161,7 +176,7 @@ if(document.body.classList.contains('contact')) {
       };*/
 
       // Turning on when error is presented
-      input.addEventListener('invalid', function(event) {
+      /*input.addEventListener('invalid', function(event) {
         event.preventDefault();
         if(!event.target.validity.valid && name !== 'captcha') {
           elem.className = 'error';
@@ -180,7 +195,7 @@ if(document.body.classList.contains('contact')) {
           elem.style.display = 'block';
         };*/
 
-        if(!event.target.validity.valid && lang === 'hu-HU') {
+        /*if(!event.target.validity.valid && lang === 'hu-HU') {
           elem.textContent = langif;
         } else {
           elem.textContent = langelse;
@@ -195,7 +210,7 @@ if(document.body.classList.contains('contact')) {
           parentDiv.classList.remove('error-input');
           elem.style.display = 'none';
         };
-      });
+      });*/
 
       return;
     };
