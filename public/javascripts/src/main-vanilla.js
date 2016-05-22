@@ -153,8 +153,7 @@ if(document.body.classList.contains('contact')) {
       // Turning on when error is presented
       input.addEventListener('invalid', function(event) {
         event.preventDefault();
-        if(!event.target.validity.valid &&
-           name !== 'captcha') {
+        if(!event.target.validity.valid && name !== 'captcha') {
           elem.className = 'error';
           parentDiv.className += ' error-input';
           elem.style.display = 'block';
