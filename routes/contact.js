@@ -13,7 +13,22 @@ const config = require('../config/mail');
 // Nodemailer MIDDLEWARE
 /////////////////////////////////////////////////////////////
 
-router.use('/', (req, res, next) => {
+router.use((req, res, next) => {
+  // Variables
+  const firstname = req.body.firstname,
+        surname   = req.body.surname,
+        email     = req.body.email,
+        subject   = req.body.subject,
+        message   = req.body.message,
+        captcha   = req.body.captcha;
+  //firstname = null;
+  //captcha   = null;
+  console.log(firstname + '\n\n' +
+              surname + '\n\n' +
+              email + '\n\n' +
+              subject + '\n\n' +
+              message + '\n\n' +
+              captcha);
   // create reusable transporter object using the default SMTP transport
   req.transporter = nodemailer.createTransport({
     pool: false,
@@ -48,22 +63,26 @@ router.use('/', (req, res, next) => {
       'Üzenet:\n' + '    ' + req.body.message
   };
 
+  //res.set('Content-Type', 'text/html');
+  //res.type('html');
+  console.log('Content-Type (router.use): ' + req.get('Content-Type'));
+
   // http://stackoverflow.com/questions/37368357/express-why-cannot-use-req-body-value-in-router-use#comment62249585_37368357
-  if(req.body.firstname.length === 0 ||
-     !req.body.firstname.match(/\D+/igm)) {
-    console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + req.body.firstname);
+  if(!req.xhr && firstname.length === 0 ||
+     !firstname.match(/\D+/igm)) {
+    console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + firstname);
     var validateFirstname = false;
   } else {
-    console.log('AJAX OK: firstname. Value: ' + req.body.firstname);
+    console.log('AJAX OK: firstname. Value: ' + firstname);
     var validateFirstname = true;
   };
 
-  if(req.body.captcha.length === 0 ||
-    !req.body.captcha.match(/^kettő|ketto|two$/igm)) {
-    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid. Value: ' + req.body.captcha);
+  if(!req.xhr && captcha.length === 0 ||
+    !captcha.match(/^kettő|ketto|two$/igm)) {
+    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid. Value: ' + captcha);
     var validateCaptcha = false;
   } else {
-    console.log('AJAX OK: captcha. Value: ' + req.body.captcha);
+    console.log('AJAX OK: captcha. Value: ' + captcha);
     var validateCaptcha = true;
   };
 
@@ -77,6 +96,48 @@ router.use('/', (req, res, next) => {
 
   next();
 });
+
+/*router.use((req, res, next) => {
+  console.log(req.body); // populated!
+  next();
+});*/
+
+/*router.all('*', (req, res, next) => {
+  // Variables
+  const firstname = req.body.firstname,
+        surname   = req.body.surname,
+        email     = req.body.email,
+        subject   = req.body.subject,
+        message   = req.body.message,
+        captcha   = req.body.captcha;
+  // http://stackoverflow.com/questions/37368357/express-why-cannot-use-req-body-value-in-router-use#comment62249585_37368357
+  if(firstname.length === 0 ||
+     !firstname.match(/\D+/igm)) {
+    console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + firstname);
+    var validateFirstname = false;
+  } else {
+    console.log('AJAX OK: firstname. Value: ' + firstname);
+    var validateFirstname = true;
+  };
+
+  if(captcha.length === 0 ||
+    !captcha.match(/^kettő|ketto|two$/igm)) {
+    console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid. Value: ' + captcha);
+    var validateCaptcha = false;
+  } else {
+    console.log('AJAX OK: captcha. Value: ' + captcha);
+    var validateCaptcha = true;
+  };
+
+  if(validateFirstname === true && validateCaptcha === true) {
+    console.log('SUCCESS: Form validated!');
+    // send mail with defined transport object
+    req.success;
+  } else {
+    console.log('ERROR: Form not validated!');
+  };
+  next();
+});*/
 
 /////////////////////////////////////////////////////////////
 // Nodemailer
@@ -94,6 +155,8 @@ router.post('/', (req, res, next) => {
       console.log('Server responded with "%s"', info.response);
     });
   };
+
+  console.log('Content-Type (router.post): ' + req.get('Content-Type'));
 
   /*if(req.body.firstname.length === 0 ||
      !req.body.firstname.match(/\D+/igm)) {
@@ -156,6 +219,8 @@ router.get('/', (req, res, next) => {
     }
 
     const contact = data[2].contact;
+
+    console.log('Content-Type (router.get): ' + req.get('Content-Type'));
 
     res.render('contact', {
       bodyClass: 'contact',
