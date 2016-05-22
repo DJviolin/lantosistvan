@@ -58,18 +58,19 @@
       xhr.onreadystatechange = function() {
         try {
           // process the server response
-          //if(xhr.readyState === 4 && xhr.status === 200) {
-          if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          //if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          if(xhr.readyState === 4 && xhr.status === 200) {
             // everything is good, the response is received
-            alert(xhr.responseText);
+            //alert(xhr.responseText);
+            document.getElementById('responseText').innerHTML = xhr.responseText;
             //var response = JSON.parse(xhr.responseText);
             //alert(response.computedString);
           } else {
             // still not ready
-            alert('There was a problem with the request.');
+            console.log('There was a problem with the request.');
           };
         } catch(e) {
-          alert('Caught Exception: ' + e.description);
+          console.log('Caught Exception: ' + e.description);
         };
       };
 

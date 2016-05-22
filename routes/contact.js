@@ -27,25 +27,16 @@ router.post('/', (req, res, next) => {
   req.message   = message;
   req.captcha   = captcha;
 
-if(req.firstname.length === 0 ||
-     !req.firstname.match(/\D+/igm)) {
-    console.log('AJAX ERROR: Firstname is empty and/or have a number. Value: ' + req.firstname);
-    var validateFirstname = false;
-  } else {
-    console.log('AJAX OK: firstname. Value: ' + req.firstname);
-    var validateFirstname = true;
-  };
-
   if(req.captcha.length === 0 ||
     !req.captcha.match(/^kettő|ketto|two$/igm)) {
     console.log('AJAX ERROR: captcha is empty and/or the entered value is invalid. Value: ' + req.captcha);
     var validateCaptcha = false;
   } else {
-    console.log('AJAX OK: captcha. Value: ' + captcha);
+    console.log('AJAX OK: captcha. Value: ' + req.captcha);
     var validateCaptcha = true;
   };
 
-  if(validateFirstname === true && validateCaptcha === true) {
+  if(validateCaptcha === true) {
     console.log('SUCCESS: Form validated!');
     // send mail with defined transport object
     req.sending = true;
@@ -110,8 +101,10 @@ router.use((req, res, next) => {
 /////////////////////////////////////////////////////////////
 
 router.post('/', (req, res, next) => {
-  console.log(req.mailOptions);
-  if(req.sending === true) {
+
+  //console.log(req.mailOptions);
+
+  if(!req.xhr && req.sending === true) {
     // send mail with defined transport object
     req.transporter.sendMail(req.mailOptions, (err, info) => {
       if(err) {
@@ -120,14 +113,18 @@ router.post('/', (req, res, next) => {
       }
       console.log('Message sent successfully!');
       console.log('Server responded with "%s"', info.response);
+      res.send('<div class="form-validation-success">SUCCESS: Message sent successfully!</div>');
     });
+  } else {
+    res.send('<div class="form-validation-error">ERROR: Message cannot be sent!</div>');
   };
 
   /*if(req.sending === false) {
     req.displayBlock = 'display: block;'
     //res.status(302).redirect('/' + req.getLocale() + '/contact');
   };*/
-  next();
+
+  //next();
 });
 
 /////////////////////////////////////////////////////////////
@@ -148,7 +145,7 @@ router.get('/', (req, res, next) => {
 
     const contact = data[2].contact;
 
-    console.log('req.displayBlock: ' + req.displayBlock);
+    //console.log('req.displayBlock: ' + req.displayBlock);
 
     res.render('contact', {
       bodyClass: 'contact',
