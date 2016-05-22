@@ -232,6 +232,7 @@ router.use((req, res, next) => {
 /////////////////////////////////////////////////////////////
 
 router.post('/', (req, res, next) => {
+  console.log(req.mailOptions);
   if(req.sending === true) {
     // send mail with defined transport object
     req.transporter.sendMail(req.mailOptions, (err, info) => {
