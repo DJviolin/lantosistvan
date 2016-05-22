@@ -22,7 +22,7 @@
     //var button = document.getElementById('xhr').onclick = function() { makeRequest('/form'); };
     document.getElementById('xhr').onclick = function() {
       makeRequest();
-      console.log('#xhr button clicked!');
+      console.log('#xhr button clicked - AJAX!');
     };
 
     function makeRequest() {

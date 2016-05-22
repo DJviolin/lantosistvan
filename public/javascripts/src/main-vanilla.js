@@ -108,12 +108,24 @@ if(document.body.classList.contains('contact')) {
   });
 };
 
+/////////////////////////////////////////////////////////////
+// HTML5 Form Error Messages - Vanilla JS AND AJAX
+/////////////////////////////////////////////////////////////
 
+(function() {
+  if(document.body.classList.contains('contact')) {
 
+    document.getElementById('xhr').onclick = function() {
+      //validate();
+      field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
+      field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
+      field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
+      field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
+      field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
+      makeRequest();
+      console.log('#xhr button clicked - AJAX!');
+    };
 
-/*if(document.body.classList.contains('contact')) {
-
-  (function() {
     function field(name, langif, langelse) {
 
       var elem = document.createElement('div');
@@ -123,7 +135,7 @@ if(document.body.classList.contains('contact')) {
       var parentDiv = document.getElementsByClassName(name)[0];
       input.parentNode.appendChild(elem);
 
-      function captchaInit() {
+      /*function captchaInit() {
         var answers = {
           'kettő': true,
           'ketto': true,
@@ -136,29 +148,35 @@ if(document.body.classList.contains('contact')) {
           'TWO': true
         };
         return input.value in answers;
-      };
+      };*/
 
       // Turning on when error is presented
       input.addEventListener('invalid', function(event) {
         event.preventDefault();
-        if(!event.target.validity.valid && name !== 'captcha') {
+        if(!event.target.validity.valid &&
+           name !== 'captcha') {
           elem.className = 'error';
           parentDiv.className += ' error-input';
           elem.style.display = 'block';
         };
+
         //if(!event.target.validity.valid && name === 'captcha' && !(input.value in answers)) {
         //if(!event.target.validity.valid && name === 'captcha') {
         //if(!event.target.validity.valid && name === 'captcha' && !captchaInit()) {
-        if(!event.target.validity.valid && name === 'captcha' && input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
+        /*if(!event.target.validity.valid &&
+           name === 'captcha' &&
+           input.value === input.value.match(/(^(?!kettő$|ketto$|Kettő$|Ketto$|KETTŐ$|KETTO$|two$|Two$|TWO$).*)/gm)[0]) {
           elem.className = 'error-captcha';
           parentDiv.className += ' error-input-captcha';
           elem.style.display = 'block';
-        };
+        };*/
+
         if(!event.target.validity.valid && lang === 'hu-HU') {
           elem.textContent = langif;
         } else {
           elem.textContent = langelse;
         };
+
       });
 
       // Turning off when error is not presented
@@ -173,64 +191,66 @@ if(document.body.classList.contains('contact')) {
       return;
     };
 
-    // Init function
-    field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
-    field('surname', 'A vezetéknév kötelező és/vagy számokat tartalmazott.', 'Surname is required and/or the field had numbers.');
-    field('email', 'Email cím kötelező. Ajánlott formátum: valami@domain.hu', 'Email address is required. Recommended format: something@domain.com');
-    field('message', 'Üzenet mező kitöltése kötelező.', 'Message is required.');
-    field('captcha', 'Captcha kitöltése kötelező.', 'Captcha is required.');
+    function makeRequest() {
 
-  })();
+      var firstname = document.getElementById('firstname').value,
+          surname   = document.getElementById('surname').value,
+          email     = document.getElementById('email').value,
+          subject   = document.getElementById('subject').value,
+          message   = document.getElementById('message').value,
+          captcha   = document.getElementById('captcha').value;
 
-};*/
+      var data = {
+        firstname: firstname,
+        surname: surname,
+        email: email,
+        subject: subject,
+        message: message,
+        captcha: captcha
+      };
 
-/////////////////////////////////////////////////////////////
-// HTML5 Form Error Messages - Vanilla JS AJAX
-// http://www.w3schools.com/ajax/
-// http://expressjs.com/en/api.html#req.xhr
-// http://stackoverflow.com/a/15945578/1442219
+      /*console.log(firstname);
+      if(firstname.match(/^kettő$/igm)) {
+        console.log('MATCH FOR: ' + firstname);
+      } else {
+        console.log('NO MATCH FOR: ' + firstname);
+      };*/
+      console.log(JSON.stringify(data));
 
-// ANSWERS:
-// http://stackoverflow.com/questions/32084571/why-is-an-object-in-an-xmlhttprequest-sent-to-a-node-express-server-empty
-// http://stackoverflow.com/questions/12731399/good-ways-to-work-with-forms-in-node-and-express
-/////////////////////////////////////////////////////////////
+      // instance of a class that provides this functionality
+      var xhr = new XMLHttpRequest();
 
-/*function ajax() {
+      // decide what you want to do after you receive the server response to your request
+      xhr.onreadystatechange = function() {
+        try {
+          // process the server response
+          //if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            // everything is good, the response is received
+            //alert(xhr.responseText);
+            document.getElementById('responseText').innerHTML = xhr.responseText;
+            //var response = JSON.parse(xhr.responseText);
+            //alert(response.computedString);
+          } else {
+            // still not ready
+            console.log('There was a problem with the request.');
+          };
+        } catch(e) {
+          console.log('Caught Exception: ' + e.description);
+        };
+      };
 
-  var firstname = document.getElementById('firstname').value,
-      surname   = document.getElementById('surname').value,
-      email     = document.getElementById('email').value,
-      subject   = document.getElementById('subject').value,
-      message   = document.getElementById('message').value,
-      captcha   = document.getElementById('captcha').value;
+      // make the request
+      if(lang === 'hu-HU') {
+        xhr.open('POST', '/hu/contact', true);
+      } else {
+        xhr.open('POST', '/en/contact', true);
+      };
+      //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      xhr.send(JSON.stringify(data));
 
-  var data = {
-    firstname: firstname,
-    surname: surname,
-    email: email,
-    subject: subject,
-    message: message,
-    captcha: captcha
-  };
-
-  var xhttp = new XMLHttpRequest();*/
-  /*xhttp.onreadystatechange = function() {
-    if(xhttp.readyState === 4 && xhttp.status === 200) {
-      //document.getElementById('demo').innerHTML = xhttp.responseText;
-      document.getElementById('captcha').value = xhttp.responseText;
     };
-  };*/
 
-  //xhttp.open('POST', '/form', true);
-  /*if(lang === 'hu-HU') {
-    xhttp.open('POST', '/hu/form', true);
-  } else {
-    xhttp.open('POST', '/en/form', true);
   };
-
-  //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-  xhttp.send(JSON.stringify(data));
-  console.log(JSON.stringify(data));
-
-};*/
+})();
