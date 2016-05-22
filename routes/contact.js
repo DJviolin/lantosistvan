@@ -145,8 +145,6 @@ router.get('/', (req, res, next) => {
 
     const contact = data[2].contact;
 
-    //console.log('req.displayBlock: ' + req.displayBlock);
-
     res.render('contact', {
       bodyClass: 'contact',
       active: { information: true },
