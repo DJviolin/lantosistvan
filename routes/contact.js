@@ -123,11 +123,11 @@ router.post('/', (req, res, next) => {
     });
   };
 
-  if(req.sending === false) {
+  /*if(req.sending === false) {
     req.displayBlock = 'display: block;'
     //res.status(302).redirect('/' + req.getLocale() + '/contact');
-  };
-  //next();
+  };*/
+  next();
 });
 
 /////////////////////////////////////////////////////////////
@@ -148,14 +148,6 @@ router.get('/', (req, res, next) => {
 
     const contact = data[2].contact;
 
-    //console.log('Content-Type (router.get): ' + req.get('Content-Type'));
-
-    /*if(req.sending === false) {
-      var formValidationError = 'display: block;'
-      return formValidationError;
-      res.status(302).redirect('/' + req.getLocale() + '/contact');
-    };*/
-
     console.log('req.displayBlock: ' + req.displayBlock);
 
     res.render('contact', {
@@ -165,8 +157,7 @@ router.get('/', (req, res, next) => {
       title: 'Contact',
       description: 'Get in touch',
       keywords: 'info,wedding,photography,film,lantos,istvan',
-      data: contact,
-      formValidationError: req.displayBlock
+      data: contact
     });
   });
 });
