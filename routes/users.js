@@ -8,11 +8,20 @@ const parseString = require('xml2js').parseString;
 
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
-/////////////////////////////////////////////////////////////
-
+// http://stackoverflow.com/questions/37422715/match-everything-until-last-presence-of-a-character
+//
+// REGEX:
+// /.+\// -> http://regexr.com/3dg1g
+// /^.+\// -> http://regexr.com/3dg1a
+// ".+/" -> https://regex101.com/r/iL0oE5/1
+//
+// var s = 'http://domain.com/images/1/10/104/104901/7.jpg'
+// var r = s.replace(/[^/]+$/, '')
+//=> "http://domain.com/images/1/10/104/104901/"
+//
 // http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg
 // http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/1049017-preview.mp4
-// http://stackoverflow.com/questions/37422715/match-everything-until-last-presence-of-a-character
+/////////////////////////////////////////////////////////////
 
 router.get('/:tag/:start/:end/:order/', (req, res, next) => {
   const reqURL = 'http://www.eporner.com/api_xml/' + req.params.tag + '/' + req.params.start + '/' + req.params.end + '/' + req.params.order;
