@@ -10,6 +10,9 @@ const parseString = require('xml2js').parseString;
 // EXTERNAL API REQUEST
 /////////////////////////////////////////////////////////////
 
+// http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg
+// http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/1049017-preview.mp4
+
 router.get('/:tag/:start/:end/:order/', (req, res, next) => {
   const reqURL = 'http://www.eporner.com/api_xml/' + req.params.tag + '/' + req.params.start + '/' + req.params.end + '/' + req.params.order;
   request(reqURL, (error, response, body) => {
@@ -33,6 +36,8 @@ router.get('/:tag/:page', (req, res, next) => {
     req.start = req.params.page * videoPerPage; // 1 * 5 = 5
   };
   const end = req.start - videoPerPage; // 5 - 5 = 0 --> is the number of movies you would like to skip from the beginning of list
+
+  console.log('req.start: ' + req.start + ', end: ' + end);
 
   const reqURL = 'http://www.eporner.com/api_xml/' + req.params.tag + '/' + req.start + '/' + end + '/' + 'adddate';
 
