@@ -21,6 +21,18 @@ const parseString = require('xml2js').parseString;
 //
 // http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg
 // http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/1049017-preview.mp4
+//
+// ES6 ALTERNATIVE
+// myString.substring(0, myString.lastIndexOf('/'))
+/*
+var myString = 'http://domain.com/images/1/10/104/104901/7.jpg';
+console.time("With regex");
+console.log(myString.replace(/[^/]+$/, ''));
+console.timeEnd("With regex");                   // outputs 0.94ms
+console.time("With String methods");
+console.log(myString.substring(0, myString.lastIndexOf('/')));
+console.timeEnd("With String methods");          // outputs 0.53ms
+*/
 /////////////////////////////////////////////////////////////
 
 router.get('/:tag/:start/:end/:order/', (req, res, next) => {
@@ -37,6 +49,14 @@ router.get('/:tag/:start/:end/:order/', (req, res, next) => {
 });
 
 router.get('/:tag/:page', (req, res, next) => {
+
+  const myString = 'http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg';
+  console.time('With regex');
+  console.log(myString.replace(/[^/]+$/, ''));
+  console.timeEnd('With regex');                   // outputs 0.94ms
+  console.time('With String methods');
+  console.log(myString.substring(0, myString.lastIndexOf('/')));
+  console.timeEnd('With String methods');          // outputs 0.53ms
 
   const count = parseInt(req.params.page); // Page number as integer
   const videoPerPage = 5; // How many videos per page
