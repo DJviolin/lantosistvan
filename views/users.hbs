@@ -1,0 +1,48 @@
+<main class="users">
+
+  {{#each data.[0].articles}}
+  <article class="id-{{this._id}}">
+
+    <header class="header-blog id-{{this._id}}">
+      <div class="drawing">
+        <img src="{{this.drawing}}" alt="">
+      </div>
+      <time>{{this.month}} {{this.day}}, {{this.year}}</time>
+      <h1><a href="{{../language}}/blog/{{this.url}}">{{this.title}}</a></h1>
+      <div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>
+    </header><!-- .header-blog.id-{{this._id}} -->
+
+    <div class="article content">
+
+      {{{../__ this.body}}}
+
+    </div><!-- div.article.content -->
+
+    <footer class="footer-blog id-{{this._id}}">
+      <div class="tags">
+        <span class="text">Tags: </span>
+        <ul>
+          {{#each tags}}
+          <li><a href="{{../../language}}/tag/{{this}}">{{this}}</a></li>
+          {{else}}
+          <li>No tags</li>
+          {{/each}}
+        </ul>
+      </div>
+    </footer><!-- .footer-blog.id-{{this._id}} -->
+
+  </article><!-- article.id-{{this._id}} -->
+
+  <!-- post -->
+
+  {{else}}
+  <h1>Error 404</h1>
+  <h2>Content not found</h2>
+  {{/each}}
+
+  <nav class="pagination">
+    {{#if paginationFirst}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}{{#if paginationFirstURL}}/page/{{paginationPrev}}{{/if}}">Previous</a> | {{/if}}
+    {{#if paginationLast}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
+  </nav><!-- nav.pagination -->
+
+</main><!-- main.users -->
