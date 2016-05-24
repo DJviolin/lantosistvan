@@ -17,7 +17,7 @@ const parseString = require('xml2js').parseString;
 //
 // var s = 'http://domain.com/images/1/10/104/104901/7.jpg'
 // var r = s.replace(/[^/]+$/, '')
-//=> "http://domain.com/images/1/10/104/104901/"
+// //=> "http://domain.com/images/1/10/104/104901/"
 //
 // http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg
 // http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/1049017-preview.mp4
