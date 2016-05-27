@@ -21,9 +21,6 @@ router.get('/:keywords/:page', (req, res, next) => {
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
       //res.status(200).json({data: result});
-      const previd = { data: result['eporner-data'].movie[0].imgthumb };
-      console.log(previd);
-
       res.render('users', {
         bodyClass: 'users',
         active: { blog: true },
