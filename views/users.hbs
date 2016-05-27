@@ -44,32 +44,6 @@
 
 <script type="text/javascript">
 (function() {
-  /*var url = window.location.href;
-  console.log(url.replace(/[^/]+$/, ''));
-  var page = parseInt(url.match(/[^/]+$/)),
-      pageMinusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page - 5) + '">' + (page - 5) + '</a>',
-      pageMinusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page - 4) + '">' + (page - 4) + '</a>',
-      pageMinusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page - 3) + '">' + (page - 3) + '</a>',
-      pageMinusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
-      pageMinusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
-      pageZero = '<a href="' + url.replace(/[^/]+$/, '') + page + '">' + page + '</a>',
-      pagePlusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page + 1) + '">' + (page + 1) + '</a>',
-      pagePlusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page + 2) + '">' + (page + 2) + '</a>',
-      pagePlusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page + 3) + '">' + (page + 3) + '</a>',
-      pagePlusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page + 4) + '">' + (page + 4) + '</a>',
-      pagePlusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page + 5) + '">' + (page + 5) + '</a>';
-  if(page === 0) {
-    pageMinusFive = false;
-    pageMinusFour = false;
-    pageMinusThree = false;
-    pageMinusTwo = false;
-    pageMinusOne = false;
-  };*/
-
-  /*document.getElementById('pagination').onload = function() {
-    pagination(0);
-  };*/
-
   function pagination(number) {
     var url = window.location.href;
     var page = parseInt(url.match(/[^/]+$/));
@@ -84,19 +58,5 @@
   for (var i=-5; i<6; i++) {
     pagination(i);
   };
-
-  /*console.log(
-    'pageMinusFive: ' + pageMinusFive + ',\n' +
-    'pageMinusFour: ' + pageMinusFour + ',\n' +
-    'pageMinusThree: ' + pageMinusThree + ',\n' +
-    'pageMinusTwo: ' + pageMinusTwo + ',\n' +
-    'pageMinusOne: ' + pageMinusOne + ',\n' +
-    'pageZero: ' + pageZero + ',\n' +
-    'pagePlusOne: ' + pagePlusOne + ',\n' +
-    'pagePlusTwo: ' + pagePlusTwo + ',\n' +
-    'pagePlusThree: ' + pagePlusThree + ',\n' +
-    'pagePlusFour: ' + pagePlusFour + ',\n' +
-    'pagePlusFive: ' + pagePlusFive
-  );*/
 })();
 </script>
