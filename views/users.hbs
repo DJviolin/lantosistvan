@@ -73,8 +73,11 @@
   function pagination(number) {
     var url = window.location.href;
     var page = parseInt(url.match(/[^/]+$/));
+    if((page + number) < 0) {
+      return;
+    }
     var link = '<a href="' + url.replace(/[^/]+$/, '') + (page + number) + '">' + (page + number) + '</a>';
-    document.getElementById('pagination').innerHTML = link;
+    document.getElementById('pagination').innerHTML += link;
 
     console.log(link);
     //console.log(url.replace(/[^/]+$/, ''));
