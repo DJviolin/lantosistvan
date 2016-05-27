@@ -8,6 +8,43 @@ const parseString = require('xml2js').parseString;
 
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
+/////////////////////////////////////////////////////////////
+
+router.get('/:keywords/:page', (req, res, next) => {
+
+  const page = parseInt(req.params.page); // Page number as integer
+  const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
+  const NUMBER_OF_MOVIES = 5; // Is number of movies you would like to display on your site. For example 5, 10, 15, 30
+  const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
+  const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
+  const reqURL = 'http://www.eporner.com/api_xml/' + KEYWORDS + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY;
+
+  request(reqURL, (error, response, body) => {
+    parseString(body, {trim: false}, (err, result) => {
+      //res.status(200).json({data: result});
+      res.render('users', {
+        bodyClass: 'users',
+        active: { blog: true },
+        titleShown: true,
+        title: 'Users',
+        description: '',
+        keywords: '',
+        divClass: 'users',
+        data: result,
+        paginationFirst: false,
+        paginationLast: true,
+        paginationNext: 1,
+        paginationParams: null,
+        paginationParamsSlash: false,
+        keywords: KEYWORDS
+      });
+    });
+  });
+
+});
+
+/////////////////////////////////////////////////////////////
+// API DEVELOPMENT
 // http://stackoverflow.com/questions/37422715/match-everything-until-last-presence-of-a-character
 //
 // REGEX:
@@ -33,63 +70,6 @@ console.time("With String methods");
 console.log(myString.substring(0, myString.lastIndexOf('/')));
 console.timeEnd("With String methods");          // outputs 0.53ms
 */
-/////////////////////////////////////////////////////////////
-
-router.get('/:tag/:start/:end/:order/', (req, res, next) => {
-  const reqURL = 'http://www.eporner.com/api_xml/' + req.params.tag + '/' + req.params.start + '/' + req.params.end + '/' + req.params.order;
-  request(reqURL, (error, response, body) => {
-    parseString(body, {trim: false}, (err, result) => {
-      //console.log([{ articles: result }]);
-      //console.log(util.inspect(result, { showHidden: false, depth: null }));
-      //
-      //q = util.inspect(result, { showHidden: false, depth: null });
-      res.status(200).json(result);
-    });
-  });
-});
-
-router.get('/:keywords/:page', (req, res, next) => {
-
-  const page = parseInt(req.params.page); // Page number as integer
-  const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
-  const NUMBER_OF_MOVIES = 5; // Is number of movies you would like to display on your site. For example 5, 10, 15, 30
-  const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
-  const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
-  const reqURL = 'http://www.eporner.com/api_xml/' + KEYWORDS + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY;
-
-  const paginatorPlusOne = page + 1;
-  const paginatorPlusOne = page + 2;
-  const paginatorPlusOne = page + 3;
-  const paginatorPlusOne = page + 4;
-  const paginatorPlusOne = page + 5;
-
-  request(reqURL, (error, response, body) => {
-    parseString(body, {trim: false}, (err, result) => {
-      //res.status(200).json({data: result});
-      res.render('users', {
-        bodyClass: 'users',
-        active: { blog: true },
-        titleShown: true,
-        title: 'Users',
-        description: '',
-        keywords: '',
-        divClass: 'users',
-        data: result,
-        paginationFirst: false,
-        paginationLast: true,
-        paginationNext: 1,
-        paginationParams: null,
-        paginationParamsSlash: false,
-        keywords: KEYWORDS,
-        paginator:
-      });
-    });
-  });
-
-});
-
-/////////////////////////////////////////////////////////////
-// API DEVELOPMENT
 /////////////////////////////////////////////////////////////
 
 router.get('/api/:keywords/:page', (req, res, next) => {
