@@ -50,13 +50,22 @@
     if((page + number) < 0) {
       return;
     };
-    var link = '<a href="' + url.replace(/[^/]+$/, '') + (page + number) + '">' + (page + number) + '</a>';
+    var link = '<a class="pagination-link" href="' + url.replace(/[^/]+$/, '') + (page + number) + '">' + (page + number) + '</a>';
     document.getElementById('pagination').innerHTML += link;
     //console.log(link);
     //console.log(url.replace(/[^/]+$/, ''));
   };
   for (var i=-5; i<6; i++) {
     pagination(i);
+  };
+
+  //if(document.getElementsByClassName('pagination-link').getAttribute('href')  === window.location.href) { console.log('hello') };
+  //pageLinks = document.getElementsByClassName('pagination-link');
+  pageLinks = document.querySelectorAll('a.pagination-link');
+  for (var j=0; j<pageLinks.length; j++) {
+    //var val = parseInt(fields[i].getAttribute('data-somedata'), 10);
+    //result += val;
+    if(pageLinks[j].getAttribute('href') === window.location.href) { console.log('hello') };
   };
 })();
 </script>
