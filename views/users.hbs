@@ -76,15 +76,20 @@
     var link = '<a href="' + url.replace(/[^/]+$/, '') + (page + number) + '">' + (page + number) + '</a>';
     document.getElementById('pagination').innerHTML = link;
 
+    console.log(link);
     //console.log(url.replace(/[^/]+$/, ''));
+  };
+  //pagination();
+
+  for (var i=1; i<6; i++) {
+    pagination(-Math.abs(i));
   };
 
   pagination(0);
-  pagination(1);
-  pagination(2);
-  pagination(3);
-  pagination(4);
-  pagination(5);
+
+  for (var i=1; i<6; i++) {
+    pagination(i);
+  };
 
   /*console.log(
     'pageMinusFive: ' + pageMinusFive + ',\n' +
