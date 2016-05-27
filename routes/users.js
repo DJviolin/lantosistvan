@@ -18,10 +18,12 @@ router.get('/:keywords/:page', (req, res, next) => {
   const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
   const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
   const reqURL = 'http://www.eporner.com/api_xml/' + KEYWORDS + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY;
-
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
       //res.status(200).json({data: result});
+      const previd = { data: result[0].movie.imgthumb[0] };
+      console.log(previd);
+
       res.render('users', {
         bodyClass: 'users',
         active: { blog: true },
