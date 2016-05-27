@@ -54,24 +54,34 @@
 </main><!-- main.users -->
 
 <script type="text/javascript">
-var page = parseInt(window.location.href.match(/[^/]+$/)),
-    pageMinusFive = page - 5,
-    pageMinusFour = page - 4,
-    pageMinusThree = page - 3,
-    pageMinusTwo = page - 2,
-    pageMinusOne = page - 1,
-    pagePlusOne = page + 1,
-    pagePlusTwo = page + 2,
-    pagePlusThree = page + 3,
-    pagePlusFour = page + 4,
-    pagePlusFive = page + 5;
+var url = window.location.href;
+console.log(url.replace(/[^/]+$/, ''));
+var page = parseInt(url.match(/[^/]+$/)),
+    pageMinusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page - 5) + '">' + (page - 5) + '</a>',
+    pageMinusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page - 4) + '">' + (page - 4) + '</a>',
+    pageMinusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page - 3) + '">' + (page - 3) + '</a>',
+    pageMinusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
+    pageMinusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
+    pageZero = '<a href="' + url.replace(/[^/]+$/, '') + page + '">' + page + '</a>',
+    pagePlusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
+    pagePlusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
+    pagePlusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page - 3) + '">' + (page - 3) + '</a>',
+    pagePlusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page - 4) + '">' + (page - 4) + '</a>',
+    pagePlusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page - 5) + '">' + (page - 5) + '</a>';
+if(page === 0) {
+  pageMinusFive = false;
+  pageMinusFour = false;
+  pageMinusThree = false;
+  pageMinusTwo = false;
+  pageMinusOne = false;
+};
 console.log(
   'pageMinusFive: ' + pageMinusFive + ',\n' +
   'pageMinusFour: ' + pageMinusFour + ',\n' +
   'pageMinusThree: ' + pageMinusThree + ',\n' +
   'pageMinusTwo: ' + pageMinusTwo + ',\n' +
   'pageMinusOne: ' + pageMinusOne + ',\n' +
-  'page: ' + page + ',\n' +
+  'pageZero: ' + pageZero + ',\n' +
   'pagePlusOne: ' + pagePlusOne + ',\n' +
   'pagePlusTwo: ' + pagePlusTwo + ',\n' +
   'pagePlusThree: ' + pagePlusThree + ',\n' +
