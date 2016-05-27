@@ -48,7 +48,7 @@ router.get('/:tag/:start/:end/:order/', (req, res, next) => {
   });
 });
 
-router.get('/:tag/:page', (req, res, next) => {
+router.get('/:KEYWORDS/:page', (req, res, next) => {
 
   const myString = 'http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg';
   console.time('With regex');
@@ -58,18 +58,13 @@ router.get('/:tag/:page', (req, res, next) => {
   console.log(myString.substring(0, myString.lastIndexOf('/')));
   console.timeEnd('With String methods');          // outputs 0.53ms
 
-  const count = parseInt(req.params.page); // Page number as integer
-  const videoPerPage = 5; // How many videos per page
-  if(count === 0) { // is number of movies you would like to display on your site. For example 5, 10, 15, 30
-    req.start = videoPerPage;
-  } else {
-    req.start = req.params.page * videoPerPage; // 1 * 5 = 5
-  };
-  const end = req.start - videoPerPage; // 5 - 5 = 0 --> is the number of movies you would like to skip from the beginning of list
+  const page = parseInt(req.params.page); // Page number as integer
+  const NUMBER_OF_MOVIES = 5; // is number of movies you would like to display on your site. For example 5, 10, 15, 30
+  const START_FROM = page * NUMBER_OF_MOVIES; // is the number of movies you would like to skip from the beginning of list
 
-  console.log('req.start: ' + req.start + ', end: ' + end);
+  console.log('req.start: ' + NUMBER_OF_MOVIES + ', end: ' + START_FROM);
 
-  const reqURL = 'http://www.eporner.com/api_xml/' + req.params.tag + '/' + req.start + '/' + end + '/' + 'adddate';
+  const reqURL = 'http://www.eporner.com/api_xml/' + req.params.KEYWORDS + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + 'adddate';
 
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
