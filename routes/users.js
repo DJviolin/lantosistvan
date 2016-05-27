@@ -50,6 +50,43 @@ router.get('/:tag/:start/:end/:order/', (req, res, next) => {
 
 router.get('/:keywords/:page', (req, res, next) => {
 
+  const page = parseInt(req.params.page); // Page number as integer
+  const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
+  const NUMBER_OF_MOVIES = 5; // Is number of movies you would like to display on your site. For example 5, 10, 15, 30
+  const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
+  const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
+
+  const reqURL = 'http://www.eporner.com/api_xml/' + KEYWORDS + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY;
+
+  request(reqURL, (error, response, body) => {
+    parseString(body, {trim: false}, (err, result) => {
+      //res.status(200).json({data: result});
+      res.render('users', {
+        bodyClass: 'users',
+        active: { blog: true },
+        titleShown: true,
+        title: 'Users',
+        description: '',
+        keywords: '',
+        divClass: 'users',
+        data: result,
+        paginationFirst: false,
+        paginationLast: true,
+        paginationNext: 1,
+        paginationParams: null,
+        paginationParamsSlash: false
+      });
+    });
+  });
+
+});
+
+/////////////////////////////////////////////////////////////
+// API DEVELOPMENT
+/////////////////////////////////////////////////////////////
+
+router.get('/api/:keywords/:page', (req, res, next) => {
+
   const myString = 'http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg';
   console.time('With regex');
   console.log(myString.replace(/[^/]+$/, ''));
@@ -70,7 +107,7 @@ router.get('/:keywords/:page', (req, res, next) => {
 
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
-      res.status(200).json(result);
+      res.status(200).json({data: result});
     });
   });
 

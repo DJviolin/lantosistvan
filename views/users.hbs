@@ -1,20 +1,20 @@
-<main class="users">
+<main class="blog">
 
-  {{#each data.[0].articles}}
-  <article class="id-{{this._id}}">
+  {{#each data.eporner-data.movie}}
+  <article class="id-{{this.id}}">
 
     <header class="header-blog id-{{this._id}}">
-      <div class="drawing">
+      <!--<div class="drawing">
         <img src="{{this.drawing}}" alt="">
       </div>
-      <time>{{this.month}} {{this.day}}, {{this.year}}</time>
-      <h1><a href="{{../language}}/blog/{{this.url}}">{{this.title}}</a></h1>
-      <div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>
+      <time>{{this.month}} {{this.day}}, {{this.year}}</time>-->
+      <h1><a href="{{this.loc}}">{{this.title}}</a></h1>
+      <!--<div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>-->
     </header><!-- .header-blog.id-{{this._id}} -->
 
     <div class="article content">
 
-      {{{../__ this.body}}}
+      <a href="{{this.loc}}"><img src="{{this.imgthumb}}" alt="" /></a>
 
     </div><!-- div.article.content -->
 
