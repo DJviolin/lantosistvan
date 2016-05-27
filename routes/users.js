@@ -34,12 +34,10 @@ router.get('/:keywords/:page', (req, res, next) => {
         divClass: 'users',
         data: result['eporner-data'],
         helpers: {
-            foo: function () { return 'foo.'; },
-            substring: function(url) {
-              //const myString = url;
-              //return myString.substring(0, myString.lastIndexOf('/'));
-              return url.replace(/[^/]+$/, '');
-            }
+          substring: function(url) {
+            const myString = url.toString();
+            return myString.substring(0, myString.lastIndexOf('/'));
+          }
         },
         paginationFirst: false,
         paginationLast: true,
