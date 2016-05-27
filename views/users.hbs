@@ -63,11 +63,11 @@ var page = parseInt(url.match(/[^/]+$/)),
     pageMinusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
     pageMinusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
     pageZero = '<a href="' + url.replace(/[^/]+$/, '') + page + '">' + page + '</a>',
-    pagePlusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
-    pagePlusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
-    pagePlusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page - 3) + '">' + (page - 3) + '</a>',
-    pagePlusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page - 4) + '">' + (page - 4) + '</a>',
-    pagePlusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page - 5) + '">' + (page - 5) + '</a>';
+    pagePlusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page + 1) + '">' + (page + 1) + '</a>',
+    pagePlusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page + 2) + '">' + (page + 2) + '</a>',
+    pagePlusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page + 3) + '">' + (page + 3) + '</a>',
+    pagePlusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page + 4) + '">' + (page + 4) + '</a>',
+    pagePlusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page + 5) + '">' + (page + 5) + '</a>';
 if(page === 0) {
   pageMinusFive = false;
   pageMinusFour = false;
