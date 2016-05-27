@@ -59,13 +59,13 @@
     pagination(i);
   };
 
-  //if(document.getElementsByClassName('pagination-link').getAttribute('href')  === window.location.href) { console.log('hello') };
-  //pageLinks = document.getElementsByClassName('pagination-link');
-  pageLinks = document.querySelectorAll('a.pagination-link');
+  pageLinks = document.getElementsByClassName('pagination-link');
+  //pageLinks = document.querySelectorAll('a.pagination-link');
   for (var j=0; j<pageLinks.length; j++) {
-    //var val = parseInt(fields[i].getAttribute('data-somedata'), 10);
-    //result += val;
-    if(pageLinks[j].getAttribute('href') === window.location.href) { console.log('hello') };
+    if(pageLinks[j].getAttribute('href') === window.location.href) {
+      pageLinks[j].style.color = '#f69';
+      //console.log('found match');
+    };
   };
 })();
 </script>
