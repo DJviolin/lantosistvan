@@ -1336,3 +1336,6 @@ form .error-input textarea {
 form .error-input label {
   color: #cc3b3b;
 }
+#pagination a {
+  margin: 0 4px 0 4px;
+}
