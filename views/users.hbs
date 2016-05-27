@@ -3,22 +3,20 @@
   {{#each data.eporner-data.movie}}
   <article class="id-{{this.id}}">
 
-    <header class="header-blog id-{{this._id}}">
+    <header class="header-blog">
       <!--<div class="drawing">
         <img src="{{this.drawing}}" alt="">
       </div>
       <time>{{this.month}} {{this.day}}, {{this.year}}</time>-->
       <h1><a href="{{this.loc}}">{{this.title}}</a></h1>
       <!--<div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>-->
-    </header><!-- .header-blog.id-{{this._id}} -->
+    </header>
 
-    <div class="article content">
+    <div class="imgthumb">
+      <a href="{{this.loc}}"><img src="{{this.imgthumb320x240}}" alt="" /></a>
+    </div>
 
-      <a href="{{this.loc}}"><img src="{{this.imgthumb}}" alt="" /></a>
-
-    </div><!-- div.article.content -->
-
-    <footer class="footer-blog id-{{this._id}}">
+    <footer class="footer-blog">
       <div class="tags">
         <span class="text">Tags: </span>
         <ul>
@@ -29,9 +27,9 @@
           {{/each}}
         </ul>
       </div>
-    </footer><!-- .footer-blog.id-{{this._id}} -->
+    </footer>
 
-  </article><!-- article.id-{{this._id}} -->
+  </article><!-- article.id-{{this.id}} -->
 
   <!-- post -->
 
@@ -45,4 +43,39 @@
     {{#if paginationLast}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
   </nav><!-- nav.pagination -->
 
+  <nav class="paginator">
+    {{#each paginator}}
+    <a href="{{language}}/{{keywords}}/{{this}}">{{this}}</a>
+    {{else}}
+    No paginator
+    {{/each}}
+  </nav><!-- nav.pagination -->
+
 </main><!-- main.users -->
+
+<script type="text/javascript">
+var page = parseInt(window.location.href.match(/[^/]+$/));
+var pageMinusFive = page - 5;
+var pageMinusFour = page - 4;
+var pageMinusThree = page - 3;
+var pageMinusTwo = page - 2;
+var pageMinusOne = page - 1;
+var pagePlusOne = page + 1;
+var pagePlusTwo = page + 2;
+var pagePlusThree = page + 3;
+var pagePlusFour = page + 4;
+var pagePlusFive = page + 5;
+console.log(
+  'pageMinusFive: ' + pageMinusFive + ',\n' +
+  'pageMinusFour: ' + pageMinusFour + ',\n' +
+  'pageMinusThree: ' + pageMinusThree + ',\n' +
+  'pageMinusTwo: ' + pageMinusTwo + ',\n' +
+  'pageMinusOne: ' + pageMinusOne + ',\n' +
+  'page: ' + page + ',\n' +
+  'pagePlusOne: ' + pagePlusOne + ',\n' +
+  'pagePlusTwo: ' + pagePlusTwo + ',\n' +
+  'pagePlusThree: ' + pagePlusThree + ',\n' +
+  'pagePlusFour: ' + pagePlusFour + ',\n' +
+  'pagePlusFive: ' + pagePlusFive
+);
+</script>

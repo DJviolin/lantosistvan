@@ -55,8 +55,13 @@ router.get('/:keywords/:page', (req, res, next) => {
   const NUMBER_OF_MOVIES = 5; // Is number of movies you would like to display on your site. For example 5, 10, 15, 30
   const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
   const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
-
   const reqURL = 'http://www.eporner.com/api_xml/' + KEYWORDS + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY;
+
+  const paginatorPlusOne = page + 1;
+  const paginatorPlusOne = page + 2;
+  const paginatorPlusOne = page + 3;
+  const paginatorPlusOne = page + 4;
+  const paginatorPlusOne = page + 5;
 
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
@@ -74,7 +79,9 @@ router.get('/:keywords/:page', (req, res, next) => {
         paginationLast: true,
         paginationNext: 1,
         paginationParams: null,
-        paginationParamsSlash: false
+        paginationParamsSlash: false,
+        keywords: KEYWORDS,
+        paginator:
       });
     });
   });
