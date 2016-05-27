@@ -36,11 +36,6 @@ router.get('/:keywords/:page', (req, res, next) => {
             return myString.substring(0, myString.lastIndexOf('/'));
           }
         },
-        paginationFirst: false,
-        paginationLast: true,
-        paginationNext: 1,
-        paginationParams: null,
-        paginationParamsSlash: false,
         keywords: KEYWORDS
       });
     });
