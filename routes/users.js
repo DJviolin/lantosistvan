@@ -21,7 +21,7 @@ router.get('/:keywords/:page', (req, res, next) => {
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
       //res.status(200).json({data: result});
-      const previd = { data: result['eporner-data'] };
+      const previd = { data: result['eporner-data'].movie[0].imgthumb };
       console.log(previd);
 
       res.render('users', {
@@ -33,6 +33,14 @@ router.get('/:keywords/:page', (req, res, next) => {
         keywords: '',
         divClass: 'users',
         data: result['eporner-data'],
+        helpers: {
+            foo: function () { return 'foo.'; },
+            substring: function(url) {
+              //const myString = url;
+              //return myString.substring(0, myString.lastIndexOf('/'));
+              return url.replace(/[^/]+$/, '');
+            }
+        },
         paginationFirst: false,
         paginationLast: true,
         paginationNext: 1,
