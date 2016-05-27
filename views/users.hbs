@@ -38,54 +38,66 @@
   <h2>Content not found</h2>
   {{/each}}
 
-  <nav class="pagination">
-    {{#if paginationFirst}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}{{#if paginationFirstURL}}/page/{{paginationPrev}}{{/if}}">Previous</a> | {{/if}}
-    {{#if paginationLast}}<a href="{{language}}/{{divClass}}{{#if paginationParamsSlash}}/{{/if}}{{paginationParams}}/page/{{paginationNext}}">Continue</a>{{/if}}
-  </nav><!-- nav.pagination -->
-
-  <nav class="paginator">
-    {{#each paginator}}
-    <a href="{{language}}/{{keywords}}/{{this}}">{{this}}</a>
-    {{else}}
-    No paginator
-    {{/each}}
-  </nav><!-- nav.pagination -->
+  <nav id="pagination"></nav><!-- nav.pagination -->
 
 </main><!-- main.users -->
 
 <script type="text/javascript">
-var url = window.location.href;
-console.log(url.replace(/[^/]+$/, ''));
-var page = parseInt(url.match(/[^/]+$/)),
-    pageMinusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page - 5) + '">' + (page - 5) + '</a>',
-    pageMinusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page - 4) + '">' + (page - 4) + '</a>',
-    pageMinusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page - 3) + '">' + (page - 3) + '</a>',
-    pageMinusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
-    pageMinusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
-    pageZero = '<a href="' + url.replace(/[^/]+$/, '') + page + '">' + page + '</a>',
-    pagePlusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page + 1) + '">' + (page + 1) + '</a>',
-    pagePlusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page + 2) + '">' + (page + 2) + '</a>',
-    pagePlusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page + 3) + '">' + (page + 3) + '</a>',
-    pagePlusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page + 4) + '">' + (page + 4) + '</a>',
-    pagePlusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page + 5) + '">' + (page + 5) + '</a>';
-if(page === 0) {
-  pageMinusFive = false;
-  pageMinusFour = false;
-  pageMinusThree = false;
-  pageMinusTwo = false;
-  pageMinusOne = false;
-};
-console.log(
-  'pageMinusFive: ' + pageMinusFive + ',\n' +
-  'pageMinusFour: ' + pageMinusFour + ',\n' +
-  'pageMinusThree: ' + pageMinusThree + ',\n' +
-  'pageMinusTwo: ' + pageMinusTwo + ',\n' +
-  'pageMinusOne: ' + pageMinusOne + ',\n' +
-  'pageZero: ' + pageZero + ',\n' +
-  'pagePlusOne: ' + pagePlusOne + ',\n' +
-  'pagePlusTwo: ' + pagePlusTwo + ',\n' +
-  'pagePlusThree: ' + pagePlusThree + ',\n' +
-  'pagePlusFour: ' + pagePlusFour + ',\n' +
-  'pagePlusFive: ' + pagePlusFive
-);
+(function() {
+  /*var url = window.location.href;
+  console.log(url.replace(/[^/]+$/, ''));
+  var page = parseInt(url.match(/[^/]+$/)),
+      pageMinusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page - 5) + '">' + (page - 5) + '</a>',
+      pageMinusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page - 4) + '">' + (page - 4) + '</a>',
+      pageMinusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page - 3) + '">' + (page - 3) + '</a>',
+      pageMinusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page - 2) + '">' + (page - 2) + '</a>',
+      pageMinusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page - 1) + '">' + (page - 1) + '</a>',
+      pageZero = '<a href="' + url.replace(/[^/]+$/, '') + page + '">' + page + '</a>',
+      pagePlusOne = '<a href="' + url.replace(/[^/]+$/, '') + (page + 1) + '">' + (page + 1) + '</a>',
+      pagePlusTwo = '<a href="' + url.replace(/[^/]+$/, '') + (page + 2) + '">' + (page + 2) + '</a>',
+      pagePlusThree = '<a href="' + url.replace(/[^/]+$/, '') + (page + 3) + '">' + (page + 3) + '</a>',
+      pagePlusFour = '<a href="' + url.replace(/[^/]+$/, '') + (page + 4) + '">' + (page + 4) + '</a>',
+      pagePlusFive = '<a href="' + url.replace(/[^/]+$/, '') + (page + 5) + '">' + (page + 5) + '</a>';
+  if(page === 0) {
+    pageMinusFive = false;
+    pageMinusFour = false;
+    pageMinusThree = false;
+    pageMinusTwo = false;
+    pageMinusOne = false;
+  };*/
+
+  /*document.getElementById('pagination').onload = function() {
+    pagination(0);
+  };*/
+
+  function pagination(number) {
+    var url = window.location.href;
+    var page = parseInt(url.match(/[^/]+$/));
+    var link = '<a href="' + url.replace(/[^/]+$/, '') + (page + number) + '">' + (page + number) + '</a>';
+    document.getElementById('pagination').innerHTML = link;
+
+    //console.log(url.replace(/[^/]+$/, ''));
+  };
+
+  pagination(0);
+  pagination(1);
+  pagination(2);
+  pagination(3);
+  pagination(4);
+  pagination(5);
+
+  /*console.log(
+    'pageMinusFive: ' + pageMinusFive + ',\n' +
+    'pageMinusFour: ' + pageMinusFour + ',\n' +
+    'pageMinusThree: ' + pageMinusThree + ',\n' +
+    'pageMinusTwo: ' + pageMinusTwo + ',\n' +
+    'pageMinusOne: ' + pageMinusOne + ',\n' +
+    'pageZero: ' + pageZero + ',\n' +
+    'pagePlusOne: ' + pagePlusOne + ',\n' +
+    'pagePlusTwo: ' + pagePlusTwo + ',\n' +
+    'pagePlusThree: ' + pagePlusThree + ',\n' +
+    'pagePlusFour: ' + pagePlusFour + ',\n' +
+    'pagePlusFive: ' + pagePlusFive
+  );*/
+})();
 </script>
