@@ -8,6 +8,11 @@ const parseString = require('xml2js').parseString;
 
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
+// SEARCH FEATURE:
+// http://127.0.0.1:3000/en/users/russian+teen/0
+// http://www.eporner.com/api_xml/anal,teen,hd,russian/5/0/adddate
+// http://www.eporner.com/api_xml/Beautiful+vagina+fingering+perfect+body/5/0/adddate
+// TODO: In search change the ` ` to `,` or `+`
 /////////////////////////////////////////////////////////////
 
 router.get('/:keywords/:page', (req, res, next) => {
@@ -41,17 +46,6 @@ router.get('/:keywords/:page', (req, res, next) => {
     });
   });
 
-});
-
-/////////////////////////////////////////////////////////////
-// SEARCH FEATURE
-// http://www.eporner.com/api_xml/anal,teen,hd,russian/5/0/adddate
-// http://www.eporner.com/api_xml/Beautiful+vagina+fingering+perfect+body/5/0/adddate
-// TODO: In search change the ` ` to `,` or `+`
-/////////////////////////////////////////////////////////////
-
-router.get('/search/:keywords/:page', (req, res, next) => {
-  console.log('hello');
 });
 
 /////////////////////////////////////////////////////////////
