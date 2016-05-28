@@ -13,7 +13,9 @@ const parseString = require('xml2js').parseString;
 // TODO: In search change the ` ` to `,` or `+`
 /////////////////////////////////////////////////////////////
 
-
+router.get('/search/:keywords/:page', (req, res, next) => {
+  console.log('hello');
+});
 
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
