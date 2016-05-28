@@ -8,8 +8,9 @@ const parseString = require('xml2js').parseString;
 
 /////////////////////////////////////////////////////////////
 // SEARCH FEATURE
-//http://www.eporner.com/api_xml/anal,teen,hd,russian/5/0/adddate
-// TODO: In search change the ` ` to `,`
+// http://www.eporner.com/api_xml/anal,teen,hd,russian/5/0/adddate
+// http://www.eporner.com/api_xml/Beautiful+vagina+fingering+perfect+body/5/0/adddate
+// TODO: In search change the ` ` to `,` or `+`
 /////////////////////////////////////////////////////////////
 
 
