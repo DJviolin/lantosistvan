@@ -20,7 +20,7 @@ router.get('(/search)?/:keywords/:page', (req, res, next) => {
 
   const page = parseInt(req.params.page); // Page number as integer
   const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
-  const KEYWORDS_REPLACE = KEYWORDS.replace(' ', '+');
+  const KEYWORDS_REPLACE = KEYWORDS.replace(/ |%20/gi, '+');
   const NUMBER_OF_MOVIES = 5; // Is number of movies you would like to display on your site. For example 5, 10, 15, 30
   const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
   const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
