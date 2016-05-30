@@ -10,12 +10,13 @@ const parseString = require('xml2js').parseString;
 // EXTERNAL API REQUEST
 // SEARCH FEATURE:
 // http://127.0.0.1:3000/en/users/russian+teen/0
+// http://127.0.0.1:3000/en/users/search/russian+teen/0
 // http://www.eporner.com/api_xml/anal,teen,hd,russian/5/0/adddate
 // http://www.eporner.com/api_xml/Beautiful+vagina+fingering+perfect+body/5/0/adddate
 // TODO: In search change the ` ` to `,` or `+`
 /////////////////////////////////////////////////////////////
 
-router.get('/:keywords/:page', (req, res, next) => {
+router.get('(/search)?/:keywords/:page', (req, res, next) => {
 
   const page = parseInt(req.params.page); // Page number as integer
   const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
