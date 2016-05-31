@@ -89,6 +89,7 @@ router.get('(/search)?/:keywords/:page', (req, res, next) => {
     .catch((err) => {
       // Deal with the error
       console.log(err);
+      res.render('error');
     });
 
 });
