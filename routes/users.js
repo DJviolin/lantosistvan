@@ -3,7 +3,8 @@
 const util    = require('util'),
       express = require('express'),
       router  = express.Router();
-const request = require('request');
+const request = require('request'),
+      rp      = require('request-promise');
 const parseString = require('xml2js').parseString;
 
 /////////////////////////////////////////////////////////////
@@ -16,8 +17,7 @@ const parseString = require('xml2js').parseString;
 // TODO: In search change the ` ` to `,` or `+`
 /////////////////////////////////////////////////////////////
 
-router.get('(/search)?/:keywords/:page', (req, res, next) => {
-
+/*router.get('(/search)?/:keywords/:page', (req, res, next) => {
   const page = parseInt(req.params.page); // Page number as integer
   const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
   const KEYWORDS_REPLACE = KEYWORDS.replace(/ |%20/gi, '+');
@@ -47,6 +47,49 @@ router.get('(/search)?/:keywords/:page', (req, res, next) => {
       });
     });
   });
+});*/
+
+router.get('(/search)?/:keywords/:page', (req, res, next) => {
+  const page = parseInt(req.params.page); // Page number as integer
+  const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
+  const KEYWORDS_REPLACE = KEYWORDS.replace(/ |%20/gi, '+');
+  const NUMBER_OF_MOVIES = 5; // Is number of movies you would like to display on your site. For example 5, 10, 15, 30
+  const START_FROM = page * NUMBER_OF_MOVIES; // Is the number of movies you would like to skip from the beginning of list
+  const ORDER_BY = 'adddate'; // Currently supported "adddate" (will change every database update) and "id" (will be always the same)
+
+  const options = {
+    method: 'GET',
+    uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
+  };
+
+  rp(options)
+    .then((data) => {
+      // Handle the response
+      parseString(data, {trim: false}, (err, result) => {
+        //res.status(200).json({data: result});
+        res.render('users', {
+          bodyClass: 'users',
+          active: { blog: true },
+          titleShown: true,
+          title: 'Users',
+          description: '',
+          keywords: '',
+          divClass: 'users',
+          data: result['eporner-data'],
+          helpers: {
+            substring: function(url) {
+              const myString = url.toString();
+              return myString.substring(0, myString.lastIndexOf('/'));
+            }
+          },
+          keywords: KEYWORDS
+        });
+      });
+    })
+    .catch((err) => {
+      // Deal with the error
+      console.log(err);
+    });
 
 });
 
