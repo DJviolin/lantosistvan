@@ -165,6 +165,7 @@ const fs          = require('fs'),
       CronJob     = require('cron').CronJob,
       rp          = require('request-promise'),
       parseString = require('xml2js').parseString;
+const xml2js = require('xml2js');
 
 const job = new CronJob({
   cronTime: '5 * * * * 0-6',
@@ -185,13 +186,14 @@ job.start();
 app.get('(/:lang)?/cron', (req, res) => {
   const options = {
     method: 'GET',
-    uri: 'http://www.eporner.com/sitemap/rss_hd_320x240.xml'
+    //uri: 'http://www.eporner.com/sitemap/rss_hd_320x240.xml'
+    uri: 'http://www.eporner.com/api_xml/all/1000000'
   };
   rp(options)
     .then((data) => {
       parseString(data, {trim: false}, (err, result) => {
         console.log('GET finished, fs.writeFile started!');
-        const json = util.inspect(result, { showHidden: true, depth: null });
+        const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: 5 });
         fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
           if(err) { throw err };
           console.log('It\'s saved!');
@@ -201,6 +203,21 @@ app.get('(/:lang)?/cron', (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+
+  /*//const parser = new xml2js.Parser();
+  fs.readFile(__dirname + '/database/rss_hd_320x240.xml', (err, data) => {
+    //parser.parseString(data, (err, result) => {
+    parseString(data, (err, result) => {
+      //console.dir(result);
+      //console.log('Done');
+      const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: 2 });
+      fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
+        if(err) { throw err };
+        console.log('It\'s saved!');
+      });
+    });
+  });*/
+
 });
 
 /////////////////////////////////////////////////////////////
