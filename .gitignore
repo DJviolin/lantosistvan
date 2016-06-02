@@ -33,3 +33,5 @@ npm-debug.log
 public/images/art
 tls
 config/mail.js
+database/rss_hd.xml
+database/rss_hd_320x240.xml
