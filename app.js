@@ -191,7 +191,7 @@ app.get('(/:lang)?/cron', (req, res) => {
       parseString(data, {trim: false}, (err, result) => {
         //res.status(200).json({data: result['eporner-data']});
         console.log('GET finished, fs.writeFile started!');
-        fs.writeFile('/database/rss_hd_320x240.json', result, (err) => {
+        fs.writeFile(__dirname + '/database/rss_hd_320x240.json', result, (err) => {
           if(err) { throw err };
           console.log('It\'s saved!');
         });
