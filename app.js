@@ -154,6 +154,55 @@ app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 app.use('/api', api);
 
 /////////////////////////////////////////////////////////////
+// CRON
+// http://handyjs.org/article/the-kick-ass-guide-to-creating-nodejs-cron-tasks
+// https://www.npmjs.com/package/cron
+// https://www.npmjs.com/package/node-schedule
+/////////////////////////////////////////////////////////////
+
+const fs          = require('fs'),
+      CronJob     = require('cron').CronJob,
+      rp          = require('request-promise'),
+      parseString = require('xml2js').parseString;
+
+const job = new CronJob({
+  cronTime: '5 * * * *',
+  onTick: () => {
+    /*
+     * Runs every weekday (Monday through Friday)
+     * at 11:30:00 AM. It does not run on Saturday
+     * or Sunday.
+     */
+     console.log('CronJob started!');
+  },
+  start: true,
+  timeZone: 'Europe/Budapest'
+});
+
+job.start();
+
+app.get('(/:lang)?/cron', (req, res) => {
+  const options = {
+    method: 'GET',
+    uri: 'http://www.eporner.com/sitemap/rss_hd_320x240.xml'
+  };
+  rp(options)
+    .then((data) => {
+      parseString(data, {trim: false}, (err, result) => {
+        //res.status(200).json({data: result['eporner-data']});
+        console.log('GET finished, fs.writeFile started!');
+        fs.writeFile('/database/rss_hd_320x240.json', result, (err) => {
+          if(err) { throw err };
+          console.log('It\'s saved!');
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+/////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
@@ -280,48 +329,6 @@ app.get('/en', (req, res) => { // http://127.0.0.1:3000/en
   });
   res.redirect('back');
 });*/
-
-/////////////////////////////////////////////////////////////
-// CRON
-// http://handyjs.org/article/the-kick-ass-guide-to-creating-nodejs-cron-tasks
-// https://www.npmjs.com/package/cron
-// https://www.npmjs.com/package/node-schedule
-/////////////////////////////////////////////////////////////
-
-const CronJob = require('cron').CronJob,
-      rp      = require('request-promise');
-
-const job = new CronJob({
-  cronTime: '5 * * * *',
-  onTick: () => {
-    /*
-     * Runs every weekday (Monday through Friday)
-     * at 11:30:00 AM. It does not run on Saturday
-     * or Sunday.
-     */
-     console.log('CronJob started!');
-  },
-  start: true,
-  timeZone: 'Europe/Budapest'
-});
-
-job.start();
-
-app.get('(/:lang)?/cron', (req, res) => {
-  const options = {
-    method: 'GET',
-    uri: 'http://www.eporner.com/sitemap/rss_hd_320x240.xml'
-  };
-  rp(options)
-    .then((data) => {
-      parseString(data, {trim: false}, (err, result) => {
-        res.status(200).json({data: result['eporner-data']});
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
 
 /////////////////////////////////////////////////////////////
 // ERROR HANDLING MIDDLEWARE
