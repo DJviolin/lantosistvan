@@ -183,27 +183,38 @@ const job = new CronJob({
 job.start();
 
 app.get('(/:lang)?/cron', (req, res) => {
+
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/sitemap/rss_hd_320x240.xml'
-    uri: 'http://www.eporner.com/api_xml/all/1000000/0/adddate'
+    //uri: 'http://www.eporner.com/api_xml/all/1000000/0/adddate'
+    uri: 'http://www.eporner.com/api_xml/all/1000000'
   };
   rp(options)
     .then((data) => {
-      parseString(data, {trim: false}, (err, result) => {
-        console.log('GET finished, fs.writeFile started!');
 
-        fs.writeFile(__dirname + '/database/rss.xml', result, (err) => {
+      fs.writeFile(__dirname + '/database/rss.xml', data, (err) => {
+        if(err) { throw err };
+        console.log('It\'s saved!');
+      });
+      res.send('CronJob ended!');
+
+      //parseString(data, {trim: false}, (err, result) => {
+      //  console.log('GET finished, fs.writeFile started!');
+
+        /*fs.writeFile(__dirname + '/database/rss.xml', result, (err) => {
           if(err) { throw err };
           console.log('It\'s saved!');
-        });
+        });*/
 
         /*const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: null });
         fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
           if(err) { throw err };
           console.log('It\'s saved!');
         });*/
-      });
+
+      //  res.send('CronJob ended!');
+      //});
     })
     .catch((err) => {
       console.log(err);
