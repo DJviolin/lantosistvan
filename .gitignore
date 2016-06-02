@@ -36,3 +36,5 @@ config/mail.js
 database/rss_hd.xml
 database/rss_hd_320x240.xml
 database/rss_hd_320x240.json
+database/rss.xml
+database/rss.json
