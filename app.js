@@ -166,7 +166,7 @@ const fs          = require('fs'),
       parseString = require('xml2js').parseString;
 
 const job = new CronJob({
-  cronTime: '5 * * * *',
+  cronTime: '5 * * * * 0-6',
   onTick: () => {
     /*
      * Runs every weekday (Monday through Friday)
