@@ -191,7 +191,7 @@ app.get('(/:lang)?/cron', (req, res) => {
     .then((data) => {
       parseString(data, {trim: false}, (err, result) => {
         console.log('GET finished, fs.writeFile started!');
-        json = util.inspect(result, { showHidden: true, depth: null });
+        const json = util.inspect(result, { showHidden: true, depth: null });
         fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
           if(err) { throw err };
           console.log('It\'s saved!');
