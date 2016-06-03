@@ -7,17 +7,16 @@ const request = require('request'),
       rp      = require('request-promise');
 const parseString = require('xml2js').parseString;
 
+/////////////////////////////////////////////////////////////
+// PORNHUB
 // http://www.alexa.com/topsites/category/Top/Adult
 // http://www.hubtraffic.com/resources/api?site_id=3
 // http://www.pornhub.com/webmasters/categories
 // http://www.pornhub.com/webmasters/search?search=hard&category=amateur&thumbsize=medium&page=1
-
-/////////////////////////////////////////////////////////////
-// PORNHUB
 /////////////////////////////////////////////////////////////
 
 router.get('/pornhub/category/:category/:page', (req, res, next) => {
-  const category = parseInt(req.params.category);
+  const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
   const options = {
