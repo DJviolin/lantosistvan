@@ -13,9 +13,12 @@ const parseString = require('xml2js').parseString;
 // http://www.hubtraffic.com/resources/api?site_id=3
 // http://www.pornhub.com/webmasters/categories
 // http://www.pornhub.com/webmasters/search?search=hard&category=amateur&thumbsize=medium&page=1
+// URL:
+// http://127.0.0.1:3000/en/users/api/category/amateur/1
+// http://127.0.0.1:3000/en/users/tube/category/amateur/1
 /////////////////////////////////////////////////////////////
 
-router.get('/pornhub/category/:category/:page', (req, res, next) => {
+router.get('/api/category/:category/:page', (req, res, next) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
@@ -28,7 +31,49 @@ router.get('/pornhub/category/:category/:page', (req, res, next) => {
   rp(options)
     .then((data) => {
       // Handle the response
-      res.status(200).json(data);
+      //res.status(200).json(data);
+      const q = JSON.parse(data);
+      res.status(200).json({ data: q }); // New method (Express 5)
+    })
+    .catch((err) => {
+      // Deal with the error
+      console.log(err);
+      res.render('404');
+    });
+
+});
+
+router.get('/tube/category/:category/:page', (req, res, next) => {
+  const category = req.params.category;
+  const page = parseInt(req.params.page); // Page number as integer
+
+  const options = {
+    method: 'GET',
+    //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
+    uri: 'http://www.pornhub.com/webmasters/search?category=' + category + '&thumbsize=medium&page=' + page
+  };
+
+  rp(options)
+    .then((data) => {
+      // Handle the response
+      //res.status(200).json(data);
+      res.render('users', {
+        layout: 'main',
+        bodyClass: 'tube',
+        active: { blog: true },
+        titleShown: true,
+        title: 'tube',
+        description: '',
+        keywords: '',
+        divClass: 'tube',
+        data: data,
+        helpers: {
+          substring: function(url) {
+            const myString = url.toString();
+            return myString.substring(0, myString.lastIndexOf('/'));
+          }
+        }
+      });
     })
     .catch((err) => {
       // Deal with the error
@@ -80,7 +125,7 @@ router.get('/pornhub/category/:category/:page', (req, res, next) => {
   });
 });*/
 
-router.get('(/search)?/:keywords/:page', (req, res, next) => {
+/*router.get('(/search)?/:keywords/:page', (req, res, next) => {
   const page = parseInt(req.params.page); // Page number as integer
   const KEYWORDS = req.params.keywords; // The movies you like to display eg. "anal", "black", "blowjob" OR "all" you you want to display all movies
   const KEYWORDS_REPLACE = KEYWORDS.replace(/ |%20/gi, '+');
@@ -123,7 +168,7 @@ router.get('(/search)?/:keywords/:page', (req, res, next) => {
       res.render('error');
     });
 
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // API DEVELOPMENT
@@ -154,7 +199,7 @@ console.timeEnd("With String methods");          // outputs 0.53ms
 */
 /////////////////////////////////////////////////////////////
 
-router.get('/api/:keywords/:page', (req, res, next) => {
+/*router.get('/api/:keywords/:page', (req, res, next) => {
 
   const myString = 'http://thumbs1.eu.cdn.eporner.com/thumbs/static4/1/10/104/1049017/7.jpg';
   console.time('With regex');
@@ -180,7 +225,7 @@ router.get('/api/:keywords/:page', (req, res, next) => {
     });
   });
 
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // INIT EXPRESS ROUTER

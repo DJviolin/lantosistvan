@@ -160,7 +160,7 @@ app.use('/api', api);
 // https://www.npmjs.com/package/node-schedule
 /////////////////////////////////////////////////////////////
 
-const fs          = require('fs'),
+/*const fs          = require('fs'),
       util        = require('util'),
       CronJob     = require('cron').CronJob,
       rp          = require('request-promise'),
@@ -169,11 +169,9 @@ const fs          = require('fs'),
 const job = new CronJob({
   cronTime: '5 * * * * 0-6',
   onTick: () => {
-    /*
-     * Runs every weekday (Monday through Friday)
-     * at 11:30:00 AM. It does not run on Saturday
-     * or Sunday.
-     */
+     // Runs every weekday (Monday through Friday)
+     // at 11:30:00 AM. It does not run on Saturday
+     // or Sunday.
      console.log('CronJob started!');
   },
   start: true,
@@ -202,16 +200,16 @@ app.get('(/:lang)?/cron', (req, res) => {
       //parseString(data, {trim: false}, (err, result) => {
       //  console.log('GET finished, fs.writeFile started!');
 
-        /*fs.writeFile(__dirname + '/database/rss.xml', result, (err) => {
-          if(err) { throw err };
-          console.log('It\'s saved!');
-        });*/
+        //fs.writeFile(__dirname + '/database/rss.xml', result, (err) => {
+        //  if(err) { throw err };
+        //  console.log('It\'s saved!');
+        //});
 
-        /*const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: null });
-        fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
-          if(err) { throw err };
-          console.log('It\'s saved!');
-        });*/
+        //const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: null });
+        //fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
+        //  if(err) { throw err };
+        //  console.log('It\'s saved!');
+        //});
 
       //  res.send('CronJob ended!');
       //});
@@ -220,20 +218,20 @@ app.get('(/:lang)?/cron', (req, res) => {
       console.log(err);
     });
 
-  /*fs.readFile(__dirname + '/database/rss_hd_320x240.xml', (err, data) => {
+  //fs.readFile(__dirname + '/database/rss_hd_320x240.xml', (err, data) => {
     //parser.parseString(data, (err, result) => {
-    parseString(data, (err, result) => {
+  //  parseString(data, (err, result) => {
       //console.dir(result);
       //console.log('Done');
-      const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: 2 });
-      fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
-        if(err) { throw err };
-        console.log('It\'s saved!');
-      });
-    });
-  });*/
+  //    const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: 2 });
+  //    fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
+  //      if(err) { throw err };
+  //      console.log('It\'s saved!');
+  //    });
+  //  });
+  //});
 
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS

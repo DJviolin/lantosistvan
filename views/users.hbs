@@ -1,43 +1,26 @@
 <main class="blog">
 
-  {{#each data.movie}}
-  <article class="id-{{this.id}}">
+  {{#each data.[0]}}
+  <article class="id-{{this.video_id}}">
 
     <header class="header-blog">
       <!--<div class="drawing">
         <img src="{{this.drawing}}" alt="">
       </div>
       <time>{{this.month}} {{this.day}}, {{this.year}}</time>-->
-      <h1><a href="{{this.loc}}">{{this.title}}</a></h1>
+      <h1><a href="{{this.url}}">{{this.title}}</a></h1>
       <!--<div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>-->
     </header>
 
     <div class="imgthumb">
-      <a href="{{this.loc}}"><img src="{{this.imgthumb320x240}}" alt="" /></a>
+      <a href="{{this.url}}"><img src="{{this.default_thumb}}" alt="" /></a>
     </div>
 
     <div class="previd">
-      <a href="{{this.loc}}">
-      <video style="width: 320px; height: 180px;" src="{{substring this.imgthumb}}/{{this.id}}-preview.mp4" id="previd-player" loop="" preload="auto" onmouseover="this.play()" onmouseout="this.pause()"></video>
+      <a href="{{this.url}}">
+      <video style="width: 320px; height: 180px;" src="{{substring this.default_thumb}}/{{this.video_id}}-preview.mp4" id="previd-player" loop="" preload="auto" onmouseover="this.play()" onmouseout="this.pause()"></video>
       </a>
     </div>
-
-
-<!--<div class="mbhd" id="previd" style="width: 322px; height: 208px; position: absolute; top: 125px; left: 287.5px; z-index: 99999; display: none;" onmouseout="hide_big();">
-<div style="display: none; margin-left: 265px;" class="mvhdico"></div>
-<div style="width: 310px; margin-top: 160px;" class="mbtit">
-  <a href="/hd-porn/314026/Amateur-Brunette-Wants-To-Be-A-Pornstar/" title="Amateur Brunette Wants To Be A Pornstar" id="previdtitle">Amateur Brunette Wants To Be A Pornstar</a>
-</div>
-  <div id="previd-player-div">
-  <a href="/hd-porn/314026/Amateur-Brunette-Wants-To-Be-A-Pornstar/">
-  <video style="width: 320px; height: 180px;" src="http://thumbs3.eu.cdn.eporner.com/thumbs/static4/3/31/315/315839/315839-preview.mp4" id="previd-player" loop="" preload="auto" onmouseout="this.pause()"></video>
-  </a>
-  </div>
-
-  <div style="width: 122px;" class="mbtim">31:05</div>
-  <div class="mbrate">3.73</div>
-  <div class="mbvie">121,999</div>
-</div>-->
 
 
     <footer class="footer-blog">
