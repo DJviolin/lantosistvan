@@ -54,7 +54,7 @@
   function pagination(number) {
     var url = window.location.href;
     var page = parseInt(url.match(/[^/]+$/));
-    if((page + number) < 0) {
+    if((page + number) < 1) {
       return;
     };
     var link = '<a class="pagination-link" href="' + url.replace(/[^/]+$/, '') + (page + number) + '">' + (page + number) + '</a>';
