@@ -13,7 +13,11 @@
     </header>
 
     <div class="imgthumb">
-      <a href="{{this.url}}"><img src="{{this.default_thumb}}" alt="" /></a>
+      {{#each thumbs}}
+      <img src="{{this.src}}" width="{{this.width}}" height="{{this.height}}" alt="" />
+      {{else}}
+      <p>No tags</p>
+      {{/each}}
     </div>
 
     <div class="previd">
