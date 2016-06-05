@@ -57,7 +57,8 @@ router.get('/tube/category/:category/:page', (req, res, next) => {
     .then((data) => {
       // Handle the response
       //res.status(200).json(data);
-      res.render('users', {
+      const q = JSON.parse(data);
+      res.status(200).render('users', {
         layout: 'main',
         bodyClass: 'tube',
         active: { blog: true },
@@ -66,7 +67,7 @@ router.get('/tube/category/:category/:page', (req, res, next) => {
         description: '',
         keywords: '',
         divClass: 'tube',
-        data: data,
+        data: q,
         helpers: {
           substring: function(url) {
             const myString = url.toString();
