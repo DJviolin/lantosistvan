@@ -12,7 +12,11 @@
       <!--<div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>-->
     </header>
 
-    <div class="imgthumb">
+    <div class="default_thumb">
+      <a href="{{this.url}}"><img src="{{this.default_thumb}}" alt="" /></a>
+    </div>
+
+    <div class="thumbs">
       {{#each thumbs}}
       <img src="{{this.src}}" width="{{this.width}}" height="{{this.height}}" alt="" />
       {{else}}
