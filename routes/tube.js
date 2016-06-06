@@ -66,7 +66,7 @@ router.all('*', categories);*/
 // http://www.pornhub.com/webmasters/search?category=amateur&thumbsize=medium&page=1
 /////////////////////////////////////////////////////////////
 
-router.get('/api/categories/:category/:page', (req, res, next) => {
+router.get('/api/category/:category/:page', (req, res) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
@@ -80,9 +80,8 @@ router.get('/api/categories/:category/:page', (req, res, next) => {
     .then((data) => {
       // Handle the response
       //res.status(200).json(data);
-      //const q = JSON.parse(data);
-      //res.status(200).json({ data: q }); // New method (Express 5)
-      res.json(data); // New method (Express 5)
+      const q = JSON.parse(data);
+      res.status(200).json({ data: q }); // New method (Express 5)
     })
     .catch((err) => {
       // Deal with the error
@@ -92,7 +91,7 @@ router.get('/api/categories/:category/:page', (req, res, next) => {
 
 });
 
-/*router.get('/videos/categories/:category/:page', (req, res, next) => {
+router.get('/videos/categories/:category/:page', (req, res) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
@@ -131,7 +130,7 @@ router.get('/api/categories/:category/:page', (req, res, next) => {
       res.render('404');
     });
 
-});*/
+});
 
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
