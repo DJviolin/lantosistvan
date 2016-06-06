@@ -39,7 +39,7 @@ const api      = require('./routes/api-external'),
       tag      = require('./routes/blog-tag'),
       contact  = require('./routes/contact'),
       //form     = require('./routes/form'),
-      users    = require('./routes/users');
+      tube     = require('./routes/tube');
 
 /////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
@@ -315,9 +315,9 @@ app.use('/form', (req, res) => {
   res.status(302).redirect('/' + req.getLocale() + '/form');
 });*/
 
-app.use('/:lang/users', users);
-app.use('/users', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/users');
+app.use('/:lang/tube', tube);
+app.use('/tube', (req, res) => {
+  res.status(302).redirect('/' + req.getLocale() + '/tube');
 });
 
 // Place under every other routes, because it can block others!

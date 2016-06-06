@@ -14,8 +14,8 @@ const parseString = require('xml2js').parseString;
 // http://www.pornhub.com/webmasters/categories
 // http://www.pornhub.com/webmasters/search?search=hard&category=amateur&thumbsize=medium&page=1
 // URL:
-// http://127.0.0.1:3000/en/users/api/category/amateur/1
-// http://127.0.0.1:3000/en/users/tube/category/amateur/1
+// http://127.0.0.1:3000/en/tube/api/category/amateur/1
+// http://127.0.0.1:3000/en/tube/videos/category/amateur/1
 /////////////////////////////////////////////////////////////
 
 router.get('/api/category/:category/:page', (req, res, next) => {
@@ -43,7 +43,7 @@ router.get('/api/category/:category/:page', (req, res, next) => {
 
 });
 
-router.get('/tube/category/:category/:page', (req, res, next) => {
+router.get('/videos/category/:category/:page', (req, res, next) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
@@ -58,8 +58,8 @@ router.get('/tube/category/:category/:page', (req, res, next) => {
       // Handle the response
       //res.status(200).json(data);
       const q = JSON.parse(data);
-      res.status(200).render('users', {
-        layout: 'main',
+      res.status(200).render('tube', {
+        layout: 'tube',
         bodyClass: 'tube',
         active: { blog: true },
         titleShown: true,
@@ -105,7 +105,7 @@ router.get('/tube/category/:category/:page', (req, res, next) => {
   request(reqURL, (error, response, body) => {
     parseString(body, {trim: false}, (err, result) => {
       //res.status(200).json({data: result});
-      res.render('users', {
+      res.render('tube', {
         bodyClass: 'users',
         active: { blog: true },
         titleShown: true,
@@ -144,7 +144,7 @@ router.get('/tube/category/:category/:page', (req, res, next) => {
       // Handle the response
       parseString(data, {trim: false}, (err, result) => {
         //res.status(200).json({data: result});
-        res.render('users', {
+        res.render('tube', {
           bodyClass: 'users',
           active: { blog: true },
           titleShown: true,
