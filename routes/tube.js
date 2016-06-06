@@ -8,12 +8,12 @@ const express = require('express'),
 //const parseString = require('xml2js').parseString;
 
 /////////////////////////////////////////////////////////////
-// ROUTER ALL
-// http://127.0.0.1:3000/en/tube/categories/amateur
-// http://127.0.0.1:3000/en/tube/videos/categories/amateur/1
+// MIDDLEWARE
+// http://127.0.0.1:3000/en/tube/category/amateur
+// http://127.0.0.1:3000/en/tube/videos/category/amateur/1
 /////////////////////////////////////////////////////////////
 
-/*router.use((req, res, next) => {
+router.use((req, res, next) => {
 //router.all('*', (req, res, next) => {
   const options = {
     method: 'GET',
@@ -24,8 +24,8 @@ const express = require('express'),
     .then((data) => {
       // Handle the response
       const q = JSON.parse(data);
-      //res.locals.categories = q;
-      res.status(200).json(q); // New method (Express 5)
+      res.locals.categories = q;
+      //res.status(200).json({ categories: q }); // New method (Express 5)
     })
     .catch((err) => {
       // Deal with the error
@@ -33,7 +33,7 @@ const express = require('express'),
     });
 
   next();
-});*/
+});
 
 /*const categories = (req, res, next) => {
   const options = {
@@ -61,8 +61,8 @@ router.all('*', categories);*/
 // http://www.pornhub.com/webmasters/categories
 // http://www.pornhub.com/webmasters/search?search=hard&category=amateur&thumbsize=medium&page=1
 // URL:
-// http://127.0.0.1:3000/en/tube/api/categories/amateur/1
-// http://127.0.0.1:3000/en/tube/videos/categories/amateur/1
+// http://127.0.0.1:3000/en/tube/api/category/amateur/1
+// http://127.0.0.1:3000/en/tube/videos/category/amateur/1
 // http://www.pornhub.com/webmasters/search?category=amateur&thumbsize=medium&page=1
 /////////////////////////////////////////////////////////////
 
@@ -91,7 +91,7 @@ router.get('/api/category/:category/:page', (req, res) => {
 
 });
 
-router.get('/videos/categories/:category/:page', (req, res) => {
+router.get('/videos/category/:category/:page', (req, res) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 

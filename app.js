@@ -59,7 +59,19 @@ app.engine('.hbs', exphbs({
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
     __: function() { return i18n.__.apply(this, arguments); },
-    __n: function() { return i18n.__n.apply(this, arguments); }
+    __n: function() { return i18n.__n.apply(this, arguments); },
+    hyphenToSpace: function(url) {
+      const myString = url.toString();
+      return myString.replace(/-/gi, ' ');
+    },
+    firstLetterUppercase: function(url) {
+      const myString = url.toString();
+      return myString.charAt(0).toUpperCase() + myString.slice(1);
+    },
+    removeNumbers: function(url) {
+      const myString = url.toString();
+      return myString.replace(/\d/gi, '');
+    }
   }
 }));
 app.set('view engine', '.hbs');

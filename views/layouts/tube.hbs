@@ -28,11 +28,8 @@
     <div class="navigation">
       <nav class="nav">
         <ul>
-          <li><a href="{{language}}">Home</a></li>
-          <li><a href="{{language}}/categories">Categories</a></li>
-          <li><a href="{{language}}/tags">Tags</a></li>
           {{#each categories.categories}}
-            <li><a href="{{language}}/categories/{{this}}">{{this}}</a></li>
+          <li><a style="text-transform: capitalize;" href="/en/tube/videos/category/{{this.category}}/1">{{ removeNumbers (firstLetterUppercase (hyphenToSpace this.category)) }}</a></li>
           {{/each}}
         </ul>
       </nav><!-- nav.nav  -->
