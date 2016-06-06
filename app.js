@@ -66,7 +66,7 @@ app.engine('.hbs', exphbs({
     },
     hyphenToSpace: function(url) {
       const myString = url.toString();
-      return myString.replace(/-/gi, ' ');
+      return myString.replace(/-/ig, ' ');
     },
     firstLetterUppercase: function(url) {
       const myString = url.toString();
@@ -74,7 +74,11 @@ app.engine('.hbs', exphbs({
     },
     removeNumbers: function(url) {
       const myString = url.toString();
-      return myString.replace(/\d/gi, '');
+      return myString.replace(/\d/ig, '');
+    },
+    removeLastSpace: function(url) {
+      const myString = url.toString();
+      return myString.replace(/\s(?=\S*$)$/igm, '');
     }
   }
 }));
