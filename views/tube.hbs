@@ -4,12 +4,8 @@
   <article class="id-{{this.video_id}}">
 
     <header class="header-blog">
-      <!--<div class="drawing">
-        <img src="{{this.drawing}}" alt="">
-      </div>
-      <time>{{this.month}} {{this.day}}, {{this.year}}</time>-->
+      <!--<time>{{this.month}} {{this.day}}, {{this.year}}</time>-->
       <h1><a href="{{this.url}}">{{this.title}}</a></h1>
-      <!--<div class="category"><a href="{{../language}}/category/{{this.category}}">{{this.category}}</a></div>-->
     </header>
 
     <div class="default_thumb">
@@ -22,12 +18,6 @@
       {{else}}
       <p>No tags</p>
       {{/each}}
-    </div>
-
-    <div class="previd">
-      <a href="{{this.url}}">
-      <video style="width: 320px; height: 180px;" src="{{substring this.default_thumb}}/{{this.video_id}}-preview.mp4" id="previd-player" loop="" preload="auto" onmouseover="this.play()" onmouseout="this.pause()"></video>
-      </a>
     </div>
 
   </article><!-- article.id-{{this.id}} -->
