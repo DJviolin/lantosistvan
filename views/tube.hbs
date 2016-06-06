@@ -59,6 +59,17 @@
     };
   };
 
+  // Remove every lines with: <li><a href="/en/tube/videos/category//1"></a></li>
+  /*emptyLinks = document.getElementsByClassName('nav-category');
+  for (var k=0; k<emptyLinks.length; k++) {
+    emptyLinksParent = emptyLinks.parentElement;
+    emptyLinksHref = emptyLinks[k].getAttribute('href');
+    if(emptyLinksHref.match(/^.*?\b(category\/\/1)\b.*$/igm)) {
+      emptyLinksParent[k].style.display = 'none';
+      console.log('MATCH');
+    };
+  };*/
+
   // Animate image sequence when hovering left/right
   // http://stackoverflow.com/questions/23384113/how-to-animate-image-sequence-when-hovering-left-right-using-jquery
   // http://stackoverflow.com/questions/15257089/jquery-animating-a-sequence-images
