@@ -31,6 +31,9 @@
           <li><a href="{{language}}">Home</a></li>
           <li><a href="{{language}}/categories">Categories</a></li>
           <li><a href="{{language}}/tags">Tags</a></li>
+          {{#each categories.categories}}
+            <li><a href="{{language}}/categories/{{this}}">{{this}}</a></li>
+          {{/each}}
         </ul>
       </nav><!-- nav.nav  -->
     </div><!-- div.navigation -->

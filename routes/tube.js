@@ -1,11 +1,58 @@
 'use strict';
 
-const util    = require('util'),
-      express = require('express'),
-      router  = express.Router();
-const request = require('request'),
+//const util    = require('util');
+const express = require('express'),
+      router  = express.Router(),
       rp      = require('request-promise');
-const parseString = require('xml2js').parseString;
+//const request = require('request');
+//const parseString = require('xml2js').parseString;
+
+/////////////////////////////////////////////////////////////
+// ROUTER ALL
+// http://127.0.0.1:3000/en/tube/categories/amateur
+// http://127.0.0.1:3000/en/tube/videos/categories/amateur/1
+/////////////////////////////////////////////////////////////
+
+/*router.use((req, res, next) => {
+//router.all('*', (req, res, next) => {
+  const options = {
+    method: 'GET',
+    uri: 'http://www.pornhub.com/webmasters/categories'
+  };
+
+  rp(options)
+    .then((data) => {
+      // Handle the response
+      const q = JSON.parse(data);
+      //res.locals.categories = q;
+      res.status(200).json(q); // New method (Express 5)
+    })
+    .catch((err) => {
+      // Deal with the error
+      console.log(err);
+    });
+
+  next();
+});*/
+
+/*const categories = (req, res, next) => {
+  const options = {
+    method: 'GET',
+    uri: 'http://www.pornhub.com/webmasters/categories'
+  };
+  rp(options)
+    .then((data) => {
+      // Handle the response
+      const q = JSON.parse(data);
+      res.locals.categories = q;
+    })
+    .catch((err) => {
+      // Deal with the error
+      console.log(err);
+    });
+  next();
+};
+router.all('*', categories);*/
 
 /////////////////////////////////////////////////////////////
 // PORNHUB
@@ -14,11 +61,12 @@ const parseString = require('xml2js').parseString;
 // http://www.pornhub.com/webmasters/categories
 // http://www.pornhub.com/webmasters/search?search=hard&category=amateur&thumbsize=medium&page=1
 // URL:
-// http://127.0.0.1:3000/en/tube/api/category/amateur/1
-// http://127.0.0.1:3000/en/tube/videos/category/amateur/1
+// http://127.0.0.1:3000/en/tube/api/categories/amateur/1
+// http://127.0.0.1:3000/en/tube/videos/categories/amateur/1
+// http://www.pornhub.com/webmasters/search?category=amateur&thumbsize=medium&page=1
 /////////////////////////////////////////////////////////////
 
-router.get('/api/category/:category/:page', (req, res, next) => {
+router.get('/api/categories/:category/:page', (req, res, next) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
@@ -32,8 +80,9 @@ router.get('/api/category/:category/:page', (req, res, next) => {
     .then((data) => {
       // Handle the response
       //res.status(200).json(data);
-      const q = JSON.parse(data);
-      res.status(200).json({ data: q }); // New method (Express 5)
+      //const q = JSON.parse(data);
+      //res.status(200).json({ data: q }); // New method (Express 5)
+      res.json(data); // New method (Express 5)
     })
     .catch((err) => {
       // Deal with the error
@@ -43,7 +92,7 @@ router.get('/api/category/:category/:page', (req, res, next) => {
 
 });
 
-router.get('/videos/category/:category/:page', (req, res, next) => {
+/*router.get('/videos/categories/:category/:page', (req, res, next) => {
   const category = req.params.category;
   const page = parseInt(req.params.page); // Page number as integer
 
@@ -79,10 +128,10 @@ router.get('/videos/category/:category/:page', (req, res, next) => {
     .catch((err) => {
       // Deal with the error
       console.log(err);
-      res.render('error');
+      res.render('404');
     });
 
-});
+});*/
 
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
