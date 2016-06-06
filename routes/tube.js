@@ -115,13 +115,7 @@ router.get('/videos/category/:category/:page', (req, res) => {
         description: '',
         keywords: '',
         divClass: 'tube',
-        data: q,
-        helpers: {
-          substring: function(url) {
-            const myString = url.toString();
-            return myString.substring(0, myString.lastIndexOf('/'));
-          }
-        }
+        data: q
       });
     })
     .catch((err) => {

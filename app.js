@@ -60,6 +60,10 @@ app.engine('.hbs', exphbs({
     // register hbs helpers in res.locals' context which provides this.locale
     __: function() { return i18n.__.apply(this, arguments); },
     __n: function() { return i18n.__n.apply(this, arguments); },
+    subString: function(url) {
+      const myString = url.toString();
+      return myString.substring(0, myString.lastIndexOf('/'));
+    },
     hyphenToSpace: function(url) {
       const myString = url.toString();
       return myString.replace(/-/gi, ' ');
