@@ -68,6 +68,7 @@ services:
       net: "none"
       volumes:
         - /var/www:rw
+        - $REPO_DIR/app:ro
   node:
     build:
       context: ./node
