@@ -2,7 +2,7 @@ version: 2
 services:
   cadvisor:
     image: google/cadvisor:latest
-    container_name: lemp_cadvisor
+    container_name: app_cadvisor
     ports:
       - "8080:8080"
     volumes:
@@ -15,20 +15,21 @@ services:
       context: ./base
       args:
         buildno: 1
+      build: ./base
       container_name: app_base
       net: "none"
+      volumes:
+        - /var/www:rw
   node:
     build:
       context: ./node
       args:
         buildno: 2
-    build: ./phpmyadmin
-    container_name: app_node
-    #net: "none"
-    volumes_from:
-      - base
-    volumes:
-      - /var/www:rw
+      build: ./node
+      container_name: app_node
+      #net: "none"
+      volumes_from:
+        - base
 #volumes:
 #  ffmpeg_dir:
 #    driver: default
