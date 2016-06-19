@@ -100,28 +100,28 @@ Requires=docker.service
 [Service]
 TimeoutStartSec=0
 #KillMode=none
-ExecStartPre=-/usr/bin/docker cp lemp_mariadb:/var/lib/mysql $DBBAK_DIR
-ExecStartPre=-/bin/bash -c '/usr/bin/tar -zcvf $DBBAK_DIR/sqlbackup_\$\$(date +%%Y-%%m-%%d_%%H-%%M-%%S)_ExecStartPre.tar.gz $DBBAK_DIR/mysql --remove-files'
+#ExecStartPre=-/usr/bin/docker cp lemp_mariadb:/var/lib/mysql $DBBAK_DIR
+#ExecStartPre=-/bin/bash -c '/usr/bin/tar -zcvf $DBBAK_DIR/sqlbackup_\$\$(date +%%Y-%%m-%%d_%%H-%%M-%%S)_ExecStartPre.tar.gz $DBBAK_DIR/mysql --remove-files'
 ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml kill
 ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml rm --force
 ExecStart=/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml up --force-recreate
-ExecStartPost=/usr/bin/etcdctl set /LEMP Running
+ExecStartPost=/usr/bin/etcdctl set /LANTOSISTVAN Running
 ExecStop=/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml stop
-ExecStopPost=/usr/bin/etcdctl rm /LEMP
-ExecStopPost=-/usr/bin/docker cp lemp_mariadb:/var/lib/mysql $DBBAK_DIR
-ExecStopPost=-/bin/bash -c 'tar -zcvf $DBBAK_DIR/sqlbackup_\$\$(date +%%Y-%%m-%%d_%%H-%%M-%%S)_ExecStopPost.tar.gz $DBBAK_DIR/mysql --remove-files'
+ExecStopPost=/usr/bin/etcdctl rm /LANTOSISTVAN
+#ExecStopPost=-/usr/bin/docker cp lemp_mariadb:/var/lib/mysql $DBBAK_DIR
+#ExecStopPost=-/bin/bash -c 'tar -zcvf $DBBAK_DIR/sqlbackup_\$\$(date +%%Y-%%m-%%d_%%H-%%M-%%S)_ExecStopPost.tar.gz $DBBAK_DIR/mysql --remove-files'
 Restart=always
 #RestartSec=30s
 
 [X-Fleet]
-Conflicts=lemp.service
+Conflicts=lantosistvan.service
 EOF
-cat $REPO_DIR/lemp.service
+cat $REPO_DIR/lantosistvan.service
 
 cd $HOME
 
 echo -e "\n
-LEMP stack has successfully built!\n\n\
+Stack has successfully built!\n\n\
 Run docker-compose with:\n\
   $ docker-compose --file $REPO_DIR/docker/docker-compose.yml build\n\
 Run the systemd service with:\n\
