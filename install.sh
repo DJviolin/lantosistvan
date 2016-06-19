@@ -22,7 +22,7 @@ if test "$(ls -A "$REPO_DIR")"; then
     mkdir -p $REPO_DIR
     echo -e "\nCloning git repo into \"$REPO_DIR\":"
     cd $REPO_DIR
-    git clone https://github.com/DJviolin/LEMP.git $REPO_DIR
+    git clone https://github.com/DJviolin/lantosistvan.git $REPO_DIR
     chmod +x $REPO_DIR/service-start.sh $REPO_DIR/service-stop.sh
     echo -e "\nShowing working directory..."
     ls -al $REPO_DIR
@@ -32,7 +32,7 @@ if test "$(ls -A "$REPO_DIR")"; then
 else
   echo -e "\nCloning git repo into \"$REPO_DIR\":"
   cd $REPO_DIR
-  git clone https://github.com/DJviolin/LEMP.git $REPO_DIR
+  git clone https://github.com/DJviolin/lantosistvan.git $REPO_DIR
   chmod +x $REPO_DIR/service-start.sh $REPO_DIR/service-stop.sh
   echo -e "Showing working directory..."
   ls -al $REPO_DIR
