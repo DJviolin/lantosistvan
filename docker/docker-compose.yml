@@ -1,0 +1,39 @@
+version: 2
+services:
+  cadvisor:
+    image: google/cadvisor:latest
+    container_name: lemp_cadvisor
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/:/rootfs:ro"
+      - "/var/run:/var/run:rw"
+      - "/sys:/sys:ro"
+      - "/var/lib/docker/:/var/lib/docker:ro"
+  base:
+    build:
+      context: ./base
+      args:
+        buildno: 1
+      container_name: app_base
+      net: "none"
+  node:
+    build:
+      context: ./node
+      args:
+        buildno: 2
+    build: ./phpmyadmin
+    container_name: app_node
+    #net: "none"
+    volumes_from:
+      - base
+    volumes:
+      - /var/www:rw
+#volumes:
+#  ffmpeg_dir:
+#    driver: default
+# Changing the settings of the app-wide default network
+#networks:
+#  default:
+    # Use the overlay driver for multi-host communication
+#    driver: host
