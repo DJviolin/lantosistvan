@@ -114,12 +114,13 @@ cat $REPO_DIR/docker/docker-compose.yml
 echo -e "\nCreating: $REPO_DIR/docker/lantosistvan.service\n"
 cat <<EOF > $REPO_DIR/docker/lantosistvan.service
 [Unit]
-Description=LEMP
+Description=LANTOSISTVAN
 After=etcd.service
 After=docker.service
 Requires=docker.service
 
 [Service]
+Environment=NODE_ENV=production
 TimeoutStartSec=0
 #KillMode=none
 ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml kill
