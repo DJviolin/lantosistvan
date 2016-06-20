@@ -12,5 +12,5 @@ WORKDIR $HOME/www/lantosistvan
 ONBUILD VOLUME ../app:$HOME/www/lantosistvan:rw
 ONBUILD RUN npm install
 
-#CMD ["npm", "start"]
-CMD ["DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*", "npm", "run", "gulp"]
+CMD ["npm", "start"]
+#CMD ["DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*", "npm", "run", "gulp"]

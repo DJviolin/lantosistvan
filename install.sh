@@ -130,11 +130,13 @@ Requires=docker.service
 
 [Service]
 Environment=NODE_ENV=production
+Environment=DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
 TimeoutStartSec=0
 #KillMode=none
 ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml kill
 ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml rm --force
-ExecStart=/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml up --force-recreate
+#ExecStart=/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml up --force-recreate
+ExecStart=/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml up
 ExecStartPost=/usr/bin/etcdctl set /LANTOSISTVAN Running
 ExecStop=/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml stop
 ExecStopPost=/usr/bin/etcdctl rm /LANTOSISTVAN
