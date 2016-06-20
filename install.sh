@@ -65,8 +65,8 @@ cat $REPO_DIR/app/config/mail.js
 # http://stackoverflow.com/questions/4937792/using-variables-inside-a-bash-heredoc
 # http://stackoverflow.com/questions/17578073/ssh-and-environment-variables-remote-and-local
 
-echo -e "\nCreating: $REPO_DIR/docker-compose.yml\n"
-cat <<EOF > $REPO_DIR/docker-compose.yml
+echo -e "\nCreating: $REPO_DIR/docker/docker-compose.yml\n"
+cat <<EOF > $REPO_DIR/docker/docker-compose.yml
 version: 2
 services:
   cadvisor:
@@ -109,10 +109,10 @@ services:
     # Use the overlay driver for multi-host communication
 #    driver: host
 EOF
-cat $REPO_DIR/docker-compose.yml
+cat $REPO_DIR/docker/docker-compose.yml
 
-echo -e "\nCreating: $REPO_DIR/lemp.service\n"
-cat <<EOF > $REPO_DIR/lemp.service
+echo -e "\nCreating: $REPO_DIR/docker/lantosistvan.service\n"
+cat <<EOF > $REPO_DIR/docker/lantosistvan.service
 [Unit]
 Description=LEMP
 After=etcd.service
@@ -122,23 +122,19 @@ Requires=docker.service
 [Service]
 TimeoutStartSec=0
 #KillMode=none
-#ExecStartPre=-/usr/bin/docker cp lemp_mariadb:/var/lib/mysql $DBBAK_DIR
-#ExecStartPre=-/bin/bash -c '/usr/bin/tar -zcvf $DBBAK_DIR/sqlbackup_\$\$(date +%%Y-%%m-%%d_%%H-%%M-%%S)_ExecStartPre.tar.gz $DBBAK_DIR/mysql --remove-files'
-ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml kill
-ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml rm --force
-ExecStart=/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml up --force-recreate
+ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml kill
+ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml rm --force
+ExecStart=/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml up --force-recreate
 ExecStartPost=/usr/bin/etcdctl set /LANTOSISTVAN Running
-ExecStop=/opt/bin/docker-compose --file $REPO_DIR/docker-compose.yml stop
+ExecStop=/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml stop
 ExecStopPost=/usr/bin/etcdctl rm /LANTOSISTVAN
-#ExecStopPost=-/usr/bin/docker cp lemp_mariadb:/var/lib/mysql $DBBAK_DIR
-#ExecStopPost=-/bin/bash -c 'tar -zcvf $DBBAK_DIR/sqlbackup_\$\$(date +%%Y-%%m-%%d_%%H-%%M-%%S)_ExecStopPost.tar.gz $DBBAK_DIR/mysql --remove-files'
 Restart=always
 #RestartSec=30s
 
 [X-Fleet]
 Conflicts=lantosistvan.service
 EOF
-cat $REPO_DIR/lantosistvan.service
+cat $REPO_DIR/docker/lantosistvan.service
 
 cd $HOME
 
@@ -147,7 +143,7 @@ Stack has successfully built!\n\n\
 Run docker-compose with:\n\
   $ docker-compose --file $REPO_DIR/docker/docker-compose.yml build\n\
 Run the systemd service with:\n\
-  $ cd $REPO_DIR && ./service-start.sh\n\
+  $ cd $REPO_DIR/docker && ./service-start.sh\n\
 Stop the systemd service with:\n\
-  $ cd $REPO_DIR && ./service-stop.sh"
+  $ cd $REPO_DIR/docker && ./service-stop.sh"
 echo -e "\nAll done! Exiting..."

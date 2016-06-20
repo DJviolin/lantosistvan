@@ -22,7 +22,32 @@ $ curl -L https://raw.github.com/DJviolin/lantosistvan/master/install.sh > $HOME
 
 The script will create the `docker-compose.yml` and `lantosistvan.service` files inside the cloned repo, which are needed for docker-compose and systemd.
 
+## Usage
 
+Run docker-compose with:
+
+```
+$ docker-compose --file $HOME/www/lantosistvan/docker/docker-compose.yml build
+```
+
+Start the Systemd service:
+
+```
+$ cd $HOME/www/lantosistvan/docker
+$ ./service-start.sh
+```
+
+Stop the systemd service:
+
+```
+$ cd $HOME/www/lantosistvan/docker
+$ ./service-stop.sh
+```
+
+
+## Usage
+
+Change the settings in `./config.js`.
 
 Set Node ENV to production:
 
@@ -35,10 +60,6 @@ Set Node ENV to production:
 # /etc/systemd/system/myservice.service
 Environment=NODE_ENV=production
 ```
-
-## Usage
-
-Change the settings in `./config.js`.
 
 ## PUBLIC API
 
