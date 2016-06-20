@@ -2,7 +2,7 @@
 #
 # VERSION               1.0.0
 
-FROM li_base:latest
+FROM docker_base:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 

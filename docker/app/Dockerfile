@@ -2,7 +2,7 @@
 #
 # VERSION               1.0.0
 
-FROM li_node:latest
+FROM docker_node:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="App" Vendor="Istvan Lantos" Version="1.0"
 
