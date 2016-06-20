@@ -23,7 +23,7 @@ if test "$(ls -A "$REPO_DIR")"; then
     echo -e "\nCloning git repo into \"$REPO_DIR\":"
     cd $REPO_DIR
     git clone https://github.com/DJviolin/lantosistvan.git $REPO_DIR
-    chmod +x $REPO_DIR/service-start.sh $REPO_DIR/service-stop.sh
+    chmod +x $REPO_DIR/docker/service-start.sh $REPO_DIR/docker/service-stop.sh
     echo -e "\nShowing working directory..."
     ls -al $REPO_DIR
   else
@@ -33,7 +33,7 @@ else
   echo -e "\nCloning git repo into \"$REPO_DIR\":"
   cd $REPO_DIR
   git clone https://github.com/DJviolin/lantosistvan.git $REPO_DIR
-  chmod +x $REPO_DIR/service-start.sh $REPO_DIR/service-stop.sh
+  chmod +x $REPO_DIR/docker/service-start.sh $REPO_DIR/docker/service-stop.sh
   echo -e "Showing working directory..."
   ls -al $REPO_DIR
 fi
