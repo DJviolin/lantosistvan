@@ -71,7 +71,7 @@ version: '2'
 services:
   cadvisor:
     image: google/cadvisor:latest
-    container_name: app_cadvisor
+    container_name: li_cadvisor
     ports:
       - "8080:8080"
     volumes:
@@ -84,31 +84,28 @@ services:
       context: ./base
       args:
         buildno: 1
-      build: ./base
-      container_name: li_base
-      net: "none"
-      volumes:
-        - /var/www:rw
+    container_name: li_base
+    net: "none"
+    volumes:
+      - /var/www:rw
   node:
     build:
       context: ./node
       args:
         buildno: 2
-      build: ./node
-      container_name: li_node
-      #net: "none"
-      volumes_from:
-        - base
+    container_name: li_node
+    #net: "none"
+    volumes_from:
+      - base
   app:
     build:
       context: ./app
       args:
         buildno: 3
-      build: ./app
-      container_name: li_app
-      #net: "none"
-      volumes_from:
-        - node
+    container_name: li_app
+    #net: "none"
+    volumes_from:
+      - node
 #volumes:
 #  ffmpeg_dir:
 #    driver: default
