@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #RUN ln -sf /bin/bash /bin/sh && ln -sf /bin/bash /bin/sh.distrib
 WORKDIR $HOME
 
-RUN echo -e "\
+RUN echo "\
 deb http://httpredir.debian.org/debian stable main contrib non-free\n\
 deb-src http://httpredir.debian.org/debian stable main contrib non-free\n\
 deb http://security.debian.org stable/updates main contrib non-free\n\
@@ -24,7 +24,7 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         locales
 
 ### Start of locale
-RUN echo -e "\
+RUN echo "\
 LC_ALL=en_US.UTF-8\n\
 LANG=en_US.UTF-8\n\
 LANGUAGE=en_US.UTF-8" >> /etc/environment
@@ -37,13 +37,13 @@ RUN echo "Europe/Budapest" > /etc/timezone \
 
 ### Start of optimizations
 # https://easyengine.io/tutorials/linux/increase-open-files-limit/
-RUN echo -e "\n\
+RUN echo "\n\
 *               hard    nofile            500000\n\
 *               soft    nofile            500000\n\
 root            hard    nofile            500000\n\
 root            soft    nofile            500000" >> /etc/security/limits.conf \
-    && echo -e "session required pam_limits.so" >> /etc/pam.d/common-session \
-    && echo -e "fs.file-max = 2097152" >> /etc/sysctl.conf
+    && echo "session required pam_limits.so" >> /etc/pam.d/common-session \
+    && echo "fs.file-max = 2097152" >> /etc/sysctl.conf
 ### End of optimizations
 
 ### Start of Nginx WEBSERVER setup
