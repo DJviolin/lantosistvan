@@ -47,4 +47,4 @@ RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.
 RUN node -v && npm -v
 
 #CMD ["node"]
-CMD ["echo", "li_node container finished!"]
+CMD ["echo", "lantosistvan_node container finished!"]

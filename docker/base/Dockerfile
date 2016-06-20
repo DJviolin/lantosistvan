@@ -61,4 +61,4 @@ RUN groupmod -g 500 www-data \
 RUN rm -rf /var/lib/apt/lists/*
 
 #CMD ["tail", "-f", "/dev/null"]
-CMD ["echo", "li_base container finished!"]
+CMD ["echo", "lantosistvan_base container finished!"]
