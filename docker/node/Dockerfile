@@ -22,14 +22,21 @@ RUN set -ex \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 6.2.2
+#ENV NODE_VERSION 6.2.2
 
-RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" \
+#RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" \
+#  && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
+#  && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
+#  && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
+#  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+#  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+
+RUN curl -SLO "https://nodejs.org/dist/latest/node-v[.*?]-linux-x64.tar.xz" -o "node-latest-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
   && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
-  && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
-  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+  && grep " node-latest-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
+  && tar -xJf "node-latest-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+  && rm "node-latest-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
 RUN node -v && npm -v
 
