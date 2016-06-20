@@ -80,40 +80,33 @@ services:
       - "/sys:/sys:ro"
       - "/var/lib/docker/:/var/lib/docker:ro"
   base:
-    build:
-      context: ./base
-      args:
-        buildno: 1
+    build: ./base
     container_name: li_base
-    net: "none"
-    volumes:
-      - /var/www:rw
+    network_mode: "none"
   node:
-    build:
-      context: ./node
-      args:
-        buildno: 2
+    build: ./node
     container_name: li_node
-    #net: "none"
-    volumes_from:
+    depends_on:
       - base
+    network_mode: "none"
   app:
-    build:
-      context: ./app
-      args:
-        buildno: 3
+    build: ./app
     container_name: li_app
-    #net: "none"
-    volumes_from:
+    depends_on:
       - node
-#volumes:
-#  ffmpeg_dir:
-#    driver: default
-# Changing the settings of the app-wide default network
-#networks:
-#  default:
-    # Use the overlay driver for multi-host communication
-#    driver: host
+    environment:
+      - NODE_ENV=production
+      - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
+    command: npm start
+    ports:
+      - "80:3000"
+    networks:
+      - front-tier
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
 EOF
 cat $REPO_DIR/docker/docker-compose.yml
 
@@ -126,8 +119,6 @@ After=docker.service
 Requires=docker.service
 
 [Service]
-Environment=NODE_ENV=production
-Environment=DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
 TimeoutStartSec=0
 #KillMode=none
 ExecStartPre=-/opt/bin/docker-compose --file $REPO_DIR/docker/docker-compose.yml kill
