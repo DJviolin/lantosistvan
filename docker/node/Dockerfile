@@ -6,6 +6,10 @@ FROM lantosistvan_base:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 
+RUN apt-get -y update && apt-get -y dist-upgrade \
+    && apt-get -y install \
+        curl
+
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
   && for key in \
@@ -45,6 +49,8 @@ RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.
   && rm "node-latest-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
 RUN node -v && npm -v
+
+RUN rm -rf /var/lib/apt/lists/*
 
 #CMD ["node"]
 CMD ["echo", "lantosistvan_node container finished!"]
