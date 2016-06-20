@@ -40,4 +40,4 @@ RUN curl -SLO "https://nodejs.org/dist/latest/node-v[.*?]-linux-x64.tar.xz" -o "
 
 RUN node -v && npm -v
 
-CMD [ "node" ]
+CMD ["node"]
