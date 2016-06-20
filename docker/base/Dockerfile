@@ -8,6 +8,8 @@ LABEL Description="This image is the base of the other app images in this projec
 
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
+# http://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work#comment61786875_25423366
+# https://wiki.ubuntu.com/DashAsBinSh
 #RUN ln -sf /bin/bash /bin/sh && ln -sf /bin/bash /bin/sh.distrib
 WORKDIR $HOME
 
