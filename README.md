@@ -44,21 +44,34 @@ $ cd $HOME/www/lantosistvan/docker
 $ ./service-stop.sh
 ```
 
+Change the settings in `./config.js` if you wish.
 
-## Usage
+## Docker-compose installation on CoreOS
 
-Change the settings in `./config.js`.
-
-Set Node ENV to production:
-
-```
-# /etc/init/env.conf
- env NODE_ENV=production
-```
+If you happens to be a `CoreOS` user and you want to install `docker-compose`, you can install it with superuser access:
 
 ```
-# /etc/systemd/system/myservice.service
-Environment=NODE_ENV=production
+$ sudo su
+$ mkdir -p /opt/bin
+$ curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose
+$ chmod +x /opt/bin/docker-compose
+$ exit
+```
+
+Or without any superuser access, from the nightly release channel:
+
+```
+# Removing symlink from /usr/share/skel/.bashrc in cave man style
+$ cp $HOME/.bashrc $HOME/.bashrc.new
+$ rm $HOME/.bashrc
+$ mv $HOME/.bashrc.new $HOME/.bashrc
+$ chmod a+x $HOME/.bashrc
+# Echoing docker-compose PATH variable
+$ echo -e 'export PATH="$PATH:$HOME/bin"' >> $HOME/.bashrc
+$ curl -L https://dl.bintray.com/docker-compose/master/docker-compose-`uname -s`-`uname -m` > $HOME/bin/docker-compose
+$ chmod +x $HOME/bin/docker-compose
+# Reloading .bashrc without opening a new bash instance
+$ source $HOME/.bashrc
 ```
 
 ## PUBLIC API
