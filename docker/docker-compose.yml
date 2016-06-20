@@ -13,19 +13,19 @@ services:
   base:
     build: ./base
     image: lantosistvan_base
-    container_name: docker_base
+    container_name: lantosistvan_base
     network_mode: "none"
   node:
     build: ./node
     image: lantosistvan_node
-    container_name: docker_node
+    container_name: lantosistvan_node
     depends_on:
       - base
     network_mode: "none"
   app:
     build: ./app
     image: lantosistvan_app
-    container_name: docker_app
+    container_name: lantosistvan_app
     depends_on:
       - node
     environment:
