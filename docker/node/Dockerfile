@@ -31,7 +31,9 @@ RUN set -ex \
 #  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
 #  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-RUN curl -sL "https://nodejs.org/dist/latest/" | tac | grep -oPa -m 1 'node-v(.*?)-linux-x64\.tar\.xz' | head -1
+# http://stackoverflow.com/a/28879552/1442219
+# https://regex101.com/r/eZ1gT7/410
+RUN curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1
 
 ENV NPM_CONFIG_LOGLEVEL info
 #ENV NODE_VERSION 6.2.2
