@@ -14,13 +14,13 @@ My next personal static photography portfolio website built on Node.js, Express,
 
 ## Installation
 
-Basic install script provided. Run only `./install.sh` and follow the instructions in the script! You doesn't even need to clone this repo (the script will do it anyway), just only download this file to your host and run it if you wish!
+Basic install script provided. `curl` the following code to your machine and follow the instructions in the script! You doesn't even need to clone this repo (the script will do it anyway), just only download this file to your host:
 
 ```
 $ curl -L https://raw.github.com/DJviolin/lantosistvan/master/install.sh > $HOME/install-lantosistvan.sh && chmod +x $HOME/install-lantosistvan.sh && cd $HOME && ./install-lantosistvan.sh && rm -rf $HOME/install-lantosistvan.sh
 ```
 
-The script will create the `docker-compose.yml` and `lantosistvan.service` files inside the cloned repo, which are needed for docker-compose and systemd.
+The script will create the `docker/docker-compose.yml`, `docker/lantosistvan.service` and `app/config/mail.js` files inside the cloned repo, which are needed for the stack.
 
 ## Usage
 
@@ -53,7 +53,7 @@ If you happens to be a `CoreOS` user and you want to install `docker-compose`, y
 ```
 $ sudo su
 $ mkdir -p /opt/bin
-$ curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose
+$ curl -L https://github.com/docker/compose/releases/download/1.8.0-rc1/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose
 $ chmod +x /opt/bin/docker-compose
 $ exit
 ```
