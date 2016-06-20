@@ -89,7 +89,6 @@ services:
       net: "none"
       volumes:
         - /var/www:rw
-        - $REPO_DIR/app:ro
   node:
     build:
       context: ./node
@@ -100,6 +99,16 @@ services:
       #net: "none"
       volumes_from:
         - base
+  app:
+    build:
+      context: ./app
+      args:
+        buildno: 3
+      build: ./app
+      container_name: li_app
+      #net: "none"
+      volumes_from:
+        - node
 #volumes:
 #  ffmpeg_dir:
 #    driver: default
