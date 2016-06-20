@@ -31,13 +31,11 @@ RUN set -ex \
 #  && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
 #  && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
+ENV NPM_CONFIG_LOGLEVEL info
 # http://stackoverflow.com/a/28879552/1442219
 # https://regex101.com/r/eZ1gT7/410
 #RUN result=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1) > export NODE_VERSION=$NODE_VERSION
 RUN NODE_VERSION=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1); echo "Node.js version found: $NODE_VERSION"; export NODE_VERSION=$NODE_VERSION
-
-ENV NPM_CONFIG_LOGLEVEL info
-#ENV NODE_VERSION 6.2.2
 
 RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" -o "node-latest-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
