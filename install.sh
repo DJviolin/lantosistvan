@@ -81,16 +81,19 @@ services:
       - "/var/lib/docker/:/var/lib/docker:ro"
   base:
     build: ./base
+    image: lantosistvan_base
     container_name: docker_base
     network_mode: "none"
   node:
     build: ./node
+    image: lantosistvan_node
     container_name: docker_node
     depends_on:
       - base
     network_mode: "none"
   app:
     build: ./app
+    image: lantosistvan_app
     container_name: docker_app
     depends_on:
       - node
