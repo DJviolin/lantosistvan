@@ -6,8 +6,9 @@ FROM lantosistvan_base:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 
-RUN apt-get -y install \
-      curl
+RUN apt-get -y update && apt-get -y dist-upgrade \
+    && apt-get -y install \
+        curl
 
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
