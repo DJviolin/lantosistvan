@@ -17,7 +17,7 @@ My next personal static photography portfolio website built on Node.js, Express,
 Basic install script provided. `curl` the following code to your machine and follow the instructions in the script! You doesn't even need to clone this repo (the script will do it anyway), just only download this file to your host:
 
 ```
-$ curl -L https://raw.github.com/DJviolin/lantosistvan/master/install.sh > $HOME/install-lantosistvan.sh && chmod +x $HOME/install-lantosistvan.sh && cd $HOME && ./install-lantosistvan.sh && rm -rf $HOME/install-lantosistvan.sh
+$ curl -H 'Cache-Control: no-cache' -L https://raw.github.com/DJviolin/lantosistvan/master/install.sh > $HOME/install-lantosistvan.sh && chmod +x $HOME/install-lantosistvan.sh && cd $HOME && ./install-lantosistvan.sh && rm -rf $HOME/install-lantosistvan.sh
 ```
 
 The script will create the `docker/docker-compose.yml`, `docker/lantosistvan.service` and `app/config/mail.js` files inside the cloned repo, which are needed for the stack.
