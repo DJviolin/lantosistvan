@@ -44,6 +44,12 @@ $ cd $HOME/www/lantosistvan/docker
 $ ./service-stop.sh
 ```
 
+Running a container for testing:
+
+```
+$ docker run --rm -it debian /bin/bash
+```
+
 Change the settings in `app/config.js` if you wish.
 
 ## Docker-compose installation on CoreOS

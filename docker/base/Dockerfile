@@ -9,6 +9,7 @@ LABEL Description="This image is the base of the other app images in this projec
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 RUN ln -sf /bin/bash /bin/sh && ln -sf /bin/bash /bin/sh.distrib
+WORKDIR $HOME
 
 RUN echo -e "\
 deb http://httpredir.debian.org/debian stable main contrib non-free\n\

@@ -39,7 +39,9 @@ ENV NPM_CONFIG_LOGLEVEL info
 # http://stackoverflow.com/a/28879552/1442219
 # https://regex101.com/r/eZ1gT7/410
 #RUN result=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1) > export NODE_VERSION=$NODE_VERSION
-RUN NODE_VERSION=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1); echo "Node.js version found: $NODE_VERSION"; export NODE_VERSION=$NODE_VERSION
+#RUN NODE_VERSION=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1); export NODE_VERSION=$NODE_VERSION
+RUN export NODE_VERSION=$( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 )
+RUN echo "Node.js version found: $NODE_VERSION"
 
 RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" -o "node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
