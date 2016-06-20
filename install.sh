@@ -65,54 +65,6 @@ cat $REPO_DIR/app/config/mail.js
 # http://stackoverflow.com/questions/4937792/using-variables-inside-a-bash-heredoc
 # http://stackoverflow.com/questions/17578073/ssh-and-environment-variables-remote-and-local
 
-echo -e "\nCreating: $REPO_DIR/docker/docker-compose.yml\n"
-cat <<EOF > $REPO_DIR/docker/docker-compose.yml
-version: '2'
-services:
-  cadvisor:
-    image: google/cadvisor:latest
-    container_name: li_cadvisor
-    ports:
-      - "8080:8080"
-    volumes:
-      - "/:/rootfs:ro"
-      - "/var/run:/var/run:rw"
-      - "/sys:/sys:ro"
-      - "/var/lib/docker/:/var/lib/docker:ro"
-  base:
-    build: ./base
-    image: lantosistvan_base
-    container_name: docker_base
-    network_mode: "none"
-  node:
-    build: ./node
-    image: lantosistvan_node
-    container_name: docker_node
-    depends_on:
-      - base
-    network_mode: "none"
-  app:
-    build: ./app
-    image: lantosistvan_app
-    container_name: docker_app
-    depends_on:
-      - node
-    environment:
-      - NODE_ENV=production
-      - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
-    command: npm start
-    ports:
-      - "80:3000"
-    networks:
-      - front-tier
-networks:
-  front-tier:
-    driver: bridge
-  back-tier:
-    driver: bridge
-EOF
-cat $REPO_DIR/docker/docker-compose.yml
-
 echo -e "\nCreating: $REPO_DIR/docker/lantosistvan.service\n"
 cat <<EOF > $REPO_DIR/docker/lantosistvan.service
 [Unit]
