@@ -85,7 +85,7 @@ services:
       args:
         buildno: 1
       build: ./base
-      container_name: app_base
+      container_name: li_base
       net: "none"
       volumes:
         - /var/www:rw
@@ -96,7 +96,7 @@ services:
       args:
         buildno: 2
       build: ./node
-      container_name: app_node
+      container_name: li_node
       #net: "none"
       volumes_from:
         - base
