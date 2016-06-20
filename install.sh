@@ -67,7 +67,7 @@ cat $REPO_DIR/app/config/mail.js
 
 echo -e "\nCreating: $REPO_DIR/docker/docker-compose.yml\n"
 cat <<EOF > $REPO_DIR/docker/docker-compose.yml
-version: 2
+version: '2'
 services:
   cadvisor:
     image: google/cadvisor:latest
