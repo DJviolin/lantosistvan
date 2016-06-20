@@ -44,7 +44,7 @@ $ cd $HOME/www/lantosistvan/docker
 $ ./service-stop.sh
 ```
 
-Change the settings in `./config.js` if you wish.
+Change the settings in `app/config.js` if you wish.
 
 ## Docker-compose installation on CoreOS
 
