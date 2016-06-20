@@ -2,7 +2,27 @@
 
 My next personal static photography portfolio website built on Node.js, Express, Handlebars.
 
-## Install
+## Prerequisites
+
+1. Linux
+2. 1GB Ram
+3. 20GB disk size (preferably fixed size in virtual machines)
+4. Git
+5. Docker Client
+6. Systemd
+7. Docker-compose
+
+## Installation
+
+Basic install script provided. Run only `./install.sh` and follow the instructions in the script! You doesn't even need to clone this repo (the script will do it anyway), just only download this file to your host and run it if you wish!
+
+```
+$ curl -L https://raw.github.com/DJviolin/lantosistvan/master/install.sh > $HOME/install-lantosistvan.sh && chmod +x $HOME/install-lantosistvan.sh && cd $HOME && ./install-lantosistvan.sh && rm -rf $HOME/install-lantosistvan.sh
+```
+
+The script will create the `docker-compose.yml` and `lantosistvan.service` files inside the cloned repo, which are needed for docker-compose and systemd.
+
+
 
 Set Node ENV to production:
 
