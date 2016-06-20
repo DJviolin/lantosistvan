@@ -40,7 +40,12 @@ ENV NPM_CONFIG_LOGLEVEL info
 # https://regex101.com/r/eZ1gT7/410
 #RUN result=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1) > export NODE_VERSION=$NODE_VERSION
 #RUN NODE_VERSION=$(( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 ) 2>&1); export NODE_VERSION=$NODE_VERSION
-RUN export NODE_VERSION=$( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 )
+#RUN export NODE_VERSION=$( curl -sL "https://nodejs.org/dist/latest/" | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1 )
+
+#RUN /bin/bash -l -c 'echo export NODE_VERSION="$(openssl rand -hex 64)" >> /etc/bash.bashrc'
+RUN echo "export NODE_VERSION=$(    curl -sL https://nodejs.org/dist/latest/ | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1    )" >> /etc/bash.bashrc
+RUN source /etc/bash.bashrc
+
 RUN echo "Node.js version found: $NODE_VERSION"
 
 RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" -o "node-v$NODE_VERSION-linux-x64.tar.xz" \
