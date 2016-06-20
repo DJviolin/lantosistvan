@@ -63,7 +63,9 @@ RUN echo "\
     grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
     head -1\
   )" >> /etc/bash.bashrc
-RUN source /etc/bash.bashrc
+#RUN source /etc/bash.bashrc
+# POSIX Standard way
+RUN . /etc/bash.bashrc
 
 RUN echo "Node.js version found: $NODE_VERSION"
 
