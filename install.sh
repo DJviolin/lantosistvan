@@ -43,8 +43,8 @@ echo -e "\nCreating additional files for the stack:"
 echo -e "\nGenerating $REPO_DIR/app/config/mail.js file:"
 read -e -p "host (default): " -i "smtp.gmail.com" HOST
 read -e -p "port (default): " -i "465" PORT
-read -e -p "user (your email account's username): " USER
-read -e -p "user (your email account's password): " PASS
+read -e -p "user (your sender email account's username): " USER
+read -e -p "user (your sender email account's password): " PASS
 read -e -p "from (sender email account, eg. something@domain.com): " FROM
 read -e -p "to (receiver email account, eg. something@domain.com): " TO
 cat <<EOF > $REPO_DIR/app/config/mail.js
