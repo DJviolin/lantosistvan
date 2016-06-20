@@ -45,15 +45,23 @@ ENV NPM_CONFIG_LOGLEVEL info
 #RUN /bin/bash -l -c 'echo export NODE_VERSION="$(openssl rand -hex 64)" >> /etc/bash.bashrc'
 #RUN echo "export NODE_VERSION=$(    curl -sL https://nodejs.org/dist/latest/ | tac | tac | grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | head -1    )" >> /etc/bash.bashrc
 
-RUN echo "\
-  export NODE_VERSION=$(\
-    curl -sL https://nodejs.org/dist/latest/ |\
-    tac |\
-    tac |\
-    grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
-    head -1\
-  )" >> /etc/bash.bashrc
-RUN source /etc/bash.bashrc
+#RUN echo "\
+#  export NODE_VERSION=$(\
+#    curl -sL https://nodejs.org/dist/latest/ |\
+#    tac |\
+#    tac |\
+#    grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
+#    head -1\
+#  )" >> /etc/bash.bashrc
+#RUN source /etc/bash.bashrc
+
+RUN export NODE_VERSION=$(\
+      curl -sL https://nodejs.org/dist/latest/ |\
+      tac |\
+      tac |\
+      grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
+      head -1\
+    )
 
 #COPY ./node-version.sh /root/
 #RUN chmod +x $HOME/node-version.sh
