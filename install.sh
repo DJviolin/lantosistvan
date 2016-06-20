@@ -60,7 +60,7 @@ module.exports = {
   user: '$USER',
   pass: '$PASS',
   from: '$FROM',
-  to: 'kerozin.joe@gmail.com'
+  to: '$TO'
 };
 EOF
 cat $REPO_DIR/app/config/mail.js
