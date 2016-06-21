@@ -57,18 +57,24 @@ ENV NPM_CONFIG_LOGLEVEL info
 
 # https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution
 # https://docs.docker.com/engine/reference/builder/#environment-replacement
-RUN export NODE_VERSION=$(\
+#RUN export NODE_VERSION=$(\
+#  curl -sL https://nodejs.org/dist/latest/ |\
+#  tac |\
+#  tac |\
+#  grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
+#  head -1\
+#)
+
+RUN NODE_VERSION=$(\
   curl -sL https://nodejs.org/dist/latest/ |\
   tac |\
   tac |\
   grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
   head -1\
-)
-#RUN source /etc/bash.bashrc
-# POSIX Standard way
-#RUN . /etc/bash.bashrc
+) && echo $NODE_VERSION
+ENV NODE_VERSION ${NODE_VERSION}
 
-RUN echo "Node.js version found: $NODE_VERSION"
+RUN echo Node \.js version found\: ${NODE_VERSION}
 
 RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" -o "node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
