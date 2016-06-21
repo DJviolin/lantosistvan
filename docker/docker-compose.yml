@@ -3,6 +3,8 @@ services:
   cadvisor:
     image: google/cadvisor:latest
     container_name: lantosistvan_cadvisor
+    depends_on:
+      - app
     ports:
       - "8080:8080"
     volumes:
@@ -10,6 +12,8 @@ services:
       - "/var/run:/var/run:rw"
       - "/sys:/sys:ro"
       - "/var/lib/docker/:/var/lib/docker:ro"
+    #networks:
+    #  - front-tier
   base:
     build: ./base
     image: lantosistvan_base
@@ -31,9 +35,13 @@ services:
     environment:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
-    command: npm start
+    #command: npm install
+    command: /bin/dash -c "npm install && npm start"
     ports:
       - "80:3000"
+    volumes:
+      #- "../app:/root/www/lantosistvan:rw"
+      - "../app:/root/www/lantosistvan:ro"
     networks:
       - front-tier
 networks:

@@ -11,8 +11,8 @@ LABEL Description="App" Vendor="Istvan Lantos" Version="1.0"
 RUN mkdir -p /root/www/lantosistvan
 WORKDIR /root/www/lantosistvan
 
-ONBUILD VOLUME ../../app /root/www/lantosistvan
-ONBUILD RUN npm install
+#ONBUILD VOLUME ../../app /root/www/lantosistvan
+#ONBUILD RUN npm install
 
 CMD ["npm", "start"]
 #CMD ["DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*", "npm", "run", "gulp"]
