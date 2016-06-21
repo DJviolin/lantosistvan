@@ -204,3 +204,14 @@ $ "C:\mongodb\bin\mongod.exe" --remove
 Removing all `translate3d` from CSS and JS is needed because of Webkit subpixel rendering drop.
 
 Docker cheatsheet: https://docs.docker.com/engine/reference/commandline/ps/
+
+
+Command to removing all images and containers:
+
+```shell
+#!/bin/bash
+# Delete all containers
+docker rm -f $(docker ps -a -q)
+# Delete all images
+docker rmi -f $(docker images -q)
+```
