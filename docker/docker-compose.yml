@@ -41,7 +41,7 @@ services:
       - "80:3000"
     volumes:
       #- "../app:/root/www/lantosistvan:rw"
-      - "../app:/root/www/lantosistvan:ro"
+      - "../app:/root/www/lantosistvan:rw"
     networks:
       - front-tier
 networks:
