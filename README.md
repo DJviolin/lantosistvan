@@ -50,6 +50,12 @@ Running a container for testing:
 $ docker run --rm -it debian /bin/bash
 ```
 
+Exec into a running container:
+
+```
+$ docker exec -it lantosistvan_app /bin/bash
+```
+
 Change the settings in `app/config.js` if you wish.
 
 ## Docker-compose installation on CoreOS
