@@ -73,10 +73,11 @@ RUN NODE_VERSION=$( \
   head -1 \
 ) \
 && echo $NODE_VERSION \
-&& export NODE_VERSION="${NODE_VERSION}"
-#ENV NODE_VERSION ${NODE_VERSION}
+&& export NODE_VERSION="$NODE_VERSION"
 
-RUN echo Node \.js version found\: ${NODE_VERSION}
+ENV NODE_VERSION ${NODE_VERSION}
+
+RUN echo "Node.js version found: $NODE_VERSION"
 
 RUN curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" -o "node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
