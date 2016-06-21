@@ -65,14 +65,16 @@ ENV NPM_CONFIG_LOGLEVEL info
 #  head -1\
 #)
 
-RUN NODE_VERSION=$(\
-  curl -sL https://nodejs.org/dist/latest/ |\
-  tac |\
-  tac |\
-  grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' |\
-  head -1\
-) && echo $NODE_VERSION
-ENV NODE_VERSION ${NODE_VERSION}
+RUN NODE_VERSION=$( \
+  curl -sL https://nodejs.org/dist/latest/ | \
+  tac | \
+  tac | \
+  grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | \
+  head -1 \
+) \
+&& echo $NODE_VERSION \
+&& export NODE_VERSION="${NODE_VERSION}"
+#ENV NODE_VERSION ${NODE_VERSION}
 
 RUN echo Node \.js version found\: ${NODE_VERSION}
 
