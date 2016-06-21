@@ -55,6 +55,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 #  )" >> /etc/bash.bashrc
 #RUN source /etc/bash.bashrc
 
+# https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution
 RUN export NODE_VERSION=$(\
   curl -sL https://nodejs.org/dist/latest/ |\
   tac |\
