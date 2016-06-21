@@ -56,6 +56,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 #RUN source /etc/bash.bashrc
 
 # https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution
+# https://docs.docker.com/engine/reference/builder/#environment-replacement
 RUN export NODE_VERSION=$(\
   curl -sL https://nodejs.org/dist/latest/ |\
   tac |\
