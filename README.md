@@ -70,6 +70,10 @@ $ docker run --rm -it --name lwan -p 80:8080 lwan build/lwan/lwan -r /lwan/wwwro
 $ docker run --rm -it -p 80:8080 lwan build/lwan/lwan -r /usr/share/doc
 ```
 
+Lwan routing capabilities:
+
+https://github.com/lpereira/lwan/issues/156
+
 Change the settings in `app/config.js` if you wish.
 
 ## Docker-compose installation on CoreOS
