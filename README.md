@@ -61,13 +61,12 @@ Build an image:
 ```
 $ docker build -t lwan .
 $ docker run --rm -it -p 80:8080 lwan /bin/bash
-$ docker run --rm -it -v lwan.conf:/lwan -v wwwroot:/lwan/wwwroot -p 80:8080 lwan /bin/bash
 $ docker run --rm -it -p 80:8080 lwan build/lwan/lwan --help
-$ docker run --rm -it --name lwan -v lwan.conf:/lwan -v wwwroot/lantosistvan:/lwan/wwwroot/lantosistvan -p 443:443 lwan build/lwan/lwan
-# Working run:
-$ docker run --rm -it --name lwan -p 80:8080 lwan build/lwan/lwan -r /lwan/wwwroot -l *:8080
 # Serve system-wide documentation:
 $ docker run --rm -it -p 80:8080 lwan build/lwan/lwan -r /usr/share/doc
+# Start:
+$ docker-compose --file $HOME/www/lantosistvan/docker/lwan/docker-compose.yml build
+$ docker-compose --file $HOME/www/lantosistvan/docker/lwan/docker-compose.yml up
 ```
 
 Lwan routing capabilities:
