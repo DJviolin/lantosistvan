@@ -16,7 +16,7 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         pkg-config \
         liblua5.1-0-dev \
         libsqlite3-dev \
-        libmariadb-client-lgpl-dev
+        libmysqlclient-dev
 
 # Create directory for mountable files, and build lwan
 RUN git clone git://github.com/lpereira/lwan && \
