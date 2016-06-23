@@ -14,9 +14,9 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         cmake \
         zlib1g-dev \
         pkg-config \
-        lua5.1-dev \
+        liblua5.1-0-dev \
         libsqlite3-dev \
-        libmysqlclient-dev
+        libmariadb-client-lgpl-dev
 
 # Create directory for mountable files, and build lwan
 RUN git clone git://github.com/lpereira/lwan && \

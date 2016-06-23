@@ -56,6 +56,12 @@ Exec into a running container:
 $ docker exec -it lantosistvan_app /bin/bash
 ```
 
+Build an image:
+
+```
+$ docker build -t lwan .
+```
+
 Change the settings in `app/config.js` if you wish.
 
 ## Docker-compose installation on CoreOS
