@@ -28,8 +28,8 @@ RUN git clone git://github.com/lpereira/lwan && \
 
 WORKDIR /lwan
 EXPOSE 80 443 8080
-VOLUME ["wwwroot", "/lwan/wwwroot"]
-VOLUME ["lwan.conf", "/lwan"]
+#VOLUME ["wwwroot", "/lwan/wwwroot"]
+#VOLUME ["lwan.conf", "/lwan"]
 
 RUN rm -rf /var/lib/apt/lists/*
 
