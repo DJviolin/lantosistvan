@@ -73,6 +73,10 @@ Lwan routing capabilities:
 
 https://github.com/lpereira/lwan/issues/156
 
+https://github.com/adam-hanna/lwan-mustache-c
+
+https://tia.mat.br/posts/2012/11/11/mustache_templates_in_c.html
+
 Change the settings in `app/config.js` if you wish.
 
 ## Docker-compose installation on CoreOS
