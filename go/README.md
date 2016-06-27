@@ -1,3 +1,14 @@
+##### Wgo usage
+
+```shell
+wgo init
+wgo get github.com/kataras/iris
+wgo save
+wgo build -o bin/lantosistvan.exe github.com/DJviolin/lantosistvan
+```
+
+##### Vendoring
+
 https://nathany.com/go-packages/
 
 https://blog.gopheracademy.com/advent-2015/vendor-folder/
