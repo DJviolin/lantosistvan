@@ -3,9 +3,12 @@
 # set -e making the commands if they were like &&
 set -e
 
-gb vendor list
+#gb vendor list
+#gb vendor fetch
 
-gb vendor fetch
+wgo init
+wgo get github.com/kataras/iris
+wgo save
 
 #go get github.com/tools/godep
 

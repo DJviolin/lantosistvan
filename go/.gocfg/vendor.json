@@ -1,0 +1,89 @@
+{
+  "GitRepos": {
+    "vendor\\src\\github.com\\Joker\\jade": {
+      "URI": "https://github.com/Joker/jade",
+      "Ref": "db4d7e4f68708c5020c392b380e3565df2132840"
+    },
+    "vendor\\src\\github.com\\eknkc\\amber": {
+      "URI": "https://github.com/eknkc/amber",
+      "Ref": "91774f050c1453128146169b626489e60108ec03"
+    },
+    "vendor\\src\\github.com\\fatih\\color": {
+      "URI": "https://github.com/fatih/color",
+      "Ref": "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
+    },
+    "vendor\\src\\github.com\\flosch\\pongo2": {
+      "URI": "https://github.com/flosch/pongo2",
+      "Ref": "7f5515449ea9bbeb00256d9cbb654c556e7d0146"
+    },
+    "vendor\\src\\github.com\\garyburd\\redigo": {
+      "URI": "https://github.com/garyburd/redigo",
+      "Ref": "b8dc90050f24c1a73a52f107f3f575be67b21b7c"
+    },
+    "vendor\\src\\github.com\\imdario\\mergo": {
+      "URI": "https://github.com/imdario/mergo",
+      "Ref": "50d4dbd4eb0e84778abe37cefef140271d96fade"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\errors": {
+      "URI": "https://github.com/iris-contrib/errors",
+      "Ref": "9d4599565f75fd376a8e4ae5ccc98fc078b93b69"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\formBinder": {
+      "URI": "https://github.com/iris-contrib/formBinder",
+      "Ref": "c311e88d3a2dd059c5d79c7ed3703cf0492088e3"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\websocket": {
+      "URI": "https://github.com/iris-contrib/websocket",
+      "Ref": "a2c30084384c39ce6595169df8b93d7298ac04cd"
+    },
+    "vendor\\src\\github.com\\kataras\\iris": {
+      "URI": "https://github.com/kataras/iris",
+      "Ref": "0a896f51374a57e3ccf882c972b938ab5e719be2"
+    },
+    "vendor\\src\\github.com\\klauspost\\compress": {
+      "URI": "https://github.com/klauspost/compress",
+      "Ref": "14eb9c4951195779ecfbec34431a976de7335b0a"
+    },
+    "vendor\\src\\github.com\\klauspost\\cpuid": {
+      "URI": "https://github.com/klauspost/cpuid",
+      "Ref": "09cded8978dc9e80714c4d85b0322337b0a1e5e0"
+    },
+    "vendor\\src\\github.com\\klauspost\\crc32": {
+      "URI": "https://github.com/klauspost/crc32",
+      "Ref": "19b0b332c9e4516a6370a0456e6182c3b5036720"
+    },
+    "vendor\\src\\github.com\\mattn\\go-colorable": {
+      "URI": "https://github.com/mattn/go-colorable",
+      "Ref": "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
+    },
+    "vendor\\src\\github.com\\mattn\\go-isatty": {
+      "URI": "https://github.com/mattn/go-isatty",
+      "Ref": "56b76bdf51f7708750eac80fa38b952bb9f32639"
+    },
+    "vendor\\src\\github.com\\microcosm-cc\\bluemonday": {
+      "URI": "https://github.com/microcosm-cc/bluemonday",
+      "Ref": "4ac6f27528d0a3f2a59e0b0a6f6b3ff0bb89fe20"
+    },
+    "vendor\\src\\github.com\\russross\\blackfriday": {
+      "URI": "https://github.com/russross/blackfriday",
+      "Ref": "1d6b8e9301e720b08a8938b8c25c018285885438"
+    },
+    "vendor\\src\\github.com\\shurcooL\\sanitized_anchor_name": {
+      "URI": "https://github.com/shurcooL/sanitized_anchor_name",
+      "Ref": "10ef21a441db47d8b13ebcc5fd2310f636973c77"
+    },
+    "vendor\\src\\github.com\\valyala\\bytebufferpool": {
+      "URI": "https://github.com/valyala/bytebufferpool",
+      "Ref": "a3c01bbe26fff36275541489fd39848d70694b94"
+    },
+    "vendor\\src\\github.com\\valyala\\fasthttp": {
+      "URI": "https://github.com/valyala/fasthttp",
+      "Ref": "778f83ed894a22f220baa149ea1a1defd0245f3c"
+    },
+    "vendor\\src\\golang.org\\x\\net": {
+      "URI": "https://go.googlesource.com/net",
+      "Ref": "e445b19913b9d40fdbdfe19ac5e3d314aafd6f63"
+    }
+  },
+  "MercurialRepos": {}
+}
