@@ -24,6 +24,8 @@ https://getgb.io/examples/getting-started/
 
 https://getgb.io/examples/sample-project/
 
+https://getgb.io/docs/depfile/
+
 ```shell
 $ gb build all
 ```
