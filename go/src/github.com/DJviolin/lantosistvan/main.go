@@ -33,7 +33,7 @@ func irisView() {
 	// Iris Config
 	//api := iris.New()
 	iris.Config.Render.Template.Directory = "views"
-	//iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
+	iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
 	iris.Config.Render.Template.Extensions = []string{".hbs"}
 	/*
 	  // These are the defaults
@@ -81,16 +81,17 @@ func hi(ctx *iris.Context) {
 	//ctx.MustRender("page1.html", mypage{"Message from page1!"})
 
 	// Optionally, set a context for the template
-	mycontext := iris.Map{
+	/*mycontext := iris.Map{
 		"Name": "Iris",
 		"Type": "Web",
 	}
-	ctx.Render("home.hbs", mycontext)
+	ctx.Render("home.hbs", mycontext)*/
 
-	/*mycontext := iris.Map{
+	mycontext := iris.Map{
 		"Message": "Message from page1!",
 	}
-	ctx.Render("page1.hbs", mycontext)*/
+	//ctx.Render("page1.hbs", mycontext)
+	ctx.MustRender("page1.hbs", mycontext)
 }
 
 /////////////////////////////////////////////////////////////
