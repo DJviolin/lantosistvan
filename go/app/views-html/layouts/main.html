@@ -1,12 +1,5 @@
-<!-- templates/layouts/layout.html -->
+{{ render "partials/layout-top.html"}}
 
-<html>
-  <head>
-    <title>My Layout</title>
+{{ yield }}
 
-  </head>
-  <body>
-    <!-- Render the current template here -->
-    {{ yield }}
-  </body>
-</html>
+{{ render "partials/layout-bottom.html"}}
