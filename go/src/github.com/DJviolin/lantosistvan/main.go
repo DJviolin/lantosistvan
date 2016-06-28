@@ -75,40 +75,25 @@ func irisView() {
 // ROUTES
 /////////////////////////////////////////////////////////////
 
-/*type renderHi struct {
-	Message string
-	Name    string
-	Type    string
-}*/
-
 func hi(ctx *iris.Context) {
-	//ctx.Write("Hi %s", "iris")
-	/*ctx.MustRender("page1.html", renderHi{
-		"Message from page1!",
-		"Iris",
-		"Web",
-	})*/
-
-	// Optionally, set a context for the template
-	/*mycontext := iris.Map{
-		"Name": "Iris",
-		"Type": "Web",
-	}
-	ctx.Render("home.hbs", mycontext)*/
-
-	/*mycontext := iris.Map{
-		"Message": "Message from page1!",
-		"Name":    "Iris",
-		"Type":    "Web",
-	}
-	//ctx.Render("page1.hbs", mycontext)
-	ctx.Render("page1.html", mycontext)*/
-
 	ctx.Render("page1.html", iris.Map{
 		"Message": "Message from page1!",
 		"Name":    "Iris",
 		"Type":    "Web",
 	})
+
+	//ctx.Write("Hi %s", "iris")
+
+	/*type renderHi struct {
+	  Message string
+	  Name    string
+	  Type    string
+	}*/
+	/*ctx.MustRender("page1.html", renderHi{
+		"Message from page1!",
+		"Iris",
+		"Web",
+	})*/
 }
 
 /////////////////////////////////////////////////////////////
