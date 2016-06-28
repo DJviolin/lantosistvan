@@ -101,6 +101,20 @@ func hi(ctx *iris.Context) {
 /////////////////////////////////////////////////////////////
 
 func irisRoutes() {
+	//iris.StaticWeb("/", "../../app/public", 1)
+	//iris.StaticServe("/", "../../app/public")
+	//iris.StaticServe("../../app/public", "/")
+
+	//iris.Static("/stylesheets", "../../app/public/stylesheets/", 1)
+	//iris.Static("/javascripts", "../../app/public/javascripts/", 1)
+
+	//iris.StaticServe("../../app/public", "/")
+
+	//iris.StaticServe("/", "../../app/public")
+
+	//iris.StaticFS("/files", "../../app/public", 1)
+	iris.StaticServe("/files", "../../app/public")
+
 	iris.Get("/hi", hi)
 }
 
