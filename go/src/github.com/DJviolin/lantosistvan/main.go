@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/aymerick/raymond"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 )
@@ -43,6 +44,16 @@ func irisConfig() {
 	  // Set
 	  api.Config.Render.Template = templateConfig
 	*/
+
+	// set the template engine
+	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
+	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond" when you need to return and render html
+	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
+		return raymond.SafeString("<b> " + input + "</b>")
+	}
+	// NOTE:
+	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
+	// so  avoid custom url and urlpath helpers.
 }
 
 func routes() {
@@ -61,5 +72,9 @@ func main() {
 // Hi
 func hi(ctx *iris.Context) {
 	//ctx.Write("Hi %s", "iris")
-	ctx.MustRender("page1.html", mypage{"Message from page1!"})
+	//ctx.MustRender("page1.html", mypage{"Message from page1!"})
+
+	// optionally, set a context for the template
+	mycontext := iris.Map{"Name": "Iris", "Type": "Web"}
+	ctx.Render("home.html", mycontext)
 }
