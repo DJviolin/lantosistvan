@@ -101,19 +101,10 @@ func hi(ctx *iris.Context) {
 /////////////////////////////////////////////////////////////
 
 func irisRoutes() {
-	//iris.StaticWeb("/", "../../app/public", 1)
-	//iris.StaticServe("/", "../../app/public")
-	//iris.StaticServe("../../app/public", "/")
-
-	//iris.Static("/stylesheets", "../../app/public/stylesheets/", 1)
-	//iris.Static("/javascripts", "../../app/public/javascripts/", 1)
-
-	//iris.StaticServe("../../app/public", "/")
-
-	//iris.StaticServe("/", "../../app/public")
-
-	//iris.StaticFS("/files", "../../app/public", 1)
-	iris.StaticServe("/files", "../../app/public")
+	//iris.StaticWeb("/files", "../../app/public", 1)
+	//iris.Static("/files", "../../app/public", 1)
+	//iris.StaticFS("/files", "../../app/public", 1) // Gzip with file cache
+	iris.StaticServe("/files", "../../app/public") // Gzip without file cache
 
 	iris.Get("/hi", hi)
 }
