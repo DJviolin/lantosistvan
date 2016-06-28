@@ -9,21 +9,21 @@ type mypage struct {
 	Message string
 }
 
-func main() {
+func irisConfig() {
+	// Iris Config
 	//api := iris.New()
 	iris.Config.Render.Template.Directory = "views"
 	iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
-
-	// Logger
+	// Iris Logger
 	iris.Use(logger.New(iris.Logger))
-	// Log http errors
+	// Iris Log http errors
 	errorLogger := logger.New(iris.Logger)
 	iris.OnError(iris.StatusNotFound, func(ctx *iris.Context) {
 		errorLogger.Serve(ctx)
 		ctx.Write("My Custom 404 error page")
 	})
-
-	/*// These are the defaults
+	/*
+	  // These are the defaults
 	  templateConfig := config.Template {
 	    Engine:        DefaultEngine, //or HTMLTemplate
 	    Gzip:          false,
@@ -41,10 +41,17 @@ func main() {
 	    Jade:          Jade{},
 	  }
 	  // Set
-	  api.Config.Render.Template = templateConfig*/
+	  api.Config.Render.Template = templateConfig
+	*/
+}
 
-	// Routes
+func routes() {
 	iris.Get("/hi", hi)
+}
+
+func main() {
+	irisConfig()
+	routes()
 
 	// Server init
 	println("Server is running at: 8080")
