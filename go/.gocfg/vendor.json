@@ -4,6 +4,10 @@
       "URI": "https://github.com/Joker/jade",
       "Ref": "db4d7e4f68708c5020c392b380e3565df2132840"
     },
+    "vendor\\src\\github.com\\aymerick\\raymond": {
+      "URI": "https://github.com/aymerick/raymond",
+      "Ref": "a2232af10b53ef1ae5a767f5178db3a6c1dab655"
+    },
     "vendor\\src\\github.com\\eknkc\\amber": {
       "URI": "https://github.com/eknkc/amber",
       "Ref": "91774f050c1453128146169b626489e60108ec03"
@@ -31,6 +35,10 @@
     "vendor\\src\\github.com\\iris-contrib\\formBinder": {
       "URI": "https://github.com/iris-contrib/formBinder",
       "Ref": "c311e88d3a2dd059c5d79c7ed3703cf0492088e3"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\middleware": {
+      "URI": "https://github.com/iris-contrib/middleware",
+      "Ref": "79d962a62d6085000d75764677d25d1d8ed38744"
     },
     "vendor\\src\\github.com\\iris-contrib\\websocket": {
       "URI": "https://github.com/iris-contrib/websocket",

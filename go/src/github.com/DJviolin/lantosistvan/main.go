@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 )
 
@@ -9,11 +10,18 @@ type mypage struct {
 }
 
 func main() {
-	api := iris.New()
-	api.Config.Render.Template.Directory = "views"
-	api.Config.Render.Template.Layout = "layouts/main.html" // default ""
-	//api.Config.Render.Template.Handlebars = raymond{}
-	//api.Config.Render.Template.Engine = Handlebars
+	//api := iris.New()
+	iris.Config.Render.Template.Directory = "views"
+	iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
+
+	// Logger
+	iris.Use(logger.New(iris.Logger))
+	// Log http errors
+	errorLogger := logger.New(iris.Logger)
+	iris.OnError(iris.StatusNotFound, func(ctx *iris.Context) {
+		errorLogger.Serve(ctx)
+		ctx.Write("My Custom 404 error page")
+	})
 
 	/*// These are the defaults
 	  templateConfig := config.Template {
@@ -35,14 +43,12 @@ func main() {
 	  // Set
 	  api.Config.Render.Template = templateConfig*/
 
-	/*api := iris.New()
-	api.Config.Template = iris.PongoEngine
-	api.Config.Render.Template.Engine = config.PongoEngine
-	api.Config.Render.Template.Pongo.Extensions = []string{".xhtml", ".html"}*/
-	api.Get("/hi", hi)
+	// Routes
+	iris.Get("/hi", hi)
 
+	// Server init
 	println("Server is running at: 8080")
-	api.Listen(":8080")
+	iris.Listen(":8080")
 }
 
 // Hi

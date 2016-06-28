@@ -3,6 +3,7 @@
 ```shell
 wgo init
 wgo get github.com/kataras/iris
+wgo get github.com/iris-contrib/middleware/logger
 wgo save
 wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 ```
