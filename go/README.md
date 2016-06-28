@@ -9,6 +9,18 @@ wgo save
 wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 ```
 
+##### Loop in html/template package
+
+http://stackoverflow.com/questions/21302520/golang-iterating-through-map-in-template
+
+```
+{{ range $key, $value := . }}
+   <li><strong>{{ $key }}</strong>: {{ $value }}</li>
+{{ end }}
+```
+
+http://stackoverflow.com/questions/28917530/golang-how-to-create-loop-function-using-html-template-package
+
 ##### Vendoring
 
 https://nathany.com/go-packages/
