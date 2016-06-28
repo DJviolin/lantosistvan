@@ -105,7 +105,7 @@ func irisRoutes() {
 	//iris.Static("/files", "../../app/public", 1)
 	//iris.StaticFS("/files", "../../app/public", 1) // Gzip with file cache
 	//iris.StaticServe("/files", "../../app/public") // Gzip without file cache
-	iris.StaticServe("../../app/public", "/files") // Gzip without file cache
+	iris.StaticServe("../../app/public", "/public") // Gzip without file cache
 
 	iris.Get("/hi", hi)
 }
