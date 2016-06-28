@@ -5,7 +5,7 @@ package main
 /////////////////////////////////////////////////////////////
 
 import (
-	"github.com/aymerick/raymond"
+	//"github.com/aymerick/raymond"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 )
@@ -30,11 +30,14 @@ func irisMiddleware() {
 /////////////////////////////////////////////////////////////
 
 func irisView() {
-	// Iris Config
+	iris.Config.Render.Template.Directory = "views-html"
+	iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
+	//iris.Config.Render.Template.Extensions = []string{".html"}
+
 	//api := iris.New()
-	iris.Config.Render.Template.Directory = "views"
+	/*iris.Config.Render.Template.Directory = "views"
 	iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
-	iris.Config.Render.Template.Extensions = []string{".hbs"}
+	iris.Config.Render.Template.Extensions = []string{".hbs"}*/
 	/*
 	  // These are the defaults
 	  templateConfig := config.Template {
@@ -58,11 +61,11 @@ func irisView() {
 	*/
 
 	// set the template engine
-	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
+	/*iris.Config.Render.Template.Engine = iris.HandlebarsEngine
 	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond" when you need to return and render html
 	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
 		return raymond.SafeString("<b> " + input + "</b>")
-	}
+	}*/
 	// NOTE:
 	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
 	// so avoid custom url and urlpath helpers.
@@ -72,13 +75,13 @@ func irisView() {
 // ROUTES
 /////////////////////////////////////////////////////////////
 
-/*type mypage struct {
-  Message string
-}*/
+type mypage struct {
+	Message string
+}
 
 func hi(ctx *iris.Context) {
 	//ctx.Write("Hi %s", "iris")
-	//ctx.MustRender("page1.html", mypage{"Message from page1!"})
+	ctx.MustRender("page1.html", mypage{"Message from page1!"})
 
 	// Optionally, set a context for the template
 	/*mycontext := iris.Map{
@@ -87,11 +90,11 @@ func hi(ctx *iris.Context) {
 	}
 	ctx.Render("home.hbs", mycontext)*/
 
-	mycontext := iris.Map{
+	/*mycontext := iris.Map{
 		"Message": "Message from page1!",
-	}
+	}*/
 	//ctx.Render("page1.hbs", mycontext)
-	ctx.MustRender("page1.hbs", mycontext)
+	//ctx.Render("page1.html", mycontext)
 }
 
 /////////////////////////////////////////////////////////////
