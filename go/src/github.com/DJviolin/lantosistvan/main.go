@@ -6,15 +6,15 @@ import (
 	"github.com/kataras/iris"
 )
 
-type mypage struct {
+/*type mypage struct {
 	Message string
-}
+}*/
 
 func irisConfig() {
 	// Iris Config
 	//api := iris.New()
 	iris.Config.Render.Template.Directory = "views"
-	iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
+	//iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
 	// Iris Logger
 	iris.Use(logger.New(iris.Logger))
 	// Iris Log http errors
