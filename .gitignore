@@ -42,3 +42,4 @@ app/database/rss.json
 # go
 go/vendor
 go/bin/*.exe
+go/app/*.exe

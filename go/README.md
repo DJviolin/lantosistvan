@@ -4,7 +4,7 @@
 wgo init
 wgo get github.com/kataras/iris
 wgo save
-wgo build -o bin/lantosistvan.exe github.com/DJviolin/lantosistvan
+wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 ```
 
 ##### Vendoring
