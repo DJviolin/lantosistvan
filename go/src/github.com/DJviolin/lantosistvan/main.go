@@ -12,6 +12,8 @@ func main() {
 	api := iris.New()
 	api.Config.Render.Template.Directory = "views"
 	api.Config.Render.Template.Layout = "layouts/main.html" // default ""
+	//api.Config.Render.Template.Handlebars = raymond{}
+	//api.Config.Render.Template.Engine = Handlebars
 
 	/*// These are the defaults
 	  templateConfig := config.Template {
