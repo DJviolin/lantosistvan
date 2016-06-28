@@ -77,11 +77,13 @@ func irisView() {
 
 type mypage struct {
 	Message string
+	Name    string
+	Type    string
 }
 
 func hi(ctx *iris.Context) {
 	//ctx.Write("Hi %s", "iris")
-	ctx.MustRender("page1.html", mypage{"Message from page1!"})
+	ctx.MustRender("page1.html", mypage{"Message from page1!", "Iris", "Web"})
 
 	// Optionally, set a context for the template
 	/*mycontext := iris.Map{
