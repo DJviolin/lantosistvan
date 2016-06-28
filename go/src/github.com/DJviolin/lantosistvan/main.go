@@ -1,20 +1,20 @@
 package main
 
+/////////////////////////////////////////////////////////////
+// IMPORT DEPENDENCIES
+/////////////////////////////////////////////////////////////
+
 import (
 	"github.com/aymerick/raymond"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 )
 
-/*type mypage struct {
-	Message string
-}*/
+/////////////////////////////////////////////////////////////
+// MIDDLEWARE FUNCTIONS
+/////////////////////////////////////////////////////////////
 
-func irisConfig() {
-	// Iris Config
-	//api := iris.New()
-	iris.Config.Render.Template.Directory = "views"
-	//iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
+func irisMiddleware() {
 	// Iris Logger
 	iris.Use(logger.New(iris.Logger))
 	// Iris Log http errors
@@ -23,6 +23,17 @@ func irisConfig() {
 		errorLogger.Serve(ctx)
 		ctx.Write("My Custom 404 error page")
 	})
+}
+
+/////////////////////////////////////////////////////////////
+// VIEW ENGINE SETUP - AKA: V(iew)
+/////////////////////////////////////////////////////////////
+
+func irisView() {
+	// Iris Config
+	//api := iris.New()
+	iris.Config.Render.Template.Directory = "views"
+	//iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
 	/*
 	  // These are the defaults
 	  templateConfig := config.Template {
@@ -53,28 +64,47 @@ func irisConfig() {
 	}
 	// NOTE:
 	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
-	// so  avoid custom url and urlpath helpers.
+	// so avoid custom url and urlpath helpers.
 }
 
-func routes() {
-	iris.Get("/hi", hi)
-}
+/////////////////////////////////////////////////////////////
+// ROUTES
+/////////////////////////////////////////////////////////////
 
-func main() {
-	irisConfig()
-	routes()
+/*type mypage struct {
+  Message string
+}*/
 
-	// Server init
-	println("Server is running at: 8080")
-	iris.Listen(":8080")
-}
-
-// Hi
 func hi(ctx *iris.Context) {
 	//ctx.Write("Hi %s", "iris")
 	//ctx.MustRender("page1.html", mypage{"Message from page1!"})
 
-	// optionally, set a context for the template
-	mycontext := iris.Map{"Name": "Iris", "Type": "Web"}
+	// Optionally, set a context for the template
+	mycontext := iris.Map{
+		"Name": "Iris",
+		"Type": "Web",
+	}
 	ctx.Render("home.html", mycontext)
+}
+
+/////////////////////////////////////////////////////////////
+// ROUTES INITIALIZATION
+/////////////////////////////////////////////////////////////
+
+func irisRoutes() {
+	iris.Get("/hi", hi)
+}
+
+/////////////////////////////////////////////////////////////
+// MAIN
+/////////////////////////////////////////////////////////////
+
+func main() {
+	irisMiddleware()
+	irisView()
+	irisRoutes()
+
+	// Server init
+	println("Server is running at: 8080")
+	iris.Listen(":8080")
 }
