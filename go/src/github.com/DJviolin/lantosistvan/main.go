@@ -75,11 +75,15 @@ func irisView() {
 // ROUTES
 /////////////////////////////////////////////////////////////
 
-func hi(ctx *iris.Context) {
-	ctx.Render("page1.html", iris.Map{
-		"Message": "Message from page1!",
-		"Name":    "Iris",
-		"Type":    "Web",
+func index(ctx *iris.Context) {
+	ctx.Render("index.html", iris.Map{
+		"siteName":    "Lantos István Photography",
+		"description": "Frontpage",
+		"keywords":    "lantos,istván,photography",
+		"bodyClass":   "index",
+		"Message":     "Message from page1!",
+		"Name":        "Iris",
+		"Type":        "Web",
 	})
 
 	//ctx.Write("Hi %s", "iris")
@@ -107,7 +111,7 @@ func irisRoutes() {
 	//iris.StaticServe("/files", "../../app/public") // Gzip without file cache
 	iris.StaticServe("../../app/public", "/public") // Gzip without file cache
 
-	iris.Get("/hi", hi)
+	iris.Get("/", index)
 }
 
 /////////////////////////////////////////////////////////////
