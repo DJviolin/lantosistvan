@@ -46,7 +46,7 @@
     },
     "vendor\\src\\github.com\\kataras\\iris": {
       "URI": "https://github.com/kataras/iris",
-      "Ref": "0a896f51374a57e3ccf882c972b938ab5e719be2"
+      "Ref": "aa319fd8e474a5c64b4ae46cea12ce4f26e98a93"
     },
     "vendor\\src\\github.com\\klauspost\\compress": {
       "URI": "https://github.com/klauspost/compress",
@@ -90,7 +90,7 @@
     },
     "vendor\\src\\golang.org\\x\\net": {
       "URI": "https://go.googlesource.com/net",
-      "Ref": "e445b19913b9d40fdbdfe19ac5e3d314aafd6f63"
+      "Ref": "04557861f124410b768b1ba5bb3a91b705afbfc6"
     }
   },
   "MercurialRepos": {}

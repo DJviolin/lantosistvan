@@ -1,6 +1,6 @@
 # Iris Framework
-github.com/kataras/iris version=3.0.0-rc.3
-# Handlebars
-github.com/aymerick/raymond version=2.0.1
+github.com/kataras/iris version=master
 # Iris Middlewares
 github.com/iris-contrib/middleware/logger version=master
+# Handlebars
+github.com/aymerick/raymond version=master
