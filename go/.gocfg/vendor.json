@@ -46,7 +46,7 @@
     },
     "vendor\\src\\github.com\\kataras\\iris": {
       "URI": "https://github.com/kataras/iris",
-      "Ref": "aa319fd8e474a5c64b4ae46cea12ce4f26e98a93"
+      "Ref": "9d8f32ce1a47396c5a94d76a17fd8086948049fa"
     },
     "vendor\\src\\github.com\\klauspost\\compress": {
       "URI": "https://github.com/klauspost/compress",
@@ -82,15 +82,15 @@
     },
     "vendor\\src\\github.com\\valyala\\bytebufferpool": {
       "URI": "https://github.com/valyala/bytebufferpool",
-      "Ref": "a3c01bbe26fff36275541489fd39848d70694b94"
+      "Ref": "bf51c4698b5764b350191bff3cf821235db1e073"
     },
     "vendor\\src\\github.com\\valyala\\fasthttp": {
       "URI": "https://github.com/valyala/fasthttp",
-      "Ref": "778f83ed894a22f220baa149ea1a1defd0245f3c"
+      "Ref": "e4db3cb5600317e91d93e07036e4d20903c8fa17"
     },
     "vendor\\src\\golang.org\\x\\net": {
       "URI": "https://go.googlesource.com/net",
-      "Ref": "04557861f124410b768b1ba5bb3a91b705afbfc6"
+      "Ref": "ef2e00e88c5e0a3569f0bb9df697e9cbc6215fea"
     }
   },
   "MercurialRepos": {}

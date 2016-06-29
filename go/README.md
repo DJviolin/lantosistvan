@@ -1,6 +1,7 @@
 ##### Wgo usage
 
 ```shell
+cd C:\www\node\lantosistvan\go
 wgo init
 wgo get github.com/kataras/iris
 wgo get github.com/iris-contrib/middleware/logger

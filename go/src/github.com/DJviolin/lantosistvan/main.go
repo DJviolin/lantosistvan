@@ -5,7 +5,7 @@ package main
 /////////////////////////////////////////////////////////////
 
 import (
-	//"github.com/aymerick/raymond"
+	"github.com/aymerick/raymond"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 )
@@ -30,14 +30,20 @@ func irisMiddleware() {
 /////////////////////////////////////////////////////////////
 
 func irisView() {
-	iris.Config.Render.Template.Directory = "views-html"
+	// NOTE:
+	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
+	// so  avoid custom url and urlpath helpers.
+	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
+	iris.Config.Render.Template.Directory = "views"
+	iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
+	iris.Config.Render.Template.Extensions = []string{".hbs"}
+
+	/*iris.Config.Render.Template.Directory = "views-html"
 	iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
-	//iris.Config.Render.Template.Extensions = []string{".html"}
+	//iris.Config.Render.Template.Extensions = []string{".html"}*/
 
 	//api := iris.New()
-	/*iris.Config.Render.Template.Directory = "views"
-	iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
-	iris.Config.Render.Template.Extensions = []string{".hbs"}*/
+
 	/*
 	  // These are the defaults
 	  templateConfig := config.Template {
@@ -66,9 +72,6 @@ func irisView() {
 	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
 		return raymond.SafeString("<b> " + input + "</b>")
 	}*/
-	// NOTE:
-	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
-	// so avoid custom url and urlpath helpers.
 }
 
 /////////////////////////////////////////////////////////////
