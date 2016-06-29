@@ -10,6 +10,48 @@ wgo save
 wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 ```
 
+##### Express vs Iris benchmark
+
+Completely identical template renderings without any un-needed middlewares
+
+Node/Express:
+
+```shell
+GET / 304 70.754 ms - -
+GET / 304 19.165 ms - -
+GET / 304 13.219 ms - -
+GET / 304 11.317 ms - -
+GET /my 304 23.417 ms - -
+GET /my 304 12.444 ms - -
+GET /my 304 12.885 ms - -
+GET /my 304 13.628 ms - -
+GET /my 304 8.390 ms - -
+GET /my 304 10.053 ms - -
+GET / 304 19.707 ms - -
+GET / 304 8.475 ms - -
+GET / 304 16.231 ms - -
+GET / 304 8.134 ms - -
+GET / 304 8.796 ms - -
+```
+
+Go/Iris:
+
+```shell
+06/29 - 14:05:09 200 1.0022ms 127.0.0.1 GET /
+06/29 - 14:05:33 200   0s 127.0.0.1 GET /
+06/29 - 14:05:33 200   0s 127.0.0.1 GET /
+06/29 - 14:05:34 200   0s 127.0.0.1 GET /
+06/29 - 14:05:43 200   0s 127.0.0.1 GET /my/
+06/29 - 14:05:45 200   0s 127.0.0.1 GET /my/
+06/29 - 14:05:45 200   0s 127.0.0.1 GET /my/
+06/29 - 14:05:46 200   0s 127.0.0.1 GET /my/
+06/29 - 14:05:46 200   0s 127.0.0.1 GET /my/
+06/29 - 14:05:47 200   0s 127.0.0.1 GET /my/
+06/29 - 14:05:48 200 998.6µs 127.0.0.1 GET /
+06/29 - 14:05:48 200   0s 127.0.0.1 GET /
+06/29 - 14:05:49 200   0s 127.0.0.1 GET /
+```
+
 ##### Loop in html/template package
 
 http://stackoverflow.com/questions/21302520/golang-iterating-through-map-in-template
