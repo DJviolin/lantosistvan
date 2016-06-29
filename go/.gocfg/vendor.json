@@ -4,6 +4,10 @@
       "URI": "https://github.com/Joker/jade",
       "Ref": "db4d7e4f68708c5020c392b380e3565df2132840"
     },
+    "vendor\\src\\github.com\\Unknwon\\i18n": {
+      "URI": "https://github.com/Unknwon/i18n",
+      "Ref": "39d6f2727e0698b1021ceb6a77c1801aa92e7d5d"
+    },
     "vendor\\src\\github.com\\aymerick\\raymond": {
       "URI": "https://github.com/aymerick/raymond",
       "Ref": "a2232af10b53ef1ae5a767f5178db3a6c1dab655"
@@ -91,6 +95,10 @@
     "vendor\\src\\golang.org\\x\\net": {
       "URI": "https://go.googlesource.com/net",
       "Ref": "ef2e00e88c5e0a3569f0bb9df697e9cbc6215fea"
+    },
+    "vendor\\src\\gopkg.in\\ini.v1": {
+      "URI": "https://gopkg.in/ini.v1",
+      "Ref": "a2614a51e883b798af864b67ed36e44edea1ec29"
     }
   },
   "MercurialRepos": {}

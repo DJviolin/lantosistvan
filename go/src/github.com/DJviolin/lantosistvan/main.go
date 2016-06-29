@@ -6,6 +6,7 @@ package main
 
 import (
 	"github.com/aymerick/raymond"
+	"github.com/iris-contrib/middleware/i18n"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 )
@@ -14,7 +15,7 @@ import (
 // MIDDLEWARE FUNCTIONS
 /////////////////////////////////////////////////////////////
 
-func irisMiddleware() {
+func irisMiddlewareLogger() {
 	// Iris Logger
 	iris.Use(logger.New(iris.Logger))
 	// Iris Log http errors
@@ -23,6 +24,16 @@ func irisMiddleware() {
 		errorLogger.Serve(ctx)
 		ctx.Write("My Custom 404 error page")
 	})
+}
+
+func irisMiddlewareI18n() {
+	iris.Use(i18n.I18nHandler(i18n.Options{Default: "hu-HU",
+		Languages: map[string]string{
+			"hu-HU": "./locales/locale_hu-HU.ini",
+			"en-US": "./locales/locale_en-US.ini",
+		}}))
+	// or iris.UseFunc(i18n.I18n(....))
+	// or iris.Get("/",i18n.I18n(....), func (ctx *iris.Context){})
 }
 
 /////////////////////////////////////////////////////////////
@@ -48,6 +59,9 @@ func irisView() {
 	// when you need to return and render html
 	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
 		return raymond.SafeString("<b>" + input + "</b>")
+	}
+	iris.Config.Render.Template.Handlebars.Helpers["__"] = func(input string) raymond.SafeString {
+		return raymond.SafeString(GetFmt("translate")(input))
 	}
 }
 
@@ -120,7 +134,8 @@ func irisRoutes() {
 /////////////////////////////////////////////////////////////
 
 func main() {
-	irisMiddleware()
+	irisMiddlewareLogger()
+	irisMiddlewareI18n()
 	irisView()
 	irisRoutes()
 
