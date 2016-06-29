@@ -188,6 +188,25 @@ run the app on windows:
  > SET DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
 ```
 
+##### TODO
+
+Nginx caching & reverse proxy:
+
+http://expressjs.com/en/advanced/best-practice-performance.html
+
+http://expressjs.com/en/guide/behind-proxies.html
+
+https://www.nginx.com/resources/wiki/start/topics/examples/reverseproxycachingexample/
+
+http://nginx.org/en/docs/http/ngx_http_gzip_module.html
+
+https://serversforhackers.com/nginx-caching
+
+https://www.sitepoint.com/configuring-nginx-ssl-node-js/
+
+https://www.youtube.com/watch?v=FJrs0Ar9asY
+
+
 # Heroku
 
 ```
