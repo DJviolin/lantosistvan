@@ -1,0 +1,28 @@
+{
+  "name": "iris-vs-express-benchmark",
+  "version": "0.3.0",
+  "description": "My personal website",
+  "email": "kerozin.joe@gmail.com",
+  "url": "http://lantosistvan.com/",
+  "private": true,
+  "production": true,
+  "main": "./bin/www",
+  "config": {
+    "port": "3000",
+    "production": true
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": ">= 4.13.4",
+    "body-parser": ">= 1.15.0",
+    "compression": ">= 1.6.1",
+    "method-override": ">= 2.3.5",
+
+    "morgan": ">= 1.7.0",
+    "debug": ">= 2.2.0",
+
+    "express-handlebars": ">= 3.0.0"
+  }
+}

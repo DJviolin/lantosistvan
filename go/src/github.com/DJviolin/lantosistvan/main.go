@@ -38,7 +38,7 @@ func irisView() {
 	// so avoid custom url and urlpath helpers.
 	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
 	iris.Config.Render.Template.Gzip = true
-	iris.Config.Render.Template.IsDevelopment = true
+	iris.Config.Render.Template.IsDevelopment = false
 	iris.Config.Render.Template.Directory = "views"
 	iris.Config.Render.Template.Extensions = []string{".hbs"}
 	iris.Config.Render.Template.ContentType = "text/html"
@@ -47,7 +47,7 @@ func irisView() {
 	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond
 	// when you need to return and render html
 	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
-		return raymond.SafeString("<b> " + input + "</b>")
+		return raymond.SafeString("<b>" + input + "</b>")
 	}
 }
 

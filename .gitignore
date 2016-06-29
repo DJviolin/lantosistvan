@@ -43,3 +43,9 @@ app/database/rss.json
 go/vendor
 go/bin/*.exe
 go/app/*.exe
+
+# Iris vs Express benchmark
+iris-vs-express/iris/vendor
+iris-vs-express/iris/bin/*.exe
+iris-vs-express/iris/app/*.exe
+iris-vs-express/express/node_modules
