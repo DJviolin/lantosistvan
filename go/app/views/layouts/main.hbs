@@ -1,12 +1,13 @@
-<html>
-  <head>
-    <title>Layout</title>
+{{ render "partials/layout-top.hbs"}}
 
-  </head>
-  <body>
-  <h1> This is the global layout </h1>
-  <br/>
-    <!-- Render the current template here -->
-    {{ yield }}
-  </body>
-</html>
+<div class="container">
+
+{{ render "partials/header.hbs"}}
+
+{{{yield}}}
+
+{{ render "partials/footer.hbs"}}
+
+</div><!-- div.container -->
+
+{{ render "partials/layout-bottom.hbs"}}
