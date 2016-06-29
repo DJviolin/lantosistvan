@@ -30,92 +30,89 @@ func irisMiddleware() {
 /////////////////////////////////////////////////////////////
 
 func irisView() {
-	// NOTE:
-	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
-	// so  avoid custom url and urlpath helpers.
-	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
-	iris.Config.Render.Template.Directory = "views"
-	iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
-	iris.Config.Render.Template.Extensions = []string{".hbs"}
-
-	/*iris.Config.Render.Template.Directory = "views-html"
-	iris.Config.Render.Template.Layout = "layouts/main.html" // default ""
-	//iris.Config.Render.Template.Extensions = []string{".html"}*/
-
 	//api := iris.New()
 
-	/*
-	  // These are the defaults
-	  templateConfig := config.Template {
-	    Engine:        DefaultEngine, //or HTMLTemplate
-	    Gzip:          false,
-	    IsDevelopment: false,
-	    Directory:     "views",
-	    Extensions:    []string{".html"},
-	    ContentType:   "text/html",
-	    Charset:       "UTF-8",
-	    Layout:        "layouts/main.html", // currently this is working only on HTML
-	    HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: template.FuncMap{}},
-	    Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0),
-	                          Globals: make(map[string]interface{}},
-	    Markdown:      Markdown{Sanitize: false},
-	    Amber:         Amber{Funcs: template.FuncMap{}},
-	    Jade:          Jade{},
-	  }
-	  // Set
-	  api.Config.Render.Template = templateConfig
-	*/
-
-	// set the template engine
-	/*iris.Config.Render.Template.Engine = iris.HandlebarsEngine
-	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond" when you need to return and render html
+	// NOTE:
+	// the Iris' route framework {{url "my-routename" myparams}}
+	// and {{urlpath "my-routename" myparams}} are working like all other template engines,
+	// so avoid custom url and urlpath helpers.
+	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
+	iris.Config.Render.Template.Gzip = true
+	iris.Config.Render.Template.IsDevelopment = true
+	iris.Config.Render.Template.Directory = "views"
+	iris.Config.Render.Template.Extensions = []string{".hbs"}
+	iris.Config.Render.Template.ContentType = "text/html"
+	iris.Config.Render.Template.Charset = "UTF-8"
+	iris.Config.Render.Template.Layout = "layouts/main.hbs" // default ""
+	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond
+	// when you need to return and render html
 	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
 		return raymond.SafeString("<b> " + input + "</b>")
-	}*/
+	}
 }
 
 /////////////////////////////////////////////////////////////
 // ROUTES
 /////////////////////////////////////////////////////////////
 
+// optionally, set a context for the template
 func index(ctx *iris.Context) {
-	ctx.Render("index.html", iris.Map{
-		"siteName":    "Lantos István Photography",
-		"description": "Frontpage",
-		"keywords":    "lantos,istván,photography",
-		"bodyClass":   "index",
-		"Message":     "Message from page1!",
-		"Name":        "Iris",
-		"Type":        "Web",
-	})
-
-	//ctx.Write("Hi %s", "iris")
-
-	/*type renderHi struct {
-	  Message string
-	  Name    string
-	  Type    string
-	}*/
-	/*ctx.MustRender("page1.html", renderHi{
-		"Message from page1!",
-		"Iris",
-		"Web",
-	})*/
+	if err := ctx.Render("home.hbs", map[string]interface{}{
+		"Name": "Iris",
+		"Type": "Web",
+		"Path": "/",
+	}); err != nil {
+		println(err.Error())
+	}
 }
+
+// remove the layout for a specific route
+func nolayout(ctx *iris.Context) {
+	if err := ctx.Render("home.hbs", nil, iris.NoLayout); err != nil {
+		println(err.Error())
+	}
+}
+
+func my() {
+	// set a layout for a party, .Layout should be BEFORE any Get or other Handle party's method
+	my := iris.Party("/my").Layout("layouts/mylayout.hbs")
+	my.Get("/", func(ctx *iris.Context) {
+		ctx.MustRender("home.hbs", map[string]interface{}{
+			"Name": "Iris",
+			"Type": "Web",
+			"Path": "/my/",
+		})
+	})
+	my.Get("/other", func(ctx *iris.Context) {
+		ctx.MustRender("home.hbs", map[string]interface{}{
+			"Name": "Iris",
+			"Type": "Web",
+			"Path": "/my/other",
+		})
+	})
+}
+
+/*iris.Get("/", func(ctx *iris.Context) {
+  // optionally, set a context  for the template
+  if err := ctx.Render("home.html", map[string]interface{}{
+    "Name": "Iris",
+    "Type": "Web",
+    "Path": "/",
+  }); err != nil {
+    println(err.Error())
+  }
+})*/
 
 /////////////////////////////////////////////////////////////
 // ROUTES INITIALIZATION
 /////////////////////////////////////////////////////////////
 
 func irisRoutes() {
-	//iris.StaticWeb("/files", "../../app/public", 1)
-	//iris.Static("/files", "../../app/public", 1)
-	//iris.StaticFS("/files", "../../app/public", 1) // Gzip with file cache
-	//iris.StaticServe("/files", "../../app/public") // Gzip without file cache
 	iris.StaticServe("../../app/public", "/public")  // Gzip without file cache
-	iris.StaticFS("/ftp", "../../app/public/ftp", 1) // Gzip with file cache
+	iris.StaticFS("/ftp", "../../app/public/ftp", 0) // Gzip with file cache turned off
 
 	iris.Get("/", index)
+	iris.Get("/nolayout", nolayout)
 }
 
 /////////////////////////////////////////////////////////////
@@ -126,6 +123,8 @@ func main() {
 	irisMiddleware()
 	irisView()
 	irisRoutes()
+
+	my()
 
 	// Server init
 	println("Server is running at: 8080")
