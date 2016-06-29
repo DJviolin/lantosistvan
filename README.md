@@ -206,6 +206,8 @@ https://www.sitepoint.com/configuring-nginx-ssl-node-js/
 
 https://www.youtube.com/watch?v=FJrs0Ar9asY
 
+http://serverfault.com/questions/601332/how-to-configure-nginx-so-it-works-with-express
+
 
 # Heroku
 
