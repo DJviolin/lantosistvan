@@ -192,6 +192,12 @@ run the app on windows:
 
 Nginx caching & reverse proxy:
 
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04
+
+https://www.nginx.com/blog/5-performance-tips-for-node-js-applications/
+
+http://stackoverflow.com/questions/9967887/node-js-itself-or-nginx-frontend-for-serving-static-files
+
 http://expressjs.com/en/advanced/best-practice-performance.html
 
 http://expressjs.com/en/guide/behind-proxies.html
@@ -207,6 +213,14 @@ https://www.sitepoint.com/configuring-nginx-ssl-node-js/
 https://www.youtube.com/watch?v=FJrs0Ar9asY
 
 http://serverfault.com/questions/601332/how-to-configure-nginx-so-it-works-with-express
+
+Nginx Websocket proxy:
+
+https://www.nginx.com/blog/websocket-nginx/
+
+https://www.nginx.com/blog/nginx-nodejs-websockets-socketio/
+
+http://www.tutorialspoint.com/articles/how-to-configure-nginx-as-reverse-proxy-for-websocket
 
 
 # Heroku
