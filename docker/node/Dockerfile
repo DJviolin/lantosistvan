@@ -10,7 +10,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 
 RUN \
 
-apt-get -y update && apt-get -y dist-upgrade;
+apt-get -y update && apt-get -y dist-upgrade; \
 
 # gpg keys listed at https://github.com/nodejs/node
 set -ex \
@@ -25,7 +25,7 @@ set -ex \
     C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
 ; do \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
-done;
+done; \
 
 NODE_VERSION=$( \
     curl -sL https://nodejs.org/dist/latest/ | \
@@ -40,9 +40,9 @@ NODE_VERSION=$( \
 && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
 && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
 && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-&& rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt;
+&& rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt; \
 
-node -v && npm -v;
+node -v && npm -v; \
 
 rm -rf /var/lib/apt/lists/*
 
