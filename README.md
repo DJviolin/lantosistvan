@@ -168,7 +168,7 @@ express --hbs --git --force .
 Start Nginx:
 
 ```
-$ cd C:/nginx && nginx
+$ cd C:/nginx && nginx -t && nginx
 $ curl -I http://127.0.0.1:8080
 $ curl --insecure -I https://127.0.0.1:443
 ```
@@ -220,6 +220,10 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-1
 https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
 
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-16-04
+
+https://www.nginx.com/blog/nginx-1-9-5/
 
 
 
