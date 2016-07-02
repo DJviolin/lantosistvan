@@ -1,17 +1,16 @@
-# Lanti/lempNginx
+# Lanti/Nginx
 #
 # VERSION               1.0.0
 
-FROM lemp_base:latest
-MAINTAINER Istvan Lantos <info@lantosistvan.com>
+FROM lantosistvan_base:latest
+MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Nginx built from source" Vendor="Istvan Lantos" Version="1.0"
 
-ENV NGINX_VERSION nginx-1.9.9.tar.gz
+ENV NGINX_VERSION nginx-1.11.1
 
 ### Start of DEV environment deps
 RUN apt-get -y update && apt-get -y dist-upgrade \
     && apt-get -y install \
-        curl \
         make \
         gcc \
         g++ \
@@ -31,12 +30,12 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
 
 ### Start of Downloading source files
 # Nginx
-RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
-    #&& curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
-    #&& gpg --verify "$NGINX_VERSION.asc" \
+RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION.tar.gz" -o "$NGINX_VERSION.tar.gz" \
+    && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
+    && gpg --verify "$NGINX_VERSION.asc" \
     && mkdir -p /usr/src/nginx \
-    && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
-    && rm "$NGINX_VERSION"*
+    && tar -xf "$NGINX_VERSION.tar.gz" -C /usr/src/nginx --strip-components=1 \
+    && rm "$NGINX_VERSION.tar.gz"*
 # Nginx 3rd party modules
 RUN curl -fSL "https://github.com/FRiCKLE/ngx_cache_purge/archive/master.tar.gz" -o "ngx_cache_purge.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/ngx_cache_purge \
@@ -86,7 +85,8 @@ RUN cd /usr/src/nginx \
         --with-mail_ssl_module \
         --with-file-aio \
         --with-http_v2_module \
-        --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         --with-ipv6 \
         # Added 3rd party modules \
