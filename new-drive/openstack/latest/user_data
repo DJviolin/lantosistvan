@@ -81,7 +81,7 @@ coreos:
         [Install]
         WantedBy=sockets.target
 ssh_authorized_keys:
-  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+UCdLNjhCqQs499RhhtpJynXWBO76FqS+mrdYlwJY23s4vHAy3Hfblsppu73n00qAW7KFcWZbBtHO5CvyFkzs0zuxK0riS2leiDoBgabHtXrz+hJGoo+KT27mvgW3IgJ1mtdD24Rce3ekdSg4+KTr4kLDrb73eU9wQkVAySVKr9ItfRsA9P9iP96pANKVze62Rdhytdalwh3m57CyA92IaLezZ8aQPY5D8aCX1oP5bQ5nNVt7SEPvvO67WkxfYau3Hns1SfO80x1zEIGtOicFuDf45RaatgyPyy+lmHXLOYpCglumymL0zj22M/Gj7KZdBEK0FyWJ+qvkfPE2mOqRB5Sn09COW1PO3JJjH4q07dThUPbrbGGyUXOTJSx6vhWzYbNFBCLA8TtHjLoehxqm32wl+4mIiHYoN2ExtdymdqBtLEmJf8/POCgEjisH1OnDs+cI87b1gzvJ4eQMfLhadGWosxHu+c+gQhBdMAfQhxi+25UNsxNHoqY2ZV1t3AuZHUJUHMzVrkCycWbxijAKL0fvHSPg24+wnqiJksOVnlAz3YWSBEnO0UEM1+IC7Ki1fEtnPwgu++OZcbig94cYK0dTijrrRcFme+rwk7EApslmFGAkagid6wZL/4hK4gdR1tNiAP0ljuma/zyM48Od0fT8gHcTDEWyjM2uKB7WVw== kerozin.joe@gmail.com
+  - ssh-rsa AAAAB3...
 hostname: core-1
 write_files:
   - path: /etc/ssh/sshd_config
