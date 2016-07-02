@@ -6,7 +6,7 @@ FROM lantosistvan_base:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Nginx built from source" Vendor="Istvan Lantos" Version="1.0"
 
-ENV NGINX_VERSION nginx-1.11.1
+ENV NGINX_VERSION nginx-1.11.1.tar.gz
 
 ### Start of DEV environment deps
 RUN apt-get -y update && apt-get -y dist-upgrade \
@@ -30,12 +30,12 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
 
 ### Start of Downloading source files
 # Nginx
-RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION.tar.gz" -o "$NGINX_VERSION.tar.gz" \
+RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
     && gpg --verify "$NGINX_VERSION.asc" \
     && mkdir -p /usr/src/nginx \
-    && tar -xf "$NGINX_VERSION.tar.gz" -C /usr/src/nginx --strip-components=1 \
-    && rm "$NGINX_VERSION.tar.gz"*
+    && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
+    && rm "$NGINX_VERSION"*
 # Nginx 3rd party modules
 RUN curl -fSL "https://github.com/FRiCKLE/ngx_cache_purge/archive/master.tar.gz" -o "ngx_cache_purge.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/ngx_cache_purge \
