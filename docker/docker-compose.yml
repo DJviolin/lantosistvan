@@ -40,6 +40,8 @@ services:
     volumes:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - front-tier
   app:
     build: ./app
     image: lantosistvan_app
