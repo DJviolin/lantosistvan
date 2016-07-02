@@ -8,7 +8,7 @@ LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 
 ENV NPM_CONFIG_LOGLEVEL info
 
-RUN
+RUN \
 
 apt-get -y update && apt-get -y dist-upgrade;
 
