@@ -190,6 +190,10 @@ run the app on windows:
 
 ##### TODO
 
+Securing Nginx:
+
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04
+
 Nginx caching & reverse proxy:
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04
