@@ -32,6 +32,7 @@ services:
     container_name: lantosistvan_nginx
     depends_on:
       - node
+    command: /bin/dash -c "/usr/sbin/nginx"
     ports:
       - "80:8080"
       - "443:443"
@@ -39,7 +40,7 @@ services:
       - php
     volumes:
       - /var/cache/nginx
-      - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      #- ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
       - front-tier
   app:
