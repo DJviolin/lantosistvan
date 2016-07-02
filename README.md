@@ -188,6 +188,12 @@ Stop Nginx:
 $ cd C:/nginx && nginx -s stop
 ```
 
+Speed benchmark:
+
+```
+$ time curl -I http://lantosistvan.com
+```
+
 Start the app with:
 
 ```
