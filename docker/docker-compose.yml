@@ -6,7 +6,7 @@ services:
     depends_on:
       - app
     ports:
-      - "8080:8080"
+      - "8079:8080"
     volumes:
       - "/:/rootfs:ro"
       - "/var/run:/var/run:rw"
