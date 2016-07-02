@@ -26,19 +26,33 @@ services:
     depends_on:
       - base
     network_mode: "none"
+  nginx:
+    build: ./nginx
+    image: lantosistvan_nginx
+    container_name: lantosistvan_nginx
+    depends_on:
+      - node
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes_from:
+      - php
+    volumes:
+      - /var/cache/nginx
+      - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
   app:
     build: ./app
     image: lantosistvan_app
     container_name: lantosistvan_app
     depends_on:
-      - node
+      - nginx
     environment:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
     #command: npm install
     command: /bin/dash -c "npm install && npm start"
     ports:
-      - "80:3000"
+      - "8081:8081"
     volumes:
       #- "../app:/root/www/lantosistvan:rw"
       - "../app:/root/www/lantosistvan:rw"

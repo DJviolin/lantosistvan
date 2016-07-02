@@ -1,0 +1,422 @@
+nginx version: nginx/1.9.9
+built by gcc 4.9.2 (Debian 4.9.2-10)
+built with OpenSSL 1.0.1k 8 Jan 2015
+TLS SNI support enabled
+configure arguments:
+http://nginx.org/en/docs/configure.html
+
+Versions of packages nginx-full depends on:
+#libc6         2.19-15
+#libexpat1     2.1.0-6+b3
+#libgd3        2.1.0-5
+#libgeoip1     1.6.2-4
+#libpam0g      1.1.8-3.1
+#libpcre3      2:8.35-3.3
+#libssl1.0.0   1.0.1k-1
+#libxml2       2.9.1+dfsg1-5
+#libxslt1.1    1.1.28-2+b2
+nginx-common  1.6.2-5
+#zlib1g        1:1.2.8.dfsg-2+b1
+
+nginx-common (= 1.2.1-2.2)
+#libc6 (>= 2.13-28)
+#libexpat1 (>= 2.0.1)
+libgcc1 (>= 1:4.4.0)
+libgd2-noxpm (>=2.0.36~rc1~dfsg) | libgd2-xpm (>= 2.0.36~rc1~dfsg)
+#libgeoip1 (>= 1.4.8+dfsg)
+#libpam0g (>= 0.99.7.1)
+#libpcre3 (>= 8.10)
+#libssl1.0.0 (>= 1.0.0)
+#libxml2 (>= 2.7.4)
+#libxslt1.1 (>= 1.1.25)
+#zlib1g (>= 1:1.1.4)
+
+--prefix=/etc/nginx
+--sbin-path=/usr/sbin/nginx
+--conf-path=/etc/nginx/nginx.conf
+--error-log-path=/var/log/nginx/error.log
+--http-log-path=/var/log/nginx/access.log
+--pid-path=/var/run/nginx.pid
+--lock-path=/var/run/nginx.lock
+--http-client-body-temp-path=/var/cache/nginx/client_temp
+--http-proxy-temp-path=/var/cache/nginx/proxy_temp
+--http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp
+--http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp
+--http-scgi-temp-path=/var/cache/nginx/scgi_temp
+--user=nginx
+--group=nginx
+--with-http_ssl_module
+--with-http_realip_module
+--with-http_addition_module
+--with-http_sub_module
+--with-http_dav_module
+--with-http_flv_module
+--with-http_mp4_module
+--with-http_gunzip_module
+--with-http_gzip_static_module
+--with-http_random_index_module
+--with-http_secure_link_module
+--with-http_stub_status_module
+--with-http_auth_request_module
+--with-threads
+--with-stream
+--with-stream_ssl_module
+--with-http_slice_module
+--with-mail
+--with-mail_ssl_module
+--with-file-aio
+--with-http_v2_module
+--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2'
+--with-ld-opt='-Wl,-z,relro -Wl,--as-needed'
+--with-ipv6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Step 7 : RUN cd /usr/src/nginx     && ./configure --help
+ ---> Running in 495c7096d87b
+
+  --help                             print this message
+
+  --prefix=PATH                      set installation prefix
+  --sbin-path=PATH                   set nginx binary pathname
+  --conf-path=PATH                   set nginx.conf pathname
+  --error-log-path=PATH              set error log pathname
+  --pid-path=PATH                    set nginx.pid pathname
+  --lock-path=PATH                   set nginx.lock pathname
+
+  --user=USER                        set non-privileged user for
+                                     worker processes
+  --group=GROUP                      set non-privileged group for
+                                     worker processes
+
+  --build=NAME                       set build name
+  --builddir=DIR                     set build directory
+
+  --with-select_module               enable select module
+  --without-select_module            disable select module
+  --with-poll_module                 enable poll module
+  --without-poll_module              disable poll module
+
+  --with-threads                     enable thread pool support
+
+  --with-file-aio                    enable file AIO support
+  --with-ipv6                        enable IPv6 support
+
+  --with-http_ssl_module             enable ngx_http_ssl_module
+  --with-http_v2_module              enable ngx_http_v2_module
+  --with-http_realip_module          enable ngx_http_realip_module
+  --with-http_addition_module        enable ngx_http_addition_module
+  --with-http_xslt_module            enable ngx_http_xslt_module
+  --with-http_image_filter_module    enable ngx_http_image_filter_module
+  --with-http_geoip_module           enable ngx_http_geoip_module
+  --with-http_sub_module             enable ngx_http_sub_module
+  --with-http_dav_module             enable ngx_http_dav_module
+  --with-http_flv_module             enable ngx_http_flv_module
+  --with-http_mp4_module             enable ngx_http_mp4_module
+  --with-http_gunzip_module          enable ngx_http_gunzip_module
+  --with-http_gzip_static_module     enable ngx_http_gzip_static_module
+  --with-http_auth_request_module    enable ngx_http_auth_request_module
+  --with-http_random_index_module    enable ngx_http_random_index_module
+  --with-http_secure_link_module     enable ngx_http_secure_link_module
+  --with-http_degradation_module     enable ngx_http_degradation_module
+  --with-http_slice_module           enable ngx_http_slice_module
+  --with-http_stub_status_module     enable ngx_http_stub_status_module
+
+  --without-http_charset_module      disable ngx_http_charset_module
+  --without-http_gzip_module         disable ngx_http_gzip_module
+  --without-http_ssi_module          disable ngx_http_ssi_module
+  --without-http_userid_module       disable ngx_http_userid_module
+  --without-http_access_module       disable ngx_http_access_module
+  --without-http_auth_basic_module   disable ngx_http_auth_basic_module
+  --without-http_autoindex_module    disable ngx_http_autoindex_module
+  --without-http_geo_module          disable ngx_http_geo_module
+  --without-http_map_module          disable ngx_http_map_module
+  --without-http_split_clients_module disable ngx_http_split_clients_module
+  --without-http_referer_module      disable ngx_http_referer_module
+  --without-http_rewrite_module      disable ngx_http_rewrite_module
+  --without-http_proxy_module        disable ngx_http_proxy_module
+  --without-http_fastcgi_module      disable ngx_http_fastcgi_module
+  --without-http_uwsgi_module        disable ngx_http_uwsgi_module
+  --without-http_scgi_module         disable ngx_http_scgi_module
+  --without-http_memcached_module    disable ngx_http_memcached_module
+  --without-http_limit_conn_module   disable ngx_http_limit_conn_module
+  --without-http_limit_req_module    disable ngx_http_limit_req_module
+  --without-http_empty_gif_module    disable ngx_http_empty_gif_module
+  --without-http_browser_module      disable ngx_http_browser_module
+  --without-http_upstream_hash_module
+                                     disable ngx_http_upstream_hash_module
+  --without-http_upstream_ip_hash_module
+                                     disable ngx_http_upstream_ip_hash_module
+  --without-http_upstream_least_conn_module
+                                     disable ngx_http_upstream_least_conn_module
+  --without-http_upstream_keepalive_module
+                                     disable ngx_http_upstream_keepalive_module
+  --without-http_upstream_zone_module
+                                     disable ngx_http_upstream_zone_module
+
+  --with-http_perl_module            enable ngx_http_perl_module
+  --with-perl_modules_path=PATH      set Perl modules path
+  --with-perl=PATH                   set perl binary pathname
+
+  --http-log-path=PATH               set http access log pathname
+  --http-client-body-temp-path=PATH  set path to store
+                                     http client request body temporary files
+  --http-proxy-temp-path=PATH        set path to store
+                                     http proxy temporary files
+  --http-fastcgi-temp-path=PATH      set path to store
+                                     http fastcgi temporary files
+  --http-uwsgi-temp-path=PATH        set path to store
+                                     http uwsgi temporary files
+  --http-scgi-temp-path=PATH         set path to store
+                                     http scgi temporary files
+
+  --without-http                     disable HTTP server
+  --without-http-cache               disable HTTP cache
+
+  --with-mail                        enable POP3/IMAP4/SMTP proxy module
+  --with-mail_ssl_module             enable ngx_mail_ssl_module
+  --without-mail_pop3_module         disable ngx_mail_pop3_module
+  --without-mail_imap_module         disable ngx_mail_imap_module
+  --without-mail_smtp_module         disable ngx_mail_smtp_module
+
+  --with-stream                      enable TCP proxy module
+  --with-stream_ssl_module           enable ngx_stream_ssl_module
+  --without-stream_limit_conn_module disable ngx_stream_limit_conn_module
+  --without-stream_access_module     disable ngx_stream_access_module
+  --without-stream_upstream_hash_module
+                                     disable ngx_stream_upstream_hash_module
+  --without-stream_upstream_least_conn_module
+                                     disable ngx_stream_upstream_least_conn_module
+  --without-stream_upstream_zone_module
+                                     disable ngx_stream_upstream_zone_module
+
+  --with-google_perftools_module     enable ngx_google_perftools_module
+  --with-cpp_test_module             enable ngx_cpp_test_module
+
+  --add-module=PATH                  enable an external module
+
+  --with-cc=PATH                     set C compiler pathname
+  --with-cpp=PATH                    set C preprocessor pathname
+  --with-cc-opt=OPTIONS              set additional C compiler options
+  --with-ld-opt=OPTIONS              set additional linker options
+  --with-cpu-opt=CPU                 build for the specified CPU, valid values:
+                                     pentium, pentiumpro, pentium3, pentium4,
+                                     athlon, opteron, sparc32, sparc64, ppc64
+
+  --without-pcre                     disable PCRE library usage
+  --with-pcre                        force PCRE library usage
+  --with-pcre=DIR                    set path to PCRE library sources
+  --with-pcre-opt=OPTIONS            set additional build options for PCRE
+  --with-pcre-jit                    build PCRE with JIT compilation support
+
+  --with-md5=DIR                     set path to md5 library sources
+  --with-md5-opt=OPTIONS             set additional build options for md5
+  --with-md5-asm                     use md5 assembler sources
+
+  --with-sha1=DIR                    set path to sha1 library sources
+  --with-sha1-opt=OPTIONS            set additional build options for sha1
+  --with-sha1-asm                    use sha1 assembler sources
+
+  --with-zlib=DIR                    set path to zlib library sources
+  --with-zlib-opt=OPTIONS            set additional build options for zlib
+  --with-zlib-asm=CPU                use zlib assembler sources optimized
+                                     for the specified CPU, valid values:
+                                     pentium, pentiumpro
+
+  --with-libatomic                   force libatomic_ops library usage
+  --with-libatomic=DIR               set path to libatomic_ops library sources
+
+  --with-openssl=DIR                 set path to OpenSSL library sources
+  --with-openssl-opt=OPTIONS         set additional build options for OpenSSL
+
+  --with-debug                       enable debug logging
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---> Running in 6d5880e8d3f9
+checking for OS
+ + Linux 4.3.3-coreos x86_64
+checking for C compiler ... found
+ + using GNU C compiler
+ + gcc version: 4.9.2 (Debian 4.9.2-10)
+checking for gcc -pipe switch ... found
+checking for --with-ld-opt="-Wl,-z,relro -Wl,--as-needed" ... found
+checking for gcc builtin atomic operations ... found
+checking for C99 variadic macros ... found
+checking for gcc variadic macros ... found
+checking for unistd.h ... found
+checking for inttypes.h ... found
+checking for limits.h ... found
+checking for sys/filio.h ... not found
+checking for sys/param.h ... found
+checking for sys/mount.h ... found
+checking for sys/statvfs.h ... found
+checking for crypt.h ... found
+checking for Linux specific features
+checking for epoll ... found
+checking for EPOLLRDHUP ... found
+checking for O_PATH ... found
+checking for sendfile() ... found
+checking for sendfile64() ... found
+checking for sys/prctl.h ... found
+checking for prctl(PR_SET_DUMPABLE) ... found
+checking for sched_setaffinity() ... found
+checking for crypt_r() ... found
+checking for sys/vfs.h ... found
+checking for poll() ... found
+checking for /dev/poll ... not found
+checking for kqueue ... not found
+checking for crypt() ... not found
+checking for crypt() in libcrypt ... found
+checking for F_READAHEAD ... not found
+checking for posix_fadvise() ... found
+checking for O_DIRECT ... found
+checking for F_NOCACHE ... not found
+checking for directio() ... not found
+checking for statfs() ... found
+checking for statvfs() ... found
+checking for dlopen() ... not found
+checking for dlopen() in libdl ... found
+checking for sched_yield() ... found
+checking for SO_SETFIB ... not found
+checking for SO_REUSEPORT ... found
+checking for SO_ACCEPTFILTER ... not found
+checking for TCP_DEFER_ACCEPT ... found
+checking for TCP_KEEPIDLE ... found
+checking for TCP_FASTOPEN ... found
+checking for TCP_INFO ... found
+checking for accept4() ... found
+checking for kqueue AIO support ... not found
+checking for Linux AIO support ... found
+checking for int size ... 4 bytes
+checking for long size ... 8 bytes
+checking for long long size ... 8 bytes
+checking for void * size ... 8 bytes
+checking for uint64_t ... found
+checking for sig_atomic_t ... found
+checking for sig_atomic_t size ... 4 bytes
+checking for socklen_t ... found
+checking for in_addr_t ... found
+checking for in_port_t ... found
+checking for rlim_t ... found
+checking for uintptr_t ... uintptr_t found
+checking for system byte ordering ... little endian
+checking for size_t size ... 8 bytes
+checking for off_t size ... 8 bytes
+checking for time_t size ... 8 bytes
+checking for AF_INET6 ... found
+checking for setproctitle() ... not found
+checking for pread() ... found
+checking for pwrite() ... found
+checking for pwritev() ... found
+checking for sys_nerr ... found
+checking for localtime_r() ... found
+checking for posix_memalign() ... found
+checking for memalign() ... found
+checking for mmap(MAP_ANON|MAP_SHARED) ... found
+checking for mmap("/dev/zero", MAP_SHARED) ... found
+checking for System V shared memory ... found
+checking for POSIX semaphores ... not found
+checking for POSIX semaphores in libpthread ... found
+checking for struct msghdr.msg_control ... found
+checking for ioctl(FIONBIO) ... found
+checking for struct tm.tm_gmtoff ... found
+checking for struct dirent.d_namlen ... not found
+checking for struct dirent.d_type ... found
+checking for sysconf(_SC_NPROCESSORS_ONLN) ... found
+checking for openat(), fstatat() ... found
+checking for getaddrinfo() ... found
+checking for PCRE library ... found
+checking for PCRE JIT support ... found
+checking for OpenSSL library ... found
+checking for zlib library ... found
+creating objs/Makefile
+
+Configuration summary
+  + using threads
+  + using system PCRE library
+  + using system OpenSSL library
+  + md5: using OpenSSL library
+  + sha1: using OpenSSL library
+  + using system zlib library
+
+  nginx path prefix: "/etc/nginx"
+  nginx binary file: "/usr/sbin/nginx"
+  nginx configuration prefix: "/etc/nginx"
+  nginx configuration file: "/etc/nginx/nginx.conf"
+  nginx pid file: "/var/run/nginx.pid"
+  nginx error log file: "/var/log/nginx/error.log"
+  nginx http access log file: "/var/log/nginx/access.log"
+  nginx http client request body temporary files: "/var/cache/nginx/client_temp"
+  nginx http proxy temporary files: "/var/cache/nginx/proxy_temp"
+  nginx http fastcgi temporary files: "/var/cache/nginx/fastcgi_temp"
+  nginx http uwsgi temporary files: "/var/cache/nginx/uwsgi_temp"
+  nginx http scgi temporary files: "/var/cache/nginx/scgi_temp"
+
+Configuration done!
