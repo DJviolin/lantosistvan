@@ -62,6 +62,13 @@ EOF
 cat $REPO_DIR/app/config/mail.js
 
 echo -e "\nGenerating $REPO_DIR/app/.env file:"
+PRIVATE_IP=$( \
+    curl -sL https://nodejs.org/dist/latest/ | \
+    tac | \
+    tac | \
+    grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | \
+    head -1 \
+)
 cat <<EOF > $REPO_DIR/app/.env
 PORT=8081
 APP_PRIVATE_IP_ADDRESS=192.168.1.31

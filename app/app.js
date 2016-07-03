@@ -17,16 +17,16 @@ const express        = require('express'),
       slashes        = require('connect-slashes'),
       // Security
       helmet         = require('helmet'),
-      hpp            = require('hpp'),
+      hpp            = require('hpp');
       // Environment variables
-      dotenv         = require('dotenv');
+      //dotenv         = require('dotenv');
 
 /////////////////////////////////////////////////////////////
 // ENVIRONMENT VARIABLES
 // USAGE: process.env.PORT
 /////////////////////////////////////////////////////////////
 
-dotenv.config({ path: '.env' });
+//dotenv.config({ path: '.env' });
 
 /////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)

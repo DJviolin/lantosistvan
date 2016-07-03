@@ -39,7 +39,7 @@ app/database/rss_hd_320x240.json
 app/database/rss.xml
 app/database/rss.json
 
-app/.env
+#app/.env
 
 # go
 go/vendor
