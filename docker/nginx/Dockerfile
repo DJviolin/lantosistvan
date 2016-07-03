@@ -136,7 +136,10 @@ RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" 
     && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
 
 RUN mkdir -p /etc/nginx/ssl \
-    && openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
+    && openssl req \
+    -x509 -nodes -sha256 -days 365 \
+    -subj '/C=HU/ST=Pest/L=Budapest/CN=localhost.cinematicheart.com' \
+    -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
     && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
 
 RUN rm -rf /usr/src/* /var/lib/apt/lists/*
