@@ -35,13 +35,14 @@ services:
       - node
     command: /bin/dash -c "/usr/sbin/nginx"
     ports:
-      - "80:8080"
-      - "443:443"
+      - "10.0.2.15:80:8080"
+      - "10.0.2.15:443:443"
     volumes:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     extra_hosts:
-     - "localhost.cinematicheart.com:172.16.238.10"
+     #- "localhost.cinematicheart.com:172.16.238.10"
+     - "localhost.cinematicheart.com:127.0.0.1"
     networks:
       front-tier:
         ipv4_address: 172.16.238.10
@@ -59,7 +60,7 @@ services:
       - PORT=8081
     command: /bin/dash -c "npm install && npm start"
     ports:
-      - "8081:8081"
+      - "10.0.2.15:8081:8081"
     volumes:
       - "../app:/root/www/lantosistvan:rw"
     networks:
