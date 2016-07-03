@@ -255,6 +255,8 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfi
 
 Securing Nginx:
 
+https://www.nginx.com/blog/7-tips-for-faster-http2-performance/
+
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
 
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04
