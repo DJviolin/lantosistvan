@@ -219,6 +219,26 @@ run the app on windows:
 
 ##### TODO
 
+Redirecting URL to lcoalhost:
+
+https://www.namecheap.com/support/knowledgebase/article.aspx/9678/77/how-to-redirect-subdomain-to-a-certain-ip-address-along-with-a-port
+
+
+
+Nginx Mail Server:
+
+http://nginx.org/en/docs/mail/ngx_mail_core_module.html
+
+https://www.nginx.com/resources/admin-guide/mail-proxy/
+
+http://blog.siphos.be/2012/12/nginx-as-reverse-smtp-proxy/
+
+http://serverfault.com/a/331547/319692
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfix-on-ubuntu-14-04
+
+
+
 Securing Nginx:
 
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04

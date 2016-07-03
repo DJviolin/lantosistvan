@@ -63,19 +63,21 @@ services:
     networks:
       front-tier:
         ipv4_address: 172.16.238.11
-        ipv6_address: 2001:3984:3989::11
+        #ipv6_address: 2001:3984:3989::11
 networks:
   front-tier:
     driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv6: "true"
+    #driver_opts:
+    #  com.docker.network.enable_ipv6: "true"
     ipam:
       driver: default
       config:
         - subnet: 172.16.238.0/24
           gateway: 172.16.238.1
-        - subnet: 2001:3984:3989::/64
-          gateway: 2001:3984:3989::1
+          aux_addresses:
+            localhost.cinematicheart.com: 172.16.238.11
+        #- subnet: 2001:3984:3989::/64
+        #  gateway: 2001:3984:3989::1
         #- subnet: 172.28.0.0/16
         #  ip_range: 172.28.5.0/24
         #  gateway: 172.28.5.254
