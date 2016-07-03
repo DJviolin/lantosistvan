@@ -32,8 +32,9 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
 ### Start of Downloading source files
 # Nginx
 RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
-    #&& curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
-    #&& gpg --verify "$NGINX_VERSION.asc" \
+    && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
+    && gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
+    && gpg --verify "$NGINX_VERSION.asc" \
     && mkdir -p /usr/src/nginx \
     && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
     && rm "$NGINX_VERSION"*
@@ -49,6 +50,7 @@ RUN curl -fSL "https://github.com/openresty/srcache-nginx-module/archive/master.
 # OpenSSL library sources
 RUN curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION" -o "$OPENSSL_VERSION" \
     && curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION.asc" -o "$OPENSSL_VERSION.asc" \
+    && gpg --keyserver pgpkeys.mit.edu --recv-key 0E604491 \
     && gpg --verify "$OPENSSL_VERSION.asc" \
     && mkdir -p /usr/src/openssl \
     && tar -xf "$OPENSSL_VERSION" -C /usr/src/openssl --strip-components=1 \
