@@ -7,6 +7,7 @@ MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Nginx built from source" Vendor="Istvan Lantos" Version="1.0"
 
 ENV NGINX_VERSION nginx-1.11.1.tar.gz
+ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
 ### Start of DEV environment deps
 RUN apt-get -y update && apt-get -y dist-upgrade \
@@ -45,6 +46,13 @@ RUN curl -fSL "https://github.com/openresty/srcache-nginx-module/archive/master.
     && mkdir -p /usr/src/nginx-modules/ngx_srcache \
     && tar -xf "ngx_srcache.tar.gz" -C /usr/src/nginx-modules/ngx_srcache --strip-components=1 \
     && rm "ngx_srcache.tar.gz"*
+# OpenSSL library sources
+RUN curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION" -o "$OPENSSL_VERSION" \
+    && curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION.asc" -o "$OPENSSL_VERSION.asc" \
+    && gpg --verify "$OPENSSL_VERSION.asc" \
+    && mkdir -p /usr/src/openssl \
+    && tar -xf "$OPENSSL_VERSION" -C /usr/src/openssl --strip-components=1 \
+    && rm "$OPENSSL_VERSION"*
 ### End of Downloading source files
 
 # Configuring the build
@@ -83,6 +91,7 @@ RUN cd /usr/src/nginx \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
+        --with-openssl=/usr/src/openssl \
         --with-file-aio \
         --with-http_v2_module \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
