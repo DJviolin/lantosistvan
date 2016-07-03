@@ -219,7 +219,12 @@ run the app on windows:
 
 ##### TODO
 
-Redirecting URL to lcoalhost:
+nginScript:
+https://www.nginx.com/blog/launching-nginscript-and-looking-ahead/
+
+
+
+Redirecting URL to localhost:
 
 https://www.namecheap.com/support/knowledgebase/article.aspx/9678/77/how-to-redirect-subdomain-to-a-certain-ip-address-along-with-a-port
 
