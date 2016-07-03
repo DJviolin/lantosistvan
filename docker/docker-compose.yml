@@ -35,8 +35,8 @@ services:
       - node
     command: /bin/dash -c "/usr/sbin/nginx"
     ports:
-      - "10.0.2.15:80:8080"
-      - "10.0.2.15:443:443"
+      - "0.0.0.0:80:8080"
+      - "0.0.0.0:443:443"
     volumes:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
