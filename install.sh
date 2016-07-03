@@ -61,6 +61,14 @@ module.exports = {
 EOF
 cat $REPO_DIR/app/config/mail.js
 
+echo -e "\nGenerating $REPO_DIR/app/.env file:"
+cat <<EOF > $REPO_DIR/app/.env
+PORT=8081
+APP_PRIVATE_IP_ADDRESS=192.168.1.31
+NODE_ENV=production
+EOF
+cat $REPO_DIR/app/.env
+
 # bash variables in Here-Doc, don't use 'EOF'
 # http://stackoverflow.com/questions/4937792/using-variables-inside-a-bash-heredoc
 # http://stackoverflow.com/questions/17578073/ssh-and-environment-variables-remote-and-local

@@ -227,6 +227,14 @@ https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificat
 
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04
 
+https://community.letsencrypt.org/t/can-i-generate-a-letsencrypt-cert-in-local-host-for-a-domain-i-own/3336/8
+
+https://community.letsencrypt.org/t/can-i-test-lets-encrypt-client-on-localhost/15627/4
+
+https://community.letsencrypt.org/t/certificates-for-hosts-on-private-networks/174/2
+
+https://github.com/letsencrypt/boulder/issues/137
+
 https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-16-04
 
 https://www.nginx.com/blog/nginx-1-9-5/
