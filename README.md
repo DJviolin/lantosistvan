@@ -228,6 +228,15 @@ Redirecting URL to localhost:
 
 https://www.namecheap.com/support/knowledgebase/article.aspx/9678/77/how-to-redirect-subdomain-to-a-certain-ip-address-along-with-a-port
 
+Find out my public ip address:
+
+```
+$ curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+$ wget http://ipinfo.io/ip -qO -
+$ curl ipecho.net/plain ; echo
+$ dig +short myip.opendns.com @resolver1.opendns.com
+```
+
 
 
 Nginx Mail Server:
@@ -245,6 +254,8 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfi
 
 
 Securing Nginx:
+
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
 
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-on-ubuntu-14-04
 
