@@ -116,40 +116,25 @@ RUN ./configure \
     && make \
     && make install
 
-RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
-    && install -m644 /usr/src/nginx/html/index.html /var/www/html \
-    && install -m644 /usr/src/nginx/html/50x.html /var/www/html \
-    && install -m755 objs/nginx-debug /usr/sbin/nginx-debug \
-    && install -m755 objs/ngx_http_xslt_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_xslt_filter_module-debug.so \
-    && install -m755 objs/ngx_http_image_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_image_filter_module-debug.so \
-    && install -m755 objs/ngx_http_geoip_module-debug.so /usr/lib/nginx/modules/ngx_http_geoip_module-debug.so \
-    && install -m755 objs/ngx_http_perl_module-debug.so /usr/lib/nginx/modules/ngx_http_perl_module-debug.so \
-    && ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
-    && strip /usr/sbin/nginx* \
-    && strip /usr/lib/nginx/modules/*.so
-    #&& runDeps="$( \
-    #    scanelf --needed --nobanner /usr/sbin/nginx /usr/lib/nginx/modules/*.so \
-    #        | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
-    #        | sort -u \
-    #        | xargs -r apk info --installed \
-    #        | sort -u \
-    #)"
-
 #RUN groupadd nginx \
 #    && useradd nginx -g nginx --system --no-create-home -s /bin/false
 #RUN addgroup -S nginx \
 #    && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx
 
 ### Start of Nginx setup
-# This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
-RUN groupadd nginx \
+COPY etc/nginx/html/404.html /etc/nginx/html
+RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
+    && install -m644 /usr/src/nginx/html/index.html /var/www/html \
+    && install -m644 /usr/src/nginx/html/50x.html /var/www/html \
+    && install -m644 /usr/src/nginx/html/404.html /var/www/html \
+    # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
+    && groupadd nginx \
     && useradd nginx --defaults --system --home-dir /var/cache/nginx --shell /sbin/nologin --gid nginx
     # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
     # Allow Nginx to access /var/run/php-fpm/php-fpm.sock
     && usermod -aG www-data nginx
-COPY etc/nginx/html/404.html /var/www/html
 ### End of Nginx setup
 
 # Benchmarking tools (ab, siege, wrk)
