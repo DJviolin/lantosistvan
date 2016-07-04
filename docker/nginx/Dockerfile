@@ -130,29 +130,55 @@ RUN cd /usr/src/nginx \
     && make \
     && make install
 
-### Start of Nginx setup
-RUN mkdir -p /var/www/html
-COPY etc/nginx/html/ /var/www/html
-# forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
+RUN mkdir -p /etc/nginx/conf.d \
+    && mkdir -p /var/www/html \
+    && install -m644 html/index.html /usr/share/nginx/html/ \
+    && install -m644 html/50x.html /usr/share/nginx/html/ \
+    && install -m755 objs/nginx-debug /usr/sbin/nginx-debug \
+    && install -m755 objs/ngx_http_xslt_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_xslt_filter_module-debug.so \
+    && install -m755 objs/ngx_http_image_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_image_filter_module-debug.so \
+    && install -m755 objs/ngx_http_geoip_module-debug.so /usr/lib/nginx/modules/ngx_http_geoip_module-debug.so \
+    && install -m755 objs/ngx_http_perl_module-debug.so /usr/lib/nginx/modules/ngx_http_perl_module-debug.so \
+    && ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
+    && strip /usr/sbin/nginx* \
+    && strip /usr/lib/nginx/modules/*.so \
+    && runDeps="$( \
+        scanelf --needed --nobanner /usr/sbin/nginx /usr/lib/nginx/modules/*.so \
+            | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
+            | sort -u \
+            | xargs -r apk info --installed \
+            | sort -u \
+    )" \
+    # forward request and error logs to docker log collector
+    && ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
 # Allow Nginx to access /var/run/php-fpm/php-fpm.sock
 RUN usermod -aG www-data nginx
+
+### Start of Nginx setup
+#RUN mkdir -p /var/www/html
+#COPY etc/nginx/html/404.html /var/www/html
+# forward request and error logs to docker log collector
+#RUN ln -sf /dev/stdout /var/log/nginx/access.log
+#RUN ln -sf /dev/stderr /var/log/nginx/error.log
+# Allow Nginx to access /var/run/php-fpm/php-fpm.sock
+#RUN usermod -aG www-data nginx
 ### End of Nginx setup
 
 # Benchmarking tools (ab, siege, wrk)
 # https://www.nginx.com/blog/benefits-of-microcaching-nginx
-RUN apt-get -y install \
-    apache2-utils \
-    siege
-RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" \
-    && mkdir -p /usr/local/wrk \
-    && tar -xf "wrk.tar.gz" -C /usr/local/wrk --strip-components=1 \
-    && rm "wrk.tar.gz"* \
-    && cd /usr/local/wrk \
-    && make \
-    && chmod +x /usr/local/wrk/wrk \
-    && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
+#RUN apt-get -y install \
+#    apache2-utils \
+#    siege
+#RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" \
+#    && mkdir -p /usr/local/wrk \
+#    && tar -xf "wrk.tar.gz" -C /usr/local/wrk --strip-components=1 \
+#    && rm "wrk.tar.gz"* \
+#    && cd /usr/local/wrk \
+#    && make \
+#    && chmod +x /usr/local/wrk/wrk \
+#    && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
 
 ### Start of SSL
 RUN mkdir -p /etc/nginx/ssl
