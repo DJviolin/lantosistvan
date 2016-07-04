@@ -142,13 +142,13 @@ RUN mkdir -p /etc/nginx/conf.d \
     && ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
     && strip /usr/sbin/nginx* \
     && strip /usr/lib/nginx/modules/*.so \
-    && runDeps="$( \
-        scanelf --needed --nobanner /usr/sbin/nginx /usr/lib/nginx/modules/*.so \
-            | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
-            | sort -u \
-            | xargs -r apk info --installed \
-            | sort -u \
-    )" \
+    #&& runDeps="$( \
+    #    scanelf --needed --nobanner /usr/sbin/nginx /usr/lib/nginx/modules/*.so \
+    #        | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
+    #        | sort -u \
+    #        | xargs -r apk info --installed \
+    #        | sort -u \
+    #)" \
     # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
