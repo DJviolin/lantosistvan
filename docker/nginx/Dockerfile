@@ -7,6 +7,7 @@ MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Nginx built from source" Vendor="Istvan Lantos" Version="1.0"
 
 ENV NGINX_VERSION nginx-1.11.1.tar.gz
+ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
 ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
 ### Start of DEV environment deps
@@ -14,27 +15,38 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
     && apt-get -y install \
         make \
         gcc \
-        g++ \
+        #g++ \
         # Nginx packages
         openssl \
         libc6-dev \
+        libc6-dev-amd64 \
         libexpat1-dev \
-        libgd3 \
+        #libgd3 \
+        libgd-dev \
         libgeoip-dev \
         libpam0g-dev \
         libpcre3-dev \
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
-        zlib1g-dev
+        zlib1g-dev \
+        libperl-dev
 ### End of DEV environment deps
+
+# This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
+#RUN groupadd nginx \
+#    && useradd nginx -g nginx --system --no-create-home -s /bin/false
+RUN addgroup -S nginx \
+    && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx
 
 ### Start of Downloading source files
 # Nginx
 RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
-    && gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
-    && gpg --verify "$NGINX_VERSION.asc" \
+    #&& gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
+    && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" \
+    #&& gpg --verify "$NGINX_VERSION.asc" \
+    && gpg --batch --verify "$NGINX_VERSION.asc" "$NGINX_VERSION" \
     && mkdir -p /usr/src/nginx \
     && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
     && rm "$NGINX_VERSION"*
@@ -62,6 +74,7 @@ RUN cd /usr/src/nginx \
     && ./configure \
         --prefix=/etc/nginx \
         --sbin-path=/usr/sbin/nginx \
+        --modules-path=/usr/lib/nginx/modules \
         --conf-path=/etc/nginx/nginx.conf \
         --error-log-path=/var/log/nginx/error.log \
         --http-log-path=/var/log/nginx/access.log \
@@ -87,19 +100,27 @@ RUN cd /usr/src/nginx \
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
+        # \
+        --with-http_xslt_module=dynamic \
+        --with-http_image_filter_module=dynamic \
+        --with-http_geoip_module=dynamic \
+        --with-http_perl_module=dynamic \
+        # \
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
         --with-http_slice_module \
         --with-mail \
         --with-mail_ssl_module \
-        --with-openssl=/usr/src/openssl \
         --with-file-aio \
         --with-http_v2_module \
+        --with-ipv6 \
+        --with-openssl=/usr/src/openssl \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
-        --with-ipv6 \
+        # Enable Debugging \
+        --with-debug \
         # Added 3rd party modules \
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
@@ -115,9 +136,6 @@ COPY etc/nginx/html/ /var/www/html
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
-# This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
-RUN groupadd nginx \
-    && useradd nginx -g nginx --system --no-create-home -s /bin/false
 # Allow Nginx to access /var/run/php-fpm/php-fpm.sock
 RUN usermod -aG www-data nginx
 ### End of Nginx setup
@@ -139,6 +157,10 @@ RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" 
 ### Start of SSL
 RUN mkdir -p /etc/nginx/ssl
 # Let's Encrypt
+# https://github.com/nginxinc/docker-nginx/blob/master/mainline/alpine/Dockerfile
+# https://github.com/bringnow/docker-nginx-letsencrypt
+#
+# https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
 # http://letsencrypt.readthedocs.io/en/latest/using.html#command-line-options
 # http://letsencrypt.readthedocs.io/en/latest/using.html#webroot
 # http://letsencrypt.readthedocs.io/en/latest/using.html#nginx
@@ -147,10 +169,11 @@ RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "let
     && tar -xf "letsencrypt.tar.gz" -C /opt/letsencrypt --strip-components=1 \
     && rm "letsencrypt.tar.gz"*
 WORKDIR /opt/letsencrypt
-RUN ./certbot-auto certonly --noninteractive \
-    --authenticator webroot --webroot-path=/var/www/html \
-    --domain dev.cinematicheart.com \
-    --email kerozin.joe@gmail.com
+#RUN ./certbot-auto certonly --noninteractive \
+#    --authenticator webroot --webroot-path=/var/www/html \
+#    --domain dev.cinematicheart.com \
+#    --email kerozin.joe@gmail.com \
+#    --agree-tos
 #OpenSSL
 #RUN openssl req \
 #    -x509 -nodes -sha256 -days 365 \
