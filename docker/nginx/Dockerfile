@@ -139,13 +139,15 @@ RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" 
 ### Start of SSL
 RUN mkdir -p /etc/nginx/ssl
 # Let's Encrypt
+# http://letsencrypt.readthedocs.io/en/latest/using.html#command-line-options
+# http://letsencrypt.readthedocs.io/en/latest/using.html#webroot
+# http://letsencrypt.readthedocs.io/en/latest/using.html#nginx
 RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "letsencrypt.tar.gz" \
-    && mkdir -p /opt/letsencrypt \
-    && mkdir -p /.well-known \
+    && mkdir -p /opt/letsencrypt /var/www/html/.well-known \
     && tar -xf "letsencrypt.tar.gz" -C /opt/letsencrypt --strip-components=1 \
     && rm "letsencrypt.tar.gz"*
 WORKDIR /opt/letsencrypt
-RUN ./certbot certonly --noninteractive \
+RUN ./certbot-auto certonly --noninteractive \
     --authenticator webroot --webroot-path=/var/www/html \
     --domain dev.cinematicheart.com \
     --email kerozin.joe@gmail.com
