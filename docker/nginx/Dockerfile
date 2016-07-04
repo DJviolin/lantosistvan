@@ -145,7 +145,10 @@ RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "let
     && tar -xf "letsencrypt.tar.gz" -C /opt/letsencrypt --strip-components=1 \
     && rm "letsencrypt.tar.gz"*
 WORKDIR /opt/letsencrypt
-RUN ./letsencrypt-auto certonly -a webroot --webroot-path=/var/www/html -d example.com -d www.example.com
+RUN ./certbot certonly --noninteractive \
+    --authenticator webroot --webroot-path=/var/www/html \
+    --domain dev.cinematicheart.com \
+    --email kerozin.joe@gmail.com
 #OpenSSL
 #RUN openssl req \
 #    -x509 -nodes -sha256 -days 365 \
