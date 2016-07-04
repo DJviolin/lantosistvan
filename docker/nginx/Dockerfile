@@ -56,9 +56,10 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
     && tar -xf "$OPENSSL_VERSION" -C /usr/src/openssl --strip-components=1 \
     && rm "$OPENSSL_VERSION"*
 
+WORKDIR /usr/src/nginx
+
 # Configuring the build
-RUN cd /usr/src/nginx \
-    && ./configure \
+RUN ./configure \
         --prefix=/etc/nginx \
         --sbin-path=/usr/sbin/nginx \
         --modules-path=/usr/lib/nginx/modules \
@@ -111,11 +112,8 @@ RUN cd /usr/src/nginx \
         # Added 3rd party modules \
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
-    && echo -e "Configuration done!"
-
-WORKDIR /usr/src/nginx
-
-RUN make \
+    && echo -e "Configuration done!" \
+    && make \
     && make install
 
 RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
