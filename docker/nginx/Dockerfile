@@ -19,7 +19,7 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         # Nginx packages
         openssl \
         libc6-dev \
-        libc6-dev-amd64 \
+        #libc6-dev-amd64 \
         libexpat1-dev \
         #libgd3 \
         libgd-dev \
@@ -32,12 +32,6 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         zlib1g-dev \
         libperl-dev
 ### End of DEV environment deps
-
-# This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
-#RUN groupadd nginx \
-#    && useradd nginx -g nginx --system --no-create-home -s /bin/false
-RUN addgroup -S nginx \
-    && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx
 
 ### Start of Downloading source files
 # Nginx
@@ -131,7 +125,6 @@ RUN cd /usr/src/nginx \
     && make install
 
 RUN mkdir -p /etc/nginx/conf.d \
-    && mkdir -p /var/www/html \
     && install -m644 html/index.html /usr/share/nginx/html/ \
     && install -m644 html/50x.html /usr/share/nginx/html/ \
     && install -m755 objs/nginx-debug /usr/sbin/nginx-debug \
@@ -141,29 +134,32 @@ RUN mkdir -p /etc/nginx/conf.d \
     && install -m755 objs/ngx_http_perl_module-debug.so /usr/lib/nginx/modules/ngx_http_perl_module-debug.so \
     && ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
     && strip /usr/sbin/nginx* \
-    && strip /usr/lib/nginx/modules/*.so \
+    && strip /usr/lib/nginx/modules/*.so
     #&& runDeps="$( \
     #    scanelf --needed --nobanner /usr/sbin/nginx /usr/lib/nginx/modules/*.so \
     #        | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
     #        | sort -u \
     #        | xargs -r apk info --installed \
     #        | sort -u \
-    #)" \
-    # forward request and error logs to docker log collector
-    && ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
+    #)"
 
-# Allow Nginx to access /var/run/php-fpm/php-fpm.sock
-RUN usermod -aG www-data nginx
+#RUN groupadd nginx \
+#    && useradd nginx -g nginx --system --no-create-home -s /bin/false
+#RUN addgroup -S nginx \
+#    && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx
 
 ### Start of Nginx setup
-#RUN mkdir -p /var/www/html
-#COPY etc/nginx/html/404.html /var/www/html
-# forward request and error logs to docker log collector
-#RUN ln -sf /dev/stdout /var/log/nginx/access.log
-#RUN ln -sf /dev/stderr /var/log/nginx/error.log
-# Allow Nginx to access /var/run/php-fpm/php-fpm.sock
-#RUN usermod -aG www-data nginx
+RUN \
+    # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
+    && groupadd nginx \
+    && useradd nginx --defaults --system --home-dir /var/cache/nginx --shell /sbin/nologin --gid nginx
+    mkdir -p /var/www/html \
+    # forward request and error logs to docker log collector
+    && ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log \
+    # Allow Nginx to access /var/run/php-fpm/php-fpm.sock
+    && usermod -aG www-data nginx
+COPY etc/nginx/html/404.html /var/www/html
 ### End of Nginx setup
 
 # Benchmarking tools (ab, siege, wrk)
@@ -208,7 +204,8 @@ WORKDIR /opt/letsencrypt
 #    && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
 ### End of SSL
 
-RUN rm -rf /usr/src/* /var/lib/apt/lists/*
+RUN rm -rf /usr/src/* /var/lib/apt/lists/* \
+    && autoremove
 
 WORKDIR /var/www
 
