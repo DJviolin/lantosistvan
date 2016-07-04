@@ -47,12 +47,20 @@ services:
       front-tier:
         ipv4_address: 172.16.238.10
         #ipv6_address: 2001:3984:3989::10
+  letsencrypt:
+    build: ./letsencrypt
+    image: lantosistvan_letsencrypt
+    container_name: lantosistvan_letsencrypt
+    depends_on:
+      - nginx
+    networks:
+      - front-tier
   app:
     build: ./app
     image: lantosistvan_app
     container_name: lantosistvan_app
     depends_on:
-      - nginx
+      - letsencrypt
     environment:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
