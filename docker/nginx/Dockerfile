@@ -88,12 +88,12 @@ RUN ./configure \
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        # \
+        #
         --with-http_xslt_module=dynamic \
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        # \
+        #
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -107,9 +107,9 @@ RUN ./configure \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
-        # Enable Debugging \
-        --with-debug \
-        # Added 3rd party modules \
+        # Enable Debugging
+        #--with-debug \
+        # Added 3rd party modules
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
     && echo -e "Configuration done!" \
