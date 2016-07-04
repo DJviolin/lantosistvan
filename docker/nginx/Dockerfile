@@ -124,8 +124,7 @@ RUN cd /usr/src/nginx \
     && make \
     && make install
 
-RUN mkdir -p /etc/nginx/conf.d \
-    && install -m644 html/index.html /usr/share/nginx/html/ \
+RUN install -m644 html/index.html /usr/share/nginx/html/ \
     && install -m644 html/50x.html /usr/share/nginx/html/ \
     && install -m755 objs/nginx-debug /usr/sbin/nginx-debug \
     && install -m755 objs/ngx_http_xslt_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_xslt_filter_module-debug.so \
@@ -153,7 +152,7 @@ RUN \
     # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
     && groupadd nginx \
     && useradd nginx --defaults --system --home-dir /var/cache/nginx --shell /sbin/nologin --gid nginx
-    mkdir -p /var/www/html \
+    mkdir -p /etc/nginx/conf.d /var/www/html \
     # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
