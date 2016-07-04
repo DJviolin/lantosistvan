@@ -10,18 +10,14 @@ ENV NGINX_VERSION nginx-1.11.1.tar.gz
 ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
 ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
-### Start of DEV environment deps
 RUN apt-get -y update && apt-get -y dist-upgrade \
     && apt-get -y install \
         make \
         gcc \
-        #g++ \
         # Nginx packages
         openssl \
         libc6-dev \
-        #libc6-dev-amd64 \
         libexpat1-dev \
-        #libgd3 \
         libgd-dev \
         libgeoip-dev \
         libpam0g-dev \
@@ -30,38 +26,35 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         libxml2-dev \
         libxslt1-dev \
         zlib1g-dev \
-        libperl-dev
-### End of DEV environment deps
-
-### Start of Downloading source files
-# Nginx
-RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
+        libperl-dev \
+    # Nginx
+    && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
-    #&& gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
+    ####&& gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
     && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" \
-    #&& gpg --verify "$NGINX_VERSION.asc" \
+    ####&& gpg --verify "$NGINX_VERSION.asc" \
     && gpg --batch --verify "$NGINX_VERSION.asc" "$NGINX_VERSION" \
     && mkdir -p /usr/src/nginx \
     && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
-    && rm "$NGINX_VERSION"*
-# Nginx 3rd party modules
-RUN curl -fSL "https://github.com/FRiCKLE/ngx_cache_purge/archive/master.tar.gz" -o "ngx_cache_purge.tar.gz" \
+    && rm "$NGINX_VERSION"* \
+    # ngx_cache_purge
+    && curl -fSL "https://github.com/FRiCKLE/ngx_cache_purge/archive/master.tar.gz" -o "ngx_cache_purge.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/ngx_cache_purge \
     && tar -xf "ngx_cache_purge.tar.gz" -C /usr/src/nginx-modules/ngx_cache_purge --strip-components=1 \
-    && rm "ngx_cache_purge.tar.gz"*
-RUN curl -fSL "https://github.com/openresty/srcache-nginx-module/archive/master.tar.gz" -o "ngx_srcache.tar.gz" \
+    && rm "ngx_cache_purge.tar.gz"* \
+    # ngx_srcache
+    && curl -fSL "https://github.com/openresty/srcache-nginx-module/archive/master.tar.gz" -o "ngx_srcache.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/ngx_srcache \
     && tar -xf "ngx_srcache.tar.gz" -C /usr/src/nginx-modules/ngx_srcache --strip-components=1 \
-    && rm "ngx_srcache.tar.gz"*
-# OpenSSL library sources
-RUN curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION" -o "$OPENSSL_VERSION" \
+    && rm "ngx_srcache.tar.gz"* \
+    # OpenSSL library sources
+    && curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION" -o "$OPENSSL_VERSION" \
     && curl -fSL "https://www.openssl.org/source/$OPENSSL_VERSION.asc" -o "$OPENSSL_VERSION.asc" \
     && gpg --keyserver pgpkeys.mit.edu --recv-key 0E604491 \
     && gpg --verify "$OPENSSL_VERSION.asc" \
     && mkdir -p /usr/src/openssl \
     && tar -xf "$OPENSSL_VERSION" -C /usr/src/openssl --strip-components=1 \
     && rm "$OPENSSL_VERSION"*
-### End of Downloading source files
 
 # Configuring the build
 RUN cd /usr/src/nginx \
@@ -120,12 +113,14 @@ RUN cd /usr/src/nginx \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
     && echo -e "Configuration done!"
 
-RUN cd /usr/src/nginx \
-    && make \
+WORKDIR /usr/src/nginx
+
+RUN make \
     && make install
 
-RUN install -m644 html/index.html /var/www/html \
-    && install -m644 html/50x.html /var/www/html \
+RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
+    && install -m644 /usr/src/nginx/html/index.html /var/www/html \
+    && install -m644 /usr/src/nginx/html/50x.html /var/www/html \
     && install -m755 objs/nginx-debug /usr/sbin/nginx-debug \
     && install -m755 objs/ngx_http_xslt_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_xslt_filter_module-debug.so \
     && install -m755 objs/ngx_http_image_filter_module-debug.so /usr/lib/nginx/modules/ngx_http_image_filter_module-debug.so \
@@ -148,11 +143,9 @@ RUN install -m644 html/index.html /var/www/html \
 #    && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx
 
 ### Start of Nginx setup
-RUN \
-    # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
-    && groupadd nginx \
+# This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
+RUN groupadd nginx \
     && useradd nginx --defaults --system --home-dir /var/cache/nginx --shell /sbin/nologin --gid nginx
-    mkdir -p /etc/nginx/conf.d /var/www/html \
     # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
@@ -175,8 +168,9 @@ COPY etc/nginx/html/404.html /var/www/html
 #    && chmod +x /usr/local/wrk/wrk \
 #    && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
 
+WORKDIR /root
+
 ### Start of SSL
-RUN mkdir -p /etc/nginx/ssl
 # Let's Encrypt
 # https://github.com/nginxinc/docker-nginx/blob/master/mainline/alpine/Dockerfile
 # https://github.com/bringnow/docker-nginx-letsencrypt
