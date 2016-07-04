@@ -110,7 +110,8 @@ RUN cd /usr/src/nginx \
     && make install
 
 ### Start of Nginx setup
-COPY etc/nginx/html/404.html /etc/nginx/html/
+RUN mkdir -p /var/www/html
+COPY etc/nginx/html/ /var/www/html
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
@@ -135,12 +136,23 @@ RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" 
     && chmod +x /usr/local/wrk/wrk \
     && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
 
-RUN mkdir -p /etc/nginx/ssl \
-    && openssl req \
-    -x509 -nodes -sha256 -days 365 \
-    -subj '/C=HU/ST=Pest/L=Budapest/CN=localhost.cinematicheart.com' \
-    -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
-    && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
+### Start of SSL
+RUN mkdir -p /etc/nginx/ssl
+# Let's Encrypt
+RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "letsencrypt.tar.gz" \
+    && mkdir -p /opt/letsencrypt \
+    && mkdir -p /.well-known \
+    && tar -xf "letsencrypt.tar.gz" -C /opt/letsencrypt --strip-components=1 \
+    && rm "letsencrypt.tar.gz"*
+WORKDIR /opt/letsencrypt
+RUN ./letsencrypt-auto certonly -a webroot --webroot-path=/var/www/html -d example.com -d www.example.com
+#OpenSSL
+#RUN openssl req \
+#    -x509 -nodes -sha256 -days 365 \
+#    -subj '/C=HU/ST=Pest/L=Budapest/CN=dev.cinematicheart.com' \
+#    -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
+#    && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
+### End of SSL
 
 RUN rm -rf /usr/src/* /var/lib/apt/lists/*
 

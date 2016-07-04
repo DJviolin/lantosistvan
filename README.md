@@ -56,6 +56,13 @@ Exec into a running container:
 $ docker exec -it lantosistvan_app /bin/bash
 ```
 
+Getting IP inside container:
+
+```
+$ ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+$ curl -4 icanhazip.com
+```
+
 Build an image:
 
 ```
@@ -237,7 +244,9 @@ $ curl ipecho.net/plain ; echo
 $ dig +short myip.opendns.com @resolver1.opendns.com
 ```
 
+Nginx common misconfiguration errors:
 
+https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/#root-inside-location-block
 
 Nginx Mail Server:
 
@@ -256,6 +265,8 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-setup-postfi
 Securing Nginx:
 
 https://www.nginx.com/blog/7-tips-for-faster-http2-performance/
+
+https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
 
 https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
 
