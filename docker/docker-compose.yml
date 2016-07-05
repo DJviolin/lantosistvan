@@ -38,7 +38,7 @@ services:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
       #- PRIVATE_IP_DOCKER=172.16.238.11
-      - PRIVATE_IP_DOCKER=173.16.238.11
+      - PRIVATE_IP_DOCKER=172.16.238.11
       - PORT=8081
     command: /bin/dash -c "npm install && npm start"
     ####ports:
@@ -51,8 +51,8 @@ services:
       #  ipv4_address: 172.16.238.11
       #  ipv6_address: 2001:3984:3989::11
       lantosistvan_back:
-        ipv4_address: 173.16.238.11
-        ipv6_address: 2002:3984:3989::11
+        ipv4_address: 172.16.238.11
+        ipv6_address: 2001:3984:3989::11
   nginx:
     build: ./nginx
     image: lantosistvan_nginx
@@ -74,11 +74,11 @@ services:
      ####- "localhost.cinematicheart.com:127.0.0.1"
     networks:
       lantosistvan_back:
-        ipv4_address: 173.16.238.10
-        ipv6_address: 2002:3984:3989::10
-      lantosistvan_front:
         ipv4_address: 172.16.238.10
         ipv6_address: 2001:3984:3989::10
+      lantosistvan_front:
+        ipv4_address: 173.16.238.10
+        ipv6_address: 2002:3984:3989::10
   #letsencrypt:
   #  build: ./letsencrypt
   #  image: lantosistvan_letsencrypt
@@ -87,8 +87,9 @@ services:
   #    - nginx
   #  networks:
   #    - lantosistvan_front
+
 networks:
-  lantosistvan_front:
+  lantosistvan_back:
     driver: bridge
     driver_opts:
       com.docker.network.enable_ipv6: "true"
@@ -108,7 +109,7 @@ networks:
         #    host1: 172.28.1.5
         #    host2: 172.28.1.6
         #    host3: 172.28.1.7
-  lantosistvan_back:
+  lantosistvan_front:
     driver: bridge
     driver_opts:
       com.docker.network.enable_ipv6: "true"
