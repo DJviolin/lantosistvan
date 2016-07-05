@@ -65,12 +65,11 @@ services:
       - "80:80"
       - "443:443"
       ####- "8080:8080"
-    volumes_from:
-      - app:ro
     volumes:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/etc/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ../app/public:/var/www/html/public:ro
     ####extra_hosts:
      #- "localhost.cinematicheart.com:172.16.238.10"
      ####- "localhost.cinematicheart.com:127.0.0.1"
