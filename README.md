@@ -226,6 +226,12 @@ run the app on windows:
 
 ##### TODO
 
+Docker + Nginx + Reverse Proxy:
+
+https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
+
+
+
 nginScript:
 https://www.nginx.com/blog/launching-nginscript-and-looking-ahead/
 
