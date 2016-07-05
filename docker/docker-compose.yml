@@ -45,17 +45,18 @@ services:
      #- "localhost.cinematicheart.com:172.16.238.10"
      - "localhost.cinematicheart.com:127.0.0.1"
     networks:
-      front-tier:
+      front:
         ipv4_address: 172.16.238.10
-        #ipv6_address: 2001:3984:3989::10
-  letsencrypt:
-    build: ./letsencrypt
-    image: lantosistvan_letsencrypt
-    container_name: lantosistvan_letsencrypt
-    depends_on:
-      - nginx
-    networks:
-      - front-tier
+        ipv6_address: 2001:3984:3989::10
+      - back
+  #letsencrypt:
+  #  build: ./letsencrypt
+  #  image: lantosistvan_letsencrypt
+  #  container_name: lantosistvan_letsencrypt
+  #  depends_on:
+  #    - nginx
+  #  networks:
+  #    - front
   app:
     build: ./app
     image: lantosistvan_app
@@ -73,14 +74,14 @@ services:
     volumes:
       - "../app:/root/www/lantosistvan:rw"
     networks:
-      front-tier:
+      front:
         ipv4_address: 172.16.238.11
-        #ipv6_address: 2001:3984:3989::11
+        ipv6_address: 2001:3984:3989::11
 networks:
-  front-tier:
+  front:
     driver: bridge
-    #driver_opts:
-    #  com.docker.network.enable_ipv6: "true"
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
     ipam:
       driver: default
       config:
@@ -97,5 +98,5 @@ networks:
         #    host1: 172.28.1.5
         #    host2: 172.28.1.6
         #    host3: 172.28.1.7
-  #back-tier:
-  #  driver: bridge
+  back:
+    driver: bridge
