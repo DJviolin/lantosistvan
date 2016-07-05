@@ -115,7 +115,7 @@ RUN ./configure \
         # Added 3rd party modules
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
-        --add-module=/usr/src/nginx-modules/njs \
+        --add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo -e "Configuration done!" \
     && make \
     && make install
