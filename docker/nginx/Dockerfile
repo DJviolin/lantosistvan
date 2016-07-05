@@ -30,9 +30,7 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
     # Nginx
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
-    ####&& gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
     && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" \
-    ####&& gpg --verify "$NGINX_VERSION.asc" \
     && gpg --batch --verify "$NGINX_VERSION.asc" "$NGINX_VERSION" \
     && mkdir -p /usr/src/nginx \
     && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
@@ -54,7 +52,12 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
     && gpg --verify "$OPENSSL_VERSION.asc" \
     && mkdir -p /usr/src/openssl \
     && tar -xf "$OPENSSL_VERSION" -C /usr/src/openssl --strip-components=1 \
-    && rm "$OPENSSL_VERSION"*
+    && rm "$OPENSSL_VERSION"* \
+    # nginScript
+    && curl -fSL "http://hg.nginx.org/njs/archive/tip.tar.gz" -o "njs.tar.gz" \
+    && mkdir -p /usr/src/nginx-modules/njs \
+    && tar -xf "njs.tar.gz" -C /usr/src/nginx-modules/njs --strip-components=1 \
+    && rm "njs.tar.gz"*
 
 WORKDIR /usr/src/nginx
 
@@ -112,6 +115,7 @@ RUN ./configure \
         # Added 3rd party modules
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
+        --add-module=/usr/src/nginx-modules/njs \
     && echo -e "Configuration done!" \
     && make \
     && make install
