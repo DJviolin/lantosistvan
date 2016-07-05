@@ -43,7 +43,7 @@ services:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/etc/nginx/conf.d:/etc/nginx/conf.d:ro
-    extra_hosts:
+    ####extra_hosts:
      #- "localhost.cinematicheart.com:172.16.238.10"
      ####- "localhost.cinematicheart.com:127.0.0.1"
     networks:
