@@ -324,7 +324,7 @@ app.use('/:lang', langRouter, langClass);
 /////////////////////////////////////////////////////////////
 
 // Static (before routes)
-app.use(serveStatic(__dirname + '/public'));
+//app.use(serveStatic(__dirname + '/public'));
 
 app.use('/:lang/blog', blog);
 app.use('/blog', (req, res) => {

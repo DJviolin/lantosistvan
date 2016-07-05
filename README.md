@@ -230,6 +230,8 @@ Docker + Nginx + Reverse Proxy:
 
 https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
 
+https://developer.atlassian.com/blog/2016/01/docker-cluster-reverse-proxy-1/
+
 
 
 nginScript:
