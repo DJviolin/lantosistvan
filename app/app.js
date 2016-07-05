@@ -5,8 +5,8 @@
 /////////////////////////////////////////////////////////////
 
 const express        = require('express'),
-      serveStatic    = require('serve-static'),
-      serveIndex     = require('serve-index'),
+      //serveStatic    = require('serve-static'),
+      //serveIndex     = require('serve-index'),
       bodyParser     = require('body-parser'),
       //cookieParser   = require('cookie-parser'),
       methodOverride = require('method-override'),
@@ -185,7 +185,7 @@ app.locals.actualYear = new Date().getFullYear();
 /////////////////////////////////////////////////////////////
 
 // FTP
-app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
+//app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 // API
 app.use('/api', api);
 
