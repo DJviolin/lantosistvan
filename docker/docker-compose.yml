@@ -48,7 +48,9 @@ services:
       front:
         ipv4_address: 172.16.238.10
         ipv6_address: 2001:3984:3989::10
-      - back
+      back:
+        ipv4_address: 173.16.238.10
+        ipv6_address: 2002:3984:3989::10
   #letsencrypt:
   #  build: ./letsencrypt
   #  image: lantosistvan_letsencrypt
@@ -62,11 +64,12 @@ services:
     image: lantosistvan_app
     container_name: lantosistvan_app
     depends_on:
-      - letsencrypt
+      #- letsencrypt
+      - nginx
     environment:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
-      - PRIVATE_IP_DOCKER=172.16.238.11
+      - PRIVATE_IP_DOCKER=173.16.238.11
       - PORT=8081
     command: /bin/dash -c "npm install && npm start"
     ports:
@@ -74,9 +77,9 @@ services:
     volumes:
       - "../app:/root/www/lantosistvan:rw"
     networks:
-      front:
-        ipv4_address: 172.16.238.11
-        ipv6_address: 2001:3984:3989::11
+      back:
+        ipv4_address: 173.16.238.11
+        ipv6_address: 2002:3984:3989::11
 networks:
   front:
     driver: bridge
@@ -100,3 +103,21 @@ networks:
         #    host3: 172.28.1.7
   back:
     driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
+    ipam:
+      driver: default
+      config:
+        - subnet: 173.16.238.0/24
+          gateway: 173.16.238.1
+          #aux_addresses:
+          #  localhost.cinematicheart.com: 172.16.238.10
+        - subnet: 2002:3984:3989::/64
+          gateway: 2002:3984:3989::1
+        #- subnet: 172.28.0.0/16
+        #  ip_range: 172.28.5.0/24
+        #  gateway: 172.28.5.254
+        #  aux_addresses:
+        #    host1: 172.28.1.5
+        #    host2: 172.28.1.6
+        #    host3: 172.28.1.7
