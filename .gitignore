@@ -30,7 +30,7 @@ app/node_modules
 app/npm-debug.log
 
 # User added directories
-app/public/images/art
+#app/public/images/art
 app/tls
 app/config/mail.js
 app/database/rss_hd.xml
