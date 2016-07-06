@@ -107,15 +107,15 @@ RUN ./configure \
         --with-http_v2_module \
         --with-ipv6 \
         --with-openssl=/usr/src/openssl \
-        #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
-        --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        #--with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         # Enable Debugging
         #--with-debug \
         # Added 3rd party modules
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
-        --add-module=/usr/src/nginx-modules/njs*/nginx \
+        #--add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo -e "Configuration done!" \
     && make \
     && make install
