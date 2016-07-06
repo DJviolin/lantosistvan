@@ -17,45 +17,22 @@ const app   = require('../app'),
 http.globalAgent.maxSockets = Infinity
 
 /////////////////////////////////////////////////////////////
-// LET'S ENCRYPT
-// https://github.com/nodejs/node-gyp
-// https://letsencrypt.readthedocs.org/en/latest/using.html#manual
-// https://www.npmjs.com/package/letsencrypt-express
-// https://www.npmjs.com/package/letsencrypt
-// https://www.npmjs.com/package/letsencrypt-cli
-//
-// https://lucaschmid.net/anotherblog/letsencrypt-express
-// https://community.letsencrypt.org/t/node-js-configuration/5175/8
-/////////////////////////////////////////////////////////////
-
-/*const fs = require('fs'),
-    https = require('https');
-const options = {
-  key: fs.readFileSync('../tls/privkey.pem'),
-  cert: fs.readFileSync('../tls/fullchain.pem'),
-  ca: fs.readFileSync('../tls/chain.pem')
-};*/
-
-/////////////////////////////////////////////////////////////
 // INIT
 /////////////////////////////////////////////////////////////
 
 // Get port from environment and store in Express
-//const port = normalizePort(process.env.PORT || '3000');
 const port = normalizePort(process.env.PORT || '8081');
-//const port = normalizePort(process.env.npm_package_config_port || '3000');
 app.set('port', port);
 // http://expressjs.com/en/4x/api.html#app.set
 // http://expressjs.com/en/guide/behind-proxies.html
+// http://stackoverflow.com/a/23426060/1442219
 app.set('trust proxy', true);
 
 // Create HTTP server
 const server = http.createServer(app);
-//const server = https.createServer(options, app); // Let's Encrypt
 
 // Listen on provided port, on all network interfaces
 //server.listen(port);
-//server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
 server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
 server.on('error', onError);
 server.on('listening', onListening);
