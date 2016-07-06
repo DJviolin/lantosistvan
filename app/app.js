@@ -182,6 +182,9 @@ app.get('/clearcookie', (req, res) => { // http://127.0.0.1:3000/clearcookie
 app.locals.siteName = 'Lantos István Photography';
 // Returns actual year
 app.locals.actualYear = new Date().getFullYear();
+// http://expressjs.com/en/4x/api.html#app.set
+// http://expressjs.com/en/guide/behind-proxies.html
+//app.set('trust proxy', true);
 
 /////////////////////////////////////////////////////////////
 // INIT ROUTES BEFORE req.params.lang

@@ -45,6 +45,9 @@ const options = {
 const port = normalizePort(process.env.PORT || '8081');
 //const port = normalizePort(process.env.npm_package_config_port || '3000');
 app.set('port', port);
+// http://expressjs.com/en/4x/api.html#app.set
+// http://expressjs.com/en/guide/behind-proxies.html
+app.set('trust proxy', true);
 
 // Create HTTP server
 const server = http.createServer(app);
