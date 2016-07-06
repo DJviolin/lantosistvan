@@ -27,6 +27,7 @@ app.set('port', port);
 // http://expressjs.com/en/guide/behind-proxies.html
 // http://stackoverflow.com/a/23426060/1442219
 app.set('trust proxy', true);
+app.set('x-powered-by', false);
 
 // Create HTTP server
 const server = http.createServer(app);
