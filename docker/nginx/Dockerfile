@@ -107,15 +107,15 @@ RUN ./configure \
         --with-http_v2_module \
         --with-ipv6 \
         --with-openssl=/usr/src/openssl \
-        --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
-        #--with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         # Enable Debugging
         #--with-debug \
         # Added 3rd party modules
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
-        #--add-module=/usr/src/nginx-modules/njs*/nginx \
+        --add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo -e "Configuration done!" \
     && make \
     && make install
@@ -131,6 +131,7 @@ RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
     && install -m644 /usr/src/nginx/html/index.html /var/www/html \
     && install -m644 /usr/src/nginx/html/50x.html /var/www/html \
     && install -m644 /etc/nginx/html/404.html /var/www/html \
+    && rm -rf /etc/nginx/html/* \
     # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
     && groupadd nginx \
     && useradd nginx --gid nginx --system --home-dir /var/cache/nginx --shell /sbin/nologin \
