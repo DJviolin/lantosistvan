@@ -51,6 +51,17 @@ const app = express();
 //app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////
+// DEVELOPMENT
+/////////////////////////////////////////////////////////////
+
+if (process.env.NODE_ENV !== 'production') {
+  const serveStatic = require('serve-static');
+  app.use(serveStatic(__dirname + '/public'));
+  console.log('serveStatic is ON!');
+};
+console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
+
+/////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP - AKA: V(iew)
 /////////////////////////////////////////////////////////////
 
