@@ -410,3 +410,15 @@ $ ab -n <num_requests> -c <concurrency> <addr>:<port><path>
 $ ab -n 1000 -c 100 http://localhost:4567/
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
 ```
+
+http://download.joedog.org/siege/siege-latest.tar.gz
+
+https://github.com/JoeDog/siege
+
+```
+$ siege -r5 -c100 -d10 -i http://127.0.0.1/hu
+$ siege -r5 -c100 -b http://127.0.0.1/hu
+# Real World:
+$ siege -c50 -d10 -i http://127.0.0.1/ftp
+```
+
