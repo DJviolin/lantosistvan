@@ -112,8 +112,7 @@ RUN ./configure \
         --with-http_v2_module \
         --with-ipv6 \
         --with-openssl=/usr/src/openssl \
-        #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
-        --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         # Enable Debugging
         #--with-debug \
@@ -125,11 +124,6 @@ RUN ./configure \
     && make \
     && make install
 
-#RUN groupadd nginx \
-#    && useradd nginx -g nginx --system --no-create-home -s /bin/false
-#RUN addgroup -S nginx \
-#    && adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx
-
 ### Start of Nginx setup
 COPY etc/nginx/html/404.html /etc/nginx/html
 RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
@@ -139,7 +133,8 @@ RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
     && rm -rf /etc/nginx/html/* \
     # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
     && groupadd nginx \
-    && useradd nginx --gid nginx --system --home-dir /var/cache/nginx --shell /sbin/nologin \
+    #&& useradd nginx --gid nginx --system --home-dir /var/cache/nginx --shell /sbin/nologin \
+    && useradd nginx --gid nginx --system --no-create-home --shell /sbin/nologin \
     # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
