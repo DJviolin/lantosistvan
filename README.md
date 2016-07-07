@@ -426,8 +426,6 @@ Nginx default build flags:
 
 ```
 nginx version: nginx/1.11.1
-root@45cace2022b7:/# nginx -V
-nginx version: nginx/1.11.1
 built by gcc 4.9.2 (Debian 4.9.2-10)
 built with OpenSSL 1.0.1k 8 Jan 2015 (running with OpenSSL 1.0.1t  3 May 2016)
 TLS SNI support enabled
