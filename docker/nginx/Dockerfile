@@ -96,12 +96,10 @@ RUN ./configure \
         --with-http_secure_link_module \
         --with-http_stub_status_module \
         --with-http_auth_request_module \
-        #
         --with-http_xslt_module=dynamic \
         --with-http_image_filter_module=dynamic \
         --with-http_geoip_module=dynamic \
         --with-http_perl_module=dynamic \
-        #
         --with-threads \
         --with-stream \
         --with-stream_ssl_module \
@@ -109,8 +107,8 @@ RUN ./configure \
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-http_v2_module \
         --with-ipv6 \
+        --with-http_v2_module \
         --with-openssl=/usr/src/openssl \
         --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
