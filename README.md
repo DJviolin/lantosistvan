@@ -386,3 +386,27 @@ docker rm -f $(docker ps -a -q)
 # Delete all images
 docker rmi -f $(docker images -q)
 ```
+
+
+Benchmark:
+
+ab, siege, wrk
+
+https://github.com/wg/wrk
+
+https://github.com/JoeDog/siege
+
+http://lionet.livejournal.com/99984.html
+
+http://www.cyberciti.biz/tips/howto-performance-benchmarks-a-web-server.html
+
+https://www.digitalocean.com/community/tutorials/how-to-use-apachebench-to-do-load-testing-on-an-ubuntu-13-10-vps
+
+https://www.digitalocean.com/community/tutorials/how-to-use-apachebench-to-do-load-testing-on-an-arch-linux-vps
+
+```
+$ apt-get install apache2-utils
+$ ab -n <num_requests> -c <concurrency> <addr>:<port><path>
+$ ab -n 1000 -c 100 http://localhost:4567/
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+```
