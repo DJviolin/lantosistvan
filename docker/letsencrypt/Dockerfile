@@ -24,6 +24,13 @@ RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "let
 #    --email kerozin.joe@gmail.com \
 #    --agree-tos
 
+#OpenSSL
+#RUN openssl req \
+#    -x509 -nodes -sha256 -days 365 \
+#    -subj '/C=HU/ST=Pest/L=Budapest/CN=dev.cinematicheart.com' \
+#    -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
+#    && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
+
 WORKDIR /opt/letsencrypt
 
 CMD ["tail", "-f", "/dev/null"]

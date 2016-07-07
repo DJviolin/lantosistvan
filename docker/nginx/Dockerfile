@@ -157,33 +157,6 @@ RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
 
 WORKDIR /root
 
-### Start of SSL
-# Let's Encrypt
-# https://github.com/nginxinc/docker-nginx/blob/master/mainline/alpine/Dockerfile
-# https://github.com/bringnow/docker-nginx-letsencrypt
-#
-# https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
-# http://letsencrypt.readthedocs.io/en/latest/using.html#command-line-options
-# http://letsencrypt.readthedocs.io/en/latest/using.html#webroot
-# http://letsencrypt.readthedocs.io/en/latest/using.html#nginx
-#RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "letsencrypt.tar.gz" \
-#    && mkdir -p /opt/letsencrypt /var/www/html/.well-known \
-#    && tar -xf "letsencrypt.tar.gz" -C /opt/letsencrypt --strip-components=1 \
-#    && rm "letsencrypt.tar.gz"*
-#WORKDIR /opt/letsencrypt
-#RUN ./certbot-auto certonly --noninteractive \
-#    --authenticator webroot --webroot-path=/var/www/html \
-#    --domain dev.cinematicheart.com \
-#    --email kerozin.joe@gmail.com \
-#    --agree-tos
-#OpenSSL
-#RUN openssl req \
-#    -x509 -nodes -sha256 -days 365 \
-#    -subj '/C=HU/ST=Pest/L=Budapest/CN=dev.cinematicheart.com' \
-#    -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
-#    && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
-### End of SSL
-
 RUN rm -rf /usr/src/* /var/lib/apt/lists/* \
     && apt-get -y clean \
     && apt-get -y autoclean \
