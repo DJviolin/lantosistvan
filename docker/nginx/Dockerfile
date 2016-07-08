@@ -10,6 +10,18 @@ ENV NGINX_VERSION nginx-1.11.1.tar.gz
 ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
 ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
+RUN echo "\
+# http://apt.llvm.org/\n\
+deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
+deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
+# 3.7\n\
+deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
+deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
+# 3.8\n\
+deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main\n\
+deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main" > /etc/apt/sources.list.d/clang.list \
+&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" -o "llvm-snapshot.gpg.key" | apt-key add -
+
 RUN apt-get -y update && apt-get -y dist-upgrade \
     && apt-get -y install \
         make \
@@ -27,6 +39,9 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         libxslt1-dev \
         zlib1g-dev \
         libperl-dev \
+        # Clang development branch
+        clang-3.9 \
+        lldb-3.9 \
     # Nginx
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
@@ -110,6 +125,7 @@ RUN ./configure \
         --with-ipv6 \
         --with-http_v2_module \
         --with-openssl=/usr/src/openssl \
+        --with-cc=clang \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
