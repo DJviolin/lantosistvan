@@ -27,33 +27,33 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   3.142 seconds
+Time taken for tests:   2.825 seconds
 Complete requests:      1000
 Failed requests:        0
-Total transferred:      19278003 bytes
+Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    318.25 [#/sec] (mean)
-Time per request:       314.219 [ms] (mean)
-Time per request:       3.142 [ms] (mean, across all concurrent requests)
-Transfer rate:          5991.43 [Kbytes/sec] received
+Requests per second:    353.96 [#/sec] (mean)
+Time per request:       282.518 [ms] (mean)
+Time per request:       2.825 [ms] (mean, across all concurrent requests)
+Transfer rate:          6663.70 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   18  81.6      3     536
-Processing:     7  284 120.7    263     712
-Waiting:        5  275 113.3    258     699
-Total:          8  302 135.2    268     775
+Connect:        1   13  63.4      3     538
+Processing:    78  259  52.6    268     358
+Waiting:       36  251  57.0    259     355
+Total:        107  271  83.6    272     852
 
 Percentage of the requests served within a certain time (ms)
-  50%    268
-  66%    288
-  75%    303
-  80%    307
-  90%    540
-  95%    659
-  98%    717
-  99%    736
- 100%    775 (longest request)
+  50%    272
+  66%    287
+  75%    293
+  80%    300
+  90%    321
+  95%    322
+  98%    357
+  99%    781
+ 100%    852 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -83,33 +83,89 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.703 seconds
+Time taken for tests:   2.736 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    369.93 [#/sec] (mean)
-Time per request:       270.324 [ms] (mean)
-Time per request:       2.703 [ms] (mean, across all concurrent requests)
-Transfer rate:          6964.29 [Kbytes/sec] received
+Requests per second:    365.55 [#/sec] (mean)
+Time per request:       273.560 [ms] (mean)
+Time per request:       2.736 [ms] (mean, across all concurrent requests)
+Transfer rate:          6881.91 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   21  90.9      3     533
-Processing:    75  239  53.7    249     336
-Waiting:       37  229  61.9    242     333
-Total:         89  260 102.2    255     786
+Connect:        1    9  47.6      3     510
+Processing:    84  253  51.6    261     370
+Waiting:       37  245  55.6    253     364
+Total:        116  263  66.6    264     797
 
 Percentage of the requests served within a certain time (ms)
-  50%    255
-  66%    271
-  75%    279
-  80%    287
-  90%    325
+  50%    264
+  66%    284
+  75%    291
+  80%    294
+  90%    305
+  95%    333
+  98%    371
+  99%    372
+ 100%    797 (longest request)
+
+Lanti@LANTI-PC ~
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /hu
+Document Length:        18867 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.800 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      19278000 bytes
+HTML transferred:       18867000 bytes
+Requests per second:    357.14 [#/sec] (mean)
+Time per request:       280.006 [ms] (mean)
+Time per request:       2.800 [ms] (mean, across all concurrent requests)
+Transfer rate:          6723.49 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    9  51.2      3     519
+Processing:   107  260  41.0    262     367
+Waiting:       66  245  56.0    256     357
+Total:        110  269  62.7    267     757
+
+Percentage of the requests served within a certain time (ms)
+  50%    267
+  66%    282
+  75%    287
+  80%    291
+  90%    319
   95%    332
-  98%    740
-  99%    746
- 100%    786 (longest request)
+  98%    338
+  99%    719
+ 100%    757 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -139,33 +195,145 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.679 seconds
+Time taken for tests:   2.728 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    373.24 [#/sec] (mean)
-Time per request:       267.926 [ms] (mean)
-Time per request:       2.679 [ms] (mean, across all concurrent requests)
-Transfer rate:          7026.64 [Kbytes/sec] received
+Requests per second:    366.61 [#/sec] (mean)
+Time per request:       272.767 [ms] (mean)
+Time per request:       2.728 [ms] (mean, across all concurrent requests)
+Transfer rate:          6901.94 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   14  67.9      3     531
-Processing:    75  243  46.1    247     339
-Waiting:       38  235  48.7    240     337
-Total:        107  257  79.6    252     815
+Connect:        1   16  75.9      3     532
+Processing:    75  244  48.1    251     365
+Waiting:       36  237  50.9    246     362
+Total:        105  260  88.4    256     816
+
+Percentage of the requests served within a certain time (ms)
+  50%    256
+  66%    261
+  75%    270
+  80%    276
+  90%    308
+  95%    317
+  98%    689
+  99%    798
+ 100%    816 (longest request)
+
+Lanti@LANTI-PC ~
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /hu
+Document Length:        18867 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.723 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      19278000 bytes
+HTML transferred:       18867000 bytes
+Requests per second:    367.26 [#/sec] (mean)
+Time per request:       272.286 [ms] (mean)
+Time per request:       2.723 [ms] (mean, across all concurrent requests)
+Transfer rate:          6914.12 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   12  62.8      2     524
+Processing:    89  248  38.1    256     328
+Waiting:       41  236  53.9    251     323
+Total:        104  260  72.2    259     773
+
+Percentage of the requests served within a certain time (ms)
+  50%    259
+  66%    266
+  75%    276
+  80%    280
+  90%    293
+  95%    297
+  98%    307
+  99%    753
+ 100%    773 (longest request)
+
+Lanti@LANTI-PC ~
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /hu
+Document Length:        18867 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.634 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      19278000 bytes
+HTML transferred:       18867000 bytes
+Requests per second:    379.66 [#/sec] (mean)
+Time per request:       263.397 [ms] (mean)
+Time per request:       2.634 [ms] (mean, across all concurrent requests)
+Transfer rate:          7147.45 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   14  70.5      3     522
+Processing:    93  239  41.9    250     327
+Waiting:       36  230  50.3    245     308
+Total:        124  253  81.4    252     788
 
 Percentage of the requests served within a certain time (ms)
   50%    252
   66%    261
-  75%    280
-  80%    285
-  90%    297
-  95%    318
-  98%    340
-  99%    751
- 100%    815 (longest request)
+  75%    267
+  80%    273
+  90%    284
+  95%    296
+  98%    722
+  99%    762
+ 100%    788 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -195,33 +363,33 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.708 seconds
+Time taken for tests:   2.772 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    369.30 [#/sec] (mean)
-Time per request:       270.779 [ms] (mean)
-Time per request:       2.708 [ms] (mean, across all concurrent requests)
-Transfer rate:          6952.59 [Kbytes/sec] received
+Requests per second:    360.71 [#/sec] (mean)
+Time per request:       277.233 [ms] (mean)
+Time per request:       2.772 [ms] (mean, across all concurrent requests)
+Transfer rate:          6790.75 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   17  80.1      3     532
-Processing:    77  243  58.2    254     361
-Waiting:       35  235  64.9    248     346
-Total:        102  260  95.6    257     785
+Connect:        1   15  73.6      3     523
+Processing:    73  251  47.9    259     358
+Waiting:       37  244  51.7    253     354
+Total:        100  267  84.8    264     817
 
 Percentage of the requests served within a certain time (ms)
-  50%    257
-  66%    282
-  75%    286
-  80%    294
-  90%    312
-  95%    330
-  98%    713
-  99%    751
- 100%    785 (longest request)
+  50%    264
+  66%    278
+  75%    289
+  80%    293
+  90%    299
+  95%    308
+  98%    720
+  99%    747
+ 100%    817 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -251,33 +419,33 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.761 seconds
+Time taken for tests:   2.609 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    362.19 [#/sec] (mean)
-Time per request:       276.097 [ms] (mean)
-Time per request:       2.761 [ms] (mean, across all concurrent requests)
-Transfer rate:          6818.68 [Kbytes/sec] received
+Requests per second:    383.32 [#/sec] (mean)
+Time per request:       260.879 [ms] (mean)
+Time per request:       2.609 [ms] (mean, across all concurrent requests)
+Transfer rate:          7216.43 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   17  77.9      3     524
-Processing:    91  248  53.6    250     370
-Waiting:       37  239  60.8    244     368
-Total:        117  265  93.2    255     828
+Connect:        1   13  63.6      3     529
+Processing:   107  238  36.6    241     313
+Waiting:       40  230  42.0    236     309
+Total:        135  251  69.2    244     772
 
 Percentage of the requests served within a certain time (ms)
-  50%    255
-  66%    267
-  75%    280
-  80%    290
-  90%    333
-  95%    363
-  98%    743
-  99%    761
- 100%    828 (longest request)
+  50%    244
+  66%    254
+  75%    264
+  80%    267
+  90%    274
+  95%    302
+  98%    312
+  99%    712
+ 100%    772 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -307,89 +475,33 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.508 seconds
+Time taken for tests:   2.666 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    398.79 [#/sec] (mean)
-Time per request:       250.761 [ms] (mean)
-Time per request:       2.508 [ms] (mean, across all concurrent requests)
-Transfer rate:          7507.62 [Kbytes/sec] received
+Requests per second:    375.14 [#/sec] (mean)
+Time per request:       266.567 [ms] (mean)
+Time per request:       2.666 [ms] (mean, across all concurrent requests)
+Transfer rate:          7062.45 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   16  76.3      3     504
-Processing:    68  224  41.0    234     293
-Waiting:       36  217  44.9    228     290
-Total:         95  241  89.3    238     778
+Connect:        1   15  70.6      3     532
+Processing:    75  240  42.2    243     334
+Waiting:       37  233  44.0    236     330
+Total:        104  255  82.0    246     797
 
 Percentage of the requests served within a certain time (ms)
-  50%    238
-  66%    249
-  75%    255
-  80%    257
-  90%    266
-  95%    272
-  98%    749
-  99%    763
- 100%    778 (longest request)
-
-Lanti@LANTI-PC ~
-$ ab -n 1000 -c 100 http://127.0.0.1/hu
-This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        nginx
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /hu
-Document Length:        18867 bytes
-
-Concurrency Level:      100
-Time taken for tests:   2.677 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      19278000 bytes
-HTML transferred:       18867000 bytes
-Requests per second:    373.48 [#/sec] (mean)
-Time per request:       267.750 [ms] (mean)
-Time per request:       2.677 [ms] (mean, across all concurrent requests)
-Transfer rate:          7031.26 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1   15  73.9      3     512
-Processing:    67  241  42.6    248     337
-Waiting:       35  234  45.5    242     335
-Total:         93  256  84.7    252     776
-
-Percentage of the requests served within a certain time (ms)
-  50%    252
+  50%    246
   66%    263
   75%    270
   80%    274
-  90%    285
-  95%    295
-  98%    736
-  99%    760
- 100%    776 (longest request)
+  90%    287
+  95%    291
+  98%    724
+  99%    776
+ 100%    797 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -419,33 +531,33 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.664 seconds
+Time taken for tests:   2.674 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    375.43 [#/sec] (mean)
-Time per request:       266.363 [ms] (mean)
-Time per request:       2.664 [ms] (mean, across all concurrent requests)
-Transfer rate:          7067.86 [Kbytes/sec] received
+Requests per second:    374.02 [#/sec] (mean)
+Time per request:       267.365 [ms] (mean)
+Time per request:       2.674 [ms] (mean, across all concurrent requests)
+Transfer rate:          7041.39 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   12  61.7      3     534
-Processing:    75  243  38.0    247     318
-Waiting:       38  232  46.5    241     315
-Total:        105  255  71.6    251     779
+Connect:        1    8  43.0      3     534
+Processing:   116  247  35.3    246     318
+Waiting:       48  236  45.9    241     314
+Total:        148  255  54.6    249     800
 
 Percentage of the requests served within a certain time (ms)
-  50%    251
-  66%    262
-  75%    268
-  80%    275
-  90%    283
-  95%    302
+  50%    249
+  66%    270
+  75%    273
+  80%    274
+  90%    284
+  95%    309
   98%    317
-  99%    773
- 100%    779 (longest request)
+  99%    319
+ 100%    800 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -475,33 +587,201 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.708 seconds
+Time taken for tests:   2.693 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    369.31 [#/sec] (mean)
-Time per request:       270.774 [ms] (mean)
-Time per request:       2.708 [ms] (mean, across all concurrent requests)
-Transfer rate:          6952.72 [Kbytes/sec] received
+Requests per second:    371.32 [#/sec] (mean)
+Time per request:       269.310 [ms] (mean)
+Time per request:       2.693 [ms] (mean, across all concurrent requests)
+Transfer rate:          6990.53 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1   10  51.0      3     530
-Processing:    79  250  47.4    250     335
-Waiting:       36  242  51.7    243     333
-Total:        107  259  67.5    252     780
+Connect:        1   11  57.5      3     529
+Processing:    88  248  47.3    254     347
+Waiting:       36  240  51.9    248     343
+Total:        116  259  71.8    260     788
 
 Percentage of the requests served within a certain time (ms)
-  50%    252
+  50%    260
+  66%    277
+  75%    281
+  80%    286
+  90%    301
+  95%    319
+  98%    340
+  99%    752
+ 100%    788 (longest request)
+
+Lanti@LANTI-PC ~
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /hu
+Document Length:        18867 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.597 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      19278000 bytes
+HTML transferred:       18867000 bytes
+Requests per second:    385.04 [#/sec] (mean)
+Time per request:       259.716 [ms] (mean)
+Time per request:       2.597 [ms] (mean, across all concurrent requests)
+Transfer rate:          7248.74 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   12  63.9      3     527
+Processing:    94  236  39.3    242     319
+Waiting:       36  225  50.9    236     314
+Total:        121  248  73.8    246     804
+
+Percentage of the requests served within a certain time (ms)
+  50%    246
+  66%    258
+  75%    264
+  80%    265
+  90%    279
+  95%    291
+  98%    320
+  99%    743
+ 100%    804 (longest request)
+
+Lanti@LANTI-PC ~
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /hu
+Document Length:        18867 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.631 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      19278000 bytes
+HTML transferred:       18867000 bytes
+Requests per second:    380.12 [#/sec] (mean)
+Time per request:       263.072 [ms] (mean)
+Time per request:       2.631 [ms] (mean, across all concurrent requests)
+Transfer rate:          7156.28 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   15  68.7      4     523
+Processing:    90  237  41.4    241     331
+Waiting:       37  229  47.5    234     329
+Total:        121  252  79.0    245     763
+
+Percentage of the requests served within a certain time (ms)
+  50%    245
+  66%    256
+  75%    261
+  80%    270
+  90%    289
+  95%    300
+  98%    333
+  99%    758
+ 100%    763 (longest request)
+
+Lanti@LANTI-PC ~
+$ ab -n 1000 -c 100 http://127.0.0.1/hu
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /hu
+Document Length:        18867 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.734 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      19278000 bytes
+HTML transferred:       18867000 bytes
+Requests per second:    365.70 [#/sec] (mean)
+Time per request:       273.450 [ms] (mean)
+Time per request:       2.734 [ms] (mean, across all concurrent requests)
+Transfer rate:          6884.69 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1   15  71.8      3     510
+Processing:    87  248  49.9    262     340
+Waiting:       37  236  60.8    254     333
+Total:         90  263  89.0    266     801
+
+Percentage of the requests served within a certain time (ms)
+  50%    266
   66%    278
   75%    282
   80%    287
-  90%    310
-  95%    321
-  98%    335
-  99%    763
- 100%    780 (longest request)
+  90%    303
+  95%    339
+  98%    718
+  99%    799
+ 100%    801 (longest request)
 
 Lanti@LANTI-PC ~
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
@@ -531,313 +811,33 @@ Document Path:          /hu
 Document Length:        18867 bytes
 
 Concurrency Level:      100
-Time taken for tests:   2.659 seconds
+Time taken for tests:   2.684 seconds
 Complete requests:      1000
 Failed requests:        0
 Total transferred:      19278000 bytes
 HTML transferred:       18867000 bytes
-Requests per second:    376.10 [#/sec] (mean)
-Time per request:       265.886 [ms] (mean)
-Time per request:       2.659 [ms] (mean, across all concurrent requests)
-Transfer rate:          7080.54 [Kbytes/sec] received
+Requests per second:    372.60 [#/sec] (mean)
+Time per request:       268.382 [ms] (mean)
+Time per request:       2.684 [ms] (mean, across all concurrent requests)
+Transfer rate:          7014.68 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1    7  36.3      3     523
-Processing:    69  247  50.3    248     360
-Waiting:       39  240  53.3    243     353
-Total:         99  255  59.3    252     790
+Connect:        1    8  40.3      3     533
+Processing:    65  248  48.5    267     350
+Waiting:       37  240  52.5    252     346
+Total:         93  256  60.5    269     789
 
 Percentage of the requests served within a certain time (ms)
-  50%    252
-  66%    271
-  75%    288
-  80%    294
-  90%    300
-  95%    319
-  98%    327
-  99%    356
- 100%    790 (longest request)
-
-Lanti@LANTI-PC ~
-$ ab -n 1000 -c 100 http://127.0.0.1/hu
-This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        nginx
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /hu
-Document Length:        18867 bytes
-
-Concurrency Level:      100
-Time taken for tests:   2.610 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      19278000 bytes
-HTML transferred:       18867000 bytes
-Requests per second:    383.12 [#/sec] (mean)
-Time per request:       261.012 [ms] (mean)
-Time per request:       2.610 [ms] (mean, across all concurrent requests)
-Transfer rate:          7212.77 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    6  23.6      3     528
-Processing:    80  244  47.3    251     331
-Waiting:       38  236  51.7    244     327
-Total:        111  250  48.7    255     794
-
-Percentage of the requests served within a certain time (ms)
-  50%    255
-  66%    272
+  50%    269
+  66%    276
   75%    279
-  80%    287
+  80%    285
   90%    294
-  95%    305
-  98%    324
-  99%    330
- 100%    794 (longest request)
-
-Lanti@LANTI-PC ~
-$ ab -n 1000 -c 100 http://127.0.0.1/hu
-This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        nginx
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /hu
-Document Length:        18867 bytes
-
-Concurrency Level:      100
-Time taken for tests:   2.664 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      19278000 bytes
-HTML transferred:       18867000 bytes
-Requests per second:    375.33 [#/sec] (mean)
-Time per request:       266.435 [ms] (mean)
-Time per request:       2.664 [ms] (mean, across all concurrent requests)
-Transfer rate:          7065.96 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1   16  76.9      3     517
-Processing:    97  240  44.7    243     372
-Waiting:       38  232  50.4    238     348
-Total:        124  256  85.7    248     784
-
-Percentage of the requests served within a certain time (ms)
-  50%    248
-  66%    256
-  75%    268
-  80%    276
-  90%    310
-  95%    327
-  98%    712
-  99%    748
- 100%    784 (longest request)
-
-Lanti@LANTI-PC ~
-$ ab -n 1000 -c 100 http://127.0.0.1/hu
-This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        nginx
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /hu
-Document Length:        18867 bytes
-
-Concurrency Level:      100
-Time taken for tests:   2.860 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      19278000 bytes
-HTML transferred:       18867000 bytes
-Requests per second:    349.59 [#/sec] (mean)
-Time per request:       286.046 [ms] (mean)
-Time per request:       2.860 [ms] (mean, across all concurrent requests)
-Transfer rate:          6581.52 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    6  22.8      3     501
-Processing:    82  270  55.0    277     412
-Waiting:       36  262  59.2    270     409
-Total:        113  276  56.6    279     814
-
-Percentage of the requests served within a certain time (ms)
-  50%    279
-  66%    295
-  75%    304
-  80%    310
-  90%    341
-  95%    357
-  98%    368
-  99%    373
- 100%    814 (longest request)
-
-Lanti@LANTI-PC ~
-$ ab -n 1000 -c 100 http://127.0.0.1/hu
-This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        nginx
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /hu
-Document Length:        18867 bytes
-
-Concurrency Level:      100
-Time taken for tests:   2.639 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      19278000 bytes
-HTML transferred:       18867000 bytes
-Requests per second:    378.99 [#/sec] (mean)
-Time per request:       263.860 [ms] (mean)
-Time per request:       2.639 [ms] (mean, across all concurrent requests)
-Transfer rate:          7134.91 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    5   5.4      3      31
-Processing:    76  246  44.1    258     337
-Waiting:       37  239  47.3    251     335
-Total:        107  251  39.7    263     338
-
-Percentage of the requests served within a certain time (ms)
-  50%    263
-  66%    272
-  75%    273
-  80%    276
-  90%    287
   95%    301
-  98%    303
-  99%    329
- 100%    338 (longest request)
-
-Lanti@LANTI-PC ~
-$ ab -n 1000 -c 100 http://127.0.0.1/hu
-This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
-Completed 100 requests
-Completed 200 requests
-Completed 300 requests
-Completed 400 requests
-Completed 500 requests
-Completed 600 requests
-Completed 700 requests
-Completed 800 requests
-Completed 900 requests
-Completed 1000 requests
-Finished 1000 requests
-
-
-Server Software:        nginx
-Server Hostname:        127.0.0.1
-Server Port:            80
-
-Document Path:          /hu
-Document Length:        18867 bytes
-
-Concurrency Level:      100
-Time taken for tests:   2.668 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      19278000 bytes
-HTML transferred:       18867000 bytes
-Requests per second:    374.78 [#/sec] (mean)
-Time per request:       266.827 [ms] (mean)
-Time per request:       2.668 [ms] (mean, across all concurrent requests)
-Transfer rate:          7055.58 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    5   5.7      3      32
-Processing:    45  250  51.3    251     418
-Waiting:       41  243  54.2    243     415
-Total:         76  255  47.6    254     419
-
-Percentage of the requests served within a certain time (ms)
-  50%    254
-  66%    263
-  75%    275
-  80%    284
-  90%    311
-  95%    335
-  98%    369
-  99%    373
- 100%    419 (longest request)
+  98%    313
+  99%    328
+ 100%    789 (longest request)
 
 Lanti@LANTI-PC ~
 $
