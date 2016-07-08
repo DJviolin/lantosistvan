@@ -127,7 +127,9 @@ RUN ./configure \
         --with-openssl=/usr/src/openssl \
         --with-cc=clang-3.9 \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
-        --with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        #--with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=pointer-bool-conversion -Wp,-D_FORTIFY_SOURCE=2' \
+        # https://fedoraproject.org/wiki/Format-Security-FAQ#What.27s_the_difference_from_-Werror.3Dformat-security
+        --with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         # Enable Debugging
         #--with-debug \
