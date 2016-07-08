@@ -10,22 +10,25 @@ ENV NGINX_VERSION nginx-1.11.1.tar.gz
 ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
 ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
-RUN echo "\
+#RUN echo "\
 # http://apt.llvm.org/\n\
-deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
-deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
+#deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
+#deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
 # 3.7\n\
-deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
-deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
+#deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
+#deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
 # 3.8\n\
-deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main\n\
-deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main" > /etc/apt/sources.list.d/clang.list \
-&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" | apt-key add -
+#deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main\n\
+#deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main" > /etc/apt/sources.list.d/clang.list \
+#&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" | apt-key add -
 
 RUN apt-get -y update && apt-get -y dist-upgrade \
     && apt-get -y install \
         make \
         gcc \
+        # Clang development branch
+        #clang-3.9 \
+        #lldb-3.9 \
         # Nginx packages
         openssl \
         libc6-dev \
@@ -38,12 +41,59 @@ RUN apt-get -y update && apt-get -y dist-upgrade \
         libxml2-dev \
         libxslt1-dev \
         zlib1g-dev \
-        libperl-dev \
-        # Clang development branch
-        clang-3.9 \
-        lldb-3.9 \
-    # Nginx
-    && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
+        libperl-dev
+
+# https://gcc.gnu.org/mirrors.html
+ENV GPG_KEYS \
+    B215C1633BCA0477615F1B35A5B3A004745C015A \
+    B3C42148A44E6983B3E4CC0793FA9B1AB75C61B8 \
+    90AA470469D3965A87A5DCB494D03953902C9419 \
+    80F98B2E0DAB6C8281BDF541A7C8C3B2F71EDF1C \
+    7F74F97C103468EE5D750B583AB00996FC26A641 \
+    33C235A34C46AA3FFB293709A328C3A2C3C45C06
+RUN set -xe \
+    && for key in $GPG_KEYS; do \
+        gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+    done
+# Last Modified: 2016-04-27
+ENV GCC_VERSION 6.1.0
+# Docker EOL: 2017-04-27
+# "download_prerequisites" pulls down a bunch of tarballs and extracts them,
+# but then leaves the tarballs themselves lying around
+RUN buildDeps='flex' \
+    && set -x \
+    && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
+    && rm -r /var/lib/apt/lists/* \
+    && curl -fSL "http://ftpmirror.gnu.org/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.bz2" -o gcc.tar.bz2 \
+    && curl -fSL "http://ftpmirror.gnu.org/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.bz2.sig" -o gcc.tar.bz2.sig \
+    && gpg --batch --verify gcc.tar.bz2.sig gcc.tar.bz2 \
+    && mkdir -p /usr/src/gcc \
+    && tar -xf gcc.tar.bz2 -C /usr/src/gcc --strip-components=1 \
+    && rm gcc.tar.bz2* \
+    && cd /usr/src/gcc \
+    && ./contrib/download_prerequisites \
+    && { rm *.tar.* || true; } \
+    && dir="$(mktemp -d)" \
+    && cd "$dir" \
+    && /usr/src/gcc/configure \
+        --disable-multilib \
+        --enable-languages=c,c++,go \
+    && make -j"$(nproc)" \
+    && make install-strip \
+    && cd .. \
+    && rm -rf "$dir" \
+    && apt-get purge -y --auto-remove $buildDeps
+# gcc installs .so files in /usr/local/lib64...
+RUN echo '/usr/local/lib64' > /etc/ld.so.conf.d/local-lib64.conf \
+    && ldconfig -v
+# ensure that alternatives are pointing to the new compiler and that old one is no longer used
+RUN set -x \
+    && dpkg-divert --divert /usr/bin/gcc.orig --rename /usr/bin/gcc \
+    && dpkg-divert --divert /usr/bin/g++.orig --rename /usr/bin/g++ \
+    && update-alternatives --install /usr/bin/cc cc /usr/local/bin/gcc 999
+
+# Nginx
+RUN curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
     && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" \
     && gpg --batch --verify "$NGINX_VERSION.asc" "$NGINX_VERSION" \
@@ -125,11 +175,11 @@ RUN ./configure \
         --with-ipv6 \
         --with-http_v2_module \
         --with-openssl=/usr/src/openssl \
-        --with-cc=clang-3.9 \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
-        #--with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=pointer-bool-conversion -Wp,-D_FORTIFY_SOURCE=2' \
+        --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        #--with-cc=clang-3.9 \
         # https://fedoraproject.org/wiki/Format-Security-FAQ#What.27s_the_difference_from_-Werror.3Dformat-security
-        --with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Wp,-D_FORTIFY_SOURCE=2' \
+        #--with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Wno-error -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         # Enable Debugging
         #--with-debug \
