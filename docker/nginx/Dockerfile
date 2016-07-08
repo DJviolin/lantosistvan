@@ -20,7 +20,7 @@ deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
 # 3.8\n\
 deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main\n\
 deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main" > /etc/apt/sources.list.d/clang.list \
-&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" -o "llvm-snapshot.gpg.key" | apt-key add -
+&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" | apt-key add -
 
 RUN apt-get -y update && apt-get -y dist-upgrade \
     && apt-get -y install \
@@ -127,7 +127,7 @@ RUN ./configure \
         --with-openssl=/usr/src/openssl \
         --with-cc=clang \
         #--with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
-        --with-cc-opt='-g -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
+        --with-cc-opt='-g -std=c11 -Ofast -march=native -ffast-math -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
         --with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
         # Enable Debugging
         #--with-debug \
