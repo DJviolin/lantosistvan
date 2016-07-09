@@ -81,6 +81,11 @@ services:
       lantosistvan_front:
         ipv4_address: 173.16.238.10
         ipv6_address: 2002:3984:3989::10
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
   #letsencrypt:
   #  build: ./letsencrypt
   #  image: lantosistvan_letsencrypt
