@@ -226,6 +226,8 @@ run the app on windows:
 
 ##### TODO
 
+https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server?utm_content=buffer036d0&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer
+
 Docker + Nginx + Reverse Proxy:
 
 https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
@@ -386,6 +388,10 @@ docker rm -f $(docker ps -a -q)
 # Delete all images
 docker rmi -f $(docker images -q)
 ```
+
+Dockerfile Linter:
+
+http://hadolint.lukasmartinelli.ch/
 
 
 Benchmark:

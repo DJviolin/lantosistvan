@@ -22,7 +22,7 @@ ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 #deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main" > /etc/apt/sources.list.d/clang.list \
 #&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" | apt-key add -
 
-RUN apt-get -y update && apt-get -y dist-upgrade \
+RUN apt-get update && apt-get install -y \
     && apt-get -y install \
         make \
         gcc \

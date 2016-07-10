@@ -13,9 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #RUN ln -sf /bin/bash /bin/sh && ln -sf /bin/bash /bin/sh.distrib
 WORKDIR $HOME
 
-RUN \
-
-echo "\
+RUN echo "\
 deb http://httpredir.debian.org/debian stable main contrib non-free\n\
 deb-src http://httpredir.debian.org/debian stable main contrib non-free\n\
 deb http://security.debian.org stable/updates main contrib non-free\n\
@@ -23,7 +21,8 @@ deb-src http://security.debian.org stable/updates main contrib non-free\n\
 deb http://httpredir.debian.org/debian stable-updates main contrib non-free\n\
 deb-src http://httpredir.debian.org/debian stable-updates main contrib non-free" > /etc/apt/sources.list; \
 
-apt-get -y update && apt-get -y dist-upgrade \
+#apt-get -y update && apt-get -y dist-upgrade \
+apt-get update && apt-get install -y \
 && apt-get -y install \
     apt-utils \
     locales \

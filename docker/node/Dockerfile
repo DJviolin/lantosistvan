@@ -8,9 +8,7 @@ LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 
 ENV NPM_CONFIG_LOGLEVEL info
 
-RUN \
-
-apt-get -y update && apt-get -y dist-upgrade; \
+RUN apt-get update && apt-get install -y \
 
 # gpg keys listed at https://github.com/nodejs/node
 set -ex \
