@@ -7,6 +7,7 @@ MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="This image is the base of the other app images in this project" Vendor="Istvan Lantos" Version="1.0"
 
 # https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+# https://docs.docker.com/engine/reference/builder/#/exec-form-entrypoint-example
 
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive

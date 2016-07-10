@@ -150,9 +150,9 @@ RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
     && install -m644 /etc/nginx/html/404.html /var/www/html \
     && rm -rf /etc/nginx/html/* \
     # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
-    && groupadd nginx \
+    && groupadd --system nginx \
     #&& useradd nginx --gid nginx --system --home-dir /var/cache/nginx --shell /sbin/nologin \
-    && useradd nginx --gid nginx --system --no-create-home --shell /sbin/nologin \
+    && useradd --system --gid nginx nginx --no-create-home --shell /sbin/nologin \
     # forward request and error logs to docker log collector
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
@@ -182,5 +182,7 @@ RUN rm -rf /usr/src/* /var/lib/apt/lists/* \
     && apt-get -y autoremove
 
 WORKDIR /var/www
+
+EXPOSE 80 443
 
 CMD ["/usr/sbin/nginx"]
