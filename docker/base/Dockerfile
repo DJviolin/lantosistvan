@@ -20,7 +20,6 @@ deb http://httpredir.debian.org/debian stable-updates main contrib non-free\n\
 deb-src http://httpredir.debian.org/debian stable-updates main contrib non-free" > /etc/apt/sources.list; \
 
 apt-get update && apt-get install -y \
-&& apt-get -y install \
     apt-utils \
     curl \
     xz-utils; \

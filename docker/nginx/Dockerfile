@@ -10,38 +10,22 @@ ENV NGINX_VERSION nginx-1.11.1.tar.gz
 ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
 ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
-#RUN echo "\
-# http://apt.llvm.org/\n\
-#deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
-#deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie main\n\
-# 3.7\n\
-#deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
-#deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.7 main\n\
-# 3.8\n\
-#deb http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main\n\
-#deb-src http://apt.llvm.org/jessie/ llvm-toolchain-jessie-3.8 main" > /etc/apt/sources.list.d/clang.list \
-#&& curl "http://apt.llvm.org/llvm-snapshot.gpg.key" | apt-key add -
-
 RUN apt-get update && apt-get install -y \
-    && apt-get -y install \
-        make \
         gcc \
-        # Clang development branch
-        #clang-3.9 \
-        #lldb-3.9 \
+        make \
         # Nginx packages
-        openssl \
         libc6-dev \
         libexpat1-dev \
         libgd-dev \
         libgeoip-dev \
         libpam0g-dev \
         libpcre3-dev \
+        libperl-dev \
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
+        openssl \
         zlib1g-dev \
-        libperl-dev \
     # Nginx
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \
@@ -86,12 +70,8 @@ RUN ./configure \
         --http-log-path=/var/log/nginx/access.log \
         --pid-path=/var/run/nginx.pid \
         --lock-path=/var/run/nginx.lock \
-        #--http-client-body-temp-path=/var/cache/nginx/client_temp \
-        #--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
-        #--http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
-        #--http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
-        #--http-scgi-temp-path=/var/cache/nginx/scgi_temp \
         --http-client-body-temp-path=/var/run/nginx_client_temp \
+        #--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
         --http-proxy-temp-path=/var/run/nginx_proxy_temp \
         --http-fastcgi-temp-path=/var/run/nginx_fastcgi_temp \
         --http-uwsgi-temp-path=/var/run/nginx_uwsgi_temp \
@@ -138,7 +118,7 @@ RUN ./configure \
         --add-module=/usr/src/nginx-modules/ngx_cache_purge \
         --add-module=/usr/src/nginx-modules/ngx_srcache \
         --add-module=/usr/src/nginx-modules/njs*/nginx \
-    && echo -e "Configuration done!" \
+    && echo "Configuration done!" \
     && make \
     && make install
 
@@ -174,12 +154,7 @@ RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
 #    && chmod +x /usr/local/wrk/wrk \
 #    && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
 
-WORKDIR /root
-
-RUN rm -rf /usr/src/* /var/lib/apt/lists/* \
-    && apt-get -y clean \
-    && apt-get -y autoclean \
-    && apt-get -y autoremove
+RUN rm -rf /usr/src/* /var/lib/apt/lists/*
 
 WORKDIR /var/www
 
