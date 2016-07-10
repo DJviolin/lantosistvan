@@ -393,6 +393,17 @@ Dockerfile Linter:
 
 http://hadolint.lukasmartinelli.ch/
 
+Dockerfile best practices:
+
+```dockerfile
+# https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+# https://docs.docker.com/engine/reference/builder/#/exec-form-entrypoint-example
+
+# http://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work#comment61786875_25423366
+# https://wiki.ubuntu.com/DashAsBinSh
+#RUN ln -sf /bin/bash /bin/sh && ln -sf /bin/bash /bin/sh.distrib
+```
+
 
 Benchmark:
 
