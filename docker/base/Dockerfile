@@ -11,9 +11,11 @@ LABEL Description="This image is the base of the other app images in this projec
 
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
+
 # http://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work#comment61786875_25423366
 # https://wiki.ubuntu.com/DashAsBinSh
 #RUN ln -sf /bin/bash /bin/sh && ln -sf /bin/bash /bin/sh.distrib
+
 WORKDIR $HOME
 
 RUN echo "\
@@ -28,20 +30,21 @@ deb-src http://httpredir.debian.org/debian stable-updates main contrib non-free"
 apt-get update && apt-get install -y \
 && apt-get -y install \
     apt-utils \
-    locales \
     curl \
+    locales \
     xz-utils; \
+&& rm -rf /var/lib/apt/lists/* \
 
 ### Start of locale
-echo "\
-LC_ALL=en_US.UTF-8\n\
-LANG=en_US.UTF-8\n\
-LANGUAGE=en_US.UTF-8" >> /etc/environment; \
-locale \
-&& locale-gen "en_US.UTF-8" \
-&& dpkg-reconfigure locales; \
-echo "Europe/Budapest" > /etc/timezone \
-&& dpkg-reconfigure -f noninteractive tzdata; \
+#echo "\
+#LC_ALL=en_US.UTF-8\n\
+#LANG=en_US.UTF-8\n\
+#LANGUAGE=en_US.UTF-8" >> /etc/environment; \
+#locale \
+#&& locale-gen "en_US.UTF-8" \
+#&& dpkg-reconfigure locales; \
+#echo "Europe/Budapest" > /etc/timezone \
+#&& dpkg-reconfigure -f noninteractive tzdata; \
 ### End of locale
 
 ### Start of optimizations
@@ -65,10 +68,8 @@ groupmod -g 500 www-data \
 #&& `find / -group 33 -exec chgrp -h 500 {} \;` \
 && usermod -g 500 www-data \
 && chown -R www-data:www-data /var/www \
-&& chmod g+s /var/www; \
+&& chmod g+s /var/www;
 ### End of Nginx WEBSERVER setup
-
-rm -rf /var/lib/apt/lists/*
 
 #CMD ["tail", "-f", "/dev/null"]
 CMD ["echo", "lantosistvan_base container finished!"]
