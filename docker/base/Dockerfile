@@ -23,7 +23,6 @@ apt-get update && apt-get install -y \
 && apt-get -y install \
     apt-utils \
     curl \
-    locales \
     xz-utils; \
 && rm -rf /var/lib/apt/lists/* \
 
