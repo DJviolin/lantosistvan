@@ -12,7 +12,8 @@ ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
 
 RUN apt-get update && apt-get install -y \
         gcc \
-        make \
+        make
+RUN apt-get install -y --no-install-recommends \
         # Nginx packages
         libc6-dev \
         libexpat1-dev \
@@ -24,7 +25,7 @@ RUN apt-get update && apt-get install -y \
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
-        openssl \
+        #openssl \
         zlib1g-dev \
     # Nginx
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
