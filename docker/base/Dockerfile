@@ -23,7 +23,6 @@ apt-get update && apt-get install -y \
     apt-utils \
     curl \
     xz-utils; \
-&& rm -rf /var/lib/apt/lists/* \
 
 ### Start of optimizations
 # https://easyengine.io/tutorials/linux/increase-open-files-limit/
@@ -48,6 +47,8 @@ groupmod -g 500 www-data \
 && chown -R www-data:www-data /var/www \
 && chmod g+s /var/www;
 ### End of Nginx WEBSERVER setup
+
+rm -rf /var/lib/apt/lists/*
 
 #CMD ["tail", "-f", "/dev/null"]
 CMD ["echo", "lantosistvan_base container finished!"]
