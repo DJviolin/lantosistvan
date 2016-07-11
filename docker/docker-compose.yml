@@ -39,7 +39,6 @@ services:
     environment:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
-      #- PRIVATE_IP_DOCKER=172.16.238.11
       - PRIVATE_IP_DOCKER=172.16.238.11
       - PORT=8081
     command: npm install && npm start
@@ -66,7 +65,6 @@ services:
       #- "0.0.0.0:80:80"
       - "80:80"
       - "443:443"
-      ####- "8080:8080"
     volumes:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
