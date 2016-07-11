@@ -25,7 +25,7 @@ services:
     build: ./node
     image: lantosistvan_node
     container_name: lantosistvan_node
-    command: "Data-only container"
+    command: echo "Data-only container"
     depends_on:
       - base
     network_mode: "none"
@@ -106,20 +106,17 @@ volumes:
   lantosistvan_app:
     #driver: local
     driver_opts:
-      uid: 500
-      gid: 500
+      o: uid=500,gid=500
       device: ../app
   lantosistvan_nginx_public:
     #driver: local
     driver_opts:
-      uid: 500
-      gid: 500
+      o: uid=500,gid=500
       device: ../app/public
   lantosistvan_nginx_public_ftp:
     #driver: local
     driver_opts:
-      uid: 500
-      gid: 500
+      o: uid=500,gid=500
       device: ../app/public/ftp
 
 networks:
