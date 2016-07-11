@@ -126,6 +126,11 @@ RUN ./configure \
 ### Start of Nginx setup
 COPY etc/nginx/html/404.html /etc/nginx/html
 RUN mkdir -p /etc/nginx/conf.d /etc/nginx/ssl /var/www/html \
+    && mkdir -p /var/cache/nginx/client_temp \
+                /var/cache/nginx/proxy_temp \
+                /var/cache/nginx/fastcgi_temp \
+                /var/cache/nginx/uwsgi_temp \
+                /var/cache/nginx/scgi_temp \
     && install -m644 /usr/src/nginx/html/index.html /var/www/html \
     && install -m644 /usr/src/nginx/html/50x.html /var/www/html \
     && install -m644 /etc/nginx/html/404.html /var/www/html \
