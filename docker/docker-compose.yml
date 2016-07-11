@@ -47,8 +47,7 @@ services:
       #- "10.0.2.15:8081:8081"
       ####- "8081:8081"
     volumes:
-      #- "../app:/root/www/lantosistvan:rw"
-      - lantosistvan_app:/root/www/lantosistvan:rw
+      - "../app:/root/www/lantosistvan:rw"
     networks:
       #lantosistvan_front:
       #  ipv4_address: 172.16.238.11
@@ -72,10 +71,8 @@ services:
       - /var/cache/nginx
       - ./nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/etc/nginx/conf.d:/etc/nginx/conf.d:ro
-      #- ../app/public:/var/www/html/public:ro
-      #- ../app/public/ftp:/var/www/html/ftp:ro
-      - lantosistvan_nginx_public:/var/www/html/public:ro
-      - lantosistvan_nginx_public_ftp:/var/www/html/ftp:ro
+      - ../app/public:/var/www/html/public:ro
+      - ../app/public/ftp:/var/www/html/ftp:ro
     ####extra_hosts:
      #- "localhost.cinematicheart.com:172.16.238.10"
      ####- "localhost.cinematicheart.com:127.0.0.1"
@@ -101,23 +98,6 @@ services:
   #    - nginx
   #  networks:
   #    - lantosistvan_front
-
-volumes:
-  lantosistvan_app:
-    driver: local
-    driver_opts:
-      o: uid=500,gid=500
-      device: ../app
-  lantosistvan_nginx_public:
-    driver: local
-    driver_opts:
-      o: uid=500,gid=500
-      device: ../app/public
-  lantosistvan_nginx_public_ftp:
-    driver: local
-    driver_opts:
-      o: uid=500,gid=500
-      device: ../app/public/ftp
 
 networks:
   lantosistvan_back:
