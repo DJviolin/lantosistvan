@@ -74,8 +74,8 @@ services:
       - ./nginx/etc/nginx/conf.d:/etc/nginx/conf.d:ro
       #- ../app/public:/var/www/html/public:ro
       #- ../app/public/ftp:/var/www/html/ftp:ro
-      - lantosistvan_app/public:/var/www/html/public:ro
-      - lantosistvan_app/public/ftp:/var/www/html/ftp:ro
+      - lantosistvan_nginx_public:/var/www/html/public:ro
+      - lantosistvan_nginx_public_ftp:/var/www/html/ftp:ro
     ####extra_hosts:
      #- "localhost.cinematicheart.com:172.16.238.10"
      ####- "localhost.cinematicheart.com:127.0.0.1"
@@ -104,11 +104,23 @@ services:
 
 volumes:
   lantosistvan_app:
-    driver: local
+    #driver: local
     driver_opts:
       uid: 500
       gid: 500
       device: ../app
+  lantosistvan_nginx_public:
+    #driver: local
+    driver_opts:
+      uid: 500
+      gid: 500
+      device: ../app/public
+  lantosistvan_nginx_public_ftp:
+    #driver: local
+    driver_opts:
+      uid: 500
+      gid: 500
+      device: ../app/public/ftp
 
 networks:
   lantosistvan_back:
