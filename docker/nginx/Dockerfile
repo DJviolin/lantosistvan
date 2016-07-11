@@ -70,12 +70,12 @@ RUN ./configure \
         --http-log-path=/var/log/nginx/access.log \
         --pid-path=/var/run/nginx.pid \
         --lock-path=/var/run/nginx.lock \
-        --http-client-body-temp-path=/var/run/nginx_client_temp \
-        #--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
-        --http-proxy-temp-path=/var/run/nginx_proxy_temp \
-        --http-fastcgi-temp-path=/var/run/nginx_fastcgi_temp \
-        --http-uwsgi-temp-path=/var/run/nginx_uwsgi_temp \
-        --http-scgi-temp-path=/var/run/nginx_scgi_temp \
+        #--http-client-body-temp-path=/var/run/nginx_client_temp \
+        --http-client-body-temp-path=/var/cache/nginx/client_temp \
+        --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
+        --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
+        --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp \
+        --http-scgi-temp-path=/var/cache/nginx/scgi_temp \
         --user=nginx \
         --group=nginx \
         --with-http_ssl_module \
