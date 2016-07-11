@@ -129,6 +129,11 @@ RUN mkdir -p \
         /etc/nginx/conf.d \
         /etc/nginx/ssl \
         /var/www/html \
+        /var/run/nginx/client_cache \
+        /var/run/nginx/proxy_cache \
+        /var/run/nginx/fastcgi_cache \
+        /var/run/nginx/uwsgi_cache \
+        /var/run/nginx/scgi_cache \
         /var/cache/nginx/client_temp \
         /var/cache/nginx/proxy_temp \
         /var/cache/nginx/fastcgi_temp \
