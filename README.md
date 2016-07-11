@@ -98,6 +98,12 @@ $ chmod +x /opt/bin/docker-compose
 $ exit
 ```
 
+Nightly Channel:
+
+```
+$ curl -L https://dl.bintray.com/docker-compose/master/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose
+```
+
 Or without any superuser access, from the nightly release channel:
 
 ```

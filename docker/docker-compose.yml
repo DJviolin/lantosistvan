@@ -104,17 +104,17 @@ services:
 
 volumes:
   lantosistvan_app:
-    #driver: local
+    driver: local
     driver_opts:
       o: uid=500,gid=500
       device: ../app
   lantosistvan_nginx_public:
-    #driver: local
+    driver: local
     driver_opts:
       o: uid=500,gid=500
       device: ../app/public
   lantosistvan_nginx_public_ftp:
-    #driver: local
+    driver: local
     driver_opts:
       o: uid=500,gid=500
       device: ../app/public/ftp
