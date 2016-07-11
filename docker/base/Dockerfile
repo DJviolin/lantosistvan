@@ -45,7 +45,7 @@ groupmod -g 500 www-data \
 #&& `find / -group 33 -exec chgrp -h 500 {} \;` \
 && usermod -g 500 www-data \
 && chown -R www-data:www-data /var/www \
-&& chmod g+s /var/www;
+&& chmod g+s /var/www; \
 ### End of Nginx WEBSERVER setup
 
 rm -rf /var/lib/apt/lists/*
