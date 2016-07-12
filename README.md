@@ -385,6 +385,8 @@ docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images -q)
 # Delete all volumes
 docker volume rm $(docker volume ls -q)
+# Delete networks
+docker network rm docker_lantosistvan_back docker_lantosistvan_front
 ```
 
 Dockerfile Linter:
