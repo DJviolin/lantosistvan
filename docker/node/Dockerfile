@@ -9,10 +9,10 @@ LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 ENV NPM_CONFIG_LOGLEVEL info
 
 RUN apt-get update && apt-get install -y --no-install-recommends --no-install-suggests \
-    curl;
+    curl; \
 
 # gpg keys listed at https://github.com/nodejs/node
-RUN for key in \
+for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
     94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
     0034A06D9D9B0064CE8ADF6BF1747F4AD2306D93 \
