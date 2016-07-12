@@ -31,6 +31,20 @@ RUN curl -fSL "https://github.com/certbot/certbot/archive/master.tar.gz" -o "let
 #    -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt \
 #    && openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
 
+# Benchmarking tools (ab, siege, wrk)
+# https://www.nginx.com/blog/benefits-of-microcaching-nginx
+#RUN apt-get -y install \
+#    apache2-utils \
+#    siege
+#RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" \
+#    && mkdir -p /usr/local/wrk \
+#    && tar -xf "wrk.tar.gz" -C /usr/local/wrk --strip-components=1 \
+#    && rm "wrk.tar.gz"* \
+#    && cd /usr/local/wrk \
+#    && make \
+#    && chmod +x /usr/local/wrk/wrk \
+#    && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
+
 WORKDIR /opt/letsencrypt
 
 CMD ["tail", "-f", "/dev/null"]

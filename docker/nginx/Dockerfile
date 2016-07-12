@@ -56,12 +56,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && curl -fSL "http://hg.nginx.org/njs/archive/tip.tar.gz" -o "njs.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/njs \
     && tar -xf "njs.tar.gz" -C /usr/src/nginx-modules/njs --strip-components=1 \
-    && rm "njs.tar.gz"*
+    && rm "njs.tar.gz"*; \
 
-WORKDIR /usr/src/nginx
+    cd /usr/src/nginx; \
 
-# Configuring the build
-RUN ./configure \
+    # Configuring the build
+    ./configure \
         --prefix=/etc/nginx \
         --sbin-path=/usr/sbin/nginx \
         --modules-path=/usr/lib/nginx/modules \
@@ -120,11 +120,10 @@ RUN ./configure \
         --add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo "Configuration done!" \
     && make \
-    && make install
+    && make install; \
 
-### Start of Nginx setup
-COPY etc/nginx/html/404.html /etc/nginx/html
-RUN mkdir -p \
+    ### Start of Nginx setup
+    mkdir -p \
         /etc/nginx/conf.d \
         /etc/nginx/ssl \
         /var/www/html \
@@ -140,7 +139,7 @@ RUN mkdir -p \
         /var/cache/nginx/scgi_temp \
     && install -m644 /usr/src/nginx/html/index.html /var/www/html \
     && install -m644 /usr/src/nginx/html/50x.html /var/www/html \
-    && install -m644 /etc/nginx/html/404.html /var/www/html \
+    #&& install -m644 /etc/nginx/html/404.html /var/www/html \
     && rm -rf /etc/nginx/html/* \
     # This will create the user and set their shell to /bin/false so no one can start an interactive login as this user
     && groupadd --system nginx \
@@ -150,24 +149,30 @@ RUN mkdir -p \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
     # Allow Nginx to access /var/run/php-fpm/php-fpm.sock
-    && usermod -aG www-data nginx
-### End of Nginx setup
+    && usermod -aG www-data nginx; \
+    ### End of Nginx setup
 
-# Benchmarking tools (ab, siege, wrk)
-# https://www.nginx.com/blog/benefits-of-microcaching-nginx
-#RUN apt-get -y install \
-#    apache2-utils \
-#    siege
-#RUN curl -fSL "https://github.com/wg/wrk/archive/master.tar.gz" -o "wrk.tar.gz" \
-#    && mkdir -p /usr/local/wrk \
-#    && tar -xf "wrk.tar.gz" -C /usr/local/wrk --strip-components=1 \
-#    && rm "wrk.tar.gz"* \
-#    && cd /usr/local/wrk \
-#    && make \
-#    && chmod +x /usr/local/wrk/wrk \
-#    && echo 'export PATH="$PATH:/usr/local/wrk"' >> /etc/bash.bashrc
+    apt-get remove -y \
+        curl \
+        gcc \
+        make \
+        libc6-dev \
+        libexpat1-dev \
+        libgd-dev \
+        libgeoip-dev \
+        libpam0g-dev \
+        libpcre3-dev \
+        libperl-dev \
+        libssl-dev \
+        libxml2-dev \
+        libxslt1-dev \
+        #openssl \
+        zlib1g-dev \
+    && echo "Showing /var/lib/apt/lists directory:" \
+    && ls -al /var/lib/apt/lists \
+    && rm -rf /usr/src/* /var/lib/apt/lists/*
 
-RUN rm -rf /usr/src/* /var/lib/apt/lists/*
+COPY etc/nginx/html/404.html /var/www/html
 
 WORKDIR /var/www
 
