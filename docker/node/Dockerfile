@@ -5,8 +5,9 @@
 FROM lantosistvan_base:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
+# http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
 
-ENV NPM_CONFIG_LOGLEVEL info
+ENV NPM_CONFIG_LOGLEVEL="info"
 
 RUN apt-get update && apt-get install -y --no-install-recommends --no-install-suggests \
     curl; \
@@ -40,9 +41,12 @@ NODE_VERSION=$( \
 && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
 && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt; \
 
+mkdir -p /root/www/lantosistvan && \
 node -v && npm -v; \
 
 apt-get remove -y curl && \
 rm -rf /var/lib/apt/lists/*
+
+WORKDIR /root/www/lantosistvan
 
 CMD ["echo", "lantosistvan_node container finished!"]

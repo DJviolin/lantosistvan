@@ -22,20 +22,19 @@ services:
     command: echo "Data-only container"
     network_mode: "none"
   node:
+    #build: ./node
+    #image: lantosistvan_node
+    #container_name: lantosistvan_node
+    #command: echo "Data-only container"
+    #depends_on:
+    #  - base
+    #network_mode: "none"
     build: ./node
     image: lantosistvan_node
     container_name: lantosistvan_node
-    command: echo "Data-only container"
-    depends_on:
-      - base
-    network_mode: "none"
-  app:
-    build: ./app
-    image: lantosistvan_app
-    container_name: lantosistvan_app
     depends_on:
       #- letsencrypt
-      - node
+      - base
     environment:
       - NODE_ENV=production
       - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
@@ -54,12 +53,38 @@ services:
       lantosistvan_back:
         ipv4_address: 172.16.238.11
         ipv6_address: 2001:3984:3989::11
+  #app:
+  #  build: ./app
+  #  image: lantosistvan_app
+  #  container_name: lantosistvan_app
+  #  depends_on:
+  #    #- letsencrypt
+  #    - node
+  #  environment:
+  #    - NODE_ENV=production
+  #    - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
+  #    - PRIVATE_IP_DOCKER=172.16.238.11
+  #    - PORT=8081
+  #  command: [sh, -c, npm install && npm start]
+  #  ####ports:
+  #    #- "10.0.2.15:8081:8081"
+  #    ####- "8081:8081"
+  #  volumes:
+  #    - "../app:/root/www/lantosistvan:rw"
+  #  networks:
+  #    #lantosistvan_front:
+  #    #  ipv4_address: 172.16.238.11
+  #    #  ipv6_address: 2001:3984:3989::11
+  #    lantosistvan_back:
+  #      ipv4_address: 172.16.238.11
+  #      ipv6_address: 2001:3984:3989::11
   nginx:
     build: ./nginx
     image: lantosistvan_nginx
     container_name: lantosistvan_nginx
     depends_on:
-      - app
+      #- app
+      - node
     #command: /bin/dash -c "/usr/sbin/nginx"
     command: [sh, -c, /usr/sbin/nginx]
     ports:
