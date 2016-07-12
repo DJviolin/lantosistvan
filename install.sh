@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # set -e making the commands if they were like &&
-set -e
+# set -x putting + before every line
+set -ex
 
 read -e -p "Enter the path to the install dir (or hit enter for default path): " -i "$HOME/www/lantosistvan" INSTALL_DIR
 echo $INSTALL_DIR
