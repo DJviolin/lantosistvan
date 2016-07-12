@@ -60,10 +60,11 @@ RUN buildDeps='\
     && tar -xf "njs.tar.gz" -C /usr/src/nginx-modules/njs --strip-components=1 \
     && rm "njs.tar.gz"*; \
 
-    cd /usr/src/nginx; \
+    #cd /usr/src/nginx; \
 
     # Configuring the build
-    ./configure \
+    #./configure \
+    ./usr/src/nginx/configure \
         --prefix=/etc/nginx \
         --sbin-path=/usr/sbin/nginx \
         --modules-path=/usr/lib/nginx/modules \
@@ -121,8 +122,10 @@ RUN buildDeps='\
         --add-module=/usr/src/nginx-modules/ngx_srcache \
         --add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo "Configuration done!" \
-    && make \
-    && make install; \
+    #&& make \
+    #&& make install; \
+    && make -C /usr/src/nginx \
+    && make -C /usr/src/nginx install; \
 
     ### Start of Nginx setup
     mkdir -p \

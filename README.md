@@ -83,7 +83,7 @@ If you happens to be a `CoreOS` user and you want to install `docker-compose`, y
 ```
 $ sudo su
 $ mkdir -p /opt/bin
-$ curl -L https://github.com/docker/compose/releases/download/1.8.0-rc1/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose
+$ curl -L https://github.com/docker/compose/releases/download/1.8.0-rc2/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose
 $ chmod +x /opt/bin/docker-compose
 $ exit
 ```
@@ -380,13 +380,16 @@ Command to removing all images and containers:
 ```shell
 #!/bin/bash
 # Delete all containers
-docker rm -f $(docker ps -a -q)
+docker rm -v -f $(docker ps -a -q)
 # Delete all images
-docker rmi -f $(docker images -q)
+docker rmi -v -f $(docker images -q)
 # Delete all volumes
 docker volume rm $(docker volume ls -q)
 # Delete networks
 docker network rm docker_lantosistvan_back docker_lantosistvan_front
+# Delete docker files
+cd /var/lib/docker
+rm -rf /var/lib/docker/volumes/
 ```
 
 Dockerfile Linter:
