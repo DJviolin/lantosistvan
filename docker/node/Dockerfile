@@ -43,11 +43,13 @@ NODE_VERSION=$( \
 && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
 && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt; \
 
-mkdir -p /root/www/lantosistvan && \
-node -v && npm -v; \
+mkdir -p /root/www/lantosistvan \
+&& node -v && npm -v; \
 
-apt-get remove -y curl && \
-rm -rf /var/lib/apt/lists/*
+#apt-get remove -y --purge \
+apt-get purge -y --auto-remove \
+    curl \
+&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root/www/lantosistvan
 

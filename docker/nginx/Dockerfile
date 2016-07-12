@@ -8,11 +8,12 @@ ENV NGINX_VERSION="nginx-1.11.1.tar.gz" \
     GPG_KEYS="B0F4253373F8F6F510D42178520A9993A1C052F8" \
     OPENSSL_VERSION="openssl-1.0.2h.tar.gz"
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
+# uncommented: openssl
+RUN buildDeps='\
         curl \
         gcc \
         make \
-        # Nginx packages
+        \
         libc6-dev \
         libexpat1-dev \
         libgd-dev \
@@ -23,8 +24,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
-        #openssl \
-        zlib1g-dev \
+        zlib1g-dev';
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
+        $buildDeps \
     && rm -rf /var/lib/apt/lists/* \
     # Nginx
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
@@ -152,22 +154,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && usermod -aG www-data nginx; \
     ### End of Nginx setup
 
-    apt-get remove -y \
-        curl \
-        gcc \
-        make \
-        libc6-dev \
-        libexpat1-dev \
-        libgd-dev \
-        libgeoip-dev \
-        libpam0g-dev \
-        libpcre3-dev \
-        libperl-dev \
-        libssl-dev \
-        libxml2-dev \
-        libxslt1-dev \
-        #openssl \
-        zlib1g-dev \
+    #apt-get remove -y \
+    apt-get purge -y --auto-remove $buildDeps \
     && echo "Showing /var/lib/apt/lists directory:" \
     && ls -al /var/lib/apt/lists \
     && rm -rf /usr/src/* /var/lib/apt/lists/*
