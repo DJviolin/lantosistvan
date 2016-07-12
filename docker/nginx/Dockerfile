@@ -24,7 +24,7 @@ RUN buildDeps='\
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
-        zlib1g-dev';
+        zlib1g-dev'; \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
         $buildDeps \
     && rm -rf /var/lib/apt/lists/* \
