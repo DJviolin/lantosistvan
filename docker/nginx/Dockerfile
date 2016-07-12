@@ -1,20 +1,17 @@
-# Lanti/Nginx
-#
-# VERSION               1.0.0
-
-FROM lantosistvan_base:latest
+FROM lantosistvan_base:1.0.0
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
-LABEL Description="Nginx built from source" Vendor="Istvan Lantos" Version="1.0"
+LABEL com.lantosistvan.version="1.0.0" \
+      com.lantosistvan.environment="production" \
+      com.lantosistvan.description="Nginx"
 
 ENV NGINX_VERSION="nginx-1.11.1.tar.gz" \
     GPG_KEYS="B0F4253373F8F6F510D42178520A9993A1C052F8" \
     OPENSSL_VERSION="openssl-1.0.2h.tar.gz"
 
-RUN apt-get update && apt-get install -y \
-        gcc \
-        make
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
         curl \
+        gcc \
+        make \
         # Nginx packages
         libc6-dev \
         libexpat1-dev \
@@ -28,6 +25,7 @@ RUN apt-get install -y --no-install-recommends \
         libxslt1-dev \
         #openssl \
         zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/* \
     # Nginx
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION" -o "$NGINX_VERSION" \
     && curl -fSL "http://nginx.org/download/$NGINX_VERSION.asc" -o "$NGINX_VERSION.asc" \

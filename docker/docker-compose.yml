@@ -17,7 +17,7 @@ services:
   #  #  - front-tier
   base:
     build: ./base
-    image: lantosistvan_base
+    image: lantosistvan_base:1.0.0
     container_name: lantosistvan_base
     command: echo "Data-only container"
     network_mode: "none"
@@ -30,7 +30,7 @@ services:
     #  - base
     #network_mode: "none"
     build: ./node
-    image: lantosistvan_node
+    image: lantosistvan_node:1.0.0
     container_name: lantosistvan_node
     depends_on:
       #- letsencrypt
@@ -80,7 +80,7 @@ services:
   #      ipv6_address: 2001:3984:3989::11
   nginx:
     build: ./nginx
-    image: lantosistvan_nginx
+    image: lantosistvan_nginx:1.0.0
     container_name: lantosistvan_nginx
     depends_on:
       #- app

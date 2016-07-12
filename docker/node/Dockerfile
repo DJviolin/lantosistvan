@@ -1,10 +1,9 @@
-# Lanti/Node
-#
-# VERSION               1.0.0
-
-FROM lantosistvan_base:latest
+FROM lantosistvan_base:1.0.0
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
-LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
+LABEL com.lantosistvan.version="1.0.0" \
+      com.lantosistvan.environment="production" \
+      com.lantosistvan.description="Node.js"
+
 # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
 
 ENV NPM_CONFIG_LOGLEVEL="info"

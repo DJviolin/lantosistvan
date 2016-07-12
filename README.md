@@ -76,20 +76,6 @@ $ docker-compose --file $HOME/www/lantosistvan/docker/lwan/docker-compose.yml bu
 $ docker-compose --file $HOME/www/lantosistvan/docker/lwan/docker-compose.yml up
 ```
 
-Minimalistic Docker layers:
-
-https://blog.replicated.com/2016/02/05/refactoring-a-dockerfile-for-image-size/
-
-Lwan routing capabilities:
-
-https://github.com/lpereira/lwan/issues/156
-
-https://github.com/adam-hanna/lwan-mustache-c
-
-https://tia.mat.br/posts/2012/11/11/mustache_templates_in_c.html
-
-Change the settings in `app/config.js` if you wish.
-
 ## Docker-compose installation on CoreOS
 
 If you happens to be a `CoreOS` user and you want to install `docker-compose`, you can install it with superuser access:
@@ -504,3 +490,31 @@ configure arguments:
 --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2'
 --with-ld-opt='-Wl,-z,relro -Wl,--as-needed'
 ```
+
+##### Docker related
+
+Minimalistic Docker layers:
+
+https://docs.docker.com/engine/userguide/labels-custom-metadata/
+
+https://blog.replicated.com/2016/02/05/refactoring-a-dockerfile-for-image-size/
+
+Linters:
+
+https://www.fromlatest.io/
+
+http://hadolint.lukasmartinelli.ch/
+
+
+
+
+Lwan routing capabilities:
+
+https://github.com/lpereira/lwan/issues/156
+
+https://github.com/adam-hanna/lwan-mustache-c
+
+https://tia.mat.br/posts/2012/11/11/mustache_templates_in_c.html
+
+Change the settings in `app/config.js` if you wish.
+

@@ -1,12 +1,8 @@
-# Lanti/Base
-#
-# VERSION               1.0.0
-
-FROM debian:latest
+FROM debian:jessie
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
-LABEL Description="This image is the base of the other app images in this project" Vendor="Istvan Lantos" Version="1.0"
-# https://blog.replicated.com/2016/02/05/refactoring-a-dockerfile-for-image-size/
-# https://www.fromlatest.io/#/
+LABEL com.lantosistvan.version="1.0.0" \
+      com.lantosistvan.environment="production" \
+      com.lantosistvan.description="Base"
 
 ENV TERM="linux"
 
