@@ -6,9 +6,9 @@ FROM lantosistvan_base:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="Nginx built from source" Vendor="Istvan Lantos" Version="1.0"
 
-ENV NGINX_VERSION nginx-1.11.1.tar.gz
-ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
-ENV OPENSSL_VERSION openssl-1.0.2h.tar.gz
+ENV NGINX_VERSION="nginx-1.11.1.tar.gz" \
+    GPG_KEYS="B0F4253373F8F6F510D42178520A9993A1C052F8" \
+    OPENSSL_VERSION="openssl-1.0.2h.tar.gz"
 
 RUN apt-get update && apt-get install -y \
         gcc \

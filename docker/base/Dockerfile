@@ -6,9 +6,9 @@ FROM debian:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="This image is the base of the other app images in this project" Vendor="Istvan Lantos" Version="1.0"
 # https://blog.replicated.com/2016/02/05/refactoring-a-dockerfile-for-image-size/
+# https://www.fromlatest.io/#/
 
-ENV TERM="linux" \
-    DEBIAN_FRONTEND="noninteractive"
+ENV TERM="linux"
 
 WORKDIR $HOME
 

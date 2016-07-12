@@ -9,7 +9,8 @@ LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 
 ENV NPM_CONFIG_LOGLEVEL="info"
 
-RUN apt-get update && apt-get install -y --no-install-recommends --no-install-suggests \
+# https://github.com/docker/docker/issues/4032#issuecomment-34597177
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
     curl; \
 
 # gpg keys listed at https://github.com/nodejs/node
