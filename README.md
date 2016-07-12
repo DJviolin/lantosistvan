@@ -76,6 +76,10 @@ $ docker-compose --file $HOME/www/lantosistvan/docker/lwan/docker-compose.yml bu
 $ docker-compose --file $HOME/www/lantosistvan/docker/lwan/docker-compose.yml up
 ```
 
+Minimalistic Docker layers:
+
+https://blog.replicated.com/2016/02/05/refactoring-a-dockerfile-for-image-size/
+
 Lwan routing capabilities:
 
 https://github.com/lpereira/lwan/issues/156

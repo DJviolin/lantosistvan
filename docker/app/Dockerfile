@@ -5,7 +5,6 @@
 FROM lantosistvan_node:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="App" Vendor="Istvan Lantos" Version="1.0"
-
 # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
 
 RUN mkdir -p /root/www/lantosistvan

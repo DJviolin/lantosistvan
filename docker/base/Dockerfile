@@ -5,9 +5,10 @@
 FROM debian:latest
 MAINTAINER Istvan Lantos <kerozin.joe@gmail.com>
 LABEL Description="This image is the base of the other app images in this project" Vendor="Istvan Lantos" Version="1.0"
+# https://blog.replicated.com/2016/02/05/refactoring-a-dockerfile-for-image-size/
 
-ENV TERM linux
-ENV DEBIAN_FRONTEND noninteractive
+ENV TERM=linux \
+    DEBIAN_FRONTEND=noninteractive
 
 WORKDIR $HOME
 
@@ -18,11 +19,6 @@ deb http://security.debian.org stable/updates main contrib non-free\n\
 deb-src http://security.debian.org stable/updates main contrib non-free\n\
 deb http://httpredir.debian.org/debian stable-updates main contrib non-free\n\
 deb-src http://httpredir.debian.org/debian stable-updates main contrib non-free" > /etc/apt/sources.list; \
-
-apt-get update && apt-get install -y \
-    apt-utils \
-    curl \
-    xz-utils; \
 
 ### Start of optimizations
 # https://easyengine.io/tutorials/linux/increase-open-files-limit/
@@ -47,8 +43,6 @@ groupmod -g 500 www-data \
 && chown -R www-data:www-data /var/www \
 && chmod g+s /var/www; \
 ### End of Nginx WEBSERVER setup
-
-rm -rf /var/lib/apt/lists/*
 
 #CMD ["tail", "-f", "/dev/null"]
 CMD ["echo", "lantosistvan_base container finished!"]

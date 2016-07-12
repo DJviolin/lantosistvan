@@ -8,6 +8,9 @@ LABEL Description="Node.js" Vendor="Istvan Lantos" Version="1.0"
 
 ENV NPM_CONFIG_LOGLEVEL info
 
+RUN apt-get update && apt-get install -y --no-install-recommends --no-install-suggests \
+    curl;
+
 # gpg keys listed at https://github.com/nodejs/node
 RUN for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
@@ -26,19 +29,20 @@ NODE_VERSION=$( \
     curl -sL https://nodejs.org/dist/latest/ | \
     tac | \
     tac | \
-    grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | \
+    grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.gz)' | \
     head -1 \
 ) \
 && echo $NODE_VERSION \
-&& curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.xz" -o "node-v$NODE_VERSION-linux-x64.tar.xz" \
+&& curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.gz" -o "node-v$NODE_VERSION-linux-x64.tar.gz" \
 && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
 && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
-&& grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
-&& tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-&& rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt; \
+&& grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt | sha256sum -c - \
+&& tar -xJf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
+&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt; \
 
 node -v && npm -v; \
 
+apt-get remove -y curl && \
 rm -rf /var/lib/apt/lists/*
 
 CMD ["echo", "lantosistvan_node container finished!"]

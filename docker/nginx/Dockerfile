@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
         gcc \
         make
 RUN apt-get install -y --no-install-recommends \
+        curl \
         # Nginx packages
         libc6-dev \
         libexpat1-dev \
