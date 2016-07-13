@@ -45,6 +45,9 @@ const app = express();
 // https://www.npmjs.com/package/socket.io
 // http://socket.io/docs
 // http://stackoverflow.com/a/28325154/1442219
+// http://enterprisewebbook.com/ch8_websockets.html
+// TUTORIAL:
+// http://stackoverflow.com/a/33826289/1442219
 /////////////////////////////////////////////////////////////
 
 //const io = socket_io();
