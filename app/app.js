@@ -48,6 +48,7 @@ const app = express();
 // http://enterprisewebbook.com/ch8_websockets.html
 // TUTORIAL:
 // http://stackoverflow.com/a/33826289/1442219
+// http://gulivert.ch/create-a-chat-app-with-nodejs-express-and-socket-io/
 /////////////////////////////////////////////////////////////
 
 //const io = socket_io();
