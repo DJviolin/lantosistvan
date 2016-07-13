@@ -64,7 +64,7 @@ RUN buildDeps='\
 
     # Configuring the build
     #./configure \
-    ./usr/src/nginx/configure \
+    /usr/src/nginx/configure \
         --prefix=/etc/nginx \
         --sbin-path=/usr/sbin/nginx \
         --modules-path=/usr/lib/nginx/modules \
@@ -122,8 +122,6 @@ RUN buildDeps='\
         --add-module=/usr/src/nginx-modules/ngx_srcache \
         --add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo "Configuration done!" \
-    #&& make \
-    #&& make install; \
     && make -C /usr/src/nginx \
     && make -C /usr/src/nginx install; \
 
