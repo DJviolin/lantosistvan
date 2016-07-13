@@ -17,7 +17,7 @@ RUN buildDeps='\
         xz-utils'; \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
         $buildDeps \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/*; \
 
     # gpg keys listed at https://github.com/nodejs/node
     for key in \

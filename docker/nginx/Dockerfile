@@ -10,6 +10,7 @@ ENV NGINX_VERSION="nginx-1.11.1.tar.gz" \
 
 # uncommented: openssl
 RUN buildDeps='\
+        ca-certificates \
         curl \
         gcc \
         make \
