@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 const express        = require('express'),
+      //socket_io      = require('socket.io'),
       bodyParser     = require('body-parser'),
       //cookieParser   = require('cookie-parser'),
       methodOverride = require('method-override'),
@@ -38,6 +39,30 @@ const api      = require('./routes/api-external'),
 
 const app = express();
 //app.set('strict routing', false);
+
+/////////////////////////////////////////////////////////////
+// SOCKET.IO
+// https://www.npmjs.com/package/socket.io
+// http://socket.io/docs
+// http://stackoverflow.com/a/28325154/1442219
+/////////////////////////////////////////////////////////////
+
+//const io = socket_io();
+//app.io   = io;
+
+//const contact = require('./routes/contact')(io);
+
+/*// socket.io events
+io.on('connection', (socket) => {
+  console.log('A user connected');
+});*/
+
+/*io.on('connection', (socket) => {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', (data) => {
+    console.log(data);
+  });
+});*/
 
 /////////////////////////////////////////////////////////////
 // DEVELOPMENT
