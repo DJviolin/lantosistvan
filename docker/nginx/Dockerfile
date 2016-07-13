@@ -25,8 +25,8 @@ RUN buildDeps='\
         libssl-dev \
         libxml2-dev \
         libxslt1-dev \
-        zlib1g-dev'; \
-    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
+        zlib1g-dev' \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
         $buildDeps \
     && rm -rf /var/lib/apt/lists/* \
     # Nginx
@@ -59,13 +59,11 @@ RUN buildDeps='\
     && curl -fSL "http://hg.nginx.org/njs/archive/tip.tar.gz" -o "njs.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/njs \
     && tar -xf "njs.tar.gz" -C /usr/src/nginx-modules/njs --strip-components=1 \
-    && rm "njs.tar.gz"*; \
-
-    #cd /usr/src/nginx; \
+    && rm "njs.tar.gz"* \
 
     # Configuring the build
-    #./configure \
-    /usr/src/nginx/configure \
+    && cd /usr/src/nginx \
+    && ./configure \
         --prefix=/etc/nginx \
         --sbin-path=/usr/sbin/nginx \
         --modules-path=/usr/lib/nginx/modules \
@@ -124,10 +122,10 @@ RUN buildDeps='\
         --add-module=/usr/src/nginx-modules/njs*/nginx \
     && echo "Configuration done!" \
     && make -C /usr/src/nginx \
-    && make -C /usr/src/nginx install; \
+    && make -C /usr/src/nginx install \
 
     ### Start of Nginx setup
-    mkdir -p \
+    && mkdir -p \
         /etc/nginx/conf.d \
         /etc/nginx/ssl \
         #/var/www/html \
@@ -153,11 +151,10 @@ RUN buildDeps='\
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
     # Allow Nginx to access /var/run/php-fpm/php-fpm.sock
-    && usermod -aG www-data nginx; \
+    && usermod -aG www-data nginx \
     ### End of Nginx setup
 
-    #apt-get remove -y \
-    apt-get purge -y --auto-remove \
+    && apt-get purge -y --auto-remove \
         $buildDeps \
     && echo "Showing /var/lib/apt/lists directory:" \
     && ls -al /var/lib/apt/lists \

@@ -14,13 +14,13 @@ ENV NPM_CONFIG_LOGLEVEL="info"
 RUN buildDeps='\
         ca-certificates \
         curl \
-        xz-utils'; \
-    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
+        xz-utils' \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
         $buildDeps \
-    && rm -rf /var/lib/apt/lists/*; \
+    && rm -rf /var/lib/apt/lists/* \
 
     # gpg keys listed at https://github.com/nodejs/node
-    for key in \
+    && for key in \
         9554F04D7259F04124DE6B476D5A82AC7E37093B \
         94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
         0034A06D9D9B0064CE8ADF6BF1747F4AD2306D93 \
@@ -31,9 +31,9 @@ RUN buildDeps='\
         B9AE9905FFD7803F25714661B63B535A4C206CA9 \
     ; do \
         gpg --keyserver pool.sks-keyservers.net --recv-keys "$key"; \
-    done; \
+    done \
 
-    NODE_VERSION=$( \
+    && NODE_VERSION=$( \
         curl -sL https://nodejs.org/dist/latest/ | \
         tac | \
         tac | \
@@ -46,12 +46,12 @@ RUN buildDeps='\
     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
     && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
     && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-    && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt; \
+    && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
 
-    node -v && npm -v \
+    && node -v && npm -v \
     #&& mkdir -p /root/www/lantosistvan \
 
-    apt-get purge -y --auto-remove \
+    && apt-get purge -y --auto-remove \
         $buildDeps \
     && rm -rf /var/lib/apt/lists/*
 
