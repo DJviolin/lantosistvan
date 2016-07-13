@@ -7,8 +7,6 @@
 /////////////////////////////////////////////////////////////
 
 const express        = require('express'),
-      //serveStatic    = require('serve-static'),
-      //serveIndex     = require('serve-index'),
       bodyParser     = require('body-parser'),
       //cookieParser   = require('cookie-parser'),
       methodOverride = require('method-override'),
@@ -20,15 +18,6 @@ const express        = require('express'),
       // Security
       helmet         = require('helmet'),
       hpp            = require('hpp');
-      // Environment variables
-      //dotenv         = require('dotenv');
-
-/////////////////////////////////////////////////////////////
-// ENVIRONMENT VARIABLES
-// USAGE: process.env.PORT
-/////////////////////////////////////////////////////////////
-
-//dotenv.config({ path: '.env' });
 
 /////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
@@ -198,90 +187,8 @@ app.locals.actualYear = new Date().getFullYear();
 // INIT ROUTES BEFORE req.params.lang
 /////////////////////////////////////////////////////////////
 
-// FTP
-//app.use('/ftp', serveIndex('public/ftp', {'icons': true, 'view': 'details'}));
 // API
 app.use('/api', api);
-
-/////////////////////////////////////////////////////////////
-// CRON
-// http://handyjs.org/article/the-kick-ass-guide-to-creating-nodejs-cron-tasks
-// https://www.npmjs.com/package/cron
-// https://www.npmjs.com/package/node-schedule
-/////////////////////////////////////////////////////////////
-
-/*const fs          = require('fs'),
-      util        = require('util'),
-      CronJob     = require('cron').CronJob,
-      rp          = require('request-promise'),
-      parseString = require('xml2js').parseString;
-
-const job = new CronJob({
-  cronTime: '5 * * * * 0-6',
-  onTick: () => {
-     // Runs every weekday (Monday through Friday)
-     // at 11:30:00 AM. It does not run on Saturday
-     // or Sunday.
-     console.log('CronJob started!');
-  },
-  start: true,
-  timeZone: 'Europe/Budapest'
-});
-
-job.start();
-
-app.get('(/:lang)?/cron', (req, res) => {
-
-  const options = {
-    method: 'GET',
-    //uri: 'http://www.eporner.com/sitemap/rss_hd_320x240.xml'
-    //uri: 'http://www.eporner.com/api_xml/all/1000000/0/adddate'
-    uri: 'http://www.eporner.com/api_xml/all/1000000'
-  };
-  rp(options)
-    .then((data) => {
-
-      fs.writeFile(__dirname + '/database/rss.xml', data, (err) => {
-        if(err) { throw err };
-        console.log('It\'s saved!');
-      });
-      res.send('CronJob ended!');
-
-      //parseString(data, {trim: false}, (err, result) => {
-      //  console.log('GET finished, fs.writeFile started!');
-
-        //fs.writeFile(__dirname + '/database/rss.xml', result, (err) => {
-        //  if(err) { throw err };
-        //  console.log('It\'s saved!');
-        //});
-
-        //const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: null });
-        //fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
-        //  if(err) { throw err };
-        //  console.log('It\'s saved!');
-        //});
-
-      //  res.send('CronJob ended!');
-      //});
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  //fs.readFile(__dirname + '/database/rss_hd_320x240.xml', (err, data) => {
-    //parser.parseString(data, (err, result) => {
-  //  parseString(data, (err, result) => {
-      //console.dir(result);
-      //console.log('Done');
-  //    const json = util.inspect(result, { showHidden: true, depth: null, maxArrayLength: 2 });
-  //    fs.writeFile(__dirname + '/database/rss_hd_320x240.json', json, (err) => {
-  //      if(err) { throw err };
-  //      console.log('It\'s saved!');
-  //    });
-  //  });
-  //});
-
-});*/
 
 /////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS
@@ -336,9 +243,6 @@ app.use('/:lang', langRouter, langClass);
 /////////////////////////////////////////////////////////////
 // INIT ROUTES AFTER req.params.lang
 /////////////////////////////////////////////////////////////
-
-// Static (before routes)
-//app.use(serveStatic(__dirname + '/public'));
 
 app.use('/:lang/blog', blog);
 app.use('/blog', (req, res) => {
