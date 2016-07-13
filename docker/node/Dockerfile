@@ -11,8 +11,13 @@ ENV NPM_CONFIG_LOGLEVEL="info"
 # https://github.com/docker/docker/issues/4032#issuecomment-34597177
 # https://github.com/docker/docker/issues/4032#issuecomment-50416589
 # https://docs.docker.com/engine/reference/builder/#/arg
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
-    curl; \
+RUN buildDeps='\
+        ca-certificates \
+        curl \
+        xz-utils'; \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
+        $buildDeps \
+    && rm -rf /var/lib/apt/lists/* \
 
     # gpg keys listed at https://github.com/nodejs/node
     for key in \
@@ -32,23 +37,22 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         curl -sL https://nodejs.org/dist/latest/ | \
         tac | \
         tac | \
-        grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.gz)' | \
+        grep -oPa -m 1 '(?<=node-v)(.*?)(?=-linux-x64\.tar\.xz)' | \
         head -1 \
     ) \
     && echo $NODE_VERSION \
-    && curl -SLO "https://nodejs.org/dist/latest/node-v$NODE_VERSION-linux-x64.tar.gz" -o "node-v$NODE_VERSION-linux-x64.tar.gz" \
-    && curl -SLO "https://nodejs.org/dist/latest/SHASUMS256.txt.asc" \
+    && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
+    && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
-    && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt | sha256sum -c - \
-    && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
-    && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt; \
+    && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
+    && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
+    && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-    mkdir -p /root/www/lantosistvan \
-    && node -v && npm -v; \
+    node -v && npm -v \
+    #&& mkdir -p /root/www/lantosistvan \
 
-    #apt-get remove -y --purge \
     apt-get purge -y --auto-remove \
-        curl \
+        $buildDeps \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root/www/lantosistvan

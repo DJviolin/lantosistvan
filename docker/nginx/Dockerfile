@@ -129,7 +129,7 @@ RUN buildDeps='\
     mkdir -p \
         /etc/nginx/conf.d \
         /etc/nginx/ssl \
-        /var/www/html \
+        #/var/www/html \
         /var/run/nginx/client_cache \
         /var/run/nginx/proxy_cache \
         /var/run/nginx/fastcgi_cache \
@@ -156,7 +156,8 @@ RUN buildDeps='\
     ### End of Nginx setup
 
     #apt-get remove -y \
-    apt-get purge -y --auto-remove $buildDeps \
+    apt-get purge -y --auto-remove \
+        $buildDeps \
     && echo "Showing /var/lib/apt/lists directory:" \
     && ls -al /var/lib/apt/lists \
     && rm -rf /usr/src/* /var/lib/apt/lists/*

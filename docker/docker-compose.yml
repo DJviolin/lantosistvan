@@ -19,7 +19,11 @@ services:
     build: ./base
     image: lantosistvan_base:1.0.0
     container_name: lantosistvan_base
-    command: echo "Data-only container"
+    #command: echo "Data-only container"
+    command: [sh, -c, tail -f /dev/null]
+    volumes:
+      - "../app:/root/www/lantosistvan:rw"
+      - lantosistvan_persistent:/var/www/persistent
     network_mode: "none"
   node:
     #build: ./node
@@ -44,8 +48,10 @@ services:
     ####ports:
       #- "10.0.2.15:8081:8081"
       ####- "8081:8081"
+    #volumes_from:
     volumes:
-      - "../app:/root/www/lantosistvan:rw"
+      #- "../app:/root/www/lantosistvan:rw"
+      - lantosistvan_persistent:/root/www/lantosistvan
     networks:
       #lantosistvan_front:
       #  ipv4_address: 172.16.238.11
@@ -115,6 +121,12 @@ services:
   #    - nginx
   #  networks:
   #    - lantosistvan_front
+
+volumes:
+  lantosistvan_persistent:
+    #driver: local
+    driver_opts:
+      o: uid=505
 
 networks:
   lantosistvan_back:

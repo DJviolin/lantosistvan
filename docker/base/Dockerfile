@@ -28,7 +28,8 @@ RUN echo "\
     ### End of optimizations
 
     ### Start of Nginx WEBSERVER setup
-    mkdir -p /var/www; \
+    mkdir -p /var/www/html /var/www/persistent /root/www/lantosistvan; \
+    ln -sf /root/www/lantosistvan /var/www/persistent; \
     # Modify www-data user and set UID, GID to 500
     # https://muffinresearch.co.uk/linux-changing-uids-and-gids-for-user/
     groupmod -g 500 www-data \
@@ -37,7 +38,7 @@ RUN echo "\
     #&& `find / -group 33 -exec chgrp -h 500 {} \;` \
     && usermod -g 500 www-data \
     && chown -R www-data:www-data /var/www \
-    && chmod g+s /var/www; \
+    && chmod g+s /var/www
     ### End of Nginx WEBSERVER setup
 
 #CMD ["tail", "-f", "/dev/null"]
