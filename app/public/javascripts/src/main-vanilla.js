@@ -110,6 +110,20 @@ if(document.body.classList.contains('contact')) {
 
 /////////////////////////////////////////////////////////////
 // HTML5 Form Error Messages - Vanilla JS AND AJAX
+// Websocket
+// http://www.tutorialspoint.com/websockets/websockets_events_actions.htm
+/////////////////////////////////////////////////////////////
+
+(function() {
+  if(document.body.classList.contains('contact')) {
+
+    var socket = new WebSocket('ws://127.0.0.1:8081/echo');
+
+  };
+})();
+
+/////////////////////////////////////////////////////////////
+// HTML5 Form Error Messages - Vanilla JS AND AJAX
 /////////////////////////////////////////////////////////////
 
 (function() {
