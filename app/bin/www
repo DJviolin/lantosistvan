@@ -7,7 +7,6 @@
 /////////////////////////////////////////////////////////////
 
 const app       = require('../app'),
-      //debug     = require('debug')('www:server'),
       debug     = require('debug'),
       http      = require('http'),
       socket_io = require('socket.io');
@@ -85,15 +84,11 @@ function onError(error) {
   // Handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      //console.error(bind + ' requires elevated privileges');
-      //debug(bind + ' requires elevated privileges');
-      err(bind + ' requires elevated privileges');
+      err('%s requires elevated privileges', bind);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      //console.error(bind + ' is already in use');
-      //debug(bind + ' is already in use');
-      err(bind + ' is already in use');
+      err('%s is already in use', bind);
       process.exit(1);
       break;
     default:
@@ -107,7 +102,5 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  //debug('Listening on ' + bind);
-  //debug('Listening on %s', bind);
   log('Listening on %s', bind);
 };
