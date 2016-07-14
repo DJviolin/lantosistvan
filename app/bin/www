@@ -31,9 +31,14 @@ app.set('trust proxy', true);
 app.set('x-powered-by', false);
 
 // Create HTTP server
-const server = http.createServer(app);
+// https://github.com/nodejs/node-v0.x-archive/blob/523929c9272a53c9429616564a45f2af59670e47/lib/http.js#L1903-L1905
+//const server = http.createServer(app);
+//const server = require('http').Server(app);
+const server = http.Server(app);
 
 // Socket.io
+// SocketIO does not work with routes it works with sockets
+// http://stackoverflow.com/a/33596348/1442219
 /*const io = app.io
 io.listen(server);*/
 const io = socket_io.listen(server);
