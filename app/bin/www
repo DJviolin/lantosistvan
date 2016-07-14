@@ -7,7 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 const app       = require('../app'),
-      debug     = require('debug'),
+      //debug     = require('debug'),
       http      = require('http'),
       socket_io = require('socket.io');
 
@@ -55,10 +55,13 @@ server.on('listening', onListening);
 // Debugging
 // https://expressjs.com/en/advanced/best-practice-performance.html
 // https://expressjs.com/en/guide/debugging.html
+// https://nodejs.org/api/util.html#util_util_format_format
 /////////////////////////////////////////////////////////////
 
-const err = debug('app:err'),
-      log = debug('app:log');
+//const error = debug('app:error'),
+//      log = debug('app:log');
+const error = app.error,
+      log = app.log;
 
 // Normalize a port into a number, string, or false
 function normalizePort(val) {
@@ -73,9 +76,9 @@ function normalizePort(val) {
 };
 
 // Event listener for HTTP server "error" event
-function onError(error) {
-  if(error.syscall !== 'listen') {
-    throw error;
+function onError(err) {
+  if(err.syscall !== 'listen') {
+    throw err;
   };
 
   const bind = typeof port === 'string'
@@ -83,17 +86,17 @@ function onError(error) {
     : 'Port ' + port;
 
   // Handle specific listen errors with friendly messages
-  switch (error.code) {
+  switch (err.code) {
     case 'EACCES':
-      err('%s requires elevated privileges', bind);
+      error('%s requires elevated privileges', bind);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      err('%s is already in use', bind);
+      error('%s is already in use', bind);
       process.exit(1);
       break;
     default:
-      throw error;
+      throw err;
   };
 };
 
