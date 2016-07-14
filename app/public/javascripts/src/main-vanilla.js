@@ -124,8 +124,8 @@ if(document.body.classList.contains('contact')) {
     //var socket = io.connect('http://127.0.0.1:8081');
     var socket = io.connect(address);
     socket.on('news', function (data) {
-      console.log('CLIENT: ', data);
-      socket.emit('my other event', { my: 'data' });
+      console.log('CLIENT SAYS: ', data);
+      socket.emit('my other event', { my: 'data from CLIENT SIDE!' });
     });
 
   };
