@@ -204,20 +204,20 @@ install dependencies:
  > cd . && npm install
 
 run the app on linux:
- > $ DEBUG=www:*,i18n:* npm start
+ > $ DEBUG=app:*,i18n:* npm start
 
 run the app on windows:
- > SET DEBUG=www:*,i18n:* & npm start
+ > SET DEBUG=app:*,i18n:* & npm start
 ```
 
 #### Gulp
 
 ```
 run the app on linux:
- > $ DEBUG=www:*,i18n:*,gulp:*,gulp-live-server:* npm run gulp
+ > $ DEBUG=app:*,i18n:*,gulp:*,gulp-live-server:* npm run gulp
 
 run the app on windows:
- > SET DEBUG=www:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
+ > SET DEBUG=app:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
 ```
 
 ##### TODO
