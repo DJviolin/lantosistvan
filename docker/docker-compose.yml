@@ -29,7 +29,7 @@ services:
       - base
     environment:
       - NODE_ENV=production
-      - DEBUG=lantosistvan-portfolio:*,i18n:*,gulp:*,gulp-live-server:*
+      - DEBUG=www:*,i18n:*,gulp:*,gulp-live-server:*
       - PRIVATE_IP_DOCKER=172.16.238.11
       - PORT=8081
     command: [sh, -c, npm install && npm start]

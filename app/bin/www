@@ -7,7 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 const app       = require('../app'),
-      debug     = require('debug')('lantosistvan-portfolio:server'),
+      debug     = require('debug')('www:server'),
       http      = require('http'),
       socket_io = require('socket.io');
 
@@ -36,8 +36,6 @@ const server = http.createServer(app);
 // Socket.io
 /*const io = app.io
 io.listen(server);*/
-/*const io = require('socket.io').listen(server);
-require('../sockets/contact')(io);*/
 const io = socket_io.listen(server);
 require('../sockets')(io);
 

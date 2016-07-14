@@ -37,11 +37,11 @@ const api      = require('./routes/api-external'),
 // EXPRESS SETTINGS
 /////////////////////////////////////////////////////////////
 
-const app = express();
+const app    = express();
 //app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////
-// SOCKET.IO
+// SOCKET.IO MIDDLEWARE
 // https://www.npmjs.com/package/socket.io
 // http://socket.io/docs
 // http://stackoverflow.com/a/28325154/1442219
@@ -49,6 +49,9 @@ const app = express();
 // TUTORIAL:
 // http://stackoverflow.com/a/33826289/1442219
 // http://gulivert.ch/create-a-chat-app-with-nodejs-express-and-socket-io/
+//
+// https://onedesigncompany.com/news/express-generator-and-socket-io
+// https://github.com/onedesign/express-socketio-tutorial
 /////////////////////////////////////////////////////////////
 
 //const io = socket_io();

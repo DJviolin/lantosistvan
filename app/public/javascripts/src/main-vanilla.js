@@ -117,8 +117,12 @@ if(document.body.classList.contains('contact')) {
 (function() {
   if(document.body.classList.contains('contact')) {
 
+    var address = document.location.protocol + '//' + document.location.hostname + (document.location.port ? ':' + document.location.port: '');
+    console.log(address);
+
     //var socket = new WebSocket('ws://127.0.0.1:8081/echo');
-    var socket = io.connect('http://127.0.0.1:8081');
+    //var socket = io.connect('http://127.0.0.1:8081');
+    var socket = io.connect(address);
     socket.on('news', function (data) {
       console.log('CLIENT: ', data);
       socket.emit('my other event', { my: 'data' });
