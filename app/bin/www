@@ -39,7 +39,7 @@ io.listen(server);*/
 /*const io = require('socket.io').listen(server);
 require('../sockets/contact')(io);*/
 const io = socket_io.listen(server);
-require('../sockets/contact')(io);
+require('../sockets')(io);
 
 // Listen on provided port, on all network interfaces
 //server.listen(port);
