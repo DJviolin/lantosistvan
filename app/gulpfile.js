@@ -119,14 +119,23 @@ gulp.task('css', gulp.series('stylus', 'minify-css'));
 /////////////////////////////////////////////////////////////
 
 /*request
-  .get('https://raw.githubusercontent.com/jquery/jquery-dist/master/dist/jquery.min.js')
+  .get({ uri: paths.vendor })
   .on('error', (err) => {
     console.log('%s', err)
   })
   .pipe(fs.createWriteStream(paths.vendor + '/jquery.min.js'));*/
 
+/*gulp.task('vendor', (res) => {
+  const url = request.get({ uri: paths.vendor }).pipe(res);
+  const str = JSON.stringify(url, null, 4);
+  return console.log('%s', str);
+  //return gulp.src(url)
+  //  .pipe(gulp.dest('public/vendor'));
+});*/
+
+let index = 0;
 gulp.task('vendor', (res) => {
-  const url = request.get(paths.vendor).pipe(res);
+  const url = request.get(paths.vendor[index++]).pipe(res);
   return gulp.src(url)
     .pipe(gulp.dest('public/vendor'));
 });
