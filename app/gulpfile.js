@@ -11,7 +11,6 @@
 
 // ES5
 const gulp       = require('gulp'),
-      //livereload = require('gulp-livereload'),
       gls        = require('gulp-live-server'),
       rename     = require('gulp-rename'),
       stylus     = require('gulp-stylus'),
@@ -29,23 +28,6 @@ import stylus   from 'gulp-stylus';
 import cleanCSS from 'gulp-clean-css';
 import uglify   from 'gulp-uglify';*/
 
-const paths2 = {
-  pathStylus:   ['public/stylesheets/src/main.styl'],
-  pathCSS:      ['public/stylesheets/src/main.css'],
-  pathServer:   ['app.js',
-                 'bin/www',
-                 'routes/**/*.js',
-                 'lib/**/*.js',
-                 'config/**/*.js'],
-  pathUglify:   ['public/javascripts/src/main-vanilla.js',
-                 'public/javascripts/src/ajax-vanilla.js',
-                 'public/javascripts/src/main-jquery.js',
-                 'public/javascripts/src/slick.js'],
-  pathFiles:    ['views/*.hbs', 'views/**/*.hbs',
-                 'database/data.json',
-                 'locales/*.json']
-};
-
 const paths = {
   styles: {
     stylus: 'public/stylesheets/src/main.styl',
@@ -53,6 +35,7 @@ const paths = {
   },
   app: [
     'app.js',
+    'sockets.js',
     'bin/www',
     'routes/**/*.js',
     'lib/**/*.js',
@@ -89,9 +72,10 @@ gulp.task('start', () => {
 });
 
 /////////////////////////////////////////////////////////////
-// STYLUS CSS
+// CSS
 /////////////////////////////////////////////////////////////
 
+// Stylus
 gulp.task('stylus', () => {
   return gulp.src(paths.styles.stylus)
     .pipe(stylus({'include css': true, compress: false}))
@@ -99,29 +83,9 @@ gulp.task('stylus', () => {
     .pipe(gulp.dest('public/stylesheets/src'));
 });
 
-/////////////////////////////////////////////////////////////
 // MINIFY CSS
 // http://goalsmashers.github.io/css-minification-benchmark/
-/////////////////////////////////////////////////////////////
-
-/*gulp.task('minify-css', ['stylus'], () => {
-  return gulp.src(paths.pathCSS)
-    .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
-      console.log(
-        details.name +
-        ': The file was reduced from ' +
-        details.stats.originalSize +
-        ' bytes to ' +
-        details.stats.minifiedSize +
-        ' bytes. This means ' +
-        Math.round(details.stats.efficiency * 100) +
-        '% reduction in size!'
-      );
-    }))
-    .pipe(rename({ basename: 'style', extname: '.min.css' }))
-    .pipe(gulp.dest('public/stylesheets'))
-});*/
-
+//gulp.task('minify-css', ['stylus'], () => {
 gulp.task('minify-css', () => {
   return gulp.src(paths.styles.css)
     .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
@@ -139,6 +103,8 @@ gulp.task('minify-css', () => {
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'));
 });
+
+gulp.task('css', gulp.series('stylus', 'minify-css'));
 
 /////////////////////////////////////////////////////////////
 // UGLIFY JS
@@ -159,30 +125,22 @@ gulp.task('files', () => {
   return gulp.src(paths.files);
 });
 
-//gulp.task('app', gulp.parallel('start', 'stylus', 'minify-css', 'uglify', 'files'));
-gulp.task('app', gulp.series('start', 'stylus', 'minify-css', 'uglify', 'files'));
+/////////////////////////////////////////////////////////////
+// INIT: APP
+/////////////////////////////////////////////////////////////
+
+gulp.task('app', gulp.parallel('start', 'css', 'uglify', 'files'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
 // Rerun the task when a file changes
 /////////////////////////////////////////////////////////////
 
-//gulp.task('watch', () => {
-  /*gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathStylus, ['stylus']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathCSS, ['minify-css']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathUglify, ['uglify']).on('change', server.notify.bind(server));
-  gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));*/
-
-  /*gulp.watch(paths.pathServer, ['start'], server.start); // restart my server
-  gulp.watch(paths.pathStylus, ['stylus'], server.notify);
-  gulp.watch(paths.pathCSS, ['minify-css'], server.notify);
-  gulp.watch(paths.pathUglify, ['uglify'], server.notify);
-  gulp.watch(paths.pathFiles, ['files'], server.notify);*/
-//});
-
 gulp.task('watch:start', () => {
-  gulp.watch(paths.app, gulp.series('start'), server.start); // restart my server
+  //gulp.watch(paths.app, gulp.series('start'), server.start); // restart my server
+  gulp.watch(paths.app, gulp.series('start'), (file) => {
+    server.notify.apply(server, [file]);
+  });
 });
 
 gulp.task('watch:stylus', () => {
@@ -207,6 +165,5 @@ gulp.task('watch', gulp.parallel('watch:start', 'watch:stylus', 'watch:css', 'wa
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-//gulp.task('default', ['watch', 'start', 'stylus', 'minify-css', 'uglify', 'files']);
 //gulp.task('default', ['watch', 'start', 'minify-css', 'uglify', 'files']);
-gulp.task('default', gulp.series('app', 'watch'));
+gulp.task('default', gulp.parallel('app', 'watch'));
