@@ -1,4 +1,4 @@
-$ npm install --no-optional
+$ npm install
 
 > typechecker@2.0.8 preinstall C:\www\node\lantosistvan\app\node_modules\.staging\typechecker-aceb81f2
 > node ./cyclic.js
@@ -8,7 +8,7 @@ $ npm install --no-optional
 > node ./cyclic.js
 
 lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
-+-- body-parser@1.15.2
++-- body-parser@1.15.2  (git://github.com/expressjs/body-parser.git#bb546ef9b9c51bb33ad72f5e5300e12296bb26d7)
 | +-- bytes@2.4.0
 | +-- content-type@1.0.2
 | +-- depd@1.1.0
@@ -23,7 +23,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | `-- unpipe@1.0.0
 | `-- type-is@1.6.13
 |   `-- media-typer@0.3.0
-+-- compression@1.6.2
++-- compression@1.6.2  (git://github.com/expressjs/compression.git#b9c63ced82b9f719cd5d9fd250c8432b00752d89)
 | +-- accepts@1.3.3
 | | `-- negotiator@0.6.1
 | +-- bytes@2.3.0
@@ -31,13 +31,13 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | `-- mime-db@1.23.0
 | +-- on-headers@1.0.1
 | `-- vary@1.1.0
-+-- connect-slashes@1.3.1
-+-- cookie-parser@1.4.3
++-- connect-slashes@1.3.1  (git://github.com/avinoamr/connect-slashes.git#a247024ef2c04b11c1b5fcd66d1c8b403ce5e416)
++-- cookie-parser@1.4.3  (git://github.com/expressjs/cookie-parser.git#ad0b2cb834affe3929f0a690cd0494cd0b96d6be)
 | +-- cookie@0.3.1
 | `-- cookie-signature@1.0.6
-+-- debug@2.2.0
++-- debug@2.2.0  (git://github.com/visionmedia/debug.git#39ecd87bcc145de5ca1cbea1bf4caed02c34d30a)
 | `-- ms@0.7.1
-+-- express@4.14.0
++-- express@4.14.0  (git://github.com/expressjs/express.git#9375a9afa9d7baa814b454c7a6818a7471aaef00)
 | +-- array-flatten@1.1.1
 | +-- content-disposition@0.5.1
 | +-- encodeurl@1.0.1
@@ -57,7 +57,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | +-- destroy@1.0.4
 | | `-- mime@1.3.4
 | `-- utils-merge@1.0.0
-+-- express-handlebars@3.0.0
++-- express-handlebars@3.0.0  (git://github.com/ericf/express-handlebars.git#a66aad427cf83567941edfeff500e43971cb24d9)
 | +-- glob@6.0.4
 | +-- graceful-fs@4.1.4
 | +-- handlebars@4.0.5
@@ -69,12 +69,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | | `-- amdefine@1.0.0
 | | `-- uglify-js@2.7.0
 | |   +-- async@0.2.10
-| |   +-- source-map@0.5.6
-| |   `-- yargs@3.10.0
-| |     +-- camelcase@1.2.1
-| |     +-- cliui@2.1.0
-| |     | `-- wordwrap@0.0.2
-| |     `-- window-size@0.1.0
+| |   `-- source-map@0.5.6
 | +-- object.assign@4.0.4
 | | +-- define-properties@1.1.2
 | | | `-- foreach@2.0.5
@@ -82,7 +77,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | `-- object-keys@1.0.11
 | `-- promise@7.1.1
 |   `-- asap@2.0.4
-+-- glob@7.0.5
++-- glob@7.0.5  (git://github.com/isaacs/node-glob.git#1728df825b1401351c326e04b905192debf862fb)
 | +-- fs.realpath@1.0.0
 | +-- inflight@1.0.5
 | | `-- wrappy@1.0.2
@@ -131,34 +126,35 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | |   `-- lodash._stringtopath@4.8.0
 | | |     `-- lodash._basetostring@4.12.0
 | | +-- matchdep@1.0.1
-| | | `-- micromatch@2.3.10
-| | |   +-- arr-diff@2.0.0
-| | |   | `-- arr-flatten@1.0.1
-| | |   +-- array-unique@0.2.1
-| | |   +-- braces@1.8.5
-| | |   | +-- expand-range@1.8.2
-| | |   | | `-- fill-range@2.2.3
-| | |   | |   +-- is-number@2.1.0
-| | |   | |   `-- randomatic@1.1.5
-| | |   | +-- preserve@0.2.0
-| | |   | `-- repeat-element@1.1.2
-| | |   +-- expand-brackets@0.1.5
-| | |   | `-- is-posix-bracket@0.1.1
-| | |   +-- extglob@0.3.2
-| | |   +-- filename-regex@2.0.0
-| | |   +-- kind-of@3.0.3
-| | |   | `-- is-buffer@1.1.3
-| | |   +-- normalize-path@2.0.1
-| | |   +-- object.omit@2.0.0
-| | |   | +-- for-own@0.1.4
-| | |   | | `-- for-in@0.1.5
-| | |   | `-- is-extendable@0.1.1
-| | |   +-- parse-glob@3.0.4
-| | |   | +-- glob-base@0.3.0
-| | |   | `-- is-dotfile@1.0.2
-| | |   `-- regex-cache@0.4.3
-| | |     +-- is-equal-shallow@0.1.3
-| | |     `-- is-primitive@2.0.0
+| | | +-- micromatch@2.3.10
+| | | | +-- arr-diff@2.0.0
+| | | | | `-- arr-flatten@1.0.1
+| | | | +-- array-unique@0.2.1
+| | | | +-- braces@1.8.5
+| | | | | +-- expand-range@1.8.2
+| | | | | | `-- fill-range@2.2.3
+| | | | | |   +-- is-number@2.1.0
+| | | | | |   `-- randomatic@1.1.5
+| | | | | +-- preserve@0.2.0
+| | | | | `-- repeat-element@1.1.2
+| | | | +-- expand-brackets@0.1.5
+| | | | | `-- is-posix-bracket@0.1.1
+| | | | +-- extglob@0.3.2
+| | | | +-- filename-regex@2.0.0
+| | | | +-- kind-of@3.0.3
+| | | | | `-- is-buffer@1.1.3
+| | | | +-- normalize-path@2.0.1
+| | | | +-- object.omit@2.0.0
+| | | | | +-- for-own@0.1.4
+| | | | | | `-- for-in@0.1.5
+| | | | | `-- is-extendable@0.1.1
+| | | | +-- parse-glob@3.0.4
+| | | | | +-- glob-base@0.3.0
+| | | | | `-- is-dotfile@1.0.2
+| | | | `-- regex-cache@0.4.3
+| | | |   +-- is-equal-shallow@0.1.3
+| | | |   `-- is-primitive@2.0.0
+| | | `-- stack-trace@0.0.9
 | | +-- mute-stdout@1.0.0
 | | +-- pretty-hrtime@1.0.2
 | | +-- semver-greatest-satisfied-range@1.0.0
@@ -177,10 +173,6 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | |   +-- os-locale@1.4.0
 | |   | `-- lcid@1.0.0
 | |   |   `-- invert-kv@1.0.0
-| |   +-- string-width@1.0.1
-| |   | +-- code-point-at@1.0.0
-| |   | | `-- number-is-nan@1.0.0
-| |   | `-- is-fullwidth-code-point@1.0.0
 | |   +-- window-size@0.1.4
 | |   `-- y18n@3.2.1
 | +-- undertaker@1.0.0
@@ -242,10 +234,8 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 |   `-- vinyl@1.1.1
 |     +-- clone@1.0.2
 |     `-- clone-stats@0.0.1
-+-- gulp-clean-css@2.0.11
-| +-- clean-css@3.4.18
-| | `-- commander@2.8.1
-| |   `-- graceful-readlink@1.0.1
++-- gulp-bower@0.0.13  (git://github.com/zont/gulp-bower.git#02704fdd2fdd9246edac22dd6c2ea00f746c7ca1)
+| +-- bower@1.7.9
 | +-- gulp-util@3.0.7
 | | +-- array-differ@1.0.0
 | | +-- array-uniq@1.0.3
@@ -254,6 +244,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | | +-- get-stdin@4.0.1
 | | | `-- meow@3.7.0
 | | |   +-- camelcase-keys@2.1.0
+| | |   | `-- camelcase@2.1.1
 | | |   +-- loud-rejection@1.6.0
 | | |   | +-- currently-unhandled@0.4.1
 | | |   | | `-- array-find-index@1.0.1
@@ -306,6 +297,36 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | |     `-- isarray@0.0.1
 | | +-- object-assign@3.0.0
 | | `-- vinyl@0.5.3
+| +-- inquirer@0.11.4
+| | +-- ansi-escapes@1.4.0
+| | +-- ansi-regex@2.0.0
+| | +-- cli-cursor@1.0.2
+| | | `-- restore-cursor@1.0.1
+| | |   +-- exit-hook@1.1.1
+| | |   `-- onetime@1.1.0
+| | +-- cli-width@1.1.1
+| | +-- figures@1.7.0
+| | +-- lodash@3.10.1
+| | +-- readline2@1.0.1
+| | | +-- code-point-at@1.0.0
+| | | | `-- number-is-nan@1.0.0
+| | | +-- is-fullwidth-code-point@1.0.0
+| | | `-- mute-stream@0.0.5
+| | +-- run-async@0.1.0
+| | +-- rx-lite@3.1.2
+| | +-- string-width@1.0.1
+| | +-- strip-ansi@3.0.1
+| | `-- through@2.3.8
+| +-- through2@0.6.2
+| | +-- readable-stream@1.0.34
+| | | `-- isarray@0.0.1
+| | `-- xtend@4.0.1
+| `-- walk@2.3.3
+|   `-- foreachasync@3.0.0
++-- gulp-clean-css@2.0.11  (git://github.com/scniro/gulp-clean-css.git#2a2b4a404f37d159d45658b22ab2c37a1e586ef4)
+| +-- clean-css@3.4.18
+| | `-- commander@2.8.1
+| |   `-- graceful-readlink@1.0.1
 | +-- object-assign@4.1.0
 | +-- readable-stream@2.1.4
 | | +-- buffer-shims@1.0.0
@@ -320,13 +341,11 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | |     `-- isarray@0.0.1
 | `-- vinyl-sourcemaps-apply@0.2.1
 |   `-- source-map@0.5.6
-+-- gulp-live-server@0.0.30
++-- gulp-live-server@0.0.28  (git://github.com/gimm/gulp-live-server.git#b39b6bda6b5145ae0ff5c69edde8f9a6d56b352e)
 | +-- chalk@1.1.3
 | | +-- ansi-styles@2.2.1
 | | +-- escape-string-regexp@1.0.5
 | | +-- has-ansi@2.0.0
-| | | `-- ansi-regex@2.0.0
-| | +-- strip-ansi@3.0.1
 | | `-- supports-color@2.0.0
 | +-- connect@3.4.1
 | | `-- finalhandler@0.4.1
@@ -338,8 +357,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | +-- map-stream@0.1.0
 | | +-- pause-stream@0.0.11
 | | +-- split@0.3.3
-| | +-- stream-combiner@0.0.4
-| | `-- through@2.3.8
+| | `-- stream-combiner@0.0.4
 | +-- q@1.4.1
 | `-- tiny-lr@0.0.9
 |   +-- debug@0.8.1
@@ -349,8 +367,8 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 |   +-- noptify@0.0.3
 |   | `-- nopt@2.0.0
 |   `-- qs@0.6.6
-+-- gulp-rename@1.2.2
-+-- gulp-stylus@2.5.0
++-- gulp-rename@1.2.2  (git://github.com/hparra/gulp-rename.git#17d44ec4727b9cadb846cbcab13cacce453db08b)
++-- gulp-stylus@2.5.0  (git://github.com/stevelacy/gulp-stylus.git#49822b78ea48166cf34c6520efe472a33f58b0c1)
 | +-- accord@0.24.1
 | | +-- convert-source-map@1.2.0
 | | +-- fobject@0.0.4
@@ -375,8 +393,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | | +-- sax@0.5.8
 | | `-- source-map@0.1.43
 | `-- through2@2.0.1
-|   `-- xtend@4.0.1
-+-- gulp-uglify@1.5.4
++-- gulp-uglify@1.5.4  (git://github.com/terinjokes/gulp-uglify.git#80da765a266cb7ff9d034a73bde0abe18d72d6de)
 | +-- deap@1.0.0
 | +-- fancy-log@1.2.0
 | | `-- time-stamp@1.0.1
@@ -397,7 +414,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | |   | `-- wordwrap@0.0.2
 | |   `-- window-size@0.1.0
 | `-- uglify-save-license@0.4.1
-+-- helmet@2.1.1
++-- helmet@2.1.1  (git://github.com/helmetjs/helmet.git#b6d6c32f20a52457a8946755e77d0b712c474751)
 | +-- dns-prefetch-control@0.1.0
 | +-- dont-sniff-mimetype@1.0.0
 | +-- frameguard@2.0.0
@@ -412,10 +429,11 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | +-- ienoopen@1.0.0
 | +-- nocache@1.0.0
 | `-- x-xss-protection@1.0.0
-+-- hpp@0.2.1
++-- hpp@0.2.1  (git://github.com/analog-nico/hpp.git#b8b24211d632841ad9e28c942746c9d4c65d789f)
 | `-- lodash@4.13.1
-+-- i18n@0.8.3
++-- i18n@0.8.3  (git://github.com/mashpie/i18n-node.git#a74afa562778fbdd73ad20912ecd158e1262d93c)
 | +-- make-plural@3.0.6
+| | `-- minimist@1.2.0
 | +-- math-interval-parser@1.1.0
 | | `-- xregexp@2.0.0
 | +-- messageformat@0.3.1
@@ -440,10 +458,10 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | |   `-- typechecker@2.1.0
 | +-- mustache@2.2.1
 | `-- sprintf-js@1.0.3
-+-- method-override@2.3.6
-+-- morgan@1.7.0
++-- method-override@2.3.6  (git://github.com/expressjs/method-override.git#9bd45a87a14727f6986fa3f50a7d18f32812c4d7)
++-- morgan@1.7.0  (git://github.com/expressjs/morgan.git#1533cdcc512f4daf20a93cb0ab3b18d6563a897f)
 | `-- basic-auth@1.0.4
-+-- nodemailer@2.5.0
++-- nodemailer@2.5.0  (git://github.com/nodemailer/nodemailer.git#c4b4623a7f575bae8f4ed56c0df48c22beceb738)
 | +-- libmime@2.0.3
 | | +-- libbase64@0.1.0
 | | `-- libqp@1.1.0
@@ -463,7 +481,7 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | `-- socks@1.1.9
 |   +-- ip@1.1.3
 |   `-- smart-buffer@1.0.11
-+-- request@2.73.0
++-- request@2.73.1  (git://github.com/request/request.git#56c0f68bf97f67d0973533cb55dc2605070000cf)
 | +-- aws-sign2@0.6.0
 | +-- aws4@1.4.1
 | +-- bl@1.1.2
@@ -498,8 +516,12 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | |   +-- assert-plus@1.0.0
 | |   +-- dashdash@1.14.0
 | |   | `-- assert-plus@1.0.0
-| |   `-- getpass@0.1.6
-| |     `-- assert-plus@1.0.0
+| |   +-- ecc-jsbn@0.1.1
+| |   +-- getpass@0.1.6
+| |   | `-- assert-plus@1.0.0
+| |   +-- jodid25519@1.0.2
+| |   +-- jsbn@0.1.0
+| |   `-- tweetnacl@0.13.3
 | +-- is-typedarray@1.0.0
 | +-- isstream@0.1.2
 | +-- json-stringify-safe@5.0.1
@@ -509,12 +531,12 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 | +-- stringstream@0.0.5
 | +-- tough-cookie@2.2.2
 | `-- tunnel-agent@0.4.3
-+-- request-promise@3.0.0
-| `-- bluebird@3.4.1
-+-- serve-index@1.8.0
-| `-- batch@0.5.3
-+-- serve-static@1.11.1
-+-- socket.io@1.4.8
++-- request-promise@3.0.0  (git://github.com/request/request-promise.git#8aa5d1af1f99b74ecaae44dba91427fec062aee3)
+| +-- @request/promise-core@1.0.0-rc.1
+| +-- bluebird@3.4.1
+| `-- stealthy-require@0.1.0
++-- serve-static@1.11.1  (git://github.com/expressjs/serve-static.git#b3a24df138ea2f2c43afcbee0dcce5badf4c78ae)
++-- socket.io@1.4.8  (git://github.com/socketio/socket.io.git#40763d3962507ef3e25d3c7ea597de21fd0a870d)
 | +-- engine.io@1.6.11
 | | +-- accepts@1.1.4
 | | | +-- mime-types@2.0.14
@@ -562,13 +584,9 @@ lantosistvan-portfolio@0.3.0 C:\www\node\lantosistvan\app
 |   +-- component-emitter@1.1.2
 |   +-- isarray@0.0.1
 |   `-- json3@3.3.2
-+-- winston@2.2.0
-| +-- async@1.0.0
-| +-- colors@1.0.3
-| +-- cycle@1.0.3
-| +-- eyes@0.1.8
-| +-- pkginfo@0.3.1
-| `-- stack-trace@0.0.9
-`-- xml2js@0.4.17
+`-- xml2js@0.4.17  (git://github.com/leonidas-from-xiv/node-xml2js.git#129ebba8b313e92389c111c0b477c89fb78b37ad)
   +-- sax@1.2.1
   `-- xmlbuilder@4.2.1
+
+npm WARN optional Skipping failed optional dependency /chokidar/fsevents:
+npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.13

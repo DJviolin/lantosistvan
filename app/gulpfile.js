@@ -4,18 +4,23 @@
 // https://gist.github.com/demisx/beef93591edc1521330a
 // http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
 // https://gist.github.com/CodeTheory/cc7d79d1dad0622a9f9c
+// https://blog.wearewizards.io/migrating-to-gulp-4-by-example
+// https://www.liquidlight.co.uk/blog/article/how-do-i-update-to-gulp-4/
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
 // ES5
-const gulp       = require('gulp'),
-      gls        = require('gulp-live-server'),
-      rename     = require('gulp-rename'),
-      stylus     = require('gulp-stylus'),
-      cleanCSS   = require('gulp-clean-css'),
-      uglify     = require('gulp-uglify');
+const gulp           = require('gulp'),
+      gls            = require('gulp-live-server'),
+      rename         = require('gulp-rename'),
+      stylus         = require('gulp-stylus'),
+      cleanCSS       = require('gulp-clean-css'),
+      uglify         = require('gulp-uglify'),
+      fs             = require('fs'),
+      request        = require('request'),
+      rp             = require('request-promise');
 
 // ES6
 // Modules will be supported from Node v7
@@ -46,6 +51,10 @@ const paths = {
     'public/javascripts/src/ajax-vanilla.js',
     'public/javascripts/src/main-jquery.js',
     'public/javascripts/src/slick.js'
+  ],
+  vendor: [
+    'https://raw.githubusercontent.com/jquery/jquery-dist/master/dist/jquery.min.js',
+    'https://raw.githubusercontent.com/kenwheeler/slick/master/slick/slick.js'
   ],
   files: [
     'views/*.hbs',
@@ -103,6 +112,26 @@ gulp.task('minify-css', () => {
 gulp.task('css', gulp.series('stylus', 'minify-css'));
 
 /////////////////////////////////////////////////////////////
+// CLIENT LIBRARIES
+// http://blog.npmjs.org/post/101775448305/npm-and-front-end-packaging
+// https://gitter.im/tyabonil/request-promise/archives/2015/04/20
+// Request-Promise always caches the whole file even if you only use .pipe()
+/////////////////////////////////////////////////////////////
+
+/*request
+  .get('https://raw.githubusercontent.com/jquery/jquery-dist/master/dist/jquery.min.js')
+  .on('error', (err) => {
+    console.log('%s', err)
+  })
+  .pipe(fs.createWriteStream(paths.vendor + '/jquery.min.js'));*/
+
+gulp.task('vendor', (res) => {
+  const url = request.get(paths.vendor).pipe(res);
+  return gulp.src(url)
+    .pipe(gulp.dest('public/vendor'));
+});
+
+/////////////////////////////////////////////////////////////
 // UGLIFY JS
 /////////////////////////////////////////////////////////////
 
@@ -125,7 +154,7 @@ gulp.task('files', () => {
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-gulp.task('app', gulp.parallel('start', 'css', 'uglify', 'files'));
+gulp.task('app', gulp.parallel('start', 'css', 'vendor', 'uglify', 'files'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
