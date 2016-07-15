@@ -170,8 +170,8 @@ app.use(helmet()); // Securing app with various HTTP headers
 app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
 // Morgan
 // https://www.npmjs.com/package/morgan
-//app.use(logger('dev')); // Morgan
-app.use(logger('combined'));
+app.use(logger('dev')); // Morgan
+//app.use(logger('combined'));
 app.use(compression()); // Gzip
 app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 

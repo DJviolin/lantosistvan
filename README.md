@@ -220,6 +220,32 @@ run the app on windows:
  > SET DEBUG=app:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
 ```
 
+```
+https://github.com/gulpjs/gulp/issues/1571
+https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md
+https://github.com/gulpjs/gulp/tree/4.0/docs/recipes
+$ npm info graceful-fs -v
+$ npm ls graceful-fs
+$ npm info gulp dist-tags
+
+"gulp": ">= 3.9.1",
+
+$ npm install gulpjs/gulp.git#4.0 --save-dev
+"devDependencies": { "gulp": "github:gulpjs/gulp#4.0" }
+
+Run the following to check the version of gulp cli that is installed on your machine.
+$ gulp -v
+If you are not running version 4, do the following to install gulp globally on your machine.
+$ npm uninstall -g gulp
+$ npm install -g "gulpjs/gulp#4.0"
+Now install gulp 4 locally
+$ npm uninstall gulp --save-dev
+$ npm install "gulpjs/gulp#4.0" --save-dev
+
+$ npm update --no-optional
+$ npm install --no-optional
+```
+
 ##### TODO
 
 https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server?utm_content=buffer036d0&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer

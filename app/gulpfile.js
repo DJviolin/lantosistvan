@@ -1,29 +1,35 @@
 'use strict';
 // ES6: "use strict" is unnecessary inside of modules.
 
+// https://gist.github.com/demisx/beef93591edc1521330a
+// http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
+// https://gist.github.com/CodeTheory/cc7d79d1dad0622a9f9c
+
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
 // ES5
-const gulp     = require('gulp'),
-      gls      = require('gulp-live-server'),
-      rename   = require('gulp-rename'),
-      stylus   = require('gulp-stylus'),
-      cleanCSS = require('gulp-clean-css'),
-      uglify   = require('gulp-uglify');
+const gulp       = require('gulp'),
+      //livereload = require('gulp-livereload'),
+      gls        = require('gulp-live-server'),
+      rename     = require('gulp-rename'),
+      stylus     = require('gulp-stylus'),
+      cleanCSS   = require('gulp-clean-css'),
+      uglify     = require('gulp-uglify');
 
 // ES6
 // Modules will be supported from Node v7
 // https://github.com/nodejs/help/issues/53
-/*import gulp     from 'gulp';
+/*//import gulp     from 'gulp';
+import { src, dest, watch, parallel, series } from 'gulp';
 import gls      from 'gulp-live-server';
 import rename   from 'gulp-rename';
 import stylus   from 'gulp-stylus';
 import cleanCSS from 'gulp-clean-css';
 import uglify   from 'gulp-uglify';*/
 
-const paths = {
+const paths2 = {
   pathStylus:   ['public/stylesheets/src/main.styl'],
   pathCSS:      ['public/stylesheets/src/main.css'],
   pathServer:   ['app.js',
@@ -40,6 +46,32 @@ const paths = {
                  'locales/*.json']
 };
 
+const paths = {
+  styles: {
+    stylus: 'public/stylesheets/src/main.styl',
+    css: 'public/stylesheets/src/main.css'
+  },
+  app: [
+    'app.js',
+    'bin/www',
+    'routes/**/*.js',
+    'lib/**/*.js',
+    'config/**/*.js'
+  ],
+  uglify: [
+    'public/javascripts/src/main-vanilla.js',
+    'public/javascripts/src/ajax-vanilla.js',
+    'public/javascripts/src/main-jquery.js',
+    'public/javascripts/src/slick.js'
+  ],
+  files: [
+    'views/*.hbs',
+    'views/**/*.hbs',
+    'database/data.json',
+    'locales/*.json'
+  ]
+};
+
 /////////////////////////////////////////////////////////////
 // SERVER
 /////////////////////////////////////////////////////////////
@@ -48,7 +80,7 @@ const paths = {
 const server = gls.new([
   '--trace-deprecation', '--trace-sync-io', 'bin/www',
   //'--trace-deprecation', 'bin/www',
-  { env: { NODE_ENV: 'production' } }
+  //{ env: { NODE_ENV: 'production' } }
 ]);
 
 //you can access cwd args in `bin/www` via `process.argv`
@@ -61,10 +93,10 @@ gulp.task('start', () => {
 /////////////////////////////////////////////////////////////
 
 gulp.task('stylus', () => {
-  return gulp.src(paths.pathStylus)
+  return gulp.src(paths.styles.stylus)
     .pipe(stylus({'include css': true, compress: false}))
     .pipe(rename({ extname: '.css' }))
-    .pipe(gulp.dest('public/stylesheets/src'))
+    .pipe(gulp.dest('public/stylesheets/src'));
 });
 
 /////////////////////////////////////////////////////////////
@@ -72,7 +104,7 @@ gulp.task('stylus', () => {
 // http://goalsmashers.github.io/css-minification-benchmark/
 /////////////////////////////////////////////////////////////
 
-gulp.task('minify-css', ['stylus'], () => {
+/*gulp.task('minify-css', ['stylus'], () => {
   return gulp.src(paths.pathCSS)
     .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
       console.log(
@@ -88,6 +120,24 @@ gulp.task('minify-css', ['stylus'], () => {
     }))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
     .pipe(gulp.dest('public/stylesheets'))
+});*/
+
+gulp.task('minify-css', () => {
+  return gulp.src(paths.styles.css)
+    .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
+      console.log(
+        details.name +
+        ': The file was reduced from ' +
+        details.stats.originalSize +
+        ' bytes to ' +
+        details.stats.minifiedSize +
+        ' bytes. This means ' +
+        Math.round(details.stats.efficiency * 100) +
+        '% reduction in size!'
+      );
+    }))
+    .pipe(rename({ basename: 'style', extname: '.min.css' }))
+    .pipe(gulp.dest('public/stylesheets'));
 });
 
 /////////////////////////////////////////////////////////////
@@ -95,7 +145,7 @@ gulp.task('minify-css', ['stylus'], () => {
 /////////////////////////////////////////////////////////////
 
 gulp.task('uglify', () => {
-  return gulp.src(paths.pathUglify)
+  return gulp.src(paths.uglify)
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/javascripts'));
@@ -106,31 +156,57 @@ gulp.task('uglify', () => {
 /////////////////////////////////////////////////////////////
 
 gulp.task('files', () => {
-  return gulp.src(paths.pathFiles);
+  return gulp.src(paths.files);
 });
+
+//gulp.task('app', gulp.parallel('start', 'stylus', 'minify-css', 'uglify', 'files'));
+gulp.task('app', gulp.series('start', 'stylus', 'minify-css', 'uglify', 'files'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
 // Rerun the task when a file changes
 /////////////////////////////////////////////////////////////
 
-gulp.task('watch', () => {
+//gulp.task('watch', () => {
   /*gulp.watch(paths.pathServer, ['start']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathStylus, ['stylus']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathCSS, ['minify-css']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathUglify, ['uglify']).on('change', server.notify.bind(server));
   gulp.watch(paths.pathFiles, ['files']).on('change', server.notify.bind(server));*/
 
-  gulp.watch(paths.pathServer, ['start'], server.start); // restart my server
+  /*gulp.watch(paths.pathServer, ['start'], server.start); // restart my server
   gulp.watch(paths.pathStylus, ['stylus'], server.notify);
   gulp.watch(paths.pathCSS, ['minify-css'], server.notify);
   gulp.watch(paths.pathUglify, ['uglify'], server.notify);
-  gulp.watch(paths.pathFiles, ['files'], server.notify);
+  gulp.watch(paths.pathFiles, ['files'], server.notify);*/
+//});
+
+gulp.task('watch:start', () => {
+  gulp.watch(paths.app, gulp.series('start'), server.start); // restart my server
 });
+
+gulp.task('watch:stylus', () => {
+  gulp.watch(paths.styles.stylus, gulp.series('stylus'), server.notify);
+});
+
+gulp.task('watch:css', () => {
+  gulp.watch(paths.styles.css, gulp.series('minify-css'), server.notify);
+});
+
+gulp.task('watch:uglify', () => {
+  gulp.watch(paths.uglify, gulp.series('uglify'), server.notify);
+});
+
+gulp.task('watch:files', () => {
+  gulp.watch(paths.files, gulp.series('files'), server.notify);
+});
+
+gulp.task('watch', gulp.parallel('watch:start', 'watch:stylus', 'watch:css', 'watch:uglify', 'watch:files'));
 
 /////////////////////////////////////////////////////////////
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
 //gulp.task('default', ['watch', 'start', 'stylus', 'minify-css', 'uglify', 'files']);
-gulp.task('default', ['watch', 'start', 'minify-css', 'uglify', 'files']);
+//gulp.task('default', ['watch', 'start', 'minify-css', 'uglify', 'files']);
+gulp.task('default', gulp.series('app', 'watch'));

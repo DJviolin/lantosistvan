@@ -11,40 +11,38 @@
     "gulp": "gulp default"
   },
   "dependencies": {
-    "express": ">= 4.14.0",
-    "body-parser": ">= 1.15.2",
-    "cookie-parser": ">= 1.4.3",
-    "compression": ">= 1.6.2",
-    "serve-static": ">= 1.11.1",
-    "serve-index": ">= 1.8.0",
-    "method-override": ">= 2.3.6",
-    "socket.io": ">= 1.4.8",
+    "express": "github:expressjs/express#master",
+    "body-parser": "github:expressjs/body-parser#master",
+    "cookie-parser": "github:expressjs/cookie-parser#master",
+    "compression": "github:expressjs/compression#master",
+    "serve-static": "github:expressjs/serve-static#master",
+    "method-override": "github:expressjs/method-override#master",
+    "morgan": "github:expressjs/morgan#master",
+    "debug": "github:visionmedia/debug#master",
+    "socket.io": "github:socketio/socket.io#master",
 
-    "morgan": ">= 1.7.0",
-    "debug": ">= 2.2.0",
-    "winston": ">= 2.2.0",
+    "express-handlebars": "github:ericf/express-handlebars#master",
+    "glob": "github:isaacs/node-glob#master",
+    "request": "github:request/request#master",
+    "request-promise": "github:request/request-promise#master",
+    "xml2js": "github:Leonidas-from-XIV/node-xml2js#master",
 
-    "express-handlebars": ">= 3.0.0",
-    "glob": ">= 7.0.5",
-    "request": ">= 2.73.0",
-    "request-promise": ">= 3.0.0",
-    "xml2js": ">= 0.4.17",
+    "i18n": "github:mashpie/i18n-node#master",
+    "connect-slashes": "github:avinoamr/connect-slashes#master",
 
-    "i18n": ">= 0.8.3",
-    "connect-slashes": ">= 1.3.1",
+    "helmet": "github:helmetjs/helmet#master",
+    "hpp": "github:analog-nico/hpp#master",
 
-    "helmet": ">= 2.1.1",
-    "hpp": ">= 0.2.1",
-
-    "nodemailer": ">= 2.5.0"
+    "nodemailer": "github:nodemailer/nodemailer#master"
   },
   "devDependencies": {
-    "gulp": ">= 3.9.1",
-    "gulp-live-server": ">= 0.0.30",
-    "gulp-stylus": ">= 2.5.0",
-    "gulp-clean-css": ">= 2.0.11",
-    "gulp-rename": ">= 1.2.2",
-    "gulp-uglify": ">= 1.5.4"
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-livereload": "github:vohof/gulp-livereload#master",
+    "gulp-live-server": "github:gimm/gulp-live-server#master",
+    "gulp-stylus": "github:stevelacy/gulp-stylus#master",
+    "gulp-clean-css": "github:scniro/gulp-clean-css#master",
+    "gulp-rename": "github:hparra/gulp-rename#master",
+    "gulp-uglify": "github:terinjokes/gulp-uglify#master"
   },
   "repository" : {
     "type" : "git",
