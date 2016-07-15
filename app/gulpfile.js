@@ -12,15 +12,16 @@
 /////////////////////////////////////////////////////////////
 
 // ES5
-const gulp           = require('gulp'),
-      gls            = require('gulp-live-server'),
-      rename         = require('gulp-rename'),
-      stylus         = require('gulp-stylus'),
-      cleanCSS       = require('gulp-clean-css'),
-      uglify         = require('gulp-uglify'),
-      fs             = require('fs'),
-      request        = require('request'),
-      rp             = require('request-promise');
+const gulp     = require('gulp'),
+      gls      = require('gulp-live-server'),
+      rename   = require('gulp-rename'),
+      stylus   = require('gulp-stylus'),
+      cleanCSS = require('gulp-clean-css'),
+      uglify   = require('gulp-uglify'),
+      //fs       = require('fs'),
+      //request  = require('request'),
+      //rp       = require('request-promise'),
+      download = require('gulp-download');
 
 // ES6
 // Modules will be supported from Node v7
@@ -118,25 +119,22 @@ gulp.task('css', gulp.series('stylus', 'minify-css'));
 // Request-Promise always caches the whole file even if you only use .pipe()
 /////////////////////////////////////////////////////////////
 
-/*request
-  .get({ uri: paths.vendor })
-  .on('error', (err) => {
-    console.log('%s', err)
-  })
-  .pipe(fs.createWriteStream(paths.vendor + '/jquery.min.js'));*/
+/*gulp.task('vendor', () => {
+  for (let i=0; i<paths.vendor.length; i++) {
+    return console.log(paths.vendor[i]);
+  };
+});*/
 
 /*gulp.task('vendor', (res) => {
-  const url = request.get({ uri: paths.vendor }).pipe(res);
+  const url = request.get(paths.vendor[index++]).pipe(res);
   const str = JSON.stringify(url, null, 4);
   return console.log('%s', str);
   //return gulp.src(url)
   //  .pipe(gulp.dest('public/vendor'));
 });*/
 
-let index = 0;
-gulp.task('vendor', (res) => {
-  const url = request.get(paths.vendor[index++]).pipe(res);
-  return gulp.src(url)
+gulp.task('vendor', () => {
+  return download(paths.vendor)
     .pipe(gulp.dest('public/vendor'));
 });
 
