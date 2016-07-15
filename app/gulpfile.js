@@ -21,7 +21,8 @@ const gulp     = require('gulp'),
       //fs       = require('fs'),
       //request  = require('request'),
       //rp       = require('request-promise'),
-      download = require('gulp-download');
+      download = require('gulp-download'),
+      replace  = require('gulp-replace');
 
 // ES6
 // Modules will be supported from Node v7
@@ -138,6 +139,17 @@ gulp.task('vendor', () => {
     .pipe(gulp.dest('public/vendor'));
 });
 
+gulp.task('slick', function(){
+  gulp.src(['public/vendor/slick.js'])
+    //.pipe(replace(/foo(.{3})/g, '$1foo'))
+    .pipe(replace(/translate3d/igm, 'translate'))
+    .pipe(uglify({ output: {quote_style: 1} }))
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(gulp.dest('public/vendor'));
+});
+
+gulp.task('vendors', gulp.series('vendor', 'slick'));
+
 /////////////////////////////////////////////////////////////
 // UGLIFY JS
 /////////////////////////////////////////////////////////////
@@ -161,7 +173,7 @@ gulp.task('files', () => {
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-gulp.task('app', gulp.parallel('start', 'css', 'vendor', 'uglify', 'files'));
+gulp.task('app', gulp.parallel('start', 'css', 'vendors', 'uglify', 'files'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
