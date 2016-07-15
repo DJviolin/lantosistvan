@@ -118,13 +118,14 @@ if(document.body.classList.contains('contact')) {
   if(document.body.classList.contains('contact')) {
 
     var address = document.location.protocol + '//' + document.location.hostname + (document.location.port ? ':' + document.location.port: '');
-    console.log(address);
+    console.log('%s', address);
 
     //var socket = new WebSocket('ws://127.0.0.1:8081/echo');
     //var socket = io.connect('http://127.0.0.1:8081');
     var socket = io.connect(address);
     socket.on('news', function (data) {
-      console.log('CLIENT SAYS: ', data);
+      const str = JSON.stringify(data, null, 4);
+      console.log('CLIENT SAYS: %s', str);
       socket.emit('my other event', { my: 'data from CLIENT SIDE!' });
     });
 
@@ -252,13 +253,13 @@ if(document.body.classList.contains('contact')) {
         captcha: captcha
       };
 
-      /*console.log(firstname);
+      /*console.log('%s', firstname);
       if(firstname.match(/^kettő$/igm)) {
-        console.log('MATCH FOR: ' + firstname);
+        console.log('MATCH FOR: %s', firstname);
       } else {
-        console.log('NO MATCH FOR: ' + firstname);
+        console.log('NO MATCH FOR: %s', firstname);
       };*/
-      console.log(JSON.stringify(data));
+      console.log('%s', JSON.stringify(data));
 
       // instance of a class that provides this functionality
       var xhr = new XMLHttpRequest();
@@ -279,7 +280,7 @@ if(document.body.classList.contains('contact')) {
             console.log('There was a problem with the request.');
           };
         } catch(e) {
-          console.log('Caught Exception: ' + e.description);
+          console.log('Caught Exception: %s', e.description);
         };
       };
 

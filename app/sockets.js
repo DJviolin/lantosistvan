@@ -7,7 +7,8 @@ module.exports = (io) => {
 
     socket.emit('news', { hello: 'world from SERVER SIDE!' });
     socket.on('my other event', (data) => {
-      console.log('SERVER SAYS: ', data);
+      const str = JSON.stringify(data, null, 4);
+      console.log('SERVER SAYS: %s', str);
     });
 
   });
