@@ -141,7 +141,6 @@ gulp.task('vendor', () => {
 
 gulp.task('slick', function(){
   gulp.src(['public/vendor/slick.js'])
-    //.pipe(replace(/foo(.{3})/g, '$1foo'))
     .pipe(replace(/translate3d/igm, 'translate'))
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
