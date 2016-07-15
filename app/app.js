@@ -92,7 +92,7 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('serveStatic is ON!');
   //log('serveStatic is ON!');
 };
-console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
+console.log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 //log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 
 /////////////////////////////////////////////////////////////
