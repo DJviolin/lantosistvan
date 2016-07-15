@@ -32,7 +32,7 @@ services:
       - DEBUG=app:*,i18n:*,gulp:*,gulp-live-server:*
       - PRIVATE_IP_DOCKER=172.16.238.11
       - PORT=8081
-    command: [sh, -c, npm install && npm start]
+    command: [sh, -c, npm install --only=production && npm start]
     ####ports:
       #- "10.0.2.15:8081:8081"
       ####- "8081:8081"
