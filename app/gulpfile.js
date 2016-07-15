@@ -139,8 +139,8 @@ gulp.task('vendor', () => {
     .pipe(gulp.dest('public/vendor'));
 });
 
-gulp.task('slick', function(){
-  gulp.src(['public/vendor/slick.js'])
+gulp.task('slick', () => {
+  return gulp.src(['public/vendor/slick.js'])
     .pipe(replace(
       /animProps\[_\.animType\] = 'translate3d\(' \+ targetLeft \+ 'px, 0px, 0px\)';/igm,
       'animProps[_.animType] = \'translate(\' + targetLeft + \'px, 0px)\'; // FIX BY LANTI'
