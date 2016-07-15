@@ -141,7 +141,20 @@ gulp.task('vendor', () => {
 
 gulp.task('slick', function(){
   gulp.src(['public/vendor/slick.js'])
-    .pipe(replace(/translate3d/igm, 'translate'))
+    .pipe(replace(
+      /animProps\[_\.animType\] = 'translate3d\(' \+ targetLeft \+ 'px, 0px, 0px\)';/igm,
+      'animProps[_.animType] = \'translate(\' + targetLeft + \'px, 0px)\'; // FIX BY LANTI'
+    ))
+    .pipe(replace(
+      /animProps\[_\.animType\] = 'translate3d\(0px,' \+ targetLeft \+ 'px, 0px\)';/igm,
+      'animProps[_.animType] = \'translate(0px,\' + targetLeft + \'px)\'; // FIX BY LANTI'
+    ))
+    .pipe(replace(
+      /positionProps\[_\.animType\] = 'translate3d\(' \+ x \+ ', ' \+ y \+ ', 0px\)';/igm,
+      'positionProps[_.animType] = \'translate(\' + x + \', \' + y + \')\'; // FIX BY LANTI'
+    ))
+    .pipe(replace(/mozHidden/igm, 'hidden'))
+    .pipe(replace(/mozVisibilityState/igm, 'visibilityState'))
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/vendor'));
