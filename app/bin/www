@@ -7,7 +7,7 @@
 /////////////////////////////////////////////////////////////
 
 const app       = require('../app'),
-      //debug     = require('debug'),
+      debug     = require('debug'),
       http      = require('http'),
       socket_io = require('socket.io');
 
@@ -58,10 +58,10 @@ server.on('listening', onListening);
 // https://nodejs.org/api/util.html#util_util_format_format
 /////////////////////////////////////////////////////////////
 
-//const error = debug('app:error'),
-//      log = debug('app:log');
-const error = app.error,
-      log = app.log;
+const error = debug('app:error'),
+      log = debug('app:log');
+//const error = app.error,
+//      log = app.log;
 
 // Normalize a port into a number, string, or false
 function normalizePort(val) {

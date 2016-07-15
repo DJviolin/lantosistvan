@@ -14,7 +14,7 @@ const express        = require('express'),
       compression    = require('compression'),
       exphbs         = require('express-handlebars'),
       logger         = require('morgan'),
-      debug          = require('debug'),
+      //debug          = require('debug'),
       //winston        = require('winston'),
       i18n           = require('i18n'),
       slashes        = require('connect-slashes'),
@@ -46,10 +46,10 @@ const app = express();
 // DEBUGGING & LOGGING
 /////////////////////////////////////////////////////////////
 
-const error = debug('app:error'),
-      log = debug('app:log');
-app.error = error;
-app.log = log;
+//const error = debug('app:error'),
+//      log = debug('app:log');
+//app.error = error;
+//app.log = log;
 
 /////////////////////////////////////////////////////////////
 // SOCKET.IO MIDDLEWARE
@@ -89,11 +89,11 @@ io.on('connection', (socket) => {
 if (process.env.NODE_ENV !== 'production') {
   const serveStatic = require('serve-static');
   app.use(serveStatic(__dirname + '/public'));
-  //console.log('serveStatic is ON!');
-  log('serveStatic is ON!');
+  console.log('serveStatic is ON!');
+  //log('serveStatic is ON!');
 };
-//console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
-log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
+console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
+//log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 
 /////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP - AKA: V(iew)
@@ -376,8 +376,7 @@ app.use((req, res, next) => {
 // Error handler - catch all errors
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  //console.error(err.stack);
-  error(err.stack);
+  console.error(err.stack);
   res.render('error', {
     layout: 'main',
     titleShown: true,
