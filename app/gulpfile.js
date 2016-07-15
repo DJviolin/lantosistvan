@@ -89,15 +89,11 @@ gulp.task('stylus', () => {
 gulp.task('minify-css', () => {
   return gulp.src(paths.styles.css)
     .pipe(cleanCSS({compatibility: '*', debug: true}, (details) => {
-      console.log(
-        details.name +
-        ': The file was reduced from ' +
-        details.stats.originalSize +
-        ' bytes to ' +
-        details.stats.minifiedSize +
-        ' bytes. This means ' +
-        Math.round(details.stats.efficiency * 100) +
-        '% reduction in size!'
+      console.log('%s: The file was reduced from %s bytes to %s bytes. This means %s% reduction in size!',
+        details.name,
+        details.stats.originalSize,
+        details.stats.minifiedSize,
+        Math.round(details.stats.efficiency * 100)
       );
     }))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
