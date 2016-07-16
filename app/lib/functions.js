@@ -13,7 +13,9 @@ const config = require('../config/routes'),
 exports.fsAsync = (callback) => {
 
   fs.readFile(__dirname + db, 'utf8', (err, data) => {
-    if (err) throw callback(err);
+    if (err) {
+      throw callback(err);
+    }
     callback(null, JSON.parse(data)); // null means no error, return results in callback
   });
 

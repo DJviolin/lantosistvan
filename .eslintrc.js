@@ -1,4 +1,5 @@
 module.exports = {
+  // http://eslint.org/docs/user-guide/configuring#configuring-rules
   "root": true,
   "extends": "eslint:recommended",
   "globals": {
@@ -6,45 +7,33 @@ module.exports = {
     "$": true
   },
   "env": {
-    //"es6": true,
+    "es6": true,
     "browser": true,
     "node": true,
     "jquery": true
   },
-  //"ecmaFeatures": {
-  //  "modules": false
-  //},
   "parserOptions": {
     "ecmaVersion": 6,
-    "sourceType": "script",
+    "sourceType": "script", // or "module"
     "ecmaFeatures": {
-      "modules": false,
+      //"modules": false,
       "jsx": true
     }
   },
   "rules": {
-    // enable additional rules
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    //"quotes": ["error", "double"],
-    "semi": ["error", "always"],
-
-    // override default options for rules from base configurations
-    "comma-dangle": ["error", "always"],
-    "no-cond-assign": ["error", "always"],
-
     // disable rules from base configurations
     "no-console": "off",
-
-    "eqeqeq": 1,
-    "curly": [2, "all"],
-    //"strict": 0,
-    //"quotes": [1, "single"],
-    "strict": [2, "global"],
-    "quotes": [1, "single", null],
-    "strict": [2, "global"],
-    "no-unused-vars": 1,
-    "prefer-const": 1,
+    // enable additional rules
+    "indent": ["off", 2],
+    "linebreak-style": ["error", "unix"],
+    // Own rules
+    "semi": ["error", "always"],
+    "eqeqeq": "warn",
+    "curly": ["error", "all"],
+    "strict": ["error", "global"],
+    "quotes": ["warn", "single"],
+    "no-unused-vars": "warn",
+    "prefer-const": "warn",
     "no-throw-literal": "error",
   }
 }
