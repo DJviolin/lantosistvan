@@ -1,6 +1,8 @@
 'use strict';
 // ES6: "use strict" is unnecessary inside of modules.
 
+// http://node.green/
+
 // https://gist.github.com/demisx/beef93591edc1521330a
 // http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
 // https://gist.github.com/CodeTheory/cc7d79d1dad0622a9f9c
@@ -24,16 +26,18 @@ const gulp     = require('gulp'),
       download = require('gulp-download'),
       replace  = require('gulp-replace');
 
-// ES6
+/*// ES6
 // Modules will be supported from Node v7
 // https://github.com/nodejs/help/issues/53
-/*//import gulp     from 'gulp';
-import { src, dest, watch, parallel, series } from 'gulp';
-import gls      from 'gulp-live-server';
-import rename   from 'gulp-rename';
-import stylus   from 'gulp-stylus';
+import gulp from 'gulp';
+//import { src, dest, watch, parallel, series } from 'gulp';
+import gls from 'gulp-live-server';
+import rename from 'gulp-rename';
+import stylus from 'gulp-stylus';
 import cleanCSS from 'gulp-clean-css';
-import uglify   from 'gulp-uglify';*/
+import uglify from 'gulp-uglify';
+import download from 'gulp-download';
+import replace from 'gulp-replace';*/
 
 const paths = {
   styles: {
@@ -185,18 +189,23 @@ gulp.task('files', () => {
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-gulp.task('app', gulp.parallel('start', 'css', 'vendors', 'uglify', 'files'));
+gulp.task('app', gulp.parallel('start', 'css', 'uglify', 'files'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
 // Rerun the task when a file changes
+//
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Function_body
+// var func = x => x * x;                  // concise syntax, implied "return"
+// var func = (x, y) => { return x + y; }; // with block body, explicit "return" needed
 /////////////////////////////////////////////////////////////
 
 gulp.task('watch:start', () => {
   //gulp.watch(paths.app, gulp.series('start'), server.start); // restart my server
-  gulp.watch(paths.app, gulp.series('start'), (file) => {
+  /*gulp.watch(paths.app, gulp.series('start'), (file) => {
     server.notify.apply(server, [file]);
-  });
+  });*/
+  gulp.watch(paths.app, gulp.series('start'), file => server.notify.apply(server, [file]) );
 });
 
 gulp.task('watch:stylus', () => {
