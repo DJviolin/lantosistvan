@@ -1,10 +1,23 @@
 'use strict';
 
+// Performance
 // https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile
+// https://strongloop.com/strongblog/node-js-performance-scaling-proxies-clusters/
 
 // Express 5.0 state
 // https://github.com/expressjs/express/pull/2237#issuecomment-189510525
 // https://www.reddit.com/r/javascript/comments/47s9o8/im_closing_down_express_50/
+// https://www.reddit.com/r/node/comments/3af9a0/what_is_strongloop/csca6ad
+// Reddit Mobile -> Koa.js
+// https://m.reddit.com
+// https://github.com/reddit/reddit-mobile
+
+// Koa.js
+// http://koajs.com/
+// https://github.com/koajs/koa
+// https://github.com/koajs/examples
+// https://github.com/koajs/koa/wiki
+// https://medium.com/@l1ambda/why-you-should-use-koa-with-node-js-7c231a8174fa#.h2qvonrpm
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
