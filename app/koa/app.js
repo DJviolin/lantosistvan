@@ -1,4 +1,7 @@
 'use strict';
+// ctx = context
+// ctx = request handler callback
+// const ctx = this.createContext(req, res);
 
 const Koa = require('koa');
 const app = new Koa();
