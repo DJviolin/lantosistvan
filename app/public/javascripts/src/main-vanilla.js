@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', lazyload);*/
 // Latest posts resize on frontpage - Vanilla JS
 /////////////////////////////////////////////////////////////
 
-if(document.body.classList.contains('index')) {
+if (document.body.classList.contains('index')) {
   document.addEventListener('DOMContentLoaded', function() {
     function previewImages() {
       var images = document.getElementsByClassName('preview-image');
@@ -64,7 +64,7 @@ if(document.body.classList.contains('index')) {
         images[i].style.height = calc + 'px';
         //console.log('previewImages() fired...');
       }
-    };
+    }
     window.addEventListener('load', previewImages);
     window.addEventListener('resize', previewImages);
   });
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //console.log('menuButton() fired...');
     }
   return false;
-  };
+  }
   var toggleButton = document.getElementsByClassName('menu-button')[0];
   toggleButton.addEventListener('click', menuButton);
 });
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation
 /////////////////////////////////////////////////////////////
 
-if(document.body.classList.contains('contact')) {
+if (document.body.classList.contains('contact')) {
   var email = document.getElementById('email');
 
   email.addEventListener('keyup', function() {
@@ -104,9 +104,9 @@ if(document.body.classList.contains('contact')) {
     }
     else {
       email.setCustomValidity('');
-    };
+    }
   });
-};
+}
 
 /////////////////////////////////////////////////////////////
 // HTML5 Form Error Messages - Vanilla JS AND AJAX
@@ -115,7 +115,7 @@ if(document.body.classList.contains('contact')) {
 /////////////////////////////////////////////////////////////
 
 (function() {
-  if(document.body.classList.contains('contact')) {
+  if (document.body.classList.contains('contact')) {
 
     var address = document.location.protocol + '//' + document.location.hostname + (document.location.port ? ':' + document.location.port: '');
     console.log('%s', address);
@@ -124,12 +124,12 @@ if(document.body.classList.contains('contact')) {
     //var socket = io.connect('http://127.0.0.1:8081');
     var socket = io.connect(address);
     socket.on('news', function (data) {
-      const str = JSON.stringify(data, null, 4);
+      var str = JSON.stringify(data, null, 4);
       console.log('CLIENT SAYS: %s', str);
       socket.emit('my other event', { my: 'data from CLIENT SIDE!' });
     });
 
-  };
+  }
 })();
 
 /////////////////////////////////////////////////////////////
@@ -137,7 +137,7 @@ if(document.body.classList.contains('contact')) {
 /////////////////////////////////////////////////////////////
 
 (function() {
-  if(document.body.classList.contains('contact')) {
+  if (document.body.classList.contains('contact')) {
 
     document.getElementById('xhr').onclick = function() {
       field('firstname', 'A keresztnév kötelező és/vagy számokat tartalmazott.', 'Firstname is required and/or the field had numbers.');
@@ -158,25 +158,25 @@ if(document.body.classList.contains('contact')) {
       var parentDiv = document.getElementsByClassName(name)[0];
       input.parentNode.appendChild(elem);
 
-      if(!input.checkValidity() && name !== 'captcha') {
+      if (!input.checkValidity() && name !== 'captcha') {
         elem.className = 'error';
         parentDiv.className += ' error-input';
         elem.style.display = 'block';
-      };
+      }
 
-      if(!input.checkValidity() && lang === 'hu-HU') {
+      if (!input.checkValidity() && lang === 'hu-HU') {
         elem.textContent = langif;
       } else {
         elem.textContent = langelse;
-      };
+      }
 
       // Turning off when error is not presented
       input.addEventListener('input', function() {
-        if(elem.style.display === 'block') {
+        if (elem.style.display === 'block') {
           elem.className = '';
           parentDiv.classList.remove('error-input');
           elem.style.display = 'none';
-        };
+        }
       });
 
 
@@ -233,7 +233,7 @@ if(document.body.classList.contains('contact')) {
       });*/
 
       return;
-    };
+    }
 
     function makeRequest() {
 
@@ -269,7 +269,7 @@ if(document.body.classList.contains('contact')) {
         try {
           // process the server response
           //if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-          if(xhr.readyState === 4 && xhr.status === 200) {
+          if (xhr.readyState === 4 && xhr.status === 200) {
             // everything is good, the response is received
             //alert(xhr.responseText);
             document.getElementById('responseText').innerHTML = xhr.responseText;
@@ -278,23 +278,23 @@ if(document.body.classList.contains('contact')) {
           } else {
             // still not ready
             console.log('There was a problem with the request.');
-          };
+          }
         } catch(e) {
           console.log('Caught Exception: %s', e.description);
-        };
+        }
       };
 
       // make the request
-      if(lang === 'hu-HU') {
+      if (lang === 'hu-HU') {
         xhr.open('POST', '/hu/contact', true);
       } else {
         xhr.open('POST', '/en/contact', true);
-      };
+      }
       //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr.send(JSON.stringify(data));
 
-    };
+    }
 
-  };
+  }
 })();

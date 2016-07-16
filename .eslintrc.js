@@ -2,6 +2,10 @@ module.exports = {
   // http://eslint.org/docs/user-guide/configuring
   // http://eslint.org/docs/rules/
   // http://eslint.org/docs/user-guide/configuring#configuring-rules
+  // http://kangax.github.io/compat-table/es5/
+  // https://kangax.github.io/compat-table/es6/
+  // http://caniuse.com/#feat=es5
+
   "root": true,
   "extends": "eslint:recommended",
   "globals": {

@@ -24,18 +24,18 @@ function bindSlick() {
     //useTransform: false
   });
   //console.log('bindSlick() fired...');
-};
+}
 function unbindSlick() {
   $('.sidescroll .images').slick('unslick');
   //console.log('unbindSlick() fired...');
-};
+}
 function handleSlick() {
   if (window.innerWidth > 1300) { // Browser window viewport including (if rendered) the vertical scrollbar
     bindSlick();
   } else {
-    unbindSlick(); 
+    unbindSlick();
   }
-};
+}
 document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('load', function() {
     handleSlick();
