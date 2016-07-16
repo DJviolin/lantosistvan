@@ -1,5 +1,5 @@
 'use strict';
-// ctx = context
+// ctx = Context specific methods and accessors
 // ctx = request handler callback
 // const ctx = this.createContext(req, res);
 
