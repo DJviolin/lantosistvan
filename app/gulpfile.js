@@ -1,7 +1,6 @@
 'use strict';
-// ES6: "use strict" is unnecessary inside of modules.
-
-// http://node.green/
+// ES6: 'use strict' is unnecessary inside of modules.
+// http://node.green
 
 // https://gist.github.com/demisx/beef93591edc1521330a
 // http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
@@ -20,17 +19,14 @@ const gulp     = require('gulp'),
       stylus   = require('gulp-stylus'),
       cleanCSS = require('gulp-clean-css'),
       uglify   = require('gulp-uglify'),
-      //fs       = require('fs'),
-      //request  = require('request'),
-      //rp       = require('request-promise'),
       download = require('gulp-download'),
       replace  = require('gulp-replace');
 
 /*// ES6
 // Modules will be supported from Node v7
 // https://github.com/nodejs/help/issues/53
-import gulp from 'gulp';
-//import { src, dest, watch, parallel, series } from 'gulp';
+//import gulp from 'gulp';
+import {src, dest, watch, parallel, series} from 'gulp';
 import gls from 'gulp-live-server';
 import rename from 'gulp-rename';
 import stylus from 'gulp-stylus';
@@ -74,35 +70,30 @@ const paths = {
 // SERVER
 /////////////////////////////////////////////////////////////
 
-// this will achieve `node --trace-deprecation --trace-sync-io ./bin/www`
 const server = gls.new([
   '--trace-deprecation', '--trace-sync-io', 'bin/www',
-  //'--trace-deprecation', 'bin/www',
   //{ env: { NODE_ENV: 'production' } }
 ]);
 
 //you can access cwd args in `bin/www` via `process.argv`
-gulp.task('start', () => {
-  return server.start();
-});
+gulp.task('start', () => server.start());
 
 /////////////////////////////////////////////////////////////
 // CSS
 /////////////////////////////////////////////////////////////
 
 // Stylus
-gulp.task('stylus', () => {
-  return gulp.src(paths.styles.stylus)
+gulp.task('stylus', () =>
+  gulp.src(paths.styles.stylus)
     .pipe(stylus({'include css': true, compress: false}))
     .pipe(rename({ extname: '.css' }))
-    .pipe(gulp.dest('public/stylesheets/src'));
-});
+    .pipe(gulp.dest('public/stylesheets/src'))
+);
 
 // MINIFY CSS
 // http://goalsmashers.github.io/css-minification-benchmark/
-//gulp.task('minify-css', ['stylus'], () => {
-gulp.task('minify-css', () => {
-  return gulp.src(paths.styles.css)
+gulp.task('minify-css', () =>
+  gulp.src(paths.styles.css)
     // Arrow functions: 'concise body' vs 'block body'
     .pipe(cleanCSS({compatibility: '*', debug: true}, details =>
       console.log('%s: The file was reduced from %s bytes to %s bytes. This means %s% reduction in size!',
@@ -113,16 +104,13 @@ gulp.task('minify-css', () => {
       )
     ))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
-    .pipe(gulp.dest('public/stylesheets'));
-});
+    .pipe(gulp.dest('public/stylesheets'))
+);
 
 gulp.task('css', gulp.series('stylus', 'minify-css'));
 
 /////////////////////////////////////////////////////////////
 // CLIENT LIBRARIES
-// http://blog.npmjs.org/post/101775448305/npm-and-front-end-packaging
-// https://gitter.im/tyabonil/request-promise/archives/2015/04/20
-// Request-Promise always caches the whole file even if you only use .pipe()
 /////////////////////////////////////////////////////////////
 
 /*gulp.task('vendor', () => {
@@ -139,13 +127,13 @@ gulp.task('css', gulp.series('stylus', 'minify-css'));
   //  .pipe(gulp.dest('public/vendor'));
 });*/
 
-gulp.task('vendor', () => {
-  return download(paths.vendor)
-    .pipe(gulp.dest('public/vendor'));
-});
+gulp.task('vendor', () =>
+  download(paths.vendor)
+    .pipe(gulp.dest('public/vendor'))
+);
 
-gulp.task('slick', () => {
-  return gulp.src(['public/vendor/slick.js'])
+gulp.task('slick', () =>
+  gulp.src(['public/vendor/slick.js'])
     .pipe(replace(
       /animProps\[_\.animType\] = 'translate3d\(' \+ targetLeft \+ 'px, 0px, 0px\)';/igm,
       'animProps[_.animType] = \'translate(\' + targetLeft + \'px, 0px)\'; // FIX BY LANTI'
@@ -162,8 +150,8 @@ gulp.task('slick', () => {
     .pipe(replace(/mozVisibilityState/igm, 'visibilityState'))
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public/vendor'));
-});
+    .pipe(gulp.dest('public/vendor'))
+);
 
 gulp.task('vendors', gulp.series('vendor', 'slick'));
 
@@ -171,20 +159,18 @@ gulp.task('vendors', gulp.series('vendor', 'slick'));
 // UGLIFY JS
 /////////////////////////////////////////////////////////////
 
-gulp.task('uglify', () => {
-  return gulp.src(paths.uglify)
+gulp.task('uglify', () =>
+  gulp.src(paths.uglify)
     .pipe(uglify({ output: {quote_style: 1} }))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public/javascripts'));
-});
+    .pipe(gulp.dest('public/javascripts'))
+);
 
 /////////////////////////////////////////////////////////////
 // FILES
 /////////////////////////////////////////////////////////////
 
-gulp.task('files', () => {
-  return gulp.src(paths.files);
-});
+gulp.task('files', () => gulp.src(paths.files));
 
 /////////////////////////////////////////////////////////////
 // INIT: APP
@@ -201,29 +187,25 @@ gulp.task('app', gulp.parallel('start', 'css', 'uglify', 'files'));
 // var func = (x, y) => { return x + y; }; // with block body, explicit "return" needed
 /////////////////////////////////////////////////////////////
 
-gulp.task('watch:start', () => {
-  //gulp.watch(paths.app, gulp.series('start'), server.start); // restart my server
-  /*gulp.watch(paths.app, gulp.series('start'), (file) => {
-    server.notify.apply(server, [file]);
-  });*/
-  gulp.watch(paths.app, gulp.series('start'), file => server.notify.apply(server, [file]) );
-});
+gulp.task('watch:start', () =>
+  gulp.watch(paths.app, gulp.series('start'), file => server.notify.apply(server, [file])) // server.start
+);
 
-gulp.task('watch:stylus', () => {
-  gulp.watch(paths.styles.stylus, gulp.series('stylus'), server.notify);
-});
+gulp.task('watch:stylus', () =>
+  gulp.watch(paths.styles.stylus, gulp.series('stylus'), server.notify)
+);
 
-gulp.task('watch:css', () => {
-  gulp.watch(paths.styles.css, gulp.series('minify-css'), server.notify);
-});
+gulp.task('watch:css', () =>
+  gulp.watch(paths.styles.css, gulp.series('minify-css'), server.notify)
+);
 
-gulp.task('watch:uglify', () => {
-  gulp.watch(paths.uglify, gulp.series('uglify'), server.notify);
-});
+gulp.task('watch:uglify', () =>
+  gulp.watch(paths.uglify, gulp.series('uglify'), server.notify)
+);
 
-gulp.task('watch:files', () => {
-  gulp.watch(paths.files, gulp.series('files'), server.notify);
-});
+gulp.task('watch:files', () =>
+  gulp.watch(paths.files, gulp.series('files'), server.notify)
+);
 
 gulp.task('watch', gulp.parallel('watch:start', 'watch:stylus', 'watch:css', 'watch:uglify', 'watch:files'));
 
@@ -231,5 +213,4 @@ gulp.task('watch', gulp.parallel('watch:start', 'watch:stylus', 'watch:css', 'wa
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-//gulp.task('default', ['watch', 'start', 'minify-css', 'uglify', 'files']);
 gulp.task('default', gulp.parallel('app', 'watch'));
