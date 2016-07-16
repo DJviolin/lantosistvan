@@ -2,6 +2,10 @@
 
 // https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile
 
+// Express 5.0 state
+// https://github.com/expressjs/express/pull/2237#issuecomment-189510525
+// https://www.reddit.com/r/javascript/comments/47s9o8/im_closing_down_express_50/
+
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////

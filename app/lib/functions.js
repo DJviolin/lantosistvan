@@ -8,6 +8,12 @@ const config = require('../config/routes'),
 /////////////////////////////////////////////////////////////
 // READS DATABASE FROM JSON FILE
 // https://www.promisejs.org/
+// https://nodejs.org/api/process.html#process_event_unhandledrejection
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch
+// https://expressjs.com/en/advanced/best-practice-performance.html
+// http://first-time-ceo.tumblr.com/post/104273001643/using-promises-with-expressjs
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+// https://www.toptal.com/javascript/javascript-promises
 /////////////////////////////////////////////////////////////
 
 //exports.fsAsync = function fsAsync(callback) {
@@ -17,17 +23,5 @@ exports.fsAsync = (callback) => {
       throw callback(err);
     }
     callback(null, JSON.parse(data)); // null means no error, return results in callback
-  });
-};
-
-exports.readJSON = (filename) => {
-  return new Promise((fulfill, reject) => {
-    fs.readFile(filename, 'utf8').done((data) => {
-      try {
-        fulfill(JSON.parse(data));
-      } catch (ex) {
-        reject(ex);
-      }
-    }, reject);
   });
 };
