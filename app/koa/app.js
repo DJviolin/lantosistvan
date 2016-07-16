@@ -8,7 +8,7 @@ import http from 'http';
 import Koa from 'koa';
 const app = new Koa();
 
-// x-response-time
+// X-Response-Time
 app.use(async (ctx, next) => {
   const start = new Date();
   await next();
@@ -16,7 +16,7 @@ app.use(async (ctx, next) => {
   ctx.set('X-Response-Time', `${ms}ms`);
 });
 
-// logger
+// Logger
 app.use(async (ctx, next) => {
   const start = new Date();
   await next();
@@ -24,11 +24,12 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-// response
+// Response
 app.use(ctx => {
   ctx.body = 'Hello World';
 });
 
+// Create HTTP server
 const port = process.env.PORT || '3000';
 http.Server(app.callback()).listen(
   port, () => console.log(`HTTP Server started on PORT ${port}...`)
