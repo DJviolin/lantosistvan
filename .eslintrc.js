@@ -22,7 +22,7 @@ module.exports = {
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
-    "sourceType": "script", // or "module"
+    "sourceType": "module", // "script" or "module"
     "allowImportExportEverywhere": false,
     "ecmaFeatures": {
       //"modules": false,

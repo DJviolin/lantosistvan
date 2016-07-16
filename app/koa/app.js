@@ -3,7 +3,9 @@
 // ctx = request handler callback
 // const ctx = this.createContext(req, res);
 
-const Koa = require('koa');
+//const Koa = require('koa');
+import http from 'http';
+import Koa from 'koa';
 const app = new Koa();
 
 // x-response-time
@@ -27,4 +29,7 @@ app.use(ctx => {
   ctx.body = 'Hello World';
 });
 
-app.listen(3000);
+const port = process.env.PORT || '3000';
+http.Server(app.callback()).listen(
+  port, () => console.log(`HTTP Server started on PORT ${port}...`)
+);

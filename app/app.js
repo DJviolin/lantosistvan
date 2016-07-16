@@ -38,6 +38,17 @@
 // http://knowthen.com/episode-3-koajs-quickstart-guide/
 // Koa 2.0 Boilerplate
 // https://github.com/llambda/koa-boiler
+// Koa Api Boilerplate
+// https://github.com/koajs/api-boilerplate
+// Koa 2.0 Generator
+// https://github.com/17koa/koa-generator
+// https://github.com/dominhhai/koa-generator
+// https://github.com/gusnips/node-koa-mvc
+// https://github.com/justmyfreak/koa-starter
+// https://github.com/geekplux/koa2-boilerplate
+// https://github.com/ptariche/ecma7-koa2-starter
+// Socket.io + Koa:
+// https://github.com/mattstyles/koa-socket
 // Koa 2.0 Docs
 // https://github.com/koajs/koa/tree/v2.x/docs
 // Demo repo

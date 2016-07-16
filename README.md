@@ -459,8 +459,6 @@ $ ab -n 1000 -c 100 http://localhost:4567/
 $ ab -n 1000 -c 100 http://127.0.0.1/hu
 ```
 
-"babel-core": ">= 6.10.4",
-
 http://download.joedog.org/siege/siege-latest.tar.gz
 
 https://github.com/JoeDog/siege
@@ -553,3 +551,6 @@ https://tia.mat.br/posts/2012/11/11/mustache_templates_in_c.html
 
 Change the settings in `app/config.js` if you wish.
 
+Tutorials:
+
+https://reactforbeginners.com/
