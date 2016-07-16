@@ -8,7 +8,7 @@
   "main": "./bin/www",
   "scripts": {
     "start": "node --trace-deprecation --trace-sync-io ./bin/www",
-    "koa": "node --harmony --trace-deprecation --trace-sync-io ./start-koa",
+    "koa": "node --harmony --trace-deprecation --trace-sync-io ./koa/start",
     "gulp": "gulp \"default\""
   },
   "dependencies": {
