@@ -18,9 +18,12 @@ module.exports = {
     "node": true,
     "jquery": true
   },
+  // https://www.npmjs.com/package/babel-eslint
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "script", // or "module"
+    "allowImportExportEverywhere": false,
     "ecmaFeatures": {
       //"modules": false,
       "jsx": true
@@ -36,7 +39,8 @@ module.exports = {
     "semi": ["error", "always"],
     "eqeqeq": "warn",
     "curly": ["error", "all"],
-    "strict": ["error", "global"],
+    //"strict": ["error", "global"],
+    "strict": "off",
     "quotes": ["warn", "single"],
     "no-unused-vars": "warn",
     "prefer-const": "warn",

@@ -6,11 +6,18 @@
 
 // Express 5.0 state
 // https://github.com/expressjs/express/pull/2237#issuecomment-189510525
+// https://medium.com/@nodejs/only-at-node-js-interactive-the-state-of-express-from-doug-wilson-d2c748470e83#.npveos1v7
 // https://www.reddit.com/r/javascript/comments/47s9o8/im_closing_down_express_50/
 // https://www.reddit.com/r/node/comments/3af9a0/what_is_strongloop/csca6ad
+// https://www.reddit.com/r/javascript/comments/47s9o8/im_closing_down_express_50/d0fdo0z
 // Reddit Mobile -> Koa.js
 // https://m.reddit.com
 // https://github.com/reddit/reddit-mobile
+
+// Not use mongoDB?
+// https://www.reddit.com/r/programming/comments/3dvzsl/why_you_should_never_ever_ever_use_mongodb/
+// http://cryto.net/%7Ejoepie91/blog/2015/07/19/why-you-should-never-ever-ever-use-mongodb/
+/// -> postgreSQL
 
 // Koa.js
 // http://koajs.com/
@@ -18,6 +25,21 @@
 // https://github.com/koajs/examples
 // https://github.com/koajs/koa/wiki
 // https://medium.com/@l1ambda/why-you-should-use-koa-with-node-js-7c231a8174fa#.h2qvonrpm
+// https://github.com/llambda/koa-boiler
+// https://blog.risingstack.com/introduction-to-koa-generators/
+// https://blog.risingstack.com/getting-started-with-koa-part-2/
+// https://blog.risingstack.com/shipping-node-js-applications-with-docker-and-codeship/
+// https://blog.risingstack.com/asynchronous-javascript/
+
+// Koa 2.0 and learn
+// https://github.com/koajs/koa/issues/533
+// https://github.com/koajs/kick-off-koa
+// https://github.com/koajs/workshop
+// http://knowthen.com/episode-3-koajs-quickstart-guide/
+// Koa 2.0 Boilerplate
+// https://github.com/llambda/koa-boiler
+// Koa 2.0 Docs
+// https://github.com/koajs/koa/tree/v2.x/docs
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES

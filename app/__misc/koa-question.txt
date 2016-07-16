@@ -1,0 +1,86 @@
+Can you provide an example how to setup Babel for Koa? I never used Babel before and I try to shift from Express to Koa.
+
+In my `package.json`:
+
+```json
+  "dependencies": {
+    "koa": ">= 2.0.0",
+    "babel-core": ">= 6.10.4",
+    "babel-register": ">= 6.9.0",
+    "babel-plugin-transform-async-to-generator": ">= 6.8.0"
+  },
+```
+
+`start.js`
+
+```javascript
+// start-koa.js
+require('babel-core').transform('code', {
+  plugins: ['transform-async-to-generator']
+});
+
+require('./app.js');
+```
+
+`app.js`
+
+```javascript
+'use strict';
+
+const Koa = require('koa');
+const app = new Koa();
+
+// x-response-time
+
+app.use(async function (ctx, next) {
+  const start = new Date();
+  await next();
+  const ms = new Date() - start;
+  ctx.set('X-Response-Time', `${ms}ms`);
+});
+
+// logger
+
+app.use(async function (ctx, next) {
+  const start = new Date();
+  await next();
+  const ms = new Date() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}`);
+});
+
+// response
+
+app.use(ctx => {
+  ctx.body = 'Hello World';
+});
+
+app.listen(3000);
+```
+
+I'm getting the following error message:
+
+```shell
+$ npm run koa
+
+> test@1.0.0 koa C:\...\app
+> node --harmony --trace-deprecation --trace-sync-io ./start
+
+C:\...\app\app.js:8
+app.use(async function (ctx, next) {
+        ^^^^^
+SyntaxError: missing ) after argument list
+    at Object.exports.runInThisContext (vm.js:76:16)
+    at Module._compile (module.js:513:28)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.require (module.js:468:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\...\app\start-koa.js:6:1)
+    at Module._compile (module.js:541:32)
+```
+
+Also, with this Babel plugin (`transform-async-to-generator`), only my async/await code will be transformed back to legacy JS, or any ES5/6 code, that already implemented into Node v6.3.0?
+
+Thank You for your help!
