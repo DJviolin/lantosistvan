@@ -54,6 +54,11 @@
 // Demo repo
 // https://github.com/mapmeld/1batch
 
+// Koa + Handlebars
+// http://stackoverflow.com/questions/29311196/combining-koa-router-with-koa-handlebar
+// https://github.com/dominicbarnes/koa-handlebars // Handlebars ^3.0.0
+// https://github.com/gilt/koa-hbs // Handlebars ^2.0.0
+
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
