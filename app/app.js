@@ -40,6 +40,8 @@
 // https://github.com/llambda/koa-boiler
 // Koa 2.0 Docs
 // https://github.com/koajs/koa/tree/v2.x/docs
+// Demo repo
+// https://github.com/mapmeld/1batch
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
