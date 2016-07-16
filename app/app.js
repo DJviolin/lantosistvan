@@ -293,41 +293,41 @@ app.use('/:lang', langRouter, langClass);
 /////////////////////////////////////////////////////////////
 
 app.use('/:lang/blog', blog);
-app.use('/blog', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/blog');
-});
+app.use('/blog', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale() + '/blog')
+);
 
 app.use('/:lang/category', category);
-app.use('/category', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/category');
-});
+app.use('/category', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale() + '/category')
+);
 
 app.use('/:lang/tag', tag);
-app.use('/tag', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/tag');
-});
+app.use('/tag', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale() + '/tag')
+);
 
 app.use('/:lang/contact', contact);
-app.use('/contact', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/contact');
-});
+app.use('/contact', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale() + '/contact')
+);
 
 /*app.use('/:lang/form', form);
-app.use('/form', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/form');
-});*/
+app.use('/form', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale() + '/form')
+);*/
 
 app.use('/:lang/tube', tube);
-app.use('/tube', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale() + '/tube');
-});
+app.use('/tube', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale() + '/tube')
+);
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
 //app.use('/', index);
-app.use('/', (req, res) => {
-  res.status(302).redirect('/' + req.getLocale());
-});
+app.use('/', (req, res) =>
+  res.status(302).redirect('/' + req.getLocale())
+);
 
 /////////////////////////////////////////////////////////////
 // INIT i18n WITH COOKIES
@@ -374,7 +374,7 @@ app.use((req, res, next) => {
   next(err);
 });
 // Error handler - catch all errors
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(err.status || 500);
   console.error(err.stack);
   res.render('error', {

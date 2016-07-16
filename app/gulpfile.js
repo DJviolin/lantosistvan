@@ -1,6 +1,12 @@
 'use strict';
 // ES6: 'use strict' is unnecessary inside of modules.
 // http://node.green
+// http://es6-features.org/#ExpressionBodies
+// http://es6-features.org/#DefaultParameterValues
+// http://es6-features.org/#StringInterpolation
+// http://es6-features.org/#CustomInterpolation
+// http://es6-features.org/#PropertyShorthand
+// http://es6-features.org/#ValueExportImport
 
 // https://gist.github.com/demisx/beef93591edc1521330a
 // http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
@@ -25,15 +31,15 @@ const gulp     = require('gulp'),
 /*// ES6
 // Modules will be supported from Node v7
 // https://github.com/nodejs/help/issues/53
-//import gulp from 'gulp';
-import {src, dest, watch, parallel, series} from 'gulp';
-import gls from 'gulp-live-server';
-import rename from 'gulp-rename';
-import stylus from 'gulp-stylus';
-import cleanCSS from 'gulp-clean-css';
-import uglify from 'gulp-uglify';
-import download from 'gulp-download';
-import replace from 'gulp-replace';*/
+//import gulp from 'gulp'
+import {src, dest, watch, parallel, series} from 'gulp'
+import gls from 'gulp-live-server'
+import rename from 'gulp-rename'
+import stylus from 'gulp-stylus'
+import cleanCSS from 'gulp-clean-css'
+import uglify from 'gulp-uglify'
+import download from 'gulp-download'
+import replace from 'gulp-replace'*/
 
 const paths = {
   styles: {
