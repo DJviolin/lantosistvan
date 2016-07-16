@@ -1,4 +1,6 @@
 module.exports = {
+  // http://eslint.org/docs/user-guide/configuring
+  // http://eslint.org/docs/rules/
   // http://eslint.org/docs/user-guide/configuring#configuring-rules
   "root": true,
   "extends": "eslint:recommended",

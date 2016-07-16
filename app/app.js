@@ -91,7 +91,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(serveStatic(__dirname + '/public'));
   console.log('serveStatic is ON!');
   //log('serveStatic is ON!');
-};
+}
 console.log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 //log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 
@@ -129,19 +129,19 @@ app.engine('.hbs', exphbs({
     },
     oneToThreeCharWords: function(url) {
       const myString = url.toString();
-      if(myString.match(/^\S{1,3}$/igm)) {
+      if (myString.match(/^\S{1,3}$/igm)) {
         return myString.toUpperCase();
       } else {
         return myString;
-      };
+      }
     },
     unwanted: function(url) {
       const myString = url.toString();
-      if(myString.match(/^.*?\b(gay)\b.*$/igm)) {
+      if (myString.match(/^.*?\b(gay)\b.*$/igm)) {
         return null;
       } else {
         return myString;
-      };
+      }
     }
   }
 }));

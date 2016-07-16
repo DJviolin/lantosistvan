@@ -15,7 +15,7 @@ const app       = require('../app'),
 // Optimizations
 /////////////////////////////////////////////////////////////
 
-http.globalAgent.maxSockets = Infinity
+http.globalAgent.maxSockets = Infinity;
 
 /////////////////////////////////////////////////////////////
 // INIT
@@ -66,20 +66,20 @@ const error = debug('app:error'),
 // Normalize a port into a number, string, or false
 function normalizePort(val) {
   const port = parseInt(val, 10);
-  if(isNaN(port)) {
+  if (isNaN(port)) {
     return val; // named pipe
-  };
-  if(port >= 0) {
+  }
+  if (port >= 0) {
     return port; // port number
-  };
+  }
   return false;
-};
+}
 
 // Event listener for HTTP server "error" event
 function onError(err) {
-  if(err.syscall !== 'listen') {
+  if (err.syscall !== 'listen') {
     throw err;
-  };
+  }
 
   const bind = typeof port === 'string'
     ? 'Pipe ' + port
@@ -97,8 +97,8 @@ function onError(err) {
       break;
     default:
       throw err;
-  };
-};
+  }
+}
 
 //Event listener for HTTP server "listening" event
 function onListening() {
@@ -107,4 +107,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   log('Listening on %s', bind);
-};
+}
