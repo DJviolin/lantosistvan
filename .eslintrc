@@ -18,6 +18,7 @@
   "ecmaFeatures": {
     "modules": false
   },
+  "extends": "eslint:recommended",
   "rules": {
     "eqeqeq": 1,
     "curly": [2, "all"],
@@ -26,6 +27,8 @@
     "strict": [2, "global"],
     "no-unused-vars": 1,
     // http://eslint.org/docs/rules/prefer-const
-    "prefer-const": 1
+    "prefer-const": 1,
+    // http://eslint.org/docs/rules/no-throw-literal
+    "no-throw-literal": "error"
   }
 }

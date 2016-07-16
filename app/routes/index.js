@@ -12,7 +12,7 @@ const functions = require('../lib/functions'),
 // RETURNS JOURNAL FRONTPAGE
 /////////////////////////////////////////////////////////////
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   fsAsync((err, data) => {
     if(err) {
       res.render('404', {
