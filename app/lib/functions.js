@@ -17,11 +17,21 @@ const config = require('../config/routes'),
 /////////////////////////////////////////////////////////////
 
 //exports.fsAsync = function fsAsync(callback) {
-exports.fsAsync = (callback) => {
+/*exports.fsAsync = (callback) => {
   fs.readFile(__dirname + db, 'utf8', (err, data) => {
     if (err) {
       throw callback(err);
     }
     callback(null, JSON.parse(data)); // null means no error, return results in callback
+  });
+};*/
+
+exports.fsAsync = (callback) => {
+  fs.readFile(__dirname + db, 'utf8', async (err, data) => {
+    try {
+      await callback(null, JSON.parse(data)); // null means no error, return results in callback
+    } catch (err) {
+      callback(err);
+    }
   });
 };

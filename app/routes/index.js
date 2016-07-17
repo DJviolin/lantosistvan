@@ -12,7 +12,7 @@ const functions = require('../lib/functions'),
 // RETURNS JOURNAL FRONTPAGE
 /////////////////////////////////////////////////////////////
 
-router.get('/', (req, res) => {
+/*router.get('/', (req, res) => {
   fsAsync((err, data) => {
     if(err) {
       res.render('404', {
@@ -43,6 +43,38 @@ router.get('/', (req, res) => {
       latestPosts: json
     });
   });
+});*/
+
+router.get('/', async (req, res, err) => {
+  try {
+    await fsAsync((err, data) => {
+      if(err) {
+        res.render('404', {
+          titleShown: true,
+          title: 'Error 404',
+          description: 'Error 404',
+          keywords: 'error,404'
+        });
+      }
+      const gallery = data[0].gallery.portfolio.love;
+      const articles = data[1].articles.reverse();
+      const slice = articles.slice(0, 6);
+      const json = [{ articles: slice }];
+      res.status(200).render('index', {
+        //layout: 'main',
+        bodyClass: 'index',
+        active: { index: true },
+        titleShown: false,
+        title: 'Hi!',
+        description: 'Home page',
+        keywords: 'wedding,photography,film,lantos,istvan',
+        data: gallery,
+        latestPosts: json
+      });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 /////////////////////////////////////////////////////////////
