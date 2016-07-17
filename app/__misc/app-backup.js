@@ -12,6 +12,22 @@
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
+/*const express        = require('express'),
+      //socket_io      = require('socket.io'),
+      bodyParser     = require('body-parser'),
+      //cookieParser   = require('cookie-parser'),
+      methodOverride = require('method-override'),
+      compression    = require('compression'),
+      exphbs         = require('express-handlebars'),
+      logger         = require('morgan'),
+      //debug          = require('debug'),
+      //winston        = require('winston'),
+      i18n           = require('i18n'),
+      slashes        = require('connect-slashes'),
+      // Security
+      helmet         = require('helmet'),
+      hpp            = require('hpp');*/
+
 import express from 'express';
 //import socket_io from 'socket.io';
 import bodyParser from 'body-parser';
@@ -31,6 +47,15 @@ import hpp from 'hpp';
 /////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
 /////////////////////////////////////////////////////////////
+
+/*const api      = require('./routes/api-external'),
+      index    = require('./routes/index'),
+      blog     = require('./routes/blog'),
+      category = require('./routes/blog-category'),
+      tag      = require('./routes/blog-tag'),
+      contact  = require('./routes/contact'),
+      //form     = require('./routes/form'),
+      tube     = require('./routes/tube');*/
 
 import api from './routes/api-external';
 import index from './routes/index';
