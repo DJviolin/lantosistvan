@@ -7,7 +7,7 @@
   "private": true,
   "main": "./bin/www",
   "scripts": {
-    "start": "node --trace-deprecation --trace-sync-io ./bin/www",
+    "start": "node --trace-deprecation --trace-sync-io ./index",
     "koa": "node --harmony --trace-deprecation --trace-sync-io ./koa/index",
     "gulp": "gulp \"default\""
   },
@@ -34,7 +34,12 @@
     "helmet": ">= 2.1.1",
     "hpp": ">= 0.2.1",
 
-    "nodemailer": ">= 2.5.0"
+    "nodemailer": ">= 2.5.0",
+
+    "babel-core": ">= 6.10.4",
+    "babel-register": ">= 6.9.0",
+    "babel-preset-node6": ">= 11.0.0",
+    "babel-plugin-transform-async-to-generator": ">= 6.8.0"
   },
   "devDependencies": {
     "gulp": "github:gulpjs/gulp#4.0",

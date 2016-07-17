@@ -1,14 +1,18 @@
-'use strict';
+//'use strict';
 
 // Performance
 // https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile
 // https://strongloop.com/strongblog/node-js-performance-scaling-proxies-clusters/
 
+// async/await & try/catch
+// https://www.youtube.com/watch?v=COKdtOgopWQ
+// https://medium.com/@yamalight/danger-of-using-async-await-in-es7-8006e3eb7efb#.vsu0gxqdn
+
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-const express        = require('express'),
+/*const express        = require('express'),
       //socket_io      = require('socket.io'),
       bodyParser     = require('body-parser'),
       //cookieParser   = require('cookie-parser'),
@@ -22,20 +26,44 @@ const express        = require('express'),
       slashes        = require('connect-slashes'),
       // Security
       helmet         = require('helmet'),
-      hpp            = require('hpp');
+      hpp            = require('hpp');*/
+
+import express from 'express';
+//import socket_io from 'socket.io';
+import bodyParser from 'body-parser';
+//import cookieParser from 'cookie-parser';
+import methodOverride from 'method-override';
+import compression from 'compression';
+import exphbs from 'express-handlebars';
+import logger from 'morgan';
+//import debug from 'debug';
+//import winston from 'winston';
+import i18n from 'i18n';
+import slashes from 'connect-slashes';
+// Security
+import helmet from 'helmet';
+import hpp from 'hpp';
 
 /////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
 /////////////////////////////////////////////////////////////
 
-const api      = require('./routes/api-external'),
+/*const api      = require('./routes/api-external'),
       index    = require('./routes/index'),
       blog     = require('./routes/blog'),
       category = require('./routes/blog-category'),
       tag      = require('./routes/blog-tag'),
       contact  = require('./routes/contact'),
       //form     = require('./routes/form'),
-      tube     = require('./routes/tube');
+      tube     = require('./routes/tube');*/
+
+import api from './routes/api-external';
+import index from './routes/index';
+import blog from './routes/blog';
+import category from './routes/blog-category';
+import tag from './routes/blog-tag';
+import contact from './routes/contact';
+import tube from './routes/tube';
 
 /////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS

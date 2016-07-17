@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 
-'use strict';
+//'use strict';
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-const app       = require('../app'),
+/*const app       = require('../app'),
       debug     = require('debug'),
       http      = require('http'),
-      socket_io = require('socket.io');
+      socket_io = require('socket.io');*/
+
+import app from '../app';
+import debug from 'debug';
+import http from 'http';
+import socket_io from 'socket.io';
 
 /////////////////////////////////////////////////////////////
 // Optimizations

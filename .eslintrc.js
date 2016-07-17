@@ -22,7 +22,7 @@ module.exports = {
   //"parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
-    "sourceType": "script", // "script" or "module"
+    "sourceType": "module", // "script" or "module"
     //"allowImportExportEverywhere": false,
     "ecmaFeatures": {
       //"modules": false,
@@ -39,8 +39,8 @@ module.exports = {
     "semi": ["error", "always"],
     "eqeqeq": "warn",
     "curly": ["error", "all"],
-    //"strict": ["error", "global"],
-    "strict": "off",
+    "strict": ["error", "global"],
+    //"strict": "off",
     "quotes": ["warn", "single"],
     "no-unused-vars": "warn",
     "prefer-const": "warn",

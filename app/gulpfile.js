@@ -31,15 +31,15 @@ const gulp     = require('gulp'),
 /*// ES6
 // Modules will be supported from Node v7
 // https://github.com/nodejs/help/issues/53
-//import gulp from 'gulp'
-import {src, dest, watch, parallel, series} from 'gulp'
-import gls from 'gulp-live-server'
-import rename from 'gulp-rename'
-import stylus from 'gulp-stylus'
-import cleanCSS from 'gulp-clean-css'
-import uglify from 'gulp-uglify'
-import download from 'gulp-download'
-import replace from 'gulp-replace'*/
+import gulp from 'gulp';
+//import {src, dest, watch, parallel, series} from 'gulp';
+import gls from 'gulp-live-server';
+import rename from 'gulp-rename';
+import stylus from 'gulp-stylus';
+import cleanCSS from 'gulp-clean-css';
+import uglify from 'gulp-uglify';
+import download from 'gulp-download';
+import replace from 'gulp-replace';*/
 
 const paths = {
   styles: {
@@ -77,7 +77,8 @@ const paths = {
 /////////////////////////////////////////////////////////////
 
 const server = gls.new([
-  '--trace-deprecation', '--trace-sync-io', 'bin/www',
+  //'--trace-deprecation', '--trace-sync-io', 'bin/www',
+  '--trace-deprecation', '--trace-sync-io', 'index',
   //{ env: { NODE_ENV: 'production' } }
 ]);
 
