@@ -26,24 +26,13 @@ const config = require('../config/routes'),
   });
 };*/
 
-/*exports.fsAsync = (callback) => {
-  fs.readFile(__dirname + db, 'utf8', async (err, data) => {
-    try {
-      await callback(null, JSON.parse(data)); // null means no error, return results in callback
-    } catch (err) {
-      callback(err);
-    }
-  });
-};*/
-
 exports.fsAsync = () => {
   const promise = new Promise((resolve, reject) => {
     fs.readFile(__dirname + db, 'utf8', (err, data) => {
-      if(err) {
-        reject(err); // If there was an error, use `reject()` with the error
-      } else {
-        resolve(JSON.parse(data)); // If the read is successful, we use `resolve()` with the data
+      if (err) {
+        throw reject(err); // If there was an error, use `reject()` with the error
       }
+      resolve(JSON.parse(data)); // If the read is successful, we use `resolve()` with the data
     });
   });
   return promise; // return our Promise so the calling code can use it...
