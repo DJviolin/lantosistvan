@@ -1,15 +1,25 @@
 #!/usr/bin/env node
 
-//'use strict';
+'use strict';
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-import app from '../app';
+/*import app from '../app';
 import debug from 'debug';
 import http from 'http';
-import socket_io from 'socket.io';
+import socket_io from 'socket.io';*/
+
+const app       = require('../app'),
+      debug     = require('debug'),
+      http      = require('http'),
+      socket_io = require('socket.io');
+
+const error = debug('app:error'),
+      log = debug('app:log');
+//const error = app.error,
+//      log = app.log;
 
 /////////////////////////////////////////////////////////////
 // Optimizations
@@ -52,16 +62,43 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /////////////////////////////////////////////////////////////
+// CLUSTER
+// https://nodejs.org/api/cluster.html
+/////////////////////////////////////////////////////////////
+
+/*const cluster = require('cluster');
+const os = require('os');
+const numCPUs = os.cpus().length;
+
+if (cluster.isMaster) {
+  // Fork workers.
+  for (var i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+} else {
+  // Workers can share any TCP connection
+  // In this case it is an HTTP server
+  //http.createServer((req, res) => {
+  //  res.writeHead(200);
+  //  res.end('hello world\n');
+  //}).listen(8000);
+
+  server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
+  server.on('error', onError);
+  server.on('listening', onListening);
+  log('App is listening on %s threads', numCPUs);
+}*/
+
+/////////////////////////////////////////////////////////////
 // Debugging
 // https://expressjs.com/en/advanced/best-practice-performance.html
 // https://expressjs.com/en/guide/debugging.html
 // https://nodejs.org/api/util.html#util_util_format_format
 /////////////////////////////////////////////////////////////
-
-const error = debug('app:error'),
-      log = debug('app:log');
-//const error = app.error,
-//      log = app.log;
 
 // Normalize a port into a number, string, or false
 function normalizePort(val) {

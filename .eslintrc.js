@@ -19,10 +19,11 @@ module.exports = {
     "jquery": true
   },
   // https://www.npmjs.com/package/babel-eslint
-  "parser": "babel-eslint",
+  //"parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
-    "sourceType": "module", // "script" or "module"
+    //"sourceType": "module", // "script" or "module"
+    "sourceType": "script", // "script" or "module"
     //"allowImportExportEverywhere": false,
     "ecmaFeatures": {
       //"modules": false,

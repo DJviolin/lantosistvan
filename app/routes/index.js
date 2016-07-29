@@ -45,7 +45,7 @@ const functions = require('../lib/functions'),
   });
 });*/
 
-router.get('/', async (req, res, err) => {
+/*router.get('/', async (req, res, err) => {
   try {
     await fsAsync((err, data) => {
       if(err) {
@@ -75,6 +75,38 @@ router.get('/', async (req, res, err) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});*/
+
+router.get('/', (req, res) => {
+  fsAsync()
+    .then((data) => {
+      const gallery = data[0].gallery.portfolio.love;
+      const articles = data[1].articles.reverse();
+      const slice = articles.slice(0, 6);
+      const json = [{ articles: slice }];
+      //console.log(json);
+      res.render('index', {
+        //layout: 'main',
+        bodyClass: 'index',
+        active: { index: true },
+        titleShown: false,
+        title: 'Hi!',
+        description: 'Home page',
+        keywords: 'wedding,photography,film,lantos,istvan',
+        data: gallery,
+        latestPosts: json
+      });
+    })
+    .catch((err) => {
+      // handle the error from either file-one or file-two
+      console.error(err);
+      res.render('404', {
+        titleShown: true,
+        title: 'Error 404',
+        description: 'Error 404',
+        keywords: 'error,404'
+      });
+    });
 });
 
 /////////////////////////////////////////////////////////////

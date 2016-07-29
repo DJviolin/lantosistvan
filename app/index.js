@@ -14,8 +14,8 @@
 // http://slides.com/stephenbelanger-1/easier-express-with-async-await#/3
 
 //require('babel-register');
-require('babel-register')({
+/*require('babel-register')({
   presets: ['node6'],
   plugins: ['transform-async-to-generator']
-});
+});*/
 require('./bin/www');

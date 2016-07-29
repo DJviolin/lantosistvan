@@ -1,10 +1,10 @@
-//'use strict';
+'use strict';
 
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
 
-import express from 'express';
+/*import express from 'express';
 //import socket_io from 'socket.io';
 import bodyParser from 'body-parser';
 //import cookieParser from 'cookie-parser';
@@ -18,19 +18,43 @@ import i18n from 'i18n';
 import slashes from 'connect-slashes';
 // Security
 import helmet from 'helmet';
-import hpp from 'hpp';
+import hpp from 'hpp';*/
+
+const express = require('express'),
+      //socket_io = require('socket.io'),
+      bodyParser = require('body-parser'),
+      //cookieParser = require('cookie-parser'),
+      methodOverride = require('method-override'),
+      compression = require('compression'),
+      exphbs = require('express-handlebars'),
+      logger = require('morgan'),
+      //debug = require('debug'),
+      //winston = require('winston'),
+      i18n = require('i18n'),
+      slashes = require('connect-slashes'),
+      // Security
+      helmet = require('helmet'),
+      hpp = require('hpp');
 
 /////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
 /////////////////////////////////////////////////////////////
 
-import api from './routes/api-external';
+/*import api from './routes/api-external';
 import index from './routes/index';
 import blog from './routes/blog';
 import category from './routes/blog-category';
 import tag from './routes/blog-tag';
 import contact from './routes/contact';
-import tube from './routes/tube';
+import tube from './routes/tube';*/
+
+const api      = require('./routes/api-external'),
+      index    = require('./routes/index'),
+      blog     = require('./routes/blog'),
+      category = require('./routes/blog-category'),
+      tag      = require('./routes/blog-tag'),
+      contact  = require('./routes/contact'),
+      tube     = require('./routes/tube');
 
 /////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
