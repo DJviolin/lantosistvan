@@ -1,0 +1,21 @@
+{
+  "name": "koa-benchmark",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "email": "kerozin.joe@gmail.com",
+  "url": "http://lantosistvan.com/",
+  "private": true,
+  "main": "./index",
+  "scripts": {
+    "start": "node --harmony ./index",
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "dependencies": {
+    "babel-register": ">= 6.9.0",
+    "babel-preset-node6": ">= 11.0.0",
+    "babel-plugin-transform-async-to-generator": ">= 6.8.0",
+    "koa": ">= 2.0.0-beta.4"
+  }
+}
