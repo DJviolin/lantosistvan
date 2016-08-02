@@ -5,7 +5,7 @@ import (
 	"github.com/aymerick/raymond"
 	"github.com/iris-contrib/template/handlebars"
 	"github.com/kataras/iris"
-	"runtime"
+	//"runtime"
 )
 
 // VIEW ENGINE SETUP - AKA: V(iew)
@@ -72,7 +72,7 @@ func irisRoutes() {
 
 // MAIN
 func main() {
-	runtime.GOMAXPROCS(1) // Limiting CPU cores to 1
+	//runtime.GOMAXPROCS(1) // Limiting CPU cores to 1
 	//runtime.GOMAXPROCS(8)
 
 	irisView()
