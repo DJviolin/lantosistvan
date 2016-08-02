@@ -56,12 +56,12 @@ app.get('/my/other', (req, res) => {
 });
 
 // INIT EXPRESS APP
-/*app.listen(3000, () => {
+app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
-});*/
+});
 
 //CLUSTER
-const cluster = require('cluster');
+/*const cluster = require('cluster');
 const http = require('http');
 const numCPUs = require('os').cpus().length;
 
@@ -77,11 +77,7 @@ if (cluster.isMaster) {
 } else {
   // Workers can share any TCP connection
   // In this case it is an HTTP server
-  /*http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end('Hello, World!');
-  }).listen(3000);*/
   app.listen(3000, () => {
     console.log('Example app listening on port 3000!');
   });
-}
+}*/

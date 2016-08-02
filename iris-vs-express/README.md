@@ -15,18 +15,18 @@ wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 
 ```shell
 $ main.exe
-$ time ab -k -n 1000 -c 100 http://127.0.0.1:8080/
-$ time ab -k -n 10000 -c 1000 http://127.0.0.1:8080/
-$ time ab -k -n 1000 -c 100 http://127.0.0.1:8080/hello
-$ time ab -k -n 100000 -c 10000 http://127.0.0.1:8080/hello
+$ ab -k -n 1000 -c 10 http://127.0.0.1:8080/
+$ ab -k -n 10000 -c 1000 http://127.0.0.1:8080/
+$ ab -k -n 1000 -c 10 http://127.0.0.1:8080/hello
+$ ab -k -n 100000 -c 1000 http://127.0.0.1:8080/hello
 ```
 
 ##### Node/Express Benchmark
 
 ```shell
 $ node app.js
-$ time ab -k -n 1000 -c 100 http://127.0.0.1:3000/
-$ time ab -k -n 10000 -c 1000 http://127.0.0.1:3000/
-$ time ab -k -n 1000 -c 100 http://127.0.0.1:3000/hello
-$ time ab -k -n 100000 -c 10000 http://127.0.0.1:3000/hello
+$ ab -k -n 1000 -c 10 http://127.0.0.1:3000/
+$ ab -k -n 10000 -c 1000 http://127.0.0.1:3000/
+$ ab -k -n 1000 -c 10 http://127.0.0.1:3000/hello
+$ ab -k -n 100000 -c 1000 http://127.0.0.1:3000/hello
 ```
