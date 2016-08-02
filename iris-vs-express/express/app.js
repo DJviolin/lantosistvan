@@ -20,6 +20,10 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // INIT ROUTES
+app.get('/hello', (req, res) => {
+  res.send('Hello, World!');
+});
+
 app.get('/', (req, res) => {
   res.render('home', {
     layout: 'layout',

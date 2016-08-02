@@ -75,6 +75,11 @@ func main() {
 	runtime.GOMAXPROCS(1) // Limiting CPU cores to 1
 
 	irisView()
+
+	iris.Get("/hello", func(ctx *iris.Context) {
+		ctx.Write("Hello, World!")
+	})
+
 	irisRoutes()
 
 	// Server init

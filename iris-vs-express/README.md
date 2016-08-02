@@ -16,6 +16,7 @@ wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 ```shell
 $ main.exe
 $ ab -n 1000 -c 100 http://127.0.0.1:8080/
+$ ab -n 1000 -c 100 http://127.0.0.1:8080/hello
 ```
 
 ##### Node/Express Benchmark
@@ -23,4 +24,5 @@ $ ab -n 1000 -c 100 http://127.0.0.1:8080/
 ```shell
 $ node app.js
 ab -n 1000 -c 100 http://127.0.0.1:3000/
+ab -n 1000 -c 100 http://127.0.0.1:3000/hello
 ```
