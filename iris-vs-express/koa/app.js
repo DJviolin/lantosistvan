@@ -12,9 +12,14 @@ app.use(views(__dirname + '/views', {
   map: { hbs: 'handlebars' }
 }));
 
-app.use(async (ctx) => {
-  await ctx.render('home');
-})
+//app.use(async (ctx) => {
+router.get('/', async (ctx, next) => {
+  await ctx.render('home', {
+    Name: 'Iris',
+    Type: 'Web',
+    Path: '/'
+  });
+});
 
 // routes
 /*router.get('/', async (ctx, next) => {
