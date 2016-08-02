@@ -1,7 +1,9 @@
 'use strict';
 
-const Koa    = require('koa'),
-      router = require('koa-router')();
+const Koa     = require('koa'),
+      views   = require('koa-views'),
+      hbs     = require('handlebars'),
+      router  = require('koa-router')();
 const app = new Koa();
 
 // routes

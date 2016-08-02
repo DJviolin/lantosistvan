@@ -17,6 +17,8 @@
     "babel-preset-node6": ">= 11.0.0",
     "babel-plugin-transform-async-to-generator": ">= 6.8.0",
     "koa": ">= 2.0.0-beta.4",
-    "koa-router": ">= 7.0.1"
+    "koa-router": ">= 7.0.1",
+    "koa-views": ">= 5.0.2",
+    "handlebars": ">= 4.0.5"
   }
 }
