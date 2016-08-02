@@ -13,9 +13,9 @@
 /////////////////////////////////////////////////////////////
 
 const express        = require('express'),
-      bodyParser     = require('body-parser'),
-      methodOverride = require('method-override'),
-      compression    = require('compression'),
+      //bodyParser     = require('body-parser'),
+      //methodOverride = require('method-override'),
+      //compression    = require('compression'),
       exphbs         = require('express-handlebars'),
       logger         = require('morgan');
 
@@ -51,15 +51,15 @@ app.set('view engine', '.hbs');
 
 // bodyParser
 // This will let us get the data from a POST
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 // for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 // methodOverride
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
-app.use(methodOverride('_method'));
+//app.use(methodOverride('_method'));
 app.use(logger('dev')); // Morgan
-app.use(compression()); // Gzip
+//app.use(compression()); // Gzip
 
 /////////////////////////////////////////////////////////////
 // INIT ROUTES

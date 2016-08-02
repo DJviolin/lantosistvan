@@ -45,7 +45,7 @@ func irisView() {
 	//api := iris.New()
 
 	iris.Config.IsDevelopment = false // reloads the templates on each request, defaults to false
-	iris.Config.Gzip = true           // compressed gzip contents to the client, the same for Response Engines also, defaults to false
+	iris.Config.Gzip = false          // compressed gzip contents to the client, the same for Response Engines also, defaults to false
 	iris.Config.Charset = "UTF-8"     // defaults to "UTF-8", the same for Response Engines also
 
 	/*irisConfig := config.Iris{
