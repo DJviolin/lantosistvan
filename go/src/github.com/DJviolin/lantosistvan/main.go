@@ -6,7 +6,7 @@ package main
 
 import (
 	"github.com/aymerick/raymond"
-	"github.com/iris-contrib/middleware/i18n"
+	//"github.com/iris-contrib/middleware/i18n"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/iris-contrib/template/handlebars"
 	"github.com/kataras/iris"
@@ -27,14 +27,14 @@ func irisMiddlewareLogger() {
 	})
 }
 
-func irisMiddlewareI18n() {
+/*func irisMiddlewareI18n() {
 	iris.UseFunc(i18n.New(i18n.Config{Default: "hu-HU",
 		Languages: map[string]string{
 			"hu-HU": "./locales/locale_hu-HU.ini",
 			"en-US": "./locales/locale_en-US.ini"}}))
 	// or iris.Use(i18n.I18nHandler(....))
 	// or iris.Get("/",i18n.I18n(....), func (ctx *iris.Context){})
-}
+}*/
 
 /////////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP - AKA: V(iew)
@@ -137,7 +137,7 @@ func irisRoutes() {
 
 func main() {
 	irisMiddlewareLogger()
-	irisMiddlewareI18n()
+	//irisMiddlewareI18n()
 	irisView()
 	irisRoutes()
 
