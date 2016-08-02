@@ -1,5 +1,13 @@
 'use strict';
 
+// Go/Iris Benchmark:
+// $ GOMAXPROCS=1 main.exe
+// ab -n 1000 -c 100 http://127.0.0.1:8080/
+
+// Node/Express Benchmark:
+// $ npm start
+// ab -n 1000 -c 100 http://127.0.0.1:3000/
+
 /////////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
 /////////////////////////////////////////////////////////////
@@ -31,7 +39,7 @@ app.engine('.hbs', exphbs({
     __n: function() { return i18n.__n.apply(this, arguments); },
     boldme: function(url) {
       const myString = url.toString();
-      return '<b> ' + myString + '</b>';
+      return '<strong> ' + myString + '</strong>';
     }
   }
 }));
@@ -59,7 +67,7 @@ app.use(compression()); // Gzip
 
 app.get('/', (req, res) => {
   res.render('home', {
-    layout: 'main',
+    layout: 'layout',
     'Name': 'Iris',
     'Type': 'Web',
     'Path': '/'
@@ -99,7 +107,7 @@ app.use((req, res, next) => {
   next(err);
 });
 // Error handler - catch all errors
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(err.status || 500);
   console.error(err.stack);
   res.render('error', {
