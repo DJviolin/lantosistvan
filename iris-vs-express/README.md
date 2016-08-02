@@ -30,3 +30,13 @@ $ ab -k -n 10000 -c 1000 http://127.0.0.1:3000/
 $ ab -k -n 1000 -c 10 http://127.0.0.1:3000/hello
 $ ab -k -n 100000 -c 1000 http://127.0.0.1:3000/hello
 ```
+
+##### Node/Koa Benchmark
+
+```shell
+$ node --harmony ./index
+$ ab -k -n 1000 -c 10 http://127.0.0.1:3001/
+$ ab -k -n 10000 -c 1000 http://127.0.0.1:3001/
+$ ab -k -n 1000 -c 10 http://127.0.0.1:3001/hello
+$ ab -k -n 100000 -c 1000 http://127.0.0.1:3001/hello
+```

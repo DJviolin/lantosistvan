@@ -51,3 +51,4 @@ iris-vs-express/iris/vendor
 iris-vs-express/iris/bin/*.exe
 iris-vs-express/iris/app/*.exe
 iris-vs-express/express/node_modules
+iris-vs-express/koa/node_modules
