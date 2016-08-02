@@ -15,10 +15,10 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-//app.listen(3001);
+app.listen(3001);
 
 //CLUSTER
-const cluster = require('cluster');
+/*const cluster = require('cluster');
 const http = require('http');
 const numCPUs = require('os').cpus().length;
 
@@ -37,4 +37,4 @@ if (cluster.isMaster) {
   app.listen(3001, () => {
     console.log('Example app listening on port 3001!');
   });
-}
+}*/
