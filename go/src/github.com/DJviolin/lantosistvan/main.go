@@ -10,6 +10,7 @@ import (
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/iris-contrib/template/handlebars"
 	"github.com/kataras/iris"
+	"runtime"
 )
 
 /////////////////////////////////////////////////////////////
@@ -136,6 +137,8 @@ func irisRoutes() {
 /////////////////////////////////////////////////////////////
 
 func main() {
+	runtime.GOMAXPROCS(1) // Limiting CPU cores to 1
+
 	irisMiddlewareLogger()
 	//irisMiddlewareI18n()
 	irisView()
