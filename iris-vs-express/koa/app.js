@@ -6,7 +6,29 @@ const Koa     = require('koa'),
       router  = require('koa-router')();
 const app = new Koa();
 
+// templating
+app.use(views(__dirname + '/views', {
+  extension: 'hbs',
+  map: { hbs: 'handlebars' }
+}));
+
+app.use(async (ctx) => {
+  await ctx.render('home');
+})
+
 // routes
+/*router.get('/', async (ctx, next) => {
+  ctx.state = {
+    session: this.session,
+    title: 'koa2 title'
+  };
+  await ctx.render('home', {
+    Name: 'Iris',
+    Type: 'Web',
+    Path: '/'
+  });
+})*/
+
 router
   .get('/hello', (ctx, next) => {
     ctx.body = 'Hello, World!';
