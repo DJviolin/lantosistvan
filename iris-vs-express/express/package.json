@@ -5,18 +5,12 @@
   "email": "kerozin.joe@gmail.com",
   "url": "http://lantosistvan.com/",
   "private": true,
-  "production": true,
-  "main": "./bin/www",
-  "config": {
-    "port": "3000",
-    "production": true
-  },
+  "main": "./app",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./app"
   },
   "dependencies": {
     "express": ">= 4.14.0",
-    "morgan": ">= 1.7.0",
     "express-handlebars": ">= 3.0.0"
   }
 }

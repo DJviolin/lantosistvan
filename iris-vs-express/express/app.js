@@ -1,17 +1,8 @@
 'use strict';
 
-// Go/Iris Benchmark:
-// $ main.exe
-// ab -n 1000 -c 100 http://127.0.0.1:8080/
-
-// Node/Express Benchmark:
-// $ node app.js
-// ab -n 1000 -c 100 http://127.0.0.1:3000/
-
 // MODULE DEPENDENCIES
-const express        = require('express'),
-      exphbs         = require('express-handlebars'),
-      logger         = require('morgan');
+const express = require('express'),
+      exphbs  = require('express-handlebars');
 const app = express();
 
 // VIEW ENGINE SETUP - AKA: V(iew)
@@ -27,9 +18,6 @@ app.engine('.hbs', exphbs({
   }
 }));
 app.set('view engine', '.hbs');
-
-// INIT MIDDLEWARES
-app.use(logger('dev')); // Morgan
 
 // INIT ROUTES
 app.get('/', (req, res) => {
