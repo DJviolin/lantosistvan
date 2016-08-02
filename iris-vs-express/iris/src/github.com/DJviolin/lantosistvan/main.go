@@ -72,7 +72,8 @@ func irisRoutes() {
 
 // MAIN
 func main() {
-	runtime.GOMAXPROCS(1) // Limiting CPU cores to 1
+	//runtime.GOMAXPROCS(1) // Limiting CPU cores to 1
+	runtime.GOMAXPROCS(8)
 
 	irisView()
 
