@@ -8,6 +8,7 @@ import (
 	"github.com/aymerick/raymond"
 	"github.com/iris-contrib/middleware/i18n"
 	"github.com/iris-contrib/middleware/logger"
+	"github.com/iris-contrib/template/handlebars"
 	"github.com/kataras/iris"
 )
 

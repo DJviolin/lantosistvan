@@ -8,11 +8,13 @@ wgo get github.com/kataras/iris
 wgo get github.com/iris-contrib/middleware/logger
 wgo get github.com/iris-contrib/middleware/i18n
 wgo get github.com/aymerick/raymond
+wgo get github.com/iris-contrib/template/handlebars
 
 wgo get -u github.com/kataras/iris
 wgo get -u github.com/iris-contrib/middleware/logger
 wgo get -u github.com/iris-contrib/middleware/i18n
 wgo get -u github.com/aymerick/raymond
+wgo get -u github.com/iris-contrib/template/handlebars
 
 wgo save
 wgo build -o app/main.exe github.com/DJviolin/lantosistvan
