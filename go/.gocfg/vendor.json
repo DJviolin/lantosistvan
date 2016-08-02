@@ -1,36 +1,48 @@
 {
   "GitRepos": {
-    "vendor\\src\\github.com\\Joker\\jade": {
-      "URI": "https://github.com/Joker/jade",
-      "Ref": "db4d7e4f68708c5020c392b380e3565df2132840"
-    },
     "vendor\\src\\github.com\\Unknwon\\i18n": {
       "URI": "https://github.com/Unknwon/i18n",
       "Ref": "39d6f2727e0698b1021ceb6a77c1801aa92e7d5d"
+    },
+    "vendor\\src\\github.com\\ajg\\form": {
+      "URI": "https://github.com/ajg/form",
+      "Ref": "7ff89c75808766205bfa4411abb436c98c33eb5e"
     },
     "vendor\\src\\github.com\\aymerick\\raymond": {
       "URI": "https://github.com/aymerick/raymond",
       "Ref": "a2232af10b53ef1ae5a767f5178db3a6c1dab655"
     },
-    "vendor\\src\\github.com\\eknkc\\amber": {
-      "URI": "https://github.com/eknkc/amber",
-      "Ref": "91774f050c1453128146169b626489e60108ec03"
+    "vendor\\src\\github.com\\fatih\\structs": {
+      "URI": "https://github.com/fatih/structs",
+      "Ref": "14f46232cd7bc732dc67313a9e4d3d210e082587"
     },
-    "vendor\\src\\github.com\\fatih\\color": {
-      "URI": "https://github.com/fatih/color",
-      "Ref": "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
+    "vendor\\src\\github.com\\gavv\\gojsondiff": {
+      "URI": "https://github.com/gavv/gojsondiff",
+      "Ref": "36046c6e558e7f854ebd3fd97d1e9812ebe8709b"
     },
-    "vendor\\src\\github.com\\flosch\\pongo2": {
-      "URI": "https://github.com/flosch/pongo2",
-      "Ref": "7f5515449ea9bbeb00256d9cbb654c556e7d0146"
+    "vendor\\src\\github.com\\gavv\\httpexpect": {
+      "URI": "https://github.com/gavv/httpexpect",
+      "Ref": "b5a77ac370dcc9bc2021de6e4144d364de272cba"
     },
-    "vendor\\src\\github.com\\garyburd\\redigo": {
-      "URI": "https://github.com/garyburd/redigo",
-      "Ref": "b8dc90050f24c1a73a52f107f3f575be67b21b7c"
+    "vendor\\src\\github.com\\gavv\\monotime": {
+      "URI": "https://github.com/gavv/monotime",
+      "Ref": "259cd7b345f5aa080eff16f21d7866ef7dea9528"
+    },
+    "vendor\\src\\github.com\\google\\go-querystring": {
+      "URI": "https://github.com/google/go-querystring",
+      "Ref": "9235644dd9e52eeae6fa48efd539fdc351a0af53"
     },
     "vendor\\src\\github.com\\imdario\\mergo": {
       "URI": "https://github.com/imdario/mergo",
       "Ref": "50d4dbd4eb0e84778abe37cefef140271d96fade"
+    },
+    "vendor\\src\\github.com\\imkira\\go-interpol": {
+      "URI": "https://github.com/imkira/go-interpol",
+      "Ref": "b9781c93ae51c8b4fc3af1b1426909721af0a624"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\color": {
+      "URI": "https://github.com/iris-contrib/color",
+      "Ref": "1f565954a55c42b9c66ead36206e91e1d79bafa1"
     },
     "vendor\\src\\github.com\\iris-contrib\\errors": {
       "URI": "https://github.com/iris-contrib/errors",
@@ -38,19 +50,35 @@
     },
     "vendor\\src\\github.com\\iris-contrib\\formBinder": {
       "URI": "https://github.com/iris-contrib/formBinder",
-      "Ref": "c311e88d3a2dd059c5d79c7ed3703cf0492088e3"
+      "Ref": "32009bbc76eda475a6d1eb24787d1fdcdaf80e71"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\letsencrypt": {
+      "URI": "https://github.com/iris-contrib/letsencrypt",
+      "Ref": "2a9ed749d24d8d2a8ece891b7b6242f0b3192d62"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\logger": {
+      "URI": "https://github.com/iris-contrib/logger",
+      "Ref": "6a08b11d1faefa8ce79ed6d6efec9d2e05cbc549"
     },
     "vendor\\src\\github.com\\iris-contrib\\middleware": {
       "URI": "https://github.com/iris-contrib/middleware",
-      "Ref": "79d962a62d6085000d75764677d25d1d8ed38744"
+      "Ref": "c02acecac4079532e75b9b5e43c04d3a7f779512"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\response": {
+      "URI": "https://github.com/iris-contrib/response",
+      "Ref": "86fa654d847f1157e5fbb57bbf65ce0f168a7073"
+    },
+    "vendor\\src\\github.com\\iris-contrib\\template": {
+      "URI": "https://github.com/iris-contrib/template",
+      "Ref": "1130d33ae375e4305f27f62f6793db587bcb6f83"
     },
     "vendor\\src\\github.com\\iris-contrib\\websocket": {
       "URI": "https://github.com/iris-contrib/websocket",
-      "Ref": "a2c30084384c39ce6595169df8b93d7298ac04cd"
+      "Ref": "2f1c3fd901de3359a6452a212c8be784f04b7073"
     },
     "vendor\\src\\github.com\\kataras\\iris": {
       "URI": "https://github.com/kataras/iris",
-      "Ref": "9d8f32ce1a47396c5a94d76a17fd8086948049fa"
+      "Ref": "922248bbf11a29c975655f2d75a16756cb052332"
     },
     "vendor\\src\\github.com\\klauspost\\compress": {
       "URI": "https://github.com/klauspost/compress",
@@ -66,7 +94,7 @@
     },
     "vendor\\src\\github.com\\mattn\\go-colorable": {
       "URI": "https://github.com/mattn/go-colorable",
-      "Ref": "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
+      "Ref": "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
     },
     "vendor\\src\\github.com\\mattn\\go-isatty": {
       "URI": "https://github.com/mattn/go-isatty",
@@ -74,31 +102,83 @@
     },
     "vendor\\src\\github.com\\microcosm-cc\\bluemonday": {
       "URI": "https://github.com/microcosm-cc/bluemonday",
-      "Ref": "4ac6f27528d0a3f2a59e0b0a6f6b3ff0bb89fe20"
+      "Ref": "9dc199233bf72cc1aad9b61f73daf2f0075b9ee4"
+    },
+    "vendor\\src\\github.com\\miekg\\dns": {
+      "URI": "https://github.com/miekg/dns",
+      "Ref": "db96a2b759cdef4f11a34506a42eb8d1290c598e"
+    },
+    "vendor\\src\\github.com\\moul\\http2curl": {
+      "URI": "https://github.com/moul/http2curl",
+      "Ref": "b1479103caacaa39319f75e7f57fc545287fca0d"
     },
     "vendor\\src\\github.com\\russross\\blackfriday": {
       "URI": "https://github.com/russross/blackfriday",
-      "Ref": "1d6b8e9301e720b08a8938b8c25c018285885438"
+      "Ref": "93622da34e54fb6529bfb7c57e710f37a8d9cbd8"
+    },
+    "vendor\\src\\github.com\\sergi\\go-diff": {
+      "URI": "https://github.com/sergi/go-diff",
+      "Ref": "ec7fdbb58eb3e300c8595ad5ac74a5aa50019cc7"
     },
     "vendor\\src\\github.com\\shurcooL\\sanitized_anchor_name": {
       "URI": "https://github.com/shurcooL/sanitized_anchor_name",
       "Ref": "10ef21a441db47d8b13ebcc5fd2310f636973c77"
     },
+    "vendor\\src\\github.com\\stretchr\\testify": {
+      "URI": "https://github.com/stretchr/testify",
+      "Ref": "d77da356e56a7428ad25149ca77381849a6a5232"
+    },
     "vendor\\src\\github.com\\valyala\\bytebufferpool": {
       "URI": "https://github.com/valyala/bytebufferpool",
-      "Ref": "bf51c4698b5764b350191bff3cf821235db1e073"
+      "Ref": "8ebd0474e5a2f0a5c7a74ad2bf421a1d1a90264f"
     },
     "vendor\\src\\github.com\\valyala\\fasthttp": {
       "URI": "https://github.com/valyala/fasthttp",
-      "Ref": "e4db3cb5600317e91d93e07036e4d20903c8fa17"
+      "Ref": "45697fe30a130ec6a54426a069c82f3abe76b63d"
+    },
+    "vendor\\src\\github.com\\xeipuuv\\gojsonpointer": {
+      "URI": "https://github.com/xeipuuv/gojsonpointer",
+      "Ref": "e0fe6f68307607d540ed8eac07a342c33fa1b54a"
+    },
+    "vendor\\src\\github.com\\xeipuuv\\gojsonreference": {
+      "URI": "https://github.com/xeipuuv/gojsonreference",
+      "Ref": "e02fc20de94c78484cd5ffb007f8af96be030a45"
+    },
+    "vendor\\src\\github.com\\xeipuuv\\gojsonschema": {
+      "URI": "https://github.com/xeipuuv/gojsonschema",
+      "Ref": "0a98b2bd93655a563d1f23c4407e8f01791b6b31"
+    },
+    "vendor\\src\\github.com\\xenolf\\lego": {
+      "URI": "https://github.com/xenolf/lego",
+      "Ref": "4c33bee13d438d72ea22be3ff806f8093fb8d072"
+    },
+    "vendor\\src\\github.com\\yalp\\jsonpath": {
+      "URI": "https://github.com/yalp/jsonpath",
+      "Ref": "31a79c7593bb93eb10b163650d4a3e6ca190e4dc"
+    },
+    "vendor\\src\\github.com\\yudai\\golcs": {
+      "URI": "https://github.com/yudai/golcs",
+      "Ref": "d1c525dea8ce39ea9a783d33cf08932305373f2c"
+    },
+    "vendor\\src\\golang.org\\x\\crypto": {
+      "URI": "https://go.googlesource.com/crypto",
+      "Ref": "bc89c496413265e715159bdc8478ee9a92fdc265"
     },
     "vendor\\src\\golang.org\\x\\net": {
       "URI": "https://go.googlesource.com/net",
-      "Ref": "ef2e00e88c5e0a3569f0bb9df697e9cbc6215fea"
+      "Ref": "28d1bd4fbe7e56c9025ffe3a89113fa4f5e48f31"
+    },
+    "vendor\\src\\golang.org\\x\\time": {
+      "URI": "https://go.googlesource.com/time",
+      "Ref": "a4bde12657593d5e90d0533a3e4fd95e635124cb"
     },
     "vendor\\src\\gopkg.in\\ini.v1": {
       "URI": "https://gopkg.in/ini.v1",
-      "Ref": "a2614a51e883b798af864b67ed36e44edea1ec29"
+      "Ref": "cf53f9204df4fbdd7ec4164b57fa6184ba168292"
+    },
+    "vendor\\src\\gopkg.in\\square\\go-jose.v1": {
+      "URI": "https://gopkg.in/square/go-jose.v1",
+      "Ref": "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
     }
   },
   "MercurialRepos": {}

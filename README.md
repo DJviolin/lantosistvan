@@ -418,6 +418,19 @@ docker network rm docker_lantosistvan_back docker_lantosistvan_front
 # Delete docker files
 cd /var/lib/docker
 rm -rf /var/lib/docker/volumes/
+# Delete the orphaned volumes in Docker
+docker volume rm $(docker volume ls -qf dangling=true)
+# List dangling volumes
+docker volume ls -qf dangling=true
+# Remove all unused images
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+```
+
+Zeroing out free-space:
+
+```
+# zero fill before shrinking the partition size!
+cat /dev/zero > zero.file; rm zero.file
 ```
 
 Dockerfile Linter:

@@ -3,10 +3,17 @@
 ```shell
 cd C:\www\node\lantosistvan\go
 wgo init
+
 wgo get github.com/kataras/iris
 wgo get github.com/iris-contrib/middleware/logger
 wgo get github.com/iris-contrib/middleware/i18n
 wgo get github.com/aymerick/raymond
+
+wgo get -u github.com/kataras/iris
+wgo get -u github.com/iris-contrib/middleware/logger
+wgo get -u github.com/iris-contrib/middleware/i18n
+wgo get -u github.com/aymerick/raymond
+
 wgo save
 wgo build -o app/main.exe github.com/DJviolin/lantosistvan
 ```
