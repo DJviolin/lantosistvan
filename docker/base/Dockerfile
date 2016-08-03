@@ -8,7 +8,7 @@ ENV TERM="linux"
 
 WORKDIR $HOME
 
-RUN echo "\
+RUN echo -e "\
     deb http://httpredir.debian.org/debian stable main contrib non-free\n\
     deb-src http://httpredir.debian.org/debian stable main contrib non-free\n\
     deb http://security.debian.org stable/updates main contrib non-free\n\
