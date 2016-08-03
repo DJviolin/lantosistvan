@@ -5,15 +5,14 @@ const Koa     = require('koa'),
       handlebars = require('handlebars'),
       //hbs     = require('koa-hbs'),
       //hbsKoa  = require('koa-handlebars'),
-      koaRouter  = require('koa-router');
-const app    = new Koa(),
-      router = new koaRouter();
+      router  = require('koa-router')();
+const app    = new Koa();
 
 // templating
 app.use(views(__dirname + '/views', {
   extension: 'hbs',
-  map: { handlbars: 'handlebars' }
-}))
+  map: { hbs: 'handlebars' }
+}));
 
 //app.use(async (ctx) => {
 /*router.get('/', async (ctx, next) => {
@@ -29,7 +28,8 @@ router.get('/', async (ctx, next) => {
   await ctx.render('home', {
     Name: 'Iris',
     Type: 'Web',
-    Path: '/'
+    Path: '/',
+    defaultLayout: __dirname + '/views/layouts/layout'
   });
 });
 
