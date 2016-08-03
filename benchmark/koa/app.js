@@ -1,18 +1,28 @@
 'use strict';
 
 const Koa     = require('koa'),
-      //views   = require('koa-views'),
+      views   = require('koa-views'),
       handlebars = require('handlebars'),
       //hbs     = require('koa-hbs'),
-      hbsKoa  = require('koa-handlebars'),
-      router  = require('koa-router')();
-const app = new Koa();
+      //hbsKoa  = require('koa-handlebars'),
+      koaRouter  = require('koa-router');
+const app    = new Koa(),
+      router = new koaRouter();
 
 // templating
-/*app.use(views(__dirname + '/views', {
+app.use(views(__dirname + '/views', {
   extension: 'hbs',
   map: { handlbars: 'handlebars' }
 }))
+
+//app.use(async (ctx) => {
+/*router.get('/', async (ctx, next) => {
+  await ctx.render('home', {
+    Name: 'Iris',
+    Type: 'Web',
+    Path: '/'
+  });
+});*/
 
 //app.use(async (ctx) => {
 router.get('/', async (ctx, next) => {
@@ -21,15 +31,15 @@ router.get('/', async (ctx, next) => {
     Type: 'Web',
     Path: '/'
   });
-});*/
+});
 
-app.use(hbsKoa({
+/*app.use(hbsKoa({
   handlebars: handlebars,
   extension: 'hbs',
   defaultLayout: 'layout',
-  viewsDir: 'views',
-  layoutsDir: 'views/layouts',
-  partialsDir: 'views/partials',
+  viewsDir: __dirname + '/views',
+  layoutsDir: __dirname + '/views/layouts',
+  partialsDir: __dirname + '/views/partials',
   cache: false
 }));
 
@@ -39,7 +49,7 @@ router.get('/', async (ctx, next) => {
     Type: 'Web',
     Path: '/'
   });
-});
+});*/
 
 
 /*app.use(hbs.middleware({
@@ -81,7 +91,7 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(3001);
+app.listen(3000);
 
 //CLUSTER
 /*const cluster = require('cluster');
