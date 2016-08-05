@@ -117,16 +117,23 @@ if (document.body.classList.contains('contact')) {
 (function() {
   if (document.body.classList.contains('contact')) {
 
-    var address = document.location.protocol + '//' + document.location.hostname + (document.location.port ? ':' + document.location.port: '');
-    console.log('%s', address);
-
     //var socket = new WebSocket('ws://127.0.0.1:8081/echo');
     //var socket = io.connect('http://127.0.0.1:8081');
-    var socket = io.connect(address);
+
+    //var address = document.location.protocol + '//' + document.location.hostname + (document.location.port ? ':' + document.location.port: '');
+    //console.log('%s', address);
+    //var socket = io.connect(address);
+
+    var socket = io();
+
     socket.on('news', function (data) {
       var str = JSON.stringify(data, null, 4);
       console.log('CLIENT SAYS: %s', str);
       socket.emit('my other event', { my: 'data from CLIENT SIDE!' });
+    });
+
+    socket.on('message', function(data) {
+      document.write(data);
     });
 
   }

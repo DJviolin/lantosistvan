@@ -12,6 +12,11 @@ module.exports = (io) => {
       console.log('SERVER SAYS: %s', str);
     });
 
+    //Send a message after a timeout of 4seconds
+    setTimeout(() => {
+      socket.send('SERVER SAYS: Sent a message 4seconds after connection!');
+    }, 4000);
+
     //Whenever someone disconnects this piece of code executed
     socket.on('disconnect', () => {
       console.log('SERVER SAYS: A user disconnected');
