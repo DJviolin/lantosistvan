@@ -110,6 +110,40 @@ $ chmod +x $HOME/bin/docker-compose
 $ source $HOME/.bashrc
 ```
 
+## V8 Experimental features
+
+Strong mode:
+
+https://github.com/v8/v8/wiki/Experiments%20with%20Strengthening%20JavaScript
+
+Webassembly:
+
+https://github.com/webassembly
+
+http://webassembly.github.io/
+
+https://www.w3.org/community/webassembly/
+
+V8 Ignition:
+
+https://github.com/v8/v8/wiki/Interpreter
+
+https://news.ycombinator.com/item?id=10034068
+
+https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit
+
+http://mshockwave.blogspot.hu/2016/03/ignition-interpreter-in-v8-javascript.html
+
+http://v8project.blogspot.hu/
+
+TurboFan & Crankshaft optimization killers:
+
+https://arewefastyet.com/
+
+https://github.com/petkaantonov/bluebird/wiki/Optimization-killers
+
+https://github.com/vhf/v8-bailout-reasons
+
 ## PUBLIC API
 
 The following routes is exposed by the internal API (requires authentication):

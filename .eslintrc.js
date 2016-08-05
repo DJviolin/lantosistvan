@@ -46,5 +46,7 @@ module.exports = {
     "no-unused-vars": "warn",
     "prefer-const": "warn",
     "no-throw-literal": "error",
+    // Disallow Synchronous Methods
+    "no-sync": "error",
   }
 }

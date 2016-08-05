@@ -1,3 +1,4 @@
+root@LANTI-PC:~# cat node-v8-options.txt
 SSE3=1 SSE4_1=1 SAHF=1 AVX=1 FMA3=0 BMI1=0 BMI2=0 LZCNT=0 POPCNT=1 ATOM=0
 Usage:
   shell [options] -e string
@@ -19,25 +20,17 @@ Options:
         type: bool  default: false
   --use_strict (enforce strict mode)
         type: bool  default: false
-  --use_strong (enforce strong mode)
-        type: bool  default: false
-  --strong_mode (experimental strong language mode)
-        type: bool  default: false
-  --strong_this (don't allow 'this' to escape from constructors)
-        type: bool  default: true
   --es_staging (enable test-worthy harmony features (for internal use only))
         type: bool  default: false
   --harmony (enable all completed harmony features)
         type: bool  default: false
   --harmony_shipping (enable all shipped harmony features)
         type: bool  default: true
-  --legacy_const (legacy semantics for const in sloppy mode)
-        type: bool  default: false
   --promise_extra (additional V8 Promise functions)
         type: bool  default: true
-  --harmony_object_observe (enable "harmony Object.observe" (in progress))
+  --harmony_array_prototype_values (enable "harmony Array.prototype.values" (in progress))
         type: bool  default: false
-  --harmony_modules (enable "harmony modules" (in progress))
+  --harmony_object_observe (enable "harmony Object.observe" (in progress))
         type: bool  default: false
   --harmony_function_sent (enable "harmony function.sent" (in progress))
         type: bool  default: false
@@ -47,35 +40,29 @@ Options:
         type: bool  default: false
   --harmony_do_expressions (enable "harmony do-expressions" (in progress))
         type: bool  default: false
-  --harmony_iterator_close (enable "harmony iterator finalization" (in progress))
-        type: bool  default: false
-  --harmony_tailcalls (enable "harmony tail calls" (in progress))
-        type: bool  default: false
-  --harmony_object_values_entries (enable "harmony Object.values / Object.entries" (in progress))
-        type: bool  default: false
-  --harmony_object_own_property_descriptors (enable "harmony Object.getOwnPropertyDescriptors()" (in progress))
-        type: bool  default: false
   --harmony_regexp_property (enable "harmony unicode regexp property classes" (in progress))
         type: bool  default: false
-  --harmony_function_name (enable "harmony Function name inference")
+  --harmony_string_padding (enable "harmony String-padding methods" (in progress))
         type: bool  default: false
   --harmony_regexp_lookbehind (enable "harmony regexp lookbehind")
         type: bool  default: false
-  --harmony_species (enable "harmony Symbol.species")
+  --harmony_tailcalls (enable "harmony tail calls")
         type: bool  default: false
+  --harmony_object_values_entries (enable "harmony Object.values / Object.entries")
+        type: bool  default: false
+  --harmony_object_own_property_descriptors (enable "harmony Object.getOwnPropertyDescriptors()")
+        type: bool  default: false
+  --harmony_exponentiation_operator (enable "harmony exponentiation operator `**`")
+        type: bool  default: false
+  --harmony_function_name (enable "harmony Function name inference")
+        type: bool  default: true
   --harmony_instanceof (enable "harmony instanceof support")
-        type: bool  default: false
-  --harmony_default_parameters (enable "harmony default parameters")
         type: bool  default: true
-  --harmony_destructuring_assignment (enable "harmony destructuring assignment")
-        type: bool  default: true
-  --harmony_destructuring_bind (enable "harmony destructuring bind")
-        type: bool  default: true
-  --harmony_tostring (enable "harmony toString")
-        type: bool  default: true
-  --harmony_regexps (enable "harmony regular expression extensions")
+  --harmony_iterator_close (enable "harmony iterator finalization")
         type: bool  default: true
   --harmony_unicode_regexps (enable "harmony unicode regexps")
+        type: bool  default: true
+  --harmony_regexp_exec (enable "harmony RegExp exec override behavior")
         type: bool  default: true
   --harmony_sloppy (enable "harmony features in sloppy mode")
         type: bool  default: true
@@ -83,11 +70,11 @@ Options:
         type: bool  default: true
   --harmony_sloppy_function (enable "harmony sloppy function block scoping")
         type: bool  default: true
-  --harmony_proxies (enable "harmony proxies")
-        type: bool  default: true
-  --harmony_reflect (enable "harmony Reflect API")
-        type: bool  default: true
   --harmony_regexp_subclass (enable "harmony regexp subclassing")
+        type: bool  default: true
+  --harmony_restrictive_declarations (enable "harmony limitations on sloppy mode function declarations")
+        type: bool  default: true
+  --harmony_species (enable "harmony Symbol.species")
         type: bool  default: true
   --compiled_keyed_generic_loads (use optimizing compiler to generate keyed generic load stubs)
         type: bool  default: false
@@ -105,6 +92,8 @@ Options:
         type: bool  default: true
   --track_computed_fields (track computed boilerplate fields)
         type: bool  default: true
+  --harmony_instanceof_opt (optimize ES6 instanceof support)
+        type: bool  default: true
   --track_field_types (track field types)
         type: bool  default: true
   --smi_binop (support smi representation in binary operations)
@@ -117,6 +106,8 @@ Options:
         type: bool  default: true
   --ignition (use ignition interpreter)
         type: bool  default: false
+  --ignition_eager (eagerly compile and parse with ignition)
+        type: bool  default: true
   --ignition_filter (filter for ignition interpreter)
         type: string  default: *
   --print_bytecode (print bytecode generated by ignition interpreter)
@@ -227,8 +218,6 @@ Options:
         type: bool  default: true
   --trace_bce (trace array bounds check elimination)
         type: bool  default: false
-  --array_bounds_checks_hoisting (perform array bounds checks hoisting)
-        type: bool  default: false
   --array_index_dehoisting (perform array index dehoisting)
         type: bool  default: true
   --analyze_environment_liveness (analyze liveness of environment slots and zap dead values)
@@ -272,8 +261,6 @@ Options:
   --concurrent_recompilation_delay (artificial compilation delay in ms)
         type: int  default: 0
   --block_concurrent_recompilation (block queued jobs until released)
-        type: bool  default: false
-  --concurrent_osr (concurrent on-stack replacement)
         type: bool  default: false
   --omit_map_checks_for_leaf_maps (do not emit check maps for constant values that have a leaf map, deoptimize the optimized code if the layout of the maps changes.)
         type: bool  default: true
@@ -359,22 +346,30 @@ Options:
         type: bool  default: false
   --expose_wasm (expose WASM interface to JavaScript)
         type: bool  default: false
+  --trace_wasm_encoder (trace encoding of wasm code)
+        type: bool  default: false
   --trace_wasm_decoder (trace decoding of wasm code)
         type: bool  default: false
   --trace_wasm_decode_time (trace decoding time of wasm code)
         type: bool  default: false
   --trace_wasm_compiler (trace compiling of wasm code)
         type: bool  default: false
-  --trace_wasm_ast (dump AST after WASM decode)
-        type: bool  default: false
+  --trace_wasm_ast_start (start function for WASM AST trace (inclusive))
+        type: int  default: 0
+  --trace_wasm_ast_end (end function for WASM AST trace (exclusive))
+        type: int  default: 0
+  --skip_compiling_wasm_funcs (start compiling at function N)
+        type: int  default: 0
   --wasm_break_on_decoder_error (debug break when wasm decoder encounters an error)
         type: bool  default: false
+  --wasm_loop_assignment_analysis (perform loop assignment analysis for WASM)
+        type: bool  default: true
   --enable_simd_asmjs (enable SIMD.js in asm.js stdlib)
         type: bool  default: false
-  --dump_asmjs_wasm (dump Asm.js to WASM module bytes)
+  --dump_wasm_module (dump WASM module bytes)
         type: bool  default: false
-  --asmjs_wasm_dumpfile (file to dump asm wasm conversion result to)
-        type: string  default: asmjs.wasm
+  --dump_wasm_module_path (directory to dump wasm modules to)
+        type: string  default: NULL
   --typed_array_max_size_in_heap (threshold for in-heap typed array)
         type: int  default: 64
   --frame_count (number of stack frames inspected by the profiler)
@@ -483,6 +478,10 @@ Options:
         type: bool  default: false
   --serialize_toplevel (enable caching of toplevel scripts)
         type: bool  default: true
+  --serialize_eager (compile eagerly when caching scripts)
+        type: bool  default: false
+  --serialize_age_code (pre age code in the code cache)
+        type: bool  default: false
   --trace_serializer (print code serializer trace)
         type: bool  default: false
   --min_preparse_length (minimum length for automatic enable preparsing)
@@ -501,8 +500,6 @@ Options:
         type: bool  default: false
   --trace_array_abuse (trace out-of-bounds accesses to all arrays)
         type: bool  default: false
-  --debug_eval_readonly_locals (do not update locals after debug-evaluate)
-        type: bool  default: true
   --trace_debug_json (trace debugging JSON request/response)
         type: bool  default: false
   --enable_liveedit (enable liveedit experimental feature)
@@ -559,6 +556,8 @@ Options:
         type: bool  default: false
   --trace_fragmentation_verbose (report fragmentation for old space (detailed))
         type: bool  default: false
+  --trace_evacuation (report evacuation statistics)
+        type: bool  default: false
   --trace_mutator_utilization (print mutator utilization, allocation speed, gc speed)
         type: bool  default: false
   --weak_embedded_maps_in_optimized_code (make maps embedded in optimized code weak)
@@ -577,9 +576,13 @@ Options:
         type: int  default: 32
   --max_incremental_marking_finalization_rounds (at most try this many times to finalize incremental marking)
         type: int  default: 3
+  --black_allocation (use black allocation)
+        type: bool  default: true
   --concurrent_sweeping (use concurrent sweeping)
         type: bool  default: true
   --parallel_compaction (use parallel compaction)
+        type: bool  default: true
+  --parallel_pointer_update (use parallel pointer update during compaction)
         type: bool  default: true
   --trace_incremental_marking (trace progress of the incremental marking)
         type: bool  default: false
@@ -596,11 +599,13 @@ Options:
   --memory_reducer (use memory reducer)
         type: bool  default: true
   --scavenge_reclaim_unmodified_objects (remove unmodified and unreferenced objects)
-        type: bool  default: false
+        type: bool  default: true
   --heap_growing_percent (specifies heap growing factor as (1 + heap_growing_percent/100))
         type: int  default: 0
   --histogram_interval (time interval in ms for aggregating memory histograms)
         type: int  default: 600000
+  --trace_object_groups (print object groups detected during each garbage collection)
+        type: bool  default: false
   --heap_profiler_trace_objects (Dump heap object allocations/movements/size_updates)
         type: bool  default: false
   --sampling_heap_profiler_suppress_randomness (Use constant sample intervals to eliminate test flakiness)
@@ -637,6 +642,8 @@ Options:
         type: bool  default: true
   --use_verbose_printer (allows verbose printing)
         type: bool  default: true
+  --trace_for_in_enumerate (Trace for-in enumerate slow-paths)
+        type: bool  default: false
   --allow_natives_syntax (allow natives syntax)
         type: bool  default: false
   --trace_parse (trace parsing and preparsing)
@@ -656,7 +663,7 @@ Options:
   --log_regs_modified (When logging register values, only print modified registers.)
         type: bool  default: true
   --log_colour (When logging, try to use coloured output.)
-        type: bool  default: false
+        type: bool  default: true
   --ignore_asm_unimplemented_break (Don't break for ASM_UNIMPLEMENTED_BREAK macros.)
         type: bool  default: false
   --trace_sim_messages (Trace simulator debug messages. Implied by --trace-sim.)
@@ -689,8 +696,8 @@ Options:
         type: string  default: Hello, world!
   --testing_prng_seed (Seed used for threading test randomness)
         type: int  default: 42
-  --testing_serialization_file (file in which to testing_serialize heap)
-        type: string  default: C:\Windows\Temp\serdes
+  --testing_serialization_file (file in which to serialize heap)
+        type: string  default: /tmp/serdes
   --startup_src (Write V8 startup as C++ src. (mksnapshot only))
         type: string  default: NULL
   --startup_blob (Write V8 startup blob file. (mksnapshot only))
@@ -714,9 +721,9 @@ Options:
   --dump_counters (Dump counters on exit)
         type: bool  default: false
   --map_counters (Map counters to a file)
-        type: string  default: 
+        type: string  default:
   --js_arguments (Pass all remaining arguments to the script. Alias for "--".)
-        type: arguments  default: 
+        type: arguments  default:
   --log (Minimal logging (no API, code, GC, suspect, or handles samples).)
         type: bool  default: false
   --log_all (Log all events to the log file.)
@@ -728,8 +735,6 @@ Options:
   --log_gc (Log heap samples on garbage collection for the hp2ps tool.)
         type: bool  default: false
   --log_handles (Log global handle events.)
-        type: bool  default: false
-  --log_snapshot_positions (log positions of (de)serialized objects in the snapshot.)
         type: bool  default: false
   --log_suspect (Log suspect operations.)
         type: bool  default: false
@@ -750,6 +755,10 @@ Options:
   --perf_basic_prof (Enable perf linux profiler (basic support).)
         type: bool  default: false
   --perf_basic_prof_only_functions (Only report function code ranges to perf (i.e. no stubs).)
+        type: bool  default: false
+  --perf_prof (Enable perf linux profiler (experimental annotate support).)
+        type: bool  default: false
+  --perf_prof_debug_info (Enable debug info for perf linux profiler (experimental).)
         type: bool  default: false
   --gc_fake_mmap (Specify the name of the file for fake gc mmap used in ll_prof)
         type: string  default: /tmp/__v8_gc__
