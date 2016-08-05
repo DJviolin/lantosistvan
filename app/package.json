@@ -7,8 +7,8 @@
   "private": true,
   "main": "./bin/www",
   "scripts": {
-    "start": "node --trace-deprecation --trace-sync-io ./index",
-    "koa": "node --harmony --trace-deprecation --trace-sync-io ./koa/index",
+    "start": "node --ignition --trace-deprecation --trace-sync-io ./index",
+    "koa": "node --ignition --harmony --trace-deprecation --trace-sync-io ./koa/index",
     "gulp": "gulp \"default\""
   },
   "engines": {
