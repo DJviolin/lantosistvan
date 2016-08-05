@@ -125,6 +125,7 @@ if (document.body.classList.contains('contact')) {
     //var socket = io.connect(address);
 
     var socket = io();
+    // localStorage.debug = '*'; -> Pass this to client console
 
     socket.on('news', function (data) {
       var str = JSON.stringify(data, null, 4);
