@@ -118,6 +118,35 @@ https://github.com/v8/v8/wiki/Experiments%20with%20Strengthening%20JavaScript
 
 Webassembly:
 
+```
+https://www.npmjs.com/package/wasm
+https://github.com/nodejs/NG/issues/19
+https://brendaneich.com/2015/06/from-asm-js-to-webassembly/
+http://v8project.blogspot.hu/2016/03/experimental-support-for-webassembly.html
+https://hacks.mozilla.org/2016/03/a-webassembly-milestone/
+https://blogs.windows.com/msedgedev/2016/03/15/previewing-webassembly-experiments/
+https://github.com/WebAssembly/design/blob/master/TextFormat.md#official-text-format
+https://medium.com/javascript-scene/what-is-webassembly-the-dawn-of-a-new-era-61256ec5a8f6#.5bzwl1ec2
+https://medium.com/javascript-scene/why-we-need-webassembly-an-interview-with-brendan-eich-7fb2a60b0723#.gpm5vcbxy
+http://llvm.org/docs/doxygen/html/WebAssembly_8h.html
+http://moduscreate.com/webassembly-explained/
+
+http://bytearcher.com/articles/run-java-natively-in-browser-with-webassembly/
+
+https://hacks.mozilla.org/2015/12/compiling-to-webassembly-its-happening/
+
+http://www.planetnodejs.com/article/55944c97c18fa30e001b6c53/the-future-of-programming-webassembly-life-after-javascript
+
+https://webassembly.github.io/demo/
+
+# Compiling to JS and ASM.js:
+https://www.unrealengine.com/what-is-unreal-engine-4
+https://www.reddit.com/r/gamedev/comments/3tnvb2/unrealjs_released_unrealengine_javascript/
+https://github.com/ncsoft/Unreal.js
+
+https://unity3d.com/unity/multiplatform
+```
+
 https://github.com/webassembly
 
 http://webassembly.github.io/

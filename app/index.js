@@ -13,7 +13,16 @@
 // https://medium.com/@yamalight/danger-of-using-async-await-in-es7-8006e3eb7efb#.vsu0gxqdn
 // http://slides.com/stephenbelanger-1/easier-express-with-async-await#/3
 
-//require('babel-register');
+// Packages
+/*
+    "babel-core": ">= 6.11.4",
+    "babel-register": ">= 6.11.6",
+    "babel-preset-node6": ">= 11.0.0",
+    "babel-plugin-transform-async-to-generator": ">= 6.8.0",
+
+    "koa": ">= 2.0.0-beta.4"
+*/
+
 /*require('babel-register')({
   presets: ['node6'],
   plugins: ['transform-async-to-generator']

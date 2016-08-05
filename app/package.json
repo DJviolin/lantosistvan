@@ -7,8 +7,8 @@
   "private": true,
   "main": "./bin/www",
   "scripts": {
-    "start": "node --ignition --trace-deprecation --trace-sync-io ./index",
-    "koa": "node --ignition --harmony --trace-deprecation --trace-sync-io ./koa/index",
+    "start": "node --trace-deprecation --trace-sync-io --ignition ./index",
+    "koa": "node --trace-deprecation --trace-sync-io --ignition --harmony ./koa/index",
     "gulp": "gulp \"default\""
   },
   "engines": {
@@ -37,14 +37,7 @@
     "helmet": ">= 2.1.1",
     "hpp": ">= 0.2.1",
 
-    "nodemailer": ">= 2.5.0",
-
-    "babel-core": ">= 6.11.4",
-    "babel-register": ">= 6.11.6",
-    "babel-preset-node6": ">= 11.0.0",
-    "babel-plugin-transform-async-to-generator": ">= 6.8.0",
-
-    "koa": ">= 2.0.0-beta.4"
+    "nodemailer": ">= 2.5.0"
   },
   "devDependencies": {
     "gulp": "github:gulpjs/gulp#4.0",

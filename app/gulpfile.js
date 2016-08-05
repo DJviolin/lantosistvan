@@ -79,7 +79,7 @@ const paths = {
 const server = gls.new([
   // https://github.com/nodejs/CTC/issues/7#issuecomment-229588116
   // https://github.com/targos/node/tree/v8-5.2
-  '--ignition --trace-deprecation', '--trace-sync-io', 'index',
+  '--trace-deprecation', '--trace-sync-io', '--ignition', 'index',
   //{ env: { NODE_ENV: 'production' } }
 ]);
 
