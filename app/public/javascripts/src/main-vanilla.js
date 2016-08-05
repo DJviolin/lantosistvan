@@ -132,9 +132,15 @@ if (document.body.classList.contains('contact')) {
       socket.emit('my other event', { my: 'data from CLIENT SIDE!' });
     });
 
-    socket.on('message', function(data) {
-      document.write(data);
+    //socket.on('message', function(data) {
+    //  document.write(data);
+    //});
+
+    socket.on('testerEvent', function(data) {
+      document.write(data.description);
     });
+
+    socket.emit('clientEvent', 'Sent an event from the client!');
 
   }
 })();
