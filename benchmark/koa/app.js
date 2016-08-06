@@ -39,11 +39,6 @@ app.use(async (ctx, next) => {
   await loadPartials;
 });
 
-router
-  .get('/hello', (ctx, next) => {
-    ctx.body = 'Hello, World!';
-  });
-
 // templating
 app.use(views(__dirname + '/views', {
   extension: 'hbs',
@@ -58,6 +53,11 @@ router.get('/', async (ctx, next) => {
     Path: '/'
   });
 });
+
+router
+  .get('/hello', (ctx, next) => {
+    ctx.body = 'Hello, World!';
+  });
 
 // init
 app
