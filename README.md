@@ -30,6 +30,13 @@ Run docker-compose with:
 $ docker-compose --file $HOME/www/lantosistvan/docker/docker-compose.yml build
 ```
 
+Start pm2:
+
+```
+$ cd $HOME/www/lantosistvan/app
+$ pm2 start ./index.js --name="com.lantosistvan.app" --node-args="--ignition"
+```
+
 Start the Systemd service:
 
 ```

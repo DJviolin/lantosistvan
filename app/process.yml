@@ -1,0 +1,18 @@
+apps:
+  - script: index.js
+    name: com.lantosistvan.app
+    instances: 8
+    exec_mode: cluster
+    node_args: --ignition
+    watch: true
+    ignore_watch:
+      - __misc
+      - __psd
+      - node_modules
+    log_date_format: YYYY-MM-DD HH:mm Z
+    max_memory_restart: 20
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
+    merge_logs: true

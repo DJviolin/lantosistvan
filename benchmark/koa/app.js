@@ -1,12 +1,48 @@
 'use strict';
 
-const Koa     = require('koa'),
-      views   = require('koa-views'),
+const Koa        = require('koa'),
+      views      = require('koa-views'),
       handlebars = require('handlebars'),
-      //hbs     = require('koa-hbs'),
-      //hbsKoa  = require('koa-handlebars'),
-      router  = require('koa-router')();
-const app    = new Koa();
+      fs         = require('fs'),
+      glob       = require('glob'),
+      path       = require('path'),
+      //hbs       = require('koa-hbs'),
+      //hbsKoa    = require('koa-handlebars'),
+      router     = require('koa-router')();
+const app        = new Koa();
+
+// http://stackoverflow.com/questions/38731487/how-to-render-the-main-layout-and-partials-with-koa-views-handlebars/38806035#38806035
+
+function readAsPromise (path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, 'utf8', (err, data) => {
+      resolve({path: path, data: data});
+    })
+  })
+};
+
+function registerPartial (partial) {
+  const partialName = path.basename(partial.path, '.hbs');
+  handlebars.registerPartial(partialName, partial.data);
+};
+
+var loadPartials = new Promise((resolve, reject) => {
+  glob('./views/partials/*.hbs', (err, files) => {
+    Promise.all(files.map(readAsPromise)).then((partials) => {
+      partials.forEach(registerPartial);
+      resolve();
+    })
+  })
+});
+
+app.use(async (ctx, next) => {
+  await loadPartials;
+});
+
+router
+  .get('/hello', (ctx, next) => {
+    ctx.body = 'Hello, World!';
+  });
 
 // templating
 app.use(views(__dirname + '/views', {
@@ -15,76 +51,13 @@ app.use(views(__dirname + '/views', {
 }));
 
 //app.use(async (ctx) => {
-/*router.get('/', async (ctx, next) => {
-  await ctx.render('home', {
-    Name: 'Iris',
-    Type: 'Web',
-    Path: '/'
-  });
-});*/
-
-//app.use(async (ctx) => {
 router.get('/', async (ctx, next) => {
   await ctx.render('home', {
     Name: 'Iris',
     Type: 'Web',
-    Path: '/',
-    defaultLayout: __dirname + '/views/layouts/layout'
+    Path: '/'
   });
 });
-
-/*app.use(hbsKoa({
-  handlebars: handlebars,
-  extension: 'hbs',
-  defaultLayout: 'layout',
-  viewsDir: __dirname + '/views',
-  layoutsDir: __dirname + '/views/layouts',
-  partialsDir: __dirname + '/views/partials',
-  cache: false
-}));
-
-router.get('/', async (ctx, next) => {
-  await ctx.render('home', {
-    Name: 'Iris',
-    Type: 'Web',
-    Path: '/'
-  });
-});*/
-
-
-/*app.use(hbs.middleware({
-  extname: '.hbs',
-  viewPath: __dirname + '/views',
-  layoutsPath: __dirname + '/views/layouts',
-  defaultLayout: 'layout',
-  partialsPath: __dirname + '/views/partials',
-}));
-
-router.get('/', async (ctx, next) => {
-  await ctx.render('home', {
-    Name: 'Iris',
-    Type: 'Web',
-    Path: '/'
-  });
-});*/
-
-// routes
-/*router.get('/', async (ctx, next) => {
-  ctx.state = {
-    session: this.session,
-    title: 'koa2 title'
-  };
-  await ctx.render('home', {
-    Name: 'Iris',
-    Type: 'Web',
-    Path: '/'
-  });
-})*/
-
-router
-  .get('/hello', (ctx, next) => {
-    ctx.body = 'Hello, World!';
-  });
 
 // init
 app
