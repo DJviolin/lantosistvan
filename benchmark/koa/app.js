@@ -8,8 +8,20 @@ const Koa        = require('koa'),
       path       = require('path'),
       //hbs       = require('koa-hbs'),
       //hbsKoa    = require('koa-handlebars'),
-      router     = require('koa-router')();
+      koaRouter  = require('koa-router');
 const app        = new Koa();
+const router     = new koaRouter();
+
+router
+  .get('/hello', (ctx, next) => {
+    ctx.body = 'Hello, World!';
+  });
+
+// templating
+app.use(views(__dirname + '/views', {
+  extension: 'hbs',
+  map: { hbs: 'handlebars' }
+}));
 
 // http://stackoverflow.com/questions/38731487/how-to-render-the-main-layout-and-partials-with-koa-views-handlebars/38806035#38806035
 
@@ -39,12 +51,6 @@ app.use(async (ctx, next) => {
   await loadPartials;
 });
 
-// templating
-app.use(views(__dirname + '/views', {
-  extension: 'hbs',
-  map: { hbs: 'handlebars' }
-}));
-
 //app.use(async (ctx) => {
 router.get('/', async (ctx, next) => {
   await ctx.render('home', {
@@ -53,11 +59,6 @@ router.get('/', async (ctx, next) => {
     Path: '/'
   });
 });
-
-router
-  .get('/hello', (ctx, next) => {
-    ctx.body = 'Hello, World!';
-  });
 
 // init
 app

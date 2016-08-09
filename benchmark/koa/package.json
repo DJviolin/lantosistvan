@@ -7,7 +7,7 @@
   "private": true,
   "main": "./index",
   "scripts": {
-    "start": "node --harmony ./index"
+    "start": "node --harmony --ignition ./index"
   },
   "engines": {
     "node": ">= 6.0.0"
