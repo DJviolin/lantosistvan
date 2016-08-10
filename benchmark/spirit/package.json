@@ -1,0 +1,19 @@
+{
+  "name": "spirit-benchmark",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "email": "kerozin.joe@gmail.com",
+  "url": "http://lantosistvan.com/",
+  "private": true,
+  "main": "./index",
+  "scripts": {
+    "start": "node --ignition ./index"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "dependencies": {
+    "spirit": ">= 0.0.12",
+    "spirit-router": ">= 0.0.8"
+  }
+}
