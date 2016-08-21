@@ -61,7 +61,7 @@ const api      = require('./routes/api-external'),
 /////////////////////////////////////////////////////////////
 
 const app = express();
-//app.set('strict routing', false);
+// app.set('strict routing', false);
 
 /////////////////////////////////////////////////////////////
 // DEBUGGING & LOGGING

@@ -7,7 +7,8 @@
   "private": true,
   "main": "./index",
   "scripts": {
-    "start": "node --harmony --ignition ./index"
+    "start": "node --harmony --ignition ./index",
+    "async": "node -r async-to-gen/register ./app"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -20,6 +21,8 @@
     "koa-router": ">= 7.0.1",
     "glob": ">= 7.0.5",
     "koa-views": ">= 5.0.2",
-    "handlebars": ">= 4.0.5"
+    "handlebars": ">= 4.0.5",
+
+    "async-to-gen": ">= 1.0.5"
   }
 }
