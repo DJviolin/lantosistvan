@@ -1,11 +1,17 @@
 const i18n = require('i18n');
 
 // register hbs helpers in res.locals' context which provides this.locale
-exports.__ = function () {
+/* exports.__ = function () {
   return i18n.__.apply(this, arguments);
 };
 exports.__n = function () {
   return i18n.__n.apply(this, arguments);
+}; */
+exports.__ = function __(...args) {
+  return i18n.__.apply(this, args);
+};
+exports.__n = function __n(...args) {
+  return i18n.__n.apply(this, args);
 };
 
 // tube helpers
