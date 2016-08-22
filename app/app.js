@@ -187,8 +187,8 @@ i18n.configure({
   // on the request/response objects (method -> alias).
   // note that this will *not* overwrite existing properties with the same name
   api: {
-    '__': '__',  // now req.__ becomes req.__
-    '__n': '__n', // and req.__n can be called as req.__n
+    i18nApi: '__',  // now req.__ becomes req.__
+    i18nApiN: '__n', // and req.__n can be called as req.__n
   },
 });
 // init i18n module for this loop
@@ -251,7 +251,7 @@ const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
   // i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
-  res.locals.language = path.join('/', selectedLang);
+  res.locals.language = `/${selectedLang}`;
   next();
 };
 
@@ -263,7 +263,7 @@ const langClass = (req, res, next) => {
   // const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
   // Content in: // views/layout-top.hbs
-  res.locals.langClass = path.join(activeLang, '-', activeLang.toUpperCase());
+  res.locals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
   next();
 };
 
@@ -277,32 +277,32 @@ app.use('/:lang', langRouter, langClass);
 
 app.use('/:lang/blog', blog);
 app.use('/blog', (req, res) =>
-  res.status(302).redirect(path.join(req.getLocale(), '/blog'))
+  res.status(302).redirect(`/${req.getLocale()}/blog`)
 );
 
 app.use('/:lang/category', category);
 app.use('/category', (req, res) =>
-  res.status(302).redirect(path.join(req.getLocale(), '/category'))
+  res.status(302).redirect(`/${req.getLocale()}/category`)
 );
 
 app.use('/:lang/tag', tag);
 app.use('/tag', (req, res) =>
-  res.status(302).redirect(path.join(req.getLocale(), '/tag'))
+  res.status(302).redirect(`/${req.getLocale()}/tag`)
 );
 
 app.use('/:lang/contact', contact);
 app.use('/contact', (req, res) =>
-  res.status(302).redirect(path.join(req.getLocale(), '/contact'))
+  res.status(302).redirect(`/${req.getLocale()}/contact`)
 );
 
 /* app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
-  res.status(302).redirect(path.join(req.getLocale(), '/form'))
+  res.status(302).redirect(`/${req.getLocale()}/form`)
 ); */
 
 app.use('/:lang/tube', tube);
 app.use('/tube', (req, res) =>
-  res.status(302).redirect(path.join(req.getLocale(), '/tube'))
+  res.status(302).redirect(`/${req.getLocale()}/tube`)
 );
 
 // Place under every other routes, because it can block others!
@@ -310,7 +310,8 @@ app.use('/:lang', index);
 // app.use('/', index);
 app.use('/', (req, res) =>
   // res.status(302).redirect(path.join('/', req.getLocale()))
-  res.status(302).redirect(path.join(req.getLocale()))
+  // res.status(302).redirect(path.join(req.getLocale()))
+  res.status(302).redirect(`/${req.getLocale()}`)
 );
 
 // ///////////////////////////////////////////////////////////
@@ -364,9 +365,9 @@ app.use((err, req, res) => {
   res.render('error', {
     layout: 'main',
     titleShown: true,
-    title: err.message + ' - ' + err.status,
-    description: err.message + ' - ' + err.status,
-    keywords: err.message + ',' + err.status,
+    title: `${err.message} - ${err.status}`,
+    description: `${err.message} - ${err.status}`,
+    keywords: `${err.message},${err.status}`,
     // Specific stuff
     message: err.message,
     // error: {}, // production
