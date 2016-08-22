@@ -41,10 +41,10 @@ const app = express();
 // DEBUGGING & LOGGING
 // ///////////////////////////////////////////////////////////
 
-//const error = debug('app:error'),
-//      log = debug('app:log');
-//app.error = error;
-//app.log = log;
+// const error = debug('app:error');
+// const log = debug('app:log');
+// app.error = error;
+// app.log = log;
 
 // ///////////////////////////////////////////////////////////
 // SOCKET.IO MIDDLEWARE
@@ -60,22 +60,22 @@ const app = express();
 // https://github.com/onedesign/express-socketio-tutorial
 // ///////////////////////////////////////////////////////////
 
-//const io = socket_io();
-//app.io   = io;
+// const io = socket_io();
+// app.io   = io;
 
-//const contact = require('./routes/contact')(io);
+// const contact = require('./routes/contact')(io);
 
-/*// socket.io events
+/* // socket.io events
 io.on('connection', (socket) => {
   console.log('A user connected');
-});*/
+}); */
 
-/*io.on('connection', (socket) => {
+/* io.on('connection', (socket) => {
   socket.emit('news', { hello: 'world' });
   socket.on('my other event', (data) => {
     console.log(data);
   });
-});*/
+}); */
 
 // ///////////////////////////////////////////////////////////
 // DEVELOPMENT
@@ -85,10 +85,10 @@ if (process.env.NODE_ENV !== 'production') {
   const serveStatic = require('serve-static');
   app.use(serveStatic(__dirname + '/public'));
   console.log('serveStatic is ON!');
-  //log('serveStatic is ON!');
+  // log('serveStatic is ON!');
 }
 console.log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
-//log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
+// log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 
 // ///////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP - AKA: V(iew)
@@ -160,13 +160,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Lets you use HTTP verbs such as PUT or DELETE
 // in places where the client doesn't support it.
 app.use(methodOverride('_method'));
-//app.use(cookieParser()); // Cookies
+// app.use(cookieParser()); // Cookies
 app.use(helmet()); // Securing app with various HTTP headers
 app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
 // Morgan
 // https://www.npmjs.com/package/morgan
 app.use(logger('dev')); // Morgan
-//app.use(logger('combined'));
+// app.use(logger('combined'));
 app.use(compression()); // Gzip
 app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 
@@ -182,7 +182,7 @@ i18n.configure({
   // you may alter a site wide default locale
   defaultLocale: 'en',
   // sets a custom cookie name to parse locale settings from - defaults to NULL
-  //cookie: 'locale',
+  // cookie: 'locale',
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL
   queryParameter: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
@@ -195,26 +195,26 @@ i18n.configure({
   updateFiles: true,
   // enable object notation
   // Set dot to anyting else: https://github.com/mashpie/i18n-node#object-notation
-  //objectNotation: true,
+  // objectNotation: true,
   objectNotation: false,
   // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias).
   // note that this will *not* overwrite existing properties with the same name
   api: {
-    '__': '__',  //now req.__ becomes req.__
-    '__n': '__n' //and req.__n can be called as req.__n
+    '__': '__',  // now req.__ becomes req.__
+    '__n': '__n' // and req.__n can be called as req.__n
   }
 });
 // init i18n module for this loop
 app.use(i18n.init);
 
 // i18n helpers
-/*app.get('/cookie', (req, res) => { // http://127.0.0.1:3000/cookie
+/* app.get('/cookie', (req, res) => { // http://127.0.0.1:3000/cookie
   res.status(200).send(req.cookies.locale); // New method (Express 5)
 });
 app.get('/clearcookie', (req, res) => { // http://127.0.0.1:3000/clearcookie
   res.clearCookie('locale');
   res.redirect('/cookie');
-});*/
+}); */
 
 // ///////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
@@ -238,7 +238,7 @@ app.use('/api', api);
 // ///////////////////////////////////////////////////////////
 
 // Prints request time to console
-/*app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   const d = new Date();
   const n = d.getFullYear()
             + '-' +
@@ -255,25 +255,25 @@ app.use('/api', api);
             d.getMilliseconds();
   console.log('Request time: ' + n);
   next();
-});*/
+}); */
 
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-//const langRouter = function(req, res, next) {
+// const langRouter = function(req, res, next) {
 const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
-  //i18n.setLocale(req, req.params.lang);
+  // i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
   res.locals.language = '/' + selectedLang;
   next();
 };
 
 // Add i18n CSS class to <html> tag
-//const langClass = function(req, res, next) {
+// const langClass = function(req, res, next) {
 const langClass = (req, res, next) => {
-  //const defaultLang = 'hu';
-  //const activeLang = req.params.lang || defaultLang;
-  //const activeLang = i18n.getLocale(req);
+  // const defaultLang = 'hu';
+  // const activeLang = req.params.lang || defaultLang;
+  // const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
   res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
   next();
@@ -307,10 +307,10 @@ app.use('/contact', (req, res) =>
   res.status(302).redirect('/' + req.getLocale() + '/contact')
 );
 
-/*app.use('/:lang/form', form);
+/* app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
   res.status(302).redirect('/' + req.getLocale() + '/form')
-);*/
+); */
 
 app.use('/:lang/tube', tube);
 app.use('/tube', (req, res) =>
@@ -319,7 +319,7 @@ app.use('/tube', (req, res) =>
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
-//app.use('/', index);
+// app.use('/', index);
 app.use('/', (req, res) =>
   res.status(302).redirect('/' + req.getLocale())
 );
@@ -329,15 +329,15 @@ app.use('/', (req, res) =>
 // ///////////////////////////////////////////////////////////
 
 // i18n
-/*const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
-/*const websiteURL = (req, res, next) => {
+/* const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour */
+/* const websiteURL = (req, res, next) => {
   const a = req.protocol + '://' + req.hostname + ':' + '3000';
   console.log(a);
   return String(a);
   next();
-};*/
-//app.use(websiteURL);
-/*app.get('/hu', (req, res) => { // http://127.0.0.1:3000/hu
+}; */
+// app.use(websiteURL);
+/* app.get('/hu', (req, res) => { // http://127.0.0.1:3000/hu
   res.cookie('locale', 'hu', {
     secure: false, // If true, only sends the cookie over HTTPS
     //domain: 'example.com',
@@ -356,7 +356,7 @@ app.get('/en', (req, res) => { // http://127.0.0.1:3000/en
     expires: expiryDate
   });
   res.redirect('back');
-});*/
+}); */
 
 // ///////////////////////////////////////////////////////////
 // ERROR HANDLING MIDDLEWARE
@@ -380,8 +380,8 @@ app.use((err, req, res) => {
     keywords: err.message + ',' + err.status,
     // Specific stuff
     message: err.message,
-    //error: {}, // production
-    error: err // development, styled by views/error.hbs
+    // error: {}, // production
+    error: err, // development, styled by views/error.hbs
   });
 });
 
