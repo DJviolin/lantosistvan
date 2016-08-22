@@ -9,39 +9,37 @@ exports.__n = function () {
 };
 
 // tube helpers
-exports.subString = function (url) {
+exports.subString = (url) => {
   const myString = url.toString();
   return myString.substring(0, myString.lastIndexOf('/'));
 };
-exports.hyphenToSpace = function (url) {
+exports.hyphenToSpace = (url) => {
   const myString = url.toString();
   return myString.replace(/-/ig, ' ');
 };
-exports.firstLetterUppercase = function (url) {
+exports.firstLetterUppercase = (url) => {
   const myString = url.toString();
   return myString.charAt(0).toUpperCase() + myString.slice(1);
 };
-exports.removeNumbers = function (url) {
+exports.removeNumbers = (url) => {
   const myString = url.toString();
   return myString.replace(/\d/ig, '');
 };
-exports.removeLastSpace = function (url) {
+exports.removeLastSpace = (url) => {
   const myString = url.toString();
   return myString.replace(/\s(?=\S*$)$/igm, '');
 };
-exports.oneToThreeCharWords = function (url) {
+exports.oneToThreeCharWords = (url) => {
   const myString = url.toString();
   if (myString.match(/^\S{1,3}$/igm)) {
     return myString.toUpperCase();
-  } else {
-    return myString;
   }
+  return myString;
 };
-exports.unwanted = function (url) {
+exports.unwanted = (url) => {
   const myString = url.toString();
   if (myString.match(/^.*?\b(gay)\b.*$/igm)) {
     return null;
-  } else {
-    return myString;
   }
+  return myString;
 };
