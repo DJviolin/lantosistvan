@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// For airBnB, babel inserting strict mode
 'use strict';
 
 // ab -n 1000 -c 100 http://127.0.0.1:8081/
@@ -23,8 +24,8 @@
     "koa": ">= 2.0.0-beta.4"
 */
 
-/*require('babel-register')({
+/* require('babel-register')({
   presets: ['node6'],
   plugins: ['transform-async-to-generator']
-});*/
+}); */
 require('./bin/www');
