@@ -21,6 +21,12 @@ const helmet = require('helmet');
 const hpp = require('hpp');
 
 // ///////////////////////////////////////////////////////////
+// Libs
+// ///////////////////////////////////////////////////////////
+
+const helpers = require('./lib/helpers');
+
+// ///////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
 // ///////////////////////////////////////////////////////////
 
@@ -116,7 +122,8 @@ const hbs = exphbs.create({
   extname: '.hbs',
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
-  helpers: {
+  helpers: helpers,
+  /* helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
     __: function () {
       return i18n.__.apply(this, arguments);
@@ -160,7 +167,7 @@ const hbs = exphbs.create({
         return myString;
       }
     },
-  },
+  }, */
 // }));
 });
 // app.set('view engine', '.hbs');
