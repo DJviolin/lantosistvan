@@ -40,6 +40,19 @@ const app = express();
 // app.set('strict routing', false);
 
 // ///////////////////////////////////////////////////////////
+// path.join Windows Hack
+// http://stackoverflow.com/a/33590800/1442219
+// ///////////////////////////////////////////////////////////
+
+path.join2 = path.join;
+path.sep = '/';
+path.join = function () {
+  let res = path.join2.apply({}, arguments);
+  res = res.replace(/\\/g, path.sep);
+  return res;
+};
+
+// ///////////////////////////////////////////////////////////
 // DEBUGGING & LOGGING
 // ///////////////////////////////////////////////////////////
 
@@ -297,39 +310,40 @@ app.use('/:lang', langRouter, langClass);
 
 app.use('/:lang/blog', blog);
 app.use('/blog', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale(), '/blog'))
+  res.status(302).redirect(path.join(req.getLocale(), '/blog'))
 );
 
 app.use('/:lang/category', category);
 app.use('/category', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale(), '/category'))
+  res.status(302).redirect(path.join(req.getLocale(), '/category'))
 );
 
 app.use('/:lang/tag', tag);
 app.use('/tag', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale(), '/tag'))
+  res.status(302).redirect(path.join(req.getLocale(), '/tag'))
 );
 
 app.use('/:lang/contact', contact);
 app.use('/contact', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale(), '/contact'))
+  res.status(302).redirect(path.join(req.getLocale(), '/contact'))
 );
 
 /* app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale(), '/form'))
+  res.status(302).redirect(path.join(req.getLocale(), '/form'))
 ); */
 
 app.use('/:lang/tube', tube);
 app.use('/tube', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale(), '/tube'))
+  res.status(302).redirect(path.join(req.getLocale(), '/tube'))
 );
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
 // app.use('/', index);
 app.use('/', (req, res) =>
-  res.status(302).redirect(path.join('/', req.getLocale()))
+  // res.status(302).redirect(path.join('/', req.getLocale()))
+  res.status(302).redirect(path.join(req.getLocale()))
 );
 
 // ///////////////////////////////////////////////////////////
