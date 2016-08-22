@@ -131,42 +131,6 @@ const hbs = exphbs.create({
     __n: function () {
       return i18n.__n.apply(this, arguments);
     },
-    subString: function (url) {
-      const myString = url.toString();
-      return myString.substring(0, myString.lastIndexOf('/'));
-    },
-    hyphenToSpace: function (url) {
-      const myString = url.toString();
-      return myString.replace(/-/ig, ' ');
-    },
-    firstLetterUppercase: function (url) {
-      const myString = url.toString();
-      return myString.charAt(0).toUpperCase() + myString.slice(1);
-    },
-    removeNumbers: function (url) {
-      const myString = url.toString();
-      return myString.replace(/\d/ig, '');
-    },
-    removeLastSpace: function (url) {
-      const myString = url.toString();
-      return myString.replace(/\s(?=\S*$)$/igm, '');
-    },
-    oneToThreeCharWords: function (url) {
-      const myString = url.toString();
-      if (myString.match(/^\S{1,3}$/igm)) {
-        return myString.toUpperCase();
-      } else {
-        return myString;
-      }
-    },
-    unwanted: function (url) {
-      const myString = url.toString();
-      if (myString.match(/^.*?\b(gay)\b.*$/igm)) {
-        return null;
-      } else {
-        return myString;
-      }
-    },
   }, */
 // }));
 });
