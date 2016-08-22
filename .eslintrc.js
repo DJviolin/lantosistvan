@@ -32,7 +32,7 @@ module.exports = {
     }
   },
   "rules": {
-    "no-console": "allow",
+    "no-console": "off",
   },
   /*"rules": {
     // disable rules from base configurations
