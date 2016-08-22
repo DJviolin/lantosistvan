@@ -111,7 +111,8 @@ console.log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 // VIEW ENGINE SETUP - AKA: V(iew)
 // ///////////////////////////////////////////////////////////
 
-app.engine('.hbs', exphbs({
+// app.engine('.hbs', exphbs({
+const hbs = exphbs.create({
   extname: '.hbs',
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
@@ -160,9 +161,13 @@ app.engine('.hbs', exphbs({
       }
     },
   },
-}));
+// }));
+});
+// app.set('view engine', '.hbs');
+// app.set('view cache', true);
+app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
-app.set('view cache', true);
+// app.set('view cache', true);
 
 // ///////////////////////////////////////////////////////////
 // MODELS - AKA: M(odel)
