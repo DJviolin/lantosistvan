@@ -117,26 +117,13 @@ console.log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 // VIEW ENGINE SETUP - AKA: V(iew)
 // ///////////////////////////////////////////////////////////
 
-// app.engine('.hbs', exphbs({
 const hbs = exphbs.create({
   extname: '.hbs',
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
   // helpers: helpers,
   helpers: () => {}, // Shorthand syntax: http://eslint.org/docs/rules/object-shorthand
-  /* helpers: {
-    // register hbs helpers in res.locals' context which provides this.locale
-    __: function () {
-      return i18n.__.apply(this, arguments);
-    },
-    __n: function () {
-      return i18n.__n.apply(this, arguments);
-    },
-  }, */
-// }));
 });
-// app.set('view engine', '.hbs');
-// app.set('view cache', true);
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 // app.set('view cache', true);

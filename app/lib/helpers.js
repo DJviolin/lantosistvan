@@ -7,12 +7,8 @@ const i18n = require('i18n');
 exports.__n = function () {
   return i18n.__n.apply(this, arguments);
 }; */
-exports.__ = function __(...args) {
-  return i18n.__.apply(this, args);
-};
-exports.__n = function __n(...args) {
-  return i18n.__n.apply(this, args);
-};
+exports.__ = (...args) => i18n.__.apply(this, args);
+exports.__n = (...args) => i18n.__n.apply(this, args);
 
 // tube helpers
 exports.subString = (url) => {
