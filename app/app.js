@@ -53,8 +53,8 @@ const app = express();
 if (process.platform === ('win32' || 'win64')) {
   path.join2 = path.join;
   path.sep = '/';
-  path.join = function () {
-    let res = path.join2.apply({}, arguments);
+  path.join = (...args) => {
+    let res = path.join2.apply({}, args);
     res = res.replace(/\\/g, path.sep);
     return res;
   };
