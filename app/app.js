@@ -3,11 +3,13 @@
 // ///////////////////////////////////////////////////////////
 
 const express = require('express');
+const path = require('path');
 // const socket_io = require('socket.io');
 const bodyParser = require('body-parser');
 // const cookieParser = require('cookie-parser'),
 const methodOverride = require('method-override');
 const compression = require('compression');
+const serveStatic = require('serve-static');
 const exphbs = require('express-handlebars');
 const logger = require('morgan');
 // const debug = require('debug');
@@ -82,8 +84,7 @@ io.on('connection', (socket) => {
 // ///////////////////////////////////////////////////////////
 
 if (process.env.NODE_ENV !== 'production') {
-  const serveStatic = require('serve-static');
-  app.use(serveStatic(__dirname + '/public'));
+  app.use(serveStatic(path.join(__dirname, '/public')));
   console.log('serveStatic is ON!');
   // log('serveStatic is ON!');
 }
@@ -100,29 +101,33 @@ app.engine('.hbs', exphbs({
   // Specify helpers which are only registered on this instance
   helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
-    __: function() { return i18n.__.apply(this, arguments); },
-    __n: function() { return i18n.__n.apply(this, arguments); },
-    subString: function(url) {
+    __: function () {
+      return i18n.__.apply(this, arguments);
+    },
+    __n: function () {
+      return i18n.__n.apply(this, arguments);
+    },
+    subString: function (url) {
       const myString = url.toString();
       return myString.substring(0, myString.lastIndexOf('/'));
     },
-    hyphenToSpace: function(url) {
+    hyphenToSpace: function (url) {
       const myString = url.toString();
       return myString.replace(/-/ig, ' ');
     },
-    firstLetterUppercase: function(url) {
+    firstLetterUppercase: function (url) {
       const myString = url.toString();
       return myString.charAt(0).toUpperCase() + myString.slice(1);
     },
-    removeNumbers: function(url) {
+    removeNumbers: function (url) {
       const myString = url.toString();
       return myString.replace(/\d/ig, '');
     },
-    removeLastSpace: function(url) {
+    removeLastSpace: function (url) {
       const myString = url.toString();
       return myString.replace(/\s(?=\S*$)$/igm, '');
     },
-    oneToThreeCharWords: function(url) {
+    oneToThreeCharWords: function (url) {
       const myString = url.toString();
       if (myString.match(/^\S{1,3}$/igm)) {
         return myString.toUpperCase();
@@ -130,15 +135,15 @@ app.engine('.hbs', exphbs({
         return myString;
       }
     },
-    unwanted: function(url) {
+    unwanted: function (url) {
       const myString = url.toString();
       if (myString.match(/^.*?\b(gay)\b.*$/igm)) {
         return null;
       } else {
         return myString;
       }
-    }
-  }
+    },
+  },
 }));
 app.set('view engine', '.hbs');
 app.set('view cache', true);
@@ -178,7 +183,7 @@ i18n.configure({
   // setup some locales - other locales default to hu silently
   locales: ['hu', 'en'],
   // fall back from English to Hungarian
-  fallbacks: {'en': 'hu'},
+  fallbacks: { en: 'hu' },
   // you may alter a site wide default locale
   defaultLocale: 'en',
   // sets a custom cookie name to parse locale settings from - defaults to NULL
@@ -186,8 +191,9 @@ i18n.configure({
   // query parameter to switch locale (ie. /home?lang=en) - defaults to NULL
   queryParameter: 'lang',
   // where to store json files - defaults to './locales' relative to modules directory
-  directory: __dirname + '/locales',
-  // controll mode on directory creation - defaults to NULL which defaults to umask of process user. Setting has no effect on win.
+  directory: path.join(__dirname, '/locales'),
+  // controll mode on directory creation - defaults to NULL which defaults to umask of process user.
+  // Setting has no effect on win.
   directoryPermissions: '755',
   // watch for changes in json files to reload locale on updates - defaults to false
   autoReload: true,
@@ -197,12 +203,13 @@ i18n.configure({
   // Set dot to anyting else: https://github.com/mashpie/i18n-node#object-notation
   // objectNotation: true,
   objectNotation: false,
-  // hash to specify different aliases for i18n's internal methods to apply on the request/response objects (method -> alias).
+  // hash to specify different aliases for i18n's internal methods to apply
+  // on the request/response objects (method -> alias).
   // note that this will *not* overwrite existing properties with the same name
   api: {
     '__': '__',  // now req.__ becomes req.__
-    '__n': '__n' // and req.__n can be called as req.__n
-  }
+    '__n': '__n', // and req.__n can be called as req.__n
+  },
 });
 // init i18n module for this loop
 app.use(i18n.init);
@@ -264,7 +271,7 @@ const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
   // i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
-  res.locals.language = '/' + selectedLang;
+  res.locals.language = path.join('/', selectedLang);
   next();
 };
 
@@ -275,7 +282,8 @@ const langClass = (req, res, next) => {
   // const activeLang = req.params.lang || defaultLang;
   // const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
-  res.locals.langClass = activeLang + '-' + activeLang.toUpperCase(); // views/layout-top.hbs
+  // Content in: // views/layout-top.hbs
+  res.locals.langClass = path.join(activeLang, '-', activeLang.toUpperCase());
   next();
 };
 
@@ -289,39 +297,39 @@ app.use('/:lang', langRouter, langClass);
 
 app.use('/:lang/blog', blog);
 app.use('/blog', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale() + '/blog')
+  res.status(302).redirect(path.join('/', req.getLocale(), '/blog'))
 );
 
 app.use('/:lang/category', category);
 app.use('/category', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale() + '/category')
+  res.status(302).redirect(path.join('/', req.getLocale(), '/category'))
 );
 
 app.use('/:lang/tag', tag);
 app.use('/tag', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale() + '/tag')
+  res.status(302).redirect(path.join('/', req.getLocale(), '/tag'))
 );
 
 app.use('/:lang/contact', contact);
 app.use('/contact', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale() + '/contact')
+  res.status(302).redirect(path.join('/', req.getLocale(), '/contact'))
 );
 
 /* app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale() + '/form')
+  res.status(302).redirect(path.join('/', req.getLocale(), '/form'))
 ); */
 
 app.use('/:lang/tube', tube);
 app.use('/tube', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale() + '/tube')
+  res.status(302).redirect(path.join('/', req.getLocale(), '/tube'))
 );
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
 // app.use('/', index);
 app.use('/', (req, res) =>
-  res.status(302).redirect('/' + req.getLocale())
+  res.status(302).redirect(path.join('/', req.getLocale()))
 );
 
 // ///////////////////////////////////////////////////////////
