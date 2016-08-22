@@ -7,8 +7,8 @@ module.exports = {
   // http://caniuse.com/#feat=es5
 
   "root": true,
-  "extends": "eslint:recommended",
-  //"extends": "airbnb",
+  //"extends": "eslint:recommended",
+  "extends": "airbnb",
   "globals": {
     "jQuery": true,
     "$": true
@@ -96,25 +96,4 @@ module.exports = {
     "no-throw-literal": "error",
     "no-sync": "error", // Disallow Synchronous Methods
   }*/
-  // airBnB style guide: https://github.com/airbnb/javascript
-  "rules": {
-    // References
-    // const and let only exist in the blocks they are defined in.
-    "prefer-const": "error", // Suggest using const
-    "no-const-assign": "error", // Disallow modifying variables that are declared using const
-    "no-var": "error", // require let or const instead of var
-    // Objects
-    "no-new-object": " error", // disallow Object constructors
-    "object-shorthand". ["error", "properties"], // Require Object Literal Shorthand Syntax
-    "quote-props": "error", // Quoting Style for Property Names
-    // Arrays
-    "no-array-constructor". "error", // disallow Array constructors
-    "array-callback-return": "error", // Enforces return statements in callbacks of array’s methods
-    // Destructuring
-    // Strings
-    "quotes": ["warn", "single"], // Enforce Quote Style
-    "prefer-template": "error", // Suggest using template literals instead of string concatenation
-    "template-curly-spacing": ["error", "never"], // Enforce Usage of Spacing in Template Strings
-    "no-useless-escape": "error", // Disallow unnecessary escape usage
-  }
 }
