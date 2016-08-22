@@ -51,7 +51,7 @@ module.exports = {
     "no-sync": "error",
   }*/
   // airBnB
-  "rules": {
+  /*"rules": {
     // Force all variable names to use either camelCase style or UPPER_CASE
     // with underscores.
     "camelcase": "warn",
@@ -82,7 +82,7 @@ module.exports = {
     "no-unused-vars": "warn",
     // Enforce line length to 80 characters
     //"maxlen": 80,
-    "max-len": ["error", 80],
+    "max-len": ["warn", 80],
     // Enforce placing 'use strict' at the top function scope
     //"strict": true,
     "strict": ["error", "global"],
@@ -91,8 +91,30 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],
     "curly": ["error", "all"],
-    "prefer-const": "warn",
+    "prefer-const": "error",
+    "no-const-assign": "error",
     "no-throw-literal": "error",
     "no-sync": "error", // Disallow Synchronous Methods
+  }*/
+  // airBnB style guide: https://github.com/airbnb/javascript
+  "rules": {
+    // References
+    // const and let only exist in the blocks they are defined in.
+    "prefer-const": "error", // Suggest using const
+    "no-const-assign": "error", // Disallow modifying variables that are declared using const
+    "no-var": "error", // require let or const instead of var
+    // Objects
+    "no-new-object": " error", // disallow Object constructors
+    "object-shorthand". ["error", "properties"], // Require Object Literal Shorthand Syntax
+    "quote-props": "error", // Quoting Style for Property Names
+    // Arrays
+    "no-array-constructor". "error", // disallow Array constructors
+    "array-callback-return": "error", // Enforces return statements in callbacks of array’s methods
+    // Destructuring
+    // Strings
+    "quotes": ["warn", "single"], // Enforce Quote Style
+    "prefer-template": "error", // Suggest using template literals instead of string concatenation
+    "template-curly-spacing": ["error", "never"], // Enforce Usage of Spacing in Template Strings
+    "no-useless-escape": "error", // Disallow unnecessary escape usage
   }
 }
