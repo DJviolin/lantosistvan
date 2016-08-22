@@ -44,13 +44,16 @@ const app = express();
 // http://stackoverflow.com/a/33590800/1442219
 // ///////////////////////////////////////////////////////////
 
-path.join2 = path.join;
-path.sep = '/';
-path.join = function () {
-  let res = path.join2.apply({}, arguments);
-  res = res.replace(/\\/g, path.sep);
-  return res;
-};
+if (process.platform === ('win32' || 'win64')) {
+  path.join2 = path.join;
+  path.sep = '/';
+  path.join = function () {
+    let res = path.join2.apply({}, arguments);
+    res = res.replace(/\\/g, path.sep);
+    return res;
+  };
+  console.log(`This platform is ${process.platform}`);
+}
 
 // ///////////////////////////////////////////////////////////
 // DEBUGGING & LOGGING
