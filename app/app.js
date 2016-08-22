@@ -122,7 +122,8 @@ const hbs = exphbs.create({
   extname: '.hbs',
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
-  helpers: helpers,
+  // helpers: helpers,
+  helpers: () => {}, // Shorthand syntax: http://eslint.org/docs/rules/object-shorthand
   /* helpers: {
     // register hbs helpers in res.locals' context which provides this.locale
     __: function () {
