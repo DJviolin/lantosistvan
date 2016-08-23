@@ -5,8 +5,8 @@
 // ///////////////////////////////////////////////////////////
 
 const app = require('../app');
-const debug = require('debug');
 const http = require('http');
+const debug = require('debug');
 const SOCKET_IO = require('socket.io');
 
 // ///////////////////////////////////////////////////////////
@@ -18,11 +18,10 @@ http.globalAgent.maxSockets = Infinity;
 // ///////////////////////////////////////////////////////////
 // Create HTTP server
 // https://github.com/nodejs/node-v0.x-archive/blob/523929c9272a53c9429616564a45f2af59670e47/lib/http.js#L1903-L1905
-// const server = http.createServer(app);
-// const server = require('http').Server(app);
 // ///////////////////////////////////////////////////////////
 
-const server = http.Server(app);
+const server = http.createServer(app);
+// const server = http.Server(app);
 
 // ///////////////////////////////////////////////////////////
 // Debugging
