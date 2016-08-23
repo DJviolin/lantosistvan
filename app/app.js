@@ -66,7 +66,6 @@ if (process.platform === ('win32' || 'win64')) {
     res = res.replace(/\\/g, path.sep);
     return res;
   };
-  // console.log(`This platform is ${process.platform}`);
   log(`This platform is ${process.platform}`);
 }
 
@@ -260,7 +259,6 @@ const langRouter = (req, res, next) => {
   const resLocals = res.locals;
   // i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, resLocals], selectedLang);
-  // res.locals.language = `/${selectedLang}`;
   resLocals.language = `/${selectedLang}`;
   next();
 };
@@ -272,9 +270,8 @@ const langClass = (req, res, next) => {
   // const activeLang = req.params.lang || defaultLang;
   // const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
-  // Content in: // views/layout-top.hbs
-  // res.locals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
   const resLocals = res.locals;
+  // Content in: // views/layout-top.hbs
   resLocals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
   next();
 };
