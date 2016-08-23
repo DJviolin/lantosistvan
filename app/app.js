@@ -257,10 +257,10 @@ app.use('/api', api);
 // const langRouter = function(req, res, next) {
 const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
-  // i18n.setLocale(req, req.params.lang);
-  i18n.setLocale([req, res.locals], selectedLang);
-  // res.locals.language = `/${selectedLang}`;
   const resLocals = res.locals;
+  // i18n.setLocale(req, req.params.lang);
+  i18n.setLocale([req, resLocals], selectedLang);
+  // res.locals.language = `/${selectedLang}`;
   resLocals.language = `/${selectedLang}`;
   next();
 };
