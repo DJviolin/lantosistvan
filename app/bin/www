@@ -9,9 +9,6 @@ const debug = require('debug');
 const http = require('http');
 const SOCKET_IO = require('socket.io');
 
-const error = debug('app:error');
-const log = debug('app:log');
-
 // ///////////////////////////////////////////////////////////
 // Optimizations
 // ///////////////////////////////////////////////////////////
@@ -25,17 +22,8 @@ http.globalAgent.maxSockets = Infinity;
 // https://nodejs.org/api/util.html#util_util_format_format
 // ///////////////////////////////////////////////////////////
 
-// Normalize a port into a number, string, or false
-function normalizePort(val) {
-  const port = parseInt(val, 10);
-  if (isNaN(port)) {
-    return val; // named pipe
-  }
-  if (port >= 0) {
-    return port; // port number
-  }
-  return false;
-}
+const error = debug('app:error');
+const log = debug('app:log');
 
 // Event listener for HTTP server "error" event
 function onError(err) {
@@ -74,6 +62,18 @@ function onListening() {
 // ///////////////////////////////////////////////////////////
 // INIT
 // ///////////////////////////////////////////////////////////
+
+// Normalize a port into a number, string, or false
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+  if (isNaN(port)) {
+    return val; // named pipe
+  }
+  if (port >= 0) {
+    return port; // port number
+  }
+  return false;
+}
 
 // Get port from environment and store in Express
 const port = normalizePort(process.env.PORT || '8081');
