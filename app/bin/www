@@ -16,6 +16,15 @@ const SOCKET_IO = require('socket.io');
 http.globalAgent.maxSockets = Infinity;
 
 // ///////////////////////////////////////////////////////////
+// Create HTTP server
+// https://github.com/nodejs/node-v0.x-archive/blob/523929c9272a53c9429616564a45f2af59670e47/lib/http.js#L1903-L1905
+// const server = http.createServer(app);
+// const server = require('http').Server(app);
+// ///////////////////////////////////////////////////////////
+
+const server = http.Server(app);
+
+// ///////////////////////////////////////////////////////////
 // Debugging
 // https://expressjs.com/en/advanced/best-practice-performance.html
 // https://expressjs.com/en/guide/debugging.html
@@ -83,12 +92,6 @@ app.set('port', port);
 // http://stackoverflow.com/a/23426060/1442219
 app.set('trust proxy', true);
 app.set('x-powered-by', false);
-
-// Create HTTP server
-// https://github.com/nodejs/node-v0.x-archive/blob/523929c9272a53c9429616564a45f2af59670e47/lib/http.js#L1903-L1905
-// const server = http.createServer(app);
-// const server = require('http').Server(app);
-const server = http.Server(app);
 
 // Socket.io
 // SocketIO does not work with routes it works with sockets
