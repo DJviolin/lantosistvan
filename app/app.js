@@ -122,7 +122,8 @@ const hbs = exphbs.create({
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
   // helpers: helpers,
-  helpers: () => {}, // Shorthand syntax: http://eslint.org/docs/rules/object-shorthand
+  // Shorthand syntax: http://eslint.org/docs/rules/object-shorthand
+  helpers: () => {},
 });
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
@@ -251,7 +252,9 @@ const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
   // i18n.setLocale(req, req.params.lang);
   i18n.setLocale([req, res.locals], selectedLang);
-  res.locals.language = `/${selectedLang}`;
+  // res.locals.language = `/${selectedLang}`;
+  const resLocals = res.locals;
+  resLocals.language = `/${selectedLang}`;
   next();
 };
 
@@ -263,7 +266,9 @@ const langClass = (req, res, next) => {
   // const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
   // Content in: // views/layout-top.hbs
-  res.locals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
+  // res.locals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
+  const resLocals = res.locals;
+  resLocals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
   next();
 };
 
