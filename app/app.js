@@ -52,7 +52,7 @@ const app = express();
 // http://eslint.org/docs/rules/no-console
 // ///////////////////////////////////////////////////////////
 
-// const error = debug('app:error');
+const error = debug('app:error');
 const log = debug('app:log');
 
 // ///////////////////////////////////////////////////////////
@@ -118,11 +118,9 @@ io.on('connection', (socket) => {
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(serveStatic(path.join(__dirname, '/public')));
-  console.log('serveStatic is ON!');
-  // log('serveStatic is ON!');
+  log('serveStatic is ON!');
 }
-console.log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
-// log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
+log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 
 // ///////////////////////////////////////////////////////////
 // VIEW ENGINE SETUP - AKA: V(iew)
@@ -377,7 +375,7 @@ app.use((req, res, next) => {
 // Error handler - catch all errors
 app.use((err, req, res) => {
   res.status(err.status || 500);
-  console.error(err.stack);
+  error(err.stack);
   res.render('error', {
     layout: 'main',
     titleShown: true,
