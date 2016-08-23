@@ -31,9 +31,9 @@ module.exports = {
       "jsx": true
     }
   },
-  "rules": {
+  /*"rules": {
     "no-console": "off",
-  },
+  },*/
   /*"rules": {
     // disable rules from base configurations
     "no-console": "off",
