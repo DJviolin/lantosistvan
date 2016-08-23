@@ -13,7 +13,7 @@ const compression = require('compression');
 const serveStatic = require('serve-static');
 const exphbs = require('express-handlebars');
 const logger = require('morgan');
-// const debug = require('debug');
+const debug = require('debug');
 // const winston = require('winston');
 const i18n = require('i18n');
 const slashes = require('connect-slashes');
@@ -51,8 +51,6 @@ const app = express();
 // https://nodejs.org/api/console.html
 // http://eslint.org/docs/rules/no-console
 // ///////////////////////////////////////////////////////////
-
-const debug = require('debug');
 
 // const error = debug('app:error');
 const log = debug('app:log');
