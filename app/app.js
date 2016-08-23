@@ -4,6 +4,7 @@
 
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 // const socket_io = require('socket.io');
 const bodyParser = require('body-parser');
 // const cookieParser = require('cookie-parser'),
@@ -46,6 +47,17 @@ const app = express();
 // app.set('strict routing', false);
 
 // ///////////////////////////////////////////////////////////
+// CUSTOM CONSOLE
+// https://nodejs.org/api/console.html
+// http://eslint.org/docs/rules/no-console
+// ///////////////////////////////////////////////////////////
+
+const debug = require('debug');
+
+// const error = debug('app:error');
+const log = debug('app:log');
+
+// ///////////////////////////////////////////////////////////
 // path.join Windows Hack
 // http://stackoverflow.com/a/33590800/1442219
 // ///////////////////////////////////////////////////////////
@@ -58,7 +70,8 @@ if (process.platform === ('win32' || 'win64')) {
     res = res.replace(/\\/g, path.sep);
     return res;
   };
-  console.log(`This platform is ${process.platform}`);
+  // console.log(`This platform is ${process.platform}`);
+  log(`This platform is ${process.platform}`);
 }
 
 // ///////////////////////////////////////////////////////////

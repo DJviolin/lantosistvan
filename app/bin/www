@@ -1,104 +1,29 @@
 #!/usr/bin/env node
 
-'use strict';
-
-/////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 // MODULE DEPENDENCIES
-/////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 
-/*import app from '../app';
-import debug from 'debug';
-import http from 'http';
-import socket_io from 'socket.io';*/
+const app = require('../app');
+const debug = require('debug');
+const http = require('http');
+const SOCKET_IO = require('socket.io');
 
-const app       = require('../app'),
-      debug     = require('debug'),
-      http      = require('http'),
-      socket_io = require('socket.io');
+const error = debug('app:error');
+const log = debug('app:log');
 
-const error = debug('app:error'),
-      log = debug('app:log');
-//const error = app.error,
-//      log = app.log;
-
-/////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 // Optimizations
-/////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 
 http.globalAgent.maxSockets = Infinity;
 
-/////////////////////////////////////////////////////////////
-// INIT
-/////////////////////////////////////////////////////////////
-
-// Get port from environment and store in Express
-const port = normalizePort(process.env.PORT || '8081');
-app.set('port', port);
-// http://expressjs.com/en/4x/api.html#app.set
-// http://expressjs.com/en/guide/behind-proxies.html
-// http://stackoverflow.com/a/23426060/1442219
-app.set('trust proxy', true);
-app.set('x-powered-by', false);
-
-// Create HTTP server
-// https://github.com/nodejs/node-v0.x-archive/blob/523929c9272a53c9429616564a45f2af59670e47/lib/http.js#L1903-L1905
-//const server = http.createServer(app);
-//const server = require('http').Server(app);
-const server = http.Server(app);
-
-// Socket.io
-// SocketIO does not work with routes it works with sockets
-// http://stackoverflow.com/a/33596348/1442219
-// http://socket.io/get-started/chat/
-/*const io = app.io
-io.listen(server);*/
-const io = socket_io.listen(server);
-require('../sockets')(io);
-
-// Listen on provided port, on all network interfaces
-//server.listen(port);
-server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
-server.on('error', onError);
-server.on('listening', onListening);
-
-/////////////////////////////////////////////////////////////
-// CLUSTER
-// https://nodejs.org/api/cluster.html
-/////////////////////////////////////////////////////////////
-
-/*const cluster = require('cluster');
-const os = require('os');
-const numCPUs = os.cpus().length;
-
-if (cluster.isMaster) {
-  // Fork workers.
-  for (var i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
-
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-  });
-} else {
-  // Workers can share any TCP connection
-  // In this case it is an HTTP server
-  //http.createServer((req, res) => {
-  //  res.writeHead(200);
-  //  res.end('hello world\n');
-  //}).listen(8000);
-
-  server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
-  server.on('error', onError);
-  server.on('listening', onListening);
-  log('App is listening on %s threads', numCPUs);
-}*/
-
-/////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 // Debugging
 // https://expressjs.com/en/advanced/best-practice-performance.html
 // https://expressjs.com/en/guide/debugging.html
 // https://nodejs.org/api/util.html#util_util_format_format
-/////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 
 // Normalize a port into a number, string, or false
 function normalizePort(val) {
@@ -137,7 +62,7 @@ function onError(err) {
   }
 }
 
-//Event listener for HTTP server "listening" event
+// Event listener for HTTP server "listening" event
 function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string'
@@ -145,3 +70,69 @@ function onListening() {
     : 'port ' + addr.port;
   log('Listening on %s', bind);
 }
+
+// ///////////////////////////////////////////////////////////
+// INIT
+// ///////////////////////////////////////////////////////////
+
+// Get port from environment and store in Express
+const port = normalizePort(process.env.PORT || '8081');
+app.set('port', port);
+// http://expressjs.com/en/4x/api.html#app.set
+// http://expressjs.com/en/guide/behind-proxies.html
+// http://stackoverflow.com/a/23426060/1442219
+app.set('trust proxy', true);
+app.set('x-powered-by', false);
+
+// Create HTTP server
+// https://github.com/nodejs/node-v0.x-archive/blob/523929c9272a53c9429616564a45f2af59670e47/lib/http.js#L1903-L1905
+// const server = http.createServer(app);
+// const server = require('http').Server(app);
+const server = http.Server(app);
+
+// Socket.io
+// SocketIO does not work with routes it works with sockets
+// http://stackoverflow.com/a/33596348/1442219
+// http://socket.io/get-started/chat/
+/* const io = app.io
+io.listen(server); */
+const io = SOCKET_IO.listen(server);
+require('../sockets')(io);
+
+// Listen on provided port, on all network interfaces
+// server.listen(port);
+server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
+server.on('error', onError);
+server.on('listening', onListening);
+
+// ///////////////////////////////////////////////////////////
+// CLUSTER
+// https://nodejs.org/api/cluster.html
+// ///////////////////////////////////////////////////////////
+
+/* const cluster = require('cluster');
+const os = require('os');
+const numCPUs = os.cpus().length;
+
+if (cluster.isMaster) {
+  // Fork workers.
+  for (var i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+} else {
+  // Workers can share any TCP connection
+  // In this case it is an HTTP server
+  //http.createServer((req, res) => {
+  //  res.writeHead(200);
+  //  res.end('hello world\n');
+  //}).listen(8000);
+
+  server.listen(port, process.env.PRIVATE_IP_DOCKER || '0.0.0.0');
+  server.on('error', onError);
+  server.on('listening', onListening);
+  log('App is listening on %s threads', numCPUs);
+} */
