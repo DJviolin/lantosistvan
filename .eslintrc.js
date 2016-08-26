@@ -31,9 +31,10 @@ module.exports = {
       "jsx": true
     }
   },
-  /*"rules": {
+  "rules": {
+    "spaced-comment": "off",
     "no-console": "off",
-  },*/
+  },
   /*"rules": {
     // disable rules from base configurations
     "no-console": "off",
@@ -52,51 +53,5 @@ module.exports = {
     "no-throw-literal": "error",
     // Disallow Synchronous Methods
     "no-sync": "error",
-  }*/
-  // airBnB
-  /*"rules": {
-    // Force all variable names to use either camelCase style or UPPER_CASE
-    // with underscores.
-    "camelcase": "warn",
-    // Prohibit use of == and != in favor of === and !==.
-    "eqeqeq": "warn",
-    // Suppress warnings about == null comparisons.
-    //"eqnull": true,
-    "no-eq-null": "error",
-    // Enforce tab width of 2 spaces.
-    "indent": ["error", 2],
-    // Prohibit use of a variable before it is defined.
-    //"latedef": true,
-    "no-use-before-define": "error",
-    // Require capitalized names for constructor functions.
-    //"newcap": true,
-    "new-cap": "error",
-    // Enforce use of single quotation marks for strings.
-    //"quotmark": true,
-    "quotes": ["warn", "single"],
-    // Prohibit trailing whitespace.
-    //"trailing": true,
-    "no-trailing-spaces": "warn",
-    // Prohibit use of explicitly undeclared variables.
-    //"undef": true,
-    "no-undef": "error",
-    // Warn when variables are defined but never used.
-    //"unused": true,
-    "no-unused-vars": "warn",
-    // Enforce line length to 80 characters
-    //"maxlen": 80,
-    "max-len": ["warn", 80],
-    // Enforce placing 'use strict' at the top function scope
-    //"strict": true,
-    "strict": ["error", "global"],
-    // Own Rules
-    "no-console": "off",
-    "linebreak-style": ["error", "unix"],
-    "semi": ["error", "always"],
-    "curly": ["error", "all"],
-    "prefer-const": "error",
-    "no-const-assign": "error",
-    "no-throw-literal": "error",
-    "no-sync": "error", // Disallow Synchronous Methods
   }*/
 }
