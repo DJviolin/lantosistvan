@@ -7,7 +7,6 @@ const rp = require('request-promise');
 //const parseString = require('xml2js').parseString;
 
 const router = express.Router();
-//const router = new express.Router();
 
 /////////////////////////////////////////////////////////////
 // MIDDLEWARE
