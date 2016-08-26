@@ -7,11 +7,12 @@ const rp = require('request-promise');
 //const parseString = require('xml2js').parseString;
 
 const router = express.Router();
+//const router = new express.Router();
 
 /////////////////////////////////////////////////////////////
 // MIDDLEWARE
-// http://127.0.0.1:3000/en/tube/category/amateur
-// http://127.0.0.1:3000/en/tube/videos/category/amateur/1
+// http://127.0.0.1:8081/en/tube/category/amateur
+// http://127.0.0.1:8081/en/tube/videos/category/amateur/1
 /////////////////////////////////////////////////////////////
 
 router.use((req, res, next) => {
@@ -25,7 +26,9 @@ router.use((req, res, next) => {
     .then((data) => {
       // Handle the response
       const q = JSON.parse(data);
-      res.locals.categories = q;
+      //res.locals.categories = q;
+      const resLocals = res.locals;
+      resLocals.categories = q;
       //res.status(200).json({ categories: q }); // New method (Express 5)
     })
     .catch((err) => {
@@ -62,19 +65,21 @@ router.all('*', categories);*/
 // http://www.pornhub.com/webmasters/categories
 // http://www.pornhub.com/webmasters/search?search=hard&category=amateur&thumbsize=medium&page=1
 // URL:
-// http://127.0.0.1:3000/en/tube/api/category/amateur/1
-// http://127.0.0.1:3000/en/tube/videos/category/amateur/1
+// http://127.0.0.1:8081/en/tube/api/category/amateur/1
+// http://127.0.0.1:8081/en/tube/videos/category/amateur/1
 // http://www.pornhub.com/webmasters/search?category=amateur&thumbsize=medium&page=1
 /////////////////////////////////////////////////////////////
 
 router.get('/api/category/:category/:page', (req, res) => {
   const category = req.params.category;
-  const page = parseInt(req.params.page); // Page number as integer
+  //const page = parseInt(req.params.page); // Page number as integer
+  const page = parseInt(req.params.page, 10); // Page number as integer
 
+  const uri = `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`;
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
-    uri: `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`,
+    uri,
   };
 
   rp(options)
@@ -93,12 +98,14 @@ router.get('/api/category/:category/:page', (req, res) => {
 
 router.get('/videos/category/:category/:page', (req, res) => {
   const category = req.params.category;
-  const page = parseInt(req.params.page); // Page number as integer
+  //const page = parseInt(req.params.page); // Page number as integer
+  const page = parseInt(req.params.page, 10); // Page number as integer
 
+  const uri = `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`;
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
-    uri: `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`,
+    uri,
   };
 
   rp(options)
@@ -128,8 +135,8 @@ router.get('/videos/category/:category/:page', (req, res) => {
 /////////////////////////////////////////////////////////////
 // EXTERNAL API REQUEST
 // SEARCH FEATURE:
-// http://127.0.0.1:3000/en/users/russian+teen/0
-// http://127.0.0.1:3000/en/users/search/russian+teen/0
+// http://127.0.0.1:8081/en/users/russian+teen/0
+// http://127.0.0.1:8081/en/users/search/russian+teen/0
 // http://www.eporner.com/api_xml/anal,teen,hd,russian/5/0/adddate
 // http://www.eporner.com/api_xml/Beautiful+vagina+fingering+perfect+body/5/0/adddate
 // TODO: In search change the ` ` to `,` or `+`
