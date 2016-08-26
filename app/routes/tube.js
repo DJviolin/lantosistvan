@@ -1,11 +1,12 @@
-'use strict';
+//'use strict';
 
 //const util    = require('util');
-const express = require('express'),
-      router  = express.Router(),
-      rp      = require('request-promise');
+const express = require('express');
+const rp = require('request-promise');
 //const request = require('request');
 //const parseString = require('xml2js').parseString;
+
+const router = express.Router();
 
 /////////////////////////////////////////////////////////////
 // MIDDLEWARE
@@ -17,7 +18,7 @@ router.use((req, res, next) => {
 //router.all('*', (req, res, next) => {
   const options = {
     method: 'GET',
-    uri: 'http://www.pornhub.com/webmasters/categories'
+    uri: 'http://www.pornhub.com/webmasters/categories',
   };
 
   rp(options)
@@ -73,7 +74,7 @@ router.get('/api/category/:category/:page', (req, res) => {
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
-    uri: 'http://www.pornhub.com/webmasters/search?category=' + category + '&thumbsize=medium&page=' + page
+    uri: `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`,
   };
 
   rp(options)
@@ -88,7 +89,6 @@ router.get('/api/category/:category/:page', (req, res) => {
       console.log(err);
       res.render('404');
     });
-
 });
 
 router.get('/videos/category/:category/:page', (req, res) => {
@@ -98,7 +98,7 @@ router.get('/videos/category/:category/:page', (req, res) => {
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
-    uri: 'http://www.pornhub.com/webmasters/search?category=' + category + '&thumbsize=medium&page=' + page
+    uri: `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`,
   };
 
   rp(options)
@@ -115,7 +115,7 @@ router.get('/videos/category/:category/:page', (req, res) => {
         description: '',
         keywords: '',
         divClass: 'tube',
-        data: q
+        data: q,
       });
     })
     .catch((err) => {
@@ -123,7 +123,6 @@ router.get('/videos/category/:category/:page', (req, res) => {
       console.log(err);
       res.render('404');
     });
-
 });
 
 /////////////////////////////////////////////////////////////
