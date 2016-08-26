@@ -74,11 +74,10 @@ router.get('/api/category/:category/:page', (req, res) => {
   //const page = parseInt(req.params.page); // Page number as integer
   const page = parseInt(req.params.page, 10); // Page number as integer
 
-  const uri = `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`;
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
-    uri,
+    uri: `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`,
   };
 
   rp(options)
@@ -100,11 +99,10 @@ router.get('/videos/category/:category/:page', (req, res) => {
   //const page = parseInt(req.params.page); // Page number as integer
   const page = parseInt(req.params.page, 10); // Page number as integer
 
-  const uri = `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`;
   const options = {
     method: 'GET',
     //uri: 'http://www.eporner.com/api_xml/' + KEYWORDS_REPLACE + '/' + NUMBER_OF_MOVIES + '/' + START_FROM + '/' + ORDER_BY
-    uri,
+    uri: `http://www.pornhub.com/webmasters/search?category=${category}&thumbsize=medium&page=${page}`,
   };
 
   rp(options)
