@@ -24,51 +24,7 @@ const server = http.createServer(app);
 // const server = http.Server(app);
 
 /////////////////////////////////////////////////////////////
-// Debugging
-// https://expressjs.com/en/advanced/best-practice-performance.html
-// https://expressjs.com/en/guide/debugging.html
-// https://nodejs.org/api/util.html#util_util_format_format
-/////////////////////////////////////////////////////////////
-
-const error = debug('app:error');
-const log = debug('app:log');
-
-// Event listener for HTTP server "error" event
-function onError(err) {
-  if (err.syscall !== 'listen') {
-    throw err;
-  }
-
-  const bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
-
-  // Handle specific listen errors with friendly messages
-  switch (err.code) {
-    case 'EACCES':
-      error('%s requires elevated privileges', bind);
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      error('%s is already in use', bind);
-      process.exit(1);
-      break;
-    default:
-      throw err;
-  }
-}
-
-// Event listener for HTTP server "listening" event
-function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  log('Listening on %s', bind);
-}
-
-/////////////////////////////////////////////////////////////
-// INIT
+// PORT
 /////////////////////////////////////////////////////////////
 
 // Normalize a port into a number, string, or false
@@ -91,6 +47,54 @@ app.set('port', port);
 // http://stackoverflow.com/a/23426060/1442219
 app.set('trust proxy', true);
 app.set('x-powered-by', false);
+
+/////////////////////////////////////////////////////////////
+// Debugging
+// https://expressjs.com/en/advanced/best-practice-performance.html
+// https://expressjs.com/en/guide/debugging.html
+// https://nodejs.org/api/util.html#util_util_format_format
+/////////////////////////////////////////////////////////////
+
+const error = debug('app:error');
+const log = debug('app:log');
+
+// Event listener for HTTP server "error" event
+function onError(err) {
+  if (err.syscall !== 'listen') {
+    throw err;
+  }
+
+  const bind = typeof port === 'string'
+    ? `Pipe ${port}`
+    : `Port ${port}`;
+
+  // Handle specific listen errors with friendly messages
+  switch (err.code) {
+    case 'EACCES':
+      error('%s requires elevated privileges', bind);
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      error('%s is already in use', bind);
+      process.exit(1);
+      break;
+    default:
+      throw err;
+  }
+}
+
+// Event listener for HTTP server "listening" event
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? `pipe ${addr}`
+    : `port ${addr.port}`;
+  log('Listening on %s', bind);
+}
+
+/////////////////////////////////////////////////////////////
+// INIT
+/////////////////////////////////////////////////////////////
 
 // Socket.io
 // SocketIO does not work with routes it works with sockets

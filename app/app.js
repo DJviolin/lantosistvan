@@ -129,7 +129,8 @@ const hbs = exphbs.create({
   // Specify helpers which are only registered on this instance
   // helpers: helpers,
   // Shorthand syntax: http://eslint.org/docs/rules/object-shorthand
-  helpers: () => {},
+  //helpers: () => {},
+  helpers,
 });
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
