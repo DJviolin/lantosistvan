@@ -57,4 +57,4 @@ function exec(argumentOne, argumentTwo) {
     console.log(array);
   });
 }
-exec('argument1', 'argument2');
+exec('argument1', 'argument2'.length - 2);
