@@ -32,7 +32,7 @@ function exec(...args) {
 }
 exec('Hello', 'World');*/
 
-let argv1 = 'Hello'.length;
+/*let argv1 = 'Hello'.length;
 let argv2 = 'Worlddd'.length - 2;
 //const args = [argv1, argv2];
 
@@ -47,4 +47,14 @@ py.stdout.on('data', (chunk) => {
 
   const array = textChunk.split(', ');
   console.log(array);
-});
+});*/
+
+function exec(argumentOne, argumentTwo) {
+  const py = spawn('python', [path.join(__dirname, 'lib/test.py'), argumentOne, argumentTwo]);
+  py.stdout.on('data', (chunk) => {
+    const textChunk = chunk.toString('utf8'); // buffer to string
+    const array = textChunk.split(', ');
+    console.log(array);
+  });
+}
+exec('argument1', 'argument2');
