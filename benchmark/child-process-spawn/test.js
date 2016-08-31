@@ -43,5 +43,8 @@ const py = spawn('python', [path.join(__dirname, 'lib/test.py'), argv1, argv2]);
 py.stdout.on('data', (chunk) => {
   const textChunk = chunk.toString('utf8'); // buffer to string
   //util.log(textChunk);
-  console.log(textChunk);
+  //console.log(textChunk);
+
+  const array = textChunk.split(', ');
+  console.log(array);
 });
