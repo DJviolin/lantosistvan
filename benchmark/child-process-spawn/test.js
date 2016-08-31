@@ -2,6 +2,7 @@
 
 // spawn_python.js
 //const util = require('util');
+const path = require('path');
 const spawn = require('child_process').spawn;
 
 /*function sayHi(...args) {
@@ -35,7 +36,7 @@ let argv1 = 'Hello'.length;
 let argv2 = 'Worlddd'.length - 2;
 //const args = [argv1, argv2];
 
-const py = spawn('python', ['c:\\www\\node\\lantosistvan\\benchmark\\child-process-spawn\\lib\\test.py', argv1, argv2]);
+const py = spawn('python', [path.join(__dirname, 'lib/test.py'), argv1, argv2]);
 
 //util.log('readingin');
 
