@@ -7,9 +7,7 @@ second_arg = sys.argv[2]
 
 #data = first_arg + ", " + second_arg + "!"
 data = first_arg + ", " + second_arg
-#print(data)
 print(data, end="")
-#print(".", end="")
 #sys.stdout.write(data)
 
 sys.stdout.flush()
