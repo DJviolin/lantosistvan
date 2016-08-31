@@ -1,6 +1,7 @@
 # python_launched_from_nodejs.py
 import sys
-#from __future__ import print_function
+
+print(sys.version, ", ", end="")
 
 first_arg = sys.argv[1]
 second_arg = sys.argv[2]
