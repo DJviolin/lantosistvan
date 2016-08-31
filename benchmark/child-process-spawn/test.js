@@ -5,6 +5,20 @@
 const path = require('path');
 const spawn = require('child_process').spawn;
 
+//let array = [];
+const exec = (argumentOne, argumentTwo) => {
+  const py = spawn('python', [path.join(__dirname, 'lib/test.py'), argumentOne, argumentTwo]);
+  py.stdout.on('data', (chunk) => {
+    const textChunk = chunk.toString('utf8'); // buffer to string
+    const array = textChunk.split(', ');
+    console.log(array);
+    //array.push(textChunk.split(', '));
+    //return array;
+  });
+};
+exec('argument1', 'argument2'.length - 2);  // => [ 'argument1', '7' ]
+exec('arg3', 'arg4'.length - 2);  // => [ 'arg3', '2' ]
+
 /*function sayHi(...args) {
   for (let i = 0; i < args.length; i++) {
     const merge = [];
@@ -48,19 +62,3 @@ py.stdout.on('data', (chunk) => {
   const array = textChunk.split(', ');
   console.log(array);
 });*/
-
-let array = [];
-const exec = (argumentOne, argumentTwo) => {
-  const py = spawn('python', [path.join(__dirname, 'lib/test.py'), argumentOne, argumentTwo]);
-  py.stdout.on('data', (chunk) => {
-    const textChunk = chunk.toString('utf8'); // buffer to string
-    //const array = textChunk.split(', ');
-    //console.log(array);
-    array.push(textChunk.split(', '));
-    return array;
-  });
-};
-exec('argument1', 'argument2'.length - 2);  // => [ 'argument1', '7' ]
-console.log(array);
-exec('arg3', 'arg4'.length - 2);  // => [ 'arg3', '2' ]
-console.log(array);
