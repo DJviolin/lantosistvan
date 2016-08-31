@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 // spawn_python.js
 //const util = require('util');
