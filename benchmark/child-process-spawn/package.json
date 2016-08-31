@@ -1,0 +1,15 @@
+{
+  "name": "child-process-spawn",
+  "version": "0.3.0",
+  "description": "My personal website",
+  "email": "kerozin.joe@gmail.com",
+  "url": "http://lantosistvan.com/",
+  "private": true,
+  "main": "./index",
+  "scripts": {
+    "start": "node --ignition ./index"
+  },
+  "dependencies": {
+    "express": ">= 4.14.0"
+  }
+}

@@ -5,6 +5,11 @@
 
 // ab -n 1000 -c 100 http://127.0.0.1:8081/
 
+// Ecma262 tests:
+// https://github.com/tc39/test262
+// https://github.com/bterlson/test262-harness
+// https://tc39.github.io/ecma262/
+
 // Performance
 // https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile
 // https://strongloop.com/strongblog/node-js-performance-scaling-proxies-clusters/

@@ -233,6 +233,23 @@ run the app on windows:
  > SET DEBUG=app:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
 ```
 
+#### Express listening on res events
+
+listen for the close event on the response object for connection termination before the response could be completely sent.
+and you can listen for the finish event for complete transmission of the response.
+
+```
+  // connection closed before response could be completely sent
+  res.on('close', function () {
+
+  })
+
+  // response sent completely
+  res.on('finish', function () {
+
+  })
+```
+
 # Notes
 
 Removing all `translate3d` from CSS and JS is needed because of Webkit subpixel rendering drop.
