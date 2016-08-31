@@ -49,12 +49,13 @@ py.stdout.on('data', (chunk) => {
   console.log(array);
 });*/
 
-function exec(argumentOne, argumentTwo) {
+const exec = (argumentOne, argumentTwo) => {
   const py = spawn('python', [path.join(__dirname, 'lib/test.py'), argumentOne, argumentTwo]);
   py.stdout.on('data', (chunk) => {
     const textChunk = chunk.toString('utf8'); // buffer to string
     const array = textChunk.split(', ');
     console.log(array);
   });
-}
+};
 exec('argument1', 'argument2'.length - 2);
+exec('arg1', 'arg2'.length - 2);
