@@ -54,3 +54,5 @@ def test(first_arg, second_arg):
 
 if __name__ == '__main__':
     main()
+
+sys.stdout.flush()
