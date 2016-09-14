@@ -1,3 +1,13 @@
+## Flexbox CHEATSHEET
+
+https://chriswrightdesign.com/experiments/flexbox-adventures/
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+https://kyusuf.com/post/almost-complete-guide-to-flexbox-without-flexbox
+
+https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
+
 ## V8 Experimental features
 
 Strong mode:
@@ -757,7 +767,7 @@ function fsAsync(callback) {
 // http://127.0.0.1:3000/api
 router.get('/', function(req, res) {
   //res.json({ data: data });
-  
+
   fsAsync(function(err, data) {
     if (err) {
       return res.send(err);

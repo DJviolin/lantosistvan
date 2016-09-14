@@ -1,7 +1,6 @@
-'use strict';
+//'use strict';
 
 module.exports = (io) => {
-
   io.on('connection', (socket) => {
     console.log('SERVER SAYS: A user connected');
 
@@ -18,7 +17,7 @@ module.exports = (io) => {
       //socket.send('SERVER SAYS: Sent a message 4seconds after connection!');
 
       //Sending an object when emmiting an event
-      socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
+      socket.emit('testerEvent', { description: 'A custom event named testerEvent!' });
     }, 8000);
 
     //Whenever someone disconnects this piece of code executed
@@ -29,7 +28,5 @@ module.exports = (io) => {
     socket.on('clientEvent', (data) => {
       console.log(data);
     });
-
   });
-
 };

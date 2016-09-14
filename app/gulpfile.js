@@ -19,14 +19,14 @@
 /////////////////////////////////////////////////////////////
 
 // ES5
-const gulp     = require('gulp'),
-      gls      = require('gulp-live-server'),
-      rename   = require('gulp-rename'),
-      stylus   = require('gulp-stylus'),
-      cleanCSS = require('gulp-clean-css'),
-      uglify   = require('gulp-uglify'),
-      download = require('gulp-download'),
-      replace  = require('gulp-replace');
+const gulp = require('gulp');
+const gls = require('gulp-live-server');
+const rename = require('gulp-rename');
+const stylus = require('gulp-stylus');
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify');
+const download = require('gulp-download');
+const replace = require('gulp-replace');
 
 /*// ES6
 // Modules will be supported from Node v7
@@ -44,7 +44,7 @@ import replace from 'gulp-replace';*/
 const paths = {
   styles: {
     stylus: 'public/stylesheets/src/main.styl',
-    css: 'public/stylesheets/src/main.css'
+    css: 'public/stylesheets/src/main.css',
   },
   app: [
     'app.js',
@@ -52,24 +52,24 @@ const paths = {
     'bin/www',
     'routes/**/*.js',
     'lib/**/*.js',
-    'config/**/*.js'
+    'config/**/*.js',
   ],
   uglify: [
     'public/javascripts/src/main-vanilla.js',
     'public/javascripts/src/ajax-vanilla.js',
     'public/javascripts/src/main-jquery.js',
-    'public/javascripts/src/slick.js'
+    'public/javascripts/src/slick.js',
   ],
   vendor: [
     'https://raw.githubusercontent.com/jquery/jquery-dist/master/dist/jquery.min.js',
-    'https://raw.githubusercontent.com/kenwheeler/slick/master/slick/slick.js'
+    'https://raw.githubusercontent.com/kenwheeler/slick/master/slick/slick.js',
   ],
   files: [
     'views/*.hbs',
     'views/**/*.hbs',
     'database/data.json',
-    'locales/*.json'
-  ]
+    'locales/*.json',
+  ],
 };
 
 /////////////////////////////////////////////////////////////
@@ -94,7 +94,7 @@ gulp.task('start', () => server.start());
 // Stylus
 gulp.task('stylus', () =>
   gulp.src(paths.styles.stylus)
-    .pipe(stylus({'include css': true, compress: false}))
+    .pipe(stylus({ 'include css': true, compress: false }))
     .pipe(rename({ extname: '.css' }))
     .pipe(gulp.dest('public/stylesheets/src'))
 );
@@ -104,7 +104,7 @@ gulp.task('stylus', () =>
 gulp.task('minify-css', () =>
   gulp.src(paths.styles.css)
     // Arrow functions: 'concise body' vs 'block body'
-    .pipe(cleanCSS({compatibility: '*', debug: true}, details =>
+    .pipe(cleanCSS({ compatibility: '*', debug: true }, details =>
       console.log('%s: The file was reduced from %s bytes to %s bytes. This means %s% reduction in size!',
         details.name,
         details.stats.originalSize,
@@ -157,7 +157,7 @@ gulp.task('slick', () =>
     ))
     .pipe(replace(/mozHidden/igm, 'hidden'))
     .pipe(replace(/mozVisibilityState/igm, 'visibilityState'))
-    .pipe(uglify({ output: {quote_style: 1} }))
+    .pipe(uglify({ output: { quote_style: 1 } }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/vendor'))
 );
@@ -170,7 +170,7 @@ gulp.task('vendors', gulp.series('vendor', 'slick'));
 
 gulp.task('uglify', () =>
   gulp.src(paths.uglify)
-    .pipe(uglify({ output: {quote_style: 1} }))
+    .pipe(uglify({ output: { quote_style: 1 } }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('public/javascripts'))
 );
