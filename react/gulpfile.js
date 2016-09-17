@@ -5,8 +5,8 @@
 /////////////////////////////////////////////////////////////
 
 const gulp = require('gulp');
-const webpack = require('webpack-stream');
 const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
 
 const paths = {
   src: [
@@ -22,7 +22,7 @@ gulp.task('webpack', () =>
   gulp.src('src/index.jsx')
     .pipe(babel({ presets: ['es2015'] }))
     //.pipe(webpack())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist'))
 );
 
 /////////////////////////////////////////////////////////////
