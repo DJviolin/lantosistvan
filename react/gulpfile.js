@@ -6,6 +6,7 @@
 
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
+const babel = require('gulp-babel');
 
 const paths = {
   src: [
@@ -19,6 +20,7 @@ const paths = {
 
 gulp.task('webpack', () =>
   gulp.src('src/app.js')
+    .pipe(babel())
     .pipe(webpack())
     .pipe(gulp.dest('dist/'))
 );
