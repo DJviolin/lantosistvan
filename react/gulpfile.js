@@ -6,7 +6,7 @@
 
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const webpack = require('webpack-stream');
+//const webpack = require('webpack-stream');
 
 const paths = {
   src: [
@@ -20,7 +20,7 @@ const paths = {
 
 gulp.task('webpack', () =>
   gulp.src('src/index.jsx')
-    .pipe(babel({ presets: ['es2015'] })) // Also inserting Strict mode
+    .pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
     //.pipe(webpack())
     .pipe(gulp.dest('dist'))
 );
