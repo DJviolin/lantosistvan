@@ -20,7 +20,7 @@ const paths = {
 
 gulp.task('webpack', () =>
   gulp.src('src/index.jsx')
-    .pipe(babel({ presets: ['es2015'] }))
+    .pipe(babel({ presets: ['es2015'] })) // Also inserting Strict mode
     //.pipe(webpack())
     .pipe(gulp.dest('dist'))
 );
