@@ -7,7 +7,7 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
+//const webpackConfig = require('./webpack.config.js');
 
 const paths = {
   src: [
@@ -21,10 +21,17 @@ const paths = {
 
 gulp.task('webpack', () =>
   gulp.src('src/index.jsx')
-    //.pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
-    .pipe(babel()) // Also inserting Strict mode
-    .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest('dist'))
+    .pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
+    //.pipe(webpack(webpackConfig))
+    .pipe(webpack({
+      resolve: {
+        extensions: ['', '.js', '.jsx'],
+      },
+      output: {
+        filename: 'bundle.js',
+      },
+    }))
+    .pipe(gulp.dest('dist/'))
 );
 
 /////////////////////////////////////////////////////////////
