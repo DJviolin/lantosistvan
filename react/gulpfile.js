@@ -21,7 +21,8 @@ const paths = {
 
 gulp.task('webpack', () =>
   gulp.src('src/index.jsx')
-    .pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
+    //.pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
+    .pipe(babel()) // Also inserting Strict mode
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('dist'))
 );
