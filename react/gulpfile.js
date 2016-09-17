@@ -10,7 +10,7 @@ const babel = require('gulp-babel');
 
 const paths = {
   src: [
-    'src/**/*.js',
+    'src/**/*.jsx',
   ],
 };
 
@@ -19,7 +19,7 @@ const paths = {
 /////////////////////////////////////////////////////////////
 
 gulp.task('webpack', () =>
-  gulp.src('src/app.js')
+  gulp.src('src/index.jsx')
     .pipe(babel())
     .pipe(webpack())
     .pipe(gulp.dest('dist/'))
@@ -29,7 +29,7 @@ gulp.task('webpack', () =>
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-gulp.task('app', gulp.parallel('webpack'));
+//gulp.task('app', gulp.parallel('webpack'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
@@ -39,10 +39,11 @@ gulp.task('watch:webpack', () =>
   gulp.watch(paths.src, gulp.series('webpack'))
 );
 
-gulp.task('watch', gulp.parallel('watch:webpack'));
+//gulp.task('watch', gulp.parallel('watch:webpack'));
 
 /////////////////////////////////////////////////////////////
 // EXECUTE GULP
 /////////////////////////////////////////////////////////////
 
-gulp.task('default', gulp.parallel('app', 'watch'));
+//gulp.task('default', gulp.parallel('app', 'watch'));
+gulp.task('default', gulp.parallel('webpack', 'watch:webpack'));
