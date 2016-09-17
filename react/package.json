@@ -1,0 +1,42 @@
+{
+  "name": "react-test",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "email": "kerozin.joe@gmail.com",
+  "url": "http://lantosistvan.com/",
+  "private": true,
+  "main": "./app",
+  "scripts": {
+    "start": "node --trace-deprecation --trace-sync-io --ignition ./index",
+    "gulp": "gulp \"default\""
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "dependencies": {
+    "express": ">= 4.14.0"
+  },
+  "devDependencies": {
+    "babel-register": ">= 6.14.0",
+    "babel-preset-node6": ">= 11.0.0",
+    "babel-plugin-transform-async-to-generator": ">= 6.8.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-live-server": ">= 0.0.30",
+    "gulp-stylus": ">= 2.5.0",
+    "gulp-clean-css": ">= 2.0.12",
+    "gulp-rename": ">= 1.2.2",
+    "gulp-uglify": ">= 2.0.0",
+    "gulp-download": ">= 0.0.1",
+    "gulp-replace": ">= 0.5.4",
+
+    "gulp-babel": ">= 6.1.2",
+    "babel-preset-es2015": ">= 6.14.0",
+    "babel-core": ">= 6.14.0",
+    "react": ">= 15.3.1",
+    "react-dom": ">= 15.3.1",
+
+    "gulp-util": ">= 3.0.7",
+    "webpack": ">= 1.13.2",
+    "webpack-dev-server": ">= 1.15.1"
+  }
+}
