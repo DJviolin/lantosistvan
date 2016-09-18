@@ -10574,7 +10574,7 @@
 	        _react2.default.createElement(
 	          "div",
 	          { className: "App-header" },
-	          _react2.default.createElement("img", { src: "", className: "App-logo", alt: "logo" }),
+	          _react2.default.createElement("img", { src: "./dist/images/logo.svg", className: "App-logo", alt: "logo" }),
 	          _react2.default.createElement(
 	            "h2",
 	            null,

@@ -1,2 +1,2 @@
 // Webpack use this file for entry
-require('./src/index.jsx');
+require('./src/js/index.jsx');

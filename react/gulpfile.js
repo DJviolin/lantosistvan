@@ -14,8 +14,14 @@ const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 
 const paths = {
-  src: [
-    'src/**/*.jsx',
+  css: [
+    './src/css/*.css',
+  ],
+  images: [
+    './src/images/**/*',
+  ],
+  js: [
+    './src/js/*.jsx',
   ],
 };
 
@@ -25,7 +31,7 @@ const paths = {
 
 // Concat
 gulp.task('concat', () =>
-  gulp.src('./src/*.css')
+  gulp.src(paths.css)
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest('./dist/css'))
 );
@@ -48,6 +54,15 @@ gulp.task('minify-css', () =>
 );
 
 gulp.task('css', gulp.series('concat', 'minify-css'));
+
+/////////////////////////////////////////////////////////////
+// IMAGES
+/////////////////////////////////////////////////////////////
+
+gulp.task('images', () =>
+  gulp.src(paths.images)
+    .pipe(gulp.dest('./dist/images'))
+);
 
 /////////////////////////////////////////////////////////////
 // JS
@@ -85,17 +100,25 @@ gulp.task('js', gulp.series('webpack', 'uglify'));
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-gulp.task('app', gulp.parallel('css', 'js'));
+gulp.task('app', gulp.parallel('css', 'images', 'js'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
 /////////////////////////////////////////////////////////////
 
-gulp.task('watch:webpack', () =>
-  gulp.watch(paths.src, gulp.series('webpack'))
+gulp.task('watch:css', () =>
+  gulp.watch(paths.css, gulp.series('css'))
 );
 
-//gulp.task('watch', gulp.parallel('watch:webpack'));
+gulp.task('watch:images', () =>
+  gulp.watch(paths.images, gulp.series('images'))
+);
+
+gulp.task('watch:js', () =>
+  gulp.watch(paths.js, gulp.series('js'))
+);
+
+gulp.task('watch', gulp.parallel('watch:css', 'watch:images', 'watch:js'));
 
 /////////////////////////////////////////////////////////////
 // EXECUTE GULP
@@ -103,4 +126,4 @@ gulp.task('watch:webpack', () =>
 
 //gulp.task('default', gulp.parallel('app', 'watch'));
 //gulp.task('default', gulp.parallel('webpack', 'watch:webpack'));
-gulp.task('default', gulp.parallel('app'));
+gulp.task('default', gulp.parallel('app', 'watch'));
