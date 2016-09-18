@@ -15,7 +15,7 @@ module.exports = {
         test: /\.jsx?$/, // x is optional
         exclude: /(node_modules|bower_components)/,
         //include: /components/,
-        loader: 'babel', // 'babel' and 'babel-loader' is also a legal name to reference
+        loader: 'babel-loader', // 'babel' and 'babel-loader' is also a legal name to reference
         query: {
           presets: ['react', 'es2015'],
         },
