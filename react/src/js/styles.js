@@ -25,24 +25,24 @@ const styles = {
     Georgia: 'Georgia, \'Times New Roman\', Times, serif',
   },*/
   //Styles
-  App: {
+  container: {
     textAlign: 'center',
     fontFamily: variables.fonts.Georgia,
     //get fontFamily() { return styles.fonts.Georgia; },
     fontSize: variables.fontStyles.fontSize,
     lineHeight: variables.fontStyles.lineHeight,
   },
-  AppLogo: {
+  logo: {
     animation: 'App-logo-spin infinite 20s linear',
     height: 80,
   },
-  AppHeader: {
+  header: {
     backgroundColor: '#222',
     height: 150,
     padding: 20,
     color: 'white',
   },
-  AppIntro: {
+  intro: {
     fontSize: 'large',
   },
 };

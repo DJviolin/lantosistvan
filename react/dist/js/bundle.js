@@ -10573,11 +10573,11 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'App', style: _styles2.default.App },
+	        { className: 'App', style: _styles2.default.container },
 	        _react2.default.createElement(
 	          'div',
-	          { style: _styles2.default.AppHeader },
-	          _react2.default.createElement('img', { src: './dist/images/logo.svg', alt: 'logo', style: _styles2.default.AppLogo }),
+	          { style: _styles2.default.header },
+	          _react2.default.createElement('img', { src: './dist/images/logo.svg', alt: 'logo', style: _styles2.default.logo }),
 	          _react2.default.createElement(
 	            'h2',
 	            null,
@@ -10586,7 +10586,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'p',
-	          { style: _styles2.default.AppIntro },
+	          { style: _styles2.default.intro },
 	          'To get started, edit ',
 	          _react2.default.createElement(
 	            'code',
@@ -10661,24 +10661,24 @@
 	    Georgia: 'Georgia, \'Times New Roman\', Times, serif',
 	  },*/
 	  //Styles
-	  App: {
+	  container: {
 	    textAlign: 'center',
 	    fontFamily: variables.fonts.Georgia,
 	    //get fontFamily() { return styles.fonts.Georgia; },
 	    fontSize: variables.fontStyles.fontSize,
 	    lineHeight: variables.fontStyles.lineHeight
 	  },
-	  AppLogo: {
+	  logo: {
 	    animation: 'App-logo-spin infinite 20s linear',
 	    height: 80
 	  },
-	  AppHeader: {
+	  header: {
 	    backgroundColor: '#222',
 	    height: 150,
 	    padding: 20,
 	    color: 'white'
 	  },
-	  AppIntro: {
+	  intro: {
 	    fontSize: 'large'
 	  }
 	};
