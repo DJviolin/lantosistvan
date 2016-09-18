@@ -14,6 +14,13 @@ http://stack.formidable.com/radium/
 
 ##### Isomoprhic Starter kit
 
+https://github.com/paypal/react-engine
+https://github.com/paypal/generator-react-engine
+
+https://github.com/erikras/react-redux-universal-hot-example
+
+https://github.com/este/este
+
 https://www.reactstarterkit.com/
 https://demo.reactstarterkit.com/
 https://github.com/kriasoft/react-starter-kit
