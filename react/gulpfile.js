@@ -11,11 +11,13 @@ const webpackConfig = require('./webpack.config.js');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
+const stylus = require('gulp-stylus');
 const cleanCSS = require('gulp-clean-css');
 
 const paths = {
   css: [
-    './src/css/*.css',
+    //'./src/css/*.css',
+    './src/css/*.styl',
   ],
   images: [
     './src/images/**/*',
@@ -29,12 +31,20 @@ const paths = {
 // CSS
 /////////////////////////////////////////////////////////////
 
+// Stylus
+gulp.task('stylus', () =>
+  gulp.src(paths.css)
+    .pipe(stylus({ 'include css': true, compress: false }))
+    .pipe(rename({ basename: 'bundle', extname: '.css' }))
+    .pipe(gulp.dest('./dist/css'))
+);
+
 // Concat
-gulp.task('concat', () =>
+/*gulp.task('concat', () =>
   gulp.src(paths.css)
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest('./dist/css'))
-);
+);*/
 
 // MINIFY CSS
 // http://goalsmashers.github.io/css-minification-benchmark/
@@ -49,11 +59,11 @@ gulp.task('minify-css', () =>
         Math.round(details.stats.efficiency * 100)
       )
     ))
-    .pipe(rename({ /*basename: 'style',*/ extname: '.min.css' }))
+    .pipe(rename({ /*basename: 'bundle',*/ extname: '.min.css' }))
     .pipe(gulp.dest('./dist/css'))
 );
 
-gulp.task('css', gulp.series('concat', 'minify-css'));
+gulp.task('css', gulp.series('stylus', 'minify-css'));
 
 /////////////////////////////////////////////////////////////
 // IMAGES
