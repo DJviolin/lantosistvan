@@ -84,20 +84,10 @@ gulp.task('webpack', () =>
   gulp.src('./entry.js')
     //.pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
     .pipe(webpack(webpackConfig))
-    /*.pipe(webpack({
-      debug: true,
-      resolve: {
-        extensions: ['', '.js', '.jsx'],
-      },
-      entry: './src/index.jsx',
-      output: {
-        filename: 'bundle.js',
-      },
-    }))*/
     .pipe(gulp.dest('./dist/js'))
 );
 
-// UGLIFY JS
+// Uglify
 gulp.task('uglify', () =>
   gulp.src('./dist/js/bundle.js')
     .pipe(uglify())

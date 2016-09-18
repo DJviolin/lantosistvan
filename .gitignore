@@ -54,6 +54,3 @@ benchmark/express/node_modules
 benchmark/koa/node_modules
 benchmark/spirit/node_modules
 benchmark/child-process-spawn/node_modules
-
-# React
-react/node_modules

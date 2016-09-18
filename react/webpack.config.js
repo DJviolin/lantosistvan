@@ -2,13 +2,16 @@
 const webpack = require('webpack');
 
 module.exports = {
-  debug: true,
   // Important! Do not remove ''. If you do, imports without
   // an extension won't work anymore!
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
-  //entry: './src/index.jsx',
+  //entry: './entry.js',
+  output: {
+    filename: 'bundle.js',
+  },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -35,7 +38,4 @@ module.exports = {
       mangle: false,
     }),*/
   ],
-  output: {
-    filename: 'bundle.js',
-  },
 };

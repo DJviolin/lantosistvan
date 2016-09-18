@@ -1,11 +1,11 @@
 {
   "name": "react-test",
   "version": "1.0.0",
-  "description": "My personal website",
+  "description": "",
   "email": "kerozin.joe@gmail.com",
   "url": "http://lantosistvan.com/",
   "private": true,
-  "main": "./app",
+  "main": "./index",
   "scripts": {
     "start": "node --trace-deprecation --trace-sync-io --ignition ./index",
     "gulp": "gulp \"default\""
@@ -14,6 +14,8 @@
     "node": ">= 6.0.0"
   },
   "dependencies": {
+    "react": ">= 15.3.1",
+    "react-dom": ">= 15.3.1",
     "express": ">= 4.14.0"
   },
   "devDependencies": {
@@ -33,12 +35,6 @@
     "babel-loader": ">= 6.2.5",
     "babel-preset-es2015": ">= 6.14.0",
     "babel-preset-react": ">= 6.11.1",
-
-    "webpack-stream": ">= 3.2.0",
-    "style-loader": ">= 0.13.1",
-    "css-loader": ">= 0.25.0",
-
-    "react": ">= 15.3.1",
-    "react-dom": ">= 15.3.1"
+    "webpack-stream": ">= 3.2.0"
   }
 }
