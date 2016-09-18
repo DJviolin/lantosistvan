@@ -20,6 +20,12 @@ module.exports = {
           presets: ['react', 'es2015'],
         },
       },
+      /*{
+        test: /\.css$/,
+        exclude: /(node_modules|bower_components)/,
+        //include: /src/,
+        loader: 'style-loader!css-loader',
+      },*/
     ],
   },
   plugins: [
@@ -28,8 +34,12 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    //new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     //new webpack.optimize.UglifyJsPlugin(),
+    /*new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      mangle: false,
+    }),*/
   ],
   output: {
     filename: 'bundle.js',

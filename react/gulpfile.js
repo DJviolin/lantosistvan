@@ -5,9 +5,13 @@
 /////////////////////////////////////////////////////////////
 
 const gulp = require('gulp');
-const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
+
+const rename = require('gulp-rename');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
 
 const paths = {
   src: [
@@ -16,30 +20,42 @@ const paths = {
 };
 
 /////////////////////////////////////////////////////////////
-// BUNDLE
+// CSS
 /////////////////////////////////////////////////////////////
 
-/*gulp.task('bundle', () =>
-  gulp.src('src/index.jsx') // entry point
-    .pipe(webpack({
-      debug: true,
-      resolve: {
-        extensions: ['', '.js', '.jsx'],
-      },
-      entry: './src/index.jsx',
-      output: {
-        filename: 'bundle.js',
-      },
-    }))
-    .pipe(gulp.dest('./dist'))
-);*/
+// Concat
+gulp.task('concat', () =>
+  gulp.src('./src/*.css')
+    .pipe(concat('bundle.css'))
+    .pipe(gulp.dest('./dist/css'))
+);
+
+// MINIFY CSS
+// http://goalsmashers.github.io/css-minification-benchmark/
+gulp.task('minify-css', () =>
+  gulp.src('./dist/css/bundle.css')
+    // Arrow functions: 'concise body' vs 'block body'
+    .pipe(cleanCSS({ compatibility: '*', debug: true }, details =>
+      console.log('%s: The file was reduced from %s bytes to %s bytes. This means %s% reduction in size!',
+        details.name,
+        details.stats.originalSize,
+        details.stats.minifiedSize,
+        Math.round(details.stats.efficiency * 100)
+      )
+    ))
+    .pipe(rename({ /*basename: 'style',*/ extname: '.min.css' }))
+    .pipe(gulp.dest('./dist/css'))
+);
+
+gulp.task('css', gulp.series('concat', 'minify-css'));
 
 /////////////////////////////////////////////////////////////
-// WEBPACK
+// JS
 /////////////////////////////////////////////////////////////
 
+// Webpack
 gulp.task('webpack', () =>
-  gulp.src('entry.js')
+  gulp.src('./entry.js')
     //.pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
     .pipe(webpack(webpackConfig))
     /*.pipe(webpack({
@@ -52,14 +68,24 @@ gulp.task('webpack', () =>
         filename: 'bundle.js',
       },
     }))*/
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('./dist/js'))
 );
+
+// UGLIFY JS
+gulp.task('uglify', () =>
+  gulp.src('./dist/js/bundle.js')
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(gulp.dest('./dist/js'))
+);
+
+gulp.task('js', gulp.series('webpack', 'uglify'));
 
 /////////////////////////////////////////////////////////////
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-//gulp.task('app', gulp.parallel('webpack'));
+gulp.task('app', gulp.parallel('css', 'js'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
@@ -77,4 +103,4 @@ gulp.task('watch:webpack', () =>
 
 //gulp.task('default', gulp.parallel('app', 'watch'));
 //gulp.task('default', gulp.parallel('webpack', 'watch:webpack'));
-gulp.task('default', gulp.parallel('webpack'));
+gulp.task('default', gulp.parallel('app'));
