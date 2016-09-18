@@ -4,7 +4,7 @@ import styles from './styles.js';
 const App = ({ name }) => (
   <div className="App" style={styles.container}>
     <div style={styles.header}>
-      <img src="./dist/images/logo.svg" alt="logo" style={styles.logo} />
+      <img src="./images/logo.svg" alt="logo" style={styles.logo} />
       <h2>Welcome to React, {`${name}!`}</h2>
     </div>
     <p style={styles.intro}>
