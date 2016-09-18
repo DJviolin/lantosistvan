@@ -7,7 +7,7 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const webpack = require('webpack-stream');
-//const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config.js');
 
 const paths = {
   src: [
@@ -19,7 +19,7 @@ const paths = {
 // BUNDLE
 /////////////////////////////////////////////////////////////
 
-gulp.task('bundle', () =>
+/*gulp.task('bundle', () =>
   gulp.src('src/index.jsx') // entry point
     .pipe(webpack({
       debug: true,
@@ -32,17 +32,17 @@ gulp.task('bundle', () =>
       },
     }))
     .pipe(gulp.dest('./dist'))
-);
+);*/
 
 /////////////////////////////////////////////////////////////
 // WEBPACK
 /////////////////////////////////////////////////////////////
 
 gulp.task('webpack', () =>
-  gulp.src('src/index.jsx')
-    .pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
-    //.pipe(webpack(webpackConfig))
-    .pipe(webpack({
+  gulp.src('entry.js')
+    //.pipe(babel({ presets: ['es2015', 'react'] })) // Also inserting Strict mode
+    .pipe(webpack(webpackConfig))
+    /*.pipe(webpack({
       debug: true,
       resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -51,7 +51,7 @@ gulp.task('webpack', () =>
       output: {
         filename: 'bundle.js',
       },
-    }))
+    }))*/
     .pipe(gulp.dest('dist/'))
 );
 
@@ -77,4 +77,4 @@ gulp.task('watch:webpack', () =>
 
 //gulp.task('default', gulp.parallel('app', 'watch'));
 //gulp.task('default', gulp.parallel('webpack', 'watch:webpack'));
-gulp.task('default', gulp.parallel('bundle'));
+gulp.task('default', gulp.parallel('webpack'));
