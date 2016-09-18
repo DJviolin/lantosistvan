@@ -32,7 +32,6 @@ const App = ({ name }) => (
     </p>
   </div>
 );
-
 App.propTypes = { name: React.PropTypes.string.isRequired };
 App.defaultProps = { name: 'Lanti' };
 
