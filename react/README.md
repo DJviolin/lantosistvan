@@ -12,6 +12,15 @@ https://github.com/ReactTraining/react-router
 
 https://medium.com/front-end-developers/handcrafting-an-isomorphic-redux-application-with-love-40ada4468af4#.n4z9pkj80
 
+https://github.com/DavidWells/isomorphic-react-example
+https://strongloop.com/strongblog/node-js-react-isomorphic-javascript-why-it-matters/
+
+Without Express:
+https://github.com/ryanflorence/react-router-mega-demo
+
+https://bensmithett.github.io/going-isomorphic-with-react/#/4
+https://bensmithett.github.io/going-isomorphic-with-react/#/38
+
 ##### SEO
 
 http://andrewhfarmer.com/starter-project/
