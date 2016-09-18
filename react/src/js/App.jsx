@@ -12,6 +12,8 @@ const App = ({ name }) => (
     </p>
   </div>
 );
+
+// propTypes bypassed in process.env.node_env = 'production'
 App.propTypes = { name: React.PropTypes.string.isRequired };
 App.defaultProps = { name: 'Lanti' };
 
