@@ -8,10 +8,27 @@ https://facebook.github.io/react/docs/tutorial.html
 
 https://github.com/ReactTraining/react-router
 
+##### Inline styles management for React
+
+http://stack.formidable.com/radium/
+
+##### Isomoprhic Starter kit
+
+https://www.reactstarterkit.com/
+https://demo.reactstarterkit.com/
+https://github.com/kriasoft/react-starter-kit
+
+https://github.com/facebook/react/wiki/Examples
+
 ##### Isomoprhic React + Express
+
+https://reactjsnews.com/isomorphic-react-in-real-life
+https://github.com/ReactTraining/react-router
 
 https://medium.com/front-end-developers/handcrafting-an-isomorphic-redux-application-with-love-40ada4468af4#.n4z9pkj80
 
+https://blog.risingstack.com/the-react-way-getting-started-tutorial/
+https://github.com/RisingStack/react-way-getting-started
 
 !!!
 
