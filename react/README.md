@@ -8,6 +8,10 @@ https://facebook.github.io/react/docs/tutorial.html
 
 https://github.com/ReactTraining/react-router
 
+##### Isomoprhic React + Express
+
+https://medium.com/front-end-developers/handcrafting-an-isomorphic-redux-application-with-love-40ada4468af4#.n4z9pkj80
+
 ##### SEO
 
 http://andrewhfarmer.com/starter-project/
