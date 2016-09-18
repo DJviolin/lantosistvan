@@ -1,4 +1,4 @@
-const path = require('path');
+//const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -14,18 +14,12 @@ module.exports = {
       {
         test: /\.jsx?$/, // x is optional
         exclude: /(node_modules|bower_components)/,
-        //include: /components/,
+        //include: /src/,
         loader: 'babel-loader', // 'babel' and 'babel-loader' is also a legal name to reference
         query: {
           presets: ['react', 'es2015'],
         },
       },
-      /*{
-        test: /\.css$/,
-        exclude: /(node_modules|bower_components)/,
-        //include: /src/,
-        loader: 'style-loader!css-loader',
-      },*/
     ],
   },
   plugins: [
