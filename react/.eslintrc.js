@@ -35,8 +35,8 @@ module.exports = {
     "spaced-comment": "off",
     "no-console": "off",
     "import/no-extraneous-dependencies": "off",
+    "react/require-extension": "off",
     "react/prefer-es6-class": ["error", "never"],
-    //"react/require-extension": "off",
   },
   /*"rules": {
     // disable rules from base configurations
