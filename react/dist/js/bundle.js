@@ -47,7 +47,7 @@
 	'use strict';
 
 	// Webpack use this file for entry
-	__webpack_require__(88);
+	__webpack_require__(87);
 
 /***/ },
 /* 1 */
@@ -10531,39 +10531,6 @@
 
 /***/ },
 /* 86 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var styles = {
-	  //Styles
-	  body: {
-	    margin: 0,
-	    padding: 0,
-	    fontFamily: 'sans-serif'
-	  },
-	  App: {
-	    textAlign: 'center'
-	  },
-	  AppLogo: {
-	    animation: 'App-logo-spin infinite 20s linear',
-	    height: 80
-	  },
-	  AppHeader: {
-	    backgroundColor: '#222',
-	    height: 150,
-	    padding: 20,
-	    color: 'white'
-	  },
-	  AppIntro: {
-	    fontSize: 'large'
-	  }
-	};
-
-	module.exports = styles;
-
-/***/ },
-/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10578,7 +10545,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(86);
+	var _styles = __webpack_require__(88);
 
 	var _styles2 = _interopRequireDefault(_styles);
 
@@ -10638,7 +10605,7 @@
 	exports.default = App;
 
 /***/ },
-/* 88 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10651,7 +10618,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _App = __webpack_require__(87);
+	var _App = __webpack_require__(86);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -10660,6 +10627,58 @@
 	//import './index.css';
 
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
+
+/***/ },
+/* 88 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var fonts = {
+	  // serif
+	  Georgia: 'Georgia, \'Times New Roman\', Times, serif',
+	  Baskerville: 'Baskerville, \'Baskerville Old Face\', \'Hoefler Text\', Garamond, Times New Roman, serif',
+	  Garamond: 'Garamond, Baskerville, \'Baskerville Old Face\', \'Hoefler Text\', Times New Roman, serif',
+	  TimesNewRoman: 'TimesNewRoman, \'Times New Roman\', Times, Baskerville, Georgia, serif',
+	  // sans-serif
+	  Helvetica: '\'Helvetica Neue\', Helvetica, Arial, sans-serif',
+	  HelveticaNeue: '\'Helvetica Neue\', Helvetica, Arial, sans-serif',
+	  HelveticaNeueLight: '\'HelveticaNeue-Light\', \'Helvetica Neue Light\', \'Helvetica Neue\', Helvetica, Arial, \'Lucida Grande\', sans-serif',
+	  TrebuchetMS: '\'Trebuchet MS\', \'Lucida Sans Unicode\', \'Lucida Sans\', Tahoma, sans-serif',
+	  Verdana: 'Verdana, Geneva, sans-serif',
+	  GillSans: '\'Gill Sans\', \'Gill Sans MT\', Calibri, sans-serif',
+	  Futura: 'Futura, \'Trebuchet MS\', Arial, sans-serif'
+	};
+
+	var styles = {
+	  /*fonts: {
+	    Georgia: 'Georgia, \'Times New Roman\', Times, serif',
+	  },*/
+	  //Styles
+	  body: {
+	    margin: 0,
+	    padding: 0
+	  },
+	  App: {
+	    textAlign: 'center',
+	    fontFamily: fonts.Georgia
+	  },
+	  AppLogo: {
+	    animation: 'App-logo-spin infinite 20s linear',
+	    height: 80
+	  },
+	  AppHeader: {
+	    backgroundColor: '#222',
+	    height: 150,
+	    padding: 20,
+	    color: 'white'
+	  },
+	  AppIntro: {
+	    fontSize: 'large'
+	  }
+	};
+
+	module.exports = styles;
 
 /***/ },
 /* 89 */

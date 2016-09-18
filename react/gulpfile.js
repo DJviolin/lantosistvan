@@ -24,6 +24,7 @@ const paths = {
   ],
   js: [
     './src/js/*.jsx',
+    './src/js/*.js',
   ],
 };
 
