@@ -8,14 +8,33 @@ https://facebook.github.io/react/docs/tutorial.html
 
 https://github.com/ReactTraining/react-router
 
+##### React Components vs React.createClass
+
+https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html
+
+##### Inline styles benchmark
+
+https://ctheu.com/2015/08/17/react-inline-styles-vs-css-stupid-benchmark/
+
 ##### Inline styles management for React
 
 http://stack.formidable.com/radium/
+
+##### Universal app tutorials
+
+```
+https://scotch.io/tutorials/react-on-the-server-for-beginners-build-a-universal-react-and-node-app
+https://judo-heroes.herokuapp.com/
+```
+
+https://24ways.org/2015/universal-react/
 
 ##### Isomoprhic Starter kit
 
 https://github.com/paypal/react-engine
 https://github.com/paypal/generator-react-engine
+https://www.paypal-engineering.com/2015/04/27/isomorphic-react-apps-with-react-engine/
+https://dejanglozic.com/2015/07/06/paypal-you-got-me-at-isomorphic-reactjs/
 
 https://github.com/erikras/react-redux-universal-hot-example
 

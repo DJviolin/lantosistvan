@@ -34,9 +34,10 @@ module.exports = {
   "rules": {
     "spaced-comment": "off",
     "no-console": "off",
-    "import/no-extraneous-dependencies": "off",
-    "react/require-extension": "off",
-    "react/prefer-es6-class": ["error", "never"],
+    //"import/no-extraneous-dependencies": "off",
+    "react/require-extension": "off", // Atom error
+    //"react/prefer-es6-class": ["error", "never"],
+    //"react/prefer-stateless-function": "off",
   },
   /*"rules": {
     // disable rules from base configurations
