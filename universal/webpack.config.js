@@ -1,16 +1,33 @@
 const webpack = require('webpack');
-const path = require('path');
+//const path = require('path');
 //const debug = process.env.NODE_ENV !== 'production';
 
+/////////////////////////////////////////////////////////////
+// path.join Windows Hack
+// http://stackoverflow.com/a/33590800/1442219
+/////////////////////////////////////////////////////////////
+
+/*if (process.platform === ('win32' || 'win64')) {
+  path.join2 = path.join;
+  path.sep = '/';
+  path.join = (...args) => {
+    let res = path.join2.apply({}, args);
+    res = res.replace(/\\/g, path.sep);
+    return res;
+  };
+}*/
+
+/////////////////////////////////////////////////////////////
+// Webpack Config
+/////////////////////////////////////////////////////////////
+
 module.exports = {
-  // Important! Do not remove ''. If you do, imports without
-  // an extension won't work anymore!
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx'],
+    extensions: ['', '.js', '.json', '.jsx'], // Imports without extension ''
   },
-  entry: path.join(__dirname, 'shared', 'entry.js'),
+  //entry: path.join(__dirname, 'shared', 'entry.js'),
   output: {
-    path: path.join(__dirname, 'client', 'js'),
+    //path: path.join(__dirname, 'client', 'js'),
     filename: 'bundle.js',
   },
   //devtool: 'source-map',
@@ -25,8 +42,25 @@ module.exports = {
         loader: 'babel-loader', // 'babel' and 'babel-loader' is also a legal name to reference
         query: {
           cacheDirectory: 'babel_cache',
-          //presets: debug ? ['react', 'es2015', 'react-hmre'] : ['react', 'es2015'], // Also inserting Strict mode
+          // Also inserting Strict mode
+          //presets: debug ? ['react', 'es2015', 'react-hmre'] : ['react', 'es2015'],
           presets: ['react', 'es2015'], // Also inserting Strict mode
+        },
+      },
+      // JSON is not enabled by default in Webpack but both Node and Browserify
+      // allow it implicitly so we also enable it.
+      {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      // "file" loader makes sure those assets end up in the `build` folder.
+      // When you `import` an asset, you get its filename.
+      {
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        exclude: /\/favicon.ico$/,
+        loader: 'file',
+        query: {
+          name: 'images/webpack/[name].[hash:8].[ext]',
         },
       },
     ],
@@ -52,12 +86,19 @@ module.exports = {
       },
       mangle: true, // Variable name mangling
       sourceMap: false, // Map error message locations to modules
-      beautify: false,
+      //beautify: true,
       output: {
         comments: false,
         screw_ie8: true,
       },
       //dead_code: false,
     }),
+    /*new webpack.LoaderOptionsPlugin({
+      options: {
+        htmlLoader: {
+          whateverProp: true,
+        },
+      },
+    }),*/
   ],
 };

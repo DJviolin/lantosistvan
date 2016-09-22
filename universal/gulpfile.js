@@ -6,8 +6,8 @@
 
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const webpack = require('webpack');
-//const webpack = require('webpack-stream');
+//const webpack = require('webpack');
+const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 
 const rename = require('gulp-rename');
@@ -24,7 +24,7 @@ const paths = {
     './client/images/**/*',
   ],
   js: [
-    './shared/entry/**/*.js',
+    './shared/**/*.js',
   ],
 };
 
@@ -80,13 +80,13 @@ gulp.task('css', gulp.series('stylus', 'minify-css'));
 /////////////////////////////////////////////////////////////
 
 // Webpack
-/*gulp.task('webpack', () =>
+gulp.task('webpack', () =>
   gulp.src('./shared/entry.js')
     .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest('./client/js'))
-);*/
+    .pipe(gulp.dest('./client'))
+);
 
-gulp.task('webpack', (callback) => {
+/*gulp.task('webpack', (callback) => {
   // run webpack
   webpack({
     // configuration
@@ -98,17 +98,18 @@ gulp.task('webpack', (callback) => {
     }));
     callback();
   });
-});
+});*/
 
 // Uglify
-gulp.task('uglify', () =>
+/*gulp.task('uglify', () =>
   gulp.src('./client/js/bundle.js')
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('./client/js'))
-);
+);*/
 
-gulp.task('js', gulp.series('webpack', 'uglify'));
+//gulp.task('js', gulp.series('webpack', 'uglify'));
+gulp.task('js', gulp.series('webpack'));
 
 /////////////////////////////////////////////////////////////
 // INIT: APP

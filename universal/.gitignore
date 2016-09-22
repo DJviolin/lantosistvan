@@ -1,5 +1,4 @@
 babel_cache
 node_modules
 client/css/bundle.css
-client/js/bundle.js
-client/js/bundle.js.map
+client/bundle.js.map
