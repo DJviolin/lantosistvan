@@ -4,7 +4,6 @@
 //'use strict';
 
 require('babel-register')({
-  presets: ['node6'],
-  plugins: ['transform-async-to-generator']
+  presets: ['react', 'es2015'],
 });
-require('./server/bin/www');
+require('./app/bin/www');

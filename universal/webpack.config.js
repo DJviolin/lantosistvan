@@ -15,9 +15,9 @@ module.exports = {
     //path: path.join(__dirname, 'client', 'js'),
     filename: 'bundle.js',
   },
-  //devtool: 'source-map',
+  devtool: 'source-map',
   //devtool: debug ? 'source-map' : null,
-  devtool: null,
+  //devtool: null,
   module: {
     loaders: [
       {

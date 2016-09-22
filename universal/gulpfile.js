@@ -10,6 +10,7 @@ const gutil = require('gulp-util');
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 
+const gls = require('gulp-live-server');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 //const concat = require('gulp-concat');
@@ -27,6 +28,21 @@ const paths = {
     './shared/**/*.js',
   ],
 };
+
+/////////////////////////////////////////////////////////////
+// SERVER
+/////////////////////////////////////////////////////////////
+
+const server = gls.new([
+  // https://github.com/nodejs/CTC/issues/7#issuecomment-229588116
+  // https://github.com/targos/node/tree/v8-5.2
+  //'--trace-deprecation', '--trace-sync-io', '--ignition', 'index',
+  '--trace-deprecation', 'index',
+  //{ env: { NODE_ENV: 'production' } }
+]);
+
+//you can access cwd args in `bin/www` via `process.argv`
+gulp.task('start', () => server.start());
 
 /////////////////////////////////////////////////////////////
 // CSS
@@ -115,11 +131,15 @@ gulp.task('js', gulp.series('webpack'));
 // INIT: APP
 /////////////////////////////////////////////////////////////
 
-gulp.task('app', gulp.parallel('css', /*'images', */'js'));
+gulp.task('app', gulp.parallel('start', 'css', /*'images', */'js'));
 
 /////////////////////////////////////////////////////////////
 // WATCH
 /////////////////////////////////////////////////////////////
+
+gulp.task('watch:start', () =>
+  gulp.watch(paths.app, gulp.series('start'), file => server.notify.apply(server, [file])) // server.start
+);
 
 gulp.task('watch:css', () =>
   gulp.watch(paths.css, gulp.series('css'))
@@ -133,7 +153,7 @@ gulp.task('watch:js', () =>
   gulp.watch(paths.js, gulp.series('js'))
 );
 
-gulp.task('watch', gulp.parallel('watch:css', /*'watch:images', */'watch:js'));
+gulp.task('watch', gulp.parallel('watch:start', 'watch:css', /*'watch:images', */'watch:js'));
 
 /////////////////////////////////////////////////////////////
 // EXECUTE GULP
