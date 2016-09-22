@@ -3,21 +3,6 @@ const webpack = require('webpack');
 //const debug = process.env.NODE_ENV !== 'production';
 
 /////////////////////////////////////////////////////////////
-// path.join Windows Hack
-// http://stackoverflow.com/a/33590800/1442219
-/////////////////////////////////////////////////////////////
-
-/*if (process.platform === ('win32' || 'win64')) {
-  path.join2 = path.join;
-  path.sep = '/';
-  path.join = (...args) => {
-    let res = path.join2.apply({}, args);
-    res = res.replace(/\\/g, path.sep);
-    return res;
-  };
-}*/
-
-/////////////////////////////////////////////////////////////
 // Webpack Config
 /////////////////////////////////////////////////////////////
 
