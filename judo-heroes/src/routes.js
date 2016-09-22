@@ -1,4 +1,4 @@
-// app/routes.js
+// src/routes.js
 import React, { Component } from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Layout from './components/Layout';

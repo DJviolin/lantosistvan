@@ -1,4 +1,4 @@
-// app/components/AthletesMenu.js
+// src/components/AthletesMenu.js
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import athletes from '../data/athletes';

@@ -6,4 +6,5 @@
 require('babel-register')({
   presets: ['react', 'es2015'],
 });
-require('./app/bin/www');
+//require('./app/bin/www');
+require('./app/server');

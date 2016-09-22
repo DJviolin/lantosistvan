@@ -1,4 +1,4 @@
-// app/components/Flag.js
+// src/components/Flag.js
 import React, { Component } from 'react';
 
 const data = {
@@ -30,7 +30,7 @@ class Flag extends Component {
     const icon = data[this.props.code].icon;
     return (
       <span className="flag">
-        <img className="icon" title={name} src={`/images/${icon}`} alt="" />
+        <img className="icon" title={name} src={`/img/${icon}`} alt="" />
         {this.props.showName && <span className="name"> {name}</span>}
       </span>
     );

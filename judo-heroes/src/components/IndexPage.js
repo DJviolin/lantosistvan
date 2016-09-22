@@ -1,4 +1,4 @@
-// app/components/IndexPage.js
+// src/components/IndexPage.js
 import React, { Component } from 'react';
 import AthletePreview from './AthletePreview';
 import athletes from '../data/athletes';

@@ -1,4 +1,4 @@
-// app/components/Layout.js
+// src/components/Layout.js
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 

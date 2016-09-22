@@ -1,4 +1,4 @@
-// app/app-client.js
+// src/app-client.js
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import AppRoutes from './components/AppRoutes';

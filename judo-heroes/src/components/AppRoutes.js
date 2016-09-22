@@ -1,4 +1,4 @@
-// app/components/AppRoutes.js
+// src/components/AppRoutes.js
 import React, { Component } from 'react';
 import { Router, browserHistory } from 'react-router';
 import routes from '../routes';
