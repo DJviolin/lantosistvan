@@ -42,7 +42,7 @@ module.exports = {
       },
     }),
     new webpack.optimize.DedupePlugin(), // removes all the duplicated files
-    new webpack.optimize.OccurenceOrderPlugin(), // helps in reducing the file size
+    new webpack.optimize.OccurrenceOrderPlugin(), // helps in reducing the file size
     //new webpack.HotModuleReplacementPlugin(), // For hot reloading
     new webpack.NoErrorsPlugin(), // Webpack won't compile if finds errors
     new webpack.optimize.UglifyJsPlugin({
