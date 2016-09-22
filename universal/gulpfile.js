@@ -61,7 +61,7 @@ gulp.task('minify-css', () =>
       )
     ))
     .pipe(rename({ /*basename: 'bundle',*/ extname: '.min.css' }))
-    .pipe(gulp.dest('./client/css'))
+    .pipe(gulp.dest('./app/public/css'))
 );
 
 gulp.task('css', gulp.series('stylus', 'minify-css'));
@@ -83,7 +83,7 @@ gulp.task('css', gulp.series('stylus', 'minify-css'));
 gulp.task('webpack', () =>
   gulp.src('./shared/entry.js')
     .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest('./client'))
+    .pipe(gulp.dest('./app/public/js'))
 );
 
 /*gulp.task('webpack', (callback) => {
