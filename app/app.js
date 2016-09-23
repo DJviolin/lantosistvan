@@ -33,6 +33,8 @@ const tag = require('./routes/blog-tag');
 const contact = require('./routes/contact');
 const tube = require('./routes/tube');
 
+const test = require('./routes/api-test');
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,6 +46,10 @@ const app = express();
 // http://enable-cors.org/server_expressjs.html
 // https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication
 // https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
+// https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+// Standard is JSON Web Tokens: https://scotch.io/tutorials/the-anatomy-of-a-json-web-token
+// https://jwt.io/ | https://auth0.com/ | https://github.com/auth0/node-jsonwebtoken
+// https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4
 // Tokens stored on client side, not sent by server every request like regular auth.
 // `*` in the ACAO header is that it does not allow requests to supply credentials
 // like HTTP authentication, client-side SSL certificates, or cookies.
@@ -242,6 +248,7 @@ app.locals.actualYear = new Date().getFullYear();
 
 // API
 app.use('/api', api);
+app.use('/api-test', test);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS

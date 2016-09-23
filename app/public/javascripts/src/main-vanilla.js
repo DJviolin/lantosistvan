@@ -114,7 +114,7 @@ if (document.body.classList.contains('contact')) {
 // http://www.tutorialspoint.com/websockets/websockets_events_actions.htm
 /////////////////////////////////////////////////////////////
 
-(function() {
+/*(function() {
   if (document.body.classList.contains('contact')) {
 
     //var socket = new WebSocket('ws://127.0.0.1:8081/echo');
@@ -144,7 +144,7 @@ if (document.body.classList.contains('contact')) {
     socket.emit('clientEvent', 'Sent an event from the client!');
 
   }
-})();
+})();*/
 
 /////////////////////////////////////////////////////////////
 // HTML5 Form Error Messages - Vanilla JS AND AJAX

@@ -1,3 +1,14 @@
+## React-router and express
+
+http://stackoverflow.com/questions/28553904/client-routing-using-react-router-and-server-side-routing
+
+https://ponyfoo.com/articles/universal-routing-react-es6
+
+https://github.com/ryanflorence/react-router-mega-demo
+
+https://github.com/insin/isomorphic-lab
+https://isomorphic-lab.herokuapp.com/
+
 ## ES6 Arrow functions: 'concise body' vs 'block body'
 
 ```
