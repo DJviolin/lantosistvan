@@ -1,3 +1,22 @@
+## gulp
+
+```
+// ES6: 'use strict' is unnecessary inside of modules.
+// http://node.green
+// http://es6-features.org/#ExpressionBodies
+// http://es6-features.org/#DefaultParameterValues
+// http://es6-features.org/#StringInterpolation
+// http://es6-features.org/#CustomInterpolation
+// http://es6-features.org/#PropertyShorthand
+// http://es6-features.org/#ValueExportImport
+
+// https://gist.github.com/demisx/beef93591edc1521330a
+// http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
+// https://gist.github.com/CodeTheory/cc7d79d1dad0622a9f9c
+// https://blog.wearewizards.io/migrating-to-gulp-4-by-example
+// https://www.liquidlight.co.uk/blog/article/how-do-i-update-to-gulp-4/
+```
+
 ## Flexbox CHEATSHEET
 
 https://chriswrightdesign.com/experiments/flexbox-adventures/

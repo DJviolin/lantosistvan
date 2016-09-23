@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node --trace-deprecation --trace-sync-io --ignition ./index",
     "koa": "node --trace-deprecation --trace-sync-io --ignition --harmony ./koa/index",
-    "gulp": "gulp \"default\""
+    "gulp": "gulp \"default\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": ">= 6.0.0"

@@ -1,22 +1,4 @@
 'use strict';
-// ES6: 'use strict' is unnecessary inside of modules.
-// http://node.green
-// http://es6-features.org/#ExpressionBodies
-// http://es6-features.org/#DefaultParameterValues
-// http://es6-features.org/#StringInterpolation
-// http://es6-features.org/#CustomInterpolation
-// http://es6-features.org/#PropertyShorthand
-// http://es6-features.org/#ValueExportImport
-
-// https://gist.github.com/demisx/beef93591edc1521330a
-// http://stackoverflow.com/questions/32475614/gulp-4-gulpfile-js-set-up
-// https://gist.github.com/CodeTheory/cc7d79d1dad0622a9f9c
-// https://blog.wearewizards.io/migrating-to-gulp-4-by-example
-// https://www.liquidlight.co.uk/blog/article/how-do-i-update-to-gulp-4/
-
-/////////////////////////////////////////////////////////////
-// MODULE DEPENDENCIES
-/////////////////////////////////////////////////////////////
 
 // ES5
 const gulp = require('gulp');
@@ -27,19 +9,6 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const download = require('gulp-download');
 const replace = require('gulp-replace');
-
-/*// ES6
-// Modules will be supported from Node v7
-// https://github.com/nodejs/help/issues/53
-import gulp from 'gulp';
-//import {src, dest, watch, parallel, series} from 'gulp';
-import gls from 'gulp-live-server';
-import rename from 'gulp-rename';
-import stylus from 'gulp-stylus';
-import cleanCSS from 'gulp-clean-css';
-import uglify from 'gulp-uglify';
-import download from 'gulp-download';
-import replace from 'gulp-replace';*/
 
 const paths = {
   styles: {
@@ -77,10 +46,7 @@ const paths = {
 /////////////////////////////////////////////////////////////
 
 const server = gls.new([
-  // https://github.com/nodejs/CTC/issues/7#issuecomment-229588116
-  // https://github.com/targos/node/tree/v8-5.2
-  //'--trace-deprecation', '--trace-sync-io', '--ignition', 'index',
-  '--trace-deprecation', '--trace-sync-io', 'index',
+  '--trace-deprecation', '--trace-sync-io', '--ignition', 'index',
   //{ env: { NODE_ENV: 'production' } }
 ]);
 

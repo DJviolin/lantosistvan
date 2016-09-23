@@ -1,11 +1,9 @@
-'use strict';
-
-const express = require('express'),
-      router  = express.Router();
+const express = require('express');
+const router = express.Router();
 //const glob    = require('glob');
 
-const functions = require('../lib/functions'),
-      fsAsync   = functions.fsAsync;
+const functions = require('../lib/functions');
+const fsAsync = functions.fsAsync;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -94,7 +92,7 @@ router.get('/', (req, res) => {
         description: 'Home page',
         keywords: 'wedding,photography,film,lantos,istvan',
         data: gallery,
-        latestPosts: json
+        latestPosts: json,
       });
     })
     .catch((err) => {
@@ -104,7 +102,7 @@ router.get('/', (req, res) => {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404'
+        keywords: 'error,404',
       });
     });
 });
