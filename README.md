@@ -140,6 +140,7 @@ $ "C:\mongodb\bin\mongod.exe" --config "C:\mongodb\mongod.cfg" --install
 $ net start MongoDB
 $ mongo
 $ help
+> db.test.find().pretty()
 $ exit
 $ net stop MongoDB
 $ "C:\mongodb\bin\mongod.exe" --remove

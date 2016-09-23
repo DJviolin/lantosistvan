@@ -194,6 +194,7 @@ const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 const config = require('./config/db'); // get our config file
 //const User = require('./models/user'); // get our mongoose model
 
+// http://mongoosejs.com/docs/promises.html
 mongoose.connect(config.database); // connect to database
 app.set('superSecret', config.secret); // secret variable
 
