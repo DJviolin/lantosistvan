@@ -1,3 +1,11 @@
+## ES6 Arrow functions: 'concise body' vs 'block body'
+
+```
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Function_body
+// var func = x => x * x;                  // concise syntax, implied "return"
+// var func = (x, y) => { return x + y; }; // with block body, explicit "return" needed
+```
+
 ## gulp
 
 ```
