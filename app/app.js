@@ -40,6 +40,14 @@ const tube = require('./routes/tube');
 const app = express();
 //app.set('strict routing', false);
 
+// Set headers
+// http://enable-cors.org/server_expressjs.html
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CUSTOM CONSOLE
 // https://nodejs.org/api/console.html
