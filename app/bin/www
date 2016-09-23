@@ -41,18 +41,6 @@ app.set('port', port);
 app.set('trust proxy', true);
 app.set('x-powered-by', false);
 
-// Set headers
-// http://enable-cors.org/server_expressjs.html
-app.use((req, res, next) => {
-  //res.set('Access-Control-Allow-Origin', '*');
-  //res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.set({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-  });
-  next();
-});
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Debugging
 // https://expressjs.com/en/advanced/best-practice-performance.html
