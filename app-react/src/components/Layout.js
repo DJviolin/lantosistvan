@@ -8,7 +8,7 @@ class Layout extends Component {
       <div className="app-container">
         <header>
           <Link to="/">
-            <img src="/img/logo-judo-heroes.png" alt="" />
+            <img className="logo" src="/img/logo-judo-heroes.png" alt="" />
           </Link>
         </header>
         <div className="app-content">{this.props.children}</div>
