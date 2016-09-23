@@ -1,58 +1,47 @@
-module.exports = {
-  // http://eslint.org/docs/user-guide/configuring
-  // http://eslint.org/docs/rules/
-  // http://eslint.org/docs/user-guide/configuring#configuring-rules
-  // http://kangax.github.io/compat-table/es5/
-  // https://kangax.github.io/compat-table/es6/
-  // http://caniuse.com/#feat=es5
+// http://eslint.org/docs/user-guide/configuring
+// http://eslint.org/docs/rules/
+// http://eslint.org/docs/user-guide/configuring#configuring-rules
+// http://kangax.github.io/compat-table/es5/
+// https://kangax.github.io/compat-table/es6/
+// http://caniuse.com/#feat=es5
 
+module.exports = {
   "root": true,
+
+  "parser": "babel-eslint", // https://www.npmjs.com/package/babel-eslint
+
   //"extends": "eslint:recommended",
   "extends": "airbnb",
+
   "globals": {
     "jQuery": true,
     "$": true
   },
-  "env": {
+
+  env: {
     "es6": true,
     "browser": true,
     "node": true,
     "jquery": true
   },
-  // https://www.npmjs.com/package/babel-eslint
-  //"parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    //"sourceType": "module", // "script" or "module"
-    "sourceType": "script", // "script" or "module"
-    //"allowImportExportEverywhere": false,
-    "ecmaFeatures": {
-      //"modules": false,
-      "jsx": true
+
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module', // "script" or "module"
+    ecmaFeatures: {
+      jsx: true,
+      generators: true,
+      experimentalObjectRestSpread: true
     }
   },
+
   "rules": {
     "spaced-comment": "off",
     "no-console": "off",
-    "react/require-extension": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": "off",
+    "react/require-extension": "off", // Atom error
+    //"react/prefer-es6-class": ["error", "never"],
+    //"react/prefer-stateless-function": "off",
   },
-  /*"rules": {
-    // disable rules from base configurations
-    "no-console": "off",
-    // enable additional rules
-    "indent": ["off", 2],
-    "linebreak-style": ["error", "unix"],
-    // Own rules
-    "semi": ["error", "always"],
-    "eqeqeq": "warn",
-    "curly": ["error", "all"],
-    "strict": ["error", "global"],
-    //"strict": "off",
-    "quotes": ["warn", "single"],
-    "no-unused-vars": "warn",
-    "prefer-const": "warn",
-    "no-throw-literal": "error",
-    // Disallow Synchronous Methods
-    "no-sync": "error",
-  }*/
 }

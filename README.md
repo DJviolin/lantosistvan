@@ -117,6 +117,13 @@ $ chmod +x $HOME/bin/docker-compose
 $ source $HOME/.bashrc
 ```
 
+## Installed packages
+
+```
+$ npm install --save express body-parser cookie-parser compression serve-static method-override morgan debug socket.io express-handlebars glob request request-promise xml2js i18n connect-slashes helmet hpp nodemailer
+$ npm install --save-dev gulpjs/gulp#4.0 gulp-live-server gulp-stylus gulp-clean-css gulp-rename gulp-uglify gulp-download gulp-replace
+```
+
 ## PUBLIC API
 
 The following routes is exposed by the internal API (requires authentication):
