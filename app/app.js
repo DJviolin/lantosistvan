@@ -42,6 +42,13 @@ const app = express();
 
 // Set headers (before routes)
 // http://enable-cors.org/server_expressjs.html
+// https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication
+// https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
+// Tokens stored on client side, not sent by server every request like regular auth.
+// `*` in the ACAO header is that it does not allow requests to supply credentials
+// like HTTP authentication, client-side SSL certificates, or cookies.
+// We could even create a permission based token and pass this along to a third-party application,
+// to access only the information that we allowed with that specific token.
 app.use((req, res, next) => {
   //res.set('Access-Control-Allow-Origin', '*');
   //res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
