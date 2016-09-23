@@ -50,6 +50,7 @@ const app = express();
 // Standard is JSON Web Tokens: https://scotch.io/tutorials/the-anatomy-of-a-json-web-token
 // https://jwt.io/ | https://auth0.com/ | https://github.com/auth0/node-jsonwebtoken
 // https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4
+// https://www.sitepoint.com/creating-restful-apis-express-4/
 // Tokens stored on client side, not sent by server every request like regular auth.
 // `*` in the ACAO header is that it does not allow requests to supply credentials
 // like HTTP authentication, client-side SSL certificates, or cookies.

@@ -1,6 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const User = require('../models/user');
+
+const router = express.Router();
 
 /////////////////////////////////////////////////////////////
 // Json Web Token Test
@@ -10,7 +11,7 @@ router.get('/', (req, res) => {
   res.send('/api-test route works!');
 });
 
-router.route('/all')
+/*router.route('/all')
   .get((req, res) => {
     User.find((err, movies) => {
       if (err) {
@@ -18,7 +19,7 @@ router.route('/all')
       }
       return res.json(movies);
     });
-  });
+  });*/
 
 router.get('/setup', (req, res) => {
   // create a sample user
