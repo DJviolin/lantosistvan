@@ -33,7 +33,7 @@ const tag = require('./routes/blog-tag');
 const contact = require('./routes/contact');
 const tube = require('./routes/tube');
 
-const test = require('./routes/api-test');
+const user = require('./routes/user');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
@@ -185,6 +185,18 @@ app.use(compression()); // Gzip
 app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+// MONGOOSE
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+const config = require('./config/db'); // get our config file
+//const User = require('./models/user'); // get our mongoose model
+
+mongoose.connect(config.database); // connect to database
+app.set('superSecret', config.secret); // secret variable
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 // i18n translation
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -248,7 +260,7 @@ app.locals.actualYear = new Date().getFullYear();
 
 // API
 app.use('/api', api);
-app.use('/api-test', test);
+app.use('/user', user);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS
