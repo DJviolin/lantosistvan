@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// Models
+const User = require('../models/user');
+
 /*router.route('/test')
   .get((req, res) => {
     const html =
@@ -20,11 +23,13 @@ const router = express.Router();
     res.send(html);
   });*/
 
+
+
+
 router.route('/')
   .get((req, res) => {
-    res.render('admin_index', {
-      layout: 'admin',
-      bodyClass: 'index',
+    res.render('profile_index', {
+      layout: 'profile',
     });
   })
   .post((req, res) => {
@@ -40,7 +45,21 @@ router.route('/')
       Password: ${password}<br>\n\
       Logged in: ${keepMeBool}<br>\n\
       <a href="/admin">Go back</a>`;
-    res.send(html);
+
+    const newUser = new User({
+      name: username,
+      password: password,
+      admin: true,
+    });
+    // save the sample user
+    newUser.save((err) => {
+      if (err) throw err;
+      console.log('User saved successfully');
+      //res.json({ success: true });
+      res.send(html);
+    });
+
+    //res.send(html);
   });
 
 /////////////////////////////////////////////////////////////
