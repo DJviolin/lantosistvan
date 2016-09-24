@@ -44,20 +44,29 @@ router.route('/')
       `Username: ${username}<br>\n\
       Password: ${password}<br>\n\
       Logged in: ${keepMeBool}<br>\n\
-      <a href="/admin">Go back</a>`;
+      <a href="/profile">Go back</a>`;
 
-    // TODO: If user already exist in database, not create a new record!
     const newUser = new User({
       name: username,
       password: password,
       admin: true,
     });
-    // save the sample user
-    newUser.save((err) => {
+
+    // Check if user existing
+    User.findOne({
+      name: req.body.username,
+    }, (err, user) => {
       if (err) throw err;
-      console.log('User saved successfully');
-      //res.json({ success: true });
-      res.send(html);
+      if (user) {
+        res.json({ success: false, message: 'Registration failed. Username / Email already exists.' });
+      } else {
+        // save the sample user
+        newUser.save((error) => {
+          if (error) throw error;
+          console.log('User saved successfully');
+          res.send(html);
+        });
+      }
     });
 
     //res.send(html);
