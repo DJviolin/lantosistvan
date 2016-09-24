@@ -190,13 +190,13 @@ app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+//const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 const config = require('./config/db'); // get our config file
 //const User = require('./models/user'); // get our mongoose model
 
 // http://mongoosejs.com/docs/promises.html
 mongoose.connect(config.database); // connect to database
-app.set('superSecret', config.secret); // secret variable
+app.set('jwtTokenSecret', config.secret); // secret variable
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // i18n translation

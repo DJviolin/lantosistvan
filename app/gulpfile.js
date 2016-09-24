@@ -45,7 +45,8 @@ const paths = {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const server = gls.new([
-  '--trace-deprecation', '--trace-sync-io', '--ignition', 'index',
+  //'--trace-deprecation', '--trace-sync-io', '--ignition', 'index',
+  '--trace-deprecation', '--ignition', 'index',
   //{ env: { NODE_ENV: 'production' } }
 ]);
 
