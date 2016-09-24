@@ -41,6 +41,7 @@ router.get('/setup', (req, res) => {
 });
 
 // route to authenticate a user (POST http://127.0.0.1:8081/user/authenticate)
+// Can be Login page
 router.post('/authenticate', (req, res) => {
   // find the user
   User.findOne({
