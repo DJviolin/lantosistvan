@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const multer = require('multer');
+//const multer = require('multer');
 //const cookieParser = require('cookie-parser'),
 const methodOverride = require('method-override');
 const compression = require('compression');
@@ -41,6 +41,7 @@ const user = require('./routes/user');
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const app = express();
+//const upload = multer(); // for parsing multipart/form-data
 //app.set('strict routing', false);
 
 // Set headers (before routes)

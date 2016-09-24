@@ -5,6 +5,76 @@ const router = express.Router();
 const functions = require('../lib/functions');
 const fsAsync = functions.fsAsync;
 
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+const multer = require('multer');
+const upload = multer(); // for parsing multipart/form-data
+// $ curl -d user=Lanti -H Accept:application/json --url http://127.0.0.1:8081/profile
+// $ curl -d user=Lanti --header "Content-Type: application/json" --url http://127.0.0.1:8081/profile
+// $ curl -d {"user":"Lanti"} -H Accept:application/json --url http://127.0.0.1:8081/profile
+// $ curl -d {"user":"Lanti"} -H "Content-Type: application/json" --url http://127.0.0.1:8081/profile
+//router.post('/profile', upload.array(), (req, res, next) => {
+/*router.post('/profile', (req, res, next) => {
+  console.log(JSON.stringify(req.body));
+  res.json(JSON.stringify(req.body));
+});*/
+
+// $ curl http://127.0.0.1:8081/hu/test
+/*router.get('/test', (req, res) => {
+  // The form's action is '/test' and its method is 'POST',
+  // so the `app.post('/test', ...` route will receive the
+  // result of our form
+  const html =
+  '<form action="/" method="post">\n\
+     Enter your name:\n\
+     <input type="text" name="userName" placeholder="..." />\n\
+     <br>\n\
+     <button type="submit">Submit</button>\n\
+  </form>';
+  res.send(html);
+});
+
+// This route receives the posted form.
+// As explained above, usage of 'body-parser' means
+// that `req.body` will be filled in with the form elements
+router.post('/test', (req, res) => {
+  const userName = req.body.userName;
+  const html =
+  `Hello: ${userName}.<br>\n\
+  <a href="/">Try again.</a>`;
+  res.send(html);
+});*/
+
+router.route('/test')
+  .get((req, res) => {
+    const html =
+      '<form action="" method="POST">\n\
+         Enter your name:\n\
+         <input type="text" name="userName" placeholder="..." />\n\
+         <br>\n\
+         <button type="submit">Submit</button>\n\
+      </form>';
+    res.send(html);
+  })
+  .post((req, res) => {
+    const userName = req.body.userName;
+    const html =
+      `Hello: ${userName}.<br>\n\
+      <a href="/">Try again.</a>`;
+    res.send(html);
+  });
+
+// POST /api/users gets JSON bodies
+router.post('/profile', jsonParser, (req, res) => {
+  if (!req.body) {
+    return res.sendStatus(400);
+  } else {
+    // create user in req.body
+    console.log(JSON.stringify(req.body));
+    return res.json(JSON.stringify(req.body));
+  }
+});
+
 /////////////////////////////////////////////////////////////
 // INTERNAL API
 // RETURNS JOURNAL FRONTPAGE
