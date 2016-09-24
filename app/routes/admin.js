@@ -20,17 +20,22 @@ const router = express.Router();
     res.send(html);
   });*/
 
-router.get('/', (req, res) => {
-  /*const html =
-    '<div>\n\
-       Admin page!\n\
-    </div>';
-  res.send(html);*/
-  res.render('admin_index', {
-    layout: 'admin',
-    bodyClass: 'index',
+router.route('/')
+  .get((req, res) => {
+    res.render('admin_index', {
+      layout: 'admin',
+      bodyClass: 'index',
+    });
+  })
+  .post((req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const html =
+      `Username: ${username}<br>\n\
+      Password: ${password}<br>\n\
+      <a href="/admin">Go back</a>`;
+    res.send(html);
   });
-});
 
 /////////////////////////////////////////////////////////////
 // INIT EXPRESS ROUTER
