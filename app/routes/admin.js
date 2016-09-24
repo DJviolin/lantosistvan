@@ -30,9 +30,19 @@ router.route('/')
   .post((req, res) => {
     const username = req.body.username;
     const password = req.body.password;
+
+    let loggedin = req.body.loggedin;
+    if (loggedin === 'true') {
+      loggedin = true;
+    } else {
+      loggedin = false;
+    }
+    console.log(loggedin);
+
     const html =
       `Username: ${username}<br>\n\
       Password: ${password}<br>\n\
+      Logged in: ${loggedin}<br>\n\
       <a href="/admin">Go back</a>`;
     res.send(html);
   });
