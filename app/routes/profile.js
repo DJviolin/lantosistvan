@@ -46,6 +46,7 @@ router.route('/')
       Logged in: ${keepMeBool}<br>\n\
       <a href="/admin">Go back</a>`;
 
+    // TODO: If user already exist in database, not create a new record!
     const newUser = new User({
       name: username,
       password: password,
