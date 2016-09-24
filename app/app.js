@@ -26,7 +26,7 @@ const helpers = require('./lib/helpers');
 // ROUTES - AKA: C(ontroller)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const admin = require('./routes/admin');
+const profile = require('./routes/profile');
 const api = require('./routes/api-external');
 const index = require('./routes/index');
 const blog = require('./routes/blog');
@@ -264,7 +264,7 @@ app.locals.actualYear = new Date().getFullYear();
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Admin
-app.use('/admin', admin);
+app.use('/profile', profile);
 
 // API
 app.use('/api', api);
