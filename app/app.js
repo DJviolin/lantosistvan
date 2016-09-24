@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const multer = require('multer');
 //const cookieParser = require('cookie-parser'),
 const methodOverride = require('method-override');
 const compression = require('compression');
