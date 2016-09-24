@@ -21,11 +21,15 @@ const router = express.Router();
   });*/
 
 router.get('/', (req, res) => {
-  const html =
+  /*const html =
     '<div>\n\
        Admin page!\n\
     </div>';
-  res.send(html);
+  res.send(html);*/
+  res.render('admin_index', {
+    layout: 'admin',
+    bodyClass: 'index',
+  });
 });
 
 /////////////////////////////////////////////////////////////
