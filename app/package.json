@@ -37,6 +37,7 @@
     "morgan": "^1.7.0",
     "multer": "^1.2.0",
     "nodemailer": "^2.6.4",
+    "pg": "^6.1.0",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
     "serve-static": "^1.11.1",
