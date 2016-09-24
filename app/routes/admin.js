@@ -31,14 +31,14 @@ router.route('/')
     const username = req.body.username;
     const password = req.body.password;
 
-    let loggedin = req.body.loggedin;
-    const loggedinBool = loggedin === 'true' ? loggedin = true : loggedin = false;
-    console.log(loggedinBool);
+    let keepMe = req.body.keepme;
+    const keepMeBool = keepMe === 'true' ? keepMe = true : keepMe = false;
+    console.log(keepMeBool);
 
     const html =
       `Username: ${username}<br>\n\
       Password: ${password}<br>\n\
-      Logged in: ${loggedinBool}<br>\n\
+      Logged in: ${keepMeBool}<br>\n\
       <a href="/admin">Go back</a>`;
     res.send(html);
   });
