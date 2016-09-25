@@ -201,6 +201,12 @@ const config = require('./config/db'); // get our config file
 mongoose.connect(config.database); // connect to database
 app.set('jwtTokenSecret', config.secret); // secret variable
 
+// Make our db accessible to our router
+/*app.use((req, res, next) => {
+  req.db = config.database;
+  next();
+});*/
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // i18n translation
 ////////////////////////////////////////////////////////////////////////////////////////////////////

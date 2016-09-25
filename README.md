@@ -140,7 +140,11 @@ $ "C:\mongodb\bin\mongod.exe" --config "C:\mongodb\mongod.cfg" --install
 $ net start MongoDB
 $ mongo
 $ help
-> db.test.find().pretty()
+> db.users.find().pretty()
+> db.users.insert({ "username" : "testuser1", "email" : "testuser1@testdomain.com" })
+>
+> newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" }, { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
+> db.users.insert(newstuff);
 $ exit
 $ net stop MongoDB
 $ "C:\mongodb\bin\mongod.exe" --remove

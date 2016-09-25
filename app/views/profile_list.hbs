@@ -1,0 +1,12 @@
+<div class="content">
+  <p>Users list!</p>
+
+  <ul>
+    {{#each userlist}}
+    <li><a href="mailto:{{this.name}}">{{this.password}}</a> - admin: {{this.admin}}</li>
+    {{else}}
+    <li>No items</li>
+    {{/each}}
+  </ul>
+
+</div><!-- .content -->

@@ -23,8 +23,25 @@ const User = require('../models/user');
     res.send(html);
   });*/
 
+// route to return all users (GET http://127.0.0.1:8081/profile/db)
+router.get('/db', (req, res) => {
+  User.find({}, (err, users) => {
+    if (err) throw err;
+    return res.json(users);
+  });
+});
 
-
+// route to return all users (GET http://127.0.0.1:8081/profile/userlist)
+router.get('/userlist', (req, res) => {
+  User.find({}, (err, users) => {
+    if (err) throw err;
+    //return res.json(users);
+    res.render('profile_list', {
+      layout: 'profile',
+      userlist: users,
+    });
+  });
+});
 
 router.route('/')
   .get((req, res) => {
@@ -68,7 +85,6 @@ router.route('/')
         });
       }
     });
-
     //res.send(html);
   });
 
