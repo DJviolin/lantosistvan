@@ -44,6 +44,37 @@ router.get('/', (req, res) => {
       console.log(resp);
     });
 
+    client.query(`
+      CREATE TABLE users (
+        id INTEGER,
+        username TEXT,
+        password TEXT,
+        privilege TEXT
+      );
+
+      INSERT INTO users (
+        id,
+        username,
+        password,
+        privilege
+      ) VALUES (
+        1,
+        'Lanti',
+        'password',
+        'admin'
+      );
+
+      SELECT * FROM users;
+    `, (err, result) => {
+      done(); //call `done()` to release the client back to the pool
+      if (err) {
+        return console.error('error running query', err);
+      }
+      //console.log(result.rows[0].number); // output: 1
+      const resp = result; // typeof => string
+      console.log(resp);
+    });
+
   });
   pool.on('error', (err, client) => {
     // if an error is encountered by a client while it sits idle in the pool
