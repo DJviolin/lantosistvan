@@ -1,3 +1,13 @@
+## postgres
+
+```
+\list or \l               list all databases
+\l+                       it shows the disk usage as well
+\dt                       list all tables in the current database
+\connect database_name
+\dt *.                    will list all tables in all schemas, without having to modify your search path
+```
+
 ## React-router and express
 
 http://stackoverflow.com/questions/28553904/client-routing-using-react-router-and-server-side-routing
