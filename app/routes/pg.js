@@ -30,13 +30,18 @@ router.get('/', (req, res) => {
       });
     });*/
 
-    client.query('SELECT datname FROM pg_database WHERE datistemplate = false;', (err, result) => {
+    client.query('\
+      SELECT datname \
+      FROM pg_database \
+      WHERE datistemplate = false;\
+    ', (err, result) => {
       done(); //call `done()` to release the client back to the pool
       if (err) {
         return console.error('error running query', err);
       }
       //console.log(result.rows[0].number); // output: 1
-      console.log(result.rows[0]);
+      const resp = result.rows[0].datname; // typeof => string
+      console.log(resp);
     });
 
   });
