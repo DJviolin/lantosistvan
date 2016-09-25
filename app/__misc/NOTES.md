@@ -6,6 +6,8 @@
 \dt                       list all tables in the current database
 \connect database_name
 \dt *.                    will list all tables in all schemas, without having to modify your search path
+\d+ users                 show details about the given table
+SELECT * FROM users;      selecting every row in a table
 ```
 
 ## React-router and express

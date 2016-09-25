@@ -45,7 +45,8 @@ router.get('/', (req, res) => {
     });
 
     client.query(`
-      CREATE TABLE users (
+      -- This is a single line comment
+      /* CREATE TABLE users (
         id INTEGER,
         username TEXT,
         password TEXT,
@@ -62,7 +63,7 @@ router.get('/', (req, res) => {
         'Lanti',
         'password',
         'admin'
-      );
+      ); */
 
       SELECT * FROM users;
     `, (err, result) => {
