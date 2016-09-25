@@ -100,21 +100,11 @@ router.get('/deleteuser/:id', (req, res) => {
     if (paramsId !== objectId) {
       res.json({ Error: 'ObjectId Not found' });
     } else {
-      //found.remove();
-      //res.redirect('/profile/userlist');
       found.remove(() => {
         console.log('User deleted successfully');
         res.redirect('/profile/userlist');
       });
     }
-    /*found.remove();
-    res.redirect('/profile/userlist');*/
-    /*if (!err) {
-      users[0].remove();
-      User.save((error) => {
-        res.redirect('/profile/userlist');
-      });
-    }*/
   });
 });
 
