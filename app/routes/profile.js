@@ -89,11 +89,26 @@ router.route('/adduser')
     //res.send(html);
   });
 
-// GET http://127.0.0.1:8081/profile/deleteuser/57e57c767107c71504deb220
+// GET http://127.0.0.1:8081/profile/deleteuser/57e787f2b6fd6509fc64c24c
 router.get('/deleteuser/:id', (req, res) => {
   User.findById(req.params.id, (err, found) => {
     if (err) throw err;
-    res.json(found.name);
+    const paramsId = parseInt(req.params.id, 16);
+    const objectId = parseInt(found._id, 16)
+    //console.log(typeof paramsId);
+    //console.log(typeof objectId);
+    if (paramsId !== objectId) {
+      res.json({ Error: 'ObjectId Not found' });
+    } else {
+      //found.remove();
+      //res.redirect('/profile/userlist');
+      found.remove(() => {
+        console.log('User deleted successfully');
+        res.redirect('/profile/userlist');
+      });
+    }
+    /*found.remove();
+    res.redirect('/profile/userlist');*/
     /*if (!err) {
       users[0].remove();
       User.save((error) => {
