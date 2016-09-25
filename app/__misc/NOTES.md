@@ -1,5 +1,7 @@
 ## postgres
 
+https://github.com/brianc/node-postgres/wiki/FAQ
+
 ```
 \list or \l               list all databases
 \l+                       it shows the disk usage as well

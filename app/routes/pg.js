@@ -77,9 +77,17 @@ router.get('/', (req, res) => {
     });
 
     client.query('SELECT * FROM users;', (err, result) => {
-      console.log('Returned rows:', result.rows.map((f) => {
+      // Count of columns
+      const columnCount = result.fields.length;
+      console.log('Count of columns: ', columnCount);
+      // Count of rows
+      const rowsCount = result.rows.length;
+      console.log('Count of rows: ', rowsCount);
+      // Returned rows
+      const rowsLoop = result.rows.map((f) => {
         return f.username;
-      }).join(', '));
+      }).join(', ')
+      console.log('Returned rows: ', rowsLoop);
     });
 
   });
