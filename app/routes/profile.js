@@ -81,7 +81,8 @@ router.route('/')
         newUser.save((error) => {
           if (error) throw error;
           console.log('User saved successfully');
-          res.send(html);
+          //res.send(html);
+          res.redirect('/profile/userlist');
         });
       }
     });
