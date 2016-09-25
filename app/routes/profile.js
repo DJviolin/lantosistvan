@@ -89,12 +89,12 @@ router.route('/adduser')
     //res.send(html);
   });
 
-// GET http://127.0.0.1:8081/profile/deleteuser/57e787f2b6fd6509fc64c24c
+// GET http://127.0.0.1:8081/profile/deleteuser/57e6dbc7f2995718bc1810d1
 router.get('/deleteuser/:id', (req, res) => {
   User.findById(req.params.id, (err, found) => {
     if (err) throw err;
-    const paramsId = parseInt(req.params.id, 16);
-    const objectId = parseInt(found._id, 16)
+    const paramsId = String(req.params.id);
+    const objectId = String(found._id);
     //console.log(typeof paramsId);
     //console.log(typeof objectId);
     if (paramsId !== objectId) {
