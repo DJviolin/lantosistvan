@@ -72,8 +72,14 @@ router.get('/', (req, res) => {
         return console.error('error running query', err);
       }
       //console.log(result.rows[0].number); // output: 1
-      const resp = result; // typeof => string
+      const resp = result.rows; // typeof => string
       console.log(resp);
+    });
+
+    client.query('SELECT * FROM users;', (err, result) => {
+      console.log('Returned rows:', result.rows.map((f) => {
+        return f.username;
+      }).join(', '));
     });
 
   });

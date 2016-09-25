@@ -8,6 +8,7 @@
 \dt *.                    will list all tables in all schemas, without having to modify your search path
 \d+ users                 show details about the given table
 SELECT * FROM users;      selecting every row in a table
+INSERT INTO users (id, username, password, privilege) VALUES (2, 'userTwo', 'pass2', 'user');
 ```
 
 ## React-router and express
