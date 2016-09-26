@@ -5,7 +5,7 @@ const pool = require('../sql/config/pgConfig');
 const query = require('../sql/config/pgQuery');
 router.post('/', (req, res, next) => {
   const text = `
-    INSERT INTO users (
+    /* INSERT INTO users (
       id,
       username,
       password,
@@ -15,17 +15,19 @@ router.post('/', (req, res, next) => {
       $2,
       $3,
       $4
-    )
+    ); */
+    SELECT * FROM users;
   `;
-  const values = [
+  /*const values = [
     req.body.id,
     req.body.username,
     req.body.password,
     req.body.privilege,
-  ];
+  ];*/
+  const values = [];
   query(text, values, (err, rows) => {
     if (err) return next(err);
-    console.log('POST finished!');
+    console.log('POST finished!: ', rows);
     res.status(204).end();
   });
   res.redirect('back');
@@ -35,7 +37,7 @@ router.post('/', (req, res, next) => {
 router.get('/', (req, res) => {
   // to run a query we can acquire a client from the pool,
   // run a query on the client, and then return the client to the pool
-  pool.connect((err, client, done) => {
+  /*pool.connect((err, client, done) => {
     if (err) throw console.error('error fetching client from pool', err);
 
     /*client.query('SELECT $1::int AS number', ['1'], (err, result) => {
@@ -60,7 +62,7 @@ router.get('/', (req, res) => {
       });
     });*/
 
-    client.query('\
+    /*client.query('\
       SELECT datname \
       FROM pg_database \
       WHERE datistemplate = false;\
@@ -93,7 +95,7 @@ router.get('/', (req, res) => {
         'Lanti',
         'password',
         'admin'
-      ); */
+      ); *
 
       SELECT * FROM users;
     `, (err, result) => {
@@ -129,7 +131,7 @@ router.get('/', (req, res) => {
     // between your application and the database, the database restarts, etc.
     // and so you might want to handle it and at least log it out
     console.error('idle client error', err.message, err.stack);
-  });
+  });*/
 
   res.render('profile_index', {
     layout: 'profile',
