@@ -1,5 +1,16 @@
 const pool = require('./pg');
 
+/*module.exports = {
+   query: (text, values, cb) => {
+      pg.connect((err, client, done) => {
+        client.query(text, values, (err, result) => {
+          done();
+          cb(err, result);
+        });
+      });
+   },
+};*/
+
 //I have omitted logging, but my function is usually sprinkled with logs
 module.exports = (queryText, queryValues, cb) => {
    pool.connect((err, client, release) => {

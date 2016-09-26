@@ -31,14 +31,3 @@ const pgConfig = {
 const pool = new pg.Pool(pgConfig);
 
 module.exports = pool;
-
-/*module.exports = {
-   query: (text, values, cb) => {
-      pg.connect((err, client, done) => {
-        client.query(text, values, (err, result) => {
-          done();
-          cb(err, result);
-        });
-      });
-   },
-};*/
