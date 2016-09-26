@@ -23,8 +23,9 @@ router.post('/', (req, res, next) => {
     req.body.password,
     req.body.privilege,
   ];
-  query(text, values, (err, rows, res) => {
+  query(text, values, (err, rows) => {
     if (err) return next(err);
+    console.log('POST finished!');
     res.status(204).end();
   });
   res.redirect('back');
