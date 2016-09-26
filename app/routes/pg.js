@@ -4,13 +4,30 @@ const pool = require('../sql/config/pgConfig');
 
 const query = require('../sql/config/pgQuery');
 router.post('/', (req, res, next) => {
-  const text = 'SELECT * FROM users;';
-  //const values = ['Username'];
+  const text = `
+    INSERT INTO users (
+      id,
+      username,
+      password,
+      privilege
+    ) VALUES (
+      $1,
+      $2,
+      $3,
+      $4
+    )
+  `;
+  const values = [
+    req.body.id,
+    req.body.username,
+    req.body.password,
+    req.body.privilege,
+  ];
   query(text, values, (err, rows, res) => {
     if (err) return next(err);
-    console.log(rows);
     res.status(204).end();
   });
+  res.redirect('back');
 });
 
 

@@ -194,11 +194,11 @@ app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 // MONGOOSE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const config = require('./config/db'); // get our config file
 // http://mongoosejs.com/docs/promises.html
 mongoose.connect(config.database); // connect to database
-app.set('jwtTokenSecret', config.secret); // secret variable
+app.set('jwtTokenSecret', config.secret); // secret variable*/
 
 //const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 //const User = require('./models/user'); // get our mongoose model
