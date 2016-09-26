@@ -1,4 +1,7 @@
-const pool = require('./pg');
+// https://gist.github.com/brianc/f906bacc17409203aee0
+// https://github.com/brianc/node-querybox
+
+const pool = require('./pgQuery');
 
 /*module.exports = {
    query: (text, values, cb) => {

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../config/pg');
+const pool = require('../sql/config/pgConfig');
 
 router.get('/', (req, res) => {
   // to run a query we can acquire a client from the pool,
