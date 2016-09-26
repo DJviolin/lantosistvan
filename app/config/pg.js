@@ -1,3 +1,17 @@
+// https://www.npmjs.com/package/pg
+// https://github.com/brianc/node-postgres
+// https://github.com/brianc/node-postgres/wiki/Extras
+// https://github.com/brianc/node-postgres/wiki/Example
+//
+// https://gist.github.com/brianc/6908287
+// https://gist.github.com/brianc/f906bacc17409203aee0
+// https://github.com/brianc/node-pg-query
+//
+// https://github.com/brianc/node-postgres/blob/master/script/create-test-tables.js
+// https://github.com/brianc/node-postgres/blob/master/script/dump-db-types.js
+// https://github.com/brianc/node-postgres/blob/master/script/list-db-types.js
+
+// Client pooling
 const pg = require('pg');
 // create a config to configure both pooling behavior
 // and client options
@@ -17,3 +31,14 @@ const pgConfig = {
 const pool = new pg.Pool(pgConfig);
 
 module.exports = pool;
+
+/*module.exports = {
+   query: (text, values, cb) => {
+      pg.connect((err, client, done) => {
+        client.query(text, values, (err, result) => {
+          done();
+          cb(err, result);
+        });
+      });
+   },
+};*/
