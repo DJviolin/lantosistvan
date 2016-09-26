@@ -2,6 +2,18 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../sql/config/pgConfig');
 
+const query = require('../sql/config/pgQuery');
+router.post('/', (req, res, next) => {
+  const text = 'SELECT * FROM users;';
+  //const values = ['Username'];
+  query(text, values, (err, rows, res) => {
+    if (err) return next(err);
+    console.log(rows);
+    res.status(204).end();
+  });
+});
+
+
 router.get('/', (req, res) => {
   // to run a query we can acquire a client from the pool,
   // run a query on the client, and then return the client to the pool
