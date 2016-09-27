@@ -1,38 +1,45 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../sql/config/pgConfig');
-
+//const pool = require('../sql/config/pgConfig');
 const query = require('../sql/config/pgQuery');
-router.post('/', (req, res, next) => {
-  const text = `
-    /* INSERT INTO users (
-      id,
-      username,
-      password,
-      privilege
-    ) VALUES (
-      $1,
-      $2,
-      $3,
-      $4
-    ); */
-    SELECT * FROM users;
-  `;
-  /*const values = [
-    req.body.id,
-    req.body.username,
-    req.body.password,
-    req.body.privilege,
-  ];*/
-  const values = [];
-  query(text, values, (err, rows) => {
-    if (err) return next(err);
-    console.log('POST finished!: ', rows);
-    res.status(204).end();
-  });
-  res.redirect('back');
-});
 
+router.route('/')
+  .get((req, res) => {
+    res.render('profile_index', {
+      layout: 'profile',
+    });
+  })
+  .post((req, res) => {
+    const text = `
+      /* INSERT INTO users (
+        id,
+        username,
+        password,
+        privilege
+      ) VALUES (
+        $1,
+        $2,
+        $3,
+        $4
+      ); */
+      SELECT * FROM users;
+    `;
+    /*const values = [
+      req.body.id,
+      req.body.username,
+      req.body.password,
+      req.body.privilege,
+    ];*/
+    const values = [];
+    query(text, values, (err, rows, all) => {
+      //if (err) return next(err);
+      if (err) throw err;
+      console.log('POST finished!: ', rows);
+      //console.log('POST finished! - ALL: ', all);
+      res.status(204).end();
+    });
+    res.redirect('back');
+  });
 
 router.get('/', (req, res) => {
   // to run a query we can acquire a client from the pool,
