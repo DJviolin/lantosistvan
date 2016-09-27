@@ -4,6 +4,9 @@
 
 // https://github.com/brianc/node-postgres/wiki/Parameterized-queries-and-Prepared-Statements
 // error: cannot insert multiple commands into a prepared statement
+// https://github.com/vitaly-t/pg-promise/wiki/SQL-Files
+// http://stackoverflow.com/questions/29100807/node-postgres-with-massive-amount-of-queries
+// https://github.com/vitaly-t/pg-promise-demo
 
 const pool = require('./pgConfig');
 

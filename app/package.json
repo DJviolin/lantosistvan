@@ -38,6 +38,7 @@
     "multer": "^1.2.0",
     "nodemailer": "^2.6.4",
     "pg": "^6.1.0",
+    "pg-promise": "^5.3.3",
     "querybox": "^0.2.0",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
