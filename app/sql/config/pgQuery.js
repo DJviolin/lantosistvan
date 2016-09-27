@@ -2,6 +2,9 @@
 // https://github.com/brianc/node-querybox
 // https://github.com/felixfbecker/node-sql-template-strings
 
+// https://github.com/brianc/node-postgres/wiki/Parameterized-queries-and-Prepared-Statements
+// error: cannot insert multiple commands into a prepared statement
+
 const pool = require('./pgConfig');
 
 /*module.exports = {
@@ -15,23 +18,16 @@ const pool = require('./pgConfig');
    },
 };*/
 
-// https://github.com/brianc/node-postgres/wiki/Parameterized-queries-and-Prepared-Statements
-// https://github.com/felixfbecker/node-sql-template-strings
-module.exports = function SQL(parts, ...values) {
-  return {
-    text: parts.reduce((prev, curr, i) => prev + '$' + i + curr),
-    values,
-  };
-};
-
 //I have omitted logging, but my function is usually sprinkled with logs
 module.exports = (text, values, cb) => {
+//module.exports = (text, cb) => {
   pool.connect((err, client, done) => {
     //connection failure
     //we don't need to release anything
     //because we were never handed a client in this case
     if (err) return cb(err);
     client.query(text, values, (err, result) => {
+    //client.query(text, (err, result) => {
       done(); // always call `done()` to release the client back to the pool
       if (err) return cb(err);
       //i like to return the rows directly since 99% of the time

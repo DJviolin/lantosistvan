@@ -43,6 +43,7 @@
     "request-promise": "^4.1.1",
     "serve-static": "^1.11.1",
     "socket.io": "^1.4.8",
+    "sql-template-strings": "^2.2.2",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {

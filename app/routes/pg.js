@@ -2,16 +2,39 @@ const express = require('express');
 const router = express.Router();
 //const pool = require('../sql/config/pgConfig');
 const query = require('../sql/config/pgQuery');
+//const SQL = require('../sql/config/pgSQL');
+//const SQL = require('sql-template-strings')
 
 router.route('/')
   .get((req, res) => {
+    const values = [];
+
+    query(`DROP TABLE IF EXISTS users`, values, (err, rows, all) => {
+      if (err) throw err;
+      console.log('DROP TABLE IF EXISTS users');
+      res.status(204).end();
+    });
+
+    const text = `CREATE TABLE IF NOT EXISTS users (
+      id SERIAL,
+      username TEXT,
+      password TEXT,
+      privilege TEXT,
+      date timestamptz
+    )`;
+    query(text, values, (err, rows, all) => {
+      if (err) throw err;
+      console.log('CREATE TABLE IF NOT EXISTS users');
+      res.status(204).end();
+    });
+
     res.render('profile_index', {
       layout: 'profile',
     });
   })
   .post((req, res) => {
     const text = `
-      /* INSERT INTO users (
+      INSERT INTO users (
         id,
         username,
         password,
@@ -21,20 +44,22 @@ router.route('/')
         $2,
         $3,
         $4
-      ); */
-      SELECT * FROM users;
+      );
+
+      -- SELECT * FROM users;
     `;
-    /*const values = [
+    const values = [
       req.body.id,
       req.body.username,
       req.body.password,
-      req.body.privilege,
-    ];*/
-    const values = [];
+      req.body.privilege || 'user',
+    ];
+    //const values = [];
     query(text, values, (err, rows, all) => {
+    //query(text, (err, rows, all) => {
       //if (err) return next(err);
       if (err) throw err;
-      console.log('POST finished!: ', rows);
+      console.log('INSERT INTO users: ', rows);
       //console.log('POST finished! - ALL: ', all);
       res.status(204).end();
     });
