@@ -18,7 +18,7 @@ const pool = require('./pgConfig');
    },
 };*/
 
-//I have omitted logging, but my function is usually sprinkled with logs
+/*//I have omitted logging, but my function is usually sprinkled with logs
 module.exports = (text, values, cb) => {
 //module.exports = (text, cb) => {
   pool.connect((err, client, done) => {
@@ -45,4 +45,39 @@ module.exports = (text, values, cb) => {
     // and so you might want to handle it and at least log it out
     console.error('idle client error', err.message, err.stack);
   });
-};
+};*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function promisePool() {
+  return new Promise((resolve, reject) => {
+    return (text, values, cb) => {
+      pool.connect((err, client, done) => {
+        if (err) { cb(err); return; }
+        client.query(text, values, (err, result) => {
+          done();
+          if (err) { reject(err); return; }
+          return resolve(cb(null, result.rows, result));
+        });
+      });
+    };
+  });
+}
+module.exports = promisePool;

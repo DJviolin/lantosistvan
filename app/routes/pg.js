@@ -5,7 +5,7 @@ const query = require('../sql/config/pgQuery');
 //const SQL = require('../sql/config/pgSQL');
 //const SQL = require('sql-template-strings')
 
-router.route('/')
+/*router.route('/')
   .get((req, res) => {
     const values = [];
 
@@ -64,7 +64,56 @@ router.route('/')
       res.status(204).end();
     });
     res.redirect('back');
+  });*/
+
+
+
+
+
+
+
+
+
+
+
+
+router.route('/')
+  .get((req, res) => {
+    const values = [];
+    query()
+      .then(`DROP TABLE IF EXISTS users`, values, (err, rows, all) => {
+        if (err) throw err;
+        console.log('DROP TABLE IF EXISTS users');
+        res.status(204).end();
+      })
+      .then(`
+        CREATE TABLE IF NOT EXISTS users (
+        id SERIAL,
+        username TEXT,
+        password TEXT,
+        privilege TEXT,
+        date timestamptz
+      )`, values, (err, rows, all) => {
+        if (err) throw err;
+        console.log('CREATE TABLE IF NOT EXISTS users');
+        res.status(204).end();
+      });
+    res.redirect('back');
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get('/', (req, res) => {
   // to run a query we can acquire a client from the pool,
