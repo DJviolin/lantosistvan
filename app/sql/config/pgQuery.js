@@ -1,5 +1,6 @@
 // https://gist.github.com/brianc/f906bacc17409203aee0
 // https://github.com/brianc/node-querybox
+// https://github.com/felixfbecker/node-sql-template-strings
 
 const pool = require('./pgConfig');
 
@@ -13,6 +14,14 @@ const pool = require('./pgConfig');
       });
    },
 };*/
+
+// https://github.com/brianc/node-postgres/wiki/Parameterized-queries-and-Prepared-Statements
+module.exports = function SQL(parts, ...values) {
+  return {
+    text: parts.reduce((prev, curr, i) => prev + '$' + i + curr),
+    values,
+  };
+};
 
 //I have omitted logging, but my function is usually sprinkled with logs
 module.exports = (text, values, cb) => {
