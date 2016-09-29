@@ -258,7 +258,7 @@ run the app on windows:
 
 ```
 $ npm outdated
-$ npm upgrade --all --save
+$ npm update --save
 ```
 
 #### Gulp
