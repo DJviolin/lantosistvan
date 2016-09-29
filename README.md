@@ -256,6 +256,11 @@ run the app on windows:
  > SET DEBUG=app:*,i18n:* & npm start
 ```
 
+```
+$ npm outdated
+$ npm upgrade --all --save
+```
+
 #### Gulp
 
 ```
