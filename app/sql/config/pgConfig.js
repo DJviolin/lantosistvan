@@ -12,6 +12,11 @@
 // https://github.com/brianc/node-postgres/blob/master/script/dump-db-types.js
 // https://github.com/brianc/node-postgres/blob/master/script/list-db-types.js
 
+// pg-promise
+// http://mherman.org/blog/2016/03/13/designing-a-restful-api-with-node-and-postgres/
+// http://programmers.stackexchange.com/a/279003/233099
+// http://bluebirdjs.com/docs/benchmarks.html
+
 // Client pooling
 const pg = require('pg');
 // create a config to configure both pooling behavior
