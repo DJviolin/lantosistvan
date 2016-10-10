@@ -273,6 +273,8 @@ run the app on windows:
 
 #### Fetch API vs AJAX
 
+http://stackoverflow.com/documentation/javascript/440/fetch
+
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
