@@ -271,6 +271,22 @@ run the app on windows:
  > SET DEBUG=app:*,i18n:*,gulp:*,gulp-live-server:* & npm run gulp
 ```
 
+#### Fetch API vs AJAX
+
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+https://davidwalsh.name/fetch
+
+https://www.sitepoint.com/introduction-to-the-fetch-api/
+
+Polyfill:
+
+https://github.com/github/fetch
+
+https://www.npmjs.com/package/isomorphic-fetch
+
 #### Express listening on res events
 
 listen for the close event on the response object for connection termination before the response could be completely sent.
