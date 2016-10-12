@@ -122,6 +122,9 @@ $ source $HOME/.bashrc
 ```
 $ npm install --save express body-parser cookie-parser compression serve-static method-override morgan debug socket.io express-handlebars glob request request-promise xml2js i18n connect-slashes helmet hpp nodemailer passport jsonwebtoken
 $ npm install --save-dev gulpjs/gulp#4.0 gulp-live-server gulp-stylus gulp-clean-css gulp-rename gulp-uglify gulp-download gulp-replace
+
+$ npm info "eslint-config-airbnb" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-optional "eslint-config-airbnb"
+$ npm install --save-optional eslint-config-airbnb eslint@^3.6.0 eslint-plugin-jsx-a11y@^2.2.2 eslint-plugin-import@^1.16.0 eslint-plugin-react@^6.3.0
 ```
 
 ## MongoDB
