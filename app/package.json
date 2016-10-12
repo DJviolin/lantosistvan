@@ -8,7 +8,7 @@
   "main": "./bin/www",
   "scripts": {
     "start": "node --trace-deprecation --trace-sync-io --ignition ./index",
-    "koa": "node --trace-deprecation --trace-sync-io --ignition --harmony ./koa/index",
+    "koa": "node --trace-deprecation --trace-sync-io --ignition --harmony_async_await ./koa/index",
     "gulp": "gulp \"default\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
