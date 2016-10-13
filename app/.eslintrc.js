@@ -8,10 +8,11 @@
 module.exports = {
   "root": true,
 
-  "parser": "babel-eslint", // https://www.npmjs.com/package/babel-eslint
+  //"parser": "babel-eslint", // https://www.npmjs.com/package/babel-eslint
 
   //"extends": "eslint:recommended",
-  "extends": "airbnb",
+  //"extends": "airbnb", // With React
+  "extends": "airbnb/base", // Without React
 
   "globals": {
     "jQuery": true,
