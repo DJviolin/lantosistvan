@@ -11,32 +11,32 @@ const replace = require('gulp-replace');
 
 const paths = {
   styles: {
-    stylus: 'public/stylesheets/src/main.styl',
-    css: 'public/stylesheets/src/main.css',
+    stylus: 'app/public/stylesheets/src/main.styl',
+    css: 'app/public/stylesheets/src/main.css',
   },
   app: [
-    'app.js',
-    'sockets.js',
-    'bin/www',
-    'routes/**/*.js',
-    'lib/**/*.js',
-    'config/**/*.js',
+    'app/app.js',
+    'app/sockets.js',
+    'app/bin/www',
+    'app/routes/**/*.js',
+    'app/lib/**/*.js',
+    'app/config/**/*.js',
   ],
   uglify: [
-    'public/javascripts/src/main-vanilla.js',
-    'public/javascripts/src/ajax-vanilla.js',
-    'public/javascripts/src/main-jquery.js',
-    'public/javascripts/src/slick.js',
+    'app/public/javascripts/src/main-vanilla.js',
+    'app/public/javascripts/src/ajax-vanilla.js',
+    'app/public/javascripts/src/main-jquery.js',
+    'app/public/javascripts/src/slick.js',
   ],
   vendor: [
     'https://raw.githubusercontent.com/jquery/jquery-dist/master/dist/jquery.min.js',
     'https://raw.githubusercontent.com/kenwheeler/slick/master/slick/slick.js',
   ],
   files: [
-    'views/*.hbs',
-    'views/**/*.hbs',
-    'database/data.json',
-    'locales/*.json',
+    'app/views/*.hbs',
+    'app/views/**/*.hbs',
+    'app/database/data.json',
+    'app/locales/*.json',
   ],
 };
 
@@ -62,7 +62,7 @@ gulp.task('stylus', () =>
   gulp.src(paths.styles.stylus)
     .pipe(stylus({ 'include css': true, compress: false }))
     .pipe(rename({ extname: '.css' }))
-    .pipe(gulp.dest('public/stylesheets/src'))
+    .pipe(gulp.dest('app/public/stylesheets/src'))
 );
 
 // MINIFY CSS
@@ -78,7 +78,7 @@ gulp.task('minify-css', () =>
       )
     ))
     .pipe(rename({ basename: 'style', extname: '.min.css' }))
-    .pipe(gulp.dest('public/stylesheets'))
+    .pipe(gulp.dest('app/public/stylesheets'))
 );
 
 gulp.task('css', gulp.series('stylus', 'minify-css'));
@@ -89,11 +89,11 @@ gulp.task('css', gulp.series('stylus', 'minify-css'));
 
 gulp.task('vendor', () =>
   download(paths.vendor)
-    .pipe(gulp.dest('public/vendor'))
+    .pipe(gulp.dest('app/public/vendor'))
 );
 
 gulp.task('slick', () =>
-  gulp.src(['public/vendor/slick.js'])
+  gulp.src(['app/public/vendor/slick.js'])
     .pipe(replace(
       /animProps\[_\.animType\] = 'translate3d\(' \+ targetLeft \+ 'px, 0px, 0px\)';/igm,
       'animProps[_.animType] = \'translate(\' + targetLeft + \'px, 0px)\'; // FIX BY LANTI'
@@ -110,7 +110,7 @@ gulp.task('slick', () =>
     .pipe(replace(/mozVisibilityState/igm, 'visibilityState'))
     .pipe(uglify({ output: { quote_style: 1 } }))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public/vendor'))
+    .pipe(gulp.dest('app/public/vendor'))
 );
 
 gulp.task('vendors', gulp.series('vendor', 'slick'));
@@ -123,7 +123,7 @@ gulp.task('uglify', () =>
   gulp.src(paths.uglify)
     .pipe(uglify({ output: { quote_style: 1 } }))
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('public/javascripts'))
+    .pipe(gulp.dest('app/public/javascripts'))
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

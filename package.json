@@ -7,8 +7,8 @@
   "private": true,
   "main": "./bin/www",
   "scripts": {
-    "start": "node --trace-deprecation --trace-sync-io --ignition ./index",
-    "koa": "node --trace-deprecation --trace-sync-io --ignition --harmony_async_await ./koa/index",
+    "start": "node --trace-deprecation --trace-sync-io --ignition ./app/index",
+    "koa": "node --trace-deprecation --trace-sync-io --ignition --harmony_async_await ./app/koa/index",
     "gulp": "gulp \"default\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -39,6 +39,7 @@
     "morgan": "^1.7.0",
     "multer": "^1.2.0",
     "nodemailer": "^2.6.4",
+    "nunjucks": "^2.5.2",
     "pg": "^6.1.0",
     "pg-promise": "^5.3.4",
     "querybox": "^0.2.0",
