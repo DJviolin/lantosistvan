@@ -149,7 +149,7 @@ log('process.env.NODE_ENV = %s', process.env.NODE_ENV);
 // VIEW ENGINE SETUP - AKA: V(iew)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const hbs = exphbs.create({
+/*const hbs = exphbs.create({
   extname: '.hbs',
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance
@@ -160,13 +160,13 @@ const hbs = exphbs.create({
 });
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
-//app.set('view cache', true);
+//app.set('view cache', true);*/
 
-/*app.set('view engine', 'nunjucks');
+app.set('view engine', 'nunjucks');
 nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
   autoescape: true,
   express: app,
-});*/
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // MODELS - AKA: M(odel)

@@ -17,9 +17,9 @@
 <main class="frontpage">
   <div class="content">
 
-    {{>welcome}}
+    {% include './partials/welcome.nunjucks' %}
 
-    {{>latest-posts}}
+    {% include './partials/latestPosts.nunjucks' %}
 
   </div><!-- .content -->
 </main><!-- main -->

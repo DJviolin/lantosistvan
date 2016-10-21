@@ -1,0 +1,30 @@
+<div class="latest-posts-title">
+  <h2 class="block-title big-text-light">{{{__ "Legfrissebb sorozatok"}}}</h2>
+</div><!-- latest-posts-title -->
+<div class="latest-posts">
+  {% for item in latestPosts.[0].articles %}
+    <a href="{{ language }}/blog/{{ item.url }}">
+      <article class="id-{{ item._id }}">
+        <img class="preview-image" src="{{ preview }}" alt="">
+        <div class="post-preview-hidden id-{{ item._id }}">
+          <div class="post-preview-header">
+            <!--<div class="drawing">
+              <img src="{{ item.drawing }}" alt="">
+            </div>-->
+            <div class="category">{{ item.category }}</div>
+            <h1>{{ item.title }}</h1>
+            <!--<div class="category">{{ item.category }}</div>-->
+            <div class="more">Tovább</div>
+          </div><!-- .post-preview-header -->
+        </div><!-- .post-preview-hidden.id-{{ item._id }} -->
+        <!--<img class="preview-image" src="{{ imagesFolder }}{{ preview }}" alt="">-->
+      </article><!-- article.id-{{ item._id }} -->
+    </a>
+
+    <!-- post -->
+
+  {% else %}
+    <h1>Error 404</h1>
+    <h2>Content not found</h2>
+  {% endfor %}
+</div><!-- .latest-posts -->
