@@ -35,7 +35,6 @@ const blog = require('./routes/blog');
 const category = require('./routes/blog-category');
 const tag = require('./routes/blog-tag');
 const contact = require('./routes/contact');
-const tube = require('./routes/tube');
 
 const user = require('./routes/user');
 
@@ -360,11 +359,6 @@ app.use('/contact', (req, res) =>
 app.use('/form', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/form`)
 );*/
-
-app.use('/:lang/tube', tube);
-app.use('/tube', (req, res) =>
-  res.status(302).redirect(`/${req.getLocale()}/tube`)
-);
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
