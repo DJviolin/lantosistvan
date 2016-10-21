@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const compression = require('compression');
 const serveStatic = require('serve-static');
 const exphbs = require('express-handlebars');
+const nunjucks = require('nunjucks');
 const logger = require('morgan');
 const debug = require('debug');
 //const winston = require('winston');
@@ -167,6 +168,12 @@ nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
   autoescape: true,
   express: app,
 });
+
+// Helpers: https://mozilla.github.io/nunjucks/api.html#custom-filters
+// https://mozilla.github.io/nunjucks/templating.html#string
+const env = new nunjucks.Environment();
+env.addFilter('i18nApi', (...args) => i18n.i18nApi.apply(this, args));
+env.addFilter('i18nApiN', (...args) => i18n.i18nApiN.apply(this, args));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // MODELS - AKA: M(odel)
