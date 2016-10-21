@@ -1,0 +1,6 @@
+{% include '../partials/mainTop.nunjucks' %}
+
+<body>
+  {% block content %}{% endblock %}
+</body>
+</html>
