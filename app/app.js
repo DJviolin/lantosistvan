@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const compression = require('compression');
 const serveStatic = require('serve-static');
-const exphbs = require('express-handlebars');
+//const exphbs = require('express-handlebars');
 const nunjucks = require('nunjucks');
 const logger = require('morgan');
 const debug = require('debug');
@@ -167,13 +167,21 @@ app.set('view engine', 'nunjucks');
 nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
   autoescape: true,
   express: app,
-});
+})
+  .addFilter('__', (...args) => i18n.__.apply(this, args))
+  .addFilter('__n', (...args) => i18n.__n.apply(this, args));
+  /*.addFilter('__', function () {
+    return i18n.__.apply(this, arguments);
+  })
+  .addFilter('__n', function () {
+    return i18n.__n.apply(this, arguments);
+  });*/
 
 // Helpers: https://mozilla.github.io/nunjucks/api.html#custom-filters
 // https://mozilla.github.io/nunjucks/templating.html#string
-const env = new nunjucks.Environment();
-env.addFilter('i18nApi', (...args) => i18n.i18nApi.apply(this, args));
-env.addFilter('i18nApiN', (...args) => i18n.i18nApiN.apply(this, args));
+/*const env = new nunjucks.Environment();
+env.addFilter('__', (...args) => i18n.__.apply(this, args));
+env.addFilter('__n', (...args) => i18n.__n.apply(this, args));*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // MODELS - AKA: M(odel)
@@ -253,8 +261,8 @@ i18n.configure({
   // on the request/response objects (method -> alias).
   // note that this will *not* overwrite existing properties with the same name
   api: {
-    i18nApi: '__',  // now req.__ becomes req.__
-    i18nApiN: '__n', // and req.__n can be called as req.__n
+    __: '__',  // now req.__ becomes req.__
+    __n: '__n', // and req.__n can be called as req.__n
   },
 });
 // init i18n module for this loop

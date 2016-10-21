@@ -1,7 +1,7 @@
 <div class="latest-posts-title">
-  <h2 class="block-title big-text-light">{{{__ "Legfrissebb sorozatok"}}}</h2>
+  <h2 class="block-title big-text-light">{{ "Legfrissebb sorozatok" | __ }}</h2>
 </div><!-- latest-posts-title -->
-<div class="latest-posts">
+{#<div class="latest-posts">
   {% for item in latestPosts.[0].articles %}
     <a href="{{ language }}/blog/{{ item.url }}">
       <article class="id-{{ item._id }}">
@@ -27,4 +27,4 @@
     <h1>Error 404</h1>
     <h2>Content not found</h2>
   {% endfor %}
-</div><!-- .latest-posts -->
+</div><!-- .latest-posts -->#}

@@ -4,21 +4,21 @@
       <aside>
         <h5 class="widget-title">
           <img src="/images/floral-art-003.png" class="widget-title-img">
-          {{{__ "Szolgáltatások"}}}
+          {{ "Szolgáltatások" | __ }}
         </h5>
-        <p><a href="{{ language }}/services">{{{__ "Információk &#38; csomagok"}}}</a></p>
+        <p><a href="{{ language }}/services">{{ "Információk &#38; csomagok" | __ }}</a></p>
       </aside>
       <aside>
         <h5 class="widget-title">
           <img src="/images/floral-art-002.png" class="widget-title-img">
-          {{{__ "Kapcsolat"}}}
+          {{ "Kapcsolat" | __ }}
         </h5>
-        <p><a href="{{ language }}/contact">{{{__ "Írj nekem"}}}</a></p>
+        <p><a href="{{ language }}/contact">{{ "Írj nekem" | __ }}</a></p>
       </aside>
       <aside>
         <h5 class="widget-title">
           <img src="/images/floral-art-001.png" class="widget-title-img">
-          {{{__ "Közösségi"}}}
+          {{ "Közösségi" | __ }}
         </h5>
         <div class="social-links">
           <a href="https://www.facebook.com/LantosIstvanPhotography" class="facebook"><i class="icon-facebook"></i></a>
@@ -29,11 +29,11 @@
       </aside>
     </div><!-- .row -->
     <div class="site-copyright">
-      <!--Copyright &#169; {{ actualYear }} <a href="http://lantosistvan.com">{{ siteName }}</a> | {{{__ "Wedding, Family, Portrait photography"}}}
+      <!--Copyright &#169; {{ actualYear }} <a href="http://lantosistvan.com">{{ siteName }}</a> | {{ "Wedding, Family, Portrait photography" | __ }}
       <br />
       Proudly powered by <a href="https://nodejs.org">Node.js</a> &#38; <a href="http://expressjs.com">Express</a> &#9774; &#9825;
       <br />
-      {{{__ "This site uses cookies!"}}}
+      {{ "This site uses cookies!" | __ }}
       <br />-->
       <!--Wedding, Family, Portrait Photography - &#169; István Lantos {{ actualYear }} <span class="pipe">|</span> <a href="https://nodejs.org">Node.js</a> &#38; <a href="http://expressjs.com">Express</a> <span class="pipe">|</span> Design by <a href="http://lantosistvan.com{{ language }}">LantosIstvan.com</a>
       <br />-->
