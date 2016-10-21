@@ -1,11 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html class="lang-{{langClass}}" lang="{{langClass}}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% if titleShown %}{{ title }} | {% endif %}{{ siteName }}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="keywords" content="{{keywords}}">
+  <meta name="author" content="info@lantosistvan.com">
+  <meta name="generator" content="Static pages built on Node.js, Express.js, Handlebars by Istvan Lantos">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/stylesheets/style.min.css">
   {% if ENV_DEVELOPMENT %}
     <script src="http://localhost:35729/livereload.js"></script>
   {% endif %}
 </head>
+<body class="{{ bodyClass }}">
+<!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
