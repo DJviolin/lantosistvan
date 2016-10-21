@@ -1,0 +1,39 @@
+<div class="toggle-mobile-nav">
+  <div class="menu-button">Menu <span>≡</span></div>
+</div>
+
+<div class="navigation">
+
+  <nav class="nav nav-left">
+    <ul>
+      <li><a href="{{language}}">{{{__ "Főoldal"}}}</a></li>
+      <li><a href="{{language}}/stories">{{{__ "Történetek"}}}</a>
+        <ul class="dropdown">
+          <li><a href="{{language}}/blog/szalai-family">{{{__ "Szalai család"}}}</a></li>
+          <li><a href="{{language}}/blog/peregi-family">{{{__ "Peregi család"}}}</a></li>
+          <li><a href="{{language}}/blog/barbi-balazs-wedding">Barbi &#38; Balázs</a></li>
+        </ul>
+      </li>
+      <li class="{{#if active.blog}}active{{/if}}"><a href="{{language}}/blog">{{{__ "Blog"}}}</a>
+        <ul class="dropdown">
+          <li><a href="{{language}}/blog">{{{__ "Összes"}}}</a></li>
+          <li><a href="{{language}}/category/wedding">{{{__ "Esküvő"}}}</a></li>
+          <li><a href="{{language}}/category/family">{{{__ "Család"}}}</a></li>
+          <li><a href="{{language}}/category/for-photographers">{{{__ "Fotósoknak"}}}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav><!-- nav.nav-left  -->
+
+  <div class="logo logo-nav">
+    <a href="{{language}}/"><img class="logo-svg" src="/images/lantosistvan-logo.png" srcset="/images/lantosistvan-logo@2x.png 2x, /images/lantosistvan-logo@3x.png 3x" alt="{{siteName}}" /></a>
+  </div>
+
+  <nav class="nav nav-right">
+    <ul>
+      <li class="{{#if active.information}}active{{/if}}"><a href="#">{{{__ "Info"}}}</a></li>
+      <li class="{{#if active.contact}}active{{/if}}"><a href="{{language}}/contact">{{{__ "Kapcsolat"}}}</a></li>
+    </ul>
+  </nav><!-- nav.nav-right  -->
+
+</div><!-- div.navigation -->

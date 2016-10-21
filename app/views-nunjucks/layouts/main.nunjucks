@@ -1,6 +1,13 @@
 {% include '../partials/mainTop.nunjucks' %}
 
-<body>
-  {% block content %}{% endblock %}
-</body>
-</html>
+{% include '../partials/header.nunjucks' %}
+
+<div class="container">
+
+{% block content %}{% endblock %}
+
+</div><!-- div.container -->
+
+{% include '../partials/footer.nunjucks' %}
+
+{% include '../partials/mainBottom.nunjucks' %}

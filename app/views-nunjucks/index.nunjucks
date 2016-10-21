@@ -1,6 +1,26 @@
 {% extends './layouts/main.nunjucks' %}
 
 {% block content %}
-  <h1>{{ title }}</h1>
-  <p>Welcome to {{ title }}</p>
+<div class="main portfolio">
+  <div class="content sidescroll">
+    <ul class="images lazyload2">
+      {% for item in data %}
+        <li><img src="{{ item.imagesFolder }}{{ item.images }}" alt="{{ siteName }}"></li>
+      {% else %}
+        <p class="empty">No content</p>
+      {% endfor %}
+      <!-- access to parent's property with "../" -->
+    </ul><!-- ul.images -->
+  </div><!-- div.content.sidescroll -->
+</div><!-- div.main.portfolio -->
+
+<main class="frontpage">
+  <div class="content">
+
+    {{>welcome}}
+
+    {{>latest-posts}}
+
+  </div><!-- .content -->
+</main><!-- main -->
 {% endblock %}
