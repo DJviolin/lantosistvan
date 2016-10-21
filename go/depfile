@@ -1,8 +1,0 @@
-# Iris Framework
-github.com/kataras/iris version=master
-# Iris Middlewares
-github.com/iris-contrib/middleware/logger version=master
-github.com/iris-contrib/middleware/i18n version=master
-# Handlebars
-github.com/aymerick/raymond version=master
-github.com/iris-contrib/template/handlebars version=master
