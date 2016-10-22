@@ -383,14 +383,6 @@ app.use('/form', (req, res) =>
 
 // Place under every other routes, because it can block others!
 ////app.use('/:lang', index);
-/*app.use('/hu', index);
-app.use('/', (req, res) => {
-  if (req.headers['accept-language'] === 'hu') {
-    return res.status(302).redirect('/hu');
-  } else {
-    return index;
-  }
-});*/
 ////app.use('/', index);
 /*app.use('/', (req, res) =>
   //res.status(302).redirect(path.join('/', req.getLocale()))
