@@ -323,7 +323,6 @@ app.use('/user', user);
 
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
-//const langRouter = function(req, res, next) {
 const langRouter = (req, res, next) => {
   const selectedLang = req.params.lang;
   const resLocals = res.locals;
@@ -334,7 +333,6 @@ const langRouter = (req, res, next) => {
 };
 
 // Add i18n CSS class to <html> tag
-//const langClass = function(req, res, next) {
 const langClass = (req, res, next) => {
   //const defaultLang = 'hu';
   //const activeLang = req.params.lang || defaultLang;
@@ -355,24 +353,28 @@ app.use('/:lang', langRouter, langClass);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.use('/:lang/blog', blog);
-app.use('/blog', (req, res) =>
+app.use('/', blog);
+/*app.use('/blog', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/blog`)
-);
+);*/
 
 app.use('/:lang/category', category);
-app.use('/category', (req, res) =>
+app.use('/', category);
+/*app.use('/category', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/category`)
-);
+);*/
 
 app.use('/:lang/tag', tag);
-app.use('/tag', (req, res) =>
+app.use('/', tag);
+/*app.use('/tag', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/tag`)
-);
+);*/
 
 app.use('/:lang/contact', contact);
-app.use('/contact', (req, res) =>
+app.use('/', contact);
+/*app.use('/contact', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/contact`)
-);
+);*/
 
 /*app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
@@ -381,12 +383,12 @@ app.use('/form', (req, res) =>
 
 // Place under every other routes, because it can block others!
 app.use('/:lang', index);
-//app.use('/', index);
-app.use('/', (req, res) =>
+app.use('/', index);
+/*app.use('/', (req, res) =>
   //res.status(302).redirect(path.join('/', req.getLocale()))
   //res.status(302).redirect(path.join(req.getLocale()))
   res.status(302).redirect(`/${req.getLocale()}`)
-);
+);*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // INIT i18n WITH COOKIES
