@@ -163,6 +163,10 @@ app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 //app.set('view cache', true);*/
 
+// https://mozilla.github.io/nunjucks/api.html#custom-filters
+// https://mozilla.github.io/nunjucks/templating.html#builtin-filters
+// https://github.com/mozilla/nunjucks/blob/master/src/filters.js
+// https://mozilla.github.io/nunjucks/templating.html#string
 app.set('view engine', 'njk');
 nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
   autoescape: true,
@@ -176,14 +180,6 @@ nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
   .addFilter('__n', function () {
     return i18n.__n.apply(this, arguments);
   });*/
-
-// https://mozilla.github.io/nunjucks/api.html#custom-filters
-// https://mozilla.github.io/nunjucks/templating.html#builtin-filters
-// https://github.com/mozilla/nunjucks/blob/master/src/filters.js
-// https://mozilla.github.io/nunjucks/templating.html#string
-/*const env = new nunjucks.Environment();
-env.addFilter('__', (...args) => i18n.__.apply(this, args));
-env.addFilter('__n', (...args) => i18n.__n.apply(this, args));*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // MODELS - AKA: M(odel)
