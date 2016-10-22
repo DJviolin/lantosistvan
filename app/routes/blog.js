@@ -45,6 +45,7 @@ const articlesPerPage = config.articlesPerPage;
 });*/
 
 router.get('/', (req, res) => {
+  //console.log(req.headers['accept-language']);
   fsAsync()
     .then((data) => {
       const articles = data[1].articles.reverse();

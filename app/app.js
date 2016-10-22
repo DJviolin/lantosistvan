@@ -321,6 +321,8 @@ app.use('/user', user);
   next();
 });*/
 
+// https://github.com/mashpie/i18n-node/issues/216#issuecomment-207819363
+
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
 const langRouter = (req, res, next) => {
@@ -355,9 +357,6 @@ app.use('/:lang', langRouter, langClass);
 //app.use('/:lang/blog', blog);
 app.use('/hu/blog', blog);
 app.use('/blog', blog);
-/*app.use('/blog', (req, res) =>
-  res.status(302).redirect(`/${req.getLocale()}/blog`)
-);*/
 
 //app.use('/:lang/category', category);
 //app.use('/', category);
@@ -383,14 +382,31 @@ app.use('/form', (req, res) =>
 );*/
 
 // Place under every other routes, because it can block others!
-//app.use('/:lang', index);
-app.use('/hu', index);
-app.use('/', index);
+////app.use('/:lang', index);
+/*app.use('/hu', index);
+app.use('/', (req, res) => {
+  if (req.headers['accept-language'] === 'hu') {
+    return res.status(302).redirect('/hu');
+  } else {
+    return index;
+  }
+});*/
+////app.use('/', index);
 /*app.use('/', (req, res) =>
   //res.status(302).redirect(path.join('/', req.getLocale()))
   //res.status(302).redirect(path.join(req.getLocale()))
   res.status(302).redirect(`/${req.getLocale()}`)
 );*/
+
+// Place under every other routes, because it can block others!
+app.use('/hu', index);
+app.use('/', (req, res, next) => {
+  if (req.headers['accept-language'] === 'hu') {
+    return res.status(302).redirect('/hu');
+  }
+  return next();
+});
+app.use('/', index);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // INIT i18n WITH COOKIES
