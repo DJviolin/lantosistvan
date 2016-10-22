@@ -358,20 +358,20 @@ app.use('/', blog);
   res.status(302).redirect(`/${req.getLocale()}/blog`)
 );*/
 
-app.use('/:lang/category', category);
-app.use('/', category);
+//app.use('/:lang/category', category);
+//app.use('/', category);
 /*app.use('/category', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/category`)
 );*/
 
-app.use('/:lang/tag', tag);
-app.use('/', tag);
+//app.use('/:lang/tag', tag);
+//app.use('/', tag);
 /*app.use('/tag', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/tag`)
 );*/
 
-app.use('/:lang/contact', contact);
-app.use('/', contact);
+//app.use('/:lang/contact', contact);
+//app.use('/', contact);
 /*app.use('/contact', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/contact`)
 );*/

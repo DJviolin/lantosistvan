@@ -1,0 +1,49 @@
+<main class="blog">
+
+  {% for item in data.[0].articles %}
+  <article class="id-{{ item._id }}">
+
+    <header class="header-blog id-{{ item._id }}">
+      <div class="drawing">
+        <img src="{{ item.drawing }}" alt="">
+      </div>
+      <time>{{ item.month }} {{ item.day }}, {{ item.year }}</time>
+      <h1><a href="{{ ../language }}/blog/{{ item.url }}">{{ item.title }}</a></h1>
+      <div class="category"><a href="{{ ../language }}/category/{{ item.category }}">{{ item.category }}</a></div>
+    </header><!-- .header-blog.id-{{ item._id }} -->
+
+    <div class="article content">
+
+      {{ ../__(item.body) }}
+
+    </div><!-- div.article.content -->
+
+    <footer class="footer-blog id-{{ item._id }}">
+      <div class="tags">
+        <span class="text">Tags: </span>
+        <ul>
+          {{#each item.tags}}
+          {% for tag in item.tags %}
+          <li><a href="{{ ../../language }}/tag/{{ tag }}">{{ tag }}</a></li>
+          {% else %}
+          <li>No tags</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </footer><!-- .footer-blog.id-{{ item._id }} -->
+
+  </article><!-- article.id-{{ item._id }} -->
+
+  <!-- post -->
+
+  {% else %}
+  <h1>Error 404</h1>
+  <h2>Content not found</h2>
+  {% endfor %}
+
+  <nav class="pagination">
+    {% if paginationFirst %}<a href="{{ language }}/{{ divClass }}{% if paginationParamsSlash %}/{% endif %}{{ paginationParams }}{% if paginationFirstURL %}/page/{{ paginationPrev }}{% endif %}">Previous</a> | {% endif %}
+    {% if paginationLast %}<a href="{{ language }}/{{ divClass }}{% if paginationParamsSlash %}/{% endif %}{{ paginationParams }}/page/{{ paginationNext }}">Continue</a>{% endif %}
+  </nav><!-- nav.pagination -->
+
+</main><!-- main.blog -->
