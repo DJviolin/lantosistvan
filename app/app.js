@@ -231,6 +231,7 @@ app.set('jwtTokenSecret', config.secret); // secret variable*/
 // i18n translation
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// https://www.reddit.com/r/node/comments/3m1f25/whats_the_best_practice_for_setting_up_routing/
 i18n.configure({
   // setup some locales - other locales default to hu silently
   locales: ['hu', 'en'],
