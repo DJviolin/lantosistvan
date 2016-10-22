@@ -163,7 +163,7 @@ app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 //app.set('view cache', true);*/
 
-app.set('view engine', 'nunjucks');
+app.set('view engine', 'njk');
 nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
   autoescape: true,
   express: app,
