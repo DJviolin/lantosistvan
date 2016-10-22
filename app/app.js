@@ -353,7 +353,8 @@ app.use('/:lang', langRouter, langClass);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //app.use('/:lang/blog', blog);
-//app.use('/', blog);
+app.use('/hu/blog', blog);
+app.use('/blog', blog);
 /*app.use('/blog', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/blog`)
 );*/

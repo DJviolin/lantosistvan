@@ -1,6 +1,8 @@
-<main class="blog">
+{% extends './layouts/main.njk' %}
 
-  {% for item in data.[0].articles %}
+{% block content %}
+<main class="blog">
+  {% for item in articles %}
   <article class="id-{{ item._id }}">
 
     <header class="header-blog id-{{ item._id }}">
@@ -14,7 +16,7 @@
 
     <div class="article content">
 
-      {{ __(item.body) }}
+      {{ __(item.body) | safe }}
 
     </div><!-- div.article.content -->
 
@@ -41,8 +43,9 @@
   {% endfor %}
 
   <nav class="pagination">
-    {% if paginationFirst %}<a href="{{ language }}/{{ divClass }}{% if paginationParamsSlash %}/{% endif %}{{ paginationParams }}{% if paginationFirstURL %}/page/{{ paginationPrev }}{% endif %}">Previous</a> | {% endif %}
-    {% if paginationLast %}<a href="{{ language }}/{{ divClass }}{% if paginationParamsSlash %}/{% endif %}{{ paginationParams }}/page/{{ paginationNext }}">Continue</a>{% endif %}
+    {% if paginationFirst %}<a href="{{ language }}{% if paginationParamsSlash %}/{% endif %}{{ paginationParams }}{% if paginationFirstURL %}/page/{{ paginationPrev }}{% endif %}">Previous</a> | {% endif %}
+    {% if paginationLast %}<a href="{{ language }}{% if paginationParamsSlash %}/{% endif %}{{ paginationParams }}/page/{{ paginationNext }}">Continue</a>{% endif %}
   </nav><!-- nav.pagination -->
 
 </main><!-- main.blog -->
+{% endblock %}

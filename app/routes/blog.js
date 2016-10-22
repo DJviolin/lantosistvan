@@ -1,15 +1,10 @@
-'use strict';
+const express = require('express');
+const functions = require('../lib/functions');
+const config = require('../config/routes');
 
-const express = require('express'),
-      router  = express.Router();
-//const request = require('request');
-
-const config          = require('../config/routes'),
-      //usedPort        = config.usedPort,
-      articlesPerPage = config.articlesPerPage;
-
-const functions = require('../lib/functions'),
-      fsAsync   = functions.fsAsync;
+const router = express.Router();
+const fsAsync = functions.fsAsync;
+const articlesPerPage = config.articlesPerPage;
 
 /////////////////////////////////////////////////////////////
 // INTERNAL API
@@ -54,7 +49,6 @@ router.get('/', (req, res) => {
     .then((data) => {
       const articles = data[1].articles.reverse();
       const slice = articles.slice(0, articlesPerPage);
-      const json = [{ articles: slice }];
       res.render('blog', {
         bodyClass: 'blog',
         active: { blog: true },
@@ -62,13 +56,12 @@ router.get('/', (req, res) => {
         title: 'Journal',
         description: 'Blog Page',
         keywords: 'journal,wedding,photography,film,lantos,istvan',
-        divClass: 'blog',
-        data: json,
+        articles: slice,
         paginationFirst: false,
         paginationLast: true,
         paginationNext: 1,
         paginationParams: null,
-        paginationParamsSlash: false
+        paginationParamsSlash: false,
       });
     })
     .catch((err) => {
@@ -77,7 +70,7 @@ router.get('/', (req, res) => {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404'
+        keywords: 'error,404',
       });
     });
 });
@@ -179,12 +172,11 @@ router.get('/page/:id', (req, res) => {
       const articles = data[1].articles.reverse();
 
       // Internal api request
-      const count = parseInt(req.params.id); // Page number as integer
+      const count = parseInt(req.params.id, 10); // Page number as integer
       const countResult = count * articlesPerPage;
       const start = countResult + 0;
       const end = countResult + articlesPerPage;
       const slice = articles.slice(start, end);
-      const json = [{ articles: slice }];
       // Prev, next buttons under the blog
       const prev = count - 1;
       const next = count + 1;
@@ -193,17 +185,17 @@ router.get('/page/:id', (req, res) => {
       const pagesAll = Math.ceil(pagesLength) - 1; // Sum of all pages
       // Turn off pagination on the first page
       let paginationFirst = true;
-      if(count === 0) {
+      if (count === 0) {
         paginationFirst = false;
       }
       // Turn off pagination on the last page
       let paginationLast = true;
-      if(count >= pagesAll) {
+      if (count >= pagesAll) {
         paginationLast = false;
       }
       // Turn off /page/0 URL chunk on /page/1
       let paginationFirstURL = true;
-      if(count === 1) {
+      if (count === 1) {
         paginationFirstURL = false;
       }
 
@@ -214,15 +206,14 @@ router.get('/page/:id', (req, res) => {
         title: 'Journal',
         description: 'Blog page',
         keywords: 'journal,wedding,photography,film,lantos,istvan',
-        divClass: 'blog',
-        data: json,
-        paginationFirst: paginationFirst,
-        paginationLast: paginationLast,
+        articles: slice,
+        paginationFirst,
+        paginationLast,
         paginationPrev: prev,
         paginationNext: next,
-        paginationFirstURL: paginationFirstURL,
+        paginationFirstURL,
         paginationParams: null,
-        paginationParamsSlash: false
+        paginationParamsSlash: false,
       });
     })
     .catch((err) => {
@@ -231,7 +222,7 @@ router.get('/page/:id', (req, res) => {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404'
+        keywords: 'error,404',
       });
     });
 });
@@ -282,7 +273,7 @@ router.get('/:url', (req, res) => {
       //const selectedArticle = articles.find(function(article) {
       //  return article.url === req.params.url;
       //});
-      const selectedArticle = articles.find((article) => article.url === req.params.url);
+      const selectedArticle = articles.find(article => article.url === req.params.url);
       // render your page with selectedArticle
       res.render('blog-article', {
         bodyClass: 'blog',
@@ -291,7 +282,7 @@ router.get('/:url', (req, res) => {
         title: selectedArticle.title,
         description: selectedArticle.description,
         keywords: selectedArticle.keywords,
-        data: selectedArticle
+        articles: selectedArticle,
       });
     })
     .catch((err) => {
@@ -300,7 +291,7 @@ router.get('/:url', (req, res) => {
         titleShown: true,
         title: 'Error 404',
         description: 'Error 404',
-        keywords: 'error,404'
+        keywords: 'error,404',
       });
     });
 });
