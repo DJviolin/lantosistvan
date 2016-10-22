@@ -177,7 +177,9 @@ nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
     return i18n.__n.apply(this, arguments);
   });*/
 
-// Helpers: https://mozilla.github.io/nunjucks/api.html#custom-filters
+// https://mozilla.github.io/nunjucks/api.html#custom-filters
+// https://mozilla.github.io/nunjucks/templating.html#builtin-filters
+// https://github.com/mozilla/nunjucks/blob/master/src/filters.js
 // https://mozilla.github.io/nunjucks/templating.html#string
 /*const env = new nunjucks.Environment();
 env.addFilter('__', (...args) => i18n.__.apply(this, args));
