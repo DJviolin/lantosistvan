@@ -4,8 +4,8 @@
 <div class="main portfolio">
   <div class="content sidescroll">
     <ul class="images lazyload2">
-      {% for item in data %}
-        <li><img src="{{ item.imagesFolder }}{{ item.images }}" alt="{{ siteName }}"></li>
+      {% for item in gallery.images %}
+        <li><img src="{{ gallery.imagesFolder }}{{ item }}" alt="{{ siteName }}"></li>
       {% else %}
         <p class="empty">No content</p>
       {% endfor %}

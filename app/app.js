@@ -233,8 +233,8 @@ app.set('jwtTokenSecret', config.secret); // secret variable*/
 
 // https://www.reddit.com/r/node/comments/3m1f25/whats_the_best_practice_for_setting_up_routing/
 i18n.configure({
-  // setup some locales - other locales default to hu silently
-  locales: ['hu', 'en'],
+  // setup some locales - other locales default to en silently
+  locales: ['en', 'hu'],
   // fall back from English to Hungarian
   fallbacks: { en: 'hu' },
   // you may alter a site wide default locale
@@ -352,8 +352,8 @@ app.use('/:lang', langRouter, langClass);
 // INIT ROUTES AFTER req.params.lang
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.use('/:lang/blog', blog);
-app.use('/', blog);
+//app.use('/:lang/blog', blog);
+//app.use('/', blog);
 /*app.use('/blog', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/blog`)
 );*/
@@ -382,7 +382,8 @@ app.use('/form', (req, res) =>
 );*/
 
 // Place under every other routes, because it can block others!
-app.use('/:lang', index);
+//app.use('/:lang', index);
+app.use('/hu', index);
 app.use('/', index);
 /*app.use('/', (req, res) =>
   //res.status(302).redirect(path.join('/', req.getLocale()))

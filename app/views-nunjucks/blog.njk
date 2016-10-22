@@ -8,13 +8,13 @@
         <img src="{{ item.drawing }}" alt="">
       </div>
       <time>{{ item.month }} {{ item.day }}, {{ item.year }}</time>
-      <h1><a href="{{ ../language }}/blog/{{ item.url }}">{{ item.title }}</a></h1>
-      <div class="category"><a href="{{ ../language }}/category/{{ item.category }}">{{ item.category }}</a></div>
+      <h1><a href="{{ language }}/blog/{{ item.url }}">{{ item.title }}</a></h1>
+      <div class="category"><a href="{{ language }}/category/{{ item.category }}">{{ item.category }}</a></div>
     </header><!-- .header-blog.id-{{ item._id }} -->
 
     <div class="article content">
 
-      {{ ../__(item.body) }}
+      {{ __(item.body) }}
 
     </div><!-- div.article.content -->
 
@@ -22,9 +22,8 @@
       <div class="tags">
         <span class="text">Tags: </span>
         <ul>
-          {{#each item.tags}}
           {% for tag in item.tags %}
-          <li><a href="{{ ../../language }}/tag/{{ tag }}">{{ tag }}</a></li>
+          <li><a href="{{ language }}/tag/{{ tag }}">{{ tag }}</a></li>
           {% else %}
           <li>No tags</li>
           {% endfor %}

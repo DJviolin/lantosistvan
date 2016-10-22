@@ -91,7 +91,8 @@ router.get('/', (req, res) => {
         title: 'Hi!',
         description: 'Home page',
         keywords: 'wedding,photography,film,lantos,istvan',
-        data: gallery,
+        //data: gallery,
+        gallery,
         latestPosts: json,
       });
     })
