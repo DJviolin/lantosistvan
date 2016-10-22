@@ -81,7 +81,6 @@ router.get('/', (req, res) => {
       const gallery = data[0].gallery.portfolio.love;
       const articles = data[1].articles.reverse();
       const slice = articles.slice(0, 6);
-      const json = [{ articles: slice }];
       //console.log(json);
       res.render('index', {
         //layout: 'main',
@@ -93,7 +92,7 @@ router.get('/', (req, res) => {
         keywords: 'wedding,photography,film,lantos,istvan',
         //data: gallery,
         gallery,
-        latestPosts: json,
+        latestPosts: slice,
       });
     })
     .catch((err) => {

@@ -1,11 +1,11 @@
 <div class="latest-posts-title">
   <h2 class="block-title big-text-light">{{ __("Legfrissebb sorozatok") }}</h2>
 </div><!-- latest-posts-title -->
-{#<div class="latest-posts">
-  {% for item in latestPosts.[0].articles %}
+<div class="latest-posts">
+  {% for item in latestPosts %}
     <a href="{{ language }}/blog/{{ item.url }}">
       <article class="id-{{ item._id }}">
-        <img class="preview-image" src="{{ preview }}" alt="">
+        <img class="preview-image" src="{{ item.preview }}" alt="">
         <div class="post-preview-hidden id-{{ item._id }}">
           <div class="post-preview-header">
             <!--<div class="drawing">
@@ -27,4 +27,4 @@
     <h1>Error 404</h1>
     <h2>Content not found</h2>
   {% endfor %}
-</div><!-- .latest-posts -->#}
+</div><!-- .latest-posts -->
