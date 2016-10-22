@@ -6,20 +6,20 @@
 
   <nav class="nav nav-left">
     <ul>
-      <li><a href="{{ language }}">{{ "Főoldal" | __ }}</a></li>
-      <li><a href="{{ language }}/stories">{{ "Történetek" | __ }}</a>
+      <li><a href="{{ language }}">{{ __("Főoldal") }}</a></li>
+      <li><a href="{{ language }}/stories">{{ __("Történetek") }}</a>
         <ul class="dropdown">
-          <li><a href="{{ language }}/blog/szalai-family">{{ "Szalai család" | __ }}</a></li>
-          <li><a href="{{ language }}/blog/peregi-family">{{ "Peregi család" | __ }}</a></li>
+          <li><a href="{{ language }}/blog/szalai-family">{{ __("Szalai család") }}</a></li>
+          <li><a href="{{ language }}/blog/peregi-family">{{ __("Peregi család") }}</a></li>
           <li><a href="{{ language }}/blog/barbi-balazs-wedding">Barbi &#38; Balázs</a></li>
         </ul>
       </li>
-      <li class="{% if active.blog %}active{% endif %}"><a href="{{ language }}/blog">{{ "Blog" | __ }}</a>
+      <li class="{% if active.blog %}active{% endif %}"><a href="{{ language }}/blog">{{ __("Blog") }}</a>
         <ul class="dropdown">
-          <li><a href="{{ language }}/blog">{{ "Összes" | __ }}</a></li>
-          <li><a href="{{ language }}/category/wedding">{{ "Esküvő" | __ }}</a></li>
-          <li><a href="{{ language }}/category/family">{{ "Család" | __ }}</a></li>
-          <li><a href="{{ language }}/category/for-photographers">{{ "Fotósoknak" | __ }}</a></li>
+          <li><a href="{{ language }}/blog">{{ __("Összes") }}</a></li>
+          <li><a href="{{ language }}/category/wedding">{{ __("Esküvő") }}</a></li>
+          <li><a href="{{ language }}/category/family">{{ __("Család") }}</a></li>
+          <li><a href="{{ language }}/category/for-photographers">{{ __("Fotósoknak") }}</a></li>
         </ul>
       </li>
     </ul>
@@ -31,8 +31,8 @@
 
   <nav class="nav nav-right">
     <ul>
-      <li class="{% if active.information %}active{% endif %}"><a href="#">{{ "Info" | __ }}</a></li>
-      <li class="{% if active.contact %}active{% endif %}"><a href="{{ language }}/contact">{{ "Kapcsolat" | __ }}</a></li>
+      <li class="{% if active.information %}active{% endif %}"><a href="#">{{ __("Info") }}</a></li>
+      <li class="{% if active.contact %}active{% endif %}"><a href="{{ language }}/contact">{{ __("Kapcsolat") }}</a></li>
     </ul>
   </nav><!-- nav.nav-right  -->
 

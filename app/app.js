@@ -267,8 +267,7 @@ i18n.configure({
     __n: '__n', // and req.__n can be called as req.__n
   },
 });
-// init i18n module for this loop
-app.use(i18n.init);
+app.use(i18n.init); // init i18n module for this loop
 
 // i18n helpers
 /*app.get('/cookie', (req, res) => { // http://127.0.0.1:3000/cookie
