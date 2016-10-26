@@ -89,14 +89,8 @@ router.get('/', (req, res) => {
       });
     })
     .catch((err) => {
-      // handle the error from either file-one or file-two
       console.error(err);
-      res.render('404', {
-        titleShown: true,
-        title: 'Error 404',
-        description: 'Error 404',
-        keywords: 'error,404',
-      });
+      res.render('404');
     });
 });
 

@@ -1,2 +1,11 @@
-<h1>Error 404</h1>
-<h2>Content not found</h2>
+{% extends 'layouts/main.njk' %}
+
+{% block title %}Error 404{% endblock %}
+{% block description %}Error 404{% endblock %}
+{% block keywords %}error,404{% endblock %}
+{% block bodyClass %}error{% endblock %}
+
+{% block content %}
+  <h1>Error 404</h1>
+  <h2>Content not found</h2>
+{% endblock %}
