@@ -265,11 +265,17 @@ app.use('/blog', blog);
   res.status(302).redirect(`/${req.getLocale()}/category`)
 );*/
 
+app.use('/hu/category', category);
+app.use('/category', category);
+
 //app.use('/:lang/tag', tag);
 //app.use('/', tag);
 /*app.use('/tag', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/tag`)
 );*/
+
+app.use('/hu/tag', tag);
+app.use('/tag', tag);
 
 //app.use('/:lang/contact', contact);
 //app.use('/', contact);
@@ -295,12 +301,12 @@ app.use('/form', (req, res) =>
 // $ curl -H "accept-language: hu" -I 127.0.0.1:8081
 // https://github.com/mashpie/i18n-node#i18n__l
 app.use('/hu', index);
-app.use('/', (req, res, next) => {
+/*app.use('/', (req, res, next) => {
   if (req.headers['accept-language'] === 'hu') {
     return res.status(302).redirect('/hu');
   }
   return next();
-});
+});*/
 app.use('/', index);
 
 /////////////////////////////////////////////////////////////
