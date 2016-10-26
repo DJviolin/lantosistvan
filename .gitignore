@@ -28,7 +28,7 @@ node_modules
 app/node_modules
 
 # Debug log from npm
-app/npm-debug.log
+npm-debug.log
 
 # User added directories
 #app/public/images/art
