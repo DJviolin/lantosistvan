@@ -12,9 +12,6 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/stylesheets/style.min.css">
-  {% if ENV_DEVELOPMENT %}
-    <script src="http://localhost:35729/livereload.js"></script>
-  {% endif %}
 </head>
 <body class="{% block bodyClass %}{% endblock %}">
 <!--[if lte IE 9]>
@@ -64,7 +61,9 @@ scJsHost+
 <noscript><div class='statcounter'><a class='statcounter' href='http://statcounter.com/free-web-stats/' title='web stats'><img alt='web stats' class='statcounter' src='http://c.statcounter.com/6812517/0/890a43cd/1/'/></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 
-<!--<script src="//localhost:35729/livereload.js"></script>-->
+{% if ENV_DEVELOPMENT %}
+  <script src="//localhost:35729/livereload.js"></script>
+{% endif %}
 
 </body>
 </html>
