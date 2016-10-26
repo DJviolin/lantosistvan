@@ -233,11 +233,9 @@ app.use('/user', user);
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
 const langRouter = (req, res, next) => {
-  const paramsLang = req.params.lang;
-  const resLocals = res.locals;
-  if (/^(en|hu)$/.exec(paramsLang)) {
-    i18n.setLocale([req, resLocals], paramsLang);
-    resLocals.language = `/${paramsLang}`;
+  if (/^(en|hu)$/.exec(req.params.lang)) {
+    i18n.setLocale([req, res.locals], req.params.lang);
+    res.locals.language = `/${req.params.lang}`;
   }
   next();
 };
@@ -245,8 +243,7 @@ const langRouter = (req, res, next) => {
 // Add i18n CSS class to <html> tag
 const langClass = (req, res, next) => {
   const activeLang = req.getLocale();
-  const resLocals = res.locals;
-  resLocals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
+  res.locals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
   next();
 };
 
