@@ -301,26 +301,6 @@ app.use('/user', user);
 // OWN MIDDLEWARE FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Prints request time to console
-/*app.use((req, res, next) => {
-  const d = new Date();
-  const n = d.getFullYear()
-            + '-' +
-            d.getMonth()
-            + '-' +
-            d.getDate()
-            + '_' +
-            d.getHours()
-            + ':' +
-            d.getMinutes()
-            + ':' +
-            d.getSeconds()
-            + '.' +
-            d.getMilliseconds();
-  console.log('Request time: ' + n);
-  next();
-});*/
-
 // https://github.com/mashpie/i18n-node/issues/216#issuecomment-207819363
 
 // Handling language query parameter in URLs
