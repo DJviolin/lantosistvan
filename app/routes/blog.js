@@ -105,7 +105,7 @@ router.get('/:url', (req, res) => {
       //});
       const selectedArticle = articles.find(article => article.url === req.params.url);
       // render your page with selectedArticle
-      res.render('blog-article', {
+      res.render('blogArticle', {
         title: selectedArticle.title,
         description: selectedArticle.description,
         keywords: selectedArticle.keywords,

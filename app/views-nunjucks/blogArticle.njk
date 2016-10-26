@@ -1,0 +1,44 @@
+{% extends './layouts/main.njk' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block bodyClass %}blog-article{% endblock %}
+
+{% block content %}
+<main class="blog">
+
+  <article class="id-{{ articles._id }}">
+
+    <header class="header-blog id-{{ articles._id }}">
+      <div class="drawing">
+        <img src="{{ articles.drawing }}" alt="">
+      </div>
+      <time>{{ articles.month }} {{ articles.day }}, {{ articles.year }}</time>
+      <h1><a href="{{ language }}/blog/{{ articles.url }}">{{ articles.title }}</a></h1>
+      <div class="category"><a href="{{ language }}/category/{{ articles.category }}">{{ articles.category }}</a></div>
+    </header><!-- .header-blog.id-{{ articles._id }} -->
+
+    <div class="article content">
+
+      {{ __(articles.body) | safe }}
+
+    </div><!-- div.article.content -->
+
+    <footer class="footer-blog id-{{ articles._id }}">
+      <div class="tags">
+        <span class="text">Tags: </span>
+        <ul>
+          {% for tag in articles.tags %}
+          <li><a href="{{ language }}/tag/{{ tag }}">{{ tag }}</a></li>
+          {% else %}
+          <li>No tags</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </footer><!-- .footer-blog.id-{{ articles._id }} -->
+
+  </article><!-- article.id-{{ articles._id }} -->
+
+</main><!-- main.blog -->
+{% endblock %}
