@@ -326,11 +326,13 @@ app.use('/user', user);
 // Handling language query parameter in URLs
 // https://github.com/mashpie/i18n-node#i18nsetlocale
 const langRouter = (req, res, next) => {
-  const selectedLang = req.params.lang;
+  const paramsLang = req.params.lang;
   const resLocals = res.locals;
-  //i18n.setLocale(req, req.params.lang);
-  i18n.setLocale([req, resLocals], selectedLang);
-  resLocals.language = `/${selectedLang}`;
+  //if (paramsLang === ('en' || 'hu')) {
+  if (/^(en|hu)$/.exec(paramsLang)) {
+    i18n.setLocale([req, resLocals], paramsLang);
+    resLocals.language = `/${paramsLang}`;
+  }
   next();
 };
 
@@ -341,7 +343,6 @@ const langClass = (req, res, next) => {
   //const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
   const resLocals = res.locals;
-  // Content in: // views/layout-top.hbs
   resLocals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
   next();
 };
@@ -391,6 +392,7 @@ app.use('/form', (req, res) =>
 );*/
 
 // Place under every other routes, because it can block others!
+// $ curl -H "accept-language: hu" -I 127.0.0.1:8081
 app.use('/hu', index);
 app.use('/', (req, res, next) => {
   if (req.headers['accept-language'] === 'hu') {
