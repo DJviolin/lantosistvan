@@ -80,7 +80,7 @@ router.get('/', (req, res) => {
     .then((data) => {
       const gallery = data[0].gallery.portfolio.love;
       const articles = data[1].articles.reverse();
-      const slice = articles.slice(0, 6);
+      const latestPosts = articles.slice(0, 6);
       //console.log(json);
       res.render('index', {
         //layout: 'main',
@@ -90,9 +90,8 @@ router.get('/', (req, res) => {
         title: 'Hi!',
         description: 'Home page',
         keywords: 'wedding,photography,film,lantos,istvan',
-        //data: gallery,
         gallery,
-        latestPosts: slice,
+        latestPosts,
       });
     })
     .catch((err) => {
