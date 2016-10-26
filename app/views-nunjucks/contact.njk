@@ -1,0 +1,70 @@
+{% extends './layouts/main.njk' %}
+
+{% block title %}Contact{% endblock %}
+{% block description %}Get in touch{% endblock %}
+{% block keywords %}info,wedding,photography,film,lantos,istvan{% endblock %}
+{% block bodyClass %}contact{% endblock %}
+
+{% block content %}
+<main class="contact">
+
+  <article>
+    {{ __(data.body) | safe }}
+  </article>
+
+  <!--<form id="form" action="{{ language }}/form" method="post">-->
+  <form id="form" action="" method="POST">
+
+    <!--<div>
+      <label for="name">Teljes név *</label><br />
+      <input type="text" id="name" name="name" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Vezetéknév Keresztnév"><br />
+      <span id="name-format" class="help">Formátum: Vezetéknév Keresztnév</span>
+    </div>-->
+
+    <legend>Teljes név *</legend>
+
+    <div class="firstname">
+      <input type="text" id="firstname" name="firstname" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Keresztnév"><br />
+      <label for="firstname">Keresztnév</label><br />
+      <span id="name-format" class="help">Formátum: Keresztnév</span>
+    </div>
+
+    <div class="surname">
+      <input type="text" id="surname" name="surname" value="" aria-describedby="name-format" required aria-required="true" pattern="\D+" title="Vezetéknév"><br />
+      <label for="surname">Vezetéknév</label><br />
+      <span id="name-format" class="help">Formátum: Vezetéknév</span>
+    </div>
+
+    <div class="email">
+      <label for="email">Email *</label><br />
+      <input type="email" id="email" name="email" required aria-required="true"><br />
+    </div>
+
+    <div class="subject">
+      <label for="subject">Tárgy</label><br />
+      <input type="text" id="subject" name="subject"><br />
+    </div>
+
+    <div class="message">
+      <label for="message">Üzenet *</label><br />
+      <textarea type="text" id="message" name="message" required aria-required="true"></textarea><br /><br />
+    </div>
+
+    <div class="captcha">
+      <label for="captcha">Mennyi 1 + 1, betűkkel? *</label><br />
+      <input type="text" id="captcha" name="captcha" required aria-required="true"><br />
+    </div>
+
+    <!--<input class="button" type="submit" value="Submit">-->
+    <!--<button class="button"  type="button" value="submit" onclick="ajax()">Submit</button>-->
+    <!--<input class="button" type="submit" value="Submit" onclick="ajax()">-->
+
+    <!--<input id="xhr" class="button" type="button" value="Submit" onclick="ajax()">-->
+    <input id="xhr" class="button" type="button" value="Submit">
+
+  </form>
+
+  <div id="responseText"></div>
+
+</main><!-- main.contact -->
+{% endblock %}

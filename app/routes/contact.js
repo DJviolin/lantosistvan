@@ -1,12 +1,10 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const functions = require('../lib/functions');
+const config = require('../config/mail');
 
 const router = express.Router();
-
-const functions = require('../lib/functions');
 const fsAsync = functions.fsAsync;
-
-const config = require('../config/mail');
 
 /////////////////////////////////////////////////////////////
 // Nodemailer MIDDLEWARE
@@ -63,7 +61,7 @@ router.use((req, res, next) => {
     secure: true, // use SSL
     auth: {
       user: config.user,
-      pass: config.pass
+      pass: config.pass,
     },
     logger: true, // log to console
     debug: true, // include SMTP traffic in the logs
@@ -101,13 +99,12 @@ router.use((req, res, next) => {
 /////////////////////////////////////////////////////////////
 
 router.post('/', (req, res, next) => {
-
   //console.log(req.mailOptions);
 
-  if(!req.xhr && req.sending === true) {
+  if (!req.xhr && req.sending === true) {
     // send mail with defined transport object
     req.transporter.sendMail(req.mailOptions, (err, info) => {
-      if(err) {
+      if (err) {
         console.log('Error occurred');
         console.log(err.message);
       }
@@ -128,63 +125,26 @@ router.post('/', (req, res, next) => {
 });
 
 /////////////////////////////////////////////////////////////
-// INTERNAL API
 // GET Contact page
 /////////////////////////////////////////////////////////////
-
-/*router.get('/', (req, res, next) => {
-  fsAsync((err, data) => {
-    if(err) {
-      res.render('404', {
-        titleShown: true,
-        title: 'Error 404',
-        description: 'Error 404',
-        keywords: 'error,404'
-      });
-    }
-
-    const contact = data[2].contact;
-
-    res.render('contact', {
-      bodyClass: 'contact',
-      active: { information: true },
-      titleShown: true,
-      title: 'Contact',
-      description: 'Get in touch',
-      keywords: 'info,wedding,photography,film,lantos,istvan',
-      data: contact
-    });
-  });
-});*/
 
 router.get('/', (req, res) => {
   fsAsync()
     .then((data) => {
       const contact = data[2].contact;
       res.render('contact', {
-        bodyClass: 'contact',
-        active: { information: true },
-        titleShown: true,
-        title: 'Contact',
-        description: 'Get in touch',
-        keywords: 'info,wedding,photography,film,lantos,istvan',
-        data: contact
+        data: contact,
       });
     })
     .catch((err) => {
       console.error(err);
-      res.render('404', {
-        titleShown: true,
-        title: 'Error 404',
-        description: 'Error 404',
-        keywords: 'error,404'
-      });
+      res.render('404');
     });
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // REFACTORING
-////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
 /*router.route('/')
   .all((req, res, next) => {
@@ -306,8 +266,8 @@ router.get('/', (req, res) => {
       });
   });*/
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 // INIT EXPRESS ROUTER
-////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
 module.exports = router;
