@@ -88,9 +88,6 @@ router.get('/:cat/page/:id', (req, res) => {
       }
 
       res.render('blog', {
-        bodyClass: 'blog',
-        active: { blog: true },
-        titleShown: true,
         title: `Category: ${req.params.cat}`,
         description: 'Category page',
         keywords: 'category,wedding,photography,film,lantos,istvan',
