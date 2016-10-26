@@ -81,7 +81,7 @@ router.get('/', (req, res) => {
       const gallery = data[0].gallery.portfolio.love;
       const articles = data[1].articles.reverse();
       const latestPosts = articles.slice(0, 6);
-      //console.log(json);
+      //console.log(gallery);
       res.render('index', {
         //layout: 'main',
         bodyClass: 'index',
