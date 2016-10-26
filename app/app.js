@@ -171,7 +171,8 @@ i18n.configure({
   // setup some locales - other locales default to en silently
   locales: ['en', 'hu'],
   // fall back from English to Hungarian
-  fallbacks: { en: 'hu' },
+  //fallbacks: { en: 'hu' },
+  fallbacks: { en: 'en' },
   // you may alter a site wide default locale
   defaultLocale: 'en',
   // sets a custom cookie name to parse locale settings from - defaults to NULL
@@ -295,6 +296,7 @@ app.use('/form', (req, res) =>
 
 // Place under every other routes, because it can block others!
 // $ curl -H "accept-language: hu" -I 127.0.0.1:8081
+// https://github.com/mashpie/i18n-node#i18n__l
 app.use('/hu', index);
 app.use('/', (req, res, next) => {
   if (req.headers['accept-language'] === 'hu') {
