@@ -83,13 +83,7 @@ router.get('/', (req, res) => {
       const latestPosts = articles.slice(0, 6);
       //console.log(gallery);
       res.render('index', {
-        //layout: 'main',
-        bodyClass: 'index',
         active: { index: true },
-        titleShown: false,
-        title: 'Hi!',
-        description: 'Home page',
-        keywords: 'wedding,photography,film,lantos,istvan',
         gallery,
         latestPosts,
       });

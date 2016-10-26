@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% if titleShown %}{{ title }} | {% endif %}{{ siteName }}</title>
-  <meta name="description" content="{{ description }}">
-  <meta name="keywords" content="{{ keywords }}">
+  <title>{% block title %}{% endblock %} | {{ siteName }}</title>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <meta name="keywords" content="{% block keywords %}{% endblock %}">
   <meta name="author" content="info@lantosistvan.com">
   <meta name="generator" content="Static pages built on Node.js, Express.js, Handlebars by Istvan Lantos">
   <meta name="viewport" content="width=device-width, initial-scale=1">
