@@ -283,6 +283,9 @@ app.use('/tag', tag);
   res.status(302).redirect(`/${req.getLocale()}/contact`)
 );*/
 
+app.use('/hu/contact', contact);
+app.use('/contact', contact);
+
 /*app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/form`)
