@@ -83,7 +83,6 @@ router.get('/', (req, res) => {
       const latestPosts = articles.slice(0, 6);
       //console.log(gallery);
       res.render('index', {
-        active: { index: true },
         gallery,
         latestPosts,
       });
