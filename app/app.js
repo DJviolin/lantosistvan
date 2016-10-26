@@ -328,7 +328,6 @@ app.use('/user', user);
 const langRouter = (req, res, next) => {
   const paramsLang = req.params.lang;
   const resLocals = res.locals;
-  //if (paramsLang === ('en' || 'hu')) {
   if (/^(en|hu)$/.exec(paramsLang)) {
     i18n.setLocale([req, resLocals], paramsLang);
     resLocals.language = `/${paramsLang}`;
@@ -338,9 +337,6 @@ const langRouter = (req, res, next) => {
 
 // Add i18n CSS class to <html> tag
 const langClass = (req, res, next) => {
-  //const defaultLang = 'hu';
-  //const activeLang = req.params.lang || defaultLang;
-  //const activeLang = i18n.getLocale(req);
   const activeLang = req.getLocale();
   const resLocals = res.locals;
   resLocals.langClass = `${activeLang}-${activeLang.toUpperCase()}`;
