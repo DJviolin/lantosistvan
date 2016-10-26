@@ -21,7 +21,7 @@ const hpp = require('hpp');
 // Libs
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const helpers = require('./lib/helpers');
+//const helpers = require('./lib/helpers');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
@@ -72,7 +72,7 @@ app.use((req, res, next) => {
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// CUSTOM CONSOLE
+// DEBUGGING & LOGGING
 // https://nodejs.org/api/console.html
 // http://eslint.org/docs/rules/no-console
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,46 +95,6 @@ if (process.platform === ('win32' || 'win64')) {
   };
   log(`This platform is ${process.platform}`);
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// DEBUGGING & LOGGING
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//const error = debug('app:error');
-//const log = debug('app:log');
-//app.error = error;
-//app.log = log;
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// SOCKET.IO MIDDLEWARE
-// https://www.npmjs.com/package/socket.io
-// http://socket.io/docs
-// http://stackoverflow.com/a/28325154/1442219
-// http://enterprisewebbook.com/ch8_websockets.html
-// TUTORIAL:
-// http://stackoverflow.com/a/33826289/1442219
-// http://gulivert.ch/create-a-chat-app-with-nodejs-express-and-socket-io/
-//
-// https://onedesigncompany.com/news/express-generator-and-socket-io
-// https://github.com/onedesign/express-socketio-tutorial
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//const io = socket_io();
-//app.io   = io;
-
-//const contact = require('./routes/contact')(io);
-
-/*// socket.io events
-io.on('connection', (socket) => {
-  console.log('A user connected');
-});*/
-
-/*io.on('connection', (socket) => {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', (data) => {
-    console.log(data);
-  });
-});*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // DEVELOPMENT
@@ -174,12 +134,6 @@ nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
 })
   .addFilter('__', (...args) => i18n.__.apply(this, args))
   .addFilter('__n', (...args) => i18n.__n.apply(this, args));
-  /*.addFilter('__', function () {
-    return i18n.__.apply(this, arguments);
-  })
-  .addFilter('__n', function () {
-    return i18n.__n.apply(this, arguments);
-  });*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // MODELS - AKA: M(odel)
@@ -207,25 +161,6 @@ app.use(logger('dev')); // Morgan
 //app.use(logger('combined'));
 app.use(compression()); // Gzip
 app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// MONGOOSE
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*const mongoose = require('mongoose');
-const config = require('./config/db'); // get our config file
-// http://mongoosejs.com/docs/promises.html
-mongoose.connect(config.database); // connect to database
-app.set('jwtTokenSecret', config.secret); // secret variable*/
-
-//const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
-//const User = require('./models/user'); // get our mongoose model
-
-// Make our db accessible to our router
-/*app.use((req, res, next) => {
-  req.db = config.database;
-  next();
-});*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // i18n translation
@@ -265,15 +200,6 @@ i18n.configure({
   },
 });
 app.use(i18n.init); // init i18n module for this loop
-
-// i18n helpers
-/*app.get('/cookie', (req, res) => { // http://127.0.0.1:3000/cookie
-  res.status(200).send(req.cookies.locale); // New method (Express 5)
-});
-app.get('/clearcookie', (req, res) => { // http://127.0.0.1:3000/clearcookie
-  res.clearCookie('locale');
-  res.redirect('/cookie');
-});*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // GLOBAL CONFIGURATION
@@ -379,65 +305,8 @@ app.use('/', (req, res, next) => {
 app.use('/', index);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// INIT i18n WITH COOKIES
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// i18n
-/*const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour*/
-/*const websiteURL = (req, res, next) => {
-  const a = req.protocol + '://' + req.hostname + ':' + '3000';
-  console.log(a);
-  return String(a);
-  next();
-};*/
-//app.use(websiteURL);
-/*app.get('/hu', (req, res) => { // http://127.0.0.1:3000/hu
-  res.cookie('locale', 'hu', {
-    secure: false, // If true, only sends the cookie over HTTPS
-    //domain: 'example.com',
-    //domain: websiteURL,
-    httpOnly: true,
-    expires: expiryDate
-  });
-  res.redirect('back');
-});
-app.get('/en', (req, res) => { // http://127.0.0.1:3000/en
-  res.cookie('locale', 'en', {
-    secure: false, // If true, only sends the cookie over HTTPS
-    //domain: 'example.com',
-    //domain: websiteURL,
-    httpOnly: true,
-    expires: expiryDate
-  });
-  res.redirect('back');
-});*/
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 // ERROR HANDLING MIDDLEWARE
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-// Error handler - catch all errors
-app.use((err, req, res) => {
-  res.status(err.status || 500);
-  error(err.stack);
-  res.render('error', {
-    layout: 'main',
-    titleShown: true,
-    title: `${err.message} - ${err.status}`,
-    description: `${err.message} - ${err.status}`,
-    keywords: `${err.message},${err.status}`,
-    // Specific stuff
-    message: err.message,
-    //error: {}, // production
-    error: err, // development, styled by views/error.hbs
-  });
-});*/
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
