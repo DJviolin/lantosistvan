@@ -33,8 +33,8 @@ const pg = require('./routes/pg');
 const api = require('./routes/api-external');
 const index = require('./routes/index');
 const blog = require('./routes/blog');
-const category = require('./routes/blog-category');
-const tag = require('./routes/blog-tag');
+const category = require('./routes/blogCategory');
+const tag = require('./routes/blogTag');
 const contact = require('./routes/contact');
 
 const user = require('./routes/user');
