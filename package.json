@@ -62,7 +62,6 @@
   },
   "optionalDependencies": {
     "babel-eslint": "^7.0.0",
-    "csslint": "^1.0.4",
     "eslint": "^3.6.0",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^1.16.0",
