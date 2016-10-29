@@ -1,0 +1,21 @@
+{% extends './layouts/profile.njk' %}
+
+{% block title %}Profile List{% endblock %}
+{% block description %}Profile List{% endblock %}
+{% block keywords %}profile,list{% endblock %}
+{% block bodyClass %}profile-list{% endblock %}
+
+{% block content %}
+<div class="content">
+  <p>Users list!</p>
+
+  <ul>
+    {% for item in userlist %}
+      <li><a href="mailto:{{ item.name }}">{{ item.password }}</a> - admin: {{ item.admin }}</li>
+    {% else %}
+      <li>No items</li>
+    {% endfor %}
+  </ul>
+
+</div><!-- .content -->
+{% endblock %}

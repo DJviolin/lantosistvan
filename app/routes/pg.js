@@ -212,9 +212,7 @@ router.get('/', (req, res) => {
     console.error('idle client error', err.message, err.stack);
   });*/
 
-  res.render('profile_index', {
-    layout: 'profile',
-  });
+  res.render('profileIndex', {});
 });
 
 /////////////////////////////////////////////////////////////

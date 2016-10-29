@@ -35,8 +35,7 @@ router.get('/db', (req, res) => {
 router.get('/userlist', (req, res) => {
   User.find({}, (err, users) => {
     if (err) throw err;
-    res.render('profile_list', {
-      layout: 'profile',
+    res.render('profileList', {
       userlist: users,
     });
   });
@@ -45,8 +44,7 @@ router.get('/userlist', (req, res) => {
 // GET http://127.0.0.1:8081/profile/adduser
 router.route('/adduser')
   .get((req, res) => {
-    res.render('profile_index', {
-      layout: 'profile',
+    res.render('profileIndex', {
     });
   })
   .post((req, res) => {
@@ -65,7 +63,7 @@ router.route('/adduser')
 
     const newUser = new User({
       name: username,
-      password: password,
+      password,
       admin: true,
     });
 

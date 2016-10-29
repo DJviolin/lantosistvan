@@ -1,0 +1,28 @@
+{% extends './layouts/profile.njk' %}
+
+{% block title %}Profile Index{% endblock %}
+{% block description %}Profile Index{% endblock %}
+{% block keywords %}profile,index{% endblock %}
+{% block bodyClass %}profile-index{% endblock %}
+
+{% block content %}
+<div class="content">
+  <p>Admin Frontpage!</p>
+
+  <form id="form" action="" method="POST">
+    <div class="username">
+      <label for="username">Username / Email</label><br />
+      <input type="text" id="username" name="username" required aria-required="true" title="Username / Email"><br />
+    </div>
+    <div class="password">
+      <label for="password">Password</label><br />
+      <input type="password" id="password" name="password" required aria-required="true" title="Password"><br />
+    </div>
+    <div class="keepme">
+      Keep me logged in <input type="checkbox" id="keepme" name="keepme" value="true"><br />
+    </div>
+    <button class="button" type="submit" value="Submit">Submit</button>
+  </form>
+
+</div><!-- .content -->
+{% endblock %}
