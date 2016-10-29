@@ -253,50 +253,22 @@ app.use('/:lang', langRouter, langClass);
 // INIT ROUTES AFTER req.params.lang
 /////////////////////////////////////////////////////////////
 
-//app.use('/:lang/blog', blog);
-app.use('/hu/blog', blog);
-app.use('/blog', blog);
-
-//app.use('/:lang/category', category);
-//app.use('/', category);
-/*app.use('/category', (req, res) =>
-  res.status(302).redirect(`/${req.getLocale()}/category`)
-);*/
-
-app.use('/hu/category', category);
-app.use('/category', category);
-
-//app.use('/:lang/tag', tag);
-//app.use('/', tag);
-/*app.use('/tag', (req, res) =>
-  res.status(302).redirect(`/${req.getLocale()}/tag`)
-);*/
-
-app.use('/hu/tag', tag);
-app.use('/tag', tag);
-
-//app.use('/:lang/contact', contact);
-//app.use('/', contact);
-/*app.use('/contact', (req, res) =>
-  res.status(302).redirect(`/${req.getLocale()}/contact`)
-);*/
-
-app.use('/hu/contact', contact);
-app.use('/contact', contact);
-
 /*app.use('/:lang/form', form);
 app.use('/form', (req, res) =>
   res.status(302).redirect(`/${req.getLocale()}/form`)
 );*/
 
-// Place under every other routes, because it can block others!
-////app.use('/:lang', index);
-////app.use('/', index);
-/*app.use('/', (req, res) =>
-  //res.status(302).redirect(path.join('/', req.getLocale()))
-  //res.status(302).redirect(path.join(req.getLocale()))
-  res.status(302).redirect(`/${req.getLocale()}`)
-);*/
+app.use('/hu/blog', blog);
+app.use('/blog', blog);
+
+app.use('/hu/category', category);
+app.use('/category', category);
+
+app.use('/hu/tag', tag);
+app.use('/tag', tag);
+
+app.use('/hu/contact', contact);
+app.use('/contact', contact);
 
 // Place under every other routes, because it can block others!
 // $ curl -H "accept-language: hu" -I 127.0.0.1:8081
