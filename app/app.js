@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 //const multer = require('multer');
-//const cookieParser = require('cookie-parser'),
 const methodOverride = require('method-override');
 const compression = require('compression');
 const serveStatic = require('serve-static');
@@ -134,29 +133,15 @@ nunjucks.configure(path.join(__dirname, 'views'), {
   .addFilter('__n', (...args) => i18n.__n.apply(this, args));
 
 /////////////////////////////////////////////////////////////
-// MODELS - AKA: M(odel)
-/////////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////////
 // INIT MIDDLEWARES
 /////////////////////////////////////////////////////////////
 
-// bodyParser
-// This will let us get the data from a POST
-app.use(bodyParser.json());
-// for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-// methodOverride
-// Lets you use HTTP verbs such as PUT or DELETE
-// in places where the client doesn't support it.
-app.use(methodOverride('_method'));
-//app.use(cookieParser()); // Cookies
+app.use(bodyParser.json()); // get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(methodOverride('_method')); // Use HTTP verbs such as PUT or DELETE
 app.use(helmet()); // Securing app with various HTTP headers
 app.use(hpp()); // Middleware to protect against HTTP Parameter Pollution attacks
-// Morgan
-// https://www.npmjs.com/package/morgan
-app.use(logger('dev')); // Morgan
-//app.use(logger('combined'));
+app.use(logger('dev')); // Morgan => dev | combined
 app.use(compression()); // Gzip
 app.use(slashes(false)); // Adding or removing trailing slashes from URL's end
 
