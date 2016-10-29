@@ -126,7 +126,7 @@ app.set('view engine', '.hbs');
 // https://github.com/mozilla/nunjucks/blob/master/src/filters.js
 // https://mozilla.github.io/nunjucks/templating.html#string
 app.set('view engine', 'njk');
-nunjucks.configure(path.join(__dirname, 'views-nunjucks'), {
+nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: true,
   express: app,
 })
