@@ -1,34 +1,33 @@
-const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
-//const multer = require('multer');
-const methodOverride = require('method-override');
 const compression = require('compression');
-const serveStatic = require('serve-static');
-//const exphbs = require('express-handlebars');
-const nunjucks = require('nunjucks');
-const logger = require('morgan');
 const debug = require('debug');
-//const winston = require('winston');
+//const exphbs = require('express-handlebars');
+const express = require('express');
+const helmet = require('helmet'); // Security
+const hpp = require('hpp'); // Security
 const i18n = require('i18n');
+const logger = require('morgan');
+const methodOverride = require('method-override');
+//const multer = require('multer');
+const nunjucks = require('nunjucks');
+const path = require('path');
+const serveStatic = require('serve-static');
 const slashes = require('connect-slashes');
-// Security
-const helmet = require('helmet');
-const hpp = require('hpp');
+//const winston = require('winston');
 
 /////////////////////////////////////////////////////////////
 // ROUTES - AKA: C(ontroller)
 /////////////////////////////////////////////////////////////
 
-const profile = require('./routes/profile');
 const pg = require('./routes/pg');
+const profile = require('./routes/profile');
 
 const api = require('./routes/api-external');
-const index = require('./routes/index');
 const blog = require('./routes/blog');
 const category = require('./routes/blogCategory');
-const tag = require('./routes/blogTag');
 const contact = require('./routes/contact');
+const index = require('./routes/index');
+const tag = require('./routes/blogTag');
 
 const user = require('./routes/user');
 
