@@ -50,6 +50,7 @@
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-clean-css": "^2.0.13",
     "gulp-download": "0.0.1",
@@ -57,7 +58,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-stylus": "^2.5.0",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.1.2"
   },
   "optionalDependencies": {
     "babel-eslint": "^7.0.0",
