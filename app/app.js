@@ -198,7 +198,7 @@ app.locals.actualYear = new Date().getFullYear();
 
 // API
 app.use('/api', api);
-app.use('/user', user);
+//app.use('/user', user);
 
 /////////////////////////////////////////////////////////////
 // OWN MIDDLEWARE FUNCTIONS
