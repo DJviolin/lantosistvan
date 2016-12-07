@@ -19,8 +19,8 @@ const slashes = require('connect-slashes');
 // ROUTES - AKA: C(ontroller)
 /////////////////////////////////////////////////////////////
 
-const pg = require('./routes/pg');
-const profile = require('./routes/profile');
+//const pg = require('./routes/pg');
+//const profile = require('./routes/profile');
 
 const api = require('./routes/api-external');
 const blog = require('./routes/blog');
@@ -193,8 +193,8 @@ app.locals.actualYear = new Date().getFullYear();
 /////////////////////////////////////////////////////////////
 
 // Admin
-app.use('/pg', pg);
-app.use('/profile', profile);
+//app.use('/pg', pg);
+//app.use('/profile', profile);
 
 // API
 app.use('/api', api);
