@@ -29,7 +29,7 @@ const contact = require('./routes/contact');
 const index = require('./routes/index');
 const tag = require('./routes/blogTag');
 
-const user = require('./routes/user');
+//const user = require('./routes/user');
 
 /////////////////////////////////////////////////////////////
 // EXPRESS SETTINGS
