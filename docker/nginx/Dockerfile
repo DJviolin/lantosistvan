@@ -37,6 +37,9 @@ RUN buildDeps='\
     && mkdir -p /usr/src/nginx \
     && tar -xf "$NGINX_VERSION" -C /usr/src/nginx --strip-components=1 \
     && rm "$NGINX_VERSION"* \
+    # ngx_pagespeed
+    # https://www.digitalocean.com/community/tutorials/how-to-add-ngx_pagespeed-to-nginx-on-debian-8?utm_medium=social&utm_source=twitter&utm_campaign=ngx_nginx_debian_tut&utm_content=image
+    #
     # ngx_cache_purge
     && curl -fSL "https://github.com/FRiCKLE/ngx_cache_purge/archive/master.tar.gz" -o "ngx_cache_purge.tar.gz" \
     && mkdir -p /usr/src/nginx-modules/ngx_cache_purge \
